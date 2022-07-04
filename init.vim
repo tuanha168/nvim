@@ -1,15 +1,10 @@
-call plug#begin('~/.vim/plugged')
+call plug#begin()
   Plug 'szw/vim-maximizer'
-  Plug 'kassio/neoterm'
   Plug 'tpope/vim-commentary'
-  " Plug 'sbdchd/neoformat'
   Plug 'tpope/vim-fugitive'
   Plug 'neovim/nvim-lspconfig'
   Plug 'hrsh7th/nvim-compe'
-  " Plug 'janko/vim-test'
-  " Plug 'puremourning/vimspector'
   Plug 'vimwiki/vimwiki'
-  Plug 'nvim-treesitter/nvim-treesitter', {'do': ':TSUpdate'}
   Plug 'nvim-telescope/telescope.nvim'
   Plug 'nvim-lua/popup.nvim'
   Plug 'nvim-lua/plenary.nvim'
@@ -19,21 +14,13 @@ call plug#begin('~/.vim/plugged')
   \}
   Plug 'alaviss/nim.nvim'
   Plug 'lewis6991/gitsigns.nvim'
-  " Plug 'folke/tokyonight.nvim'
-  Plug 'mfussenegger/nvim-dap'
-  " Plug 'rcarriga/nvim-dap-ui'
-  Plug 'nvim-telescope/telescope-dap.nvim'
-  Plug 'theHamsta/nvim-dap-virtual-text'
-  Plug 'Mofiqul/vscode.nvim'
   Plug 'hoob3rt/lualine.nvim'
   Plug 'kyazdani42/nvim-web-devicons'
   Plug 'ryanoasis/vim-devicons'
   Plug 'TimUntersberger/neogit'
   Plug 'sindrets/diffview.nvim'
   Plug 'projekt0n/github-nvim-theme'
-  Plug 'David-Kunz/jester'
   Plug 'vhyrro/neorg'
-  Plug 'folke/zen-mode.nvim'
   Plug 'https://github.com/rafi/awesome-vim-colorschemes' " Retro Scheme
   Plug 'neoclide/coc.nvim', {'branch': 'release'}
   Plug 'tpope/vim-surround'
@@ -68,67 +55,30 @@ set updatetime=520 " time until update
 set undofile " persists undo tree
 set encoding=utf-8
 set cmdheight=2
+set cursorline
 
 filetype plugin indent on " enable detection, plugins and indents
 let mapleader = " " " space as leader key
-" if (has("termguicolors"))
-"   set termguicolors " better colors, but makes it sery slow!
-" endif
 let g:netrw_banner=0 " disable banner in netrw
 let g:netrw_liststyle=3 " tree view in netrw
 let g:markdown_fenced_languages = ['javascript', 'js=javascript', 'json=javascript'] " syntax highlighting in markdown
 nnoremap <leader>v :e $MYVIMRC<CR>
 " lewis6991/gitsigns.nvim
 lua << EOF
- require('gitsigns').setup({})
+ require('gitsigns').setup {
+    current_line_blame = true,
+    current_line_blame_opts = {
+      virt_text = true,
+      virt_text_pos = 'eol', -- 'eol' | 'overlay' | 'right_align'
+      delay = 0,
+      ignore_whitespace = false,
+    },
+    current_line_blame_formatter = '<author>, <author_time:%Y-%m-%d> - <summary>'
+ }
 EOF
 
 " szw/vim-maximizer
 nnoremap <silent> <C-w>m :MaximizerToggle!<CR>
-
-" kassio/neoterm
-let g:neoterm_default_mod = 'vertical'
-" let g:neoterm_size = 100
-let g:neoterm_autoinsert = 1
-let g:neoterm_autoscroll = 1
-let g:neoterm_term_per_tab = 1
-nnoremap <c-y> :Ttoggle<CR>
-inoremap <c-y> <Esc>:Ttoggle<CR>
-tnoremap <c-y> <c-\><c-n>:Ttoggle<CR>
-nnoremap <leader>x :TREPLSendLine<CR>
-vnoremap <leader>x :TREPLSendSelection<CR>
-if has('nvim')
-  au! TermOpen * tnoremap <buffer> <Esc> <c-g>
-endif
-" sbdchd/neoformat
-" nnoremap <leader>F :Neoformat prettier<CR>
-
-" nvim-telescope/telescope.nvim
-lua << EOF
-_G.telescope_find_files_in_path = function(path)
- local _path = path or vim.fn.input("Dir: ", "", "dir")
- require("telescope.builtin").find_files({search_dirs = {_path}})
-end
-EOF
-lua << EOF
-_G.telescope_live_grep_in_path = function(path)
- local _path = path or vim.fn.input("Dir: ", "", "dir")
- require("telescope.builtin").live_grep({search_dirs = {_path}})
-end
-EOF
-
-lua << EOF
-local actions = require('telescope.actions')
-require('telescope').setup({
-  defaults = {
-    mappings = {
-      i = {
-        ["<C-q>"] = actions.send_to_qflist
-      }
-    }
-  }
-})
-EOF
 
 " nnoremap <leader><space> :Telescope git_files<CR>
 " nnoremap <leader>fd :lua telescope_find_files_in_path()<CR>
@@ -148,6 +98,7 @@ nnoremap <leader>fb :Telescope buffers<CR>
 nnoremap <leader><space> :GFiles<CR>
 nnoremap <leader>ff :Rg<CR>
 
+" lspconfig
 lua require'lspconfig'.tsserver.setup{}
 nnoremap <silent> gd <cmd>lua vim.lsp.buf.definition()<CR>
 nnoremap <silent> gh     <cmd>lua vim.lsp.buf.hover()<CR>
@@ -166,7 +117,7 @@ let wiki = {}
 let wiki.nested_syntaxes = { 'js': 'javascript' }
 let g:vimwiki_list = [wiki] 
 
-" nvim/treesitter
+
 colorscheme jellybeans
 
 " vhyrro/neorg
@@ -187,87 +138,6 @@ lua << EOF
             },
         }
 EOF
-lua << EOF
-local parser_configs = require('nvim-treesitter.parsers').get_parser_configs()
-
-parser_configs.norg = {
-    install_info = {
-        url = "https://github.com/vhyrro/tree-sitter-norg",
-        files = { "src/parser.c" },
-        branch = "main"
-    },
-}
-EOF
-
-
-lua << EOF
-require'nvim-treesitter.configs'.setup {
-  highlight = {
-    enable = true,
-  },
-  indent = {
-    enable = true
-  }
-}
-EOF
-
-" set foldmethod=expr
-" setlocal foldlevelstart=99
-" set foldexpr=nvim_treesitter#foldexpr()
-
-" mfussenegger/nvim-dap
-lua << EOF
-local dap = require('dap')
-dap.adapters.node2 = {
-  type = 'executable',
-  command = 'node',
-  args = {os.getenv('HOME') .. '/apps/vscode-node-debug2/out/src/nodeDebug.js'},
-}
-vim.fn.sign_define('DapBreakpoint', {text='🟥', texthl='', linehl='', numhl=''})
-vim.fn.sign_define('DapStopped', {text='⭐️', texthl='', linehl='', numhl=''})
-EOF
-nnoremap <leader>dh :lua require'dap'.toggle_breakpoint()<CR>
-nnoremap <S-k> :lua require'dap'.step_out()<CR>
-nnoremap <S-l> :lua require'dap'.step_into()<CR>
-nnoremap <S-j> :lua require'dap'.step_over()<CR>
-nnoremap <leader>ds :lua require'dap'.stop()<CR>
-nnoremap <leader>dn :lua require'dap'.continue()<CR>
-nnoremap <leader>dk :lua require'dap'.up()<CR>
-nnoremap <leader>dj :lua require'dap'.down()<CR>
-nnoremap <leader>d_ :lua require'dap'.disconnect();require'dap'.stop();require'dap'.run_last()<CR>
-nnoremap <leader>dr :lua require'dap'.repl.open({}, 'vsplit')<CR><C-w>l
-nnoremap <leader>di :lua require'dap.ui.variables'.hover()<CR>
-vnoremap <leader>di :lua require'dap.ui.variables'.visual_hover()<CR>
-nnoremap <leader>d? :lua require'dap.ui.variables'.scopes()<CR>
-nnoremap <leader>de :lua require'dap'.set_exception_breakpoints({"all"})<CR>
-nnoremap <leader>da :lua require'debugHelper'.attach()<CR>
-nnoremap <leader>dA :lua require'debugHelper'.attachToRemote()<CR>
-nnoremap <leader>di :lua require'dap.ui.widgets'.hover()<CR>
-nnoremap <leader>d? :lua local widgets=require'dap.ui.widgets';widgets.centered_float(widgets.scopes)<CR>
-" Plug 'nvim-telescope/telescope-dap.nvim'
-lua << EOF
-require('telescope').setup()
-require('telescope').load_extension('dap')
-EOF
-" nnoremap <leader>df :Telescope dap frames<CR>
-" nnoremap <leader>dc :Telescope dap commands<CR>
-" nnoremap <leader>db :Telescope dap list_breakpoints<CR>
-
-" theHamsta/nvim-dap-virtual-text and mfussenegger/nvim-dap
-let g:dap_virtual_text = v:true
-
-" Plug 'rcarriga/nvim-dap-ui'
-" lua require("dapui").setup()
-" nnoremap <leader>dq :lua require("dapui").toggle()<CR>
-
-" jank/vim-test and mfussenegger/nvim-dap
-nnoremap <leader>dd :TestNearest -strategy=jest<CR>
-function! JestStrategy(cmd)
-  let testName = matchlist(a:cmd, '\v -t ''(.*)''')[1]
-  let fileName = matchlist(a:cmd, '\v'' -- (.*)$')[1]
-  call luaeval("require'debugHelper'.debugJest([[" . testName . "]], [[" . fileName . "]])")
-endfunction      
-let g:test#custom_strategies = {'jest': function('JestStrategy')}
 
 " TimUntersberger/neogit and sindrets/diffview.nvim
 lua << EOF
@@ -283,14 +153,6 @@ nnoremap <leader>gd :DiffviewOpen<cr>
 nnoremap <leader>gD :DiffviewOpen main<cr>
 nnoremap <leader>gl :Neogit log<cr>
 nnoremap <leader>gp :Neogit push<cr>
-
-" David-Kunz/jester
-nnoremap <leader>tt :lua require"jester".run()<cr>
-nnoremap <leader>t_ :lua require"jester".run_last()<cr>
-nnoremap <leader>tf :lua require"jester".run_file()<cr>
-nnoremap <leader>dd :lua require"jester".debug()<cr>
-nnoremap <leader>d_ :lua require"jester".debug_last()<cr>
-nnoremap <leader>dF :lua require"jester".debug_file()<cr>
 
 " lua language server
 lua << EOF
@@ -342,12 +204,6 @@ EOF
 lua require'lspconfig'.tsserver.setup{}
 lua require'lspconfig'.intelephense.setup{}
 
-
-" folke/zen-mode.nvim
-lua << EOF
-  require("zen-mode").setup {}
-EOF
-nnoremap <leader>z :ZenMode<CR>
 " Use <c-space> to trigger completion.
 if has('nvim')
   inoremap <silent><expr> <c-space> coc#refresh()
@@ -373,7 +229,7 @@ let g:lightline = {
       \ 'colorscheme': 'wombat',
       \ 'active': {
       \   'left': [ [ 'mode', 'paste' ],
-      \             [ 'gitbranch', 'readonly', 'filename', 'modified' ] ]
+      \             [ 'gitbranch', 'readonly', 'relativepath', 'modified' ] ]
       \ },
       \ 'component_function': {
       \   'gitbranch': 'gitbranch#name'
@@ -396,5 +252,6 @@ require'telescope'.setup {
   }
 }
 EOF
-vmap <silent> u <esc>:Gdiff<cr><c-l>gv:diffget<cr><c-w><c-w>ZZ
-
+vmap <silent> u :Gitsigns reset_hunk<CR>
+xnoremap K :move '<-2<CR>gv-gv
+xnoremap J :move '>+1<CR>gv-gv
