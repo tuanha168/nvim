@@ -2,8 +2,8 @@ call plug#begin('~/.vim/plugged')
   Plug 'szw/vim-maximizer'
   Plug 'kassio/neoterm'
   Plug 'tpope/vim-commentary'
-  Plug 'sbdchd/neoformat'
-  " Plug 'tpope/vim-fugitive'
+  " Plug 'sbdchd/neoformat'
+  Plug 'tpope/vim-fugitive'
   Plug 'neovim/nvim-lspconfig'
   Plug 'hrsh7th/nvim-compe'
   " Plug 'janko/vim-test'
@@ -101,7 +101,7 @@ if has('nvim')
   au! TermOpen * tnoremap <buffer> <Esc> <c-g>
 endif
 " sbdchd/neoformat
-nnoremap <leader>F :Neoformat prettier<CR>
+" nnoremap <leader>F :Neoformat prettier<CR>
 
 " nvim-telescope/telescope.nvim
 lua << EOF
@@ -156,7 +156,7 @@ nnoremap <silent> gD    <cmd>lua vim.lsp.buf.implementation()<CR>
 nnoremap <silent> <c-k> <cmd>lua vim.lsp.buf.signature_help()<CR>
 nnoremap <silent> gr    <cmd>lua vim.lsp.buf.references()<CR>
 nnoremap <silent> gR    <cmd>lua vim.lsp.buf.rename()<CR>
-
+vnoremap <c-f> <ESC><cmd>lua vim.lsp.buf.range_formatting()<CR>
 nnoremap <Leader><ESC><ESC> :tabclose<CR>
 nnoremap <Leader>tl <Plug>VimwikiToggleListItem
 vnoremap <Leader>tl <Plug>VimwikiToggleListItem
@@ -340,6 +340,8 @@ require'lspconfig'.sumneko_lua.setup {
 }
 EOF
 lua require'lspconfig'.tsserver.setup{}
+lua require'lspconfig'.intelephense.setup{}
+
 
 " folke/zen-mode.nvim
 lua << EOF
@@ -363,7 +365,6 @@ nmap <silent> [g <Plug>(coc-diagnostic-prev)
 nmap <silent> ]g <Plug>(coc-diagnostic-next)
 inoremap <expr> <Tab> pumvisible() ? "\<C-n>" : "\<Tab>"
 inoremap <expr> <S-Tab> pumvisible() ? "\<C-p>" : "\<S-Tab>"
-inoremap . ,
 noremap <C-h> <C-w>h
 noremap <C-j> <C-w>j
 noremap <C-k> <C-w>k
@@ -395,3 +396,5 @@ require'telescope'.setup {
   }
 }
 EOF
+vmap <silent> u <esc>:Gdiff<cr><c-l>gv:diffget<cr><c-w><c-w>ZZ
+
