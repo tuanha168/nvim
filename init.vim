@@ -169,14 +169,6 @@ else
   print("Unsupported system for sumneko")
 end
 
--- set the path to the sumneko installation; if you previously installed via the now deprecated :LspInstall, use
-local sumneko_root_path = os.getenv('HOME') ..'/apps/lua-language-server'
-local sumneko_binary = sumneko_root_path.."/bin/"..system_name.."/lua-language-server"
-
-local runtime_path = vim.split(package.path, ';')
-table.insert(runtime_path, "lua/?.lua")
-table.insert(runtime_path, "lua/?/init.lua")
-
 -- lspconfig
 require("nvim-lsp-installer").setup {
   automatic_installation = true,
@@ -189,13 +181,10 @@ require("nvim-lsp-installer").setup {
   }
 }
 require'lspconfig'.tsserver.setup{}
--- require'lspconfig'.angularls.setup{}
 require'lspconfig'.intelephense.setup{}
 require'lspconfig'.cssls.setup{}
 require'lspconfig'.vuels.setup{}
--- require'lspconfig'.jdtls.setup{}
 require'lspconfig'.sumneko_lua.setup {
-  cmd = {sumneko_binary, "-E", sumneko_root_path .. "/main.lua"};
   settings = {
     Lua = {
       runtime = {
@@ -272,4 +261,4 @@ EOF
 vmap <silent> u :Gitsigns reset_hunk<CR>
 xnoremap K :move '<-2<CR>gv-gv
 xnoremap J :move '>+1<CR>gv-gv
-
+let $PATH = "C:\\Program Files\\Git\\usr\\bin;" . $PATH
