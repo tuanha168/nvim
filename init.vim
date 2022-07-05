@@ -2,6 +2,7 @@ call plug#begin()
   Plug 'szw/vim-maximizer'
   Plug 'tpope/vim-commentary'
   Plug 'tpope/vim-fugitive'
+  Plug 'williamboman/nvim-lsp-installer'
   Plug 'neovim/nvim-lspconfig'
   Plug 'hrsh7th/nvim-compe'
   Plug 'vimwiki/vimwiki'
@@ -98,8 +99,6 @@ nnoremap <leader>fb :Telescope buffers<CR>
 nnoremap <leader><space> :GFiles<CR>
 nnoremap <leader>ff :Rg<CR>
 
-" lspconfig
-lua require'lspconfig'.tsserver.setup{}
 nnoremap <silent> gd <cmd>lua vim.lsp.buf.definition()<CR>
 nnoremap <silent> gh     <cmd>lua vim.lsp.buf.hover()<CR>
 " nnoremap <silent> gH    <cmd>:Telescope lsp_code_actions<CR>
@@ -175,6 +174,10 @@ local runtime_path = vim.split(package.path, ';')
 table.insert(runtime_path, "lua/?.lua")
 table.insert(runtime_path, "lua/?/init.lua")
 
+-- lspconfig
+require("nvim-lsp-installer").setup {
+  automatic_installation = true
+}
 require'lspconfig'.sumneko_lua.setup {
   cmd = {sumneko_binary, "-E", sumneko_root_path .. "/main.lua"};
   settings = {
@@ -200,9 +203,9 @@ require'lspconfig'.sumneko_lua.setup {
     },
   },
 }
+require'lspconfig'.tsserver.setup{}
+require'lspconfig'.intelephense.setup{}
 EOF
-lua require'lspconfig'.tsserver.setup{}
-lua require'lspconfig'.intelephense.setup{}
 
 " Use <c-space> to trigger completion.
 if has('nvim')
@@ -226,7 +229,7 @@ noremap <C-j> <C-w>j
 noremap <C-k> <C-w>k
 noremap <C-l> <C-w>l
 let g:lightline = {
-      \ 'colorscheme': 'wombat',
+      \ 'colorscheme': 'one',
       \ 'active': {
       \   'left': [ [ 'mode', 'paste' ],
       \             [ 'gitbranch', 'readonly', 'relativepath', 'modified' ] ]
