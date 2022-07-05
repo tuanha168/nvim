@@ -58,6 +58,8 @@ set encoding=utf-8
 set cmdheight=2
 set cursorline
 
+autocmd BufEnter * syntax sync fromstart
+
 filetype plugin indent on " enable detection, plugins and indents
 let mapleader = " " " space as leader key
 let g:netrw_banner=0 " disable banner in netrw
@@ -79,7 +81,7 @@ lua << EOF
 EOF
 
 " szw/vim-maximizer
-nnoremap <silent> <C-w>m :MaximizerToggle!<CR>
+nnoremap <silent> <C-m> :MaximizerToggle!<CR>
 
 " nnoremap <leader><space> :Telescope git_files<CR>
 " nnoremap <leader>fd :lua telescope_find_files_in_path()<CR>
@@ -96,7 +98,8 @@ nnoremap <leader>fb :Telescope buffers<CR>
 " nnoremap <leader>FF :Telescope grep_string<CR>
 
 " FZF
-nnoremap <leader><space> :GFiles<CR>
+nnoremap <leader><space> :Files<CR>
+let $FZF_DEFAULT_COMMAND='rg --files --follow --no-ignore-vcs --hidden -g "!{**/target,**/vendor,**/node_modules,**/.git,**/dist,**/deploy,**/.idea,**/package-lock.json,**/yarn.lock}"'
 nnoremap <leader>ff :Rg<CR>
 
 nnoremap <silent> gd <cmd>lua vim.lsp.buf.definition()<CR>
@@ -117,7 +120,7 @@ let wiki.nested_syntaxes = { 'js': 'javascript' }
 let g:vimwiki_list = [wiki] 
 
 
-colorscheme jellybeans
+colorscheme molokai
 
 " vhyrro/neorg
 nnoremap <leader>nn :e ~/neorg/index.norg<CR>
@@ -176,8 +179,21 @@ table.insert(runtime_path, "lua/?/init.lua")
 
 -- lspconfig
 require("nvim-lsp-installer").setup {
-  automatic_installation = true
+  automatic_installation = true,
+  ui = {
+    icons = {
+      server_installed = "✓",
+      server_pending = "➜",
+      server_uninstalled = "✗"
+    }
+  }
 }
+require'lspconfig'.tsserver.setup{}
+-- require'lspconfig'.angularls.setup{}
+require'lspconfig'.intelephense.setup{}
+require'lspconfig'.cssls.setup{}
+require'lspconfig'.vuels.setup{}
+-- require'lspconfig'.jdtls.setup{}
 require'lspconfig'.sumneko_lua.setup {
   cmd = {sumneko_binary, "-E", sumneko_root_path .. "/main.lua"};
   settings = {
@@ -203,8 +219,6 @@ require'lspconfig'.sumneko_lua.setup {
     },
   },
 }
-require'lspconfig'.tsserver.setup{}
-require'lspconfig'.intelephense.setup{}
 EOF
 
 " Use <c-space> to trigger completion.
@@ -258,3 +272,4 @@ EOF
 vmap <silent> u :Gitsigns reset_hunk<CR>
 xnoremap K :move '<-2<CR>gv-gv
 xnoremap J :move '>+1<CR>gv-gv
+
