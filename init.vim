@@ -29,6 +29,7 @@ call plug#begin()
   Plug 'itchyny/vim-gitbranch'
   Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
   Plug 'junegunn/fzf.vim'
+  Plug 'jiangmiao/auto-pairs'
 
 call plug#end()
  
@@ -101,6 +102,7 @@ nnoremap <leader>fb :Telescope buffers<CR>
 nnoremap <leader><space> :Files<CR>
 let $FZF_DEFAULT_COMMAND='rg --files --follow --no-ignore-vcs --hidden -g "!{**/target,**/vendor,**/node_modules,**/.git,**/dist,**/deploy,**/.idea,**/package-lock.json,**/yarn.lock}"'
 nnoremap <leader>ff :Rg<CR>
+command! -bang -nargs=* Rg call fzf#vim#grep("rg --column --line-number --no-heading --color=always --smart-case ".shellescape(<q-args>), 1, {'options': '--delimiter : --nth 4..'}, <bang>0) 
 
 nnoremap <silent> gd <cmd>lua vim.lsp.buf.definition()<CR>
 nnoremap <silent> gh     <cmd>lua vim.lsp.buf.hover()<CR>
@@ -262,3 +264,4 @@ vmap <silent> u :Gitsigns reset_hunk<CR>
 xnoremap K :move '<-2<CR>gv-gv
 xnoremap J :move '>+1<CR>gv-gv
 let $PATH = "C:\\Program Files\\Git\\usr\\bin;" . $PATH
+autocmd FileType php setlocal commentstring=\/\/\ \ %s
