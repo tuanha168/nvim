@@ -5,7 +5,6 @@ call plug#begin()
   Plug 'williamboman/nvim-lsp-installer'
   Plug 'neovim/nvim-lspconfig'
   Plug 'hrsh7th/nvim-compe'
-  Plug 'vimwiki/vimwiki'
   Plug 'nvim-telescope/telescope.nvim'
   Plug 'nvim-lua/popup.nvim'
   Plug 'nvim-lua/plenary.nvim'
@@ -25,11 +24,12 @@ call plug#begin()
   Plug 'https://github.com/rafi/awesome-vim-colorschemes' " Retro Scheme
   Plug 'neoclide/coc.nvim', {'branch': 'release'}
   Plug 'tpope/vim-surround'
-  Plug 'itchyny/lightline.vim'
   Plug 'itchyny/vim-gitbranch'
   Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
   Plug 'junegunn/fzf.vim'
   Plug 'jiangmiao/auto-pairs'
+  Plug 'vim-airline/vim-airline'
+  Plug 'vim-airline/vim-airline-themes'
 
 call plug#end()
  
@@ -56,6 +56,8 @@ set signcolumn=yes " add a column for sings (e.g. LSP, ...)
 set updatetime=520 " time until update
 set undofile " persists undo tree
 set encoding=utf-8
+set fileencoding=utf-8
+set termencoding=utf-8
 set cmdheight=2
 set cursorline
 
@@ -113,14 +115,6 @@ nnoremap <silent> gr    <cmd>lua vim.lsp.buf.references()<CR>
 nnoremap <silent> gR    <cmd>lua vim.lsp.buf.rename()<CR>
 vnoremap <c-f> <ESC><cmd>lua vim.lsp.buf.range_formatting()<CR>
 nnoremap <Leader><ESC><ESC> :tabclose<CR>
-nnoremap <Leader>tl <Plug>VimwikiToggleListItem
-vnoremap <Leader>tl <Plug>VimwikiToggleListItem
-nnoremap <Leader>wn <Plug>VimwikiNextLink
-let g:vimwiki_global_ext = 0
-let wiki = {}
-let wiki.nested_syntaxes = { 'js': 'javascript' }
-let g:vimwiki_list = [wiki] 
-
 
 colorscheme molokai
 
@@ -233,16 +227,6 @@ noremap <C-h> <C-w>h
 noremap <C-j> <C-w>j
 noremap <C-k> <C-w>k
 noremap <C-l> <C-w>l
-let g:lightline = {
-      \ 'colorscheme': 'one',
-      \ 'active': {
-      \   'left': [ [ 'mode', 'paste' ],
-      \             [ 'gitbranch', 'readonly', 'relativepath', 'modified' ] ]
-      \ },
-      \ 'component_function': {
-      \   'gitbranch': 'gitbranch#name'
-      \ },
-      \ }
 
 " delete_buffer Telescope
 lua << EOF
@@ -263,5 +247,21 @@ EOF
 vmap <silent> u :Gitsigns reset_hunk<CR>
 xnoremap K :move '<-2<CR>gv-gv
 xnoremap J :move '>+1<CR>gv-gv
+nnoremap gn :bn<cr>
+nnoremap gp :bp<cr>
+nnoremap <c-w> :bd<cr>
 let $PATH = "C:\\Program Files\\Git\\usr\\bin;" . $PATH
 autocmd FileType php setlocal commentstring=\/\/\ \ %s
+
+" airline
+let g:airline#extensions#tabline#enabled = 1
+let g:airline_theme='dark'
+let g:airline_powerline_fonts = 1
+if !exists('g:airline_symbols')
+    let g:airline_symbols = {}
+endif
+" unicode symbols
+let g:airline_symbols.linenr = '¶'
+let g:airline_symbols.paste = 'Þ'
+let g:airline_symbols.whitespace = 'Ξ'
+let g:airline_symbols.readonly = ''
