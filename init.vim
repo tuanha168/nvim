@@ -19,8 +19,6 @@ call plug#begin()
   Plug 'ryanoasis/vim-devicons'
   Plug 'TimUntersberger/neogit'
   Plug 'sindrets/diffview.nvim'
-  Plug 'projekt0n/github-nvim-theme'
-  Plug 'vhyrro/neorg'
   Plug 'https://github.com/rafi/awesome-vim-colorschemes' " Retro Scheme
   Plug 'neoclide/coc.nvim', {'branch': 'release'}
   Plug 'tpope/vim-surround'
@@ -33,6 +31,7 @@ call plug#begin()
   Plug 'ap/vim-css-color'
   Plug 'ray-x/lsp_signature.nvim'
   Plug 'nvim-treesitter/nvim-treesitter', {'do': ':TSUpdate'}
+  Plug 'mattn/emmet-vim'
 
 call plug#end()
  
@@ -101,7 +100,8 @@ nnoremap <leader>fg :Telescope git_branches<CR>
 nnoremap <leader>fb :Telescope buffers<CR>
 " nnoremap <leader>fs :Telescope lsp_document_symbols<CR>
 nnoremap <leader>ff :Telescope live_grep<CR>
-" nnoremap <leader>FF :Telescope grep_string<CR>
+nnoremap <leader>FF :Telescope grep_string<CR>
+vnoremap <leader>FF "zy:Telescope grep_string default_text=<C-r>z<cr>
 
 " FZF
 nnoremap <leader><space> :Files<CR>
@@ -121,25 +121,6 @@ nnoremap <Leader><ESC><ESC> :tabclose<CR>
 
 colorscheme molokai
 
-" vhyrro/neorg
-nnoremap <leader>nn :e ~/neorg/index.norg<CR>
-lua << EOF
-  require('neorg').setup {
-            -- Tell Neorg what modules to load
-            load = {
-                ["core.defaults"] = {}, -- Load all the default modules
-                ["core.norg.concealer"] = {}, -- Allows for use of icons
-                ["core.norg.dirman"] = { -- Manage your directories with Neorg
-                    config = {
-                        workspaces = {
-                            my_workspace = "~/neorg"
-                        }
-                    }
-                }
-            },
-        }
-EOF
-
 " TimUntersberger/neogit and sindrets/diffview.nvim
 lua << EOF
 require("neogit").setup {
@@ -157,17 +138,6 @@ nnoremap <leader>gp :Neogit push<cr>
 
 " lua language server
 lua << EOF
-local system_name
-if vim.fn.has("mac") == 1 then
-  system_name = "macOS"
-elseif vim.fn.has("unix") == 1 then
-  system_name = "Linux"
-elseif vim.fn.has('win32') == 1 then
-  system_name = "Windows"
-else
-  print("Unsupported system for sumneko")
-end
-
 -- lspconfig
 require("nvim-lsp-installer").setup {
   automatic_installation = true,
@@ -180,9 +150,11 @@ require("nvim-lsp-installer").setup {
   }
 }
 require'lspconfig'.tsserver.setup{}
+require'lspconfig'.angularls.setup{}
 require'lspconfig'.intelephense.setup{}
 require'lspconfig'.cssls.setup{}
 require'lspconfig'.vuels.setup{}
+-- require'lspconfig'.html.setup{}
 require'lspconfig'.sumneko_lua.setup {
   settings = {
     Lua = {
@@ -230,6 +202,7 @@ noremap <C-h> <C-w>h
 noremap <C-j> <C-w>j
 noremap <C-k> <C-w>k
 noremap <C-l> <C-w>l
+nmap <silent> * "syiw<Esc>: let @/ = @s<CR>
 
 " delete_buffer Telescope
 lua << EOF
@@ -336,7 +309,7 @@ EOF
 lua << EOF
 require'nvim-treesitter.configs'.setup {
   -- A list of parser names, or "all"
-  ensure_installed = { "javascript", "typescript", "vue", "scss", "regex", "php", "pug", "json", "html", "css", "tsx" },
+  ensure_installed = { "javascript", "typescript", "vue", "scss", "regex", "php", "pug", "json", "css", "tsx" },
 
   -- Install parsers synchronously (only applied to `ensure_installed`)
   sync_install = true,
@@ -352,7 +325,7 @@ require'nvim-treesitter.configs'.setup {
     -- disable highlighting for the `tex` filetype, you need to include `latex` in this list as this is
     -- the name of the parser)
     -- list of language that will be disabled
-    disable = {},
+    disable = { "html" },
 
     -- Setting this to true will run `:h syntax` and tree-sitter at the same time.
     -- Set this to `true` if you depend on 'syntax' being enabled (like for indentation).
@@ -362,3 +335,26 @@ require'nvim-treesitter.configs'.setup {
   },
 }
 EOF
+
+" emmet vim
+" let g:user_emmet_expandabbr_key = '<Tab>'
+let g:user_emmet_leader_key=','
+
+" coc setting
+autocmd VimEnter * call CocActionAsync('activeExtension', 'coc-angular')
+autocmd VimEnter * call CocActionAsync('activeExtension', 'coc-tsserver')
+autocmd VimEnter * call CocActionAsync('activeExtension', 'coc-css')
+autocmd VimEnter * call CocActionAsync('activeExtension', 'coc-html')
+autocmd VimEnter * call CocActionAsync('activeExtension', 'coc-json')
+let g:coc_global_extensions = [
+          \ 'coc-html',
+          \ 'coc-angular',
+          \ 'coc-css',
+          \ 'coc-yaml',
+          \ 'coc-json',
+          \ 'coc-vimlsp',
+          \ 'coc-diagnostic',
+          \ 'coc-actions',
+          \ 'coc-eslint',
+          \ 'coc-tsserver',
+          \ ]
