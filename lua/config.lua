@@ -297,9 +297,9 @@ require'lspconfig'.cssls.setup{
 require'lspconfig'.vuels.setup{
   capabilities = capabilities
 }
-require'lspconfig'.html.setup{
-  capabilities = capabilities
-}
+-- require'lspconfig'.html.setup{
+--   capabilities = capabilities
+-- }
 require('lspconfig')['sumneko_lua'].setup{
   capabilities = capabilities,
   settings = {
