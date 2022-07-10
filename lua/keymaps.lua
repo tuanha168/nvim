@@ -51,8 +51,17 @@ keymap("n", "]c", "<cmd>Gitsigns next_hunk<CR>", {})
 -- Vim move config
 keymap("n", "J", ":m .+1<CR>", { silent = true, noremap = true })
 keymap("n", "K", ":m .-2<CR>", { silent = true, noremap = true })
-keymap("v", "J", ":m '<-2<CR>gv=gv", { silent = true, noremap = true })
-keymap("v", "K", ":m '>+1<CR>gv=gv", { silent = true, noremap = true })
+keymap("n", "<a-j>", ":m .+1<CR>", { silent = true, noremap = true })
+keymap("n", "<a-k>", ":m .-2<CR>", { silent = true, noremap = true })
+keymap("v", "J", ":m '>+1<CR>gv=gv", { silent = true, noremap = true })
+keymap("v", "K", ":m '<-2<CR>gv=gv", { silent = true, noremap = true })
+keymap("v", "<a-j>", ":m '>+1<CR>gv=gv", { silent = true, noremap = true })
+keymap("v", "<a-k>", ":m '<-2<CR>gv=gv", { silent = true, noremap = true })
+
+-- Visual indent
+keymap('v', '<', '<gv', opts)
+keymap('v', '>', '>gv', opts)
+keymap('v', 'p', '"_dP', opts)
 
 -- switch buffers
 keymap("n", "<S-Tab>", ":bp<CR>", { silent = true })
@@ -62,4 +71,18 @@ keymap('n', '<c-w>', ':bd<CR>', opts)
 -- Keep it center
 keymap("n", "n", "nzzzv", {})
 keymap("n", "<S-n>", "Nzzzv", {})
+
+-- Console log shortcut
+keymap("i", "cll", "console.log()<ESC><S-f>(a", {})
+keymap("v", "cll", "S(iconsole.log<ESC>", {})
+keymap("n", "cll", "yiwocll<ESC>p", {})
+
+-- split and resize
+-- keymap('n', '<C-up>', ':split', opts)
+keymap('n', '<C-down>', ':split<CR>', opts)
+keymap('n', '<C-right>', ':vsplit<CR>', opts)
+keymap('n', '<up>', ':resize +2<CR>', opts)
+keymap('n', '<down>', ':resize -2<CR>', opts)
+keymap('n', '<left>', ':vertical resize -2<CR>', opts)
+keymap('n', '<right>', ':vertical resize +2<CR>', opts)
 
