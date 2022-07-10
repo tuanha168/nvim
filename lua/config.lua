@@ -1,36 +1,37 @@
--- default options
-vim.o.completeopt = "menu,menuone,noselect" -- better autocomplete options
-vim.o.mouse = "a" -- if I accidentally use the mouse
-vim.o.splitright = true -- splits to the right
-vim.o.splitbelow = true -- splits below
-vim.o.expandtab = true -- space characters instead of tab
-vim.o.tabstop = 2 -- tab equals 2 spaces
-vim.o.shiftwidth = 2 -- indentation
-vim.o.number = true -- show absolute line numbers
-vim.o.relativenumber = true
-vim.o.ignorecase = true -- search case insensitive
-vim.o.smartcase = true -- search via smartcase
-vim.o.incsearch = true -- search incremental
--- vim.o.diffopt = vim.o.diffopt .. "vertical" -- starts diff mode in vertical split
-vim.o.hidden = true -- allow hidden buffers
--- vim.bo.nobackup = true -- don't create backup files
--- vim.o.nowritebackup = true -- don't create backup files
-vim.o.cmdheight = 1 -- only one line for commands
--- vim.o.shortmess = vim.o.shortmess .. "c" -- don't need to press enter so often
-vim.o.signcolumn = "yes" -- add a column for sings (e.g. LSP, ...)
-vim.o.updatetime = 520 -- time until update
-vim.o.undofile = true -- persists undo tree
-vim.o.encoding = "utf-8"
-vim.o.fileencoding = "utf-8"
-vim.o.termencoding = "utf-8"
-vim.o.cmdheight = 2
--- vim.o.cursorline = true
-vim.g.mapleader = " " -- space as leader key
+local options_opt = {
+  completeopt = "menu,menuone,noselect", -- better autocomplete options
+  mouse = "a", -- if I accidentally use the mouse
+  splitright = true, -- splits to the right
+  splitbelow = true, -- splits below
+  expandtab = true, -- space characters instead of tab
+  tabstop = 2, -- tab equals 2 spaces
+  shiftwidth = 2, -- indentation
+  number = true, -- show absolute line numbers
+  relativenumber = true,
+  ignorecase = true, -- search case insensitive
+  smartcase = true, -- search via smartcase
+  incsearch = true, -- search incremental
+  hidden = true, -- allow hidden buffers
+  cmdheight = 1, -- only one line for commands
+  signcolumn = "yes", -- add a column for sings (e.g. LSP, ...)
+  updatetime = 520, -- time until update
+  undofile = true, -- persists undo tree
+  encoding = "utf-8",
+  fileencoding = "utf-8",
+  termencoding = "utf-8",
+  cursorline = true,
+  termguicolors = true,
+}
+for k, v in pairs(options_opt) do
+  vim.opt[k] = v
+end
 
-vim.g.colors_name = 'molokai'
-
-vim.g.netrw_banner = 0 -- disable banner in netrw
-vim.g.netrw_liststyle = 3 -- tree view in netrw
+local options_g = {
+  mapleader = " ", -- space as leader key
+}
+for k, v in pairs(options_g) do
+  vim.g[k] = v
+end
 
 -- lewis6991/gitsigns.nvim
 require('gitsigns').setup {
@@ -191,13 +192,17 @@ vim.api.nvim_exec(([[
 
 -- nvim-cmp
 -- Setup nvim-cmp.
+local has_words_before = function()
+  local line, col = unpack(vim.api.nvim_win_get_cursor(0))
+  return col ~= 0 and vim.api.nvim_buf_get_lines(0, line - 1, line, true)[1]:sub(col, col):match("%s") == nil
+end
 local cmp = require('cmp')
-
+local luasnip = require('luasnip')
 cmp.setup({
   snippet = {
     -- REQUIRED - you must specify a snippet engine
     expand = function(args)
-      vim.fn["vsnip#anonymous"](args.body) -- For `vsnip` users.
+      luasnip.lsp_expand(args.body)
     end,
   },
   window = {
@@ -210,10 +215,31 @@ cmp.setup({
     ['<C-Space>'] = cmp.mapping.complete(),
     ['<C-e>'] = cmp.mapping.abort(),
     ['<CR>'] = cmp.mapping.confirm({ select = true }), -- Accept currently selected item. Set `select` to `false` to only confirm explicitly selected items.
+    ["<Tab>"] = cmp.mapping(function(fallback)
+      if cmp.visible() then
+        cmp.select_next_item()
+      elseif luasnip.expand_or_jumpable() then
+        luasnip.expand_or_jump()
+      elseif has_words_before() then
+        cmp.complete()
+      else
+        fallback()
+      end
+    end, { "i", "s" }),
+
+    ["<S-Tab>"] = cmp.mapping(function(fallback)
+      if cmp.visible() then
+        cmp.select_prev_item()
+      elseif luasnip.jumpable(-1) then
+        luasnip.jump(-1)
+      else
+        fallback()
+      end
+    end, { "i", "s" }),
   }),
   sources = cmp.config.sources({
     { name = 'nvim_lsp' },
-    { name = 'vsnip' }
+    { name = 'luasnip' }
   }, {
     { name = 'buffer' },
   })

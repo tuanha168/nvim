@@ -69,6 +69,11 @@ end
 time([[try_loadstring definition]], false)
 time([[Defining packer_plugins]], true)
 _G.packer_plugins = {
+  LuaSnip = {
+    loaded = true,
+    path = "C:\\Users\\achic\\AppData\\Local\\nvim-data\\site\\pack\\packer\\start\\LuaSnip",
+    url = "https://github.com/L3MON4D3/LuaSnip"
+  },
   ["alpha-nvim"] = {
     config = { "\27LJ\2\n`\0\0\5\0\5\0\n6\0\0\0'\2\1\0B\0\2\0029\0\2\0006\2\0\0'\4\3\0B\2\2\0029\2\4\2B\0\2\1K\0\1\0\vconfig\26alpha.themes.startify\nsetup\nalpha\frequire\0" },
     loaded = true,
@@ -99,11 +104,6 @@ _G.packer_plugins = {
     loaded = true,
     path = "C:\\Users\\achic\\AppData\\Local\\nvim-data\\site\\pack\\packer\\start\\cmp-path",
     url = "https://github.com/hrsh7th/cmp-path"
-  },
-  ["cmp-vsnip"] = {
-    loaded = true,
-    path = "C:\\Users\\achic\\AppData\\Local\\nvim-data\\site\\pack\\packer\\start\\cmp-vsnip",
-    url = "https://github.com/hrsh7th/cmp-vsnip"
   },
   ["diffview.nvim"] = {
     loaded = true,
@@ -150,6 +150,11 @@ _G.packer_plugins = {
     path = "C:\\Users\\achic\\AppData\\Local\\nvim-data\\site\\pack\\packer\\start\\neogit",
     url = "https://github.com/TimUntersberger/neogit"
   },
+  ["nightfox.nvim"] = {
+    loaded = true,
+    path = "C:\\Users\\achic\\AppData\\Local\\nvim-data\\site\\pack\\packer\\start\\nightfox.nvim",
+    url = "https://github.com/EdenEast/nightfox.nvim"
+  },
   ["nim.nvim"] = {
     loaded = true,
     path = "C:\\Users\\achic\\AppData\\Local\\nvim-data\\site\\pack\\packer\\start\\nim.nvim",
@@ -189,6 +194,11 @@ _G.packer_plugins = {
     loaded = true,
     path = "C:\\Users\\achic\\AppData\\Local\\nvim-data\\site\\pack\\packer\\start\\packer.nvim",
     url = "https://github.com/wbthomason/packer.nvim"
+  },
+  playground = {
+    loaded = true,
+    path = "C:\\Users\\achic\\AppData\\Local\\nvim-data\\site\\pack\\packer\\start\\playground",
+    url = "https://github.com/nvim-treesitter/playground"
   },
   ["plenary.nvim"] = {
     loaded = true,
@@ -249,11 +259,6 @@ _G.packer_plugins = {
     loaded = true,
     path = "C:\\Users\\achic\\AppData\\Local\\nvim-data\\site\\pack\\packer\\start\\vim-surround",
     url = "https://github.com/tpope/vim-surround"
-  },
-  ["vim-vsnip"] = {
-    loaded = true,
-    path = "C:\\Users\\achic\\AppData\\Local\\nvim-data\\site\\pack\\packer\\start\\vim-vsnip",
-    url = "https://github.com/hrsh7th/vim-vsnip"
   }
 }
 
