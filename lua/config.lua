@@ -45,8 +45,6 @@ require('gitsigns').setup {
   current_line_blame_formatter = '<author>, <author_time:%Y-%m-%d> - <summary>'
 }
 
-vim.g['$FZF_DEFAULT_COMMAND'] = 'rg --files --follow --no-ignore-vcs --hidden -g "!{**/target,**/vendor,**/node_modules,**/.git,**/dist,**/deploy,**/.idea,**/package-lock.json,**/yarn.lock}"'
-
 -- TimUntersberger/neogit and sindrets/diffview.nvim
 require("neogit").setup {
   disable_commit_confirmation = true,
@@ -189,6 +187,7 @@ vim.api.nvim_exec(([[
   autocmd FileType php setlocal commentstring=\/\/\ \ %s
   let $PATH = "C:\\Program Files\\Git\\usr\\bin;" . $PATH
 ]]), false)
+vim.g['$FZF_DEFAULT_COMMAND'] = 'rg --files --follow --no-ignore-vcs --hidden -g "!{**/target,**/vendor,**/node_modules,**/.git,**/dist,**/deploy,**/.idea,**/package-lock.json,**/yarn.lock}"'
 
 -- nvim-cmp
 -- Setup nvim-cmp.
