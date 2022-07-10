@@ -60,8 +60,6 @@ return packer.startup(function(use)
   use 'tomasr/molokai'
   use 'tpope/vim-surround'
   use 'itchyny/vim-gitbranch'
-  use { 'junegunn/fzf', run = '-> fzf#install()' }
-  use 'junegunn/fzf.vim'
   use 'jiangmiao/auto-pairs'
   use 'vim-airline/vim-airline'
   use 'vim-airline/vim-airline-themes'

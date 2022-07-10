@@ -12,9 +12,27 @@ keymap("n", "<leader>fs", ":Telescope lsp_document_symbols<CR>", opts)
 keymap("n", "<leader>ff", ":Telescope live_grep<CR>", opts)
 keymap("n", "<leader>FF", ":Telescope grep_string<CR>", opts)
 keymap("v", "<leader>FF", '"zy:Telescope grep_string default_text=<C-r>z<cr>', opts)
-
--- FZF
-keymap("n", '<leader><space>', ':Files<CR>', opts)
+local ignore = {
+  '**/target',
+  '**/vendor',
+  '**/node_modules',
+  '**/.git',
+  '**/dist',
+  '**/deploy',
+  '**/.idea',
+  '**/package-lock.json',
+  '**/yarn.lock'
+}
+local ign
+for _, v in pairs(ignore) do
+  if not ign then
+    ign = v
+  else
+    ign = ign .. ',' .. v
+  end
+end
+local find_file_command = ":lua require'telescope.builtin'.find_files({ find_command = {'rg', '--files', '--follow', '--no-ignore-vcs', '--hidden', '-g', '!{" .. ign .. "}' }})<CR>"
+keymap("n", '<leader><space>', find_file_command, opts)
 
 -- Lsp Keymap
 keymap("n", "gd", "<Cmd>lua vim.lsp.buf.definition()<CR>", opts)

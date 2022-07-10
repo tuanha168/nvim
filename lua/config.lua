@@ -182,12 +182,10 @@ vim.api.nvim_exec(([[
 
 -- other config
 vim.api.nvim_exec(([[
-  command! -bang -nargs=* Rg call fzf#vim#grep("rg --column --line-number --no-heading --color=always --smart-case ".shellescape(<q-args>), 1, fzf#vim#with_preview({'options': '--delimiter : --nth 4..'}), <bang>0)
   autocmd BufEnter * syntax sync fromstart
   autocmd FileType php setlocal commentstring=\/\/\ \ %s
   let $PATH = "C:\\Program Files\\Git\\usr\\bin;" . $PATH
 ]]), false)
-vim.g['$FZF_DEFAULT_COMMAND'] = 'rg --files --follow --no-ignore-vcs --hidden -g "!{**/target,**/vendor,**/node_modules,**/.git,**/dist,**/deploy,**/.idea,**/package-lock.json,**/yarn.lock}"'
 
 -- nvim-cmp
 -- Setup nvim-cmp.

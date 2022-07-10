@@ -115,16 +115,6 @@ _G.packer_plugins = {
     path = "C:\\Users\\achic\\AppData\\Local\\nvim-data\\site\\pack\\packer\\start\\emmet-vim",
     url = "https://github.com/mattn/emmet-vim"
   },
-  fzf = {
-    loaded = true,
-    path = "C:\\Users\\achic\\AppData\\Local\\nvim-data\\site\\pack\\packer\\start\\fzf",
-    url = "https://github.com/junegunn/fzf"
-  },
-  ["fzf.vim"] = {
-    loaded = true,
-    path = "C:\\Users\\achic\\AppData\\Local\\nvim-data\\site\\pack\\packer\\start\\fzf.vim",
-    url = "https://github.com/junegunn/fzf.vim"
-  },
   ["gitsigns.nvim"] = {
     loaded = true,
     path = "C:\\Users\\achic\\AppData\\Local\\nvim-data\\site\\pack\\packer\\start\\gitsigns.nvim",
