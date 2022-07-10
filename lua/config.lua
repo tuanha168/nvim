@@ -24,7 +24,7 @@ vim.o.encoding = "utf-8"
 vim.o.fileencoding = "utf-8"
 vim.o.termencoding = "utf-8"
 vim.o.cmdheight = 2
-vim.o.cursorline = true
+-- vim.o.cursorline = true
 vim.g.mapleader = " " -- space as leader key
 
 vim.g.colors_name = 'molokai'
@@ -124,14 +124,10 @@ local cfg = {
 -- recommended:
 require'lsp_signature'.setup(cfg) -- no need to specify bufnr if you don't use toggle_key
 
--- You can also do this inside lsp on_attach
--- note: on_attach deprecated
-require'lsp_signature'.on_attach(cfg, bufnr) -- no need to specify bufnr if you don't use toggle_key
-
 -- treesitter
 require'nvim-treesitter.configs'.setup {
   -- A list of parser names, or "all"
-  ensure_installed = { "javascript", "typescript", "vue", "scss", "regex", "php", "pug", "json", "css", "tsx" },
+  ensure_installed = { "lua", "javascript", "typescript", "vue", "scss", "regex", "php", "pug", "json", "css", "tsx" },
 
   -- Install parsers synchronously (only applied to `ensure_installed`)
   sync_install = true,
@@ -159,30 +155,12 @@ require'nvim-treesitter.configs'.setup {
     enable = true
   }
 }
+vim.opt.foldlevel = 20
+vim.opt.foldmethod = "expr"
+vim.opt.foldexpr = "nvim_treesitter#foldexpr()"
 
 -- emmet vim
 vim.g.user_emmet_leader_key=','
-
--- coc setting
--- vim.api.nvim_exec(([[
---   autocmd VimEnter * call CocActionAsync('activeExtension', 'coc-angular')
---   autocmd VimEnter * call CocActionAsync('activeExtension', 'coc-tsserver')
---   autocmd VimEnter * call CocActionAsync('activeExtension', 'coc-css')
---   autocmd VimEnter * call CocActionAsync('activeExtension', 'coc-html')
---   autocmd VimEnter * call CocActionAsync('activeExtension', 'coc-json')
---   let g:coc_global_extensions = [
---             \ 'coc-html',
---             \ 'coc-angular',
---             \ 'coc-css',
---             \ 'coc-yaml',
---             \ 'coc-json',
---             \ 'coc-vimlsp',
---             \ 'coc-diagnostic',
---             \ 'coc-actions',
---             \ 'coc-eslint',
---             \ 'coc-tsserver',
---             \ ]
--- ]]), false)
 
 -- airline
 vim.api.nvim_exec(([[
