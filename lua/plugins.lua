@@ -39,52 +39,63 @@ end
 -- })
 
 return packer.startup(function(use)
-  -- Packer can manage itself
-  use 'wbthomason/packer.nvim'
-  use 'szw/vim-maximizer'
-  use 'tpope/vim-commentary'
-  use 'tpope/vim-fugitive'
-  use 'williamboman/nvim-lsp-installer'
-  use 'neovim/nvim-lspconfig'
-  use 'hrsh7th/nvim-compe'
-  use 'nvim-telescope/telescope.nvim'
-  use 'nvim-lua/popup.nvim'
-  use 'nvim-lua/plenary.nvim'
-  use 'alaviss/nim.nvim'
-  use 'lewis6991/gitsigns.nvim'
-  use 'hoob3rt/lualine.nvim'
-  use 'kyazdani42/nvim-web-devicons'
-  use 'ryanoasis/vim-devicons'
-  use 'TimUntersberger/neogit'
-  use 'sindrets/diffview.nvim'
-  use 'tomasr/molokai'
-  use 'tpope/vim-surround'
-  use 'itchyny/vim-gitbranch'
-  use 'jiangmiao/auto-pairs'
-  use 'vim-airline/vim-airline'
-  use 'vim-airline/vim-airline-themes'
-  use 'ap/vim-css-color'
-  use 'ray-x/lsp_signature.nvim'
-  use { 'nvim-treesitter/nvim-treesitter', run = ':TSUpdate' }
-  use 'mattn/emmet-vim'
-  use {
-    'goolord/alpha-nvim',
-    requires = { 'kyazdani42/nvim-web-devicons' },
-    config = function ()
-      require'alpha'.setup(require'alpha.themes.startify'.config)
-    end
-  }
-  use 'hrsh7th/cmp-nvim-lsp'
-  use 'hrsh7th/cmp-buffer'
-  use 'hrsh7th/cmp-path'
-  use 'hrsh7th/cmp-cmdline'
-  use 'hrsh7th/nvim-cmp'
-  use 'L3MON4D3/LuaSnip'
-  use 'nvim-treesitter/playground'
-  use 'EdenEast/nightfox.nvim'
-  use 'preservim/tagbar'
+	-- Packer can manage itself
+	use("wbthomason/packer.nvim")
+	use("szw/vim-maximizer")
+	use("tpope/vim-commentary")
+	use("tpope/vim-fugitive")
+	use("williamboman/nvim-lsp-installer")
+	use("neovim/nvim-lspconfig")
+	use("hrsh7th/nvim-compe")
+	use("nvim-telescope/telescope.nvim")
+	use("nvim-lua/popup.nvim")
+	use("nvim-lua/plenary.nvim")
+	use("alaviss/nim.nvim")
+	use("lewis6991/gitsigns.nvim")
+	use("hoob3rt/lualine.nvim")
+	use("kyazdani42/nvim-web-devicons")
+	use("ryanoasis/vim-devicons")
+	use("TimUntersberger/neogit")
+	use("sindrets/diffview.nvim")
+	use("tomasr/molokai")
+	use("tpope/vim-surround")
+	use("itchyny/vim-gitbranch")
+	use("jiangmiao/auto-pairs")
+	use("vim-airline/vim-airline")
+	use("vim-airline/vim-airline-themes")
+	use("ap/vim-css-color")
+	use("ray-x/lsp_signature.nvim")
+	use({ "nvim-treesitter/nvim-treesitter", run = ":TSUpdate" })
+	use("mattn/emmet-vim")
+	use({
+		"goolord/alpha-nvim",
+		requires = { "kyazdani42/nvim-web-devicons" },
+		config = function()
+			require("alpha").setup(require("alpha.themes.startify").config)
+		end,
+	})
+	use("hrsh7th/cmp-nvim-lsp")
+	use("hrsh7th/cmp-buffer")
+	use("hrsh7th/cmp-path")
+	use("hrsh7th/cmp-cmdline")
+	use("hrsh7th/nvim-cmp")
+	use("L3MON4D3/LuaSnip")
+	use("nvim-treesitter/playground")
+	use("EdenEast/nightfox.nvim")
+	use("preservim/tagbar")
+	use("jose-elias-alvarez/null-ls.nvim")
+	use({
+		"folke/which-key.nvim",
+		config = function()
+			require("which-key").setup({
+				-- your configuration comes here
+				-- or leave it empty to use the default settings
+				-- refer to the configuration section below
+			})
+		end,
+	})
 
-  -- Automatically set up your configuration after cloning packer.nvim
+	-- Automatically set up your configuration after cloning packer.nvim
 	-- Put this at the end after all plugins
 	if PACKER_BOOTSTRAP then
 		require("packer").sync()
