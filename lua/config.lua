@@ -54,7 +54,7 @@ require("neogit").setup {
 }
 
 -- delete_buffer Telescope
-require'telescope'.setup {
+require 'telescope'.setup {
   pickers = {
     buffers = {
       show_all_buffers = true,
@@ -91,16 +91,16 @@ local cfg = {
   floating_window_off_x = 1, -- adjust float windows x position.
   floating_window_off_y = 0, -- adjust float windows y position. e.g -2 move window up 2 lines; 2 move down 2 lines
 
-  fix_pos = false,  -- vim.bo.to true, the floating window will not auto-close until finish all parameters
+  fix_pos = false, -- vim.bo.to true, the floating window will not auto-close until finish all parameters
   hint_enable = true, -- virtual hint enable
-  hint_prefix = "🐼 ",  -- Panda for parameter, NOTE: for the terminal not support emoji, might crash
+  hint_prefix = "🐼 ", -- Panda for parameter, NOTE: for the terminal not support emoji, might crash
   hint_scheme = "String",
   hi_parameter = "LspSignatureActiveParameter", -- how your parameter will be highlight
   max_height = 12, -- max height of signature floating_window, if content is more than max_height, you can scroll down
   -- to view the hiding contents
   max_width = 80, -- max_width of signature floating_window, line will be wrapped if exceed max_width
   handler_opts = {
-    border = "rounded"   -- double, rounded, single, shadow, none
+    border = "rounded" -- double, rounded, single, shadow, none
   },
 
   always_trigger = false, -- sometime show signature on new line or in middle of parameter can be confusing, vim.bo.it to false for #58
@@ -121,10 +121,10 @@ local cfg = {
 }
 
 -- recommended:
-require'lsp_signature'.setup(cfg) -- no need to specify bufnr if you don't use toggle_key
+require 'lsp_signature'.setup(cfg) -- no need to specify bufnr if you don't use toggle_key
 
 -- treesitter
-require'nvim-treesitter.configs'.setup {
+require 'nvim-treesitter.configs'.setup {
   -- A list of parser names, or "all"
   ensure_installed = { "lua", "javascript", "typescript", "vue", "scss", "regex", "php", "pug", "json", "css", "tsx" },
 
@@ -159,7 +159,7 @@ vim.opt.foldmethod = "expr"
 vim.opt.foldexpr = "nvim_treesitter#foldexpr()"
 
 -- emmet vim
-vim.g.user_emmet_leader_key=','
+vim.g.user_emmet_leader_key = ','
 
 -- airline
 vim.api.nvim_exec(([[
@@ -186,6 +186,36 @@ vim.api.nvim_exec(([[
   autocmd FileType php setlocal commentstring=\/\/\ \ %s
   let $PATH = "C:\\Program Files\\Git\\usr\\bin;" . $PATH
 ]]), false)
+
+--   פּ ﯟ   some other good icons
+local kind_icons = {
+  Text = "",
+  Method = "m",
+  Function = "",
+  Constructor = "",
+  Field = "",
+  Variable = "",
+  Class = "",
+  Interface = "",
+  Module = "",
+  Property = "",
+  Unit = "",
+  Value = "",
+  Enum = "",
+  Keyword = "",
+  Snippet = "",
+  Color = "",
+  File = "",
+  Reference = "",
+  Folder = "",
+  EnumMember = "",
+  Constant = "",
+  Struct = "",
+  Event = "",
+  Operator = "",
+  TypeParameter = "",
+}
+-- find more here: https://www.nerdfonts.com/cheat-sheet
 
 -- nvim-cmp
 -- Setup nvim-cmp.
@@ -234,12 +264,36 @@ cmp.setup({
       end
     end, { "i", "s" }),
   }),
+  formatting = {
+    fields = { "abbr", "kind", "menu" },
+    format = function(entry, vim_item)
+      -- vim_item.kind = string.format("%s", kind_icons[vim_item.kind])
+      vim_item.kind = string.format('%s %s', kind_icons[vim_item.kind], vim_item.kind) -- This concatonates the icons with the name of the item kind
+      vim_item.menu = ({
+        nvim_lsp = "[LSP]",
+        luasnip = "[Snippet]",
+        buffer = "[Buffer]",
+        path = "[Path]",
+      })[entry.source.name]
+      return vim_item
+    end
+  },
   sources = cmp.config.sources({
     { name = 'nvim_lsp' },
-    { name = 'luasnip' }
-  }, {
+    { name = 'luasnip' },
     { name = 'buffer' },
-  })
+    { name = 'path' },
+  }),
+  confirm_opts = {
+    behavior = cmp.ConfirmBehavior.Replace,
+    select = false,
+  },
+  experimental = {
+    ghost_text = true,
+  },
+  view = {
+    entry = 'native'
+  }
 })
 
 -- Set configuration for specific filetype.
@@ -273,7 +327,7 @@ cmp.setup.cmdline(':', {
 local capabilities = require('cmp_nvim_lsp').update_capabilities(vim.lsp.protocol.make_client_capabilities())
 
 -- lua language server
-require("nvim-lsp-installer").setup {
+require "nvim-lsp-installer".setup {
   automatic_installation = true,
   ui = {
     icons = {
@@ -283,25 +337,25 @@ require("nvim-lsp-installer").setup {
     }
   }
 }
-require'lspconfig'.tsserver.setup{
+require 'lspconfig'.tsserver.setup {
   capabilities = capabilities
 }
-require'lspconfig'.angularls.setup{
+require 'lspconfig'.angularls.setup {
   capabilities = capabilities
 }
-require'lspconfig'.intelephense.setup{
+require 'lspconfig'.intelephense.setup {
   capabilities = capabilities
 }
-require'lspconfig'.cssls.setup{
+require 'lspconfig'.cssls.setup {
   capabilities = capabilities
 }
-require'lspconfig'.vuels.setup{
+require 'lspconfig'.vuels.setup {
   capabilities = capabilities
 }
 -- require'lspconfig'.html.setup{
 --   capabilities = capabilities
 -- }
-require('lspconfig')['sumneko_lua'].setup{
+require 'lspconfig'['sumneko_lua'].setup {
   capabilities = capabilities,
   settings = {
     Lua = {

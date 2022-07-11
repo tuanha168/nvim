@@ -42,7 +42,8 @@ keymap("n", "gD", "<cmd>lua vim.lsp.buf.implementation()<CR>", opts)
 keymap("n", "<c-k>", "<cmd>lua vim.lsp.buf.signature_help()<CR>", opts)
 keymap("n", "gr", "<cmd>lua vim.lsp.buf.references()<CR>", opts)
 keymap("n", "gR", "<cmd>lua vim.lsp.buf.rename()<CR>", opts)
-keymap("v", "<c-f>", "<ESC>vim.lsp.buf.range_formatting()<CR>", opts)
+keymap("n", "<c-f>", "<cmd>lua vim.lsp.buf.formatting_sync()<CR>", opts)
+keymap("v", "<c-f>", "<cmd>lua vim.lsp.buf.range_formatting()<CR>", opts)
 keymap("n", "<Leader><ESC><ESC>", ":tabclose<CR>", opts)
 
 -- Window move
@@ -52,7 +53,7 @@ keymap("n", "<C-k>", "<C-w>k", opts)
 keymap("n", "<C-l>", "<C-w>l", opts)
 
 -- stay visual
-keymap("n", "*", "syiw<Esc>: let @/ = @s<CR>", {})
+-- keymap("n", "*", "syiw<Esc>: let @/ = @s<CR>", {})
 
 -- Git keymaps
 keymap("n", "<leader>gg", ":Neogit<cr>", opts)
@@ -84,7 +85,7 @@ keymap("v", "p", '"_dP', opts)
 -- switch buffers
 keymap("n", "<S-Tab>", ":bp<CR>", { silent = true })
 keymap("n", "<Tab>", ":bn<CR>", { silent = true })
-keymap("n", "<c-w>", ":bd<CR>", opts)
+keymap("n", "<ESC><ESC>", ":bd<CR>", opts)
 
 -- Keep it center
 keymap("n", "n", "nzzzv", {})
