@@ -108,4 +108,4 @@ keymap("n", "<left>", ":vertical resize -2<CR>", opts)
 keymap("n", "<right>", ":vertical resize +2<CR>", opts)
 
 -- tagbar
-keymap("n", "<a-o>", ":TagbarToggle<CR>", {})
+keymap("n", "-", ":TagbarToggle<CR><c-l>/", {})
