@@ -46,7 +46,6 @@ keymap("n", "gr", "<cmd>lua vim.lsp.buf.references()<CR>", opts)
 keymap("n", "gR", "<cmd>lua vim.lsp.buf.rename()<CR>", opts)
 keymap("n", "<c-f>", "<cmd>lua vim.lsp.buf.formatting_sync()<CR>", opts)
 keymap("v", "<c-f>", "<cmd>lua vim.lsp.buf.range_formatting()<CR>", opts)
-keymap("n", "<Leader><ESC><ESC>", ":tabclose<CR>", opts)
 
 -- Window move
 keymap("n", "<C-h>", "<C-w>h", opts)
@@ -87,7 +86,17 @@ keymap("v", "p", '"_dP', opts)
 -- switch buffers
 keymap("n", "<S-Tab>", ":bp<CR>", { silent = true })
 keymap("n", "<Tab>", ":bn<CR>", { silent = true })
-keymap("n", "<ESC><ESC>", ":bd<CR>", opts)
+function CLOSE_TAB_OR_BUFFER()
+  local status, _ = pcall(vim.cmd, "tabclose")
+  if not status then
+    vim.cmd(":bd")
+    if (vim.api.nvim_buf_get_name(0) == '') then
+      vim.cmd(":Alpha")
+      vim.cmd(":bd#")
+    end
+  end
+end
+keymap("n", "<Leader><ESC><ESC>", "<cmd>lua CLOSE_TAB_OR_BUFFER()<CR>", opts)
 
 -- Keep it center
 keymap("n", "n", "nzzzv", {})

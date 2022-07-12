@@ -8,11 +8,13 @@ local formatting = null_ls.builtins.formatting
 
 local sources = {
 	formatting.prettier.with({ extra_args = { "--no-semi", "--single-quote", "--jsx-single-quote" } }),
+  formatting.phpcsfixer,
 	formatting.stylua,
 	-- diagnostics.eslint,
 }
 
 null_ls.setup({
+  debug = true,
 	sources = sources,
 
 	-- on_attach = function(client)
