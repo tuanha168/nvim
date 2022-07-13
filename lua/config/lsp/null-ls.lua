@@ -7,8 +7,10 @@ local formatting = null_ls.builtins.formatting
 -- local diagnostics = null_ls.builtins.diagnostics
 
 local sources = {
-	formatting.prettier.with({ extra_args = { "--no-semi", "--single-quote", "--jsx-single-quote", "--tab-width", "2" } }),
-  formatting.phpcsfixer,
+	formatting.prettier.with({
+		extra_args = { "--no-semi", "--single-quote", "--jsx-single-quote", "--tab-width", "2" },
+	}),
+	formatting.phpcsfixer,
 	formatting.stylua,
 	-- diagnostics.eslint,
 }
