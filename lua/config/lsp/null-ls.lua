@@ -14,7 +14,7 @@ local sources = {
 }
 
 null_ls.setup({
-  debug = true,
+	debug = true,
 	sources = sources,
 
 	-- on_attach = function(client)

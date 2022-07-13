@@ -36,17 +36,6 @@ local find_file_command = ":lua require'telescope.builtin'.find_files({ find_com
 	.. "}' }})<CR>"
 keymap("n", "<leader><space>", find_file_command, opts)
 
--- Lsp Keymap
-keymap("n", "gd", "<Cmd>lua vim.lsp.buf.definition()<CR>", opts)
-keymap("n", "gh", "<cmd>lua vim.lsp.buf.hover()<CR>", opts)
-keymap("n", "gH", ":Telescope lsp_code_actions<CR>", opts)
-keymap("n", "gD", "<cmd>lua vim.lsp.buf.implementation()<CR>", opts)
-keymap("n", "<c-k>", "<cmd>lua vim.lsp.buf.signature_help()<CR>", opts)
-keymap("n", "gr", "<cmd>lua vim.lsp.buf.references()<CR>", opts)
-keymap("n", "gR", "<cmd>lua vim.lsp.buf.rename()<CR>", opts)
-keymap("n", "<c-f>", "<cmd>lua vim.lsp.buf.formatting_sync()<CR>", opts)
-keymap("v", "<c-f>", "<cmd>lua vim.lsp.buf.range_formatting()<CR>", opts)
-
 -- Window move
 keymap("n", "<C-h>", "<C-w>h", opts)
 keymap("n", "<C-j>", "<C-w>j", opts)
