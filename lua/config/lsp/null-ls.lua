@@ -4,15 +4,23 @@ if not null_ls_status_ok then
 end
 
 local formatting = null_ls.builtins.formatting
--- local diagnostics = null_ls.builtins.diagnostics
+local diagnostics = null_ls.builtins.diagnostics
 
 local sources = {
 	formatting.prettier.with({
-		extra_args = { "--no-semi", "--single-quote", "--jsx-single-quote", "--tab-width", "2" },
+		extra_args = {
+			"--no-semi",
+			"--single-quote",
+			"--jsx-single-quote",
+			"--tab-width 2",
+			"--trailing-comma none",
+			"--arrow-parens avoid",
+			"--parser angular",
+		},
 	}),
 	formatting.phpcsfixer,
 	formatting.stylua,
-	-- diagnostics.eslint,
+	diagnostics.eslint,
 }
 
 null_ls.setup({

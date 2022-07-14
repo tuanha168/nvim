@@ -58,6 +58,7 @@ keymap("n", "<leader>gp", ":Neogit push<cr>", opts)
 keymap("v", "u", ":Gitsigns reset_hunk<CR>", {})
 keymap("n", "[c", "<cmd>Gitsigns prev_hunk<CR>", {})
 keymap("n", "]c", "<cmd>Gitsigns next_hunk<CR>", {})
+keymap("n", "G", "<cmd>Gitsigns diffthis<CR><C-l>", {})
 
 -- Vim move config
 keymap("n", "J", ":m .+1<CR>==", { silent = true, noremap = true })
@@ -88,11 +89,13 @@ keymap("n", "<Leader><ESC><ESC>", "<cmd>lua CLOSE_TAB_OR_BUFFER()<CR>", opts)
 -- Keep it center
 keymap("n", "n", "nzzzv", {})
 keymap("n", "<S-n>", "Nzzzv", {})
+keymap("n", "j", "jzz", {})
+keymap("n", "k", "kzz", {})
 
 -- Console log shortcut
-keymap("i", "cll", "console.log()<ESC><S-f>(a", {})
-keymap("v", "cll", "S(iconsole.log<ESC>", {})
-keymap("n", "cll", "yiwocll{<ESC>p", {})
+-- keymap("i", "cll", "console.log()<ESC><S-f>(a", {})
+-- keymap("v", "cll", "S(iconsole.log<ESC>", {})
+-- keymap("n", "cll", "yiwocll{<ESC>lp", {})
 
 -- split and resize
 -- keymap("n", '<C-up>', ':split', opts)
@@ -110,5 +113,6 @@ keymap("n", "-", ":TagbarToggle<CR><c-l>/", {})
 keymap("n", "<CR>", "<CR>:ccl<CR>", { silent = true })
 
 -- paste behavier
-keymap("n", "p", "P==", { silent = true })
+keymap("n", "p", "P==", { noremap = true, silent = true })
+keymap("n", "P", "p==", { noremap = true, silent = true })
 

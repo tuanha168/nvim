@@ -40,6 +40,9 @@ require("nvim-treesitter.configs").setup({
 	indent = {
 		enable = true,
 	},
+  autotag = {
+    enable = true
+  },
 })
 vim.opt.foldlevel = 20
 vim.opt.foldmethod = "expr"

@@ -58,9 +58,8 @@ return packer.startup(function(use)
 	use("TimUntersberger/neogit")
 	use("sindrets/diffview.nvim")
 	use("tomasr/molokai")
-	use("tpope/vim-surround")
+	use("kylechui/nvim-surround")
 	use("itchyny/vim-gitbranch")
-	use("jiangmiao/auto-pairs")
 	use("vim-airline/vim-airline")
 	use("vim-airline/vim-airline-themes")
 	use("ap/vim-css-color")
@@ -87,13 +86,11 @@ return packer.startup(function(use)
 	use({
 		"folke/which-key.nvim",
 		config = function()
-			require("which-key").setup({
-				-- your configuration comes here
-				-- or leave it empty to use the default settings
-				-- refer to the configuration section below
-			})
+			require("which-key").setup({})
 		end,
 	})
+	use("yegappan/mru")
+	use("windwp/nvim-autopairs")
 
 	-- Automatically set up your configuration after cloning packer.nvim
 	-- Put this at the end after all plugins
