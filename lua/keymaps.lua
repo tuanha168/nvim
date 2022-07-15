@@ -116,3 +116,5 @@ keymap("n", "<CR>", "<CR>:ccl<CR>", { silent = true })
 keymap("n", "p", "P==", { noremap = true, silent = true })
 keymap("n", "P", "p==", { noremap = true, silent = true })
 
+-- projects
+keymap("n", "``", ":Telescope projects<CR>", { noremap = true, silent = true })
