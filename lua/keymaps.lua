@@ -44,8 +44,8 @@ keymap("n", "<C-l>", "<C-w>l", opts)
 
 -- stay visual
 -- keymap("n", "*", "syiw<Esc>: let @/ = @s<CR>", {})
-keymap("n", "*", '"ayiwk/<c-r>a<CR>', { silent = true })
-keymap("v", "*", '"ayk/<c-r>a<CR>', { silent = true })
+keymap("n", "*", '"ayiwh/<c-r>a<CR>', { silent = true })
+keymap("v", "*", '"ayh/<c-r>a<CR>', { silent = true })
 
 -- Git keymaps
 keymap("n", "<leader>gg", ":Neogit<cr>", opts)
@@ -61,8 +61,8 @@ keymap("n", "]c", "<cmd>Gitsigns next_hunk<CR>", {})
 keymap("n", "G", "<cmd>Gitsigns diffthis<CR><C-l>", {})
 
 -- Vim move config
-keymap("n", "J", ":m .+1<CR>==", { silent = true, noremap = true })
-keymap("n", "K", ":m .-2<CR>==", { silent = true, noremap = true })
+keymap("n", "<a-j>", ":m .+1<CR>==", { silent = true, noremap = true })
+keymap("n", "<a-k>", ":m .-2<CR>==", { silent = true, noremap = true })
 keymap("v", "J", ":m '>+1<CR>gv=gv", { silent = true, noremap = true })
 keymap("v", "K", ":m '<-2<CR>gv=gv", { silent = true, noremap = true })
 
@@ -75,13 +75,23 @@ keymap("v", "p", '"_dP', opts)
 keymap("n", "<S-Tab>", ":bp<CR>", { silent = true })
 keymap("n", "<Tab>", ":bn<CR>", { silent = true })
 function CLOSE_TAB_OR_BUFFER()
-	local status, _ = pcall(vim.cmd, "tabclose")
-	if not status then
+	if vim.api.nvim_buf_get_name(0) ~= "" then
 		vim.cmd(":bd")
 		if vim.api.nvim_buf_get_name(0) == "" then
-			vim.cmd(":Alpha")
-			vim.cmd(":bd#")
+			local status, _ = pcall(vim.cmd, "tabclose")
+			if not status then
+				vim.cmd(":bd")
+			end
 		end
+	else
+		local status, _ = pcall(vim.cmd, "tabclose")
+		if not status then
+			vim.cmd(":bd")
+		end
+	end
+	if vim.api.nvim_buf_get_name(0) == "" then
+		vim.cmd(":Alpha")
+		vim.cmd(":bd#")
 	end
 end
 keymap("n", "<Leader><ESC><ESC>", "<cmd>lua CLOSE_TAB_OR_BUFFER()<CR>", opts)
@@ -130,3 +140,4 @@ keymap("x", "gp", "<Plug>(YankyGPutAfter)", {})
 keymap("x", "gP", "<Plug>(YankyGPutBefore)", {})
 keymap("n", "<c-n>", "<Plug>(YankyCycleForward)", { silent = true })
 keymap("n", "<c-p>", "<Plug>(YankyCycleBackward)", { silent = true })
+
