@@ -83,14 +83,17 @@ return packer.startup(function(use)
 	use("EdenEast/nightfox.nvim")
 	use("preservim/tagbar")
 	use("jose-elias-alvarez/null-ls.nvim")
-	use({
-		"folke/which-key.nvim",
-		config = function()
-			require("which-key").setup({})
-		end,
-	})
+	-- use({
+	-- 	"folke/which-key.nvim",
+	-- 	config = function()
+	-- 		require("which-key").setup({})
+	-- 	end,
+	-- })
 	use("yegappan/mru")
 	use("windwp/nvim-autopairs")
+  use("ahmedkhalf/project.nvim")
+  use("unblevable/quick-scope")
+  use("gbprod/yanky.nvim")
 
 	-- Automatically set up your configuration after cloning packer.nvim
 	-- Put this at the end after all plugins

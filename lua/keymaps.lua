@@ -123,5 +123,21 @@ keymap("n", "-", ":TagbarToggle<CR><c-l>/", {})
 keymap("n", "<CR>", "<CR>:ccl<CR>", { silent = true })
 
 -- paste behavier
-keymap("n", "p", "P==", { noremap = true, silent = true })
-keymap("n", "P", "p==", { noremap = true, silent = true })
+-- keymap("n", "p", "P==", { noremap = true, silent = true })
+-- keymap("n", "P", "p==", { noremap = true, silent = true })
+
+-- projects
+keymap("n", "``", ":Telescope projects<CR>", { noremap = true, silent = true })
+
+-- yanky
+keymap("n", "p", "<Plug>(YankyPutAfter)", {})
+keymap("n", "P", "<Plug>(YankyPutBefore)", {})
+keymap("x", "p", "<Plug>(YankyPutAfter)", {})
+keymap("x", "P", "<Plug>(YankyPutBefore)", {})
+keymap("n", "gp", "<Plug>(YankyGPutAfter)", {})
+keymap("n", "gP", "<Plug>(YankyGPutBefore)", {})
+keymap("x", "gp", "<Plug>(YankyGPutAfter)", {})
+keymap("x", "gP", "<Plug>(YankyGPutBefore)", {})
+keymap("n", "<c-n>", "<Plug>(YankyCycleForward)", { silent = true })
+keymap("n", "<c-p>", "<Plug>(YankyCycleBackward)", { silent = true })
+
