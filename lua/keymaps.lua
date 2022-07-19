@@ -61,8 +61,8 @@ keymap("n", "]c", "<cmd>Gitsigns next_hunk<CR>", {})
 keymap("n", "G", "<cmd>Gitsigns diffthis<CR><C-l>", {})
 
 -- Vim move config
-keymap("n", "<a-j>", ":m .+1<CR>==", { silent = true, noremap = true })
-keymap("n", "<a-k>", ":m .-2<CR>==", { silent = true, noremap = true })
+keymap("n", "J", ":m .+1<CR>==", { silent = true, noremap = true })
+keymap("n", "K", ":m .-2<CR>==", { silent = true, noremap = true })
 keymap("v", "J", ":m '>+1<CR>gv=gv", { silent = true, noremap = true })
 keymap("v", "K", ":m '<-2<CR>gv=gv", { silent = true, noremap = true })
 
@@ -74,24 +74,28 @@ keymap("v", "p", '"_dP', opts)
 -- switch buffers
 keymap("n", "<S-Tab>", ":bp<CR>", { silent = true })
 keymap("n", "<Tab>", ":bn<CR>", { silent = true })
-function CLOSE_TAB_OR_BUFFER()
-	if vim.api.nvim_buf_get_name(0) ~= "" then
-		vim.cmd(":bd")
-		if vim.api.nvim_buf_get_name(0) == "" then
-			local status, _ = pcall(vim.cmd, "tabclose")
-			if not status then
-				vim.cmd(":bd")
-			end
-		end
-	else
-		local status, _ = pcall(vim.cmd, "tabclose")
-		if not status then
-			vim.cmd(":bd")
-		end
+local function closeTab()
+	local status, _ = pcall(vim.cmd, "tabclose")
+	if not status then
+		pcall(vim.cmd, ":bd")
 	end
-	if vim.api.nvim_buf_get_name(0) == "" then
-		vim.cmd(":Alpha")
-		vim.cmd(":bd#")
+end
+function CLOSE_TAB_OR_BUFFER()
+	if string.find(vim.api.nvim_buf_get_name(0), "Neogit") then
+		closeTab()
+	else
+		if vim.api.nvim_buf_get_name(0) ~= "" then
+			pcall(vim.cmd, ":bd")
+			if vim.api.nvim_buf_get_name(0) == "" then
+				closeTab()
+			end
+		else
+			closeTab()
+		end
+		if vim.api.nvim_buf_get_name(0) == "" then
+			pcall(vim.cmd, ":Alpha")
+			pcall(vim.cmd, ":bd#")
+		end
 	end
 end
 keymap("n", "<Leader><ESC><ESC>", "<cmd>lua CLOSE_TAB_OR_BUFFER()<CR>", opts)
@@ -140,4 +144,3 @@ keymap("x", "gp", "<Plug>(YankyGPutAfter)", {})
 keymap("x", "gP", "<Plug>(YankyGPutBefore)", {})
 keymap("n", "<c-n>", "<Plug>(YankyCycleForward)", { silent = true })
 keymap("n", "<c-p>", "<Plug>(YankyCycleBackward)", { silent = true })
-
