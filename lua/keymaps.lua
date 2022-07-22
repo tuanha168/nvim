@@ -105,6 +105,8 @@ keymap("n", "n", "nzzzv", {})
 keymap("n", "<S-n>", "Nzzzv", {})
 keymap("n", "j", "jzz", {})
 keymap("n", "k", "kzz", {})
+keymap("n", "L", "Lzz", opts)
+keymap("n", "H", "Hzz", opts)
 
 -- Console log shortcut
 -- keymap("i", "cll", "console.log()<ESC><S-f>(a", {})
