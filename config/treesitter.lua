@@ -1,6 +1,4 @@
--- treesitter
-require("nvim-treesitter.configs").setup({
-	-- A list of parser names, or "all"
+local M = {
 	ensure_installed = {
 		"lua",
 		"javascript",
@@ -43,7 +41,6 @@ require("nvim-treesitter.configs").setup({
   autotag = {
     enable = true
   },
-})
-vim.opt.foldlevel = 20
-vim.opt.foldmethod = "expr"
-vim.opt.foldexpr = "nvim_treesitter#foldexpr()"
+}
+
+return M

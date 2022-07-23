@@ -22,6 +22,8 @@ local sources = {
 }
 
 local augroup = vim.api.nvim_create_augroup("LspFormatting", {})
+local M = {}
+M.setup = function ()
 null_ls.setup({
 	debug = true,
 	sources = sources,
@@ -41,3 +43,6 @@ null_ls.setup({
 	-- 	end
 	-- end,
 })
+end
+
+return M
