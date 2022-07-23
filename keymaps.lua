@@ -130,7 +130,7 @@ keymap("n", "<CR>", "<CR>:ccl<CR>", { silent = true })
 -- keymap("n", "P", "p==", { noremap = true, silent = true })
 
 -- projects
-keymap("n", "``", ":Telescope projects<CR>", { noremap = true, silent = true })
+keymap("n", "``", ":lua require'telescope'.extensions.project.project{}<CR>", { noremap = true, silent = true })
 
 -- yanky
 keymap("n", "p", "<Plug>(YankyPutAfter)", {})

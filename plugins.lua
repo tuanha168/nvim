@@ -18,6 +18,7 @@ return {
     end,
   },
   ["lewis6991/gitsigns.nvim"] = {
+    after = "nvim-lspconfig",
     config = function()
       require("custom.config.gitsign").setup()
     end,
@@ -38,7 +39,10 @@ return {
       }
     end,
   },
-  ["ahmedkhalf/project.nvim"] = {
+  ["nvim-telescope/telescope.nvim"] = {
+    module = "telescope",
+  },
+  ["nvim-telescope/telescope-project.nvim"] = {
     after = "telescope.nvim",
     config = function()
       require("custom.config.project").setup()

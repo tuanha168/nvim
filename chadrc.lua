@@ -25,7 +25,9 @@ M.plugins = {
     },
   },
   user = userPlugins,
-  remove = {},
+  remove = {
+    "folke/which-key.nvim",
+  },
 }
 
 -- make sure you maintain the structure of `core/default_config.lua` here,
@@ -33,7 +35,7 @@ M.plugins = {
 
 M.ui = {
   transparents = true,
-  -- theme = "gruvchad",
+  theme = "onedark",
 }
 
 return M
