@@ -1,5 +1,3 @@
-require "custom.keymaps"
-
 -- Autocommand that reloads neovim whenever you save the plugins.lua file
 -- vim.cmd [[
 --   augroup packer_user_config

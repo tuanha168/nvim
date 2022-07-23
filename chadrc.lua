@@ -20,9 +20,6 @@ M.plugins = {
     lspconfig = {
       setup_lspconf = "custom.config.lspconfig",
     },
-    cmp = {
-      lazy_load = false,
-    },
   },
   user = userPlugins,
   remove = {
@@ -30,12 +27,11 @@ M.plugins = {
   },
 }
 
--- make sure you maintain the structure of `core/default_config.lua` here,
--- example of changing theme:
-
 M.ui = {
-  transparents = true,
+  transparency = true,
   theme = "onedark",
 }
+
+M.mappings = require "custom.keymaps"
 
 return M
