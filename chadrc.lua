@@ -16,11 +16,6 @@ M.plugins = {
       },
     },
   },
-  options = {
-    lspconfig = {
-      setup_lspconf = "custom.config.lspconfig",
-    },
-  },
   user = userPlugins,
   remove = {
     "folke/which-key.nvim",
@@ -29,7 +24,7 @@ M.plugins = {
 
 M.ui = {
   transparency = true,
-  theme = "onedark",
+  theme = "tokyonight",
 }
 
 M.mappings = require "custom.keymaps"

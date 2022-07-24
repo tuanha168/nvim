@@ -7,6 +7,28 @@ M.disabled = {
     ["<leader>h"] = "",
     ["<leader>v"] = "",
     ["<C-s>"] = "",
+    ["<leader>x"] = "",
+    ["<leader>wK"] = "",
+    ["<leader>wk"] = "",
+  },
+}
+
+M.terminal = {
+  n = {
+    ["<leader>`"] = {
+      function()
+        require("nvterm.terminal").toggle "horizontal"
+      end,
+      "   toggle horizontal term",
+    },
+  },
+  t = {
+    ["<leader>`"] = {
+      function()
+        require("nvterm.terminal").toggle "horizontal"
+      end,
+      "   toggle horizontal term",
+    },
   },
 }
 
@@ -42,7 +64,7 @@ M.gitSigns = {
   n = {
     ["[c"] = { "<cmd>Gitsigns prev_hunk<CR>", "" },
     ["]c"] = { "<cmd>Gitsigns next_hunk<CR>", "" },
-    ["G"] = { "<cmd>Gitsigns diffthis<CR><C-l>", "" },
+    ["<leader>pp"] = { "<cmd>Gitsigns preview_hunk<CR>", "Git Actions" },
   },
   v = {
     ["u"] = { ":Gitsigns reset_hunk<CR>", "" },
@@ -116,13 +138,16 @@ M.yanky = {
 
 M.projects = {
   n = {
-    ["``"] = { ":lua require'telescope'.extensions.project.project{}<CR>", "" },
+    ["``"] = {
+      ":lua require'telescope'.extensions.project.project{}<CR>",
+      "",
+    },
   },
 }
 
 M.closeTab = {
   n = {
-    ["<leader>x"] = {
+    ["<leader><ESC><ESC>"] = {
       function()
         require("core.utils").close_buffer()
         if vim.api.nvim_buf_get_name(0) == "" then
