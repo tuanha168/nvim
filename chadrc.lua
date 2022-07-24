@@ -2,13 +2,8 @@ local userPlugins = require "custom.plugins"
 
 local M = {}
 
-M.options = {
-  user = function()
-    require "custom.config.default"
-  end,
-}
-
 M.plugins = {
+  user = userPlugins,
   override = {
     ["NvChad/ui"] = {
       tabufline = {
@@ -16,7 +11,6 @@ M.plugins = {
       },
     },
   },
-  user = userPlugins,
   remove = {
     "folke/which-key.nvim",
   },

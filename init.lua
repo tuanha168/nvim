@@ -8,4 +8,5 @@ vim.api.nvim_exec(
   false
 )
 
-require("custom.config.colors")
+require "custom.config.colors"
+require "custom.config.default"

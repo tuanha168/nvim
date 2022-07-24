@@ -160,4 +160,10 @@ M.closeTab = {
   },
 }
 
+M.mru = {
+  n = {
+    ["<C-t>"] = { "<cmd>Mru<CR>", "" },
+  },
+}
+
 return M

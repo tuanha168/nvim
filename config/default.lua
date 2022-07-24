@@ -21,10 +21,10 @@ local options_opt = {
   termencoding = "utf-8",
   cursorline = true,
   termguicolors = true,
+  foldlevel = 20,
+  foldmethod = "expr",
+  foldexpr = "nvim_treesitter#foldexpr()",
 }
-  -- foldlevel = 20,
-  -- foldmethod = "expr",
-  -- foldexpr = "nvim_treesitter#foldexpr()",
 for k, v in pairs(options_opt) do
   vim.opt[k] = v
 end

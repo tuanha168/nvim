@@ -46,6 +46,7 @@ return {
     end,
   },
   ["nvim-telescope/telescope.nvim"] = {
+    after = "nvim-cmp",
     module = "telescope",
   },
   ["nvim-telescope/telescope-project.nvim"] = {
@@ -66,4 +67,5 @@ return {
       require("yanky").setup {}
     end,
   },
+  ["yegappan/mru"] = {},
 }
