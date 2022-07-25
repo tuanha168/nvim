@@ -150,10 +150,10 @@ M.closeTab = {
     ["<leader><ESC><ESC>"] = {
       function()
         require("core.utils").close_buffer()
-        -- if vim.api.nvim_buf_get_name(0) == "" then
-        --   pcall(vim.cmd, ":Alpha")
-        --   pcall(vim.cmd, ":bd#")
-        -- end
+        if vim.api.nvim_buf_get_name(0) == "" then
+          pcall(vim.cmd, ":Alpha")
+          pcall(vim.cmd, ":bd#")
+        end
       end,
       "   close buffer",
     },
