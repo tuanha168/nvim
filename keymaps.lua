@@ -15,7 +15,7 @@ M.disabled = {
 
 M.terminal = {
   n = {
-    ["<leader>`"] = {
+    ["<c-b>"] = {
       function()
         require("nvterm.terminal").toggle "horizontal"
       end,
@@ -23,7 +23,7 @@ M.terminal = {
     },
   },
   t = {
-    ["<leader>`"] = {
+    ["<c-b>"] = {
       function()
         require("nvterm.terminal").toggle "horizontal"
       end,
@@ -94,8 +94,8 @@ M.keepCenter = {
   n = {
     ["n"] = { "nzzzv", "" },
     ["<S-n>"] = { "Nzzzv", "" },
-    ["j"] = { "jzz", "" },
-    ["k"] = { "kzz", "" },
+    ["j"] = { 'v:count || mode(1)[0:1] == "no" ? "jzz" : "gjzz"', opts = { expr = true } },
+    ["k"] = { 'v:count || mode(1)[0:1] == "no" ? "kzz" : "gkzz"', opts = { expr = true } },
     ["L"] = { "Lzz", "" },
     ["H"] = { "Hzz", "" },
   },
@@ -124,8 +124,8 @@ M.yanky = {
     ["P"] = { "<Plug>(YankyPutBefore)", "" },
     ["gp"] = { "<Plug>(YankyGPutAfter)", "" },
     ["gP"] = { "<Plug>(YankyGPutBefore)", "" },
-    ["<a-n>"] = { "<Plug>(YankyCycleForward)", "" },
-    ["<a-p>"] = { "<Plug>(YankyCycleBackward)", "" },
+    ["<c-C>"] = { "<Plug>(YankyCycleForward)", "" },
+    ["<c-V>"] = { "<Plug>(YankyCycleBackward)", "" },
   },
 
   x = {
