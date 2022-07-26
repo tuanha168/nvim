@@ -45,10 +45,6 @@ return {
       }
     end,
   },
-  ["nvim-telescope/telescope.nvim"] = {
-    after = "nvim-cmp",
-    module = "telescope",
-  },
   ["nvim-telescope/telescope-project.nvim"] = {
     after = "telescope.nvim",
     config = function()
@@ -67,5 +63,5 @@ return {
       require("yanky").setup {}
     end,
   },
-  ["yegappan/mru"] = {},
+  ["tpope/vim-fugitive"] = {},
 }

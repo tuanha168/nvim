@@ -136,10 +136,10 @@ M.yanky = {
   },
 }
 
-M.projects = {
+M.telescope = {
   n = {
     ["``"] = {
-      ":lua require'telescope'.extensions.project.project{}<CR>",
+      "<cmd> Telescope project <CR>",
       "",
     },
   },
@@ -150,6 +150,7 @@ M.closeTab = {
     ["<leader><ESC><ESC>"] = {
       function()
         require("core.utils").close_buffer()
+        require("core.utils").tabuflineNext()
         if vim.api.nvim_buf_get_name(0) == "" then
           pcall(vim.cmd, ":Alpha")
           pcall(vim.cmd, ":bd#")
