@@ -42,6 +42,13 @@ M.plugins = {
 M.ui = {
   transparency = true,
   theme = "onedark",
+  changed_themes = {
+    onedark = {
+      base_16 = {
+        base08 = "#ff75a0",
+      },
+    },
+  },
 }
 
 M.mappings = require "custom.keymaps"

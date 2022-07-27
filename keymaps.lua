@@ -1,5 +1,6 @@
 -- lua/custom/mappings
 local M = {}
+local opts = { silent = true }
 
 -- add this table only when you want to disable default keys
 M.disabled = {
@@ -20,6 +21,7 @@ M.terminal = {
         require("nvterm.terminal").toggle "horizontal"
       end,
       "   toggle horizontal term",
+      opts = opts,
     },
   },
   t = {
@@ -28,111 +30,117 @@ M.terminal = {
         require("nvterm.terminal").toggle "horizontal"
       end,
       "   toggle horizontal term",
+      opts = opts,
     },
   },
 }
 
 M.windowMove = {
   n = {
-    ["<C-h>"] = { "<C-w>h", "" },
-    ["<C-j>"] = { "<C-w>j", "" },
-    ["<C-k>"] = { "<C-w>k", "" },
-    ["<C-l>"] = { "<C-w>l", "" },
+    ["<C-h>"] = { "<C-w>h", "", opts = opts },
+    ["<C-j>"] = { "<C-w>j", "", opts = opts },
+    ["<C-k>"] = { "<C-w>k", "", opts = opts },
+    ["<C-l>"] = { "<C-w>l", "", opts = opts },
   },
 }
 
 M.advanceSearch = {
   n = {
-    ["*"] = { '"ayiwh/<c-r>a<CR>', "" },
+    ["*"] = { '"ayiwh/<c-r>a<CR>', "", opts = opts },
   },
   v = {
-    ["*"] = { '"ayh/<c-r>a<CR>', "" },
+    ["*"] = { '"ayh/<c-r>a<CR>', "", opts = opts },
   },
 }
 
 M.neoGit = {
   n = {
-    ["<leader>gg"] = { ":Neogit<cr>", "" },
-    ["<leader>gd"] = { ":DiffviewOpen<cr>", "" },
-    ["<leader>gD"] = { ":DiffviewOpen main<cr>", "" },
-    ["<leader>gl"] = { ":Neogit log<cr>", "" },
-    ["<leader>gp"] = { ":Neogit push<cr>", "" },
+    ["<leader>gg"] = { ":Neogit<cr>", "", opts = opts },
+    ["<leader>gd"] = { ":DiffviewOpen<cr>", "", opts = opts },
+    ["<leader>gD"] = { ":DiffviewOpen main<cr>", "", opts = opts },
+    ["<leader>gl"] = { ":Neogit log<cr>", "", opts = opts },
+    ["<leader>gp"] = { ":Neogit push<cr>", "", opts = opts },
   },
 }
 
 M.gitSigns = {
   n = {
-    ["[c"] = { "<cmd>Gitsigns prev_hunk<CR>", "" },
-    ["]c"] = { "<cmd>Gitsigns next_hunk<CR>", "" },
-    ["<leader>pp"] = { "<cmd>Gitsigns preview_hunk<CR>", "Git Actions" },
+    ["[c"] = { "<cmd>Gitsigns prev_hunk<CR>", "", opts = opts },
+    ["]c"] = { "<cmd>Gitsigns next_hunk<CR>", "", opts = opts },
+    ["<leader>pp"] = { "<cmd>Gitsigns preview_hunk<CR>", "Git Actions", opts = opts },
   },
   v = {
-    ["u"] = { ":Gitsigns reset_hunk<CR>", "" },
+    ["u"] = { ":Gitsigns reset_hunk<CR>", "", opts = opts },
   },
 }
 
 M.moving = {
   n = {
-    ["K"] = { ":m .-2<CR>==", "" },
-    ["J"] = { ":m .+1<CR>==", "" },
+    ["K"] = { ":m .-2<CR>==", "", opts = opts },
+    ["J"] = { ":m .+1<CR>==", "", opts = opts },
   },
   v = {
-    ["K"] = { ":m '<-2<CR>gv=gv", "" },
-    ["J"] = { ":m '>+1<CR>gv=gv", "" },
+    ["K"] = { ":m '<-2<CR>gv=gv", "", opts = opts },
+    ["J"] = { ":m '>+1<CR>gv=gv", "", opts = opts },
   },
 }
 
 M.visualIndent = {
   v = {
-    ["<"] = { "<gv", "" },
-    [">"] = { ">gv", "" },
-    ["p"] = { '"_dP', "" },
+    ["<"] = { "<gv", "", opts = opts },
+    [">"] = { ">gv", "", opts = opts },
+    ["p"] = { '"_dP', "", opts = opts },
   },
 }
 
 M.keepCenter = {
   n = {
-    ["n"] = { "nzzzv", "" },
-    ["<S-n>"] = { "Nzzzv", "" },
-    ["j"] = { 'v:count || mode(1)[0:1] == "no" ? "jzz" : "gjzz"', opts = { expr = true } },
-    ["k"] = { 'v:count || mode(1)[0:1] == "no" ? "kzz" : "gkzz"', opts = { expr = true } },
-    ["L"] = { "Lzz", "" },
-    ["H"] = { "Hzz", "" },
+    ["n"] = { "nzzzv", "", opts = opts },
+    ["<S-n>"] = { "Nzzzv", "", opts = opts },
+    ["j"] = { 'v:count || mode(1)[0:1] == "no" ? "jzz" : "gjzz"', opts = { expr = true, silent = true } },
+    ["k"] = { 'v:count || mode(1)[0:1] == "no" ? "kzz" : "gkzz"', opts = { expr = true, silent = true } },
+    ["L"] = { "Lzz", "", opts = opts },
+    ["H"] = { "Hzz", "", opts = opts },
   },
 }
 
 M.splitAndResize = {
   n = {
-    ["<C-down>"] = { ":split<CR>", "" },
-    ["<C-right>"] = { ":vsplit<CR>", "" },
-    ["<up>"] = { ":resize +2<CR>", "" },
-    ["<down>"] = { ":resize -2<CR>", "" },
-    ["<left>"] = { ":vertical resize -2<CR>", "" },
-    ["<right>"] = { ":vertical resize +2<CR>", "" },
+    ["<up>"] = { ":resize +2<CR>", "", opts = opts },
+    ["<down>"] = { ":resize -2<CR>", "", opts = opts },
+    ["<left>"] = { ":vertical resize -2<CR>", "", opts = opts },
+    ["<right>"] = { ":vertical resize +2<CR>", "", opts = opts },
+  },
+
+  v = {
+    ["<up>"] = { ":resize +2<CR>", "", opts = opts },
+    ["<down>"] = { ":resize -2<CR>", "", opts = opts },
+    ["<left>"] = { ":vertical resize -2<CR>", "", opts = opts },
+    ["<right>"] = { ":vertical resize +2<CR>", "", opts = opts },
   },
 }
 
 M.closePreview = {
   n = {
-    ["<CR>"] = { "<CR>:ccl<CR>" },
+    ["<CR>"] = { "<CR>:ccl<CR>", "", opts = opts },
   },
 }
 
 M.yanky = {
   n = {
-    ["p"] = { "<Plug>(YankyPutAfter)", "" },
-    ["P"] = { "<Plug>(YankyPutBefore)", "" },
-    ["gp"] = { "<Plug>(YankyGPutAfter)", "" },
-    ["gP"] = { "<Plug>(YankyGPutBefore)", "" },
-    ["<c-C>"] = { "<Plug>(YankyCycleForward)", "" },
-    ["<c-V>"] = { "<Plug>(YankyCycleBackward)", "" },
+    ["p"] = { "<Plug>(YankyPutAfter)", "", opts = opts },
+    ["P"] = { "<Plug>(YankyPutBefore)", "", opts = opts },
+    ["gp"] = { "<Plug>(YankyGPutAfter)", "", opts = opts },
+    ["gP"] = { "<Plug>(YankyGPutBefore)", "", opts = opts },
+    ["<c-C>"] = { "<Plug>(YankyCycleForward)", "", opts = opts },
+    ["<c-V>"] = { "<Plug>(YankyCycleBackward)", "", opts = opts },
   },
 
   x = {
-    ["p"] = { "<Plug>(YankyPutAfter)", "" },
-    ["P"] = { "<Plug>(YankyPutBefore)", "" },
-    ["gp"] = { "<Plug>(YankyGPutAfter)", "" },
-    ["gP"] = { "<Plug>(YankyGPutBefore)", "" },
+    ["p"] = { "<Plug>(YankyPutAfter)", "", opts = opts },
+    ["P"] = { "<Plug>(YankyPutBefore)", "", opts = opts },
+    ["gp"] = { "<Plug>(YankyGPutAfter)", "", opts = opts },
+    ["gP"] = { "<Plug>(YankyGPutBefore)", "", opts = opts },
   },
 }
 
@@ -141,6 +149,7 @@ M.telescope = {
     ["``"] = {
       "<cmd> Telescope project <CR>",
       "",
+      opts = opts,
     },
   },
 }
@@ -155,16 +164,18 @@ M.closeTab = {
           pcall(vim.cmd, ":Alpha")
           pcall(vim.cmd, ":bd#")
         end
+        require("core.utils").tabuflinePrev()
       end,
       "   close buffer",
+      opts = opts,
     },
   },
 }
 
-M.mru = {
-  n = {
-    ["<C-t>"] = { "<cmd>Mru<CR>", "" },
-  },
-}
+-- M.mru = {
+--   n = {
+--     ["<C-t>"] = { "<cmd>Mru<CR>", "", opts = opts },
+--   },
+-- }
 
 return M
