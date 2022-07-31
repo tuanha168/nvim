@@ -70,4 +70,10 @@ return {
       require("better_escape").setup()
     end,
   },
+  ["glepnir/lspsaga.nvim"] = {
+    config = function ()
+      local saga = require 'lspsaga'
+      saga.init_lsp_saga()
+    end
+  }
 }

@@ -33,6 +33,20 @@ M.plugins = {
         "intelephense",
       },
     },
+    ["NvChad/nvterm"] = {
+      terminals = {
+        type_opts = {
+          float = {
+            relative = "editor",
+            row = 0.6,
+            col = 0.25,
+            width = 1,
+            height = 1,
+            border = "single",
+          },
+        },
+      },
+    },
   },
   remove = {
     "folke/which-key.nvim",

@@ -18,7 +18,7 @@ M.terminal = {
   n = {
     ["<c-b>"] = {
       function()
-        require("nvterm.terminal").toggle "horizontal"
+        require("nvterm.terminal").toggle "float"
       end,
       "   toggle horizontal term",
       opts = opts,
@@ -27,7 +27,7 @@ M.terminal = {
   t = {
     ["<c-b>"] = {
       function()
-        require("nvterm.terminal").toggle "horizontal"
+        require("nvterm.terminal").toggle "float"
       end,
       "   toggle horizontal term",
       opts = opts,
