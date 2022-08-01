@@ -59,7 +59,7 @@ M.ui = {
   changed_themes = {
     onedark = {
       base_16 = {
-        base08 = "#ff75a0",
+        base08 = "#fc97b7",
       },
     },
   },

@@ -1,6 +1,6 @@
 -- lua/custom/mappings
 local M = {}
-local opts = { silent = true }
+local opts = { silent = true, noremap = true }
 
 -- add this table only when you want to disable default keys
 M.disabled = {
@@ -16,7 +16,7 @@ M.disabled = {
 
 M.terminal = {
   n = {
-    ["<c-b>"] = {
+    ["<c-T>"] = {
       function()
         require("nvterm.terminal").toggle "float"
       end,
@@ -25,7 +25,7 @@ M.terminal = {
     },
   },
   t = {
-    ["<c-b>"] = {
+    ["<c-T>"] = {
       function()
         require("nvterm.terminal").toggle "float"
       end,
@@ -99,9 +99,14 @@ M.keepCenter = {
     ["<S-n>"] = { "Nzzzv", "", opts = opts },
     ["j"] = { 'v:count || mode(1)[0:1] == "no" ? "jzz" : "gjzz"', opts = { expr = true, silent = true } },
     ["k"] = { 'v:count || mode(1)[0:1] == "no" ? "kzz" : "gkzz"', opts = { expr = true, silent = true } },
-    ["L"] = { "Lzz", "", opts = opts },
-    ["H"] = { "Hzz", "", opts = opts },
+    ["H"] = { "^", "", opts = opts },
+    ["L"] = { "$", "", opts = opts },
+    ["gd"] = { "gdzz", "", opts = opts },
   },
+  v = {
+    ["H"] = { "^", "", opts = opts },
+    ["L"] = { "$", "", opts = opts },
+  }
 }
 
 M.splitAndResize = {
@@ -123,6 +128,7 @@ M.splitAndResize = {
 M.closePreview = {
   n = {
     ["<CR>"] = { "<CR>:ccl<CR>", "", opts = opts },
+    ["q"] = { "<ESC>:ccl<CR>q", "", opts = opts },
   },
 }
 
@@ -132,8 +138,8 @@ M.yanky = {
     ["P"] = { "<Plug>(YankyPutBefore)", "", opts = opts },
     ["gp"] = { "<Plug>(YankyGPutAfter)", "", opts = opts },
     ["gP"] = { "<Plug>(YankyGPutBefore)", "", opts = opts },
-    ["<c-C>"] = { "<Plug>(YankyCycleForward)", "", opts = opts },
-    ["<c-V>"] = { "<Plug>(YankyCycleBackward)", "", opts = opts },
+    ["<c-V>"] = { "<Plug>(YankyCycleForward)", "", opts = opts },
+    ["<c-B>"] = { "<Plug>(YankyCycleBackward)", "", opts = opts },
   },
 
   x = {
