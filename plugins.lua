@@ -45,10 +45,17 @@ return {
       }
     end,
   },
-  ["nvim-telescope/telescope-project.nvim"] = {
-    after = "telescope.nvim",
+  ["nvim-telescope/telescope.nvim"] = {
+    cmd = "Telescope",
     config = function()
-      require("custom.config.project").setup()
+      require "plugins.configs.telescope"
+      require("custom.config.telescope").setup()
+    end,
+  },
+  ["nvim-telescope/telescope-project.nvim"] = {},
+  ["gbprod/yanky.nvim"] = {
+    config = function()
+      require("custom.config.yanky").setup()
     end,
   },
   ["goolord/alpha-nvim"] = {
@@ -57,25 +64,25 @@ return {
       require("alpha").setup(require("alpha.themes.startify").config)
     end,
   },
-  ["unblevable/quick-scope"] = {},
-  ["gbprod/yanky.nvim"] = {
-    config = function()
-      require("yanky").setup {}
-    end,
-  },
   ["tpope/vim-fugitive"] = {},
   ["max397574/better-escape.nvim"] = {
     event = "InsertEnter",
     config = function()
       require("better_escape").setup {
-        mapping = {"jk", "jj", "kk"},
+        mapping = { "jk", "jj", "kk" },
       }
     end,
   },
   ["glepnir/lspsaga.nvim"] = {
-    config = function ()
-      local saga = require 'lspsaga'
+    config = function()
+      local saga = require "lspsaga"
       saga.init_lsp_saga()
-    end
-  }
+    end,
+  },
+  ["ggandor/lightspeed.nvim"] = {
+    config = function()
+      require("custom.config.lightspeed").setup()
+    end,
+  },
+  ["wellle/targets.vim"] = {},
 }

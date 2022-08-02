@@ -99,14 +99,14 @@ M.keepCenter = {
     ["<S-n>"] = { "Nzzzv", "", opts = opts },
     ["j"] = { 'v:count || mode(1)[0:1] == "no" ? "jzz" : "gjzz"', opts = { expr = true, silent = true } },
     ["k"] = { 'v:count || mode(1)[0:1] == "no" ? "kzz" : "gkzz"', opts = { expr = true, silent = true } },
-    ["H"] = { "^", "", opts = opts },
-    ["L"] = { "$", "", opts = opts },
+    ["H"] = { "Hzz", "", opts = opts },
+    ["L"] = { "Lzz", "", opts = opts },
     ["gd"] = { "gdzz", "", opts = opts },
   },
-  v = {
-    ["H"] = { "^", "", opts = opts },
-    ["L"] = { "$", "", opts = opts },
-  }
+  -- v = {
+  --   ["H"] = { "^", "", opts = opts },
+  --   ["L"] = { "$", "", opts = opts },
+  -- },
 }
 
 M.splitAndResize = {
@@ -134,12 +134,12 @@ M.closePreview = {
 
 M.yanky = {
   n = {
-    ["p"] = { "<Plug>(YankyPutAfter)", "", opts = opts },
-    ["P"] = { "<Plug>(YankyPutBefore)", "", opts = opts },
-    ["gp"] = { "<Plug>(YankyGPutAfter)", "", opts = opts },
-    ["gP"] = { "<Plug>(YankyGPutBefore)", "", opts = opts },
-    ["<c-V>"] = { "<Plug>(YankyCycleForward)", "", opts = opts },
-    ["<c-B>"] = { "<Plug>(YankyCycleBackward)", "", opts = opts },
+    -- ["p"] = { "<Plug>(YankyPutAfter)", "", opts = opts },
+    -- ["P"] = { "<Plug>(YankyPutBefore)", "", opts = opts },
+    -- ["gp"] = { "<Plug>(YankyGPutAfter)", "", opts = opts },
+    -- ["gP"] = { "<Plug>(YankyGPutBefore)", "", opts = opts },
+    -- ["<c-P>"] = { "<cmd>Telescope yank_history<CR>", "", opts = opts },
+    ["p"] = { "<cmd>Telescope yank_history<CR>jk", "", opts = opts },
   },
 
   x = {
@@ -177,11 +177,5 @@ M.closeTab = {
     },
   },
 }
-
--- M.mru = {
---   n = {
---     ["<C-t>"] = { "<cmd>Mru<CR>", "", opts = opts },
---   },
--- }
 
 return M
