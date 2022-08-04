@@ -47,9 +47,11 @@ M.windowMove = {
 M.advanceSearch = {
   n = {
     ["*"] = { '"ayiwh/<c-r>a<CR>', "", opts = opts },
+    ["<leader>fiw"] = { '"ayiwh/<c-r>a<CR><cmd> Telescope live_grep <CR>a<c-r>a<esc>jk', "", opts = opts },
   },
   v = {
     ["*"] = { '"ayh/<c-r>a<CR>', "", opts = opts },
+    ["<leader>fiw"] = { '"ayh/<c-r>a<CR><cmd> Telescope live_grep <CR>a<c-r>a<esc>jk', "", opts = opts },
   },
 }
 
@@ -97,10 +99,12 @@ M.keepCenter = {
   n = {
     ["n"] = { "nzzzv", "", opts = opts },
     ["<S-n>"] = { "Nzzzv", "", opts = opts },
-    ["j"] = { 'v:count || mode(1)[0:1] == "no" ? "jzz" : "gjzz"', opts = { expr = true, silent = true } },
-    ["k"] = { 'v:count || mode(1)[0:1] == "no" ? "kzz" : "gkzz"', opts = { expr = true, silent = true } },
-    ["H"] = { "Hzz", "", opts = opts },
-    ["L"] = { "Lzz", "", opts = opts },
+    -- ["j"] = { 'v:count || mode(1)[0:1] == "no" ? "jzz" : "gjzz"', opts = { expr = true, silent = true } },
+    -- ["k"] = { 'v:count || mode(1)[0:1] == "no" ? "kzz" : "gkzz"', opts = { expr = true, silent = true } },
+    ["j"] = { 'v:count || mode(1)[0:1] == "no" ? "j" : "gj"', opts = { expr = true, silent = true } },
+    ["k"] = { 'v:count || mode(1)[0:1] == "no" ? "k" : "gk"', opts = { expr = true, silent = true } },
+    ["{"] = { "Hzz", "", opts = opts },
+    ["}"] = { "Lzz", "", opts = opts },
     ["gd"] = { "gdzz", "", opts = opts },
   },
   -- v = {
@@ -127,8 +131,8 @@ M.splitAndResize = {
 
 M.closePreview = {
   n = {
-    ["<CR>"] = { "<CR>:ccl<CR>", "", opts = opts },
-    ["q"] = { "<ESC>:ccl<CR>q", "", opts = opts },
+    ["<CR>"] = { "<CR>zz:ccl<CR>", "" },
+    ["q"] = { "<ESC>:ccl<CR>q", "" },
   },
 }
 

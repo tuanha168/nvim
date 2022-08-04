@@ -75,8 +75,7 @@ return {
   },
   ["glepnir/lspsaga.nvim"] = {
     config = function()
-      local saga = require "lspsaga"
-      saga.init_lsp_saga()
+      require("custom.config.lspsaga").setup()
     end,
   },
   ["ggandor/lightspeed.nvim"] = {

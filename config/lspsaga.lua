@@ -10,6 +10,9 @@ M.setup = function()
       quit = "q",
       exec = "<tab>",
     },
+    finder_action_keys = {
+      open = "<CR>",
+    },
   }
 end
 
