@@ -50,6 +50,7 @@ M.plugins = {
   },
   remove = {
     "folke/which-key.nvim",
+    -- "kyazdani42/nvim-tree.lua",
   },
 }
 

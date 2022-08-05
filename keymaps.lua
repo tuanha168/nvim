@@ -132,7 +132,7 @@ M.splitAndResize = {
 M.closePreview = {
   n = {
     ["<CR>"] = { "<CR>zz:ccl<CR>", "" },
-    ["q"] = { "<ESC>:ccl<CR>q", "" },
+    ["q"] = { "<ESC>:ccl<CR>q", "", opts = { silent = true } },
   },
 }
 

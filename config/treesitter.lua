@@ -1,4 +1,7 @@
 local M = {
+  matchup = {
+    enable = true,
+  },
   ensure_installed = {
     "lua",
     "javascript",
@@ -11,6 +14,7 @@ local M = {
     "json",
     "css",
     "tsx",
+    "html",
   },
 
   -- Install parsers synchronously (only applied to `ensure_installed`)

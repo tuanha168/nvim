@@ -35,16 +35,6 @@ return {
     end,
   },
   ["sindrets/diffview.nvim"] = {},
-  ["TimUntersberger/neogit"] = {
-    config = function()
-      require("neogit").setup {
-        disable_commit_confirmation = true,
-        integrations = {
-          diffview = true,
-        },
-      }
-    end,
-  },
   ["nvim-telescope/telescope.nvim"] = {
     cmd = "Telescope",
     config = function()
@@ -64,24 +54,48 @@ return {
       require("alpha").setup(require("alpha.themes.startify").config)
     end,
   },
+
+  -- git
   ["tpope/vim-fugitive"] = {},
+  ["TimUntersberger/neogit"] = {
+    config = function()
+      require("neogit").setup {
+        disable_commit_confirmation = true,
+        integrations = {
+          diffview = true,
+        },
+      }
+    end,
+  },
+
+  -- jk escape
   ["max397574/better-escape.nvim"] = {
     event = "InsertEnter",
     config = function()
       require("better_escape").setup {
         mapping = { "jk", "jj", "kk" },
+        clear_empty_lines = true,
       }
     end,
   },
+
+  -- lspsaga
   ["glepnir/lspsaga.nvim"] = {
     config = function()
       require("custom.config.lspsaga").setup()
     end,
   },
+
+  -- lightspeed
   ["ggandor/lightspeed.nvim"] = {
     config = function()
       require("custom.config.lightspeed").setup()
     end,
   },
+
+  -- targets
   ["wellle/targets.vim"] = {},
+
+  -- match-up
+  ["andymass/vim-matchup"] = {}
 }
