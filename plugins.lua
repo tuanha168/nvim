@@ -97,5 +97,10 @@ return {
   ["wellle/targets.vim"] = {},
 
   -- match-up
-  ["andymass/vim-matchup"] = {}
+  ["andymass/vim-matchup"] = {
+    after = "nvim-lspconfig",
+    config = function()
+      require('custom.config.vim-matchup').setup()
+    end,
+  },
 }

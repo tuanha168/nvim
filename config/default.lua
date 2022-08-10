@@ -32,7 +32,28 @@ end
 
 local options_g = {
   mapleader = " ", -- space as leader key
+  matchup_matchparen_offscreen = { method = "popup" },
 }
 for k, v in pairs(options_g) do
   vim.g[k] = v
+end
+
+if vim.g.neovide then
+  local opts = {
+    guifont = "CaskaydiaCove Nerd Font:h15",
+    clipboard = "unnamedplus",
+  }
+  for k, v in pairs(opts) do
+    vim.opt[k] = v
+  end
+  local g = {
+    -- neovide_fullscreen = true,
+    -- neovide_input_use_logo = true,
+    neovide_remember_window_size = true,
+    neovide_input_macos_alt_is_meta = true,
+    -- neovide_profiler = true,
+  }
+  for k, v in pairs(g) do
+    vim.g[k] = v
+  end
 end

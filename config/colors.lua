@@ -1,15 +1,3 @@
--- quick scope
-vim.api.nvim_exec(
-  [[
-    augroup qs_colors
-      autocmd!
-      autocmd ColorScheme * highlight QuickScopePrimary guifg='#afff5f' gui=underline ctermfg=155 cterm=underline
-      autocmd ColorScheme * highlight QuickScopeSecondary guifg='#5fffff' gui=underline ctermfg=81 cterm=underline
-    augroup END
-  ]],
-  false
-)
-
 -- Neogit
 vim.api.nvim_exec(
   [[
@@ -41,9 +29,9 @@ vim.api.nvim_exec(
 -- diffview
 vim.api.nvim_exec(
   [[
-    hi DiffAdd guibg=#132b16
-    hi Diffchange guibg=#373810
-    hi DiffDelete  guibg=#26071d guifg=#bd3e99
+    hi DiffAdd guibg=#132b16 guifg=#37edde
+    hi Diffchange guibg=#373810 guifg=#37edde
+    hi DiffDelete guibg=#26071d guifg=#bd3e99
     hi DiffText guibg=#226b3c
   ]],
   false
