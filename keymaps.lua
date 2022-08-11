@@ -15,20 +15,34 @@ M.disabled = {
 }
 
 M.terminal = {
+  -- n = {
+  --   ["<c-T>"] = {
+  --     function()
+  --       require("nvterm.terminal").toggle "float"
+  --     end,
+  --     "   toggle horizontal term",
+  --     opts = opts,
+  --   },
+  -- },
+  -- t = {
+  --   ["<c-T>"] = {
+  --     function()
+  --       require("nvterm.terminal").toggle "float"
+  --     end,
+  --     "   toggle horizontal term",
+  --     opts = opts,
+  --   },
+  -- },
   n = {
     ["<c-T>"] = {
-      function()
-        require("nvterm.terminal").toggle "float"
-      end,
+      "<cmd>LspsagaFloaterm lazygit<CR>",
       "   toggle horizontal term",
       opts = opts,
     },
   },
   t = {
     ["<c-T>"] = {
-      function()
-        require("nvterm.terminal").toggle "float"
-      end,
+      "<cmd>Lspsaga close_floaterm<CR>",
       "   toggle horizontal term",
       opts = opts,
     },

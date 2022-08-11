@@ -51,7 +51,8 @@ local function lsp_highlight_document(client)
       [[
       augroup lsp_document_highlight
         autocmd! * <buffer>
-        autocmd! CursorHold,CursorHoldI * lua vim.diagnostic.open_float(nil, {focus=false})
+        autocmd! CursorHold * lua vim.diagnostic.open_float(nil, {focus=false})
+        autocmd! CursorHoldI * Lspsaga signature_help
       augroup END
     ]],
       false
@@ -65,7 +66,6 @@ local function lsp_keymaps(bufnr)
   vim.api.nvim_buf_set_keymap(bufnr, "v", "<c-f>", "<cmd>lua vim.lsp.buf.range_formatting()<CR>", opts)
   vim.api.nvim_buf_set_keymap(bufnr, "n", "gD", "<cmd>Lspsaga preview_definition<CR>", opts)
   vim.api.nvim_buf_set_keymap(bufnr, "n", "<leader>k", "<Cmd>Lspsaga hover_doc<CR>", opts)
-  -- vim.api.nvim_buf_set_keymap(bufnr, "n", "<A-k>", "<cmd>lua vim.lsp.buf.signature_help()<CR>", opts)
   vim.api.nvim_buf_set_keymap(bufnr, "n", "<leader>e", "<cmd>Lspsaga code_action<CR>", opts)
   vim.api.nvim_buf_set_keymap(bufnr, "n", "<leader>o", "<cmd>LSoutlineToggle<CR>", opts)
   vim.api.nvim_buf_set_keymap(bufnr, "n", "gr", "<cmd>Lspsaga rename<CR>", opts)
