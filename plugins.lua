@@ -100,7 +100,7 @@ return {
   ["andymass/vim-matchup"] = {
     after = "nvim-lspconfig",
     config = function()
-      require('custom.config.vim-matchup').setup()
+      require("custom.config.vim-matchup").setup()
     end,
   },
 }

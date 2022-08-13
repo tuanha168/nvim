@@ -10,12 +10,15 @@ local formatting = null_ls.builtins.formatting
 local sources = {
   formatting.prettier.with {
     extra_args = {
-      -- "--no-semi",
+      "--no-semi",
       "--single-quote",
       "--jsx-single-quote",
-      "--tab-width 2",
-      "--trailing-comma none",
-      "--arrow-parens avoid",
+      "--tab-width",
+      "2",
+      "--trailing-comma",
+      "none",
+      "--arrow-parens",
+      "avoid",
     },
   },
   formatting.phpcsfixer,

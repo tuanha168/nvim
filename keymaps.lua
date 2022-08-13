@@ -15,33 +15,20 @@ M.disabled = {
 }
 
 M.terminal = {
-  -- n = {
-  --   ["<c-T>"] = {
-  --     function()
-  --       require("nvterm.terminal").toggle "float"
-  --     end,
-  --     "   toggle horizontal term",
-  --     opts = opts,
-  --   },
-  -- },
-  -- t = {
-  --   ["<c-T>"] = {
-  --     function()
-  --       require("nvterm.terminal").toggle "float"
-  --     end,
-  --     "   toggle horizontal term",
-  --     opts = opts,
-  --   },
-  -- },
   n = {
     ["<c-T>"] = {
-      "<cmd>LspsagaFloaterm lazygit<CR>",
+      "<cmd>Lspsaga open_floaterm<CR>",
       "   toggle horizontal term",
       opts = opts,
     },
   },
   t = {
     ["<c-T>"] = {
+      "<cmd>Lspsaga close_floaterm<CR>",
+      "   toggle horizontal term",
+      opts = opts,
+    },
+    ["<leader><ESC><ESC>"] = {
       "<cmd>Lspsaga close_floaterm<CR>",
       "   toggle horizontal term",
       opts = opts,
@@ -120,11 +107,13 @@ M.keepCenter = {
     ["{"] = { "Hzz", "", opts = opts },
     ["}"] = { "Lzz", "", opts = opts },
     ["gd"] = { "gdzz", "", opts = opts },
+    ["H"] = { "^", "", opts = opts },
+    ["L"] = { "$", "", opts = opts },
   },
-  -- v = {
-  --   ["H"] = { "^", "", opts = opts },
-  --   ["L"] = { "$", "", opts = opts },
-  -- },
+  v = {
+    ["H"] = { "^", "", opts = opts },
+    ["L"] = { "$", "", opts = opts },
+  },
 }
 
 M.splitAndResize = {
