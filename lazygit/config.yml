@@ -1,0 +1,26 @@
+gui:
+  theme:
+    lightTheme: false
+    activeBorderColor:
+    - cyan
+    - bold
+    inactiveBorderColor:
+    - yellow
+    optionsTextColor:
+    - green
+    selectedLineBgColor:
+    - blue
+    selectedRangeBgColor:
+    - gray
+    cherryPickedCommitBgColor:
+    - gray
+    cherryPickedCommitFgColor:
+    - green
+    unstagedChangesColor:
+    - red
+keybinding:
+  universal:
+    quit: '<c-c>'
+    edit: '<c-c>'
+os:
+  editCommand: 'nvim'
