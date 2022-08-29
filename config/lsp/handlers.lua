@@ -52,9 +52,9 @@ local function lsp_highlight_document(client)
       augroup lsp_document_highlight
         autocmd! * <buffer>
         autocmd! CursorHold * lua vim.diagnostic.open_float(nil, {focus=false})
-        autocmd! CursorHoldI * Lspsaga signature_help
       augroup END
     ]],
+      -- autocmd! CursorHoldI * Lspsaga signature_help
       false
     )
   end
