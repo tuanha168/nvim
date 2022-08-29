@@ -17,22 +17,37 @@ M.disabled = {
 M.terminal = {
   n = {
     ["<c-T>"] = {
-      "<cmd>Lspsaga open_floaterm<CR>",
-      "   toggle horizontal term",
-      opts = opts,
+      function()
+        require("nvterm.terminal").toggle "float"
+      end,
+      "toggle floating term",
+    },
+    ["<A-h>"] = {
+      function()
+        require("nvterm.terminal").toggle "horizontal"
+      end,
+      "toggle horizontal term",
     },
   },
   t = {
     ["<c-T>"] = {
-      "<cmd>Lspsaga close_floaterm<CR>",
-      "   toggle horizontal term",
-      opts = opts,
+      function()
+        require("nvterm.terminal").toggle "float"
+      end,
+      "toggle floating term",
     },
-    ["<leader><ESC><ESC>"] = {
-      "<cmd>Lspsaga close_floaterm<CR>",
-      "   toggle horizontal term",
-      opts = opts,
+    ["<A-h>"] = {
+      function()
+        require("nvterm.terminal").toggle "horizontal"
+      end,
+      "toggle horizontal term",
     },
+    -- ["<leader><ESC><ESC>"] = {
+    --   function()
+    --     require("nvterm.terminal").toggle "float"
+    --   end,
+    --   "toggle floating term",
+    -- },
   },
 }
 

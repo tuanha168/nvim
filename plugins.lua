@@ -103,4 +103,11 @@ return {
       require("custom.config.vim-matchup").setup()
     end,
   },
+
+  -- CamelCaseMotion
+  ["bkad/CamelCaseMotion"] = {
+    config = function ()
+      -- require("custom.config.CamelCaseMotion").setup()
+    end
+  }
 }

@@ -20,7 +20,8 @@ M.plugins = {
         -- web dev
         "typescript-language-server",
         "angular-language-server",
-        "vetur-vls",
+        -- "vetur-vls",
+        "vue-language-server",
         "css-lsp",
         "html-lsp",
         "emmet-ls",
