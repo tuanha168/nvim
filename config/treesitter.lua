@@ -15,6 +15,7 @@ local M = {
     "css",
     "tsx",
     "html",
+    "python",
   },
 
   -- Install parsers synchronously (only applied to `ensure_installed`)

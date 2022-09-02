@@ -32,6 +32,10 @@ M.plugins = {
 
         -- php
         "intelephense",
+
+        -- python
+        "pyright",
+        "python-lsp-server"
       },
     },
     ["NvChad/nvterm"] = {
