@@ -1,4 +1,52 @@
 return {
+  ["folke/which-key.nvim"] = false,
+  ["nvim-treesitter/nvim-treesitter"] = require "custom.config.treesitter",
+  ["NvChad/ui"] = {
+    tabufline = {
+      lazyload = false,
+    },
+  },
+  ["williamboman/mason.nvim"] = {
+    ensure_installed = {
+      -- lua stuff
+      "lua-language-server",
+      "stylua",
+
+      -- web dev
+      "typescript-language-server",
+      "angular-language-server",
+      -- "vetur-vls",
+      "vue-language-server",
+      "css-lsp",
+      "html-lsp",
+      "emmet-ls",
+      "json-lsp",
+      -- lint
+      "eslint-lsp",
+      "prettier",
+
+      -- php
+      "intelephense",
+
+      -- python
+      "pyright",
+      "python-lsp-server",
+    },
+  },
+  ["NvChad/nvterm"] = {
+    terminals = {
+      type_opts = {
+        float = {
+          relative = "editor",
+          row = 0.6,
+          col = 0.25,
+          width = 1,
+          height = 1,
+          border = "single",
+        },
+      },
+    },
+  },
   ["neovim/nvim-lspconfig"] = {
     config = function()
       require "plugins.configs.lspconfig"
@@ -106,8 +154,8 @@ return {
 
   -- CamelCaseMotion
   ["bkad/CamelCaseMotion"] = {
-    config = function ()
+    config = function()
       -- require("custom.config.CamelCaseMotion").setup()
-    end
-  }
+    end,
+  },
 }
