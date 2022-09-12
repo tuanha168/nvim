@@ -31,7 +31,8 @@ M.plugins = {
         "prettier",
 
         -- php
-        "intelephense",
+        -- "intelephense",
+        "phpactor",
 
         -- python
         "pyright",
