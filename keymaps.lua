@@ -83,8 +83,8 @@ M.neoGit = {
 
 M.gitSigns = {
   n = {
-    ["[c"] = { "<cmd>Gitsigns prev_hunk<CR>", "", opts = opts },
-    ["]c"] = { "<cmd>Gitsigns next_hunk<CR>", "", opts = opts },
+    ["H"] = { "<cmd>Gitsigns prev_hunk<CR>", "", opts = opts },
+    ["L"] = { "<cmd>Gitsigns next_hunk<CR>", "", opts = opts },
     ["<leader>pp"] = { "<cmd>Gitsigns preview_hunk<CR>", "Git Actions", opts = opts },
   },
   v = {
@@ -122,13 +122,13 @@ M.keepCenter = {
     ["{"] = { "Hzz", "", opts = opts },
     ["}"] = { "Lzz", "", opts = opts },
     ["gd"] = { "gdzz", "", opts = opts },
-    ["H"] = { "^", "", opts = opts },
-    ["L"] = { "$", "", opts = opts },
+    -- ["H"] = { "^", "", opts = opts },
+    -- ["L"] = { "$", "", opts = opts },
   },
-  v = {
-    ["H"] = { "^", "", opts = opts },
-    ["L"] = { "$", "", opts = opts },
-  },
+  -- v = {
+  --   ["H"] = { "^", "", opts = opts },
+  --   ["L"] = { "$", "", opts = opts },
+  -- },
 }
 
 M.splitAndResize = {

@@ -1,6 +1,16 @@
 local lspconfig = require "lspconfig"
 
-local servers = { "angularls", "html", "eslint", "tsserver", "sumneko_lua", "intelephense", "volar", "cssls", "pylsp" }
+local servers = {
+  "angularls",
+  -- "html",
+  "eslint",
+  "tsserver",
+  "sumneko_lua",
+  "intelephense",
+  "volar",
+  "cssls",
+  "pylsp",
+}
 local handlers = require "custom.config.lsp.handlers"
 
 for _, lsp in ipairs(servers) do

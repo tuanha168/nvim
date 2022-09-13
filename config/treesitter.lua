@@ -14,7 +14,7 @@ local M = {
     "json",
     "css",
     "tsx",
-    "html",
+    -- "html",
     "python",
   },
 
