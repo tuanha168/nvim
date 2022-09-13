@@ -158,4 +158,10 @@ return {
       -- require("custom.config.CamelCaseMotion").setup()
     end,
   },
+
+  ["David-Kunz/markid"] = {
+    config = function()
+      require("custom.config.markid").setup()
+    end,
+  },
 }
