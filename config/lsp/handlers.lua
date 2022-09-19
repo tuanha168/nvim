@@ -89,8 +89,8 @@ local function setContains(set, key)
 end
 M.on_attach = function(client, bufnr)
   if setContains(disabledFormatter, client.name) then
-    client.resolved_capabilities.document_formatting = false
-    client.resolved_capabilities.document_range_formatting = false
+    client.server_capabilities.document_formatting = false
+    client.server_capabilities.document_range_formatting = false
   end
   lsp_keymaps(bufnr)
   lsp_highlight_document(client)
