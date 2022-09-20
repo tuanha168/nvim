@@ -186,13 +186,14 @@ M.closeTab = {
   n = {
     ["<leader><ESC><ESC>"] = {
       function()
-        require("core.utils").close_buffer()
-        require("core.utils").tabuflineNext()
+        require("nvchad_ui.tabufline").close_buffer()
         if vim.api.nvim_buf_get_name(0) == "" then
-          pcall(vim.cmd, ":Alpha")
-          pcall(vim.cmd, ":bd#")
+          require("nvchad_ui.tabufline").tabuflinePrev()
+          if vim.api.nvim_buf_get_name(0) == "" then
+            pcall(vim.cmd, ":Alpha")
+            pcall(vim.cmd, ":bd#")
+          end
         end
-        require("core.utils").tabuflinePrev()
       end,
       "   close buffer",
       opts = opts,

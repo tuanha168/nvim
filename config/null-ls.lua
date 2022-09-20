@@ -10,7 +10,7 @@ local formatting = null_ls.builtins.formatting
 local sources = {
   formatting.prettier.with {
     extra_args = {
-      "--no-semi",
+      -- "--no-semi",
       "--single-quote",
       "--jsx-single-quote",
       "--tab-width",
