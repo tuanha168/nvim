@@ -149,7 +149,7 @@ M.keepCenter = {
 
 M.closePreview = {
   n = {
-    ["<CR>"] = { "<CR>zz:ccl<CR>", "" },
+    ["<CR>"] = { "<CR>zz:ccl<CR>", "", opts = { silent = true } },
     ["q"] = { "<ESC>:ccl<CR>q", "", opts = { silent = true } },
   },
 }
