@@ -1,13 +1,13 @@
 return {
   ["folke/which-key.nvim"] = false,
   ["nvim-treesitter/nvim-treesitter"] = require "custom.config.treesitter",
-  ["NvChad/ui"] = {
-    override_options = {
-      tabufline = {
-        lazyload = false,
-      },
-    }
-  },
+  -- ["NvChad/ui"] = {
+  --   override_options = {
+  --     tabufline = {
+  --       lazyload = false,
+  --     },
+  --   }
+  -- },
   ["williamboman/mason.nvim"] = {
     override_options = {
       ensure_installed = {
@@ -88,7 +88,6 @@ return {
       require("nvim-surround").setup {}
     end,
   },
-  ["sindrets/diffview.nvim"] = {},
   ["nvim-telescope/telescope.nvim"] = {
     cmd = "Telescope",
     config = function()
@@ -121,6 +120,7 @@ return {
       }
     end,
   },
+  ["sindrets/diffview.nvim"] = {},
 
   -- jk escape
   ["max397574/better-escape.nvim"] = {
@@ -141,11 +141,11 @@ return {
   },
 
   -- lightspeed
-  ["ggandor/lightspeed.nvim"] = {
-    config = function()
-      require("custom.config.lightspeed").setup()
-    end,
-  },
+  -- ["ggandor/lightspeed.nvim"] = {
+  --   config = function()
+  --     require("custom.config.lightspeed").setup()
+  --   end,
+  -- },
 
   -- targets
   ["wellle/targets.vim"] = {},
@@ -159,11 +159,11 @@ return {
   },
 
   -- CamelCaseMotion
-  ["bkad/CamelCaseMotion"] = {
-    config = function()
-      -- require("custom.config.CamelCaseMotion").setup()
-    end,
-  },
+  -- ["bkad/CamelCaseMotion"] = {
+  --   config = function()
+  --     require("custom.config.CamelCaseMotion").setup()
+  --   end,
+  -- },
 
   ["David-Kunz/markid"] = {
     config = function()

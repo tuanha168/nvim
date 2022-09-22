@@ -131,21 +131,21 @@ M.keepCenter = {
   -- },
 }
 
-M.splitAndResize = {
-  n = {
-    ["<up>"] = { ":resize +2<CR>", "", opts = opts },
-    ["<down>"] = { ":resize -2<CR>", "", opts = opts },
-    ["<left>"] = { ":vertical resize -2<CR>", "", opts = opts },
-    ["<right>"] = { ":vertical resize +2<CR>", "", opts = opts },
-  },
-
-  v = {
-    ["<up>"] = { ":resize +2<CR>", "", opts = opts },
-    ["<down>"] = { ":resize -2<CR>", "", opts = opts },
-    ["<left>"] = { ":vertical resize -2<CR>", "", opts = opts },
-    ["<right>"] = { ":vertical resize +2<CR>", "", opts = opts },
-  },
-}
+-- M.splitAndResize = {
+--   n = {
+--     ["<up>"] = { ":resize +2<CR>", "", opts = opts },
+--     ["<down>"] = { ":resize -2<CR>", "", opts = opts },
+--     ["<left>"] = { ":vertical resize -2<CR>", "", opts = opts },
+--     ["<right>"] = { ":vertical resize +2<CR>", "", opts = opts },
+--   },
+--
+--   v = {
+--     ["<up>"] = { ":resize +2<CR>", "", opts = opts },
+--     ["<down>"] = { ":resize -2<CR>", "", opts = opts },
+--     ["<left>"] = { ":vertical resize -2<CR>", "", opts = opts },
+--     ["<right>"] = { ":vertical resize +2<CR>", "", opts = opts },
+--   },
+-- }
 
 M.closePreview = {
   n = {
