@@ -141,11 +141,11 @@ return {
   },
 
   -- lightspeed
-  -- ["ggandor/lightspeed.nvim"] = {
-  --   config = function()
-  --     require("custom.config.lightspeed").setup()
-  --   end,
-  -- },
+  ["ggandor/lightspeed.nvim"] = {
+    config = function()
+      require("custom.config.lightspeed").setup()
+    end,
+  },
 
   -- targets
   ["wellle/targets.vim"] = {},

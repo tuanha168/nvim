@@ -184,7 +184,7 @@ M.telescope = {
 
 M.closeTab = {
   n = {
-    ["<leader><ESC><ESC>"] = {
+    ["<leader>qq"] = {
       function()
         require("nvchad_ui.tabufline").close_buffer()
         if vim.api.nvim_buf_get_name(0) == "" then
