@@ -172,14 +172,16 @@ return {
   },
   ["rcarriga/nvim-notify"] = {
     after = "alpha-nvim",
-    config = function ()
-      require("custom.config.notify").setup()
-    end
+    config = function()
+      require("notify").setup {
+        background_colour = "#000000",
+      }
+    end,
   },
   ["folke/noice.nvim"] = {
     after = "nvim-notify",
     config = function()
-      require("custom.config.noice").setup()
+      require("noice").setup()
     end,
     requires = {
       "MunifTanjim/nui.nvim",
