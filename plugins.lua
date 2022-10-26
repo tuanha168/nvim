@@ -84,6 +84,7 @@ return {
     end,
   },
   ["kylechui/nvim-surround"] = {
+    after = "nvim-lspconfig",
     config = function()
       require("nvim-surround").setup {}
     end,
@@ -97,6 +98,7 @@ return {
   },
   ["nvim-telescope/telescope-project.nvim"] = {},
   ["gbprod/yanky.nvim"] = {
+    after = "nvim-lspconfig",
     config = function()
       require("custom.config.yanky").setup()
     end,
@@ -135,6 +137,7 @@ return {
 
   -- lspsaga
   ["glepnir/lspsaga.nvim"] = {
+    after = "nvim-lspconfig",
     config = function()
       require("custom.config.lspsaga").setup()
     end,
@@ -142,6 +145,7 @@ return {
 
   -- lightspeed
   ["ggandor/lightspeed.nvim"] = {
+    after = "nvim-lspconfig",
     config = function()
       require("custom.config.lightspeed").setup()
     end,
@@ -171,7 +175,6 @@ return {
     end,
   },
   ["rcarriga/nvim-notify"] = {
-    after = "alpha-nvim",
     config = function()
       require("notify").setup {
         background_colour = "#000000",
