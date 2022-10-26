@@ -91,7 +91,7 @@ end
 
 M.on_attach = function(client, bufnr)
   if setContains(disabledFormatter, client.name) then
-    if vim.g.vim_version > 7 then
+    if vim.fn.has('nvim-0.7') then
       -- nightly
       client.server_capabilities.documentFormattingProvider = false
       client.server_capabilities.documentRangeFormattingProvider = false
