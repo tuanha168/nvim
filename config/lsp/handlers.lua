@@ -111,6 +111,6 @@ if not status_ok then
   return
 end
 
-M.capabilities = cmp_nvim_lsp.update_capabilities(nvChadConfig.capabilities)
+M.capabilities = cmp_nvim_lsp.default_capabilities(nvChadConfig.capabilities)
 
 return M
