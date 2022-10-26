@@ -11,6 +11,7 @@ M.disabled = {
     ["<leader>x"] = "",
     ["<leader>wK"] = "",
     ["<leader>wk"] = "",
+    ["<leader>tt"] = "",
   },
 }
 
@@ -196,6 +197,18 @@ M.closeTab = {
         end
       end,
       "   close buffer",
+      opts = opts,
+    },
+  },
+}
+
+M.toggleDiagnostics = {
+  n = {
+    ["<leader>tt"] = {
+      function()
+        vim.g.diagnostics_active = not vim.g.diagnostics_active
+      end,
+      "toggle diagnostics",
       opts = opts,
     },
   },

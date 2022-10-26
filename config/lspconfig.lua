@@ -3,11 +3,11 @@ local lspconfig = require "lspconfig"
 local servers = {
   "angularls",
   -- "html",
-  "eslint",
+  "volar",
   "tsserver",
+  "eslint",
   "sumneko_lua",
   "intelephense",
-  "volar",
   "cssls",
   "pylsp",
 }
@@ -45,15 +45,15 @@ for _, lsp in ipairs(servers) do
       capabilities = handlers.capabilities,
       -- filetypes = { "typescript", "javascript", "javascriptreact", "typescriptreact", "vue", "json" },
     }
-    return
+  else
+    if lsp == "sumneko_lua" then
+      settings = require "custom.config.lsp.sumneko_lua"
+    end
+    lspconfig[lsp].setup {
+      on_attach = handlers.on_attach,
+      capabilities = handlers.capabilities,
+      settings = settings,
+    }
   end
-  if lsp == "sumneko_lua" then
-    settings = require "custom.config.lsp.sumneko_lua"
-  end
-  lspconfig[lsp].setup {
-    on_attach = handlers.on_attach,
-    capabilities = handlers.capabilities,
-    settings = settings,
-  }
   handlers.setup()
 end

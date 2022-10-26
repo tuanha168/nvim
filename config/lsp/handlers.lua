@@ -49,16 +49,15 @@ end
 local function lsp_highlight_document(client)
   -- Set autocommands conditional on server_capabilities
   if client.supports_method "textDocument/publishDiagnostics" then
-    vim.api.nvim_exec(
-      [[
-      augroup lsp_document_highlight
-        autocmd! * <buffer>
-        autocmd! CursorHold * lua vim.diagnostic.open_float(nil, {focus=false})
-      augroup END
-    ]],
-      -- autocmd! CursorHoldI * Lspsaga signature_help
-      false
-    )
+    vim.api.nvim_create_augroup("lsp_document_highlight", { clear = true })
+    vim.api.nvim_create_autocmd("CursorHold", {
+      group = "lsp_document_highlight",
+      callback = function()
+        if vim.g.diagnostics_active then
+          vim.diagnostic.open_float(nil, { focus = false })
+        end
+      end,
+    })
   end
 end
 

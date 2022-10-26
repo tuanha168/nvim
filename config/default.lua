@@ -34,6 +34,7 @@ end
 local options_g = {
   mapleader = " ", -- space as leader key
   matchup_matchparen_offscreen = { method = "popup" },
+  diagnostics_active = true,
 }
 for k, v in pairs(options_g) do
   vim.g[k] = v
