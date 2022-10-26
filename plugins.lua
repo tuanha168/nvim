@@ -35,7 +35,7 @@ return {
         "pyright",
         "python-lsp-server",
       },
-    }
+    },
   },
   ["NvChad/nvterm"] = {
     override_options = {
@@ -51,7 +51,7 @@ return {
           },
         },
       },
-    }
+    },
   },
   ["neovim/nvim-lspconfig"] = {
     config = function()
@@ -169,5 +169,20 @@ return {
     config = function()
       require("custom.config.markid").setup()
     end,
+  },
+  ["rcarriga/nvim-notify"] = {
+    after = "alpha-nvim",
+    config = function ()
+      require("custom.config.notify").setup()
+    end
+  },
+  ["folke/noice.nvim"] = {
+    after = "nvim-notify",
+    config = function()
+      require("custom.config.noice").setup()
+    end,
+    requires = {
+      "MunifTanjim/nui.nvim",
+    },
   },
 }
