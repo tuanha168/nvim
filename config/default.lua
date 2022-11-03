@@ -29,6 +29,7 @@ local options_opt = {
 }
 for k, v in pairs(options_opt) do
   vim.opt[k] = v
+  vim.opt.iskeyword:append("-")
 end
 
 local options_g = {

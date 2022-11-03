@@ -174,15 +174,15 @@ return {
       require("custom.config.markid").setup()
     end,
   },
-  ["rcarriga/nvim-notify"] = {
-    config = function()
-      require("notify").setup {
-        background_colour = "#000000",
-      }
-    end,
-  },
+  -- ["rcarriga/nvim-notify"] = {
+  --   config = function()
+  --     require("notify").setup {
+  --       background_colour = "#000000",
+  --     }
+  --   end,
+  -- },
   ["folke/noice.nvim"] = {
-    after = "nvim-notify",
+    -- after = "nvim-notify",
     config = function()
       require("noice").setup()
     end,
