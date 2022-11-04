@@ -214,4 +214,14 @@ M.toggleDiagnostics = {
   },
 }
 
+M.disableDeleteYank = {
+  n = {
+    ["c"] = {
+      '"_c',
+      "change no yank",
+      opts = opts,
+    },
+  },
+}
+
 return M
