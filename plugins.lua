@@ -180,13 +180,13 @@ return {
   --     }
   --   end,
   -- },
-  ["folke/noice.nvim"] = {
-    -- after = "nvim-notify",
-    config = function()
-      require("noice").setup()
-    end,
-    requires = {
-      "MunifTanjim/nui.nvim",
-    },
-  },
+  -- ["folke/noice.nvim"] = {
+  --   -- after = "nvim-notify",
+  --   config = function()
+  --     require("noice").setup()
+  --   end,
+  --   requires = {
+  --     "MunifTanjim/nui.nvim",
+  --   },
+  -- },
 }
