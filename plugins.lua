@@ -1,5 +1,4 @@
 return {
-  ["folke/which-key.nvim"] = false,
   ["nvim-treesitter/nvim-treesitter"] = require "custom.config.treesitter",
   -- ["NvChad/ui"] = {
   --   override_options = {
