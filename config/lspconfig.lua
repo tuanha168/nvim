@@ -35,7 +35,6 @@ end
 local handlers = require "custom.config.lsp.handlers"
 
 for _, lsp in ipairs(servers) do
-  local settings = {}
   if lsp == "volar" then
     lspconfig[lsp].setup {
       on_new_config = function(new_config, new_root_dir)
@@ -45,14 +44,16 @@ for _, lsp in ipairs(servers) do
       capabilities = handlers.capabilities,
       -- filetypes = { "typescript", "javascript", "javascriptreact", "typescriptreact", "vue", "json" },
     }
-  else
-    if lsp == "sumneko_lua" then
-      settings = require "custom.config.lsp.sumneko_lua"
-    end
+  elseif lsp == "sumneko_lua" then
     lspconfig[lsp].setup {
       on_attach = handlers.on_attach,
       capabilities = handlers.capabilities,
-      settings = settings,
+      settings = require "custom.config.lsp.sumneko_lua",
+    }
+  else
+    lspconfig[lsp].setup {
+      on_attach = handlers.on_attach,
+      capabilities = handlers.capabilities,
     }
   end
   handlers.setup()

@@ -1,5 +1,7 @@
 return {
-  ["nvim-treesitter/nvim-treesitter"] = require "custom.config.treesitter",
+  ["nvim-treesitter/nvim-treesitter"] = {
+    override_options = require "custom.config.treesitter"
+  },
   -- ["NvChad/ui"] = {
   --   override_options = {
   --     tabufline = {
