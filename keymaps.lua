@@ -1,4 +1,5 @@
 -- lua/custom/mappings
+-- Mappings for Neovim
 local M = {}
 local opts = { silent = true, noremap = true }
 
@@ -49,15 +50,6 @@ M.terminal = {
     --   end,
     --   "toggle floating term",
     -- },
-  },
-}
-
-M.windowMove = {
-  n = {
-    ["<C-h>"] = { "<C-w>h", "", opts = opts },
-    ["<C-j>"] = { "<C-w>j", "", opts = opts },
-    ["<C-k>"] = { "<C-w>k", "", opts = opts },
-    ["<C-l>"] = { "<C-w>l", "", opts = opts },
   },
 }
 
@@ -123,13 +115,13 @@ M.keepCenter = {
     ["{"] = { "Hzz", "", opts = opts },
     ["}"] = { "Lzz", "", opts = opts },
     ["gd"] = { "gdzz", "", opts = opts },
-    -- ["H"] = { "^", "", opts = opts },
-    -- ["L"] = { "$", "", opts = opts },
+    ["gh"] = { "^", "", opts = opts },
+    ["gl"] = { "$", "", opts = opts },
   },
-  -- v = {
-  --   ["H"] = { "^", "", opts = opts },
-  --   ["L"] = { "$", "", opts = opts },
-  -- },
+  v = {
+    ["gh"] = { "^", "", opts = opts },
+    ["gl"] = { "$", "", opts = opts },
+  },
 }
 
 -- M.splitAndResize = {
@@ -202,13 +194,28 @@ M.closeTab = {
   },
 }
 
-M.toggleDiagnostics = {
+M.plusMinus = {
   n = {
-    ["<leader>tt"] = {
-      function()
-        vim.g.diagnostics_active = not vim.g.diagnostics_active
-      end,
-      "toggle diagnostics",
+    ["+"] = {
+      "<c-a>",
+      "Plus",
+      opts = opts,
+    },
+    ["-"] = {
+      "<c-x>",
+      "Minus",
+      opts = opts,
+    },
+  },
+  v = {
+    ["+"] = {
+      "<c-a>gv",
+      "Plus",
+      opts = opts,
+    },
+    ["-"] = {
+      "<c-x>gv",
+      "Minus",
       opts = opts,
     },
   },
@@ -220,6 +227,33 @@ M.disableDeleteYank = {
       '"_c',
       "change no yank",
       opts = opts,
+    },
+  },
+  v = {
+    ["c"] = {
+      '"_c',
+      "change no yank",
+      opts = opts,
+    },
+  },
+}
+
+M.lspRelated = {
+  n = {
+    ["<leader>tt"] = {
+      function()
+        vim.g.diagnostics_active = not vim.g.diagnostics_active
+      end,
+      "toggle diagnostics",
+      opts = opts,
+    },
+  },
+  v = {
+    ["<leader>fm"] = {
+      function()
+        vim.lsp.buf.format { async = true }
+      end,
+      "lsp formatting",
     },
   },
 }

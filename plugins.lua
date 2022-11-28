@@ -1,6 +1,6 @@
 return {
   ["nvim-treesitter/nvim-treesitter"] = {
-    override_options = require "custom.config.treesitter"
+    override_options = require "custom.config.treesitter",
   },
   -- ["NvChad/ui"] = {
   --   override_options = {
@@ -77,6 +77,19 @@ return {
     config = function()
       require "plugins.configs.cmp"
     end,
+    override_options = {
+      sources = {
+        { name = "cmp_tabnine" },
+        { name = "nvim_lsp" },
+        { name = "luasnip" },
+        { name = "buffer" },
+        { name = "nvim_lua" },
+        { name = "path" },
+      },
+      -- experimental = {
+      --   ghost_text = true,
+      -- },
+    },
   },
   ["lewis6991/gitsigns.nvim"] = {
     after = "nvim-lspconfig",
@@ -191,4 +204,16 @@ return {
   --     "MunifTanjim/nui.nvim",
   --   },
   -- },
+  ["github/copilot.vim"] = {
+    config = function()
+      require("custom.config.copilot").setup()
+    end,
+  },
+  ["tzachar/cmp-tabnine"] = {
+    run = "./install.sh",
+    after = "nvim-cmp",
+    config = function()
+      require("custom.config.tabnine").setup()
+    end,
+  },
 }
