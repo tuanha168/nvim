@@ -2,42 +2,11 @@ return {
   ["nvim-treesitter/nvim-treesitter"] = {
     override_options = require "custom.config.treesitter",
   },
-  -- ["NvChad/ui"] = {
-  --   override_options = {
-  --     tabufline = {
-  --       lazyload = false,
-  --     },
-  --   }
-  -- },
+
   ["williamboman/mason.nvim"] = {
-    override_options = {
-      ensure_installed = {
-        -- lua stuff
-        "lua-language-server",
-        "stylua",
-
-        -- web dev
-        "typescript-language-server",
-        "angular-language-server",
-        -- "vetur-vls",
-        "vue-language-server",
-        "css-lsp",
-        "html-lsp",
-        "emmet-ls",
-        "json-lsp",
-        -- lint
-        "eslint-lsp",
-        "prettier",
-
-        -- php
-        "intelephense",
-
-        -- python
-        "pyright",
-        "python-lsp-server",
-      },
-    },
+    override_options = require "custom.config.mason",
   },
+
   ["NvChad/nvterm"] = {
     override_options = {
       terminals = {
@@ -54,55 +23,50 @@ return {
       },
     },
   },
+
   ["neovim/nvim-lspconfig"] = {
     config = function()
       require "plugins.configs.lspconfig"
       require "custom.config.lspconfig"
     end,
   },
+
   ["jose-elias-alvarez/null-ls.nvim"] = {
     after = "nvim-lspconfig",
     config = function()
       require("custom.config.null-ls").setup()
     end,
   },
+
   ["hrsh7th/cmp-cmdline"] = {
     after = "nvim-cmp",
     config = function()
       require "custom.config.cmdline"
     end,
   },
+
   ["hrsh7th/nvim-cmp"] = {
     after = "alpha-nvim",
     config = function()
       require "plugins.configs.cmp"
     end,
-    override_options = {
-      sources = {
-        { name = "cmp_tabnine" },
-        { name = "nvim_lsp" },
-        { name = "luasnip" },
-        { name = "buffer" },
-        { name = "nvim_lua" },
-        { name = "path" },
-      },
-      -- experimental = {
-      --   ghost_text = true,
-      -- },
-    },
+    override_options = require "custom.config.nvim-cmp",
   },
+
   ["lewis6991/gitsigns.nvim"] = {
     after = "nvim-lspconfig",
     config = function()
       require("custom.config.gitsign").setup()
     end,
   },
+
   ["kylechui/nvim-surround"] = {
     after = "nvim-lspconfig",
     config = function()
       require("nvim-surround").setup {}
     end,
   },
+
   ["nvim-telescope/telescope.nvim"] = {
     cmd = "Telescope",
     config = function()
@@ -110,13 +74,16 @@ return {
       require("custom.config.telescope").setup()
     end,
   },
+
   ["nvim-telescope/telescope-project.nvim"] = {},
+
   ["gbprod/yanky.nvim"] = {
     after = "nvim-lspconfig",
     config = function()
       require("custom.config.yanky").setup()
     end,
   },
+
   ["goolord/alpha-nvim"] = {
     disable = false,
     config = function()
@@ -126,6 +93,7 @@ return {
 
   -- git
   ["tpope/vim-fugitive"] = {},
+
   ["TimUntersberger/neogit"] = {
     config = function()
       require("neogit").setup {
@@ -176,39 +144,18 @@ return {
     end,
   },
 
-  -- CamelCaseMotion
-  -- ["bkad/CamelCaseMotion"] = {
-  --   config = function()
-  --     require("custom.config.CamelCaseMotion").setup()
-  --   end,
-  -- },
-
   ["David-Kunz/markid"] = {
     config = function()
       require("custom.config.markid").setup()
     end,
   },
-  -- ["rcarriga/nvim-notify"] = {
-  --   config = function()
-  --     require("notify").setup {
-  --       background_colour = "#000000",
-  --     }
-  --   end,
-  -- },
-  -- ["folke/noice.nvim"] = {
-  --   -- after = "nvim-notify",
-  --   config = function()
-  --     require("noice").setup()
-  --   end,
-  --   requires = {
-  --     "MunifTanjim/nui.nvim",
-  --   },
-  -- },
+
   ["github/copilot.vim"] = {
     config = function()
       require("custom.config.copilot").setup()
     end,
   },
+
   ["tzachar/cmp-tabnine"] = {
     run = "./install.sh",
     after = "nvim-cmp",
