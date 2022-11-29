@@ -258,4 +258,14 @@ M.lspRelated = {
   },
 }
 
+M.copy = {
+  v = {
+    ["<C-c>"] = {
+      '"+y',
+      "copy",
+      opts = opts,
+    },
+  },
+}
+
 return M
