@@ -228,10 +228,20 @@ M.disableDeleteYank = {
       "change no yank",
       opts = opts,
     },
+    ["C"] = {
+      '"_C',
+      "change no yank",
+      opts = opts,
+    },
   },
   v = {
     ["c"] = {
       '"_c',
+      "change no yank",
+      opts = opts,
+    },
+    ["C"] = {
+      '"_C',
       "change no yank",
       opts = opts,
     },
