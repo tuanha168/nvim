@@ -111,7 +111,7 @@ return {
     event = "InsertEnter",
     config = function()
       require("better_escape").setup {
-        mapping = { "jk", "jj", "kk" },
+        mapping = { "jk", "jj", "kk", "kj" },
         clear_empty_lines = true,
       }
     end,
