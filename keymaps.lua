@@ -6,6 +6,9 @@ local opts = { silent = true, noremap = true }
 -- add this table only when you want to disable default keys
 M.disabled = {
   n = {
+    ["<A-i>"] = "",
+    ["<A-h>"] = "",
+    ["<A-v>"] = "",
     ["<leader>h"] = "",
     ["<leader>v"] = "",
     ["<C-s>"] = "",
@@ -24,12 +27,6 @@ M.terminal = {
       end,
       "toggle floating term",
     },
-    ["<A-h>"] = {
-      function()
-        require("nvterm.terminal").toggle "horizontal"
-      end,
-      "toggle horizontal term",
-    },
   },
   t = {
     ["<c-T>"] = {
@@ -38,29 +35,17 @@ M.terminal = {
       end,
       "toggle floating term",
     },
-    ["<A-h>"] = {
-      function()
-        require("nvterm.terminal").toggle "horizontal"
-      end,
-      "toggle horizontal term",
-    },
-    -- ["<leader><ESC><ESC>"] = {
-    --   function()
-    --     require("nvterm.terminal").toggle "float"
-    --   end,
-    --   "toggle floating term",
-    -- },
   },
 }
 
 M.advanceSearch = {
   n = {
     ["*"] = { '"ayiwh/<c-r>a<CR>', "", opts = opts },
-    ["<leader>fiw"] = { '"ayiwh/<c-r>a<CR><cmd> Telescope live_grep <CR>a<c-r>a<esc>jk', "", opts = opts },
+    ["<leader>fiw"] = { '"ayiw<cmd> Telescope live_grep <CR>a<c-r>a<esc>jk', "", opts = opts },
   },
   v = {
     ["*"] = { '"ayh/<c-r>a<CR>', "", opts = opts },
-    ["<leader>fiw"] = { '"ayh/<c-r>a<CR><cmd> Telescope live_grep <CR>a<c-r>a<esc>jk', "", opts = opts },
+    ["<leader>fiw"] = { '"ay<cmd> Telescope live_grep <CR>a<c-r>a<esc>jk', "", opts = opts },
   },
 }
 
@@ -112,8 +97,8 @@ M.keepCenter = {
     -- ["k"] = { 'v:count || mode(1)[0:1] == "no" ? "kzz" : "gkzz"', opts = { expr = true, silent = true } },
     ["j"] = { 'v:count || mode(1)[0:1] == "no" ? "j" : "gj"', opts = { expr = true, silent = true } },
     ["k"] = { 'v:count || mode(1)[0:1] == "no" ? "k" : "gk"', opts = { expr = true, silent = true } },
-    ["{"] = { "Hzz", "", opts = opts },
-    ["}"] = { "Lzz", "", opts = opts },
+    ["<C-d>"] = { "<C-d>zz", "", opts = opts },
+    ["<C-u>"] = { "<C-u>zz", "", opts = opts },
     ["gd"] = { "gdzz", "", opts = opts },
     ["gh"] = { "^", "", opts = opts },
     ["gl"] = { "$", "", opts = opts },
@@ -149,19 +134,7 @@ M.closePreview = {
 
 M.yanky = {
   n = {
-    -- ["p"] = { "<Plug>(YankyPutAfter)", "", opts = opts },
-    -- ["P"] = { "<Plug>(YankyPutBefore)", "", opts = opts },
-    -- ["gp"] = { "<Plug>(YankyGPutAfter)", "", opts = opts },
-    -- ["gP"] = { "<Plug>(YankyGPutBefore)", "", opts = opts },
-    -- ["<c-P>"] = { "<cmd>Telescope yank_history<CR>", "", opts = opts },
     ["p"] = { "<cmd>Telescope yank_history<CR>jk", "", opts = opts },
-  },
-
-  x = {
-    ["p"] = { "<Plug>(YankyPutAfter)", "", opts = opts },
-    ["P"] = { "<Plug>(YankyPutBefore)", "", opts = opts },
-    ["gp"] = { "<Plug>(YankyGPutAfter)", "", opts = opts },
-    ["gP"] = { "<Plug>(YankyGPutBefore)", "", opts = opts },
   },
 }
 
