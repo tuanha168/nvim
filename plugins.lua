@@ -125,11 +125,11 @@ return {
     end,
   },
 
-  -- lightspeed
-  ["ggandor/lightspeed.nvim"] = {
+  -- leap
+  ["ggandor/leap.nvim"] = {
     after = "nvim-lspconfig",
     config = function()
-      require("custom.config.lightspeed").setup()
+      require("custom.config.leap").setup()
     end,
   },
 
@@ -163,4 +163,6 @@ return {
       require("custom.config.tabnine").setup()
     end,
   },
+
+  ["terryma/vim-multiple-cursors"] = {},
 }

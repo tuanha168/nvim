@@ -97,8 +97,8 @@ M.keepCenter = {
     -- ["k"] = { 'v:count || mode(1)[0:1] == "no" ? "kzz" : "gkzz"', opts = { expr = true, silent = true } },
     ["j"] = { 'v:count || mode(1)[0:1] == "no" ? "j" : "gj"', opts = { expr = true, silent = true } },
     ["k"] = { 'v:count || mode(1)[0:1] == "no" ? "k" : "gk"', opts = { expr = true, silent = true } },
-    ["<C-d>"] = { "<C-d>zz", "", opts = opts },
-    ["<C-u>"] = { "<C-u>zz", "", opts = opts },
+    ["}"] = { "<C-d>zz", "", opts = opts },
+    ["{"] = { "<C-u>zz", "", opts = opts },
     ["gd"] = { "gdzz", "", opts = opts },
     ["gh"] = { "^", "", opts = opts },
     ["gl"] = { "$", "", opts = opts },
@@ -248,6 +248,14 @@ M.copy = {
       "copy",
       opts = opts,
     },
+  },
+}
+
+M.nvimtree = {
+  plugin = true,
+  n = {
+    -- toggle
+    ["<C-`>"] = { "<cmd> NvimTreeToggle <CR>", "toggle nvimtree" },
   },
 }
 
