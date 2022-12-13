@@ -100,13 +100,13 @@ M.keepCenter = {
     ["}"] = { "<C-d>zz", "", opts = opts },
     ["{"] = { "<C-u>zz", "", opts = opts },
     ["gd"] = { "gdzz", "", opts = opts },
-    ["gh"] = { "^", "", opts = opts },
-    ["gl"] = { "$", "", opts = opts },
+    -- ["gh"] = { "^", "", opts = opts },
+    -- ["gl"] = { "$", "", opts = opts },
   },
-  v = {
-    ["gh"] = { "^", "", opts = opts },
-    ["gl"] = { "$", "", opts = opts },
-  },
+  -- v = {
+  --   ["gh"] = { "^", "", opts = opts },
+  --   ["gl"] = { "$", "", opts = opts },
+  -- },
 }
 
 -- M.splitAndResize = {

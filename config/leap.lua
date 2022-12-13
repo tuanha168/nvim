@@ -1,9 +1,8 @@
 local M = {}
 
 M.setup = function()
-  require("leap").setup {
-    case_sensitive = true,
-  }
+  require("leap").add_default_mappings()
+  require("leap").opts.case_sensitive = false
 end
 
 return M

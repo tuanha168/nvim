@@ -164,5 +164,5 @@ return {
     end,
   },
 
-  ["terryma/vim-multiple-cursors"] = {},
+  -- ["terryma/vim-multiple-cursors"] = {},
 }
