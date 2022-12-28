@@ -151,6 +151,7 @@ return {
   },
 
   ["github/copilot.vim"] = {
+    after = "nvim-lspconfig",
     config = function()
       require("custom.config.copilot").setup()
     end,
