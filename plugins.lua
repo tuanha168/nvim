@@ -165,5 +165,29 @@ return {
     end,
   },
 
-  -- ["terryma/vim-multiple-cursors"] = {},
+  -- undotree
+  ["mbbill/undotree"] = {
+    cmd = "UndotreeToggle",
+  },
+
+  -- documentations generator
+  ["kkoomen/vim-doge"] = {
+    run = ":call doge#install()",
+    cmd = "DogeGenerate",
+  },
+  -- ["nvim-treesitter/nvim-tree-docs"] = {
+  --   after = "nvim-treesitter",
+  --   config = function()
+  --     require("nvim-treesitter.configs").setup {
+  --       tree_docs = { enable = true },
+  --     }
+  --   end,
+  -- },
+
+  ["simrat39/symbols-outline.nvim"] = {
+    after = "nvim-cmp",
+    config = function()
+      require("custom.config.symbols-outline").setup()
+    end,
+  },
 }

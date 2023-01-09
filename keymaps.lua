@@ -259,4 +259,11 @@ M.nvimtree = {
   },
 }
 
+M.undotree = {
+  n = {
+    -- toggle
+    ["<C-m>"] = { "<cmd> UndotreeToggle <CR>", "toggle undotree" },
+  },
+}
+
 return M
