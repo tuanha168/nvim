@@ -50,14 +50,14 @@ local function lsp_highlight_document(client)
   -- Set autocommands conditional on server_capabilities
   if client.supports_method "textDocument/publishDiagnostics" then
     vim.api.nvim_create_augroup("lsp_document_highlight", { clear = true })
-    vim.api.nvim_create_autocmd("CursorHold", {
-      group = "lsp_document_highlight",
-      callback = function()
-        if vim.g.diagnostics_active then
-          vim.diagnostic.open_float(nil, { focus = false })
-        end
-      end,
-    })
+    -- vim.api.nvim_create_autocmd("CursorHold", {
+    --   group = "lsp_document_highlight",
+    --   callback = function()
+    --     if vim.g.diagnostics_active then
+    --       vim.diagnostic.open_float(nil, { focus = false })
+    --     end
+    --   end,
+    -- })
   end
 end
 
@@ -78,6 +78,7 @@ local function lsp_keymaps(bufnr, client)
   vim.api.nvim_buf_set_keymap(bufnr, "n", "]d", '<cmd>lua vim.diagnostic.goto_next({ border = "rounded" })<CR>', opts)
   -- vim.api.nvim_buf_set_keymap(bufnr, "n", "<leader><ESC>", "<cmd>lua vim.diagnostic.setloclist()<CR>", opts)
   -- vim.cmd [[ command! Format execute 'lua vim.lsp.buf.formatting()' ]]
+  vim.api.nvim_buf_set_keymap(bufnr, "n", "<leader>l", '<cmd>lua vim.diagnostic.open_float(nil, { focus = false })<CR>', opts)
 end
 
 local disabledFormatter = {

@@ -222,15 +222,6 @@ M.disableDeleteYank = {
 }
 
 M.lspRelated = {
-  n = {
-    ["<leader>l"] = {
-      function()
-        vim.g.diagnostics_active = not vim.g.diagnostics_active
-      end,
-      "toggle diagnostics",
-      opts = opts,
-    },
-  },
   v = {
     ["<leader>fm"] = {
       function()
