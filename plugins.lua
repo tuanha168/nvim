@@ -87,6 +87,7 @@ return {
   ["goolord/alpha-nvim"] = {
     disable = false,
     config = function()
+      ---@diagnostic disable-next-line: different-requires
       require("alpha").setup(require("alpha.themes.startify").config)
     end,
   },
@@ -189,5 +190,8 @@ return {
     config = function()
       require("custom.config.symbols-outline").setup()
     end,
+  },
+  ["kyazdani42/nvim-tree.lua"] = {
+    override_options = require "custom.config.nvim-tree",
   },
 }
