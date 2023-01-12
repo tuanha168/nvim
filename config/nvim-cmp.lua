@@ -1,7 +1,7 @@
 local M = {
   sources = {
-    { name = "cmp_tabnine" },
     { name = "nvim_lsp" },
+    { name = "cmp_tabnine" },
     { name = "luasnip" },
     { name = "buffer" },
     { name = "nvim_lua" },
