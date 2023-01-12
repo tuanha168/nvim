@@ -1,6 +1,7 @@
 local M = {
   git = {
     enable = true,
+    ignore = false,
   },
   renderer = {
     highlight_git = true,
