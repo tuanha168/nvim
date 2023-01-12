@@ -5,7 +5,7 @@ local M = {
   },
   renderer = {
     highlight_git = true,
-    highlight_opened_files = "all",
+    highlight_opened_files = "name",
 
     icons = {
       show = {
