@@ -22,17 +22,13 @@ M.disabled = {
 M.terminal = {
   n = {
     ["<c-T>"] = {
-      function()
-        require("nvterm.terminal").toggle "float"
-      end,
+      "<cmd> Lspsaga term_toggle <CR>",
       "toggle floating term",
     },
   },
   t = {
     ["<c-T>"] = {
-      function()
-        require("nvterm.terminal").toggle "float"
-      end,
+      "<cmd> Lspsaga term_toggle <CR>",
       "toggle floating term",
     },
   },
@@ -257,5 +253,13 @@ M.undotree = {
     ["<C-m>"] = { "<cmd> UndotreeToggle <CR>", "toggle undotree" },
   },
 }
+
+-- M.twoSlassQueries = {
+--   plugin = true,
+--   n = {
+--     -- toggle
+--     ["<leader>h"] = { "<cmd> InspectTwoslashQueries <CR>", "toggle Two Slash" },
+--   },
+-- }
 
 return M

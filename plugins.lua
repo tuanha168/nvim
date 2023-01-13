@@ -121,6 +121,7 @@ return {
   -- lspsaga
   ["glepnir/lspsaga.nvim"] = {
     after = "nvim-lspconfig",
+    branch = "main",
     config = function()
       require("custom.config.lspsaga").setup()
     end,
@@ -193,5 +194,14 @@ return {
   },
   ["kyazdani42/nvim-tree.lua"] = {
     override_options = require "custom.config.nvim-tree",
+  },
+  ["marilari88/twoslash-queries.nvim"] = {
+    after = "nvim-lspconfig",
+    config = function()
+      require("twoslash-queries").setup {
+        multi_line = true, -- to print types in multi line mode
+        is_enabled = true, -- to keep disabled at startup and enable it on request with the EnableTwoslashQueries
+      }
+    end,
   },
 }

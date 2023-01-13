@@ -50,14 +50,14 @@ local function lsp_highlight_document(client)
   -- Set autocommands conditional on server_capabilities
   if client.supports_method "textDocument/publishDiagnostics" then
     vim.api.nvim_create_augroup("lsp_document_highlight", { clear = true })
-    -- vim.api.nvim_create_autocmd("CursorHold", {
-    --   group = "lsp_document_highlight",
-    --   callback = function()
-    --     if vim.g.diagnostics_active then
-    --       vim.diagnostic.open_float(nil, { focus = false })
-    --     end
-    --   end,
-    -- })
+    vim.api.nvim_create_autocmd("CursorHold", {
+      group = "lsp_document_highlight",
+      callback = function()
+        if vim.g.diagnostics_active then
+          vim.diagnostic.open_float(nil, { focus = false })
+        end
+      end,
+    })
   end
 end
 
@@ -73,12 +73,13 @@ local function lsp_keymaps(bufnr, client)
   vim.api.nvim_buf_set_keymap(bufnr, "n", "gR", "<cmd>lua vim.lsp.buf.rename()<CR>", opts)
   vim.api.nvim_buf_set_keymap(bufnr, "n", "gr", "<cmd>Lspsaga lsp_finder<CR>", opts)
   vim.api.nvim_buf_set_keymap(bufnr, "n", "gd", "<cmd>lua vim.lsp.buf.definition()<CR>", opts)
-  vim.api.nvim_buf_set_keymap(bufnr, "n", "[d", '<cmd>lua vim.diagnostic.goto_prev({ border = "rounded" })<CR>', opts)
+  vim.api.nvim_buf_set_keymap(bufnr, "n", "[e", "<cmd>Lspsaga diagnostic_jump_prev<CR>", opts)
   -- vim.api.nvim_buf_set_keymap(bufnr, "n", "gl", "<cmd>lua vim.diagnostic.open_float()<CR>", opts)
-  vim.api.nvim_buf_set_keymap(bufnr, "n", "]d", '<cmd>lua vim.diagnostic.goto_next({ border = "rounded" })<CR>', opts)
+  vim.api.nvim_buf_set_keymap(bufnr, "n", "]e", "<cmd>Lspsaga diagnostic_jump_next<CR>", opts)
   -- vim.api.nvim_buf_set_keymap(bufnr, "n", "<leader><ESC>", "<cmd>lua vim.diagnostic.setloclist()<CR>", opts)
   -- vim.cmd [[ command! Format execute 'lua vim.lsp.buf.formatting()' ]]
-  vim.api.nvim_buf_set_keymap(bufnr, "n", "<leader>l", '<cmd>lua vim.diagnostic.open_float(nil, { focus = false })<CR>', opts)
+  vim.api.nvim_buf_set_keymap(bufnr, "n", "<leader>l", "<cmd>Lspsaga show_line_diagnostics<CR>", opts)
+  vim.api.nvim_buf_set_keymap(bufnr, "n", "<leader>o", "<cmd>Lspsaga outline<CR>", opts)
 end
 
 local disabledFormatter = {
@@ -105,7 +106,7 @@ M.on_attach = function(client, bufnr)
   end
   utils.load_mappings("lspconfig", { buffer = bufnr })
   lsp_keymaps(bufnr, client)
-  lsp_highlight_document(client)
+  -- lsp_highlight_document(client)
 end
 
 local status_ok, cmp_nvim_lsp = pcall(require, "cmp_nvim_lsp")
