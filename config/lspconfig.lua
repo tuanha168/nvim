@@ -43,6 +43,14 @@ for _, lsp in ipairs(servers) do
       capabilities = handlers.capabilities,
       -- filetypes = { "typescript", "javascript", "javascriptreact", "typescriptreact", "vue", "json" },
     }
+  elseif lsp == "tsserver" then
+    lspconfig[lsp].setup {
+      on_attach = function(client, bufnr)
+        handlers.on_attach(client, bufnr)
+        require("twoslash-queries").attach(client, bufnr)
+      end,
+      capabilities = handlers.capabilities,
+    }
   elseif lsp == "sumneko_lua" then
     lspconfig[lsp].setup {
       on_attach = handlers.on_attach,
