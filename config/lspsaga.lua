@@ -2,19 +2,23 @@ local M = {}
 
 M.setup = function()
   local saga = require "lspsaga"
-  saga.setup({})
-  -- saga.init_lsp_saga {
-  --   code_action_lightbulb = {
-  --     enable = false,
-  --   },
-  --   code_action_keys = {
-  --     quit = "q",
-  --     exec = "<tab>",
-  --   },
-  --   finder_action_keys = {
-  --     open = "<CR>",
-  --   },
-  -- }
+  saga.setup {
+    outline = {
+      win_position = "right",
+      win_with = "",
+      win_width = 30,
+      show_detail = true,
+      auto_preview = true,
+      auto_refresh = true,
+      auto_close = true,
+      custom_sort = nil,
+      keys = {
+        jump = "o",
+        expand_collapse = "u",
+        quit = "q",
+      },
+    },
+  }
 end
 
 return M

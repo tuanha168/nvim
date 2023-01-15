@@ -3,6 +3,12 @@ return {
     override_options = require "custom.config.treesitter",
   },
 
+  ["nvim-treesitter/playground"] = {
+    config = function()
+      require("custom.config.treesitter-playground").setup()
+    end,
+  },
+
   ["williamboman/mason.nvim"] = {
     override_options = require "custom.config.mason",
   },
@@ -87,7 +93,6 @@ return {
   ["goolord/alpha-nvim"] = {
     disable = false,
     config = function()
-      ---@diagnostic disable-next-line: different-requires
       require("alpha").setup(require("alpha.themes.startify").config)
     end,
   },
@@ -112,7 +117,7 @@ return {
     event = "InsertEnter",
     config = function()
       require("better_escape").setup {
-        mapping = { "jk", "jj", "kk", "kj" },
+        mapping = { "jk", "jj", "kk" },
         clear_empty_lines = true,
       }
     end,
@@ -173,10 +178,11 @@ return {
   },
 
   -- documentations generator
-  ["kkoomen/vim-doge"] = {
-    run = ":call doge#install()",
-    cmd = "DogeGenerate",
-  },
+  -- ["kkoomen/vim-doge"] = {
+  --   run = ":call doge#install()",
+  --   cmd = "DogeGenerate",
+  -- },
+
   -- ["nvim-treesitter/nvim-tree-docs"] = {
   --   after = "nvim-treesitter",
   --   config = function()
@@ -186,22 +192,22 @@ return {
   --   end,
   -- },
 
-  ["simrat39/symbols-outline.nvim"] = {
-    after = "nvim-cmp",
-    config = function()
-      require("custom.config.symbols-outline").setup()
-    end,
-  },
+  -- ["simrat39/symbols-outline.nvim"] = {
+  --   after = "nvim-cmp",
+  --   config = function()
+  --     require("custom.config.symbols-outline").setup()
+  --   end,
+  -- },
   ["kyazdani42/nvim-tree.lua"] = {
     override_options = require "custom.config.nvim-tree",
   },
-  ["marilari88/twoslash-queries.nvim"] = {
-    after = "nvim-lspconfig",
-    config = function()
-      require("twoslash-queries").setup {
-        multi_line = true, -- to print types in multi line mode
-        is_enabled = true, -- to keep disabled at startup and enable it on request with the EnableTwoslashQueries
-      }
-    end,
-  },
+  -- ["marilari88/twoslash-queries.nvim"] = {
+  --   after = "nvim-lspconfig",
+  --   config = function()
+  --     require("twoslash-queries").setup {
+  --       multi_line = true, -- to print types in multi line mode
+  --       is_enabled = true, -- to keep disabled at startup and enable it on request with the EnableTwoslashQueries
+  --     }
+  --   end,
+  -- },
 }

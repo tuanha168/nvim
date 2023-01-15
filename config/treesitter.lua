@@ -4,7 +4,7 @@ local M = {
   },
   ensure_installed = {
     "lua",
-    "javascript",
+    -- "javascript",
     "typescript",
     "vue",
     "scss",
@@ -16,7 +16,8 @@ local M = {
     "tsx",
     "html",
     "python",
-    "markdown"
+    "markdown",
+    "query"
   },
 
   -- Install parsers synchronously (only applied to `ensure_installed`)
@@ -33,7 +34,7 @@ local M = {
     -- disable highlighting for the `tex` filetype, you need to include `latex` in this list as this is
     -- the name of the parser)
     -- list of language that will be disabled
-    disable = { "html" },
+    -- disable = { "html" },
 
     -- Setting this to true will run `:h syntax` and tree-sitter at the same time.
     -- Set this to `true` if you depend on 'syntax' being enabled (like for indentation).
