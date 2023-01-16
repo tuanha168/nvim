@@ -246,20 +246,4 @@ M.nvimtree = {
   },
 }
 
-M.undotree = {
-  plugin = true,
-  n = {
-    -- toggle
-    ["<C-m>"] = { "<cmd> UndotreeToggle <CR>", "toggle undotree" },
-  },
-}
-
--- M.twoSlassQueries = {
---   plugin = true,
---   n = {
---     -- toggle
---     ["<leader>h"] = { "<cmd> InspectTwoslashQueries <CR>", "toggle Two Slash" },
---   },
--- }
-
 return M

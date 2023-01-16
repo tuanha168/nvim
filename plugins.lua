@@ -175,6 +175,9 @@ return {
   -- undotree
   ["mbbill/undotree"] = {
     cmd = "UndotreeToggle",
+    setup = function()
+      vim.api.nvim_set_keymap("n", "<leader>m", "<cmd>UndotreeToggle<CR>", { silent = true })
+    end,
   },
 
   -- documentations generator
