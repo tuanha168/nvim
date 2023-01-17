@@ -19,21 +19,6 @@ M.disabled = {
   },
 }
 
-M.terminal = {
-  n = {
-    ["<c-T>"] = {
-      "<cmd> Lspsaga term_toggle <CR>",
-      "toggle floating term",
-    },
-  },
-  t = {
-    ["<c-T>"] = {
-      "<cmd> Lspsaga term_toggle <CR>",
-      "toggle floating term",
-    },
-  },
-}
-
 M.advanceSearch = {
   n = {
     ["*"] = { '"ayiwh/<c-r>a<CR>', "", opts = opts },

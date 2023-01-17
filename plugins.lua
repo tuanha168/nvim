@@ -28,6 +28,7 @@ return {
         },
       },
     },
+    disable = true,
   },
 
   ["neovim/nvim-lspconfig"] = {
@@ -184,14 +185,8 @@ return {
   -- ["kkoomen/vim-doge"] = {
   --   run = ":call doge#install()",
   --   cmd = "DogeGenerate",
-  -- },
-
-  -- ["nvim-treesitter/nvim-tree-docs"] = {
-  --   after = "nvim-treesitter",
-  --   config = function()
-  --     require("nvim-treesitter.configs").setup {
-  --       tree_docs = { enable = true },
-  --     }
+  --   config = function ()
+  --     require("custom.config.doge").setup()
   --   end,
   -- },
 
