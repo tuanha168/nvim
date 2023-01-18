@@ -23,10 +23,12 @@ M.advanceSearch = {
   n = {
     ["*"] = { '"ayiwh/<c-r>a<CR>', "", opts = opts },
     ["<leader>fiw"] = { '"ayiw<cmd> Telescope live_grep <CR>a<c-r>a<esc>jk', "", opts = opts },
+    ["<leader>/"] = { '"ayiw/<c-r>a<CR>:%s@<c-r><c-w>@<c-r><c-w>@g<left><left>', "", opts = opts },
   },
   v = {
     ["*"] = { '"ayh/<c-r>a<CR>', "", opts = opts },
     ["<leader>fiw"] = { '"ay<cmd> Telescope live_grep <CR>a<c-r>a<esc>jk', "", opts = opts },
+    ["<leader>/"] = { '"ay/<c-r>a<CR>:%sno@<c-r>a@<c-r>a@g<left><left>', "", opts = opts },
   },
 }
 
@@ -67,6 +69,7 @@ M.visualIndent = {
     ["<"] = { "<gv", "", opts = opts },
     [">"] = { ">gv", "", opts = opts },
     ["p"] = { '"_dP', "", opts = opts },
+    ["="] = { "=gv", "", opts = opts },
   },
 }
 
