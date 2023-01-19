@@ -127,7 +127,6 @@ return {
   -- lspsaga
   ["glepnir/lspsaga.nvim"] = {
     after = "nvim-lspconfig",
-    branch = "main",
     config = function()
       require("custom.config.lspsaga").setup()
     end,
@@ -190,7 +189,7 @@ return {
   --   end,
   -- },
 
-  ["kyazdani42/nvim-tree.lua"] = {
+  ["nvim-tree/nvim-tree.lua"] = {
     override_options = require "custom.config.nvim-tree",
   },
 
