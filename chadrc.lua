@@ -9,7 +9,11 @@ M.ui = {
   theme = "onedark",
   hl_override = {
     CursorLine = {
-      bg = "one_bg",
+      bg = "#282a2e",
+    },
+    Operator = {
+      fg = "#efa0b7",
+      sp = "none",
     },
   },
   changed_themes = {

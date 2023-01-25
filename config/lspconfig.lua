@@ -12,6 +12,7 @@ local servers = {
   "intelephense",
   "cssls",
   "pylsp",
+  "jsonls",
 }
 local home = require("os").getenv "HOME"
 local util = require "lspconfig.util"
@@ -34,7 +35,7 @@ end
 local handlers = require "custom.config.lsp.handlers"
 
 for _, lsp in ipairs(servers) do
-  if lsp == "volar" then
+  if lsp == "volar" or lsp == "tsserver" then
     lspconfig[lsp].setup {
       on_new_config = function(new_config, new_root_dir)
         new_config.init_options.typescript.tsdk = get_typescript_server_path(new_root_dir)
@@ -46,19 +47,22 @@ for _, lsp in ipairs(servers) do
       capabilities = handlers.capabilities,
       -- filetypes = { "typescript", "javascript", "javascriptreact", "typescriptreact", "vue", "json" },
     }
-  elseif lsp == "tsserver" then
-    lspconfig[lsp].setup {
-      on_attach = function(client, bufnr)
-        handlers.on_attach(client, bufnr)
-        require("twoslash-queries").attach(client, bufnr)
-      end,
-      capabilities = handlers.capabilities,
-    }
   elseif lsp == "sumneko_lua" then
     lspconfig[lsp].setup {
       on_attach = handlers.on_attach,
       capabilities = handlers.capabilities,
       settings = require "custom.config.lsp.sumneko_lua",
+    }
+  elseif lsp == "jsonls" then
+    lspconfig[lsp].setup {
+      on_attach = handlers.on_attach,
+      capabilities = handlers.capabilities,
+      settings = {
+        json = {
+          schemas = require("schemastore").json.schemas(),
+          validate = { enable = true },
+        },
+      },
     }
   else
     lspconfig[lsp].setup {

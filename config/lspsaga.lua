@@ -30,7 +30,7 @@ M.setKeymap = function(bufnr, opts)
   vim.api.nvim_buf_set_keymap(bufnr, "n", "[e", "<cmd>Lspsaga diagnostic_jump_prev<CR>", opts)
   vim.api.nvim_buf_set_keymap(bufnr, "n", "]e", "<cmd>Lspsaga diagnostic_jump_next<CR>", opts)
   vim.api.nvim_buf_set_keymap(bufnr, "n", "<leader>l", "<cmd>Lspsaga show_line_diagnostics<CR>", opts)
-  vim.api.nvim_buf_set_keymap(bufnr, "n", "<leader>o", "<cmd>Lspsaga outline<CR>", opts)
+  -- vim.api.nvim_buf_set_keymap(bufnr, "n", "<leader>o", "<cmd>Lspsaga outline<CR>", opts)
   vim.api.nvim_set_keymap("n", "<c-T>", "<cmd>Lspsaga term_toggle<CR>", opts)
   vim.api.nvim_set_keymap("t", "<c-T>", "<cmd>Lspsaga term_toggle<CR>", opts)
 end

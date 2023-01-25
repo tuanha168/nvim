@@ -189,7 +189,7 @@ return {
   --   end,
   -- },
 
-  ["nvim-tree/nvim-tree.lua"] = {
+  ["kyazdani42/nvim-tree.lua"] = {
     override_options = require "custom.config.nvim-tree",
   },
 
@@ -201,6 +201,25 @@ return {
         is_enabled = true, -- to keep disabled at startup and enable it on request with the EnableTwoslashQueries
         vim.api.nvim_set_keymap("n", "<leader>h", "<cmd>InspectTwoslashQueries<CR>", {}),
       }
+    end,
+  },
+  ["b0o/schemastore.nvim"] = {},
+  ["nvim-telescope/telescope-fzf-native.nvim"] = {
+    after = "telescope.nvim",
+    run = "make",
+    config = function()
+      require("telescope").load_extension "fzf"
+    end,
+  },
+  ["RRethy/vim-illuminate"] = {},
+  -- ["echasnovski/mini.map"] = {
+  --   after = "nvim-lspconfig",
+  --   config = require("custom.config.minimap").setup,
+  -- },
+  ["nacro90/numb.nvim"] = {
+    after = "nvim-lspconfig",
+    config = function()
+      require("numb").setup()
     end,
   },
 }
