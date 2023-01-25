@@ -56,8 +56,8 @@ return {
     after = "alpha-nvim",
     config = function()
       require "plugins.configs.cmp"
+      require "custom.config.nvim-cmp".setup()
     end,
-    override_options = require "custom.config.nvim-cmp",
   },
 
   ["lewis6991/gitsigns.nvim"] = {
@@ -157,19 +157,33 @@ return {
     end,
   },
 
-  ["github/copilot.vim"] = {
-    after = "nvim-lspconfig",
-    config = function()
-      require("custom.config.copilot").setup()
-    end,
-  },
+  -- ["github/copilot.vim"] = {
+  --   after = "nvim-lspconfig",
+  --   config = function()
+  --     require("custom.config.copilot").setup()
+  --   end,
+  -- },
 
-  ["tzachar/cmp-tabnine"] = {
-    run = "./install.sh",
-    after = "nvim-cmp",
-    config = function()
-      require("custom.config.tabnine").setup()
-    end,
+  -- ["tzachar/cmp-tabnine"] = {
+  --   run = "./install.sh",
+  --   after = "nvim-cmp",
+  --   config = function()
+  --     require("custom.config.tabnine").setup()
+  --   end,
+  -- },
+
+  ['codota/tabnine-nvim'] = {
+    run = "./dl_binaries.sh",
+    config = function ()
+      require('tabnine').setup({
+        disable_auto_comment=true,
+        accept_keymap="<C-f>",
+        dismiss_keymap = "<C-]>",
+        debounce_ms = 300,
+        suggestion_color = {gui = "#808080", cterm = 244},
+        execlude_filetypes = {"TelescopePrompt"}
+      })
+    end
   },
 
   -- undotree

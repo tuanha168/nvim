@@ -23,7 +23,7 @@ M.advanceSearch = {
   n = {
     ["*"] = { '"ayiwh/<c-r>a<CR>', "", opts = opts },
     ["<leader>fiw"] = { '"ayiw<cmd> Telescope live_grep <CR>a<c-r>a<esc>jk', "", opts = opts },
-    ["<leader>riw"] = { '/\\<<c-r><c-w>\\><CR>:%s@\\<<c-r><c-w>\\>@<c-r><c-w>@gc<left><left><left>', "", opts = opts },
+    ["<leader>riw"] = { "/\\<<c-r><c-w>\\><CR>:%s@\\<<c-r><c-w>\\>@<c-r><c-w>@gc<left><left><left>", "", opts = opts },
   },
   v = {
     ["*"] = { '"ayh/<c-r>a<CR>', "", opts = opts },
@@ -129,6 +129,14 @@ M.telescope = {
       "",
       opts = opts,
     },
+    ["<leader>o"] = {
+      "<cmd> Telescope lsp_document_symbols <CR>",
+      opts = { silent = true },
+    },
+    ["<leader>wo"] = {
+      "<cmd> Telescope lsp_dynamic_workspace_symbols <CR>",
+      opts = { silent = true },
+    },
   },
 }
 
@@ -227,7 +235,6 @@ M.copy = {
 }
 
 M.nvimtree = {
-  plugin = true,
   n = {
     -- toggle
     ["<C-`>"] = { "<cmd> NvimTreeToggle <CR>", "toggle nvimtree" },
