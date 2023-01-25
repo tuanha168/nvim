@@ -56,7 +56,7 @@ return {
     after = "alpha-nvim",
     config = function()
       require "plugins.configs.cmp"
-      require "custom.config.nvim-cmp".setup()
+      require("custom.config.nvim-cmp").setup()
     end,
   },
 
@@ -101,17 +101,20 @@ return {
   -- git
   ["tpope/vim-fugitive"] = {},
 
-  ["TimUntersberger/neogit"] = {
-    config = function()
-      require("neogit").setup {
-        disable_commit_confirmation = true,
-        integrations = {
-          diffview = true,
-        },
-      }
-    end,
-  },
-  ["sindrets/diffview.nvim"] = {},
+  -- ["TimUntersberger/neogit"] = {
+  --   config = function()
+  --     require("neogit").setup {
+  --       disable_commit_confirmation = true,
+  --       integrations = {
+  --         diffview = true,
+  --       },
+  --     }
+  --   end,
+  -- },
+
+  -- ["sindrets/diffview.nvim"] = {
+  --   event = "BufRead",
+  -- },
 
   -- jk escape
   ["max397574/better-escape.nvim"] = {
@@ -126,7 +129,7 @@ return {
 
   -- lspsaga
   ["glepnir/lspsaga.nvim"] = {
-    after = "nvim-lspconfig",
+    after = "alpha-nvim",
     config = function()
       require("custom.config.lspsaga").setup()
     end,
@@ -157,34 +160,28 @@ return {
     end,
   },
 
-  -- ["github/copilot.vim"] = {
-  --   after = "nvim-lspconfig",
-  --   config = function()
-  --     require("custom.config.copilot").setup()
-  --   end,
-  -- },
-
-  -- ["tzachar/cmp-tabnine"] = {
-  --   run = "./install.sh",
-  --   after = "nvim-cmp",
-  --   config = function()
-  --     require("custom.config.tabnine").setup()
-  --   end,
-  -- },
-
-  ['codota/tabnine-nvim'] = {
-    run = "./dl_binaries.sh",
-    config = function ()
-      require('tabnine').setup({
-        disable_auto_comment=true,
-        accept_keymap="<C-f>",
-        dismiss_keymap = "<C-]>",
-        debounce_ms = 300,
-        suggestion_color = {gui = "#808080", cterm = 244},
-        execlude_filetypes = {"TelescopePrompt"}
-      })
-    end
+  ["github/copilot.vim"] = {
+    after = "nvim-lspconfig",
+    config = function()
+      require("custom.config.copilot").setup()
+    end,
   },
+
+  -- Tabnine
+  ["tzachar/cmp-tabnine"] = {
+    run = "./install.sh",
+    after = "nvim-cmp",
+    config = function()
+      require("custom.config.tabnine").setupCmp()
+    end,
+  },
+
+  -- ["codota/tabnine-nvim"] = {
+  --   run = "./dl_binaries.sh",
+  --   config = function()
+  --     require("custom.config.tabnine").setupClient()
+  --   end,
+  -- },
 
   -- undotree
   ["mbbill/undotree"] = {
@@ -203,7 +200,7 @@ return {
   --   end,
   -- },
 
-  ["kyazdani42/nvim-tree.lua"] = {
+  ["nvim-tree/nvim-tree.lua"] = {
     override_options = require "custom.config.nvim-tree",
   },
 
@@ -225,15 +222,19 @@ return {
       require("telescope").load_extension "fzf"
     end,
   },
-  ["RRethy/vim-illuminate"] = {},
-  -- ["echasnovski/mini.map"] = {
-  --   after = "nvim-lspconfig",
-  --   config = require("custom.config.minimap").setup,
-  -- },
+  ["RRethy/vim-illuminate"] = {
+    after = "nvim-lspconfig",
+  },
   ["nacro90/numb.nvim"] = {
     after = "nvim-lspconfig",
     config = function()
       require("numb").setup()
+    end,
+  },
+  ["ruifm/gitlinker.nvim"] = {
+    event = "BufRead",
+    config = function()
+      require("custom.config.gitlinker").setup()
     end,
   },
 }

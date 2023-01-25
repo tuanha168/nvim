@@ -34,11 +34,10 @@ M.advanceSearch = {
 
 M.neoGit = {
   n = {
-    ["<leader>gg"] = { ":Neogit<cr>", "", opts = opts },
-    ["<leader>gd"] = { ":DiffviewOpen<cr>", "", opts = opts },
-    ["<leader>gD"] = { ":DiffviewOpen main<cr>", "", opts = opts },
-    ["<leader>gl"] = { ":Neogit log<cr>", "", opts = opts },
-    ["<leader>gp"] = { ":Neogit push<cr>", "", opts = opts },
+    ["<leader>gg"] = { "<cmd>Lspsaga term_toggle lazygit<CR>", "", opts = opts },
+  },
+  t = {
+    ["<leader>gg"] = { "<cmd>bd!<CR>", "", opts = opts },
   },
 }
 

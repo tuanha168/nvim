@@ -4,7 +4,7 @@ local M = {
   },
   ensure_installed = {
     "lua",
-    "javascript",
+    -- "javascript",
     "typescript",
     "vue",
     "scss",

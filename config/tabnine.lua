@@ -1,8 +1,8 @@
 local M = {}
 
-local tabnine = require "cmp_tabnine.config"
 
-M.setup = function()
+M.setupCmp = function()
+  local tabnine = require "cmp_tabnine.config"
   tabnine:setup {
     max_lines = 1000,
     max_num_results = 20,
@@ -15,6 +15,18 @@ M.setup = function()
       -- lua = true
     },
     show_prediction_strength = true,
+  }
+end
+
+M.setupClient = function()
+  local tabnine = require "tabnine"
+  tabnine.setup {
+    disable_auto_comment = true,
+    accept_keymap = "<C-f>",
+    dismiss_keymap = "<C-]>",
+    debounce_ms = 300,
+    suggestion_color = { gui = "#808080", cterm = 244 },
+    execlude_filetypes = { "TelescopePrompt" },
   }
 end
 
