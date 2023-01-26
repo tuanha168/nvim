@@ -38,7 +38,6 @@ M.term_toggle = {
     ["<c-T>"] = { "<cmd>Lspsaga term_toggle<CR>", "", opts = opts },
   },
   t = {
-    ["<leader>qq"] = { "<cmd>bd!<CR>", "", opts = { silent = true, noremap = true, nowait = true } },
     ["<c-T>"] = { "<cmd>Lspsaga term_toggle<CR>", "", opts = opts },
   },
 }
