@@ -1,0 +1,7 @@
+{
+  "console log": {
+    "prefix": "clg",
+    "description": "console log",
+    "body": ["console.table({ ${0} })"]
+  }
+}

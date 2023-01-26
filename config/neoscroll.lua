@@ -7,8 +7,8 @@ M.setup = function()
     end,
   }
   local t = {}
-  t["{"] = { "scroll", { "-vim.wo.scroll", "true", "250" } }
-  t["}"] = { "scroll", { "vim.wo.scroll", "true", "250" } }
+  t["{"] = { "scroll", { "-vim.wo.scroll", "true", "100" } }
+  t["}"] = { "scroll", { "vim.wo.scroll", "true", "100" } }
   require("neoscroll.config").set_mappings(t)
 end
 

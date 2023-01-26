@@ -32,12 +32,14 @@ M.advanceSearch = {
   },
 }
 
-M.neoGit = {
+M.term_toggle = {
   n = {
     ["<leader>gg"] = { "<cmd>Lspsaga term_toggle lazygit<CR>", "", opts = opts },
+    ["<c-T>"] = { "<cmd>Lspsaga term_toggle<CR>", "", opts = opts },
   },
   t = {
-    ["<leader>gg"] = { "<cmd>bd!<CR>", "", opts = opts },
+    ["<leader>qq"] = { "<cmd>bd!<CR>", "", opts = { silent = true, noremap = true, nowait = true } },
+    ["<c-T>"] = { "<cmd>Lspsaga term_toggle<CR>", "", opts = opts },
   },
 }
 
@@ -83,8 +85,8 @@ M.keepCenter = {
     -- ["k"] = { 'v:count || mode(1)[0:1] == "no" ? "kzz" : "gkzz"', opts = { expr = true, silent = true } },
     ["j"] = { 'v:count || mode(1)[0:1] == "no" ? "j" : "gj"', opts = { expr = true, silent = true } },
     ["k"] = { 'v:count || mode(1)[0:1] == "no" ? "k" : "gk"', opts = { expr = true, silent = true } },
-    -- ["}"] = { "<C-d>zz", "", opts = {} },
-    -- ["{"] = { "<C-u>zz", "", opts = {} },
+    ["}"] = { "<C-d>zz", "", opts = {} },
+    ["{"] = { "<C-u>zz", "", opts = {} },
     ["gd"] = { "gdzz", "", opts = opts },
     -- ["gh"] = { "^", "", opts = opts },
     -- ["gl"] = { "$", "", opts = opts },
@@ -241,6 +243,14 @@ M.nvimtree = {
     -- toggle
     ["<C-`>"] = { "<cmd> NvimTreeToggle <CR>", "toggle nvimtree" },
   },
+}
+
+M.snippets = {
+  n = {
+    ["clg"] = {
+      '"ayiwoconsole.table({ <c-r>a })<left><left><left>'
+    }
+  }
 }
 
 return M

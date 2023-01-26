@@ -1,5 +1,5 @@
 local options_opt = {
-  completeopt = "menu,menuone,noselect", -- better autocomplete options
+  completeopt = { "menu", "menuone", "noselect" }, -- better autocomplete options
   mouse = "a", -- if I accidentally use the mouse
   splitright = true, -- splits to the right
   splitbelow = true, -- splits below
@@ -9,13 +9,14 @@ local options_opt = {
   shiftwidth = 2, -- indentation
   number = true, -- show absolute line numbers
   relativenumber = true,
+  numberwidth = 4,
   ignorecase = true, -- search case insensitive
   smartcase = true, -- search via smartcase
   incsearch = true, -- search incremental
   hidden = true, -- allow hidden buffers
   cmdheight = 2, -- only one line for commands
   signcolumn = "yes", -- add a column for sings (e.g. LSP, ...)
-  updatetime = 520, -- time until update
+  updatetime = 300, -- time until update
   undofile = true, -- persists undo tree
   encoding = "utf-8",
   fileencoding = "utf-8",
@@ -41,6 +42,7 @@ local options_g = {
   mapleader = " ", -- space as leader key
   matchup_matchparen_offscreen = { method = "popup" },
   copilot_assume_mapped = true,
+  luasnippets_path = "./lua/custom",
 }
 for k, v in pairs(options_g) do
   vim.g[k] = v
