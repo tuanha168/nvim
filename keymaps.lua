@@ -46,8 +46,11 @@ M.gitSigns = {
     ["H"] = { "<cmd>Gitsigns prev_hunk<CR>", "", opts = opts },
     ["L"] = { "<cmd>Gitsigns next_hunk<CR>", "", opts = opts },
     ["<leader>pp"] = { "<cmd>Gitsigns preview_hunk<CR>", "Git Actions", opts = opts },
+    ["<c-u>"] = { ":Gitsigns undo_stage_hunk<CR>", "", opts = opts },
+    ["<c-s>"] = { ":Gitsigns stage_hunk<CR>", "", opts = opts },
   },
   v = {
+    ["<c-s>"] = { ":Gitsigns stage_hunk<CR>", "", opts = opts },
     ["u"] = { ":Gitsigns reset_hunk<CR>", "", opts = opts },
   },
 }
@@ -80,8 +83,8 @@ M.keepCenter = {
     -- ["k"] = { 'v:count || mode(1)[0:1] == "no" ? "kzz" : "gkzz"', opts = { expr = true, silent = true } },
     ["j"] = { 'v:count || mode(1)[0:1] == "no" ? "j" : "gj"', opts = { expr = true, silent = true } },
     ["k"] = { 'v:count || mode(1)[0:1] == "no" ? "k" : "gk"', opts = { expr = true, silent = true } },
-    ["}"] = { "<C-d>zz", "", opts = opts },
-    ["{"] = { "<C-u>zz", "", opts = opts },
+    -- ["}"] = { "<C-d>zz", "", opts = {} },
+    -- ["{"] = { "<C-u>zz", "", opts = {} },
     ["gd"] = { "gdzz", "", opts = opts },
     -- ["gh"] = { "^", "", opts = opts },
     -- ["gl"] = { "$", "", opts = opts },
@@ -158,32 +161,32 @@ M.closeTab = {
   },
 }
 
-M.plusMinus = {
-  n = {
-    ["+"] = {
-      "<c-a>",
-      "Plus",
-      opts = opts,
-    },
-    ["-"] = {
-      "<c-x>",
-      "Minus",
-      opts = opts,
-    },
-  },
-  v = {
-    ["+"] = {
-      "<c-a>gv",
-      "Plus",
-      opts = opts,
-    },
-    ["-"] = {
-      "<c-x>gv",
-      "Minus",
-      opts = opts,
-    },
-  },
-}
+-- M.plusMinus = {
+--   n = {
+--     ["+"] = {
+--       "<c-a>",
+--       "Plus",
+--       opts = opts,
+--     },
+--     ["-"] = {
+--       "<c-x>",
+--       "Minus",
+--       opts = opts,
+--     },
+--   },
+--   v = {
+--     ["+"] = {
+--       "<c-a>gv",
+--       "Plus",
+--       opts = opts,
+--     },
+--     ["-"] = {
+--       "<c-x>gv",
+--       "Minus",
+--       opts = opts,
+--     },
+--   },
+-- }
 
 M.disableDeleteYank = {
   n = {

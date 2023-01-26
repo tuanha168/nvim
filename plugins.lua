@@ -3,6 +3,19 @@ return {
     override_options = require "custom.config.treesitter",
   },
 
+  ["windwp/nvim-ts-autotag"] = {
+    after = "nvim-treesitter",
+  },
+  ["p00f/nvim-ts-rainbow"] = {
+    after = "nvim-treesitter",
+  },
+  ["nvim-treesitter/nvim-treesitter-context"] = {
+    after = "nvim-treesitter",
+    config = function()
+      require("treesitter-context").setup()
+    end,
+  },
+
   -- ["nvim-treesitter/playground"] = {
   --   config = function()
   --     require("custom.config.treesitter-playground").setup()
@@ -160,8 +173,8 @@ return {
     end,
   },
 
-  ["github/copilot.vim"] = {
-    after = "nvim-lspconfig",
+  ["zbirenbaum/copilot.lua"] = {
+    event = "InsertEnter",
     config = function()
       require("custom.config.copilot").setup()
     end,
@@ -170,7 +183,7 @@ return {
   -- Tabnine
   ["tzachar/cmp-tabnine"] = {
     run = "./install.sh",
-    after = "nvim-cmp",
+    event = "InsertEnter",
     config = function()
       require("custom.config.tabnine").setupCmp()
     end,
@@ -235,6 +248,30 @@ return {
     event = "BufRead",
     config = function()
       require("custom.config.gitlinker").setup()
+    end,
+  },
+  ["ray-x/lsp_signature.nvim"] = {
+    config = function()
+      require("custom.config.lsp_signature").setup()
+    end,
+  },
+  ["metakirby5/codi.vim"] = {
+    cmd = "Codi",
+  },
+  ["monaqa/dial.nvim"] = {
+    after = "nvim-lspconfig",
+    config = function()
+      require("custom.config.dial").setup()
+    end,
+  },
+  ["karb94/neoscroll.nvim"] = {
+    config = function()
+      require("custom.config.neoscroll").setup()
+    end,
+  },
+  ["lukas-reineke/indent-blankline.nvim"] = {
+    config = function()
+      require("custom.config.indent-blankline").setup()
     end,
   },
 }
