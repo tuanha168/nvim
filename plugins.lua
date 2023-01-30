@@ -129,6 +129,13 @@ return {
   --   event = "BufRead",
   -- },
 
+  ["numToStr/Comment.nvim"] = {
+    override_options = function()
+      require "custom.config.comment"
+      return {}
+    end,
+  },
+
   -- jk escape
   ["max397574/better-escape.nvim"] = {
     event = "InsertEnter",

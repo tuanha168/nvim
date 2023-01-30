@@ -22,12 +22,5 @@ autocmd({ "BufRead", "BufNewFile" }, {
   end,
 })
 
-autocmd({ "FileType" }, {
-  pattern = "*.php",
-  callback = function()
-    vim.cmd "setlocal commentstring=//  %s"
-  end,
-})
-
 require "custom.config.colors"
 require "custom.config.default"
