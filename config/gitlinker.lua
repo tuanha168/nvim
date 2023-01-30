@@ -13,6 +13,10 @@ M.setup = function()
       -- mapping to call url generation
       mappings = "<leader>gy",
     },
+    callbacks = {
+      ["achicir2"] = require("gitlinker.hosts").get_github_type_url,
+      ["mizunolab"] = require("gitlinker.hosts").get_gitlab_type_url,
+    },
   }
 end
 
