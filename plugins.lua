@@ -264,6 +264,7 @@ return {
   },
   ["metakirby5/codi.vim"] = {
     cmd = "Codi",
+    run = "npm install -g tsun",
   },
   ["monaqa/dial.nvim"] = {
     after = "nvim-lspconfig",
