@@ -14,8 +14,14 @@ M.setup = function()
       mappings = "<leader>gy",
     },
     callbacks = {
-      ["achicir2"] = require("gitlinker.hosts").get_github_type_url,
-      ["mizunolab"] = require("gitlinker.hosts").get_gitlab_type_url,
+      ["achicir2"] = function(url)
+        url.host = "github.com"
+        return require("gitlinker.hosts").get_github_type_url(url)
+      end,
+      ["mizunogitlab"] = function(url)
+        url.host = "gitlab.com"
+        return require("gitlinker.hosts").get_gitlab_type_url(url)
+      end,
     },
   }
 end

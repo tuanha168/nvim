@@ -3,6 +3,9 @@ local M = {}
 M.setup = function()
   local saga = require "lspsaga"
   saga.setup {
+    lightbulb = {
+      enable = false,
+    },
     outline = {
       win_position = "right",
       win_with = "",

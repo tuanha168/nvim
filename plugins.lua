@@ -5,6 +5,9 @@ return {
 
   ["windwp/nvim-ts-autotag"] = {
     after = "nvim-treesitter",
+    config = function()
+      require("custom.config.nvim-ts-autotag").setup()
+    end,
   },
   ["p00f/nvim-ts-rainbow"] = {
     after = "nvim-treesitter",
@@ -212,13 +215,13 @@ return {
   },
 
   -- documentations generator
-  -- ["kkoomen/vim-doge"] = {
-  --   run = ":call doge#install()",
-  --   cmd = "DogeGenerate",
-  --   config = function ()
-  --     require("custom.config.doge").setup()
-  --   end,
-  -- },
+  ["kkoomen/vim-doge"] = {
+    run = ":call doge#install()",
+    cmd = "DogeGenerate",
+    config = function ()
+      require("custom.config.doge").setup()
+    end,
+  },
 
   ["nvim-tree/nvim-tree.lua"] = {
     override_options = require "custom.config.nvim-tree",
