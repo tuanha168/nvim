@@ -18,13 +18,14 @@ local M = {
     "eslint-lsp",
     "eslint_d",
     "prettier",
+    "php-cs-fixer",
 
     -- php
     "intelephense",
 
     -- python
     "pyright",
-    "python-lsp-server",
+    -- "python-lsp-server",
   },
 }
 return M
