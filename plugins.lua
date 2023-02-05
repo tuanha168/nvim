@@ -183,28 +183,28 @@ return {
     end,
   },
 
-  ["zbirenbaum/copilot.lua"] = {
-    event = "InsertEnter",
-    config = function()
-      require("custom.config.copilot").setup()
-    end,
-  },
-
-  -- Tabnine
-  ["tzachar/cmp-tabnine"] = {
-    run = "./install.sh",
-    event = "InsertEnter",
-    config = function()
-      require("custom.config.tabnine").setupCmp()
-    end,
-  },
-
-  -- ["codota/tabnine-nvim"] = {
-  --   run = "./dl_binaries.sh",
+  -- ["zbirenbaum/copilot.lua"] = {
+  --   event = "InsertEnter",
   --   config = function()
-  --     require("custom.config.tabnine").setupClient()
+  --     require("custom.config.copilot").setup()
   --   end,
   -- },
+
+  -- Tabnine
+  -- ["tzachar/cmp-tabnine"] = {
+  --   run = "./install.sh",
+  --   event = "InsertEnter",
+  --   config = function()
+  --     require("custom.config.tabnine").setupCmp()
+  --   end,
+  -- },
+
+  ["codota/tabnine-nvim"] = {
+    run = "./dl_binaries.sh",
+    config = function()
+      require("custom.config.tabnine").setupClient()
+    end,
+  },
 
   -- undotree
   ["mbbill/undotree"] = {
