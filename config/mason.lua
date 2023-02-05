@@ -15,6 +15,7 @@ local M = {
     "json-lsp",
     -- lint
     "eslint-lsp",
+    "eslint_d",
     "prettier",
 
     -- php
