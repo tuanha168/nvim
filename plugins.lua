@@ -215,11 +215,16 @@ return {
   },
 
   -- documentations generator
-  ["kkoomen/vim-doge"] = {
-    run = ":call doge#install()",
-    cmd = "DogeGenerate",
+  -- ["kkoomen/vim-doge"] = {
+  --   run = ":call doge#install()",
+  --   cmd = "DogeGenerate",
+  --   config = function()
+  --     require("custom.config.doge").setup()
+  --   end,
+  -- },
+  ["danymat/neogen"] = {
     config = function()
-      require("custom.config.doge").setup()
+      require("neogen").setup {}
     end,
   },
 
@@ -285,7 +290,13 @@ return {
       require("custom.config.indent-blankline").setup()
     end,
   },
-  ["aduros/ai.vim"] = {
+  ["jackMort/ChatGPT.nvim"] = {
     after = "nvim-lspconfig",
+    config = function()
+      require("chatgpt").setup {}
+    end,
+    requires = {
+      "MunifTanjim/nui.nvim",
+    },
   },
 }
