@@ -218,7 +218,7 @@ return {
   ["kkoomen/vim-doge"] = {
     run = ":call doge#install()",
     cmd = "DogeGenerate",
-    config = function ()
+    config = function()
       require("custom.config.doge").setup()
     end,
   },
@@ -284,5 +284,8 @@ return {
     config = function()
       require("custom.config.indent-blankline").setup()
     end,
+  },
+  ["aduros/ai.vim"] = {
+    after = "nvim-lspconfig",
   },
 }

@@ -17,6 +17,7 @@ local M = {
     "html",
     "python",
     "markdown",
+    "markdown_inline",
     "query"
   },
 
