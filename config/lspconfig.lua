@@ -8,7 +8,7 @@ local servers = {
   "volar",
   "tsserver",
   -- "eslint",
-  "sumneko_lua",
+  "lua_ls",
   "intelephense",
   "cssls",
   "pylsp",
@@ -47,7 +47,7 @@ for _, lsp in ipairs(servers) do
       capabilities = handlers.capabilities,
       -- filetypes = { "typescript", "javascript", "javascriptreact", "typescriptreact", "vue", "json" },
     }
-  elseif lsp == "sumneko_lua" then
+  elseif lsp == "lua_ls" then
     lspconfig[lsp].setup {
       on_attach = handlers.on_attach,
       capabilities = handlers.capabilities,

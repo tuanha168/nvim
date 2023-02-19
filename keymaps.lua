@@ -16,6 +16,7 @@ M.disabled = {
     ["<leader>wK"] = "",
     ["<leader>wk"] = "",
     ["<leader>tt"] = "",
+    ["<leader>ls"] = "",
   },
 }
 
@@ -217,6 +218,14 @@ M.disableDeleteYank = {
 }
 
 M.lspRelated = {
+  i = {
+    ["<c-i>"] = {
+      function()
+        vim.lsp.buf.signature_help()
+      end,
+      "lsp signature_help",
+    },
+  },
   v = {
     ["<leader>fm"] = {
       function()
@@ -247,9 +256,9 @@ M.nvimtree = {
 M.snippets = {
   n = {
     ["clg"] = {
-      '"ayiwoconsole.table({ <c-r>a })<left><left><left>'
-    }
-  }
+      '"ayiwoconsole.log({ <c-r>a })<left><left><left>',
+    },
+  },
 }
 
 return M
