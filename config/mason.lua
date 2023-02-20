@@ -6,7 +6,7 @@ local M = {
 
     -- web dev
     "typescript-language-server",
-    -- "angular-language-server",
+    "angular-language-server",
     -- "vetur-vls",
     "vue-language-server",
     "css-lsp",
