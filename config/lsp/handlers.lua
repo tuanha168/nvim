@@ -77,7 +77,7 @@ end
 local disabledFormatter = {
   sumneko_lua = true,
   tsserver = true,
-  intelephense = true,
+  -- intelephense = true,
   volar = true,
 }
 local function setContains(set, key)

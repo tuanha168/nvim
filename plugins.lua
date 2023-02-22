@@ -2,7 +2,6 @@ return {
   ["nvim-treesitter/nvim-treesitter"] = {
     override_options = require "custom.config.treesitter",
   },
-
   ["windwp/nvim-ts-autotag"] = {
     after = "nvim-treesitter",
     config = function()
@@ -18,7 +17,6 @@ return {
       require("treesitter-context").setup()
     end,
   },
-
   -- ["nvim-treesitter/playground"] = {
   --   config = function()
   --     require("custom.config.treesitter-playground").setup()
@@ -28,7 +26,6 @@ return {
   ["williamboman/mason.nvim"] = {
     override_options = require "custom.config.mason",
   },
-
   ["NvChad/nvterm"] = {
     override_options = {
       terminals = {
@@ -46,28 +43,24 @@ return {
     },
     disable = true,
   },
-
   ["neovim/nvim-lspconfig"] = {
     config = function()
       require "plugins.configs.lspconfig"
       require "custom.config.lspconfig"
     end,
   },
-
   ["jose-elias-alvarez/null-ls.nvim"] = {
     after = "nvim-lspconfig",
     config = function()
       require("custom.config.null-ls").setup()
     end,
   },
-
   ["hrsh7th/cmp-cmdline"] = {
     after = "nvim-cmp",
     config = function()
       require "custom.config.cmdline"
     end,
   },
-
   ["hrsh7th/nvim-cmp"] = {
     after = "alpha-nvim",
     config = function()
@@ -75,21 +68,18 @@ return {
       require("custom.config.nvim-cmp").setup()
     end,
   },
-
   ["lewis6991/gitsigns.nvim"] = {
     after = "nvim-lspconfig",
     config = function()
       require("custom.config.gitsign").setup()
     end,
   },
-
   ["kylechui/nvim-surround"] = {
     after = "nvim-lspconfig",
     config = function()
       require("nvim-surround").setup {}
     end,
   },
-
   ["nvim-telescope/telescope.nvim"] = {
     cmd = "Telescope",
     config = function()
@@ -97,26 +87,21 @@ return {
       require("custom.config.telescope").setup()
     end,
   },
-
   ["nvim-telescope/telescope-project.nvim"] = {},
-
   ["gbprod/yanky.nvim"] = {
     after = "nvim-lspconfig",
     config = function()
       require("custom.config.yanky").setup()
     end,
   },
-
   ["goolord/alpha-nvim"] = {
     disable = false,
     config = function()
       require("alpha").setup(require("alpha.themes.startify").config)
     end,
   },
-
   -- git
   ["tpope/vim-fugitive"] = {},
-
   -- ["TimUntersberger/neogit"] = {
   --   config = function()
   --     require("neogit").setup {
@@ -138,7 +123,6 @@ return {
       return {}
     end,
   },
-
   -- jk escape
   ["max397574/better-escape.nvim"] = {
     event = "InsertEnter",
@@ -149,7 +133,6 @@ return {
       }
     end,
   },
-
   -- lspsaga
   ["glepnir/lspsaga.nvim"] = {
     after = "alpha-nvim",
@@ -157,7 +140,6 @@ return {
       require("custom.config.lspsaga").setup()
     end,
   },
-
   -- leap
   ["ggandor/leap.nvim"] = {
     after = "nvim-lspconfig",
@@ -165,10 +147,8 @@ return {
       require("custom.config.leap").setup()
     end,
   },
-
   -- targets
   ["wellle/targets.vim"] = {},
-
   -- match-up
   ["andymass/vim-matchup"] = {
     after = "nvim-lspconfig",
@@ -176,13 +156,11 @@ return {
       require("custom.config.vim-matchup").setup()
     end,
   },
-
   ["David-Kunz/markid"] = {
     config = function()
       require("custom.config.markid").setup()
     end,
   },
-
   -- ["zbirenbaum/copilot.lua"] = {
   --   event = "InsertEnter",
   --   config = function()
@@ -205,7 +183,6 @@ return {
       require("custom.config.tabnine").setupClient()
     end,
   },
-
   -- undotree
   ["mbbill/undotree"] = {
     cmd = "UndotreeToggle",
@@ -213,7 +190,6 @@ return {
       vim.api.nvim_set_keymap("n", "<leader>m", "<cmd>UndotreeToggle<CR>", { silent = true })
     end,
   },
-
   -- documentations generator
   -- ["kkoomen/vim-doge"] = {
   --   run = ":call doge#install()",
@@ -227,11 +203,9 @@ return {
       require("neogen").setup {}
     end,
   },
-
   ["nvim-tree/nvim-tree.lua"] = {
     override_options = require "custom.config.nvim-tree",
   },
-
   ["marilari88/twoslash-queries.nvim"] = {
     after = "nvim-lspconfig",
     config = function()
@@ -303,4 +277,8 @@ return {
     after = "nvim-lspconfig",
     run = "npm install -g live-server",
   },
+  ["kkoomen/vim-doge"] = {
+    run = ":call doge#install()",
+  },
+  ["diepm/vim-rest-console"] = {},
 }

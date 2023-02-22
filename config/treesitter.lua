@@ -18,15 +18,12 @@ local M = {
     "python",
     "markdown",
     "markdown_inline",
-    "query"
+    "query",
   },
-
   -- Install parsers synchronously (only applied to `ensure_installed`)
   sync_install = true,
-
   -- List of parsers to ignore installing (for "all")
   ignore_install = {},
-
   highlight = {
     -- `false` will disable the whole extension
     enable = true,
