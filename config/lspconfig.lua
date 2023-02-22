@@ -35,15 +35,12 @@ end
 local handlers = require "custom.config.lsp.handlers"
 
 for _, lsp in ipairs(servers) do
-  if lsp == "volar" or lsp == "tsserver" then
+  if lsp == "volar" then
     lspconfig[lsp].setup {
       on_new_config = function(new_config, new_root_dir)
         new_config.init_options.typescript.tsdk = get_typescript_server_path(new_root_dir)
       end,
-      on_attach = function(client, bufnr)
-        handlers.on_attach(client, bufnr)
-        require("twoslash-queries").attach(client, bufnr)
-      end,
+      on_attach = handlers.on_attach,
       capabilities = handlers.capabilities,
       -- filetypes = { "typescript", "javascript", "javascriptreact", "typescriptreact", "vue", "json" },
     }
