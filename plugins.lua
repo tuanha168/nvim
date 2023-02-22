@@ -299,4 +299,8 @@ return {
       "MunifTanjim/nui.nvim",
     },
   },
+  ["manzeloth/live-server"] = {
+    after = "nvim-lspconfig",
+    run = "npm install -g live-server",
+  },
 }
