@@ -45,7 +45,6 @@ return {
   },
   ["neovim/nvim-lspconfig"] = {
     config = function()
-      require "plugins.configs.lspconfig"
       require "custom.config.lspconfig"
     end,
   },
@@ -274,12 +273,17 @@ return {
   --     "MunifTanjim/nui.nvim",
   --   },
   -- },
-  ["manzeloth/live-server"] = {
-    after = "nvim-lspconfig",
-    run = "npm install -g live-server",
-  },
+  -- ["manzeloth/live-server"] = {
+  --   after = "nvim-lspconfig",
+  --   run = "npm install -g live-server",
+  -- },
   ["kkoomen/vim-doge"] = {
     run = ":call doge#install()",
   },
-  ["diepm/vim-rest-console"] = {},
+  -- ["diepm/vim-rest-console"] = {},
+  ["aserowy/tmux.nvim"] = {
+    config = function()
+      require("tmux").setup()
+    end,
+  },
 }

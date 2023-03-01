@@ -16,7 +16,7 @@ local M = {
 
     -- lint
     "eslint-lsp",
-    "eslint_d",
+    -- "eslint_d",
     "prettier",
     "php-cs-fixer",
 
