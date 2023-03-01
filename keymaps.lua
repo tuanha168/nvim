@@ -36,11 +36,11 @@ M.advanceSearch = {
 M.term_toggle = {
   n = {
     ["<leader>gg"] = { "<cmd>Lspsaga term_toggle lazygit<CR>", "", opts = opts },
-    ["<c-T>"] = { "<cmd>Lspsaga term_toggle<CR>", "", opts = opts },
+    -- ["<c-T>"] = { "<cmd>Lspsaga term_toggle<CR>", "", opts = opts },
   },
-  t = {
-    ["<c-T>"] = { "<cmd>Lspsaga term_toggle<CR>", "", opts = opts },
-  },
+  -- t = {
+  --   ["<c-T>"] = { "<cmd>Lspsaga term_toggle<CR>", "", opts = opts },
+  -- },
 }
 
 M.gitSigns = {
