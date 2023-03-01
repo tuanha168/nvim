@@ -7,7 +7,7 @@ local servers = {
   -- "vuels",
   "volar",
   "tsserver",
-  -- "eslint",
+  "eslint",
   "lua_ls",
   "intelephense",
   "cssls",

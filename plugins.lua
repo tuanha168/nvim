@@ -178,6 +178,7 @@ return {
   -- },
 
   ["codota/tabnine-nvim"] = {
+    event = "InsertEnter",
     run = "./dl_binaries.sh",
     config = function()
       require("custom.config.tabnine").setupClient()
@@ -264,15 +265,15 @@ return {
       require("custom.config.indent-blankline").setup()
     end,
   },
-  ["jackMort/ChatGPT.nvim"] = {
-    after = "nvim-lspconfig",
-    config = function()
-      require("chatgpt").setup {}
-    end,
-    requires = {
-      "MunifTanjim/nui.nvim",
-    },
-  },
+  -- ["jackMort/ChatGPT.nvim"] = {
+  --   after = "nvim-lspconfig",
+  --   config = function()
+  --     require("chatgpt").setup {}
+  --   end,
+  --   requires = {
+  --     "MunifTanjim/nui.nvim",
+  --   },
+  -- },
   ["manzeloth/live-server"] = {
     after = "nvim-lspconfig",
     run = "npm install -g live-server",
