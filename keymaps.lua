@@ -261,4 +261,19 @@ M.snippets = {
   },
 }
 
+M.illuminate = {
+  n = {
+    [")"] = {
+      function()
+        require("illuminate").goto_next_reference()
+      end,
+    },
+    ["("] = {
+      function()
+        require("illuminate").goto_prev_reference()
+      end,
+    },
+  },
+}
+
 return M
