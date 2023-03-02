@@ -1,6 +1,6 @@
 local function edit_or_open()
   -- open as vsplit on current node
-  local action = "preview"
+  local action = "edit"
   local node = require("nvim-tree.lib").get_node_at_cursor()
 
   -- Just copy what's done normally with vsplit
@@ -24,7 +24,7 @@ local M = {
     mappings = {
       custom_only = false,
       list = {
-        { key = "<Tab>", action = "preview", action_cb = edit_or_open },
+        { key = "<Tab>", action = "edit", action_cb = edit_or_open },
       },
     },
   },
