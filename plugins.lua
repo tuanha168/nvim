@@ -8,9 +8,6 @@ return {
       require("custom.config.nvim-ts-autotag").setup()
     end,
   },
-  ["p00f/nvim-ts-rainbow"] = {
-    after = "nvim-treesitter",
-  },
   ["nvim-treesitter/nvim-treesitter-context"] = {
     after = "nvim-treesitter",
     config = function()
@@ -286,6 +283,21 @@ return {
       require("tmux").setup {
         copy_sync = {
           enable = false,
+        },
+      }
+    end,
+  },
+  ["barrett-ruth/import-cost.nvim"] = {
+    run = "sh ./install.sh yarn",
+    after = "nvim-lspconfig",
+    config = function()
+      require("import-cost").setup {
+        filetypes = {
+          "vue",
+          "javascript",
+          "javascriptreact",
+          "typescript",
+          "typescriptreact",
         },
       }
     end,

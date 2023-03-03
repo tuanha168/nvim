@@ -6,7 +6,7 @@ local servers = {
   -- "emmet_ls",
   -- "vuels",
   "volar",
-  "tsserver",
+  -- "tsserver",
   "eslint",
   "lua_ls",
   "intelephense",
@@ -42,7 +42,7 @@ for _, lsp in ipairs(servers) do
       end,
       on_attach = handlers.on_attach,
       capabilities = handlers.capabilities,
-      -- filetypes = { "typescript", "javascript", "javascriptreact", "typescriptreact", "vue", "json" },
+      filetypes = { "typescript", "javascript", "javascriptreact", "typescriptreact", "vue", "json" },
     }
   elseif lsp == "lua_ls" then
     lspconfig[lsp].setup {
