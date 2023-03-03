@@ -219,7 +219,7 @@ M.disableDeleteYank = {
 
 M.lspRelated = {
   i = {
-    ["<c-i>"] = {
+    ["<c-u>"] = {
       function()
         vim.lsp.buf.signature_help()
       end,
