@@ -165,21 +165,22 @@ return {
   -- },
 
   -- Tabnine
-  -- ["tzachar/cmp-tabnine"] = {
-  --   run = "./install.sh",
+  ["tzachar/cmp-tabnine"] = {
+    event = "InsertEnter",
+    run = "./install.sh",
+    config = function()
+      require("custom.config.tabnine").setupCmp()
+    end,
+  },
+
+  -- ["codota/tabnine-nvim"] = {
   --   event = "InsertEnter",
+  --   run = "./dl_binaries.sh",
   --   config = function()
-  --     require("custom.config.tabnine").setupCmp()
+  --     require("custom.config.tabnine").setupClient()
   --   end,
   -- },
 
-  ["codota/tabnine-nvim"] = {
-    event = "InsertEnter",
-    run = "./dl_binaries.sh",
-    config = function()
-      require("custom.config.tabnine").setupClient()
-    end,
-  },
   -- undotree
   ["mbbill/undotree"] = {
     cmd = "UndotreeToggle",
