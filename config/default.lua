@@ -59,6 +59,7 @@ if vim.g.neovide then
   local g = {
     -- neovide_fullscreen = true,
     -- neovide_input_use_logo = true,
+    neovide_transparency = 0.8,
     neovide_remember_window_size = true,
     neovide_input_macos_alt_is_meta = true,
     -- neovide_profiler = true,
