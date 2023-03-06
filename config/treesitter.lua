@@ -43,9 +43,15 @@ local M = {
   indent = {
     enable = true,
   },
-  autotag = {
-    enable = true,
-  },
+  -- incremental_selection = {
+  --   enable = true,
+  --   keymaps = {
+  --     init_selection = "<CR>",
+  --     node_incremental = "<CR>",
+  --     scope_incremental = "<Tab>",
+  --     node_decremental = "<S-Tab>",
+  --   },
+  -- },
 }
 
 return M

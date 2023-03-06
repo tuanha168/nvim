@@ -1,8 +1,5 @@
-local M = {}
-local telescope = require "telescope"
-
-M.setup = function()
-  telescope.load_extension "project"
-end
+local M = {
+  extensions_list = { "themes", "terms", "project", "advanced_git_search" },
+}
 
 return M

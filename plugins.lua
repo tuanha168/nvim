@@ -14,6 +14,18 @@ return {
       require("treesitter-context").setup()
     end,
   },
+  ["HiPhish/nvim-ts-rainbow2"] = {
+    after = "nvim-treesitter",
+    config = function()
+      require "custom.config.treesitter-rainbow"
+    end,
+  },
+  -- ["nvim-treesitter/nvim-treesitter-textobjects"] = {
+  --   after = "nvim-treesitter",
+  --   config = function()
+  --     require "custom.config.treesitter-textobjects"
+  --   end,
+  -- },
   -- ["nvim-treesitter/playground"] = {
   --   config = function()
   --     require("custom.config.treesitter-playground").setup()
@@ -77,13 +89,10 @@ return {
     end,
   },
   ["nvim-telescope/telescope.nvim"] = {
-    cmd = "Telescope",
-    config = function()
-      require "plugins.configs.telescope"
-      require("custom.config.telescope").setup()
-    end,
+    override_options = require "custom.config.telescope",
   },
   ["nvim-telescope/telescope-project.nvim"] = {},
+  ["aaronhallaert/advanced-git-search.nvim"] = {},
   ["gbprod/yanky.nvim"] = {
     after = "nvim-lspconfig",
     config = function()
@@ -172,7 +181,6 @@ return {
       require("custom.config.tabnine").setupCmp()
     end,
   },
-
   -- ["codota/tabnine-nvim"] = {
   --   event = "InsertEnter",
   --   run = "./dl_binaries.sh",
