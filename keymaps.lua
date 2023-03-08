@@ -23,8 +23,39 @@ M.disabled = {
 M.advanceSearch = {
   n = {
     ["*"] = { '"ayiwh/<c-r>a<CR>', "", opts = opts },
-    ["<leader>fiw"] = { '"ayiw<cmd> Telescope live_grep <CR>a<c-r>a<esc>jk', "", opts = opts },
-    ["<leader>riw"] = { "/\\<<c-r><c-w>\\><CR>:%s@\\<<c-r><c-w>\\>@<c-r><c-w>@gc<left><left><left>", "", opts = opts },
+    -- ["<leader>fiw"] = { '"ayiw<cmd> Telescope live_grep <CR>a<c-r>a<esc>jk', "", opts = opts },
+    ["<leader>fiw"] = {
+      function()
+        local cword = vim.fn.expand "<cword>" -- select word under cursor.
+        if cword == "" then
+          return
+        end
+
+        vim.cmd(string.format "Telescope live_grep")
+        vim.cmd(string.format('exe "norm! i%s"', cword))
+        vim.api.nvim_input "<esc>"
+      end,
+      "",
+      opts = opts,
+    },
+    -- ["<leader>riw"] = { "/\\<<c-r><c-w>\\><CR>:%s@\\<<c-r><c-w>\\>@<c-r><c-w>@gc<left><left><left>", "", opts = opts },
+    ["<leader>riw"] = {
+      function()
+        local cword = vim.fn.expand "<cword>" -- select word under cursor.
+        if cword == "" then
+          return
+        end
+
+        local replaceWord = vim.fn.input("Enter replacement: ", cword)
+        if replaceWord == nil then
+          return
+        end
+
+        vim.cmd(string.format("%%s@%s@%s@gc", cword, replaceWord))
+      end,
+      "",
+      opts = opts,
+    },
   },
   v = {
     ["*"] = { '"ayh/<c-r>a<CR>', "", opts = opts },
