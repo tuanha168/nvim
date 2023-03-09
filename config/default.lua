@@ -32,6 +32,7 @@ local options_opt = {
   swapfile = false,
   title = true,
   titlestring = "%f",
+  conceallevel = 1,
 }
 for k, v in pairs(options_opt) do
   vim.opt[k] = v

@@ -311,4 +311,11 @@ return {
       }
     end,
   },
+  ["nvim-neorg/neorg"] = {
+    after = "nvim-treesitter",
+    run = ":Neorg sync-parsers", -- This is the important bit!
+    config = function()
+      require "custom.config.neorg"
+    end,
+  },
 }
