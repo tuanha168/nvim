@@ -296,21 +296,21 @@ return {
       }
     end,
   },
-  ["barrett-ruth/import-cost.nvim"] = {
-    run = "sh ./install.sh yarn",
-    after = "nvim-lspconfig",
-    config = function()
-      require("import-cost").setup {
-        filetypes = {
-          "vue",
-          "javascript",
-          "javascriptreact",
-          "typescript",
-          "typescriptreact",
-        },
-      }
-    end,
-  },
+  -- ["barrett-ruth/import-cost.nvim"] = {
+  --   run = "sh ./install.sh yarn",
+  --   after = "nvim-lspconfig",
+  --   config = function()
+  --     require("import-cost").setup {
+  --       filetypes = {
+  --         "vue",
+  --         "javascript",
+  --         "javascriptreact",
+  --         "typescript",
+  --         "typescriptreact",
+  --       },
+  --     }
+  --   end,
+  -- },
   ["nvim-neorg/neorg"] = {
     after = "nvim-treesitter",
     run = ":Neorg sync-parsers", -- This is the important bit!
