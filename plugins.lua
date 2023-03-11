@@ -318,4 +318,9 @@ return {
       require "custom.config.neorg"
     end,
   },
+  ["willothy/flatten.nvim"] = {
+    config = function()
+      require "custom.config.flatten"
+    end,
+  },
 }
