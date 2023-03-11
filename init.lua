@@ -16,22 +16,19 @@ return {
       --   ["remote3"] = "github_user", -- GitHub user assume AstroNvim fork
     },
   },
-
   -- Set colorscheme to use
   colorscheme = "astrodark",
-
   -- Diagnostics configuration (for vim.diagnostics.config({...})) when diagnostics are on
   diagnostics = {
     virtual_text = true,
     underline = true,
   },
-
   lsp = {
     -- customize lsp formatting options
     formatting = {
       -- control auto formatting on save
       format_on_save = {
-        enabled = true, -- enable or disable format on save globally
+        enabled = false, -- enable or disable format on save globally
         allow_filetypes = { -- enable format on save for specified filetypes only
           -- "go",
         },
@@ -49,10 +46,27 @@ return {
     },
     -- enable servers that you already have installed without mason
     servers = {
-      -- "pyright"
+      -- "angularls",
+      -- "html",
+      "emmet_ls",
+      -- "vuels",
+      "volar",
+      -- "tsserver",
+      "eslint",
+      "lua_ls",
+      "intelephense",
+      "cssls",
+      "pylsp",
+      "jsonls",
+    },
+    mappings = {
+      n = {
+        ["K"] = false,
+        ["<leader>lf"] = false,
+        ["<leader>fm"] = { function() vim.lsp.buf.format(M.format_opts) end },
+      },
     },
   },
-
   -- Configure require("lazy").setup() options
   lazy = {
     defaults = { lazy = true },
@@ -63,22 +77,28 @@ return {
       },
     },
   },
-
   -- This function is run last and is a good place to configuring
   -- augroups/autocommands and custom filetypes also this just pure lua so
   -- anything that doesn't fit in the normal config locations above can go here
   polish = function()
-    -- Set up custom filetypes
-    -- vim.filetype.add {
-    --   extension = {
-    --     foo = "fooscript",
-    --   },
-    --   filename = {
-    --     ["Foofile"] = "fooscript",
-    --   },
-    --   pattern = {
-    --     ["~/%.config/foo/.*"] = "fooscript",
-    --   },
-    -- }
+    local autocmd = vim.api.nvim_create_autocmd
+
+    autocmd({ "BufEnter" }, {
+      pattern = "*",
+      callback = function()
+        vim.cmd "set laststatus&"
+        vim.cmd "syntax sync fromstart"
+      end,
+    })
+
+    autocmd({ "FocusGained", "BufEnter" }, {
+      pattern = "*",
+      callback = function() vim.cmd "checktime" end,
+    })
+
+    autocmd({ "BufRead", "BufNewFile" }, {
+      pattern = "*.conf",
+      callback = function() vim.cmd "setf dosini" end,
+    })
   end,
 }
