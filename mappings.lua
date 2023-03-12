@@ -106,7 +106,8 @@ return {
       function() require("illuminate").goto_prev_reference() end,
     },
     ["<leader>c"] = false,
-    ["<leader>q"] = { function() require("astronvim.utils.buffer").close() end, desc = "Close buffer" },
+    ["<leader>q"] = false,
+    ["<leader>qq"] = { function() require("astronvim.utils.buffer").close() end, desc = "Close buffer" },
   },
   v = {
     ["*"] = { '"ayh/<c-r>a<CR>' },
