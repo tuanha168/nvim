@@ -1,6 +1,9 @@
 return {
   n = {
     ["<leader>fm"] = false,
+    ["<leader>ls"] = false,
+    ["<leader>lD"] = false,
+    ["<leader>lS"] = false,
     ["*"] = { '"ayiwh/<c-r>a<CR>' },
     -- ["<leader>fiw"] = {
     --   function()
@@ -59,8 +62,6 @@ return {
     ["``"] = {
       "<cmd> Telescope project <CR>",
     },
-    ["<leader>ls"] = false,
-    ["<leader>lS"] = false,
     ["<leader>o"] = {
       function()
         local aerial_avail, _ = pcall(require, "aerial")

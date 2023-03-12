@@ -1,3 +1,6 @@
-return { -- this table overrides highlights in all themes
-  -- Normal = { bg = "#000000" },
+return {
+  Normal = { bg = "NONE" },
+  NormalNC = { bg = "NONE" },
+  NeoTreeNormal = { bg = "NONE" },
+  NeoTreeNormalNC = { bg = "NONE" },
 }

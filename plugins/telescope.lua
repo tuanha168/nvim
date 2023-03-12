@@ -9,6 +9,7 @@ return {
       conditional_func(telescope.load_extension, utils.is_available "telescope-project.nvim", "project")
       conditional_func(telescope.load_extension, utils.is_available "yanky.nvim", "yank_history")
       conditional_func(telescope.load_extension, utils.is_available "advanced-git-search.nvim", "advanced_git_search")
+      return opts
     end,
   },
   { "nvim-telescope/telescope-project.nvim", lazy = false },
