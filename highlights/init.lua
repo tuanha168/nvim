@@ -3,4 +3,5 @@ return {
   NormalNC = { bg = "NONE" },
   NeoTreeNormal = { bg = "NONE" },
   NeoTreeNormalNC = { bg = "NONE" },
+  NotifyBackground = { bg = "#000000" },
 }

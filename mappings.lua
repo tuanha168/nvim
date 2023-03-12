@@ -1,5 +1,6 @@
 return {
   n = {
+    ["<leader>l"] = false,
     ["<leader>fm"] = false,
     ["<leader>ls"] = false,
     ["<leader>lD"] = false,
