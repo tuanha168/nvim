@@ -34,7 +34,8 @@ return {
   },
   {
     "windwp/nvim-ts-autotag",
-    opts = require "user.config.nvim-ts-autotag",
+    opts = require("user.config.nvim-ts-autotag").opts,
+    config = require("user.config.nvim-ts-autotag").config(),
   },
   {
     "nvim-treesitter/nvim-treesitter-context",
@@ -43,7 +44,12 @@ return {
   {
     "HiPhish/nvim-ts-rainbow2",
     event = "BufEnter",
-    config = function() require "user.config.nvim-ts-rainbow2" end,
+    config = require "user.config.nvim-ts-rainbow2",
+  },
+  {
+    "David-Kunz/markid",
+    event = "BufEnter",
+    config = require "user.config.markid",
   },
   -- {
   --   "nvim-treesitter/playground",

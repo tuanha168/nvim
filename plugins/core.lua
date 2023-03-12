@@ -49,7 +49,7 @@ return {
     config = function() require("user.config.leap").setup() end,
   },
 
-  { "wellle/targets.vim",     event = "BufEnter" },
+  { "wellle/targets.vim", event = "BufEnter" },
 
   {
     "andymass/vim-matchup",
@@ -60,7 +60,8 @@ return {
   {
     "mbbill/undotree",
     cmd = "UndotreeToggle",
-    opts = function() vim.api.nvim_set_keymap("n", "<leader>m", "<cmd>UndotreeToggle<CR>", { silent = true }) end,
+    event = "BufEnter",
+    config = function() vim.api.nvim_set_keymap("n", "<leader>m", "<cmd>UndotreeToggle<CR>", { silent = true }) end,
   },
 
   {
@@ -91,13 +92,13 @@ return {
 
   {
     "willothy/flatten.nvim",
-    config = true,
-  },
-
-  {
-    "folke/tokyonight.nvim",
-    config = true,
     lazy = false,
+    opts = {
+      window = {
+        open = "current",
+        focus = "first",
+      },
+    },
   },
 
   -- {

@@ -4,4 +4,6 @@ return {
   NeoTreeNormal = { bg = "NONE" },
   NeoTreeNormalNC = { bg = "NONE" },
   NotifyBackground = { bg = "#000000" },
+  FoldColumn = { bg = "NONE" },
+  EndOfBuffer = { bg = "NONE" },
 }
