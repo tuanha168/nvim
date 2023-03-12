@@ -28,8 +28,6 @@ return {
         vim.cmd(string.format("%%s@%s@%s@gc", cword, replaceWord))
       end,
     },
-    -- lazygit
-    ["<leader>gg"] = { "<cmd>Lspsaga term_toggle lazygit<CR>" },
     -- Gitsigns
     ["H"] = { "<cmd>Gitsigns prev_hunk<CR>" },
     ["L"] = { "<cmd>Gitsigns next_hunk<CR>" },
