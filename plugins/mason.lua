@@ -40,7 +40,7 @@ return {
         "prettier",
         "stylua",
         -- "eslint_d",
-        "php-cs-fixer",
+        "pint",
       },
     },
   },

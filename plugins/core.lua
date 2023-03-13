@@ -49,7 +49,7 @@ return {
     config = function() require("user.config.leap").setup() end,
   },
 
-  { "wellle/targets.vim", event = "BufEnter" },
+  { "wellle/targets.vim",     event = "BufEnter" },
 
   {
     "andymass/vim-matchup",
@@ -93,22 +93,31 @@ return {
   {
     "willothy/flatten.nvim",
     lazy = false,
-    opts = {
-      callbacks = {
-        -- Called when a request to edit file(s) is received
-        pre_open = function() vim.cmd ":q" end,
-        -- Called after a file is opened
-        -- Passed the buf id, win id, and filetype of the new window
-        post_open = function(bufnr, winnr, filetype) end,
-        -- Called when a file is open in blocking mode, after it's done blocking
-        -- (after bufdelete, bufunload, or quitpre for the blocking buffer)
-        block_end = function() vim.notify "block" end,
-      },
-      window = {
-        open = "current",
-        focus = "first",
-      },
-    },
+    opts = function()
+      local utils = require "astronvim.utils"
+
+      return {
+        callbacks = {
+          -- Called when a request to edit file(s) is received
+          pre_open = function() vim.cmd ":q" end,
+          -- Called after a file is opened
+          -- Passed the buf id, win id, and filetype of the new window
+          post_open = function(bufnr, winnr, filetype)
+          end,
+          -- Called when a file is open in blocking mode, after it's done blocking
+          -- (after bufdelete, bufunload, or quitpre for the blocking buffer)
+          block_end = function()
+            utils.toggle_term_cmd "lazygit"
+            local keys = vim.api.nvim_replace_termcodes("<Enter>", true, false, true)
+            vim.api.nvim_feedkeys("i" .. keys, "m", false)
+          end,
+        },
+        window = {
+          open = "current",
+          focus = "first",
+        },
+      }
+    end,
   },
 
   -- {
