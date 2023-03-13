@@ -34,6 +34,7 @@ return {
   },
   {
     "windwp/nvim-ts-autotag",
+    dependencies = { "nvim-treesitter" },
     opts = require("user.config.nvim-ts-autotag").opts,
     config = require("user.config.nvim-ts-autotag").config(),
   },
@@ -44,12 +45,19 @@ return {
   {
     "HiPhish/nvim-ts-rainbow2",
     event = "BufEnter",
+    dependencies = { "nvim-treesitter" },
     config = require "user.config.nvim-ts-rainbow2",
   },
   {
     "David-Kunz/markid",
     event = "BufEnter",
+    dependencies = { "nvim-treesitter" },
     config = require "user.config.markid",
+  },
+  {
+    "ckolkey/ts-node-action",
+    dependencies = { "nvim-treesitter" },
+    opts = {},
   },
   -- {
   --   "nvim-treesitter/playground",
