@@ -26,8 +26,8 @@ return function()
     NormalNC = { bg = bg },
     NeoTreeNormal = { bg = bg },
     NeoTreeNormalNC = { bg = bg },
-    NotifyBackground = { bg = "#000000" },
-    FoldColumn = { bg = "NONE" },
-    EndOfBuffer = { bg = "NONE" },
+    NotifyBackground = { bg = bg },
+    FoldColumn = { bg = bg },
+    EndOfBuffer = { bg = bg },
   }
 end
