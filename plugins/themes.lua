@@ -7,7 +7,7 @@ return {
         bg = "#282A36",
         fg = "#F8F8F2",
         selection = "#44475A",
-        comment = "#6272A4",
+        comment = "#8896c2",
         red = "#BD93F9",
         orange = "#FFB86C",
         yellow = "#F1FA8C",

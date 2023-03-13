@@ -23,6 +23,7 @@ return function()
     TelescopeResultsBorder = { fg = bg, bg = bg },
     TelescopeResultsNormal = { bg = bg },
     TelescopeResultsTitle = { fg = bg, bg = bg },
+    NormalFloat = { bg = bg },
     NormalNC = { bg = bg },
     NeoTreeNormal = { bg = bg },
     NeoTreeNormalNC = { bg = bg },

@@ -54,7 +54,7 @@ return {
       function() vim.lsp.buf.hover() end,
       desc = "Hover symbol details",
     },
-    ["gl"] = { function() require("telescope.builtin").diagnostics() end, desc = "Search diagnostics" },
+    ["<leader>gl"] = { function() require("telescope.builtin").diagnostics() end, desc = "Search diagnostics" },
     ["gt"] = {
       function() require("telescope.builtin").lsp_type_definitions() end,
       desc = "Definition of current type",

@@ -5,19 +5,12 @@ return {
     ["<leader>ls"] = false,
     ["<leader>lD"] = false,
     ["<leader>lS"] = false,
+    ["<leader>fc"] = false,
     ["*"] = { '"ayiwh/<c-r>a<CR>' },
-    -- ["<leader>fiw"] = {
-    --   function()
-    --     local cword = vim.fn.expand "<cword>" -- select word under cursor.
-    --     if cword == "" then
-    --       return
-    --     end
-    --
-    --     vim.cmd(string.format "Telescope live_grep")
-    --     vim.cmd(string.format('exe "norm! i%s"', cword))
-    --     vim.api.nvim_input "<esc>"
-    --   end
-    -- },
+    ["<leader>fiw"] = {
+      function() require("telescope.builtin").grep_string() end,
+      desc = "Find for word under cursor",
+    },
     ["<leader>riw"] = {
       function()
         local cword = vim.fn.expand "<cword>" -- select word under cursor.
@@ -100,10 +93,10 @@ return {
     ["<leader>e"] = false,
     ["<c-n>"] = { "<cmd>Neotree toggle<cr>", desc = "Toggle Explorer" },
     -- Illuminate
-    [")"] = {
+    ["("] = {
       function() require("illuminate").goto_next_reference() end,
     },
-    ["("] = {
+    [")"] = {
       function() require("illuminate").goto_prev_reference() end,
     },
     ["<leader>c"] = false,

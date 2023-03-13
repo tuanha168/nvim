@@ -39,7 +39,7 @@ return function(local_vim)
       ignorecase = true, -- search case insensitive
       smartcase = true, -- search via smartcase
       incsearch = true, -- search incremental
-      hidden = true, -- allow hidden buffers
+      hidden = false, -- allow hidden buffers
       cmdheight = 2, -- only one line for commands
       signcolumn = "yes", -- add a column for sings (e.g. LSP, ...)
       updatetime = 300, -- time until update

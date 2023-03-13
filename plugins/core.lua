@@ -94,6 +94,16 @@ return {
     "willothy/flatten.nvim",
     lazy = false,
     opts = {
+      callbacks = {
+        -- Called when a request to edit file(s) is received
+        pre_open = function() vim.cmd ":q" end,
+        -- Called after a file is opened
+        -- Passed the buf id, win id, and filetype of the new window
+        post_open = function(bufnr, winnr, filetype) end,
+        -- Called when a file is open in blocking mode, after it's done blocking
+        -- (after bufdelete, bufunload, or quitpre for the blocking buffer)
+        block_end = function() vim.notify "block" end,
+      },
       window = {
         open = "current",
         focus = "first",
