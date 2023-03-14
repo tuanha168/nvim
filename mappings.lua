@@ -6,6 +6,10 @@ return {
     ["<leader>lD"] = false,
     ["<leader>lS"] = false,
     ["<leader>fc"] = false,
+    ["<C-S-Up>"] = { function() require("smart-splits").resize_up() end, noremap = true, desc = "Resize split up" },
+    ["<C-S-Down>"] = { function() require("smart-splits").resize_down() end, noremap = true, desc = "Resize split down" },
+    ["<C-S-Left>"] = { function() require("smart-splits").resize_left() end, noremap = true, desc = "Resize split left" },
+    ["<C-S-Right>"] = { function() require("smart-splits").resize_right() end, noremap = true, desc = "Resize split right" },
     ["*"] = { '"ayiwh/<c-r>a<CR>' },
     ["<leader>fiw"] = {
       function() require("telescope.builtin").grep_string() end,
