@@ -1,40 +1,4 @@
 return {
-  ["nvim-treesitter/nvim-treesitter"] = {
-    override_options = require "custom.config.treesitter",
-  },
-  ["windwp/nvim-ts-autotag"] = {
-    after = "nvim-treesitter",
-    config = function()
-      require("custom.config.nvim-ts-autotag").setup()
-    end,
-  },
-  ["nvim-treesitter/nvim-treesitter-context"] = {
-    after = "nvim-treesitter",
-    config = function()
-      require("treesitter-context").setup()
-    end,
-  },
-  ["HiPhish/nvim-ts-rainbow2"] = {
-    after = "nvim-treesitter",
-    config = function()
-      require "custom.config.treesitter-rainbow"
-    end,
-  },
-  -- ["nvim-treesitter/nvim-treesitter-textobjects"] = {
-  --   after = "nvim-treesitter",
-  --   config = function()
-  --     require "custom.config.treesitter-textobjects"
-  --   end,
-  -- },
-  -- ["nvim-treesitter/playground"] = {
-  --   config = function()
-  --     require("custom.config.treesitter-playground").setup()
-  --   end,
-  -- },
-
-  ["williamboman/mason.nvim"] = {
-    override_options = require "custom.config.mason",
-  },
   ["NvChad/nvterm"] = {
     override_options = {
       terminals = {

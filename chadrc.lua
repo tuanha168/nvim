@@ -1,8 +1,6 @@
-local userPlugins = require "custom.plugins"
-
 local M = {}
 
-M.plugins = userPlugins
+M.plugins = "custom.plugins"
 
 M.ui = {
   transparency = true,
