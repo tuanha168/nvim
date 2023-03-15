@@ -7,9 +7,21 @@ return {
     ["<leader>lS"] = false,
     ["<leader>fc"] = false,
     ["<C-S-Up>"] = { function() require("smart-splits").resize_up() end, noremap = true, desc = "Resize split up" },
-    ["<C-S-Down>"] = { function() require("smart-splits").resize_down() end, noremap = true, desc = "Resize split down" },
-    ["<C-S-Left>"] = { function() require("smart-splits").resize_left() end, noremap = true, desc = "Resize split left" },
-    ["<C-S-Right>"] = { function() require("smart-splits").resize_right() end, noremap = true, desc = "Resize split right" },
+    ["<C-S-Down>"] = {
+      function() require("smart-splits").resize_down() end,
+      noremap = true,
+      desc = "Resize split down",
+    },
+    ["<C-S-Left>"] = {
+      function() require("smart-splits").resize_left() end,
+      noremap = true,
+      desc = "Resize split left",
+    },
+    ["<C-S-Right>"] = {
+      function() require("smart-splits").resize_right() end,
+      noremap = true,
+      desc = "Resize split right",
+    },
     ["*"] = { '"ayiwh/<c-r>a<CR>' },
     ["<leader>fiw"] = {
       function() require("telescope.builtin").grep_string() end,
@@ -25,6 +37,32 @@ return {
 
         vim.cmd(string.format("%%s@%s@%s@gc", cword, replaceWord))
       end,
+    },
+    ["<leader>fa"] = {
+      function() require("telescope.builtin").find_files { hidden = true, no_ignore = true } end,
+      desc = "Find all files",
+    },
+    ["<leader>fF"] = {
+      function()
+        local utils = require "astronvim.utils"
+        local cwd = vim.fn.stdpath "config" .. "/.."
+        local search_dirs = {}
+        for _, dir in ipairs(astronvim.supported_configs) do                      -- search all supported config locations
+          if dir == astronvim.install.home then dir = dir .. "/lua/user" end      -- don't search the astronvim core files
+          if vim.fn.isdirectory(dir) == 1 then table.insert(search_dirs, dir) end -- add directory to search if exists
+        end
+        if vim.tbl_isempty(search_dirs) then                                      -- if no config folders found, show warning
+          utils.notify("No user configuration files found", "warn")
+        else
+          if #search_dirs == 1 then cwd = search_dirs[1] end -- if only one directory, focus cwd
+          require("telescope.builtin").find_files {
+            prompt_title = "Config Files",
+            search_dirs = search_dirs,
+            cwd = cwd,
+          } -- call telescope
+        end
+      end,
+      desc = "Find AstroNvim config files",
     },
     -- Gitsigns
     ["H"] = { "<cmd>Gitsigns prev_hunk<CR>" },
@@ -115,8 +153,8 @@ return {
     ["<c-s>"] = { ":Gitsigns stage_hunk<CR>" },
     ["u"] = { ":Gitsigns reset_hunk<CR>" },
     -- Moving
-    ["K"] = { ":m '<-2<CR>gv=gv" },
-    ["J"] = { ":m '>+1<CR>gv=gv" },
+    ["K"] = { ":m '<-2<CR><CR>gv=gv" },
+    ["J"] = { ":m '>+1<CR><CR>gv=gv" },
     -- Visual Indent
     ["<"] = { "<gv" },
     [">"] = { ">gv" },
