@@ -48,7 +48,6 @@ return {
     ["<S-n>"] = { "Nzzzv" },
     ["}"] = { "<C-d>zz" },
     ["{"] = { "<C-u>zz" },
-    ["gd"] = { "gdzz" },
     -- Close Preview
     ["<CR>"] = { "<CR>zz:ccl<CR>" },
     ["q"] = { "<ESC>:ccl<CR>q" },

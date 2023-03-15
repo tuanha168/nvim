@@ -25,7 +25,7 @@ return {
     end,
   },
 
-  { "kylechui/nvim-surround", event = "BufEnter" },
+  { "kylechui/nvim-surround", event = "BufEnter", opts = {} },
 
   {
     "numToStr/Comment.nvim",
@@ -49,7 +49,7 @@ return {
     config = function() require("user.config.leap").setup() end,
   },
 
-  { "wellle/targets.vim",     event = "BufEnter" },
+  { "wellle/targets.vim", event = "BufEnter" },
 
   {
     "andymass/vim-matchup",
@@ -61,7 +61,7 @@ return {
     "mbbill/undotree",
     cmd = "UndotreeToggle",
     event = "BufEnter",
-    config = function() vim.api.nvim_set_keymap("n", "<leader>m", "<cmd>UndotreeToggle<CR>", { silent = true }) end,
+    config = function() vim.api.nvim_set_keymap("n", "<C-y>", "<cmd>UndotreeToggle<CR>", { silent = true }) end,
   },
 
   {
@@ -102,8 +102,7 @@ return {
           pre_open = function() vim.cmd ":q" end,
           -- Called after a file is opened
           -- Passed the buf id, win id, and filetype of the new window
-          post_open = function(bufnr, winnr, filetype)
-          end,
+          post_open = function(bufnr, winnr, filetype) end,
           -- Called when a file is open in blocking mode, after it's done blocking
           -- (after bufdelete, bufunload, or quitpre for the blocking buffer)
           block_end = function()

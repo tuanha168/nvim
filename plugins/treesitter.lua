@@ -34,7 +34,7 @@ return {
   },
   {
     "windwp/nvim-ts-autotag",
-    dependencies = { "nvim-treesitter" },
+    dependencies = { "nvim-treesitter/nvim-treesitter" },
     opts = require("user.config.nvim-ts-autotag").opts,
     config = require("user.config.nvim-ts-autotag").config(),
   },
@@ -43,16 +43,23 @@ return {
     config = true,
   },
   {
-    "HiPhish/nvim-ts-rainbow2",
+    -- "HiPhish/nvim-ts-rainbow2",
+    "tuanha168/nvim-ts-rainbow2",
     event = "BufEnter",
-    dependencies = { "nvim-treesitter" },
+    dependencies = { "nvim-treesitter/nvim-treesitter" },
     config = require "user.config.nvim-ts-rainbow2",
   },
   {
     "David-Kunz/markid",
     event = "BufEnter",
-    dependencies = { "nvim-treesitter" },
+    dependencies = { "nvim-treesitter/nvim-treesitter" },
     config = require "user.config.markid",
+  },
+  {
+    "Wansmer/treesj",
+    keys = { "<leader>m", "<leader>j", "<leader>s" },
+    dependencies = { "nvim-treesitter/nvim-treesitter" },
+    config = function() require("treesj").setup {} end,
   },
   -- {
   --   "nvim-treesitter/playground",

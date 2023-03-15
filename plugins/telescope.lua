@@ -12,11 +12,19 @@ return {
       return opts
     end,
   },
-  { "nvim-telescope/telescope-project.nvim", lazy = false },
-  { "aaronhallaert/advanced-git-search.nvim" },
+  {
+    "nvim-telescope/telescope-project.nvim",
+    dependencies = { "nvim-telescope/telescope.nvim" },
+    lazy = false,
+  },
+  {
+    "aaronhallaert/advanced-git-search.nvim",
+    dependencies = { "nvim-telescope/telescope.nvim" },
+  },
   {
     "gbprod/yanky.nvim",
-    key = { "y", "p" },
+    event = "VeryLazy",
+    dependencies = { "nvim-telescope/telescope.nvim" },
     opts = function() require("yanky").setup {} end,
     config = function() vim.keymap.set({ "n", "x" }, "y", "<Plug>(YankyYank)") end,
   },
