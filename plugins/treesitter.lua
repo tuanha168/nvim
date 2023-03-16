@@ -43,8 +43,7 @@ return {
     config = true,
   },
   {
-    -- "HiPhish/nvim-ts-rainbow2",
-    "tuanha168/nvim-ts-rainbow2",
+    "HiPhish/nvim-ts-rainbow2",
     event = "BufEnter",
     dependencies = { "nvim-treesitter/nvim-treesitter" },
     config = require "user.config.nvim-ts-rainbow2",
