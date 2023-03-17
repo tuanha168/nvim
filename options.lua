@@ -13,7 +13,7 @@ local options = {
     swapfile = false,
     title = true,
     titlestring = "%f",
-    conceallevel = 1,
+    conceallevel = 2,
     wrap = true,
   },
   g = {
