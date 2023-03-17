@@ -102,7 +102,7 @@ return {
           pre_open = function() vim.cmd ":q" end,
           -- Called after a file is opened
           -- Passed the buf id, win id, and filetype of the new window
-          post_open = function(bufnr, winnr, filetype) end,
+          -- post_open = function(bufnr, winnr, filetype) end,
           -- Called when a file is open in blocking mode, after it's done blocking
           -- (after bufdelete, bufunload, or quitpre for the blocking buffer)
           block_end = function()
