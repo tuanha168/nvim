@@ -102,13 +102,15 @@ return {
           pre_open = function() vim.cmd ":q" end,
           -- Called after a file is opened
           -- Passed the buf id, win id, and filetype of the new window
-          -- post_open = function(bufnr, winnr, filetype) end,
+          -- post_open = function(bufnr, winnr, filetype)
+          -- post_open = function() end,
           -- Called when a file is open in blocking mode, after it's done blocking
           -- (after bufdelete, bufunload, or quitpre for the blocking buffer)
           block_end = function()
-            utils.toggle_term_cmd "lazygit"
-            local keys = vim.api.nvim_replace_termcodes("<Enter>", true, false, true)
-            vim.api.nvim_feedkeys("i" .. keys, "m", false)
+            local openLazygit = vim.api.nvim_replace_termcodes("<leader>gg", true, false, true)
+            local quit = vim.api.nvim_replace_termcodes("i<Enter>q", true, false, true)
+            vim.api.nvim_feedkeys(openLazygit, "m", false)
+            vim.defer_fn(function() vim.api.nvim_feedkeys(quit, "m", false) end, 500)
           end,
         },
         window = {
@@ -118,6 +120,12 @@ return {
       }
     end,
   },
+
+  -- {
+  --   "https://git.sr.ht/~whynothugo/lsp_lines.nvim",
+  --   event = "BufEnter",
+  --   opts = {},
+  -- },
 
   -- {
   --   "folke/which-key.nvim",

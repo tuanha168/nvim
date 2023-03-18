@@ -2,5 +2,5 @@
 return {
   update_in_insert = false,
   underline = true,
-  virtual_text = true,
+  virtual_text = false,
 }
