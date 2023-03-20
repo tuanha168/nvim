@@ -49,7 +49,7 @@ return {
     config = function() require("user.config.leap").setup() end,
   },
 
-  { "wellle/targets.vim", event = "BufEnter" },
+  { "wellle/targets.vim",     event = "BufEnter" },
 
   {
     "andymass/vim-matchup",
@@ -93,32 +93,28 @@ return {
   {
     "willothy/flatten.nvim",
     lazy = false,
-    opts = function()
-      local utils = require "astronvim.utils"
-
-      return {
-        callbacks = {
-          -- Called when a request to edit file(s) is received
-          pre_open = function() vim.cmd ":q" end,
-          -- Called after a file is opened
-          -- Passed the buf id, win id, and filetype of the new window
-          -- post_open = function(bufnr, winnr, filetype)
-          -- post_open = function() end,
-          -- Called when a file is open in blocking mode, after it's done blocking
-          -- (after bufdelete, bufunload, or quitpre for the blocking buffer)
-          block_end = function()
-            local openLazygit = vim.api.nvim_replace_termcodes("<leader>gg", true, false, true)
-            local quit = vim.api.nvim_replace_termcodes("i<Enter>q", true, false, true)
-            vim.api.nvim_feedkeys(openLazygit, "m", false)
-            vim.defer_fn(function() vim.api.nvim_feedkeys(quit, "m", false) end, 500)
-          end,
-        },
-        window = {
-          open = "current",
-          focus = "first",
-        },
-      }
-    end,
+    opts = {
+      callbacks = {
+        -- Called when a request to edit file(s) is received
+        pre_open = function() vim.cmd ":q" end,
+        -- Called after a file is opened
+        -- Passed the buf id, win id, and filetype of the new window
+        -- post_open = function(bufnr, winnr, filetype)
+        -- post_open = function() end,
+        -- Called when a file is open in blocking mode, after it's done blocking
+        -- (after bufdelete, bufunload, or quitpre for the blocking buffer)
+        block_end = function()
+          local openLazygit = vim.api.nvim_replace_termcodes("<leader>gg", true, false, true)
+          local quit = vim.api.nvim_replace_termcodes("i<Enter>q", true, false, true)
+          vim.api.nvim_feedkeys(openLazygit, "m", false)
+          vim.defer_fn(function() vim.api.nvim_feedkeys(quit, "m", false) end, 500)
+        end,
+      },
+      window = {
+        open = "current",
+        focus = "first",
+      },
+    },
   },
 
   -- {
