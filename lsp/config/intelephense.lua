@@ -10,4 +10,20 @@ return {
       client.resolved_capabilities.document_range_formatting = false
     end
   end,
+  settings = {
+    intelephense = {
+      diagnostics = {
+        undefinedTypes = false,
+        -- undefinedFunctions = false,
+        -- undefinedConstants = false,
+        -- undefinedClassConstants = false,
+        -- undefinedMethods = false,
+        -- undefinedProperties = false,
+        -- undefinedVariables = false,
+      },
+      environment = {
+        includePaths = { "./fuel/core", "./fuel/vendor" },
+      },
+    },
+  },
 }
