@@ -1,5 +1,9 @@
 return {
   "folke/zen-mode.nvim",
   event = "BufEnter",
-  opts = {},
+  opts = {
+    window = {
+      width = 0.70,
+    },
+  },
 }
