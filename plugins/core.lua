@@ -129,11 +129,11 @@ return {
     end,
   },
 
-  {
-    "chrisgrieser/nvim-various-textobjs",
-    event = "BufEnter",
-    opts = { useDefaultKeymaps = true },
-  },
+  -- {
+  --   "chrisgrieser/nvim-various-textobjs",
+  --   event = "BufEnter",
+  --   opts = { useDefaultKeymaps = true },
+  -- },
 
   -- {
   --   "https://git.sr.ht/~whynothugo/lsp_lines.nvim",
