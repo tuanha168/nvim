@@ -120,6 +120,7 @@ return {
   {
     "chrisgrieser/nvim-spider",
     event = "BufEnter",
+    opts = { skipInsignificantPunctuation = false },
     config = function()
       -- Keymaps
       vim.keymap.set({ "n", "o", "x" }, "w", function() require("spider").motion "w" end, { desc = "Spider-w" })

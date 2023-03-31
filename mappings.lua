@@ -47,11 +47,11 @@ return {
         local utils = require "astronvim.utils"
         local cwd = vim.fn.stdpath "config" .. "/.."
         local search_dirs = {}
-        for _, dir in ipairs(astronvim.supported_configs) do -- search all supported config locations
-          if dir == astronvim.install.home then dir = dir .. "/lua/user" end -- don't search the astronvim core files
+        for _, dir in ipairs(astronvim.supported_configs) do                      -- search all supported config locations
+          if dir == astronvim.install.home then dir = dir .. "/lua/user" end      -- don't search the astronvim core files
           if vim.fn.isdirectory(dir) == 1 then table.insert(search_dirs, dir) end -- add directory to search if exists
         end
-        if vim.tbl_isempty(search_dirs) then -- if no config folders found, show warning
+        if vim.tbl_isempty(search_dirs) then                                      -- if no config folders found, show warning
           utils.notify("No user configuration files found", "warn")
         else
           if #search_dirs == 1 then cwd = search_dirs[1] end -- if only one directory, focus cwd
@@ -89,6 +89,8 @@ return {
     -- Close Preview
     ["<CR>"] = { "<CR>zz:ccl<CR>" },
     ["q"] = { "<ESC>:ccl<CR>q" },
+    -- Yank
+    ["<c-c>"] = { '"+yiw', desc = "Yank", noremap = true },
     -- Yanky
     ["p"] = { "<cmd>Telescope yank_history<CR>jk" },
     -- Telescope
@@ -150,6 +152,8 @@ return {
     ["*"] = { '"ayh/<c-r>a<CR>' },
     ["<leader>fiw"] = { '"ay<cmd> Telescope live_grep <CR>a<c-r>a<esc>jk' },
     ["<leader>riw"] = { '"aygvv:%sno@<c-r>a@<c-r>a@g<left><left>' },
+    -- Yank
+    ["<c-c>"] = { '"+y', desc = "Yank", noremap = true },
     -- Gitsigns
     ["<c-u>"] = { ":Gitsigns undo_stage_hunk<CR>" },
     ["<c-s>"] = { ":Gitsigns stage_hunk<CR>" },
