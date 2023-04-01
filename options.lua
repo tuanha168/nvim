@@ -21,6 +21,7 @@ local options = {
     matchup_matchparen_offscreen = { method = "popup" },
     copilot_assume_mapped = true,
     luasnippets_path = "./lua/custom",
+    kitty_navigator_no_mappings = 1,
   },
   o = {
     background = "dark",

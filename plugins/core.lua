@@ -121,6 +121,13 @@ return {
     end,
   },
 
+  {
+    -- Plug 'knubie/vim-kitty-navigator', {'do': 'cp ./*.py ~/.config/kitty/'}
+    "knubie/vim-kitty-navigator",
+    build = "cp ./*.py ~/.config/kitty/",
+    lazy = false,
+  },
+
   -- {
   --   "chrisgrieser/nvim-various-textobjs",
   --   event = "BufEnter",
