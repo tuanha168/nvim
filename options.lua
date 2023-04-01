@@ -13,7 +13,7 @@ local options = {
     foldexpr = "nvim_treesitter#foldexpr()",
     swapfile = false,
     title = true,
-    titlestring = "%f",
+    titlestring = "%f - nvim",
     conceallevel = 2,
     wrap = true,
   },

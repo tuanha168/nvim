@@ -82,15 +82,6 @@ return {
   },
 
   {
-    "aserowy/tmux.nvim",
-    opts = {
-      copy_sync = {
-        enable = false,
-      },
-    },
-  },
-
-  {
     "willothy/flatten.nvim",
     lazy = false,
     opts = {
