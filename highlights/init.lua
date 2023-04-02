@@ -30,5 +30,6 @@ return function()
     NotifyBackground = { bg = "#000000" },
     FoldColumn = { bg = bg },
     EndOfBuffer = { bg = bg },
+    Visual = { bg = "#925070" },
   }
 end
