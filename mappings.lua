@@ -15,7 +15,11 @@ return {
     ["<C-j>"] = { "<cmd>KittyNavigateDown<CR>", desc = "Move to below split" },
     ["<C-k>"] = { "<cmd>KittyNavigateUp<CR>", desc = "Move to above split" },
     ["<C-l>"] = { "<cmd>KittyNavigateRight<CR>", desc = "Move to right split" },
-    ["<C-S-R>"] = { function() require("smart-splits").start_resize_mode() end, noremap = true, desc = "Start Resize Mode"},
+    ["<C-S-R>"] = {
+      function() require("smart-splits").start_resize_mode() end,
+      noremap = true,
+      desc = "Start Resize Mode",
+    },
     ["<C-S-K>"] = { function() require("smart-splits").resize_up() end, noremap = true, desc = "Resize split up" },
     ["<C-S-J>"] = {
       function() require("smart-splits").resize_down() end,
@@ -43,7 +47,7 @@ return {
         if cword == "" then return end
 
         local replaceWord = vim.fn.input("Enter replacement: ", cword)
-        if replaceWord == nil then return end
+        if replaceWord == "" or replaceWord == cword then return end
 
         vim.cmd(string.format("%%s@%s@%s@gc", cword, replaceWord))
       end,
@@ -57,11 +61,11 @@ return {
         local utils = require "astronvim.utils"
         local cwd = vim.fn.stdpath "config" .. "/.."
         local search_dirs = {}
-        for _, dir in ipairs(astronvim.supported_configs) do                      -- search all supported config locations
-          if dir == astronvim.install.home then dir = dir .. "/lua/user" end      -- don't search the astronvim core files
+        for _, dir in ipairs(astronvim.supported_configs) do -- search all supported config locations
+          if dir == astronvim.install.home then dir = dir .. "/lua/user" end -- don't search the astronvim core files
           if vim.fn.isdirectory(dir) == 1 then table.insert(search_dirs, dir) end -- add directory to search if exists
         end
-        if vim.tbl_isempty(search_dirs) then                                      -- if no config folders found, show warning
+        if vim.tbl_isempty(search_dirs) then -- if no config folders found, show warning
           utils.notify("No user configuration files found", "warn")
         else
           if #search_dirs == 1 then cwd = search_dirs[1] end -- if only one directory, focus cwd
