@@ -15,22 +15,23 @@ return {
     ["<C-j>"] = { "<cmd>KittyNavigateDown<CR>", desc = "Move to below split" },
     ["<C-k>"] = { "<cmd>KittyNavigateUp<CR>", desc = "Move to above split" },
     ["<C-l>"] = { "<cmd>KittyNavigateRight<CR>", desc = "Move to right split" },
-    ["<C-S-Up>"] = { function() require("smart-splits").resize_up() end, noremap = true, desc = "Resize split up" },
-    ["<C-S-Down>"] = {
-      function() require("smart-splits").resize_down() end,
-      noremap = true,
-      desc = "Resize split down",
-    },
-    ["<C-S-Left>"] = {
-      function() require("smart-splits").resize_left() end,
-      noremap = true,
-      desc = "Resize split left",
-    },
-    ["<C-S-Right>"] = {
-      function() require("smart-splits").resize_right() end,
-      noremap = true,
-      desc = "Resize split right",
-    },
+    ["<C-R>"] = { function() require("smart-splits").start_resize_mode() end, noremap = true, desc = "Start Resize Mode" },
+    -- ["<C-S-Up>"] = { function() require("smart-splits").resize_up() end, noremap = true, desc = "Resize split up" },
+    -- ["<C-S-Down>"] = {
+    --   function() require("smart-splits").resize_down() end,
+    --   noremap = true,
+    --   desc = "Resize split down",
+    -- },
+    -- ["<C-S-Left>"] = {
+    --   function() require("smart-splits").resize_left() end,
+    --   noremap = true,
+    --   desc = "Resize split left",
+    -- },
+    -- ["<C-S-Right>"] = {
+    --   function() require("smart-splits").resize_right() end,
+    --   noremap = true,
+    --   desc = "Resize split right",
+    -- },
     ["*"] = { '"ayiwh/<c-r>a<CR>' },
     ["<leader>fiw"] = {
       function() require("telescope.builtin").grep_string() end,
