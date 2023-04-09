@@ -30,6 +30,12 @@ local options = {
 
 vim.opt.iskeyword:append "-"
 
+vim.cmd "let g:VM_default_mappings = 0"
+vim.cmd "let g:VM_maps = {}"
+vim.cmd 'let g:VM_maps["Find Under"] = "<C-d>"'
+vim.cmd 'let g:VM_maps["Find Subword Under"] = "<C-d>"'
+vim.cmd 'let g:VM_maps["Switch Mode"] = "<Tab>"'
+
 if vim.g.neovide then
   local opts = {
     guifont = "CaskaydiaCove Nerd Font:h15",

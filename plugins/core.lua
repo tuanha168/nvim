@@ -121,11 +121,26 @@ return {
     end,
   },
 
+  -- {
+  --   -- Plug 'knubie/vim-kitty-navigator', {'do': 'cp ./*.py ~/.config/kitty/'}
+  --   "knubie/vim-kitty-navigator",
+  --   build = "cp ./*.py ~/.config/kitty/",
+  --   lazy = false,
+  -- },
+
   {
-    -- Plug 'knubie/vim-kitty-navigator', {'do': 'cp ./*.py ~/.config/kitty/'}
-    "knubie/vim-kitty-navigator",
-    build = "cp ./*.py ~/.config/kitty/",
-    lazy = false,
+    "aserowy/tmux.nvim",
+    opts = {
+      copy_sync = {
+        enable = false,
+      },
+    },
+  },
+
+  {
+    "mg979/vim-visual-multi",
+    branch = "master",
+    event = "BufEnter",
   },
 
   -- {
