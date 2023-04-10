@@ -137,11 +137,11 @@ return {
     },
   },
 
-  {
-    "mg979/vim-visual-multi",
-    branch = "master",
-    event = "BufEnter",
-  },
+  -- {
+  --   "mg979/vim-visual-multi",
+  --   branch = "master",
+  --   event = "BufEnter",
+  -- },
 
   -- {
   --   "chrisgrieser/nvim-various-textobjs",
