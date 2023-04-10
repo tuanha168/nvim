@@ -4,6 +4,7 @@ return {
     opts = function(_, opts)
       opts.sources = {
         { name = "nvim_lsp" },
+        { name = "codeium" },
         { name = "cmp_tabnine" },
         { name = "luasnip" },
         { name = "buffer" },

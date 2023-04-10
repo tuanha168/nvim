@@ -28,4 +28,13 @@ return {
     opts = function() require("yanky").setup {} end,
     config = function() vim.keymap.set({ "n", "x" }, "y", "<Plug>(YankyYank)") end,
   },
+
+  {
+    "chikko80/error-lens.nvim",
+    event = "BufRead",
+    dependencies = {
+      "nvim-telescope/telescope.nvim",
+    },
+    opts = {},
+  },
 }
