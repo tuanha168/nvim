@@ -28,13 +28,13 @@ return {
         nontext = "#3B4048",
       },
       -- show the '~' characters after the end of buffers
-      show_end_of_buffer = true,    -- default false
+      show_end_of_buffer = true, -- default false
       -- use transparent background
-      transparent_bg = true,        -- default false
+      transparent_bg = true, -- default false
       -- set custom lualine background color
       lualine_bg_color = "#44475a", -- default nil
       -- set italic comment
-      italic_comment = true,        -- default false
+      italic_comment = true, -- default false
       -- overrides the default highlights see `:h synIDattr`
       overrides = {
         -- Examples
@@ -43,5 +43,37 @@ return {
         -- Nothing = {} -- clear highlight of Nothing
       },
     },
+  },
+  {
+    "rebelot/heirline.nvim",
+    opts = function(_, opts)
+      local status = require "astronvim.utils.status"
+      local codeium = {
+        provider = function()
+          local success, output = pcall(vim.fn["codeium#GetStatusString"])
+          if success then
+            return output
+          end
+        end,
+      }
+
+      opts.statusline = {
+        hl = { fg = "fg", bg = "bg" },
+        status.component.mode(),
+        status.component.git_branch(),
+        status.component.file_info { filetype = {}, filename = false, file_modified = false },
+        status.component.git_diff(),
+        status.component.diagnostics(),
+        status.component.fill(),
+        codeium,
+        status.component.cmd_info(),
+        status.component.fill(),
+        status.component.lsp(),
+        status.component.treesitter(),
+        status.component.nav(),
+        status.component.mode { surround = { separator = "right" } },
+      }
+      return opts
+    end,
   },
 }

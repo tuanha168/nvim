@@ -2,6 +2,7 @@ return {
   {
     "zbirenbaum/copilot.lua",
     event = "InsertEnter",
+    -- enabled = false,
     opts = {
       panel = {
         enabled = false,
@@ -11,8 +12,8 @@ return {
         auto_trigger = true,
         keymap = {
           accept = "<C-f>",
-          next = "<C-j>",
-          prev = "<C-k>",
+          next = "<C-l>",
+          prev = "<C-h>",
         },
       },
     },
