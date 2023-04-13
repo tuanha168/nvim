@@ -16,6 +16,7 @@ local options = {
     titlestring = "%f - nvim",
     conceallevel = 2,
     wrap = true,
+    cmdheight = 1,
   },
   g = {
     matchup_matchparen_offscreen = { method = "popup" },

@@ -12,6 +12,9 @@ return {
         { name = "path" },
       }
 
+      opts.mapping["<C-k>"] = {}
+      opts.mapping["<C-j>"] = {}
+
       return opts
     end,
   },
