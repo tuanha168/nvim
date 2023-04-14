@@ -16,7 +16,7 @@ return {
         "volar",
         "cssls",
         "html",
-        "emmet_ls",
+        -- "emmet_ls",
         "jsonls",
 
         -- lint
