@@ -1,5 +1,5 @@
 return {
-  javascript = {
+  typescript = {
     {
       name = "Launch",
       type = "node2",

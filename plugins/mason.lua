@@ -63,31 +63,27 @@ return {
       handlers = {
         node2 = function()
           local dap = require "dap"
-          dap.adapters.node2 = {
-            type = "executable",
-            command = "yarn",
-            args = {
-              "start:debug",
-            },
-          }
-
+          dap.set_log_level "TRACE"
           dap.configurations.typescript = {
             {
-              name = "Node2: Launch",
-              type = "node2",
-              request = "launch",
-              program = "${file}",
-              cwd = vim.fn.getcwd(),
-              sourceMaps = true,
-              protocol = "inspector",
-              console = "integratedTerminal",
-            },
-            {
-              -- For this to work you need to make sure the node process is started with the `--inspect` flag.
-              name = "Node2: Attach to process",
               type = "node2",
               request = "attach",
-              processId = require("dap.utils").pick_process,
+              name = "Attach Program (Node2 with ts-node)",
+              cwd = vim.fn.getcwd(),
+              sourceMaps = true,
+              skipFiles = { "<node_internals>/**" },
+              port = 9229,
+            },
+            {
+              type = "node2",
+              name = "Debug NestJS",
+              request = "launch",
+              runtimeExecutable = "${workspaceFolder}/node_modules/.bin/nest",
+              args = { "start", "--watch", "--debug" },
+              outputCapture = "std",
+              port = 9229,
+              console = "integratedTerminal",
+              internalConsoleOptions = "neverOpen",
             },
           }
         end,
