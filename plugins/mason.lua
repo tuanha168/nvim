@@ -57,37 +57,11 @@ return {
     "jay-babu/mason-nvim-dap.nvim",
     -- overrides `require("mason-nvim-dap").setup(...)`
     -- enabled = false,
-    opts = {
-      ensure_installed = { "node2" },
-      automatic_setup = true,
-      handlers = {
-        node2 = function()
-          local dap = require "dap"
-          dap.set_log_level "TRACE"
-          dap.configurations.typescript = {
-            {
-              type = "node2",
-              request = "attach",
-              name = "Attach Program (Node2 with ts-node)",
-              cwd = vim.fn.getcwd(),
-              sourceMaps = true,
-              skipFiles = { "<node_internals>/**" },
-              port = 9229,
-            },
-            {
-              type = "node2",
-              name = "Debug NestJS",
-              request = "launch",
-              runtimeExecutable = "${workspaceFolder}/node_modules/.bin/nest",
-              args = { "start", "--watch", "--debug" },
-              outputCapture = "std",
-              port = 9229,
-              console = "integratedTerminal",
-              internalConsoleOptions = "neverOpen",
-            },
-          }
-        end,
-      },
-    },
+    opts = function(opts)
+      opts.ensure_installed = { "node2" }
+      opts.automatic_setup = true
+      opts.handlers = require("user.dap").handlers(opts.ensure_installed, opts)
+      return opts
+    end,
   },
 }
