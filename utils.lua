@@ -37,6 +37,6 @@ M.to_string = function(tbl)
   end
 end
 
--- vim.notify(to_string { a = 1, b = 2 }, vim.log.levels.WARN)
+M.print = function(tbl) vim.notify(M.to_string(tbl), vim.log.levels.WARN) end
 
 return M

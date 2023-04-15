@@ -1,16 +1,5 @@
-return function()
-  local dap = require "dap"
-  dap.set_log_level "TRACE"
-  dap.configurations.typescript = {
-    {
-      type = "node2",
-      request = "attach",
-      name = "Attach Program (Node2 with ts-node)",
-      cwd = vim.fn.getcwd(),
-      sourceMaps = true,
-      skipFiles = { "<node_internals>/**" },
-      port = 9229,
-    },
+return {
+  configurations = {
     {
       type = "node2",
       name = "Debug NestJS",
@@ -22,5 +11,14 @@ return function()
       console = "integratedTerminal",
       internalConsoleOptions = "neverOpen",
     },
-  }
-end
+    {
+      type = "node2",
+      request = "attach",
+      name = "Attach Program (Node2 with ts-node)",
+      cwd = vim.fn.getcwd(),
+      sourceMaps = true,
+      skipFiles = { "<node_internals>/**" },
+      port = 9229,
+    },
+  },
+}

@@ -57,11 +57,9 @@ return {
     "jay-babu/mason-nvim-dap.nvim",
     -- overrides `require("mason-nvim-dap").setup(...)`
     -- enabled = false,
-    opts = function(opts)
+    opts = function(_, opts)
       opts.ensure_installed = { "node2" }
-      opts.automatic_setup = true
-      opts.handlers = require("user.dap").handlers(opts.ensure_installed, opts)
-      return opts
+      opts.handlers = require("user.dap").handlers(opts.ensure_installed)
     end,
   },
 }
