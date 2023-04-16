@@ -1,6 +1,12 @@
 local M = {}
 
 M.handlers = function(packages)
+  -- local dap = require("dap")
+  -- local adapters = require("user.dap.adapters")
+  -- for k, v in pairs(adapters) do
+  --   dap.adapters[k] = v
+  -- end
+
   local handlers = {
     function(config)
       -- all sources with no handler get passed here
