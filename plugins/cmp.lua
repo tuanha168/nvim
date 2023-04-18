@@ -34,8 +34,8 @@ return {
           fallback()
         end
       end, { "i", "s" })
-      opts.mapping["<C-k>"] = {}
-      opts.mapping["<C-j>"] = {}
+      opts.mapping["<C-k>"] = cmp.mapping { i = cmp.mapping.abort(), c = cmp.mapping.close() }
+      opts.mapping["<C-j>"] = cmp.mapping { i = cmp.mapping.abort(), c = cmp.mapping.close() }
 
       return opts
     end,

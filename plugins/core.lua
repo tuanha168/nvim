@@ -49,7 +49,7 @@ return {
     config = function() require("user.config.leap").setup() end,
   },
 
-  { "wellle/targets.vim",     event = "BufEnter" },
+  { "wellle/targets.vim", event = "BufEnter" },
 
   {
     "andymass/vim-matchup",
@@ -141,6 +141,24 @@ return {
     "Fildo7525/pretty_hover",
     event = "LspAttach",
     opts = {},
+  },
+
+  {
+    "napisani/nvim-github-codesearch",
+    -- build = "make",
+    opts = {
+      -- an optional table entry to explicitly configure the API key to use for Github API requests.
+      -- alternatively, you can configure this parameter by export an environment variable named "GITHUB_AUTH_TOKEN"
+      github_auth_token = "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",
+
+      -- this table entry is optional, if not provided "https://api.github.com" will be used by default
+      -- otherwise this parameter can be used to configure a different Github API URL.
+      github_api_url = "https://api.github.com",
+
+      -- whether to use telescope to display the github search results or not
+      use_telescope = true,
+    },
+    -- config = function() require("nvim-github-codesearch").cleanup() end,
   },
 
   -- {
