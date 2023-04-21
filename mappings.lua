@@ -163,6 +163,15 @@ return {
     ["<C-n>i"] = { "<C-i>" },
     ["<S-Up>"] = { "<Plug>(expand_region_expand)", noremap = false, silent = true },
     ["<S-Down>"] = { "<Plug>(expand_region_shrink)", noremap = false, silent = true },
+    ["dd"] = {
+      function()
+        if vim.api.nvim_get_current_line():match "^%s*$" then
+          return vim.cmd 'normal! "_dd'
+        else
+          return vim.cmd "normal! dd"
+        end
+      end,
+    },
   },
   v = {
     ["*"] = { '"ayh/<c-r>a<CR>' },
