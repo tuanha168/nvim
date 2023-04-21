@@ -161,6 +161,22 @@ return {
     -- config = function() require("nvim-github-codesearch").cleanup() end,
   },
 
+  {
+    "terryma/vim-expand-region",
+    event = "BufEnter",
+    config = function()
+      vim.keymap.set({ "n", "v", "x" }, "<S-Up>", "<Plug>(expand_region_expand)", { noremap = false, silent = true })
+      vim.keymap.set({ "n", "v", "x" }, "<S-Down>", "<Plug>(expand_region_shrink)", { noremap = false, silent = true })
+      vim.cmd [[
+        call expand_region#custom_text_objects({
+          \ 'a]' :1,
+          \ 'ab' :1,
+          \ 'aB' :1,
+          \ })
+      ]]
+    end,
+  },
+
   -- {
   --   "mg979/vim-visual-multi",
   --   branch = "master",

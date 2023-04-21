@@ -161,6 +161,8 @@ return {
     ["+"] = { "<C-a>", noremap = true },
     ["-"] = { "<C-x>", noremap = true },
     ["<C-n>i"] = { "<C-i>" },
+    ["<S-Up>"] = { "<Plug>(expand_region_expand)", noremap = false, silent = true },
+    ["<S-Down>"] = { "<Plug>(expand_region_shrink)", noremap = false, silent = true },
   },
   v = {
     ["*"] = { '"ayh/<c-r>a<CR>' },
