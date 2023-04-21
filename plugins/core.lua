@@ -137,11 +137,11 @@ return {
     },
   },
 
-  {
-    "Fildo7525/pretty_hover",
-    event = "LspAttach",
-    opts = {},
-  },
+  -- {
+  --   "Fildo7525/pretty_hover",
+  --   event = "LspAttach",
+  --   opts = {},
+  -- },
 
   {
     "napisani/nvim-github-codesearch",

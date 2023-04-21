@@ -6,6 +6,7 @@ return {
     ["<leader>lD"] = false,
     ["<leader>lS"] = false,
     ["<leader>fc"] = false,
+    ["|"] = false,
     -- ["<C-b>"] = {
     --   function() require("smart-splits").start_resize_mode() end,
     --   noremap = true,
@@ -79,8 +80,8 @@ return {
       desc = "Find AstroNvim config files",
     },
     -- Gitsigns
-    ["H"] = { "<cmd>Gitsigns prev_hunk<CR>" },
-    ["L"] = { "<cmd>Gitsigns next_hunk<CR>" },
+    ["H"] = { "^" },
+    ["L"] = { "$" },
     ["<leader>pp"] = { "<cmd>Gitsigns preview_hunk<CR>" },
     -- Moving
     ["K"] = { ":m .-2<CR>==" },
@@ -174,6 +175,8 @@ return {
     -- Moving
     ["K"] = { ":m '<-2<CR><CR>gv=gv" },
     ["J"] = { ":m '>+1<CR><CR>gv=gv" },
+    ["H"] = { "^" },
+    ["L"] = { "$" },
     -- Visual Indent
     ["<"] = { "<gv" },
     [">"] = { ">gv" },
