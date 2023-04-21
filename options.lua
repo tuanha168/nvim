@@ -17,6 +17,7 @@ local options = {
     conceallevel = 2,
     wrap = true,
     cmdheight = 1,
+    laststatus = 3,
   },
   g = {
     matchup_matchparen_offscreen = { method = "popup" },

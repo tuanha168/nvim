@@ -82,8 +82,6 @@ return {
     ["H"] = { "<cmd>Gitsigns prev_hunk<CR>" },
     ["L"] = { "<cmd>Gitsigns next_hunk<CR>" },
     ["<leader>pp"] = { "<cmd>Gitsigns preview_hunk<CR>" },
-    ["<c-u>"] = { ":Gitsigns undo_stage_hunk<CR>" },
-    ["<c-s>"] = { ":Gitsigns stage_hunk<CR>" },
     -- Moving
     ["K"] = { ":m .-2<CR>==" },
     ["J"] = { ":m .+1<CR>==" },

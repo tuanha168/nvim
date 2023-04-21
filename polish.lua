@@ -7,7 +7,7 @@ return function()
   autocmd({ "BufEnter" }, {
     pattern = "*",
     callback = function()
-      vim.cmd "set laststatus&"
+      -- vim.cmd "set laststatus&"
       vim.cmd "syntax sync fromstart"
     end,
   })
