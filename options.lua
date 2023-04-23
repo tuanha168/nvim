@@ -16,13 +16,14 @@ local options = {
     titlestring = "%f - nvim",
     conceallevel = 2,
     wrap = true,
-    cmdheight = 1,
+    -- cmdheight = 1,
     laststatus = 3,
   },
   g = {
     matchup_matchparen_offscreen = { method = "popup" },
     copilot_assume_mapped = true,
     kitty_navigator_no_mappings = 1,
+    lsp_handlers_enabled = false, -- enable or disable default vim.lsp.handlers (hover and signatureHelp)
   },
   o = {
     background = "dark",

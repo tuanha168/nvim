@@ -95,6 +95,7 @@ return {
         status.component.git_diff { padding = { left = 1 }, surround = { separator = "none" } },
         -- fill the rest of the statusline
         -- the elements after this will appear in the middle of the statusline
+        status.component.cmd_info(),
         status.component.fill(),
         codeium,
         -- add a component to display if the LSP is loading, disable showing running client names, and use no separator

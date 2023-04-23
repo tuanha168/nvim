@@ -84,8 +84,8 @@ return {
     ["L"] = { "$" },
     ["<leader>pp"] = { "<cmd>Gitsigns preview_hunk<CR>" },
     -- Moving
-    ["K"] = { ":m .-2<CR>==" },
-    ["J"] = { ":m .+1<CR>==" },
+    ["K"] = { ":m .-2<CR>==", silent = true },
+    ["J"] = { ":m .+1<CR>==", silent = true },
     ["<Tab>"] = {
       function() require("astronvim.utils.buffer").nav(vim.v.count > 0 and vim.v.count or 1) end,
       desc = "Next buffer",
@@ -100,8 +100,8 @@ return {
     ["}"] = { "<C-d>zz" },
     ["{"] = { "<C-u>zz" },
     -- Close Preview
-    ["<CR>"] = { "<CR>zz:ccl<CR>" },
-    ["q"] = { "<ESC>:ccl<CR>q" },
+    ["<CR>"] = { "<CR>zz:ccl<CR>", silent = true },
+    ["q"] = { "<ESC>:ccl<CR>q", silent = true },
     -- Yank
     ["<c-c>"] = { '"+yiw', desc = "Yank", noremap = true },
     -- Yanky
@@ -180,12 +180,12 @@ return {
     -- Yank
     ["<c-c>"] = { '"+y', desc = "Yank", noremap = true },
     -- Gitsigns
-    ["<c-u>"] = { ":Gitsigns undo_stage_hunk<CR>" },
-    ["<c-s>"] = { ":Gitsigns stage_hunk<CR>" },
-    ["u"] = { ":Gitsigns reset_hunk<CR>" },
+    ["<c-u>"] = { ":Gitsigns undo_stage_hunk<CR>", silent = true },
+    ["<c-s>"] = { ":Gitsigns stage_hunk<CR>", silent = true },
+    ["u"] = { ":Gitsigns reset_hunk<CR>", silent = true },
     -- Moving
-    ["K"] = { ":m '<-2<CR><CR>gv=gv" },
-    ["J"] = { ":m '>+1<CR><CR>gv=gv" },
+    ["K"] = { ":m '<-2<CR><CR>gv=gv", silent = true },
+    ["J"] = { ":m '>+1<CR><CR>gv=gv", silent = true },
     ["H"] = { "^" },
     ["L"] = { "$" },
     -- Visual Indent
@@ -199,11 +199,6 @@ return {
     },
     ["C"] = {
       '"_C',
-    },
-  },
-  i = {
-    ["<c-u>"] = {
-      function() vim.lsp.buf.signature_help() end,
     },
   },
 }
