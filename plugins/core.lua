@@ -42,11 +42,21 @@ return {
     end,
   },
 
+  -- {
+  --   "ggandor/leap.nvim",
+  --   event = "BufEnter",
+  --   opts = function(_, opts) require("leap").setup(opts) end,
+  --   config = function() require("user.config.leap").setup() end,
+  -- },
+
   {
-    "ggandor/leap.nvim",
-    event = "BufEnter",
-    opts = function(_, opts) require("leap").setup(opts) end,
-    config = function() require("user.config.leap").setup() end,
+    "rlane/pounce.nvim",
+    keys = "s",
+    opts = function()
+      local map = vim.keymap.set
+      map("n", "s", function() require("pounce").pounce {} end)
+      return {}
+    end,
   },
 
   { "wellle/targets.vim", event = "BufEnter" },
