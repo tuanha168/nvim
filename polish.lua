@@ -21,4 +21,7 @@ return function()
     pattern = "*.conf",
     callback = function() vim.cmd "setf dosini" end,
   })
+
+  -- Lsp related
+  -- vim.keymap.set("v", "<leader>fm", vim.lsp.buf.format)
 end

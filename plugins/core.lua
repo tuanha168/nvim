@@ -177,7 +177,6 @@ return {
     end,
   },
 
-  { "joechrisellis/lsp-format-modifications.nvim" },
   -- {
   --   "mg979/vim-visual-multi",
   --   branch = "master",

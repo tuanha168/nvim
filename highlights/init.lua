@@ -6,30 +6,37 @@ return function()
   -- get highlights from highlight groups
   local normal = get_hlgroup "Normal"
   local bg = normal.bg
-  local bg_alt = get_hlgroup("Visual").bg
+  local pink = "#925070"
   local green = get_hlgroup("String").fg
   local red = get_hlgroup("Error").fg
   -- return a table of highlights for telescope based on colors gotten from highlight groups
   return {
-    TelescopeBorder = { fg = bg_alt, bg = bg },
-    TelescopeNormal = { bg = bg },
-    TelescopePreviewBorder = { fg = bg, bg = bg },
-    TelescopePreviewNormal = { bg = bg },
-    TelescopePreviewTitle = { fg = bg, bg = green },
-    TelescopePromptBorder = { fg = bg, bg = bg },
-    TelescopePromptNormal = { fg = bg, bg = bg },
-    TelescopePromptPrefix = { fg = red, bg = bg },
-    TelescopePromptTitle = { fg = bg, bg = red },
-    TelescopeResultsBorder = { fg = bg, bg = bg },
-    TelescopeResultsNormal = { bg = bg },
-    TelescopeResultsTitle = { fg = bg, bg = bg },
-    NormalFloat = { bg = bg },
-    NormalNC = { bg = bg },
+    -- transparent background
+    Normal = { bg = nil },
+    SignColumn = { bg = bg },
+    NvimTreeNormal = { bg = bg },
+    NvimTreeVertSplit = { bg = bg },
     NeoTreeNormal = { bg = bg },
     NeoTreeNormalNC = { bg = bg },
+    NormalFloat = { bg = bg },
+    NormalNC = { bg = bg },
+    -- NeoTreeNormal = { bg = bg },
+    -- NeoTreeNormalNC = { bg = bg },
     NotifyBackground = { bg = "#000000" },
     FoldColumn = { bg = bg },
     EndOfBuffer = { bg = bg },
-    Visual = { bg = "#925070" },
+    Visual = { bg = pink },
+    -- TelescopeBorder = { fg = bg_alt, bg = bg },
+    -- TelescopeNormal = { bg = bg },
+    -- TelescopePreviewBorder = { fg = bg, bg = bg },
+    TelescopePreviewNormal = { bg = bg },
+    TelescopePreviewTitle = { fg = green, bg = pink },
+    -- TelescopePromptBorder = { fg = bg, bg = bg },
+    TelescopePromptNormal = { fg = bg, bg = bg },
+    -- TelescopePromptPrefix = { fg = red, bg = bg },
+    TelescopePromptTitle = { fg = green, bg = pink },
+    -- TelescopeResultsBorder = { fg = bg, bg = bg },
+    TelescopeResultsNormal = { bg = bg },
+    TelescopeResultsTitle = { fg = green, bg = pink },
   }
 end

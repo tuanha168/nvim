@@ -200,10 +200,6 @@ return {
     ["C"] = {
       '"_C',
     },
-    -- Lsp related
-    ["<leader>fm"] = {
-      function() vim.lsp.buf.format { async = true } end,
-    },
   },
   i = {
     ["<c-u>"] = {
