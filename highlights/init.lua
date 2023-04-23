@@ -8,7 +8,6 @@ return function()
   local bg = normal.bg
   local pink = "#925070"
   local green = get_hlgroup("String").fg
-  local red = get_hlgroup("Error").fg
   -- return a table of highlights for telescope based on colors gotten from highlight groups
   return {
     -- transparent background
@@ -20,8 +19,6 @@ return function()
     NeoTreeNormalNC = { bg = bg },
     NormalFloat = { bg = bg },
     NormalNC = { bg = bg },
-    -- NeoTreeNormal = { bg = bg },
-    -- NeoTreeNormalNC = { bg = bg },
     NotifyBackground = { bg = "#000000" },
     FoldColumn = { bg = bg },
     EndOfBuffer = { bg = bg },
@@ -38,5 +35,6 @@ return function()
     -- TelescopeResultsBorder = { fg = bg, bg = bg },
     TelescopeResultsNormal = { bg = bg },
     TelescopeResultsTitle = { fg = green, bg = pink },
+    -- ["@tag"] = { fg = pink },
   }
 end
