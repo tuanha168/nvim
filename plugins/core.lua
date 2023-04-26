@@ -102,10 +102,34 @@ return {
     opts = {
       callbacks = {
         -- Called when a request to edit file(s) is received
-        pre_open = function() vim.cmd ":bd!" end,
+        pre_open = function()
+          local utils = require "astronvim.utils"
+          utils.toggle_term_cmd "lazygit"
+        end,
         -- Called after a file is opened
         -- Passed the buf id, win id, and filetype of the new window
-        -- post_open = function(bufnr, winnr, filetype)
+        post_open = function(bufnr, winnr, filetype)
+          local utils = require "astronvim.utils"
+          if filetype ~= "gitcommit" then
+            vim.defer_fn(function()
+              utils.toggle_term_cmd "lazygit"
+              vim.cmd ":bd!"
+            end, 50)
+          else
+            vim.api.nvim_create_autocmd("BufWritePost", {
+              buffer = bufnr,
+              once = true,
+              callback = function()
+                -- This is a bit of a hack, but if you run bufdelete immediately
+                -- the shell can occasionally freeze
+                vim.defer_fn(function()
+                  vim.api.nvim_buf_delete(bufnr, {})
+                  utils.toggle_term_cmd "lazygit"
+                end, 50)
+              end,
+            })
+          end
+        end,
         -- post_open = function() end,
         -- Called when a file is open in blocking mode, after it's done blocking
         -- (after bufdelete, bufunload, or quitpre for the blocking buffer)
@@ -191,11 +215,13 @@ return {
       ]]
     end,
   },
+
   {
     "AckslD/muren.nvim",
     opts = true,
     cmd = { "MurenFresh" },
   },
+
   {
     "ziontee113/icon-picker.nvim",
     opts = function()
@@ -209,6 +235,7 @@ return {
     keys = { { "<leader>ip", mode = { "n" } } },
     cmd = "IconPickerNormal",
   },
+
   {
     "samodostal/image.nvim",
     event = "BufEnter",
@@ -230,6 +257,7 @@ return {
       },
     },
   },
+
   {
     "folke/noice.nvim",
     dependencies = {
@@ -267,6 +295,26 @@ return {
         },
       }
     end,
+  },
+
+  {
+    "akinsho/git-conflict.nvim",
+    event = "BufEnter",
+    opts = {
+      default_mappings = {
+        ours = "cc",
+        theirs = "ic",
+        none = "dd",
+        both = "<Enter>",
+        next = "n",
+        prev = "p",
+      },
+      disable_diagnostics = true, -- This will disable the diagnostics in a buffer whilst it is conflicted
+      highlights = { -- They must have background color, otherwise the default color will be used
+        incoming = "DiffDelete",
+        current = "DiffText",
+      },
+    },
   },
 
   -- {
