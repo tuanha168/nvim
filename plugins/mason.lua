@@ -10,7 +10,7 @@ return {
         "lua_ls",
 
         -- web dev
-        "tsserver",
+        -- "tsserver",
         -- "angular-language-server",
         -- "vetur-vls",
         "volar",
@@ -37,7 +37,7 @@ return {
     -- overrides `require("mason-null-ls").setup(...)`
     opts = {
       ensure_installed = {
-        "prettierd",
+        "prettier",
         "stylua",
         -- "eslint_d",
         "pint",

@@ -1,3 +1,11 @@
+local function custom_function_with_motion(function_name)
+  if function_name == nil then return end
+  local old_func = vim.go.operatorfunc
+  vim.go.operatorfunc = "v:lua.require'user.utils'." .. function_name
+  vim.api.nvim_feedkeys("g@", "n", false)
+  vim.defer_fn(function() vim.go.operatorfunc = old_func end, 1000)
+end
+
 return {
   n = {
     ["<leader>l"] = false,
@@ -38,10 +46,7 @@ return {
       desc = "Resize split right",
     },
     ["*"] = { '"ayiwh/<c-r>a<CR>' },
-    ["<leader>fiw"] = {
-      function() require("telescope.builtin").grep_string() end,
-      desc = "Find for word under cursor",
-    },
+    ["<leader>fs"] = { function() custom_function_with_motion "op_func_formatting" end, noremap = true },
     ["<leader>riw"] = {
       function()
         local cword = vim.fn.expand "<cword>" -- select word under cursor.
