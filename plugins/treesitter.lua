@@ -55,53 +55,21 @@ return {
     config = require "user.config.markid",
   },
   {
-    "Wansmer/treesj",
-    keys = { "<leader>m", "<leader>j", "<leader>s" },
-    dependencies = { "nvim-treesitter/nvim-treesitter" },
-    config = function() require("treesj").setup {} end,
-  },
-  -- {
-  --   "nvim-treesitter/playground",
-  --   event = "BufRead",
-  --   config = function()
-  --     require("nvim-treesitter.configs").setup {
-  --       playground = {
-  --         enable = true,
-  --         disable = {},
-  --         updatetime = 25, -- Debounced time for highlighting nodes in the playground from source code
-  --         persist_queries = false, -- Whether the query persists across vim sessions
-  --         keybindings = {
-  --           toggle_query_editor = "o",
-  --           toggle_hl_groups = "i",
-  --           toggle_injected_languages = "t",
-  --           toggle_anonymous_nodes = "a",
-  --           toggle_language_display = "I",
-  --           focus_language = "f",
-  --           unfocus_language = "F",
-  --           update = "R",
-  --           goto_node = "<cr>",
-  --           show_help = "?",
-  --         },
-  --       },
-  --     }
-  --   end,
-  -- },
+    "ckolkey/ts-node-action",
+    dependencies = { "nvim-treesitter" },
+    event = "BufRead",
+    opts = {},
+    config = function()
+      vim.keymap.set({ "n" }, "<leader>m", require("ts-node-action").node_action, { desc = "Trigger Node Action" })
 
-  ----- not supported vue yet
-  -- {
-  --   "ckolkey/ts-node-action",
-  --   dependencies = { "nvim-treesitter" },
-  --   event = "BufRead",
-  --   opts = {},
-  --   config = function()
-  --     require("null-ls").register {
-  --       name = "more_actions",
-  --       method = { require("null-ls").methods.CODE_ACTION },
-  --       filetypes = { "_all" },
-  --       generator = {
-  --         fn = require("ts-node-action").available_actions,
-  --       },
-  --     }
-  --   end,
-  -- },
+      require("null-ls").register {
+        name = "more_actions",
+        method = { require("null-ls").methods.CODE_ACTION },
+        filetypes = { "_all" },
+        generator = {
+          fn = require("ts-node-action").available_actions,
+        },
+      }
+    end,
+  },
 }

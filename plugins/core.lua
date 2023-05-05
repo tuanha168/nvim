@@ -59,7 +59,7 @@ return {
     end,
   },
 
-  { "wellle/targets.vim", event = "BufRead" },
+  { "wellle/targets.vim", event = "BufEnter" },
 
   {
     "andymass/vim-matchup",

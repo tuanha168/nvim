@@ -73,8 +73,10 @@ local mappings = {
       desc = "Find AstroNvim config files",
     },
     -- Gitsigns
-    ["H"] = { "^" },
-    ["L"] = { "$" },
+    ["H"] = { function() require("gitsigns").prev_hunk() end, desc = "Previous Git hunk" },
+    ["L"] = { function() require("gitsigns").next_hunk() end, desc = "Next Git hunk" },
+    -- ["H"] = { "^" },
+    -- ["L"] = { "$" },
     ["<leader>pp"] = { "<cmd>Gitsigns preview_hunk<CR>" },
     -- Moving
     ["K"] = { ":m .-2<CR>==", silent = true },
@@ -154,8 +156,6 @@ local mappings = {
     ["+"] = { "<C-a>", noremap = true },
     ["-"] = { "<C-x>", noremap = true },
     ["<C-n>i"] = { "<C-i>" },
-    ["<S-Up>"] = { "<Plug>(expand_region_expand)", noremap = false, silent = true },
-    ["<S-Down>"] = { "<Plug>(expand_region_shrink)", noremap = false, silent = true },
     ["dd"] = {
       function()
         if vim.api.nvim_get_current_line():match "^%s*$" then
