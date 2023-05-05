@@ -72,4 +72,10 @@ return {
       }
     end,
   },
+  {
+    "nvim-treesitter/nvim-treesitter-textobjects",
+    dependencies = { "nvim-treesitter/nvim-treesitter" },
+    event = "BufRead",
+    config = require("user.config.nvim-treesitter-textobjects").config,
+  },
 }

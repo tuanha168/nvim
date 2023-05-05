@@ -73,8 +73,8 @@ local mappings = {
       desc = "Find AstroNvim config files",
     },
     -- Gitsigns
-    ["H"] = { function() require("gitsigns").prev_hunk() end, desc = "Previous Git hunk" },
-    ["L"] = { function() require("gitsigns").next_hunk() end, desc = "Next Git hunk" },
+    -- ["H"] = { function() require("gitsigns").prev_hunk() end, desc = "Previous Git hunk" },
+    -- ["L"] = { function() require("gitsigns").next_hunk() end, desc = "Next Git hunk" },
     -- ["H"] = { "^" },
     -- ["L"] = { "$" },
     ["<leader>pp"] = { "<cmd>Gitsigns preview_hunk<CR>" },
@@ -182,8 +182,8 @@ local mappings = {
     -- Moving
     ["K"] = { ":m '<-2<CR><CR>gv=gv", silent = true },
     ["J"] = { ":m '>+1<CR><CR>gv=gv", silent = true },
-    ["H"] = { "^" },
-    ["L"] = { "$" },
+    -- ["H"] = { "^" },
+    -- ["L"] = { "$" },
     -- Visual Indent
     ["<"] = { "<gv" },
     [">"] = { ">gv" },
@@ -206,6 +206,8 @@ local custom_text_objects = {
   ["gG"] = {
     ":<c-u>normal! ggVG<cr>",
   },
+  ["iq"] = { function() require("user.utils").quote_textobj "i" end },
+  ["aq"] = { function() require("user.utils").quote_textobj "a" end },
 }
 
 for key, value in pairs(custom_text_objects) do
