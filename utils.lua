@@ -1,23 +1,31 @@
 M = {}
 
----@param mode "i"|"a"
-M.quote_textobj = function(mode)
-  local utils = require "nvim-surround.utils"
-  local buffer = require "nvim-surround.buffer"
-
-  if vim.api.nvim_get_mode().mode == "v" then vim.cmd "norm! v" end
-  local nearest_selections = utils.get_nearest_selections("q", "change")
-  if nearest_selections then
-    local startQuote, endQuote = nearest_selections.left.first_pos, nearest_selections.right.first_pos
-    if "i" == mode then
-      startQuote = { nearest_selections.left.first_pos[1], nearest_selections.left.first_pos[2] + 1 }
-      endQuote = { nearest_selections.right.first_pos[1], nearest_selections.right.first_pos[2] - 1 }
-    end
-    buffer.set_curpos(startQuote)
-    vim.cmd "norm! v"
-    buffer.set_curpos(endQuote)
-  end
-end
+-- ---@param mode "i"|"a"
+-- M.quote_textobj = function(mode)
+--   local utils = require "nvim-surround.utils"
+--   local buffer = require "nvim-surround.buffer"
+--
+--   if vim.api.nvim_get_mode().mode == "v" then vim.cmd "norm! v" end
+--   local nearest_selections = utils.get_nearest_selections("q", "change")
+--   if nearest_selections then
+--     local startQuote, endQuote = nearest_selections.left.first_pos, nearest_selections.right.first_pos
+--     if "i" == mode then
+--       startQuote = { nearest_selections.left.first_pos[1], nearest_selections.left.first_pos[2] + 1 }
+--       endQuote = { nearest_selections.right.first_pos[1], nearest_selections.right.first_pos[2] - 1 }
+--     end
+--
+--     if vim.api.nvim_get_mode().mode ~= "v" then
+--       vim.api.nvim_cmd({ cmd = "normal", bang = true, args = { "v" } }, {})
+--     end
+--
+--     buffer.set_curpos(startQuote)
+--     vim.cmd "norm! o"
+--     buffer.set_curpos(endQuote)
+--
+--     buffer.set_mark("[", startQuote)
+--     buffer.set_mark("]", endQuote)
+--   end
+-- end
 
 M.buf_vtext = function()
   local a_orig = vim.fn.getreg "a"

@@ -205,9 +205,10 @@ local mappings = {
 local custom_text_objects = {
   ["gG"] = {
     ":<c-u>normal! ggVG<cr>",
+    desc = "Buffer as text object",
   },
-  ["iq"] = { function() require("user.utils").quote_textobj "i" end },
-  ["aq"] = { function() require("user.utils").quote_textobj "a" end },
+  -- ["iq"] = { function() require("user.utils").quote_textobj "i" end, desc = "inner quote" },
+  -- ["aq"] = { function() require("user.utils").quote_textobj "a" end, desc = "outer quote" },
 }
 
 for key, value in pairs(custom_text_objects) do
