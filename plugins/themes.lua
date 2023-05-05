@@ -99,7 +99,7 @@ return {
         status.component.fill(),
         codeium,
         -- add a component to display if the LSP is loading, disable showing running client names, and use no separator
-        status.component.lsp { lsp_client_names = false, surround = { separator = "none", color = "bg" } },
+        status.component.lsp { lsp_client_names = false },
         -- fill the rest of the statusline
         -- the elements after this will appear on the right of the statusline
         status.component.fill(),

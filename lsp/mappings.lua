@@ -1,7 +1,3 @@
-local format = {
-  function() vim.lsp.buf.format(require("astronvim.utils.lsp").format_opts) end,
-}
-
 return {
   n = {
     ["<leader>ld"] = false,
@@ -23,7 +19,11 @@ return {
       function() vim.diagnostic.open_float() end,
       desc = "Hover diagnostics",
     },
-    ["<leader>fm"] = format,
+    ["<leader>fm"] = {
+      -- function() require("user.utils").operatorfunc_lua "format_motion" end,
+      function() vim.lsp.buf.format(require("astronvim.utils.lsp").format_opts) end,
+      desc = "Format code",
+    },
     ["<leader>e"] = {
       function() vim.lsp.buf.code_action() end,
       desc = "LSP code action",
@@ -48,7 +48,9 @@ return {
   },
   v = {
     ["<leader>la"] = false,
-    -- Lsp related
-    ["<leader>fm"] = format,
+    ["<leader>fm"] = {
+      function() require("user.utils").operatorfunc_lua "format_motion" end,
+      desc = "Format code",
+    },
   },
 }

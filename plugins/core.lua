@@ -25,7 +25,7 @@ return {
     end,
   },
 
-  { "kylechui/nvim-surround", event = "BufEnter", opts = {} },
+  { "kylechui/nvim-surround", event = "BufRead", opts = {} },
 
   {
     "numToStr/Comment.nvim",
@@ -44,7 +44,7 @@ return {
 
   -- {
   --   "ggandor/leap.nvim",
-  --   event = "BufEnter",
+  --   event = "BufRead",
   --   opts = function(_, opts) require("leap").setup(opts) end,
   --   config = function() require("user.config.leap").setup() end,
   -- },
@@ -59,24 +59,24 @@ return {
     end,
   },
 
-  { "wellle/targets.vim", event = "BufEnter" },
+  { "wellle/targets.vim", event = "BufRead" },
 
   {
     "andymass/vim-matchup",
-    event = "BufEnter",
+    event = "BufRead",
     config = function() require("user.config.vim-matchup").setup() end,
   },
 
   {
     "mbbill/undotree",
     cmd = "UndotreeToggle",
-    event = "BufEnter",
+    event = "BufRead",
     config = function() vim.api.nvim_set_keymap("n", "<C-y>", "<cmd>UndotreeToggle<CR>", { silent = true }) end,
   },
 
   {
     "RRethy/vim-illuminate",
-    event = "BufEnter",
+    event = "BufRead",
   },
 
   {
@@ -149,7 +149,7 @@ return {
 
   {
     "chrisgrieser/nvim-spider",
-    event = "BufEnter",
+    event = "BufRead",
     opts = { skipInsignificantPunctuation = false },
     config = function()
       -- Keymaps
@@ -202,7 +202,7 @@ return {
 
   {
     "terryma/vim-expand-region",
-    event = "BufEnter",
+    event = "BufRead",
     config = function()
       vim.keymap.set({ "n", "v", "x" }, "<S-Up>", "<Plug>(expand_region_expand)", { noremap = false, silent = true })
       vim.keymap.set({ "n", "v", "x" }, "<S-Down>", "<Plug>(expand_region_shrink)", { noremap = false, silent = true })
@@ -238,7 +238,7 @@ return {
 
   {
     "samodostal/image.nvim",
-    event = "BufEnter",
+    event = "BufRead",
     build = "ascii-image-converter -h",
     dependencies = {
       "nvim-lua/plenary.nvim",
@@ -299,7 +299,7 @@ return {
 
   {
     "akinsho/git-conflict.nvim",
-    event = "BufEnter",
+    event = "BufRead",
     opts = {
       default_mappings = {
         ours = "cc",
@@ -332,18 +332,18 @@ return {
   -- {
   --   "mg979/vim-visual-multi",
   --   branch = "master",
-  --   event = "BufEnter",
+  --   event = "BufRead",
   -- },
 
   -- {
   --   "chrisgrieser/nvim-various-textobjs",
-  --   event = "BufEnter",
+  --   event = "BufRead",
   --   opts = { useDefaultKeymaps = true },
   -- },
 
   -- {
   --   "https://git.sr.ht/~whynothugo/lsp_lines.nvim",
-  --   event = "BufEnter",
+  --   event = "BufRead",
   --   opts = {},
   -- },
 

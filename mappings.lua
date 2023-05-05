@@ -1,12 +1,4 @@
-local function custom_function_with_motion(function_name)
-  if function_name == nil then return end
-  local old_func = vim.go.operatorfunc
-  vim.go.operatorfunc = "v:lua.require'user.utils'." .. function_name
-  vim.api.nvim_feedkeys("g@", "n", false)
-  vim.defer_fn(function() vim.go.operatorfunc = old_func end, 1000)
-end
-
-return {
+local mappings = {
   n = {
     ["<leader>l"] = false,
     ["<leader>fm"] = false,
@@ -46,17 +38,13 @@ return {
       desc = "Resize split right",
     },
     ["*"] = { '"ayiwh/<c-r>a<CR>' },
-    ["<leader>fs"] = { function() custom_function_with_motion "op_func_formatting" end, noremap = true },
-    ["<leader>riw"] = {
-      function()
-        local cword = vim.fn.expand "<cword>" -- select word under cursor.
-        if cword == "" then return end
-
-        local replaceWord = vim.fn.input("Enter replacement: ", cword)
-        if replaceWord == "" or replaceWord == cword then return end
-
-        vim.cmd(string.format("%%s@%s@%s@gc", cword, replaceWord))
-      end,
+    ["<leader>fs"] = {
+      function() require("user.utils").operatorfunc_lua "live_grep_motion" end,
+      desc = "Live grep motion",
+      noremap = true,
+    },
+    ["<leader>r"] = {
+      function() require("user.utils").operatorfunc_lua "replace_motion" end,
     },
     ["<leader>fa"] = {
       function() require("telescope.builtin").find_files { hidden = true, no_ignore = true } end,
@@ -64,7 +52,7 @@ return {
     },
     ["<leader>fF"] = {
       function()
-        local utils = require "astronvim.utils"
+        local utils = require "user.utils"
         local cwd = vim.fn.stdpath "config" .. "/.."
         local search_dirs = {}
         for _, dir in ipairs(astronvim.supported_configs) do -- search all supported config locations
@@ -72,7 +60,7 @@ return {
           if vim.fn.isdirectory(dir) == 1 then table.insert(search_dirs, dir) end -- add directory to search if exists
         end
         if vim.tbl_isempty(search_dirs) then -- if no config folders found, show warning
-          utils.notify("No user configuration files found", "warn")
+          utils.print "No user configuration files found"
         else
           if #search_dirs == 1 then cwd = search_dirs[1] end -- if only one directory, focus cwd
           require("telescope.builtin").find_files {
@@ -180,8 +168,11 @@ return {
   },
   v = {
     ["*"] = { '"ayh/<c-r>a<CR>' },
-    ["<leader>fiw"] = { '"ay<cmd> Telescope live_grep <CR>a<c-r>a<esc>jk' },
-    ["<leader>riw"] = { '"aygvv:%sno@<c-r>a@<c-r>a@g<left><left>' },
+    ["<leader>fs"] = { '"ay<cmd> Telescope live_grep <CR>a<c-r>a<esc>jk' },
+    -- ["<leader>r"] = { '"aygvv:%sno@<c-r>a@<c-r>a@g<left><left>' },
+    ["<leader>r"] = {
+      function() require("user.utils").operatorfunc_lua "replace_motion" end,
+    },
     -- Yank
     ["<c-c>"] = { '"+y', desc = "Yank", noremap = true },
     -- Gitsigns
@@ -206,4 +197,20 @@ return {
       '"_C',
     },
   },
+  x = {},
+  o = {},
 }
+
+-- Text Objects
+local custom_text_objects = {
+  ["gG"] = {
+    ":<c-u>normal! ggVG<cr>",
+  },
+}
+
+for key, value in pairs(custom_text_objects) do
+  mappings.x[key] = value
+  mappings.o[key] = value
+end
+
+return mappings

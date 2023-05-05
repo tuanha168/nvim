@@ -49,8 +49,13 @@ end
 
 M.print = function(tbl) vim.notify(M.to_string(tbl), vim.log.levels.WARN) end
 
-M.op_func_formatting = function(test)
-  print(test)
+M.operatorfunc_lua = function(function_name)
+  if function_name == nil then return end
+  vim.go.operatorfunc = "v:lua.require'user.utils'." .. function_name
+  vim.api.nvim_feedkeys("g@", "n", false)
+end
+
+M.get_selection = function()
   local startRow, startCol = unpack(vim.api.nvim_buf_get_mark(0, "["))
   local finishRow, finishCol = unpack(vim.api.nvim_buf_get_mark(0, "]"))
   local currentLine = vim.api.nvim_buf_get_lines(0, startRow - 1, finishRow, false)
@@ -63,11 +68,58 @@ M.op_func_formatting = function(test)
     endText = string.sub(currentLine[#currentLine], 1, finishCol + 1)
   end
 
-  local selection = { startText }
-  if #currentLine > 2 then vim.list_extend(selection, vim.list_slice(currentLine, 2, #currentLine - 1)) end
-  table.insert(selection, endText)
+  return {
+    currentLine = currentLine,
+    startRow = startRow,
+    startCol = startCol,
+    finishRow = finishRow,
+    finishCol = finishCol,
+    startText = startText,
+    endText = endText,
+  }
+end
 
-  require("telescope.builtin").grep_string { search = table.concat(selection, "\n") }
+M.get_text_selection = function()
+  local selection = M.get_selection()
+  if selection == nil then return end
+
+  local selectedText = { selection.startText }
+  if #selection.currentLine > 2 then
+    vim.list_extend(selectedText, vim.list_slice(selection.currentLine, 2, #selection.currentLine - 1))
+  end
+  table.insert(selectedText, selection.endText)
+  return { text = table.concat(selectedText, "\n"), lines = selection.finishRow - selection.startRow }
+end
+
+M.live_grep_motion = function() require("telescope.builtin").grep_string { search = M.get_text_selection().text } end
+
+M.format_motion = function()
+  local opts = require("astronvim.utils.lsp").format_opts
+  local selection = M.get_selection()
+  if selection ~= nil then
+    opts.range = {
+      ["start"] = { selection.startRow, selection.startCol },
+      ["end"] = { selection.finishRow, selection.finishCol },
+    }
+  end
+
+  vim.lsp.buf.format(opts)
+end
+
+M.replace_motion = function(mode)
+  local cword, lines = M.get_text_selection().text, M.get_text_selection().lines
+  if cword == nil then return end
+  if mode == "line" and lines ~= 0 then return end
+
+  local replaceWord = vim.fn.input { prompt = "Enter replacement: ", default = cword }
+  if replaceWord == "" or replaceWord == cword then return end
+
+  if mode == "char" then
+    vim.cmd("'<,'>s@" .. string.format("%s@%s", cword, replaceWord) .. "@g")
+
+  elseif mode == "line" then
+    vim.cmd("%s@" .. string.format("%s@%s", cword, replaceWord) .. "@gc")
+  end
 end
 
 return M

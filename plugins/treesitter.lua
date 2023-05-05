@@ -44,13 +44,13 @@ return {
   },
   {
     "HiPhish/nvim-ts-rainbow2",
-    event = "BufEnter",
+    event = "BufRead",
     dependencies = { "nvim-treesitter/nvim-treesitter" },
     config = require "user.config.nvim-ts-rainbow2",
   },
   {
     "David-Kunz/markid",
-    event = "BufEnter",
+    event = "BufRead",
     dependencies = { "nvim-treesitter/nvim-treesitter" },
     config = require "user.config.markid",
   },
@@ -62,7 +62,7 @@ return {
   },
   -- {
   --   "nvim-treesitter/playground",
-  --   event = "BufEnter",
+  --   event = "BufRead",
   --   config = function()
   --     require("nvim-treesitter.configs").setup {
   --       playground = {
@@ -91,7 +91,7 @@ return {
   -- {
   --   "ckolkey/ts-node-action",
   --   dependencies = { "nvim-treesitter" },
-  --   event = "BufEnter",
+  --   event = "BufRead",
   --   opts = {},
   --   config = function()
   --     require("null-ls").register {

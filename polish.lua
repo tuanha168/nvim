@@ -4,7 +4,7 @@
 return function()
   local autocmd = vim.api.nvim_create_autocmd
 
-  autocmd({ "BufEnter" }, {
+  autocmd({ "BufRead" }, {
     pattern = "*",
     callback = function()
       -- vim.cmd "set laststatus&"
@@ -12,7 +12,7 @@ return function()
     end,
   })
 
-  autocmd({ "FocusGained", "BufEnter" }, {
+  autocmd({ "FocusGained", "BufRead" }, {
     pattern = "*",
     callback = function() vim.cmd "checktime" end,
   })
@@ -21,7 +21,4 @@ return function()
     pattern = "*.conf",
     callback = function() vim.cmd "setf dosini" end,
   })
-
-  -- Lsp related
-  -- vim.keymap.set("v", "<leader>fm", vim.lsp.buf.format)
 end
