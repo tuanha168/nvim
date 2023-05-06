@@ -7,20 +7,6 @@ local mappings = {
     ["<leader>lS"] = false,
     ["<leader>fc"] = false,
     ["|"] = false,
-    -- ["<C-b>"] = {
-    --   function() require("smart-splits").start_resize_mode() end,
-    --   noremap = true,
-    --   desc = "Start Resize Mode",
-    -- },
-    -- ["<C-h>"] = { "<cmd>KittyNavigateLeft<CR>", desc = "Move to left split" },
-    -- ["<C-j>"] = { "<cmd>KittyNavigateDown<CR>", desc = "Move to below split" },
-    -- ["<C-k>"] = { "<cmd>KittyNavigateUp<CR>", desc = "Move to above split" },
-    -- ["<C-l>"] = { "<cmd>KittyNavigateRight<CR>", desc = "Move to right split" },
-    -- ["<C-S-R>"] = {
-    --   function() require("smart-splits").start_resize_mode() end,
-    --   noremap = true,
-    --   desc = "Start Resize Mode",
-    -- },
     ["<C-S-Up>"] = { function() require("smart-splits").resize_up() end, noremap = true, desc = "Resize split up" },
     ["<C-S-Down>"] = {
       function() require("smart-splits").resize_down() end,

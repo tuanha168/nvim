@@ -124,9 +124,11 @@ M.replace_motion = function(mode)
   vim.api.nvim_win_set_cursor(0, { selection.startRow, selection.startCol })
   vim.cmd "norm! o"
   vim.api.nvim_win_set_cursor(0, { selection.finishRow, selection.finishCol })
-  vim.api.nvim_feedkeys("*", "v", false)
-
-  vim.api.nvim_feedkeys(vim.api.nvim_replace_termcodes("cgn" .. replaceWord .. "<ESC>", true, true, true), "n", false)
+  vim.api.nvim_feedkeys(
+    vim.api.nvim_replace_termcodes('"ayh/<c-r>a<CR>cgn' .. replaceWord .. "<ESC>", true, true, true),
+    "n",
+    false
+  )
 end
 
 return M
