@@ -8,12 +8,27 @@ return {
       opts.config.layout[2] = {
         type = "text",
         val = {
-          [[                                  __]],
-          [[     ___     ___    ___   __  __ /\_\    ___ ___]],
-          [[    / _ `\  / __`\ / __`\/\ \/\ \\/\ \  / __` __`\]],
-          [[   /\ \/\ \/\  __//\ \_\ \ \ \_/ |\ \ \/\ \/\ \/\ \]],
-          [[   \ \_\ \_\ \____\ \____/\ \___/  \ \_\ \_\ \_\ \_\]],
-          [[    \/_/\/_/\/____/\/___/  \/__/    \/_/\/_/\/_/\/_/]],
+          [[  _________  .__     .__                                  ]],
+          [[  \_   ___ \ |  |__  |__|_______  __ __   ____    ____    ]],
+          [[  /    \  \/ |  |  \ |  |\_  __ \|  |  \ /    \  /  _ \   ]],
+          [[  \     \____|   Y  \|  | |  | \/|  |  /|   |  \(  <_> )  ]],
+          [[   \______  /|___|  /|__| |__|   |____/ |___|  / \____/   ]],
+          [[          \/      \/                         \/           ]],
+          [[              ]],
+          --
+          -- [[                                             ]],
+          -- [[   ___|  |     _)                            ]],
+          -- [[  |      __ \   |   __|  |   |  __ \    _ \  ]],
+          -- [[  |      | | |  |  |     |   |  |   |  (   | ]],
+          -- [[ \____| _| |_| _| _|    \__,_| _|  _| \___/  ]],
+          -- [[                                             ]],
+          --
+          -- [[                                  __]],
+          -- [[     ___     ___    ___   __  __ /\_\    ___ ___]],
+          -- [[    / _ `\  / __`\ / __`\/\ \/\ \\/\ \  / __` __`\]],
+          -- [[   /\ \/\ \/\  __//\ \_\ \ \ \_/ |\ \ \/\ \/\ \/\ \]],
+          -- [[   \ \_\ \_\ \____\ \____/\ \___/  \ \_\ \_\ \_\ \_\]],
+          -- [[    \/_/\/_/\/____/\/___/  \/__/    \/_/\/_/\/_/\/_/]],
         },
         opts = {
           hl = "Type",
@@ -181,24 +196,6 @@ return {
   --   event = "LspAttach",
   --   opts = {},
   -- },
-
-  {
-    "napisani/nvim-github-codesearch",
-    -- build = "make",
-    opts = {
-      -- an optional table entry to explicitly configure the API key to use for Github API requests.
-      -- alternatively, you can configure this parameter by export an environment variable named "GITHUB_AUTH_TOKEN"
-      github_auth_token = "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",
-
-      -- this table entry is optional, if not provided "https://api.github.com" will be used by default
-      -- otherwise this parameter can be used to configure a different Github API URL.
-      github_api_url = "https://api.github.com",
-
-      -- whether to use telescope to display the github search results or not
-      use_telescope = true,
-    },
-    -- config = function() require("nvim-github-codesearch").cleanup() end,
-  },
 
   {
     "terryma/vim-expand-region",
