@@ -20,7 +20,7 @@ return {
       desc = "Hover diagnostics",
     },
     ["<leader>fm"] = {
-      -- function() require("user.utils").operatorfunc_lua "format_motion" end,
+      -- function() Chiruno.operatorfunc_lua "format_motion" end,
       function() vim.lsp.buf.format(require("astronvim.utils.lsp").format_opts) end,
       desc = "Format code",
     },
@@ -49,7 +49,7 @@ return {
   v = {
     ["<leader>la"] = false,
     ["<leader>fm"] = {
-      function() require("user.utils").operatorfunc_lua "format_motion" end,
+      function() Chiruno.operatorfunc_lua "format_motion" end,
       desc = "Format code",
     },
   },

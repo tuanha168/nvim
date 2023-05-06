@@ -4,6 +4,12 @@
 return function()
   local autocmd = vim.api.nvim_create_autocmd
 
+  autocmd("BufRead", {
+    pattern = "*",
+    callback = function() require "user.utils" end,
+    once = true,
+  })
+
   autocmd({ "BufRead" }, {
     pattern = "*",
     callback = function()

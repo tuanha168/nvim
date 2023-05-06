@@ -25,12 +25,12 @@ local mappings = {
     },
     ["*"] = { '"ayiwh/<c-r>a<CR>' },
     ["<leader>fs"] = {
-      function() require("user.utils").operatorfunc_lua "live_grep_motion" end,
+      function() Chiruno.operatorfunc_lua "live_grep_motion" end,
       desc = "Live grep motion",
       noremap = true,
     },
     ["<leader>r"] = {
-      function() require("user.utils").operatorfunc_lua "replace_motion" end,
+      function() Chiruno.operatorfunc_lua "replace_motion" end,
     },
     ["<leader>fa"] = {
       function() require("telescope.builtin").find_files { hidden = true, no_ignore = true } end,
@@ -155,12 +155,12 @@ local mappings = {
   v = {
     ["*"] = { '"ayh/<c-r>a<CR>' },
     ["<leader>fs"] = {
-      function() require("user.utils").operatorfunc_lua "live_grep_motion" end,
+      function() Chiruno.operatorfunc_lua "live_grep_motion" end,
       desc = "Live grep motion",
       noremap = true,
     },
     ["<leader>r"] = {
-      function() require("user.utils").operatorfunc_lua "replace_motion" end,
+      function() Chiruno.operatorfunc_lua "replace_motion" end,
     },
     -- Yank
     ["<c-c>"] = { '"+y', desc = "Yank", noremap = true },
@@ -196,8 +196,8 @@ local custom_text_objects = {
     ":<c-u>normal! ggVG<cr>",
     desc = "Buffer as text object",
   },
-  -- ["iq"] = { function() require("user.utils").quote_textobj "i" end, desc = "inner quote" },
-  -- ["aq"] = { function() require("user.utils").quote_textobj "a" end, desc = "outer quote" },
+  -- ["iq"] = { function() Chiruno.quote_textobj "i" end, desc = "inner quote" },
+  -- ["aq"] = { function() Chiruno.quote_textobj "a" end, desc = "outer quote" },
 }
 
 for key, value in pairs(custom_text_objects) do
