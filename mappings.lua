@@ -168,8 +168,11 @@ local mappings = {
   },
   v = {
     ["*"] = { '"ayh/<c-r>a<CR>' },
-    ["<leader>fs"] = { '"ay<cmd> Telescope live_grep <CR>a<c-r>a<esc>jk' },
-    -- ["<leader>r"] = { '"aygvv:%sno@<c-r>a@<c-r>a@g<left><left>' },
+    ["<leader>fs"] = {
+      function() require("user.utils").operatorfunc_lua "live_grep_motion" end,
+      desc = "Live grep motion",
+      noremap = true,
+    },
     ["<leader>r"] = {
       function() require("user.utils").operatorfunc_lua "replace_motion" end,
     },

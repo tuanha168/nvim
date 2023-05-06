@@ -1,31 +1,6 @@
 M = {}
 
--- ---@param mode "i"|"a"
--- M.quote_textobj = function(mode)
---   local utils = require "nvim-surround.utils"
---   local buffer = require "nvim-surround.buffer"
---
---   if vim.api.nvim_get_mode().mode == "v" then vim.cmd "norm! v" end
---   local nearest_selections = utils.get_nearest_selections("q", "change")
---   if nearest_selections then
---     local startQuote, endQuote = nearest_selections.left.first_pos, nearest_selections.right.first_pos
---     if "i" == mode then
---       startQuote = { nearest_selections.left.first_pos[1], nearest_selections.left.first_pos[2] + 1 }
---       endQuote = { nearest_selections.right.first_pos[1], nearest_selections.right.first_pos[2] - 1 }
---     end
---
---     if vim.api.nvim_get_mode().mode ~= "v" then
---       vim.api.nvim_cmd({ cmd = "normal", bang = true, args = { "v" } }, {})
---     end
---
---     buffer.set_curpos(startQuote)
---     vim.cmd "norm! o"
---     buffer.set_curpos(endQuote)
---
---     buffer.set_mark("[", startQuote)
---     buffer.set_mark("]", endQuote)
---   end
--- end
+M.quote_textobj = require("user.q_textobject").quote_textobj
 
 M.buf_vtext = function()
   local a_orig = vim.fn.getreg "a"
@@ -115,10 +90,13 @@ M.get_text_selection = function()
     vim.list_extend(selectedText, vim.list_slice(selection.currentLine, 2, #selection.currentLine - 1))
   end
   table.insert(selectedText, selection.endText)
-  return { text = table.concat(selectedText, "\n"), lines = selection.finishRow - selection.startRow }
+  return { text = table.concat(selectedText, "\n"), selection = selection }
 end
 
-M.live_grep_motion = function() require("telescope.builtin").grep_string { search = M.get_text_selection().text } end
+M.live_grep_motion = function()
+  require("telescope.builtin").grep_string { search = M.get_text_selection().text }
+  vim.api.nvim_feedkeys("<ESC>", "i", false)
+end
 
 M.format_motion = function()
   local opts = require("astronvim.utils.lsp").format_opts
@@ -134,18 +112,21 @@ M.format_motion = function()
 end
 
 M.replace_motion = function(mode)
-  local cword, lines = M.get_text_selection().text, M.get_text_selection().lines
+  local cword, selection = M.get_text_selection().text, M.get_text_selection().selection
   if cword == nil then return end
-  if mode == "line" and lines ~= 0 then return end
+  if mode == "line" and selection.finishRow - selection.startRow ~= 0 then return end
 
   local replaceWord = vim.fn.input { prompt = "Enter replacement: ", default = cword }
   if replaceWord == "" or replaceWord == cword then return end
 
-  if mode == "char" then
-    vim.cmd("'<,'>s@" .. string.format("%s@%s", cword, replaceWord) .. "@g")
-  elseif mode == "line" then
-    vim.cmd("%s@" .. string.format("%s@%s", cword, replaceWord) .. "@gc")
-  end
+  if vim.api.nvim_get_mode().mode ~= "v" then vim.api.nvim_cmd({ cmd = "normal", bang = true, args = { "v" } }, {}) end
+
+  vim.api.nvim_win_set_cursor(0, { selection.startRow, selection.startCol })
+  vim.cmd "norm! o"
+  vim.api.nvim_win_set_cursor(0, { selection.finishRow, selection.finishCol })
+  vim.api.nvim_feedkeys("*", "v", false)
+
+  vim.api.nvim_feedkeys(vim.api.nvim_replace_termcodes("cgn" .. replaceWord .. "<ESC>", true, true, true), "n", false)
 end
 
 return M
