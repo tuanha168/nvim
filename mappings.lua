@@ -81,12 +81,10 @@ local mappings = {
     ["}"] = { "<C-d>zz" },
     ["{"] = { "<C-u>zz" },
     -- Close Preview
-    ["<CR>"] = { "<CR>zz:ccl<CR>", silent = true },
+    ["<CR>"] = { "<CR>zz", silent = true },
     ["q"] = { "<ESC>:ccl<CR>q", silent = true },
     -- Yank
     ["<c-c>"] = { '"+yiw', desc = "Yank", noremap = true },
-    -- Yanky
-    ["p"] = { "<cmd>Telescope yank_history<CR>jk" },
     -- Telescope
     ["``"] = {
       "<cmd> Telescope project <CR>",

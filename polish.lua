@@ -10,7 +10,7 @@ return function()
     once = true,
   })
 
-  autocmd({ "BufRead" }, {
+  autocmd({ "BufEnter" }, {
     pattern = "*",
     callback = function()
       -- vim.cmd "set laststatus&"
@@ -18,7 +18,7 @@ return function()
     end,
   })
 
-  autocmd({ "FocusGained", "BufRead" }, {
+  autocmd({ "FocusGained", "BufEnter" }, {
     pattern = "*",
     callback = function() vim.cmd "checktime" end,
   })

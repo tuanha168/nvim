@@ -21,14 +21,13 @@ return {
     "aaronhallaert/advanced-git-search.nvim",
     dependencies = { "nvim-telescope/telescope.nvim" },
   },
-  {
-    "gbprod/yanky.nvim",
-    event = "VeryLazy",
-    dependencies = { "nvim-telescope/telescope.nvim" },
-    opts = function() require("yanky").setup {} end,
-    config = function() vim.keymap.set({ "n", "x" }, "y", "<Plug>(YankyYank)") end,
-  },
-
+  -- {
+  --   "gbprod/yanky.nvim",
+  --   event = "VeryLazy",
+  --   dependencies = { "nvim-telescope/telescope.nvim" },
+  --   opts = function() require("yanky").setup {} end,
+  --   config = function() vim.keymap.set({ "n", "x" }, "y", "<Plug>(YankyYank)") end,
+  -- },
   {
     "chikko80/error-lens.nvim",
     event = "BufRead",

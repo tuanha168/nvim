@@ -16,4 +16,21 @@ Chiruno.replace_motion = function(mode)
     "n",
     false
   )
+
+  ----------------- VimGrep ----------------
+  -- vim.cmd("vimgrep /" .. cword .. "/g **/*")
+  -- vim.cmd "copen"
+  -- vim.schedule(function()
+  --   vim.cmd("cdo %s/" .. cword .. "/" .. replaceWord .. "/gce")
+  --   vim.cmd "cclose"
+  -- end)
+
+  ---------------- Telescope ----------------
+  -- require('telescope.builtin').grep_string { search = cword }
+  -- Chiruno.set_quickfix_items(
+  --   1,
+  --   "utils/motions/replace.lua|20 col 21| ----------------- VimGrep ----------------",
+  --   "test"
+  -- )
+  -- vim.schedule(function() Chiruno.open_quickfix "test" end)
 end
