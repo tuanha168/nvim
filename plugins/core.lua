@@ -118,33 +118,32 @@ return {
       callbacks = {
         -- Called when a request to edit file(s) is received
         pre_open = function()
-          local utils = require "astronvim.utils"
-          utils.toggle_term_cmd "lazygit"
+          vim.cmd ":bd!"
         end,
         -- Called after a file is opened
         -- Passed the buf id, win id, and filetype of the new window
-        post_open = function(bufnr, winnr, filetype)
-          local utils = require "astronvim.utils"
-          if filetype ~= "gitcommit" then
-            vim.defer_fn(function()
-              utils.toggle_term_cmd "lazygit"
-              vim.cmd ":bd!"
-            end, 50)
-          else
-            vim.api.nvim_create_autocmd("BufWritePost", {
-              buffer = bufnr,
-              once = true,
-              callback = function()
-                -- This is a bit of a hack, but if you run bufdelete immediately
-                -- the shell can occasionally freeze
-                vim.defer_fn(function()
-                  vim.api.nvim_buf_delete(bufnr, {})
-                  utils.toggle_term_cmd "lazygit"
-                end, 50)
-              end,
-            })
-          end
-        end,
+        -- post_open = function(bufnr, winnr, filetype)
+        --   local utils = require "astronvim.utils"
+        --   if filetype ~= "gitcommit" then
+        --     vim.defer_fn(function()
+        --       utils.toggle_term_cmd "lazygit"
+        --       vim.cmd ":bd!"
+        --     end, 50)
+        --   else
+        --     vim.api.nvim_create_autocmd("BufWritePost", {
+        --       buffer = bufnr,
+        --       once = true,
+        --       callback = function()
+        --         -- This is a bit of a hack, but if you run bufdelete immediately
+        --         -- the shell can occasionally freeze
+        --         vim.defer_fn(function()
+        --           vim.api.nvim_buf_delete(bufnr, {})
+        --           utils.toggle_term_cmd "lazygit"
+        --         end, 50)
+        --       end,
+        --     })
+        --   end
+        -- end,
         -- post_open = function() end,
         -- Called when a file is open in blocking mode, after it's done blocking
         -- (after bufdelete, bufunload, or quitpre for the blocking buffer)
@@ -268,6 +267,7 @@ return {
       vim.keymap.set({ "n", "i", "s" }, "<c-u>", function()
         if not require("noice.lsp").scroll(-4) then return "<c-u>" end
       end, { silent = true, expr = true })
+
       return {
         lsp = {
           -- override markdown rendering so that **cmp** and other plugins use **Treesitter**
