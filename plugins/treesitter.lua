@@ -20,6 +20,8 @@ return {
         "markdown_inline",
         "query",
         "norg",
+        "vim",
+        "bash",
       },
       sync_install = true,
       ignore_install = {},
@@ -72,10 +74,10 @@ return {
       }
     end,
   },
-  {
-    "nvim-treesitter/nvim-treesitter-textobjects",
-    dependencies = { "nvim-treesitter/nvim-treesitter" },
-    event = "BufRead",
-    config = require("user.config.nvim-treesitter-textobjects").config,
-  },
+  -- {
+  --   "nvim-treesitter/nvim-treesitter-textobjects",
+  --   dependencies = { "nvim-treesitter/nvim-treesitter" },
+  --   event = "BufRead",
+  --   config = require("user.config.nvim-treesitter-textobjects").config,
+  -- },
 }

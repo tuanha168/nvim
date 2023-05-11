@@ -20,7 +20,7 @@ return {
         "jsonls",
 
         -- lint
-        "eslint",
+        -- "eslint",
 
         -- php
         "intelephense",
@@ -39,7 +39,7 @@ return {
       ensure_installed = {
         -- "prettier",
         "stylua",
-        -- "eslint_d",
+        "eslint_d",
         "pint",
       },
       handlers = {

@@ -82,12 +82,12 @@ return {
     config = function() require("user.config.vim-matchup").setup() end,
   },
 
-  {
-    "mbbill/undotree",
-    cmd = "UndotreeToggle",
-    event = "BufRead",
-    config = function() vim.api.nvim_set_keymap("n", "<C-y>", "<cmd>UndotreeToggle<CR>", { silent = true }) end,
-  },
+  -- {
+  --   "mbbill/undotree",
+  --   cmd = "UndotreeToggle",
+  --   event = "BufRead",
+  --   config = function() vim.api.nvim_set_keymap("n", "<C-y>", "<cmd>UndotreeToggle<CR>", { silent = true }) end,
+  -- },
 
   {
     "RRethy/vim-illuminate",
@@ -100,7 +100,7 @@ return {
     opts = {
       floating_window = false,
       bind = false,
-      noice = true,
+      -- noice = true,
       hint_enable = false,
     },
   },
@@ -117,9 +117,7 @@ return {
     opts = {
       callbacks = {
         -- Called when a request to edit file(s) is received
-        pre_open = function()
-          vim.cmd ":bd!"
-        end,
+        pre_open = function() vim.cmd ":bd!" end,
         -- Called after a file is opened
         -- Passed the buf id, win id, and filetype of the new window
         -- post_open = function(bufnr, winnr, filetype)
@@ -252,45 +250,45 @@ return {
     },
   },
 
-  {
-    "folke/noice.nvim",
-    dependencies = {
-      "MunifTanjim/nui.nvim",
-      "rcarriga/nvim-notify",
-    },
-    lazy = false,
-    opts = function()
-      vim.keymap.set({ "n", "i", "s" }, "<c-d>", function()
-        if not require("noice.lsp").scroll(4) then return "<c-d>" end
-      end, { silent = true, expr = true })
-
-      vim.keymap.set({ "n", "i", "s" }, "<c-u>", function()
-        if not require("noice.lsp").scroll(-4) then return "<c-u>" end
-      end, { silent = true, expr = true })
-
-      return {
-        lsp = {
-          -- override markdown rendering so that **cmp** and other plugins use **Treesitter**
-          override = {
-            ["vim.lsp.util.convert_input_to_markdown_lines"] = true,
-            ["vim.lsp.util.stylize_markdown"] = true,
-            ["cmp.entry.get_documentation"] = true,
-          },
-          hover = {
-            silent = true,
-          },
-        },
-        -- you can enable a preset for easier configuration
-        presets = {
-          bottom_search = true, -- use a classic bottom cmdline for search
-          command_palette = true, -- position the cmdline and popupmenu together
-          long_message_to_split = true, -- long messages will be sent to a split
-          inc_rename = false, -- enables an input dialog for inc-rename.nvim
-          lsp_doc_border = false, -- add a border to hover docs and signature help
-        },
-      }
-    end,
-  },
+  -- {
+  --   "folke/noice.nvim",
+  --   dependencies = {
+  --     "MunifTanjim/nui.nvim",
+  --     "rcarriga/nvim-notify",
+  --   },
+  --   lazy = false,
+  --   opts = function()
+  --     vim.keymap.set({ "n", "i", "s" }, "<c-d>", function()
+  --       if not require("noice.lsp").scroll(4) then return "<c-d>" end
+  --     end, { silent = true, expr = true })
+  --
+  --     vim.keymap.set({ "n", "i", "s" }, "<c-u>", function()
+  --       if not require("noice.lsp").scroll(-4) then return "<c-u>" end
+  --     end, { silent = true, expr = true })
+  --
+  --     return {
+  --       lsp = {
+  --         -- override markdown rendering so that **cmp** and other plugins use **Treesitter**
+  --         override = {
+  --           ["vim.lsp.util.convert_input_to_markdown_lines"] = true,
+  --           ["vim.lsp.util.stylize_markdown"] = true,
+  --           ["cmp.entry.get_documentation"] = true,
+  --         },
+  --         hover = {
+  --           silent = true,
+  --         },
+  --       },
+  --       -- you can enable a preset for easier configuration
+  --       presets = {
+  --         bottom_search = true, -- use a classic bottom cmdline for search
+  --         command_palette = true, -- position the cmdline and popupmenu together
+  --         long_message_to_split = true, -- long messages will be sent to a split
+  --         inc_rename = false, -- enables an input dialog for inc-rename.nvim
+  --         lsp_doc_border = false, -- add a border to hover docs and signature help
+  --       },
+  --     }
+  --   end,
+  -- },
 
   {
     "akinsho/git-conflict.nvim",
@@ -323,6 +321,11 @@ return {
       return opts
     end,
   },
+  -- {
+  --   "dawsers/edit-code-block.nvim",
+  --   cmd = "EditCodeBlock",
+  --   opts = {},
+  -- },
 
   -- {
   --   "mg979/vim-visual-multi",
