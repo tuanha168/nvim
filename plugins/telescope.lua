@@ -45,17 +45,17 @@ return {
       enabled = false,
     },
   },
-  {
-    "dawsers/telescope-file-history.nvim",
-    event = "BufRead",
-    dependencies = {
-      "nvim-telescope/telescope.nvim",
-    },
-    config = function()
-      require("file_history").setup()
-      vim.api.nvim_set_keymap("n", "<C-y>", "<cmd>Telescope file_history history<CR>", { silent = true })
-    end,
-  },
+  -- {
+  --   "dawsers/telescope-file-history.nvim",
+  --   event = "BufRead",
+  --   dependencies = {
+  --     "nvim-telescope/telescope.nvim",
+  --   },
+  --   config = function()
+  --     require("file_history").setup()
+  --     vim.api.nvim_set_keymap("n", "<C-y>", "<cmd>Telescope file_history history<CR>", { silent = true })
+  --   end,
+  -- },
   -- {
   --   "dawsers/telescope-locate.nvim",
   --   keys = { "<leader>FF" },

@@ -76,8 +76,8 @@ local mappings = {
       desc = "Previous buffer",
     },
     -- Keep center
-    ["n"] = { "nzzzv" },
-    ["<S-n>"] = { "Nzzzv" },
+    -- ["n"] = { "nzzzv" },
+    -- ["<S-n>"] = { "Nzzzv" },
     ["}"] = { "<C-d>zz" },
     ["{"] = { "<C-u>zz" },
     -- Close Preview
