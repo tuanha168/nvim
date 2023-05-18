@@ -38,7 +38,6 @@ local mappings = {
     },
     ["<leader>fF"] = {
       function()
-        local utils = require "user.utils"
         local cwd = vim.fn.stdpath "config" .. "/.."
         local search_dirs = {}
         for _, dir in ipairs(astronvim.supported_configs) do -- search all supported config locations
@@ -46,7 +45,7 @@ local mappings = {
           if vim.fn.isdirectory(dir) == 1 then table.insert(search_dirs, dir) end -- add directory to search if exists
         end
         if vim.tbl_isempty(search_dirs) then -- if no config folders found, show warning
-          utils.print "No user configuration files found"
+          Chiruno.print "No user configuration files found"
         else
           if #search_dirs == 1 then cwd = search_dirs[1] end -- if only one directory, focus cwd
           require("telescope.builtin").find_files {
@@ -149,6 +148,9 @@ local mappings = {
         end
       end,
     },
+    ["<leader>fd"] = { function() Chiruno.run_make() end, desc = "Run make", noremap = true },
+    ["]c"] = { "<cmd>cn<CR>", desc = "Next error", noremap = true },
+    ["[c"] = { "<cmd>cp<CR>", desc = "Previous error", noremap = true },
   },
   v = {
     ["*"] = { '"ayh/<c-r>a<CR>' },

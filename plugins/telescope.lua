@@ -7,15 +7,7 @@ return {
   {
     "nvim-telescope/telescope.nvim",
     opts = function(_, opts)
-      opts.extensions_list = { "themes", "terms", "project", "advanced_git_search" }
-      local telescope = require "telescope"
-      local utils = require "astronvim.utils"
-      local conditional_func = utils.conditional_func
-      conditional_func(telescope.load_extension, utils.is_available "telescope-project.nvim", "project")
-      conditional_func(telescope.load_extension, utils.is_available "yanky.nvim", "yank_history")
-      conditional_func(telescope.load_extension, utils.is_available "advanced-git-search.nvim", "advanced_git_search")
-      conditional_func(telescope.load_extension, utils.is_available "telescope-file-history.nvim", "file_history")
-      conditional_func(telescope.load_extension, utils.is_available "telescope-locate.nvim", "locate")
+      opts.extensions_list = { "themes", "terms", "project", "advanced_git_search", "projections" }
       return opts
     end,
   },
@@ -23,10 +15,12 @@ return {
     "nvim-telescope/telescope-project.nvim",
     dependencies = { "nvim-telescope/telescope.nvim" },
     lazy = false,
+    config = function() require("telescope").load_extension "project" end,
   },
   {
     "aaronhallaert/advanced-git-search.nvim",
     dependencies = { "nvim-telescope/telescope.nvim" },
+    config = function() require("telescope").load_extension "advanced_git_search" end,
   },
   -- {
   --   "gbprod/yanky.nvim",

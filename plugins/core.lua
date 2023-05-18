@@ -250,6 +250,11 @@ return {
     },
   },
 
+  {
+    "tpope/vim-dispatch",
+    cmd = { "Dispatch", "Make" },
+  },
+
   -- {
   --   "folke/noice.nvim",
   --   dependencies = {
@@ -346,6 +351,9 @@ return {
 
           ["[g"] = { previous = "[g", next = "]g" },
           ["]g"] = { previous = "[g", next = "]g" },
+
+          ["[c"] = { previous = "[c", next = "]c" },
+          ["]c"] = { previous = "[c", next = "]c" },
         },
       }
     end,

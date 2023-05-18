@@ -1,3 +1,5 @@
+Chiruno = Chiruno or {}
+
 local function table_print(tt, indent, done)
   done = done or {}
   indent = indent or 0
@@ -36,3 +38,5 @@ local function to_string(tbl)
 end
 
 Chiruno.print = function(tbl) vim.notify(to_string(tbl), vim.log.levels.WARN) end
+
+return Chiruno.print

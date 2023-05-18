@@ -6,7 +6,7 @@ return function()
 
   autocmd("BufRead", {
     pattern = "*",
-    callback = function() require "user.utils" end,
+    callback = function() require "user.Chiruno" end,
     once = true,
   })
 
