@@ -138,7 +138,7 @@ local mappings = {
     ["<leader>qq"] = { function() require("astronvim.utils.buffer").close() end, desc = "Close buffer" },
     ["+"] = { "<C-a>", noremap = true },
     ["-"] = { "<C-x>", noremap = true },
-    ["<C-n>i"] = { "<C-i>" },
+    ["<C-z>i"] = { "<C-i>" },
     ["dd"] = {
       function()
         if vim.api.nvim_get_current_line():match "^%s*$" then

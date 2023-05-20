@@ -228,27 +228,27 @@ return {
     cmd = "IconPickerNormal",
   },
 
-  {
-    "samodostal/image.nvim",
-    event = "BufRead",
-    build = "ascii-image-converter -h",
-    dependencies = {
-      "nvim-lua/plenary.nvim",
-      "m00qek/baleia.nvim",
-    },
-    opts = {
-      render = {
-        min_padding = 5,
-        show_label = true,
-        use_dither = true,
-        foreground_color = true,
-        background_color = true,
-      },
-      events = {
-        update_on_nvim_resize = true,
-      },
-    },
-  },
+  -- {
+  --   "samodostal/image.nvim",
+  --   event = "BufRead",
+  --   build = "ascii-image-converter -h",
+  --   dependencies = {
+  --     "nvim-lua/plenary.nvim",
+  --     "m00qek/baleia.nvim",
+  --   },
+  --   opts = {
+  --     render = {
+  --       min_padding = 5,
+  --       show_label = true,
+  --       use_dither = true,
+  --       foreground_color = true,
+  --       background_color = true,
+  --     },
+  --     events = {
+  --       update_on_nvim_resize = true,
+  --     },
+  --   },
+  -- },
 
   {
     "tpope/vim-dispatch",
@@ -304,8 +304,8 @@ return {
         theirs = "ic",
         none = "dd",
         both = "<Enter>",
-        next = "n",
-        prev = "p",
+        next = "]",
+        prev = "[",
       },
       disable_diagnostics = true, -- This will disable the diagnostics in a buffer whilst it is conflicted
       highlights = { -- They must have background color, otherwise the default color will be used
