@@ -82,12 +82,12 @@ return {
     config = function() require("user.config.vim-matchup").setup() end,
   },
 
-  -- {
-  --   "mbbill/undotree",
-  --   cmd = "UndotreeToggle",
-  --   event = "BufRead",
-  --   config = function() vim.api.nvim_set_keymap("n", "<C-y>", "<cmd>UndotreeToggle<CR>", { silent = true }) end,
-  -- },
+  {
+    "mbbill/undotree",
+    cmd = "UndotreeToggle",
+    event = "BufRead",
+    config = function() vim.api.nvim_set_keymap("n", "<C-y>", "<cmd>UndotreeToggle<CR>", { silent = true }) end,
+  },
 
   {
     "RRethy/vim-illuminate",
