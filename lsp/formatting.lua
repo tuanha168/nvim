@@ -12,6 +12,7 @@ return {
   },
   disabled = { -- disable formatting capabilities for the listed language servers
     "lua_ls",
+    "jsonls",
     "intelephense",
     "volar",
   },

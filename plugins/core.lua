@@ -360,6 +360,17 @@ return {
   },
 
   -- {
+  --   "ja-ford/delaytrain.nvim",
+  --   opts = {
+  --     keys = { -- Which keys (in which modes) should be delayed
+  --       ["nv"] = { "h", "j", "k", "l", "gj", "gk" },
+  --       ["nvi"] = { "<Left>", "<Down>", "<Up>", "<Right>" },
+  --     },
+  --   },
+  --   event = "BufRead",
+  -- },
+
+  -- {
   --   "dawsers/edit-code-block.nvim",
   --   cmd = "EditCodeBlock",
   --   opts = {},

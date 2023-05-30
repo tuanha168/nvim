@@ -37,7 +37,7 @@ return {
     -- overrides `require("mason-null-ls").setup(...)`
     opts = {
       ensure_installed = {
-        -- "prettier",
+        "prettier",
         "stylua",
         "eslint_d",
         "pint",
