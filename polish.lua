@@ -6,7 +6,10 @@ return function()
 
   autocmd("BufRead", {
     pattern = "*",
-    callback = function() require "user.Chiruno" end,
+    callback = function()
+      require "user.Chiruno"
+      vim.diagnostic.config({ virtual_text = true })
+    end,
     once = true,
   })
 
