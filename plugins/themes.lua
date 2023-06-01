@@ -105,7 +105,7 @@ return {
         -- the elements after this will appear on the right of the statusline
         status.component.fill(),
         -- add a component for the current diagnostics if it exists and use the right separator for the section
-        status.component.diagnostics { surround = { separator = "none" } },
+        status.component.diagnostics { padding = { right = 3 }, surround = { separator = "none" } },
         -- add a component to display LSP clients, disable showing LSP progress, and use the right separator
         status.component.lsp { lsp_progress = false, surround = { separator = "none" } },
         -- NvChad has some nice icons to go along with information, so we can create a parent component to do this
