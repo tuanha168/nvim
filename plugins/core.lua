@@ -343,6 +343,9 @@ return {
           end,
         },
         mappings = {
+          ["F"] = { previous = ";", next = "," },
+          ["T"] = { previous = ";", next = "," },
+
           ["#"] = { previous = "n", next = "<s-n>" },
           ["?"] = { previous = "n", next = "<s-n>", cmdline = true },
 
