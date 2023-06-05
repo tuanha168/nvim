@@ -58,7 +58,7 @@ return {
   },
   {
     "ckolkey/ts-node-action",
-    dependencies = { "nvim-treesitter" },
+    dependencies = { "nvim-treesitter/nvim-treesitter" },
     event = "BufRead",
     opts = {},
     config = function()

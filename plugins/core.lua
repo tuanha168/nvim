@@ -399,13 +399,6 @@ return {
 
   -- {
   --   "folke/which-key.nvim",
-  --   config = function(plugin, opts)
-  --     plugin.default_config(opts)
-  --     -- Add bindings which show up as group name
-  --     local wk = require "which-key"
-  --     wk.register({
-  --       b = { name = "Buffer" },
-  --     }, { mode = "n", prefix = "<leader>" })
-  --   end,
+  --   enabled = false,
   -- },
 }
