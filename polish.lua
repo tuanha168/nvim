@@ -8,7 +8,7 @@ return function()
     pattern = "*",
     callback = function()
       require "user.Chiruno"
-      vim.diagnostic.config({ virtual_text = true })
+      vim.diagnostic.config { virtual_text = true }
     end,
     once = true,
   })
@@ -29,5 +29,17 @@ return function()
   autocmd({ "BufRead", "BufNewFile" }, {
     pattern = "*.conf",
     callback = function() vim.cmd "setf dosini" end,
+  })
+
+  autocmd("BufWrite", {
+    pattern = "*.norg",
+    callback = function()
+      if Chiruno.file_exists "autoupdate.sh" then
+        Chiruno.print "ok"
+      else
+        Chiruno.print "no"
+      end
+      -- vim.cmd('silent exec "!${HOME}/neorg/scripts/autoupdate.sh &"')
+    end,
   })
 end
