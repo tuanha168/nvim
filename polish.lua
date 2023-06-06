@@ -33,23 +33,14 @@ return function()
 
   autocmd("BufWritePost", {
     pattern = "*.norg",
-    callback = function()
-      if vim.fn.executable "git-auto-push" == 1 then
-        vim.cmd 'silent exec "!git-auto-push ~/neorg &"'
-        Chiruno.print "Auto Pushing"
-      end
-    end,
+    callback = function() Chiruno.auto_push "~/neorg" end,
   })
 
   autocmd("BufWritePost", {
     pattern = "*.lua",
     callback = function(event)
-      if
-        vim.fn.executable "git-auto-push" == 1
-        and string.match(event.file, os.getenv "HOME" .. "/.config/nvim/lua/user")
-      then
-        vim.cmd 'silent exec "!git-auto-push ~/.config/nvim/lua/user &"'
-        Chiruno.print "Auto Pushing"
+      if string.match(event.file, os.getenv "HOME" .. "/.config/nvim/lua/user") then
+        Chiruno.auto_push "~/.config/nvim/lua/user"
       end
     end,
   })
