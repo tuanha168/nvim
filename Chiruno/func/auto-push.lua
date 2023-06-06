@@ -9,4 +9,6 @@ end
 
 Chiruno.auto_push = auto_push
 
+print("test")
+
 return Chiruno.auto_push
