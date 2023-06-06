@@ -3,7 +3,8 @@ Chiruno = Chiruno or {}
 local function auto_push(path)
   if vim.fn.executable "git-auto-push" == 1 then
     Chiruno.print "Auto Pushing"
-    vim.cmd('silent exec "!git-auto-push ' .. path .. ' 2>&1 | tee ~/.cache/git-auto-push.log &"')
+    local cmd = 'silent !sh -c \"git-auto-push ' .. path .. ' >> ~/.cache/git-auto-push.log &\"'
+    vim.cmd(cmd)
   end
 end
 
