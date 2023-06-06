@@ -37,10 +37,14 @@ return function()
   })
 
   autocmd("BufWritePost", {
-    pattern = "*.lua",
+    pattern = "*",
     callback = function(event)
       if string.match(event.file, os.getenv "HOME" .. "/.config/nvim/lua/user") then
         Chiruno.auto_push "~/.config/nvim/lua/user"
+      end
+
+      if string.match(event.file, os.getenv "HOME" .. "/.dotfile") then
+        Chiruno.auto_push "~/.dotfile"
       end
     end,
   })
