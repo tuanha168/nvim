@@ -34,12 +34,9 @@ return function()
   autocmd("BufWrite", {
     pattern = "*.norg",
     callback = function()
-      if Chiruno.file_exists "autoupdate.sh" then
-        Chiruno.print "ok"
-      else
-        Chiruno.print "no"
+      if Chiruno.file_exists(os.getenv "HOME" .. "/neorg/scripts/autoupdate.sh") then
+        vim.cmd 'silent exec "!${HOME}/neorg/scripts/autoupdate.sh &"'
       end
-      -- vim.cmd('silent exec "!${HOME}/neorg/scripts/autoupdate.sh &"')
     end,
   })
 end
