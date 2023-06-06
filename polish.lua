@@ -35,6 +35,7 @@ return function()
     pattern = "*.norg",
     callback = function()
       if vim.fn.executable "git-auto-push" == 1 then vim.cmd 'silent exec "!git-auto-push ~/neorg &"' end
+      Chiruno.print "Auto Pushing"
     end,
   })
 
@@ -42,9 +43,11 @@ return function()
     pattern = "*.lua",
     callback = function(event)
       if
-        vim.fn.executable "git-auto-push" == 1 and string.match(event.file, os.getenv "HOME" .. "/.config/nvim/lua/user")
+        vim.fn.executable "git-auto-push" == 1
+        and string.match(event.file, os.getenv "HOME" .. "/.config/nvim/lua/user")
       then
         vim.cmd 'silent exec "!git-auto-push ~/.config/nvim/lua/user &"'
+        Chiruno.print "Auto Pushing"
       end
     end,
   })
