@@ -31,11 +31,20 @@ return function()
     callback = function() vim.cmd "setf dosini" end,
   })
 
-  autocmd("BufWrite", {
+  autocmd("BufWritePost", {
     pattern = "*.norg",
     callback = function()
-      if Chiruno.file_exists(os.getenv "HOME" .. "/neorg/scripts/autoupdate.sh") then
-        vim.cmd 'silent exec "!${HOME}/neorg/scripts/autoupdate.sh &"'
+      if vim.fn.executable "git-auto-push" == 1 then vim.cmd 'silent exec "!git-auto-push ~/neorg &"' end
+    end,
+  })
+
+  autocmd("BufWritePost", {
+    pattern = "*.lua",
+    callback = function(event)
+      if
+        vim.fn.executable "git-auto-push" == 1 and string.match(event.file, os.getenv "HOME" .. "/.config/nvim/lua/")
+      then
+        vim.cmd 'silent exec "!git-auto-push ~/.config/nvim/lua/user"'
       end
     end,
   })
