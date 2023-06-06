@@ -42,7 +42,7 @@ return function()
     pattern = "*.lua",
     callback = function(event)
       if
-        vim.fn.executable "git-auto-push" == 1 and string.match(event.file, os.getenv "HOME" .. "/.config/nvim/lua/")
+        vim.fn.executable "git-auto-push" == 1 and string.match(event.file, os.getenv "HOME" .. "/.config/nvim/lua/user")
       then
         vim.cmd 'silent exec "!git-auto-push ~/.config/nvim/lua/user &"'
       end
