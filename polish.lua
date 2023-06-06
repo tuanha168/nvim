@@ -44,7 +44,7 @@ return function()
       if
         vim.fn.executable "git-auto-push" == 1 and string.match(event.file, os.getenv "HOME" .. "/.config/nvim/lua/")
       then
-        vim.cmd 'silent exec "!git-auto-push ~/.config/nvim/lua/user"'
+        vim.cmd 'silent exec "!git-auto-push ~/.config/nvim/lua/user &"'
       end
     end,
   })
