@@ -31,12 +31,12 @@ return function()
     callback = function() vim.cmd "setf dosini" end,
   })
 
-  autocmd("BufWritePost", {
+  autocmd("BufWritePre", {
     pattern = "*.norg",
     callback = function() Chiruno.auto_push "~/neorg" end,
   })
 
-  autocmd("BufWritePost", {
+  autocmd("BufWritePre", {
     pattern = "*",
     callback = function(event)
       if string.match(event.file, os.getenv "HOME" .. "/.config/nvim/lua/user") then

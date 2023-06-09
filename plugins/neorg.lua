@@ -16,10 +16,10 @@ return {
         ["core.highlights"] = {},
         ["core.mode"] = {},
         ["core.neorgcmd"] = {},
+        ["core.keybinds"] = { config = { default_keybinds = true, neorg_leader = "<Leader><Leader>" } },
         ["core.integrations.treesitter"] = {},
         ["core.concealer"] = { config = { icon_preset = "diamond" } },
         ["core.completion"] = { config = { engine = "nvim-cmp" } },
-        ["core.keybinds"] = { config = { default_keybinds = true, neorg_leader = "<Leader><Leader>" } },
         ["core.dirman"] = {
           config = {
             default_workspace = "neorg",
