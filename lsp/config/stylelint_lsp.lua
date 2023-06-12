@@ -6,9 +6,9 @@ return {
     "sugarss",
     "vue",
     "wxss",
-    "javascript",
-    "javascriptreact",
-    "typescript",
-    "typescriptreact",
+    -- "javascript",
+    -- "javascriptreact",
+    -- "typescript",
+    -- "typescriptreact",
   },
 }
