@@ -378,6 +378,22 @@ return {
   },
 
   -- {
+  --   "HampusHauffman/block.nvim",
+  --   event = "BufRead",
+  --   opts = {
+  --     percent = 0.8,
+  --     depth = 4,
+  --     colors = nil,
+  --     automatic = true,
+  --     --        colors = {
+  --     --            "#ff0000"
+  --     --            "#00ff00"
+  --     --            "#0000ff"
+  --     --        }
+  --   },
+  -- },
+
+  -- {
   --   "ja-ford/delaytrain.nvim",
   --   opts = {
   --     keys = { -- Which keys (in which modes) should be delayed
