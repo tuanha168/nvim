@@ -12,6 +12,6 @@ local function file_exist(file)
   return ok, err
 end
 
-Chiruno.exists = file_exist
+Chiruno.file_exist = file_exist
 
-return Chiruno.exists
+return Chiruno.file_exist
