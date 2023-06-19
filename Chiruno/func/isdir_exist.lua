@@ -1,17 +1,11 @@
 Chiruno = Chiruno or {}
 
---- Check if a file or directory exists in this path
-local function file_exist(file)
-  local ok, err, code = os.rename(file, file)
-  if not ok then
-    if code == 13 then
-      -- Permission denied, but it exists
-      return true
-    end
-  end
-  return ok, err
+--- Check if a directory exists in this path
+local function isdir_exist(path)
+  -- "/" works on both Unix and Windows
+  return Chiruno.file_exist(path .. "/")
 end
 
-Chiruno.exists = file_exist
+Chiruno.isdir_exist = isdir_exist
 
-return Chiruno.exists
+return Chiruno.isdir_exist
