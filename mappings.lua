@@ -36,6 +36,7 @@ local mappings = {
       function() require("telescope.builtin").find_files { hidden = true, no_ignore = true } end,
       desc = "Find all files",
     },
+    ["<leader>ff"] = { function() require("telescope.builtin").git_files() end, desc = "Find files" },
     ["<leader>fF"] = {
       function()
         local cwd = vim.fn.stdpath "config" .. "/.."

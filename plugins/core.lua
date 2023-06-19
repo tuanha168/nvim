@@ -377,21 +377,11 @@ return {
     end,
   },
 
-  -- {
-  --   "HampusHauffman/block.nvim",
-  --   event = "BufRead",
-  --   opts = {
-  --     percent = 0.8,
-  --     depth = 4,
-  --     colors = nil,
-  --     automatic = true,
-  --     --        colors = {
-  --     --            "#ff0000"
-  --     --            "#00ff00"
-  --     --            "#0000ff"
-  --     --        }
-  --   },
-  -- },
+  {
+    "ibhagwan/fzf-lua",
+    cmd = "FzfLua",
+    dependencies = { "nvim-tree/nvim-web-devicons" },
+  },
 
   -- {
   --   "ja-ford/delaytrain.nvim",
