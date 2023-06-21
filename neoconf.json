@@ -1,9 +1,13 @@
 {
   "lspconfig": {
     "volar": {
-      "vue.inlayHints.missingProps": true,
-      "vue.inlayHints.inlineHandlerLeading": true,
-      "vue.inlayHints.optionsWrapper": true
+      "vue": {
+        "inlayHints": {
+          "missingProps": true,
+          "inlineHandlerLeading": true,
+          "optionsWrapper": true
+        }
+      }
     },
     "cssls": {
       "css": { "validate": false },
