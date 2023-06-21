@@ -1,15 +1,13 @@
 {
   "lspconfig": {
     "intelephense": {
-      "diagnostics": {
-        "undefinedTypes": false,
-        "undefinedFunctions": false,
-        "undefinedConstants": false,
-        "undefinedClassConstants": false,
-        "undefinedMethods": false,
-        "undefinedProperties": false,
-        "undefinedVariables": false
-      }
+      "intelephense.diagnostics.undefinedTypes": false,
+      "intelephense.diagnostics.undefinedFunctions": false,
+      "intelephense.diagnostics.undefinedConstants": false,
+      "intelephense.diagnostics.undefinedClassConstants": false,
+      "intelephense.diagnostics.undefinedMethods": false,
+      "intelephense.diagnostics.undefinedProperties": false,
+      "intelephense.diagnostics.undefinedVariables": false
     }
   }
 }
