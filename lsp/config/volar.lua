@@ -1,7 +1,7 @@
 local util = require 'lspconfig.util'
 local function get_typescript_server_path(root_dir)
 
-  local global_ts = '/home/[yourusernamehere]/.npm/lib/node_modules/typescript/lib'
+  local global_ts = os.getenv "HOME" .. '/.npm/lib/node_modules/typescript/lib'
   -- Alternative location if installed as root:
   -- local global_ts = '/usr/local/lib/node_modules/typescript/lib'
   local found_ts = ''
