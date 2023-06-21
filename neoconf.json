@@ -26,6 +26,10 @@
           "undefinedVariables": false
         }
       }
+    },
+    "tsserver": {
+      "javascript.inlayHints.variableTypes.enabled": true,
+      "typescript.inlayHints.variableTypes.enabled": true
     }
   }
 }
