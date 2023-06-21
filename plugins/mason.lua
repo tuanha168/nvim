@@ -10,7 +10,7 @@ return {
         "lua_ls",
 
         -- web dev
-        "tsserver",
+        -- "tsserver",
         -- "angular-language-server",
         -- "vetur-vls",
         "volar",
