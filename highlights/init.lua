@@ -36,5 +36,6 @@ return function()
     TelescopeResultsNormal = { bg = bg },
     TelescopeResultsTitle = { fg = green, bg = pink },
     -- ["@tag"] = { fg = pink },
+    LspInlayHint = { fg = pink },
   }
 end
