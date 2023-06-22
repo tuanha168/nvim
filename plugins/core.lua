@@ -76,11 +76,11 @@ return {
 
   { "wellle/targets.vim", event = "BufEnter" },
 
-  {
-    "andymass/vim-matchup",
-    event = "BufRead",
-    config = function() require("user.config.vim-matchup").setup() end,
-  },
+  -- {
+  --   "andymass/vim-matchup",
+  --   event = "BufRead",
+  --   config = function() require("user.config.vim-matchup").setup() end,
+  -- },
 
   {
     "mbbill/undotree",

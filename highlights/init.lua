@@ -37,15 +37,5 @@ return function()
     TelescopeResultsTitle = { fg = green, bg = pink },
     -- ["@tag"] = { fg = pink },
     LspInlayHint = { fg = pink },
-    ["@lsp.type.class"] = { fg = pink },
-    ["@lsp.type.function"] = { fg = pink },
-    ["@lsp.type.method"] = { fg = pink },
-    ["@lsp.type.parameter"] = { fg = pink },
-    ["@lsp.type.variable"] = { fg = pink },
-    ["@lsp.type.property"] = { fg = pink },
-    ["@lsp.typemod.function.classScope"] = { fg = pink },
-    ["@lsp.typemod.variable.classScope"] = { fg = pink },
-    ["@lsp.typemod.variable.fileScope"] = { fg = pink },
-    ["@lsp.typemod.variable.globalScope"] = { fg = pink },
   }
 end
