@@ -1,7 +1,6 @@
 {
   "lspconfig": {
     "volar": {
-      "volar.takeOverMode.extension": "Vue.volar",
       "javascript": {
         "inlayHints": {
           "parameterNames": {
@@ -19,6 +18,13 @@
         }
       },
       "typescript": {
+        "tsserver": {
+          "web": {
+            "projectWideIntellisense": {
+              "enabled": true
+            }
+          }
+        },
         "inlayHints": {
           "variableTypes": {
             "enabled": true,
@@ -40,7 +46,8 @@
           "inlineHandlerLeading": true,
           "optionsWrapper": true
         }
-      }
+      },
+      "vue-semantic-server.trace.server": "verbose"
     },
     "cssls": {
       "css": { "validate": false },
@@ -57,6 +64,47 @@
           "undefinedMethods": false,
           "undefinedProperties": false,
           "undefinedVariables": false
+        }
+      }
+    },
+    "tsserver": {
+      "javascript": {
+        "inlayHints": {
+          "parameterNames": {
+            "enabled": "all",
+            "suppressWhenArgumentMatchesName": true
+          },
+          "variableTypes": {
+            "enabled": true,
+            "suppressWhenTypeMatchesName": true
+          },
+          "parameterTypes.enabled": true,
+          "enumMemberValues.enabled": true,
+          "functionLikeReturnTypes.enabled": true,
+          "propertyDeclarationTypes.enabled": true
+        }
+      },
+      "typescript": {
+        "tsserver": {
+          "web": {
+            "projectWideIntellisense": {
+              "enabled": true
+            }
+          }
+        },
+        "inlayHints": {
+          "variableTypes": {
+            "enabled": true,
+            "suppressWhenTypeMatchesName": true
+          },
+          "parameterNames": {
+            "enabled": "all",
+            "suppressWhenArgumentMatchesName": true
+          },
+          "parameterTypes.enabled": true,
+          "enumMemberValues.enabled": true,
+          "functionLikeReturnTypes.enabled": true,
+          "propertyDeclarationTypes.enabled": true
         }
       }
     }
