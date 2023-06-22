@@ -38,5 +38,6 @@ return function()
     -- ["@tag"] = { fg = pink },
     LspInlayHint = { fg = pink },
     LspSignatureActiveParameter = { bg = "#666666" },
+    FlashMatch = { bg = pink },
   }
 end
