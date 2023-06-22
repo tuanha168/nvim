@@ -64,14 +64,35 @@ return {
   --   config = function() require("user.config.leap").setup() end,
   -- },
 
+  -- {
+  --   "rlane/pounce.nvim",
+  --   keys = "s",
+  --   opts = function()
+  --     local map = vim.keymap.set
+  --     map("n", "s", function() require("pounce").pounce {} end)
+  --     return {}
+  --   end,
+  -- },
+
   {
-    "rlane/pounce.nvim",
-    keys = "s",
-    opts = function()
-      local map = vim.keymap.set
-      map("n", "s", function() require("pounce").pounce {} end)
-      return {}
-    end,
+    "folke/flash.nvim",
+    event = "VeryLazy",
+    opts = {},
+    keys = {
+      {
+        "s",
+        mode = { "n", "x", "o" },
+        function()
+          -- default options: exact mode, multi window, all directions, with a backdrop
+          require("flash").jump()
+        end,
+      },
+      {
+        "S",
+        mode = { "o", "x" },
+        function() require("flash").treesitter() end,
+      },
+    },
   },
 
   { "wellle/targets.vim", event = "BufEnter" },
