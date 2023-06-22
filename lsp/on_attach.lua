@@ -1,8 +1,10 @@
 local signature_setup = {
   floating_window = true,
   bind = true,
-  -- noice = true,
   hint_enable = false,
+  handler_opts = {
+    border = "rounded",
+  },
 }
 
 return function(client, bufnr)
