@@ -2,7 +2,7 @@ local signature_setup = {
   floating_window = true,
   bind = true,
   -- noice = true,
-  hint_enable = true,
+  hint_enable = false,
 }
 
 return function(client, bufnr)
