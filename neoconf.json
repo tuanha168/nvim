@@ -1,6 +1,7 @@
 {
   "lspconfig": {
     "volar": {
+      "volar.takeOverMode.extension": "Vue.volar",
       "javascript": {
         "inlayHints": {
           "parameterNames": {
