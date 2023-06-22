@@ -37,6 +37,6 @@ return function()
     TelescopeResultsTitle = { fg = green, bg = pink },
     -- ["@tag"] = { fg = pink },
     LspInlayHint = { fg = pink },
-    LspSignatureActiveParameter = { bg = "#666666", bold = true, blend = 50 },
+    LspSignatureActiveParameter = { bg = "#666666", underdashed = true },
   }
 end
