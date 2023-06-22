@@ -50,30 +50,30 @@ return {
     dependencies = { "nvim-treesitter/nvim-treesitter" },
     config = require "user.config.nvim-ts-rainbow2",
   },
-  {
-    "David-Kunz/markid",
-    event = "BufRead",
-    dependencies = { "nvim-treesitter/nvim-treesitter" },
-    config = require "user.config.markid",
-  },
-  {
-    "ckolkey/ts-node-action",
-    dependencies = { "nvim-treesitter/nvim-treesitter" },
-    event = "BufRead",
-    opts = {},
-    config = function()
-      vim.keymap.set({ "n" }, "<leader>m", require("ts-node-action").node_action, { desc = "Trigger Node Action" })
-
-      require("null-ls").register {
-        name = "more_actions",
-        method = { require("null-ls").methods.CODE_ACTION },
-        filetypes = { "_all" },
-        generator = {
-          fn = require("ts-node-action").available_actions,
-        },
-      }
-    end,
-  },
+  -- {
+  --   "David-Kunz/markid",
+  --   event = "BufRead",
+  --   dependencies = { "nvim-treesitter/nvim-treesitter" },
+  --   config = require "user.config.markid",
+  -- },
+  -- {
+  --   "ckolkey/ts-node-action",
+  --   dependencies = { "nvim-treesitter/nvim-treesitter" },
+  --   event = "BufRead",
+  --   opts = {},
+  --   config = function()
+  --     vim.keymap.set({ "n" }, "<leader>m", require("ts-node-action").node_action, { desc = "Trigger Node Action" })
+  --
+  --     require("null-ls").register {
+  --       name = "more_actions",
+  --       method = { require("null-ls").methods.CODE_ACTION },
+  --       filetypes = { "_all" },
+  --       generator = {
+  --         fn = require("ts-node-action").available_actions,
+  --       },
+  --     }
+  --   end,
+  -- },
   -- {
   --   "nvim-treesitter/nvim-treesitter-textobjects",
   --   dependencies = { "nvim-treesitter/nvim-treesitter" },

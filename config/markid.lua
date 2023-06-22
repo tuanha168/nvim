@@ -1,6 +1,5 @@
 return function()
   local m = require "markid"
-  m.queries.vue = m.queries.typescript
   m.queries.php = [[
     (variable_name) @markid
   ]]
