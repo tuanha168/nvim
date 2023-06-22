@@ -25,7 +25,7 @@ local options = {
     kitty_navigator_no_mappings = 1,
     lsp_handlers_enabled = false, -- enable or disable default vim.lsp.handlers (hover and signatureHelp)
     diagnostics_mode = 3, -- set the visibility of diagnostics in the UI (0=off, 1=only show in status line, 2=virtual text off, 3=all on)
-    semantic_tokens_enabled = true,
+    semantic_tokens_enabled = false,
   },
   o = {
     background = "dark",
