@@ -37,5 +37,15 @@ return function()
     TelescopeResultsTitle = { fg = green, bg = pink },
     -- ["@tag"] = { fg = pink },
     LspInlayHint = { fg = pink },
+    ["@lsp.type.class"] = { fg = "Aqua" },
+    ["@lsp.type.function"] = { fg = "Yellow" },
+    ["@lsp.type.method"] = { fg = "Green" },
+    ["@lsp.type.parameter"] = { fg = "Purple" },
+    ["@lsp.type.variable"] = { fg = "Blue" },
+    ["@lsp.type.property"] = { fg = "Green" },
+    ["@lsp.typemod.function.classScope"] = { fg = "Orange" },
+    ["@lsp.typemod.variable.classScope"] = { fg = "Orange" },
+    ["@lsp.typemod.variable.fileScope"] = { fg = "Orange" },
+    ["@lsp.typemod.variable.globalScope"] = { fg = "Red" },
   }
 end
