@@ -1,5 +1,5 @@
 local signature_setup = {
-  floating_window = true,
+  floating_window = false,
   bind = true,
   hint_enable = false,
   handler_opts = {
