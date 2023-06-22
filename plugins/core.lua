@@ -84,7 +84,11 @@ return {
         mode = { "n", "x", "o" },
         function()
           -- default options: exact mode, multi window, all directions, with a backdrop
-          require("flash").jump()
+          require("flash").jump {
+            search = {
+              mode = function(str) return "\\<" .. str end,
+            },
+          }
         end,
       },
       {
