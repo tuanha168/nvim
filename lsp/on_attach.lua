@@ -5,6 +5,8 @@ local signature_setup = {
   handler_opts = {
     border = "rounded",
   },
+  toggle_key = "<C-i>",
+  toggle_key_flip_floatwin_setting = true
 }
 
 return function(client, bufnr)
