@@ -5,8 +5,7 @@ local signature_setup = {
   handler_opts = {
     border = "rounded",
   },
-  auto_close_after = nil,
-  always_trigger = true,
+  timer_interval = 3000,
   toggle_key = "<C-z>i",
   toggle_key_flip_floatwin_setting = true
 }
