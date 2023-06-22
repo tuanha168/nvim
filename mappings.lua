@@ -144,7 +144,10 @@ local mappings = {
     },
     ["<leader>c"] = false,
     ["<leader>q"] = false,
-    ["<leader>qq"] = { function() require("astronvim.utils.buffer").close() end, desc = "Close buffer" },
+    ["<leader>qq"] = {
+      function() vim.cmd "confirm bd" end,
+      desc = "Close buffer",
+    },
     ["+"] = { "<C-a>", noremap = true },
     ["-"] = { "<C-x>", noremap = true },
     ["<C-z>i"] = { "<C-i>" },
