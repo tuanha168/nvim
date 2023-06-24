@@ -1,5 +1,11 @@
+vim.cmd [[
+  function! UserCommandCompletion(_a, _b, _c)
+    let valid_args = ['vue-tsc', 'eslint', 'stylelint']
+    return join(valid_args, "\n")
+  endfunction
+]]
 Chiruno.run_make = function()
-  vim.ui.input({ prompt = "Enter command", completion = "dir" }, function(makeCommand)
+  vim.ui.input({ prompt = "Enter command", completion = "custom,UserCommandCompletion" }, function(makeCommand)
     if makeCommand == nil or makeCommand == "" then return end
 
     if string.find(makeCommand, "vue-tsc", 1, true) ~= nil then
