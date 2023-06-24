@@ -1,5 +1,6 @@
 return {
   { "projekt0n/github-nvim-theme", config = function() require("github-theme").setup {} end },
+  {"sekke276/dark_flat.nvim"},
   {
     "Mofiqul/dracula.nvim",
     opts = {
