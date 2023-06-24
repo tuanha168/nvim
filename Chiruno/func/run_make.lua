@@ -1,6 +1,6 @@
 vim.cmd [[
   function! UserCommandCompletion(_a, _b, _c)
-    lua << EOF
+    lua <<EOF
       Chiruno.print('test')
     EOF
     let valid_args = ['vue-tsc', 'eslint', 'stylelint']
