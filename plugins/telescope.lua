@@ -1,7 +1,7 @@
-local locate = function()
-  local search = vim.fn.input { prompt = "Search files: " }
-  vim.cmd(vim.api.nvim_replace_termcodes("Telescope locate file=" .. search, true, true, true))
-end
+-- local locate = function()
+--   local search = vim.fn.input { prompt = "Search files: " }
+--   vim.cmd(vim.api.nvim_replace_termcodes("Telescope locate file=" .. search, true, true, true))
+-- end
 
 return {
   {
