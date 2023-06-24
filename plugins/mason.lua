@@ -39,9 +39,8 @@ return {
     -- overrides `require("mason-null-ls").setup(...)`
     opts = {
       ensure_installed = {
-        "prettier",
         "stylua",
-        "eslint_d",
+        "eslint_lsp",
         "pint",
       },
       handlers = {
@@ -55,28 +54,28 @@ return {
       },
     },
   },
-  {
-    "MunifTanjim/prettier.nvim",
-    opts = {
-      bin = "prettier", -- or `'prettierd'` (v0.23.3+)
-      filetypes = {
-        "css",
-        "graphql",
-        "html",
-        "javascript",
-        "javascriptreact",
-        "json",
-        "less",
-        "markdown",
-        "scss",
-        "typescript",
-        "typescriptreact",
-        "yaml",
-        "vue",
-      },
-    },
-    event = "BufRead",
-  },
+  -- {
+  --   "MunifTanjim/prettier.nvim",
+  --   opts = {
+  --     bin = "prettier", -- or `'prettierd'` (v0.23.3+)
+  --     filetypes = {
+  --       "css",
+  --       "graphql",
+  --       "html",
+  --       "javascript",
+  --       "javascriptreact",
+  --       "json",
+  --       "less",
+  --       "markdown",
+  --       "scss",
+  --       "typescript",
+  --       "typescriptreact",
+  --       "yaml",
+  --       "vue",
+  --     },
+  --   },
+  --   event = "BufRead",
+  -- },
   {
     "jay-babu/mason-nvim-dap.nvim",
     -- overrides `require("mason-nvim-dap").setup(...)`
