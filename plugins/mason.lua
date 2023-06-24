@@ -15,7 +15,7 @@ return {
         -- "vetur-vls",
         "volar",
         "cssls",
-        "stylelint_lsp",
+        -- "stylelint_lsp",
         "tailwindcss",
         "html",
         -- "emmet_ls",
