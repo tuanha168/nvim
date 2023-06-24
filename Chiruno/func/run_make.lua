@@ -5,7 +5,7 @@ vim.cmd [[
   endfunction
 ]]
 Chiruno.run_make = function()
-  vim.ui.input({ prompt = "Enter command", completion = "custom,UserCommandCompletion" }, function(makeCommand)
+  vim.ui.input({ prompt = "Enter command", completion = "custom,UserCommand :lua Chiruno.print('test')" }, function(makeCommand)
     if makeCommand == nil or makeCommand == "" then return end
 
     if string.find(makeCommand, "vue-tsc", 1, true) ~= nil then
