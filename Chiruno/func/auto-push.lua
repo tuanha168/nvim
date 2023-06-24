@@ -7,7 +7,7 @@ local function auto_push(path)
     end
     Chiruno.print "Auto Pushing"
     local folder_name = vim.fn.fnamemodify(path, ":t")
-    local cmd = 'silent !sh -c \"git-auto-push ' .. path .. '\" >> ~/.cache/git-auto-push/'.. folder_name ..'.log'
+    local cmd = 'silent !git-auto-push ' .. path .. ' >> ~/.cache/git-auto-push/'.. folder_name ..'.log &'
     vim.cmd(cmd)
   end
 end
