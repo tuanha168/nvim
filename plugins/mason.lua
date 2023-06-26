@@ -39,6 +39,7 @@ return {
     -- overrides `require("mason-null-ls").setup(...)`
     opts = {
       ensure_installed = {
+        "prettierd",
         "stylua",
         "eslint_lsp",
         "pint",
@@ -57,7 +58,7 @@ return {
   {
     "MunifTanjim/prettier.nvim",
     opts = {
-      bin = "prettier", -- or `'prettierd'` (v0.23.3+)
+      bin = "prettierd", -- or `'prettierd'` (v0.23.3+)
       filetypes = {
         "css",
         "graphql",
