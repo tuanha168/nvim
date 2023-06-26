@@ -208,39 +208,39 @@ return {
   --   opts = {},
   -- },
 
-  {
-    "terryma/vim-expand-region",
-    event = "BufRead",
-    config = function()
-      vim.cmd [[
-        call expand_region#custom_text_objects({
-          \ 'a]' :1,
-          \ 'ab' :1,
-          \ 'aB' :1,
-          \ })
-      ]]
-    end,
-  },
+  -- {
+  --   "terryma/vim-expand-region",
+  --   event = "BufRead",
+  --   config = function()
+  --     vim.cmd [[
+  --       call expand_region#custom_text_objects({
+  --         \ 'a]' :1,
+  --         \ 'ab' :1,
+  --         \ 'aB' :1,
+  --         \ })
+  --     ]]
+  --   end,
+  -- },
 
-  {
-    "AckslD/muren.nvim",
-    opts = true,
-    cmd = { "MurenFresh" },
-  },
+  -- {
+  --   "AckslD/muren.nvim",
+  --   opts = true,
+  --   cmd = { "MurenFresh" },
+  -- },
 
-  {
-    "ziontee113/icon-picker.nvim",
-    opts = function()
-      vim.keymap.set(
-        "n",
-        "<leader>ip",
-        "<cmd>IconPickerNormal<CR>",
-        { noremap = true, silent = true, desc = "Icon Picker" }
-      )
-    end,
-    keys = { { "<leader>ip", mode = { "n" } } },
-    cmd = "IconPickerNormal",
-  },
+  -- {
+  --   "ziontee113/icon-picker.nvim",
+  --   opts = function()
+  --     vim.keymap.set(
+  --       "n",
+  --       "<leader>ip",
+  --       "<cmd>IconPickerNormal<CR>",
+  --       { noremap = true, silent = true, desc = "Icon Picker" }
+  --     )
+  --   end,
+  --   keys = { { "<leader>ip", mode = { "n" } } },
+  --   cmd = "IconPickerNormal",
+  -- },
 
   -- {
   --   "samodostal/image.nvim",
@@ -356,40 +356,40 @@ return {
     end,
   },
 
-  {
-    "jonatan-branting/nvim-better-n",
-    event = "BufEnter",
-    opts = function()
-      vim.keymap.set("n", "n", require("better-n").n, { nowait = true })
-      vim.keymap.set("n", "N", require("better-n").shift_n, { nowait = true })
-
-      return {
-        callbacks = {
-          mapping_executed = function(_mode, _key)
-            -- Clear highlighting, indicating that `n` will not goto the next
-            -- highlighted search-term
-            vim.cmd [[ nohl ]]
-          end,
-        },
-        mappings = {
-          ["F"] = { previous = ";", next = "," },
-          ["T"] = { previous = ";", next = "," },
-
-          ["#"] = { previous = "n", next = "<s-n>" },
-          ["?"] = { previous = "n", next = "<s-n>", cmdline = true },
-
-          ["[d"] = { previous = "[d", next = "]d" },
-          ["]d"] = { previous = "[d", next = "]d" },
-
-          ["[g"] = { previous = "[g", next = "]g" },
-          ["]g"] = { previous = "[g", next = "]g" },
-
-          ["[c"] = { previous = "[c", next = "]c" },
-          ["]c"] = { previous = "[c", next = "]c" },
-        },
-      }
-    end,
-  },
+  -- {
+  --   "jonatan-branting/nvim-better-n",
+  --   event = "BufEnter",
+  --   opts = function()
+  --     vim.keymap.set("n", "n", require("better-n").n, { nowait = true })
+  --     vim.keymap.set("n", "N", require("better-n").shift_n, { nowait = true })
+  --
+  --     return {
+  --       callbacks = {
+  --         mapping_executed = function(_mode, _key)
+  --           -- Clear highlighting, indicating that `n` will not goto the next
+  --           -- highlighted search-term
+  --           vim.cmd [[ nohl ]]
+  --         end,
+  --       },
+  --       mappings = {
+  --         ["F"] = { previous = ";", next = "," },
+  --         ["T"] = { previous = ";", next = "," },
+  --
+  --         ["#"] = { previous = "n", next = "<s-n>" },
+  --         ["?"] = { previous = "n", next = "<s-n>", cmdline = true },
+  --
+  --         ["[d"] = { previous = "[d", next = "]d" },
+  --         ["]d"] = { previous = "[d", next = "]d" },
+  --
+  --         ["[g"] = { previous = "[g", next = "]g" },
+  --         ["]g"] = { previous = "[g", next = "]g" },
+  --
+  --         ["[c"] = { previous = "[c", next = "]c" },
+  --         ["]c"] = { previous = "[c", next = "]c" },
+  --       },
+  --     }
+  --   end,
+  -- },
 
   -- {
   --   "ja-ford/delaytrain.nvim",
