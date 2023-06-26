@@ -1,6 +1,7 @@
 {
   "lspconfig": {
     "volar": {
+      "takeOverMode.extension": "Vue.volar",
       "javascript": {
         "inlayHints": {
           "parameterNames": {
@@ -47,7 +48,6 @@
           "optionsWrapper": true
         }
       },
-      "vue-semantic-server.trace.server": "verbose"
     },
     "cssls": {
       "css": { "validate": false },
