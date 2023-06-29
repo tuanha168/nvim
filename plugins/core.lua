@@ -40,6 +40,13 @@ return {
     end,
   },
 
+  {
+    "echasnovski/mini.bufremove",
+    opts = {
+      silent = true,
+    },
+  },
+
   { "kylechui/nvim-surround", event = "BufRead", opts = {} },
 
   {

@@ -32,6 +32,15 @@ return {
       indent = {
         enable = true,
       },
+      incremental_selection = {
+        enable = true,
+        keymaps = {
+          init_selection = "<S-Up>",
+          node_incremental = "<S-Up>",
+          scope_incremental = false,
+          node_decremental = "<S-down>",
+        },
+      },
     },
   },
   {
