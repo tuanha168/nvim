@@ -1,8 +1,8 @@
 return {
   {
     "nvim-treesitter/nvim-treesitter",
-    opts = {
-      ensure_installed = {
+    opts = function(_, opts)
+      opts.ensure_installed = {
         "lua",
         "javascript",
         "typescript",
@@ -22,17 +22,17 @@ return {
         "norg",
         "vim",
         "bash",
-      },
-      sync_install = true,
-      ignore_install = {},
-      highlight = {
+      }
+      opts.sync_install = true
+      opts.ignore_install = {}
+      opts.highlight = {
         enable = true,
         additional_vim_regex_highlighting = { "markdown" },
-      },
-      indent = {
+      }
+      opts.indent = {
         enable = true,
-      },
-      incremental_selection = {
+      }
+      opts.incremental_selection = {
         enable = true,
         keymaps = {
           init_selection = "<S-Up>",
@@ -40,8 +40,10 @@ return {
           scope_incremental = false,
           node_decremental = "<S-down>",
         },
-      },
-    },
+      }
+
+      return opts
+    end,
   },
   {
     "windwp/nvim-ts-autotag",
