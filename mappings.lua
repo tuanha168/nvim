@@ -127,7 +127,7 @@ local mappings = {
     [")"] = {
       function() require("illuminate").goto_prev_reference() end,
     },
-    -- ["<leader>c"] = false,
+    ["<leader>c"] = false,
     ["<leader>q"] = false,
     ["<leader>qq"] = { function() require("astronvim.utils.buffer").close() end, desc = "Close buffer", silent = true },
     ["+"] = { "<C-a>", noremap = true },
