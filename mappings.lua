@@ -109,21 +109,6 @@ local mappings = {
       desc = "Search symbols",
     },
     ["<leader>O"] = { function() require("aerial").toggle() end, desc = "Symbols outline" },
-    -- Close Tabs
-    -- ["<leader>qq"] = {
-    --   function()
-    --     require("nvchad_ui.tabufline").close_buffer()
-    --     if vim.api.nvim_buf_get_name(0) == "" then
-    --       require("nvchad_ui.tabufline").tabuflinePrev()
-    --       if vim.api.nvim_buf_get_name(0) == "" then
-    --         pcall(vim.cmd, ":Alpha")
-    --         pcall(vim.cmd, ":bd#")
-    --       end
-    --     end
-    --   end,
-    --   "   close buffer",
-    --   opts = opts,
-    -- },
 
     -- Disable Yank
     ["c"] = {
@@ -142,9 +127,9 @@ local mappings = {
     [")"] = {
       function() require("illuminate").goto_prev_reference() end,
     },
-    ["<leader>c"] = false,
+    -- ["<leader>c"] = false,
     ["<leader>q"] = false,
-    ["<leader>qq"] = { function() require("astronvim.utils.buffer").close() end, desc = "Close buffer" },
+    ["<leader>qq"] = { function() require("astronvim.utils.buffer").close() end, desc = "Close buffer", silent = true },
     ["+"] = { "<C-a>", noremap = true },
     ["-"] = { "<C-x>", noremap = true },
     ["<C-z>i"] = { "<C-i>" },
