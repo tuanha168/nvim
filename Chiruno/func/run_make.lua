@@ -1,15 +1,13 @@
-function _G.custom_complete_list(arglead, cmdline, cursorpos)
-  return { "vue-tsc", "eslint", "stylelint" }
-end
+function _G.custom_complete_list() return { "tsc", "eslint", "stylelint" } end
 
 Chiruno.run_make = function()
   vim.ui.input({ prompt = "Enter command", completion = "customlist,v:lua.custom_complete_list" }, function(makeCommand)
     if makeCommand == nil or makeCommand == "" then return end
 
-    if string.find(makeCommand, "vue-tsc", 1, true) ~= nil then
+    if string.find(makeCommand, "tsc", 1, true) ~= nil then
       makeCommand = string.gsub(
         makeCommand,
-        "vue%-tsc",
+        "tsc",
         "yarn lint:tsc --noEmit --pretty false | sed -E 's/\\(([[:digit:]]+),([[:digit:]]+)\\)/:\\1:\\2/'"
       )
     elseif string.find(makeCommand, "eslint", 1, true) ~= nil then
