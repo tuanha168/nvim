@@ -36,26 +36,6 @@ return {
       --   -- adapter= codelldb_adapter,
       --   adapter = require("rust-tools.dap").get_codelldb_adapter(codelldb_path, liblldb_path),
       -- },
-      server = {
-        on_attach = function(client, bufnr)
-          require("lvim.lsp").common_on_attach(client, bufnr)
-          local rt = require "rust-tools"
-          vim.keymap.set("n", "K", rt.hover_actions.hover_actions, { buffer = bufnr })
-        end,
-
-        capabilities = require("lvim.lsp").common_capabilities(),
-        settings = {
-          ["rust-analyzer"] = {
-            lens = {
-              enable = true,
-            },
-            checkOnSave = {
-              enable = true,
-              command = "clippy",
-            },
-          },
-        },
-      },
     },
   },
   {

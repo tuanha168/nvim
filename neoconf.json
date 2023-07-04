@@ -47,7 +47,7 @@
           "inlineHandlerLeading": true,
           "optionsWrapper": true
         }
-      },
+      }
     },
     "cssls": {
       "css": { "validate": false },
@@ -105,6 +105,17 @@
           "enumMemberValues.enabled": true,
           "functionLikeReturnTypes.enabled": true,
           "propertyDeclarationTypes.enabled": true
+        }
+      }
+    },
+    "rust_analyzer": {
+      "rust-analyzer": {
+        "lens": {
+          "enable": true
+        },
+        "checkOnSave": {
+          "enable": true,
+          "command": "clippy"
         }
       }
     }
