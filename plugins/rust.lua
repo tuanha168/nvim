@@ -1,6 +1,7 @@
 return {
   {
     "simrat39/rust-tools.nvim",
+    ft = { "rust" },
     opts = {
       tools = {
         reload_workspace_from_cargo_toml = true,
