@@ -364,6 +364,19 @@ return {
   },
 
   -- {
+  --   "smoka7/multicursors.nvim",
+  --   verylazy = true,
+  --   opts = {},
+  --   keys = {
+  --     {
+  --       "<Leader>m",
+  --       "<cmd>MCstart<cr>",
+  --       desc = "Create a selection for word under the cursor",
+  --     },
+  --   },
+  -- },
+
+  -- {
   --   "jonatan-branting/nvim-better-n",
   --   event = "BufEnter",
   --   opts = function()
@@ -415,11 +428,11 @@ return {
   --   opts = {},
   -- },
 
-  -- {
-  --   "mg979/vim-visual-multi",
-  --   branch = "master",
-  --   event = "BufRead",
-  -- },
+  {
+    "mg979/vim-visual-multi",
+    branch = "master",
+    event = "BufRead",
+  },
 
   -- {
   --   "chrisgrieser/nvim-various-textobjs",
