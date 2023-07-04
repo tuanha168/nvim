@@ -3,7 +3,6 @@ return {
     "simrat39/rust-tools.nvim",
     opts = {
       tools = {
-        executor = require("rust-tools/executors").termopen, -- can be quickfix or termopen
         reload_workspace_from_cargo_toml = true,
         runnables = {
           use_telescope = true,
