@@ -34,13 +34,6 @@ return {
         "rust_analyzer",
       },
     },
-    handlers = {
-      function(server_name) -- default handler (optional)
-        require("lspconfig")[server_name].setup {}
-      end,
-      -- Next, you can provide targeted overrides for specific servers.
-      ["rust_analyzer"] = false,
-    },
   },
   -- use mason-null-ls to configure Formatters/Linter installation for null-ls sources
   {

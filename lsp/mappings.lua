@@ -29,6 +29,7 @@ return {
       function() vim.lsp.buf.code_action() end,
       desc = "LSP code action",
     },
+    ["<leader>E"] = { function() vim.lsp.codelens.run() end, desc = "Run code lens" },
     ["<leader>K"] = {
       function() vim.lsp.buf.signature_help() end,
       desc = "Signature help",
