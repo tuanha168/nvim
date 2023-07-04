@@ -28,8 +28,10 @@ return {
         "intelephense",
 
         -- python
-        "pyright",
+        -- "pyright",
         -- "python-lsp-server",
+
+        "rust_analyzer",
       },
     },
   },
@@ -80,7 +82,7 @@ return {
   {
     "jay-babu/mason-nvim-dap.nvim",
     -- overrides `require("mason-nvim-dap").setup(...)`
-    -- enabled = false,
+    enabled = false,
     opts = function(_, opts)
       opts.ensure_installed = { "node2" }
       opts.handlers = require("user.dap").handlers(opts.ensure_installed)
