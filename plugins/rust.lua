@@ -31,6 +31,7 @@ return {
             end,
           })
         end,
+        server = false
       },
     },
   },

@@ -7,10 +7,18 @@ local signature_setup = {
   },
   always_trigger = true,
   toggle_key = "<C-z>i",
-  toggle_key_flip_floatwin_setting = true
+  toggle_key_flip_floatwin_setting = true,
 }
 
 return function(client, bufnr)
   if client.server_capabilities.inlayHintProvider then vim.lsp.buf.inlay_hint(bufnr, true) end
   require("lsp_signature").on_attach(signature_setup, bufnr)
+
+  Chiruno.print(client)
+
+  if client.name == "rust_analyzer" then
+    local rt = require "rust-tools"
+    Chiruno.print "on_attach"
+    vim.keymap.set("n", "<leader>k", rt.hover_actions.hover_actions, { buffer = bufnr })
+  end
 end
