@@ -32,10 +32,10 @@ return {
           })
         end,
       },
-      -- dap = {
-      --   -- adapter= codelldb_adapter,
-      --   adapter = require("rust-tools.dap").get_codelldb_adapter(codelldb_path, liblldb_path),
-      -- },
+      dap = {
+        -- adapter= codelldb_adapter,
+        adapter = require("rust-tools.dap").get_codelldb_adapter(codelldb_path, liblldb_path),
+      },
     },
   },
   {
