@@ -432,6 +432,14 @@ return {
     "mg979/vim-visual-multi",
     branch = "master",
     event = "BufRead",
+    config = function()
+      vim.cmd "let g:VM_default_mappings = 0"
+      vim.cmd "let g:VM_maps = {}"
+      -- vim.cmd 'let g:VM_leader = "<C-d>"'
+      vim.cmd 'let g:VM_maps["Find Under"] = "<C-a>"'
+      vim.cmd 'let g:VM_maps["Find Subword Under"] = "<C-a>"'
+      vim.cmd 'let g:VM_maps["Switch Mode"] = "<Tab>"'
+    end,
   },
 
   -- {
