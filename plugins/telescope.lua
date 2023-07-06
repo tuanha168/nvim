@@ -22,13 +22,27 @@ return {
     dependencies = { "nvim-telescope/telescope.nvim" },
     config = function() require("telescope").load_extension "advanced_git_search" end,
   },
-  -- {
-  --   "gbprod/yanky.nvim",
-  --   event = "VeryLazy",
-  --   dependencies = { "nvim-telescope/telescope.nvim" },
-  --   opts = function() require("yanky").setup {} end,
-  --   config = function() vim.keymap.set({ "n", "x" }, "y", "<Plug>(YankyYank)") end,
-  -- },
+  {
+    "gbprod/yanky.nvim",
+    event = "VeryLazy",
+    dependencies = { "nvim-telescope/telescope.nvim" },
+    opts = {
+      ring = {
+        history_length = 100,
+        storage = "shada",
+        sync_with_numbered_registers = true,
+        cancel_event = "update",
+        ignore_registers = { "_" },
+      },
+      system_clipboard = {
+        sync_with_ring = true,
+      },
+    },
+    config = function()
+      require("telescope").load_extension "yank_history"
+      vim.keymap.set({ "n", "x" }, "<c-p>", "<Plug>(YankyYank)")
+    end,
+  },
   {
     "chikko80/error-lens.nvim",
     event = "BufRead",
