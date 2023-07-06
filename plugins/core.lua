@@ -459,6 +459,7 @@ return {
   -- },
   {
     "ziontee113/deliberate.nvim",
+    ft = { "typescriptreact", "svelte", "vue" },
     dependencies = {
       {
         "anuvyklack/hydra.nvim",
