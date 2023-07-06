@@ -38,6 +38,11 @@ return {
         system_clipboard = {
           sync_with_ring = true,
         },
+        highlight = {
+          on_put = true,
+          on_yank = true,
+          timer = 200,
+        },
       }
     end,
     config = function()
