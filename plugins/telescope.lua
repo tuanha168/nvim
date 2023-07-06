@@ -6,22 +6,19 @@
 return {
   {
     "nvim-telescope/telescope.nvim",
-    opts = function(_, opts)
-      opts.extensions_list = { "themes", "terms", "project", "advanced_git_search", "projections" }
-      return opts
-    end,
-  },
-  {
-    "nvim-telescope/telescope-project.nvim",
-    dependencies = { "nvim-telescope/telescope.nvim" },
     lazy = false,
-    config = function() require("telescope").load_extension "project" end,
   },
-  {
-    "aaronhallaert/advanced-git-search.nvim",
-    dependencies = { "nvim-telescope/telescope.nvim" },
-    config = function() require("telescope").load_extension "advanced_git_search" end,
-  },
+  -- {
+  --   "nvim-telescope/telescope-project.nvim",
+  --   dependencies = { "nvim-telescope/telescope.nvim" },
+  --   lazy = false,
+  --   config = function() require("telescope").load_extension "project" end,
+  -- },
+  -- {
+  --   "aaronhallaert/advanced-git-search.nvim",
+  --   dependencies = { "nvim-telescope/telescope.nvim" },
+  --   config = function() require("telescope").load_extension "advanced_git_search" end,
+  -- },
   {
     "gbprod/yanky.nvim",
     event = "VeryLazy",
@@ -51,16 +48,16 @@ return {
       vim.keymap.set({ "n", "x" }, "y", "<Plug>(YankyYank)")
     end,
   },
-  {
-    "chikko80/error-lens.nvim",
-    event = "BufRead",
-    dependencies = {
-      "nvim-telescope/telescope.nvim",
-    },
-    opts = {
-      enabled = false,
-    },
-  },
+  -- {
+  --   "chikko80/error-lens.nvim",
+  --   event = "BufRead",
+  --   dependencies = {
+  --     "nvim-telescope/telescope.nvim",
+  --   },
+  --   opts = {
+  --     enabled = false,
+  --   },
+  -- },
   -- {
   --   "dawsers/telescope-file-history.nvim",
   --   event = "BufRead",
