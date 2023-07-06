@@ -459,14 +459,14 @@ return {
   -- },
   {
     "ziontee113/deliberate.nvim",
-    ft = { "typescriptreact", "svelte", "vue" },
+    ft = { "typescriptreact", "svelte" },
     dependencies = {
       {
         "anuvyklack/hydra.nvim",
       },
     },
     config = function()
-      local supported_filetypes = { "typescriptreact", "svelte", "vue" }
+      local supported_filetypes = { "typescriptreact", "svelte" }
       local augroup = vim.api.nvim_create_augroup("DeliberateEntryPoint", { clear = true })
       vim.api.nvim_create_autocmd({ "FileType" }, {
         pattern = supported_filetypes,
