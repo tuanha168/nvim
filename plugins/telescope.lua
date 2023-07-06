@@ -37,11 +37,16 @@ return {
       system_clipboard = {
         sync_with_ring = true,
       },
+      picker = {
+        select = {
+          action = nil, -- nil to use default put action
+        },
+        telescope = {
+          mappings = "<c-p>", -- nil to use default mappings
+        },
+      },
     },
-    config = function()
-      require("telescope").load_extension "yank_history"
-      vim.keymap.set({ "n", "x" }, "<c-p>", "<Plug>(YankyYank)")
-    end,
+    config = function() require("telescope").load_extension "yank_history" end,
   },
   {
     "chikko80/error-lens.nvim",
