@@ -26,27 +26,25 @@ return {
     "gbprod/yanky.nvim",
     event = "VeryLazy",
     dependencies = { "nvim-telescope/telescope.nvim" },
-    opts = {
-      ring = {
-        history_length = 100,
-        storage = "shada",
-        sync_with_numbered_registers = true,
-        cancel_event = "update",
-        ignore_registers = { "_" },
-      },
-      system_clipboard = {
-        sync_with_ring = true,
-      },
-      picker = {
-        select = {
-          action = nil, -- nil to use default put action
+    opts = function()
+      require("yanky").setup {
+        ring = {
+          history_length = 100,
+          storage = "shada",
+          sync_with_numbered_registers = true,
+          cancel_event = "update",
+          ignore_registers = { "_" },
         },
-        telescope = {
-          mappings = "<c-p>", -- nil to use default mappings
+        system_clipboard = {
+          sync_with_ring = true,
         },
-      },
-    },
-    config = function() require("telescope").load_extension "yank_history" end,
+      }
+    end,
+    config = function()
+      require("telescope").load_extension "yank_history"
+      vim.keymap.set("n", "<c-p>", "<cmd>Telescope yank_history<cr>", { silent = true })
+      vim.keymap.set({ "n", "x" }, "y", "<Plug>(YankyYank)")
+    end,
   },
   {
     "chikko80/error-lens.nvim",
