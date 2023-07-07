@@ -2,9 +2,12 @@ return {
   -- customize alpha options
   {
     "goolord/alpha-nvim",
-    opts = function(_, opts)
-      opts.config = require("alpha.themes.startify").config
+    dependencies = { "nvim-tree/nvim-web-devicons" },
+    event = "VimEnter",
+    opts = true,
+    config = function(_, opts)
       -- customize the dashboard header
+      opts.config = require("alpha.themes.startify").config
       opts.config.layout[2] = {
         type = "text",
         val = {
@@ -36,7 +39,48 @@ return {
           -- wrap = "overflow";
         },
       }
-      return opts
+
+      require("alpha").setup(opts.config)
+    end,
+  },
+
+  {
+    "mrjones2014/smart-splits.nvim",
+    event = "VimEnter",
+    opts = { ignored_filetypes = { "nofile", "quickfix", "qf", "prompt" }, ignored_buftypes = { "nofile" } },
+    config = function()
+      Chiruno.set_mappings {
+        n = {
+          ["<C-h>"] = { function() require("smart-splits").move_cursor_left() end, desc = "Move to left split" },
+          ["<C-j>"] = { function() require("smart-splits").move_cursor_down() end, desc = "Move to below split" },
+          ["<C-k>"] = { function() require("smart-splits").move_cursor_up() end, desc = "Move to above split" },
+          ["<C-l>"] = { function() require("smart-splits").move_cursor_right() end, desc = "Move to right split" },
+          ["<C-Up>"] = { function() require("smart-splits").resize_up() end, desc = "Resize split up" },
+          ["<C-Down>"] = { function() require("smart-splits").resize_down() end, desc = "Resize split down" },
+          ["<C-Left>"] = { function() require("smart-splits").resize_left() end, desc = "Resize split left" },
+          ["<C-Right>"] = { function() require("smart-splits").resize_right() end, desc = "Resize split right" },
+          ["<C-S-Up>"] = {
+            function() require("smart-splits").resize_up() end,
+            noremap = true,
+            desc = "Resize split up",
+          },
+          ["<C-S-Down>"] = {
+            function() require("smart-splits").resize_down() end,
+            noremap = true,
+            desc = "Resize split down",
+          },
+          ["<C-S-Left>"] = {
+            function() require("smart-splits").resize_left() end,
+            noremap = true,
+            desc = "Resize split left",
+          },
+          ["<C-S-Right>"] = {
+            function() require("smart-splits").resize_right() end,
+            noremap = true,
+            desc = "Resize split right",
+          },
+        },
+      }
     end,
   },
 
@@ -44,17 +88,18 @@ return {
 
   {
     "numToStr/Comment.nvim",
+    keys = { "gcc", "gc", "gb" },
     opts = function(_, opts) require("Comment").setup(opts) end,
-    config = function() require "user.config.comment" end,
+    config = function() require "config.comment" end,
   },
 
   {
     "max397574/better-escape.nvim",
-    opts = function(_, opts)
-      opts.mapping = { "jk", "jj", "kk" }
-      opts.clear_empty_lines = true
-      return opts
-    end,
+    event = "BufRead",
+    opts = {
+      mapping = { "jk", "jj", "kk" },
+      clear_empty_lines = true,
+    },
   },
 
   -- {
@@ -106,7 +151,13 @@ return {
     "mbbill/undotree",
     cmd = "UndotreeToggle",
     event = "BufRead",
-    config = function() vim.api.nvim_set_keymap("n", "<C-y>", "<cmd>UndotreeToggle<CR>", { silent = true }) end,
+    config = function()
+      Chiruno.set_mappings {
+        n = {
+          ["<C-y>"] = { "<cmd>UndotreeToggle<CR>", silent = true },
+        },
+      }
+    end,
   },
 
   {
@@ -194,6 +245,7 @@ return {
 
   {
     "aserowy/tmux.nvim",
+    event = "VimEnter",
     opts = {
       copy_sync = {
         enable = false,
@@ -346,12 +398,29 @@ return {
   {
     "windwp/nvim-autopairs",
     event = "InsertEnter",
-    opts = function(_, opts)
-      opts.fast_wrap.map = "<C-t>"
-      opts.fast_wrap.keys = "hjklnmyuiopqwertasdfgzxcvb"
-      opts.fast_wrap.highlight = "DiffAdd"
-      opts.fast_wrap.pattern = string.gsub([[ [%.%:%'%"%)%>%]%)%}%,] ]], "%s+", "")
-      return opts
+    opts = {
+      check_ts = true,
+      ts_config = { java = false },
+      fast_wrap = {
+        map = "<C-t>",
+        chars = { "{", "[", "(", '"', "'" },
+        pattern = string.gsub([[ [%.%:%'%"%)%>%]%)%}%,] ]], "%s+", ""),
+        offset = 0,
+        end_key = "$",
+        keys = "hjklnmyuiopqwertasdfgzxcvb",
+        check_comma = true,
+        highlight = "DiffAdd",
+        highlight_grey = "LineNr",
+      },
+    },
+    config = function(_, opts)
+      local npairs = require "nvim-autopairs"
+      npairs.setup(opts)
+
+      local cmp_status_ok, cmp = pcall(require, "cmp")
+      if cmp_status_ok then
+        cmp.event:on("confirm_done", require("nvim-autopairs.completion.cmp").on_confirm_done { tex = false })
+      end
     end,
   },
 

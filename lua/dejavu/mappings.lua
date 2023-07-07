@@ -1,29 +1,7 @@
 local mappings = {
   n = {
-    ["<leader>l"] = false,
-    ["<leader>fm"] = false,
-    ["<leader>ls"] = false,
-    ["<leader>lD"] = false,
-    ["<leader>lS"] = false,
-    ["<leader>fc"] = false,
-    ["\\"] = false,
-    ["|"] = false,
-    ["<C-S-Up>"] = { function() require("smart-splits").resize_up() end, noremap = true, desc = "Resize split up" },
-    ["<C-S-Down>"] = {
-      function() require("smart-splits").resize_down() end,
-      noremap = true,
-      desc = "Resize split down",
-    },
-    ["<C-S-Left>"] = {
-      function() require("smart-splits").resize_left() end,
-      noremap = true,
-      desc = "Resize split left",
-    },
-    ["<C-S-Right>"] = {
-      function() require("smart-splits").resize_right() end,
-      noremap = true,
-      desc = "Resize split right",
-    },
+    ["<S-Up>"] = {''},
+    ["<S-Down>"] = {''},
     ["*"] = { '"ayiwh/<c-r>a<CR>' },
     ["<leader>fs"] = {
       function() Chiruno.operatorfunc_lua "live_grep_motion" end,
@@ -45,15 +23,8 @@ local mappings = {
       end,
       desc = "Find files",
     },
-    ["<leader>fF"] = {
-      function()
-        local check, telescope = pcall(require, "telescope.builtin")
-        if not check then return end
-        pcall(telescope.git_files)
-      end,
-      desc = "Find AstroNvim config files",
-    },
-    -- Gitsigns
+    ["<leader>fk"] = { function() require("telescope.builtin").keymaps() end, desc = "Find keymaps" },
+   -- Gitsigns
     -- ["H"] = { function() require("gitsigns").prev_hunk() end, desc = "Previous Git hunk" },
     -- ["L"] = { function() require("gitsigns").next_hunk() end, desc = "Next Git hunk" },
     -- ["H"] = { "^" },
@@ -63,16 +34,18 @@ local mappings = {
     ["K"] = { ":m .-2<CR>==", silent = true },
     ["J"] = { ":m .+1<CR>==", silent = true },
     ["<Tab>"] = {
-      function() require("astronvim.utils.buffer").nav(vim.v.count > 0 and vim.v.count or 1) end,
+      function()
+        -- require("astronvim.utils.buffer").nav(vim.v.count > 0 and vim.v.count or 1)
+      end,
       desc = "Next buffer",
     },
     ["<S-Tab>"] = {
-      function() require("astronvim.utils.buffer").nav(-(vim.v.count > 0 and vim.v.count or 1)) end,
+      function()
+        -- require("astronvim.utils.buffer").nav(-(vim.v.count > 0 and vim.v.count or 1))
+      end,
       desc = "Previous buffer",
     },
     -- Keep center
-    -- ["n"] = { "nzzzv" },
-    -- ["<S-n>"] = { "Nzzzv" },
     ["}"] = { "<C-d>zz" },
     ["{"] = { "<C-u>zz" },
     -- Close Preview
@@ -81,9 +54,6 @@ local mappings = {
     -- Yank
     ["<c-c>"] = { '"+yiw', desc = "Yank", noremap = true },
     -- Telescope
-    -- ["``"] = {
-    --   "<cmd> Telescope project <CR>",
-    -- },
     ["<leader>o"] = {
       function()
         local aerial_avail, _ = pcall(require, "aerial")
@@ -105,7 +75,6 @@ local mappings = {
       '"_C',
     },
     -- Neotree
-    ["<leader>e"] = false,
     ["<c-n>"] = { "<cmd>Neotree toggle<cr>", desc = "Toggle Explorer" },
     -- Illuminate
     ["("] = {
@@ -114,9 +83,9 @@ local mappings = {
     [")"] = {
       function() require("illuminate").goto_prev_reference() end,
     },
-    ["<leader>c"] = false,
-    ["<leader>q"] = false,
-    ["<leader>qq"] = { function() require("astronvim.utils.buffer").close() end, desc = "Close buffer", silent = true },
+    ["<leader>qq"] = { function()
+      -- require("astronvim.utils.buffer").close()
+    end, desc = "Close buffer", silent = true },
     ["+"] = { "<C-a>", noremap = true },
     ["-"] = { "<C-x>", noremap = true },
     ["<C-z>i"] = { "<C-i>" },
@@ -152,8 +121,6 @@ local mappings = {
     -- Moving
     ["K"] = { ":m '<-2<CR><CR>gv=gv", silent = true },
     ["J"] = { ":m '>+1<CR><CR>gv=gv", silent = true },
-    -- ["H"] = { "^" },
-    -- ["L"] = { "$" },
     -- Visual Indent
     ["<"] = { "<gv" },
     [">"] = { ">gv" },
@@ -186,4 +153,4 @@ for key, value in pairs(custom_text_objects) do
   mappings.o[key] = value
 end
 
-return mappings
+Chiruno.set_mappings(mappings)

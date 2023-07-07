@@ -1,9 +1,32 @@
 -- customize mason plugins
 return {
-  -- use mason-lspconfig to configure LSP installations
+  {
+    "williamboman/mason.nvim",
+    cmd = {
+      "Mason",
+      "MasonInstall",
+      "MasonUninstall",
+      "MasonUninstallAll",
+      "MasonLog",
+    },
+    opts = {
+      ui = {
+        icons = {
+          package_installed = "✓",
+          package_uninstalled = "✗",
+          package_pending = "⟳",
+        },
+      },
+    },
+    config = function(_, opts)
+      require("mason").setup(opts)
+      for _, plugin in ipairs { "mason-lspconfig", "mason-null-ls", "mason-nvim-dap" } do
+        pcall(require, plugin)
+      end
+    end,
+  },
   {
     "williamboman/mason-lspconfig.nvim",
-    -- overrides `require("mason-lspconfig").setup(...)`
     opts = {
       ensure_installed = {
         -- lua stuff
@@ -35,10 +58,8 @@ return {
       },
     },
   },
-  -- use mason-null-ls to configure Formatters/Linter installation for null-ls sources
   {
     "jay-babu/mason-null-ls.nvim",
-    -- overrides `require("mason-null-ls").setup(...)`
     opts = {
       ensure_installed = {
         "prettierd",
