@@ -120,10 +120,14 @@
       }
     },
     "tailwindcss": {
-      "tailwindCSS.classAttributes": [
-        "class",
-        "className",
-        "ngClass"
+      "tailwindCSS.classAttributes": ["class", "className", "ngClass"],
+      "tailwindCSS.experimental.classRegex": [
+        ["Classes \\=([^;]*);", "'([^']*)'"],
+        ["Classes \\=([^;]*);", "\"([^\"]*)\""],
+        ["Classes \\=([^;]*);", "\\`([^\\`]*)\\`"],
+        ["Class \\=([^;]*);", "'([^']*)'"],
+        ["Class \\=([^;]*);", "\"([^\"]*)\""],
+        ["Class \\=([^;]*);", "\\`([^\\`]*)\\`"]
       ]
     }
   }
