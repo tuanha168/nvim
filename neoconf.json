@@ -124,8 +124,8 @@
         "class",
         "className",
         "ngClass",
-        ".*[c|C]lass.*",
-        ".*[c|C]lasses.*"
+        ".*[cC]lass.*",
+        ".*[cC]lasses.*"
       ]
     }
   }
