@@ -118,6 +118,13 @@
           "command": "clippy"
         }
       }
+    },
+    "tailwindcss": {
+      "tailwindCSS.classAttributes": [
+        "class",
+        "className",
+        "ngClass"
+      ]
     }
   }
 }

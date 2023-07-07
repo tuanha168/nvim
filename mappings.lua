@@ -95,9 +95,9 @@ local mappings = {
     -- Yank
     ["<c-c>"] = { '"+yiw', desc = "Yank", noremap = true },
     -- Telescope
-    ["``"] = {
-      "<cmd> Telescope project <CR>",
-    },
+    -- ["``"] = {
+    --   "<cmd> Telescope project <CR>",
+    -- },
     ["<leader>o"] = {
       function()
         local aerial_avail, _ = pcall(require, "aerial")
