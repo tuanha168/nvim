@@ -1,6 +1,7 @@
 return {
+  function(server) require("lspconfig")[server].setup(require("lsp.config").config(server)) end,
   -- add custom handler
-  rust_analyzer = function(_, opts)
+  ["rust_analyzer"] = function(_, opts)
     require("rust-tools").setup {
       tools = {
         reload_workspace_from_cargo_toml = true,
@@ -32,6 +33,13 @@ return {
         end,
       },
       server = opts,
+      dap = {
+        adapters = {
+          type = "executable",
+          command = "lldb-vscode",
+          name = "rt_lldb",
+        },
+      },
     }
   end,
 }

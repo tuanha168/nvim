@@ -2,7 +2,7 @@ Chiruno = Chiruno or {}
 
 local function set_mappings(map_table, base)
   -- iterate over the first keys for each mode
-  base = base or {}
+  base = base or { silent = true }
   for mode, maps in pairs(map_table) do
     -- iterate over each keybinding set in the current mode
     for keymap, options in pairs(maps) do

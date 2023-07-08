@@ -1,27 +1,14 @@
 return {
   n = {
-    ["<leader>ld"] = false,
-    ["<leader>li"] = false,
-    ["<leader>lI"] = false,
-    ["<leader>lf"] = false,
-    ["<leader>la"] = false,
-    ["<leader>ll"] = false,
-    ["<leader>lL"] = false,
-    ["<leader>lr"] = false,
-    ["<leader>lR"] = false,
-    ["<leader>lh"] = false,
-    ["<leader>lG"] = false,
-    ["<leader>lD"] = false,
-    ["<leader>lS"] = false,
-    ["K"] = false,
-    ["gT"] = false,
+    ["[d"] = { function() vim.diagnostic.goto_prev() end, desc = "Previous diagnostic" },
+    ["]d"] = { function() vim.diagnostic.goto_next() end, desc = "Next diagnostic" },
     ["<leader>l"] = {
       function() vim.diagnostic.open_float() end,
       desc = "Hover diagnostics",
     },
     ["<leader>fm"] = {
       -- function() Chiruno.operatorfunc_lua "format_motion" end,
-      function() vim.lsp.buf.format(require("astronvim.utils.lsp").format_opts) end,
+      function() vim.lsp.buf.format(require("lsp.formatting")) end,
       -- "<cmd>Prettier<CR>",
       desc = "Format code",
     },
@@ -46,6 +33,26 @@ return {
     ["gR"] = {
       function() vim.lsp.buf.rename() end,
       desc = "Rename current symbol",
+    },
+    ["gd"] = {
+      function() require("telescope.builtin").lsp_definitions() end,
+      desc = "Show the definition of current symbol",
+    },
+    ["gD"] = {
+      function() vim.lsp.buf.declaration() end,
+      desc = "Declaration of current symbol",
+    },
+    ["gI"] = {
+      function() require("telescope.builtin").lsp_implementations() end,
+      desc = "Implementation of current symbol",
+    },
+    ["gr"] = {
+      function() require("telescope.builtin").lsp_references() end,
+      desc = "References of current symbol",
+    },
+    ["gT"] = {
+      function() require("telescope.builtin").lsp_type_definitions() end,
+      desc = "Definition of current type",
     },
   },
   v = {

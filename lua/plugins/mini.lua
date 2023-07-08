@@ -4,17 +4,11 @@ return {
     config = function() require("mini.ai").setup() end,
     event = "BufRead",
   },
-
   {
     "echasnovski/mini.bufremove",
+    event = "BufRead",
     opts = {
       silent = true,
     },
   },
-
-  -- {
-  --   "echasnovski/mini.animate",
-  --   event = "VeryLazy",
-  --   opts = {},
-  -- },
 }

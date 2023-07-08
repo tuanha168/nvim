@@ -20,7 +20,11 @@ return {
     },
     config = function(_, opts)
       require("mason").setup(opts)
-      for _, plugin in ipairs { "mason-lspconfig", "mason-null-ls", "mason-nvim-dap" } do
+      for _, plugin in ipairs {
+        "mason-lspconfig",
+        "mason-null-ls",
+        -- "mason-nvim-dap",
+      } do
         pcall(require, plugin)
       end
     end,
@@ -56,6 +60,7 @@ return {
 
         "rust_analyzer",
       },
+      automatic_installation = true,
     },
   },
   {
@@ -67,6 +72,7 @@ return {
         "eslint_lsp",
         "pint",
       },
+      automatic_installation = true,
       handlers = {
         pint = function()
           local null_ls = require "null-ls"
@@ -78,39 +84,13 @@ return {
       },
     },
   },
-  {
-    "MunifTanjim/prettier.nvim",
-    opts = {
-      bin = "prettierd", -- or `'prettierd'` (v0.23.3+)
-      filetypes = {
-        "css",
-        "graphql",
-        "html",
-        "javascript",
-        "javascriptreact",
-        "json",
-        "less",
-        "markdown",
-        "scss",
-        "typescript",
-        "typescriptreact",
-        "yaml",
-        "vue",
-      },
-    },
-    event = "BufRead",
-  },
-  {
-    "mfussenegger/nvim-dap",
-    enabled = false,
-  },
-  {
-    "jay-babu/mason-nvim-dap.nvim",
-    -- overrides `require("mason-nvim-dap").setup(...)`
-    enabled = false,
-    opts = function(_, opts)
-      opts.ensure_installed = { "node2" }
-      opts.handlers = require("user.dap").handlers(opts.ensure_installed)
-    end,
-  },
+  -- {
+  --   "jay-babu/mason-nvim-dap.nvim",
+  --   -- overrides `require("mason-nvim-dap").setup(...)`
+  --   enabled = false,
+  --   opts = function(_, opts)
+  --     opts.ensure_installed = { "node2" }
+  --     opts.handlers = require("user.dap").handlers(opts.ensure_installed)
+  --   end,
+  -- },
 }
