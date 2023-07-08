@@ -200,15 +200,4 @@ for key, value in pairs(custom_text_objects) do
   mappings.o[key] = value
 end
 
--- Expand Region
-local expand = { "<Plug>(expand_region_expand)", noremap = true, silent = true }
-local shrink = { "<Plug>(expand_region_shrink)", noremap = true, silent = true }
-
-mappings.n["<S-Up>"] = expand
-mappings.v["<S-Up>"] = expand
-mappings.x["<S-Up>"] = expand
-mappings.n["<S-Down>"] = shrink
-mappings.v["<S-Down>"] = shrink
-mappings.x["<S-Down>"] = shrink
-
 return mappings
