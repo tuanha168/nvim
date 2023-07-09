@@ -1,12 +1,12 @@
 Chiruno = Chiruno or {}
 
-function file_worktree(file, worktrees)
+local function file_worktree(file, worktrees)
   worktrees = worktrees or vim.g.git_worktrees
   if not worktrees then return end
   file = file or vim.fn.expand "%"
   for _, worktree in ipairs(worktrees) do
     if
-      require("astronvim.utils").cmd({
+      Chiruno.cmd({
         "git",
         "--work-tree",
         worktree.toplevel,

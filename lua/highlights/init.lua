@@ -2,7 +2,7 @@
 -- use a function override to let us use lua to retrieve colors from highlight group
 -- there is no default table so we don't need to put a parameter for this function
 return function()
-  local get_hlgroup = require("astronvim.utils").get_hlgroup
+  local get_hlgroup = require("utils").get_hlgroup
   -- get highlights from highlight groups
   local normal = get_hlgroup "Normal"
   local bg = normal.bg

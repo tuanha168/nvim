@@ -14,6 +14,7 @@
   "crates.nvim": { "branch": "main", "commit": "1dffccc0a95f656ebe00cacb4de282473430c5a1" },
   "dark_flat.nvim": { "branch": "main", "commit": "984ec39ea29d82ebc0afb60e29f850edcc8ec1eb" },
   "dracula.nvim": { "branch": "main", "commit": "5716b1395b32a5865476dd3314bd8888e5f91532" },
+  "edgy.nvim": { "branch": "main", "commit": "0d3b64f9159442cf9edcad451a0dd9fb7e31bc41" },
   "flash.nvim": { "branch": "main", "commit": "a8da6ff212c1885ecde26af477207742959c67d7" },
   "flatten.nvim": { "branch": "main", "commit": "d92c93959e9ac52a00002d6fd64c2d2ca5dd7192" },
   "friendly-snippets": { "branch": "main", "commit": "7f6681b7d1eebba024f0caf6576fc1e94578b9cc" },

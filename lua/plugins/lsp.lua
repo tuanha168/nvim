@@ -22,21 +22,20 @@ return {
         cmd = { "LspInstall", "LspUninstall" },
         opts = function(_, opts)
           if not opts.handlers then opts.handlers = {} end
-          opts.handlers = require("lsp.setup_handlers")
+          opts.handlers = require "lsp.setup_handlers"
           return opts
         end,
-        config = function(_, opts)
-          require("mason-lspconfig").setup(opts)
-        end,
+        config = function(_, opts) require("mason-lspconfig").setup(opts) end,
       },
     },
+    config = require "config.lspconfig",
   },
   {
     "jose-elias-alvarez/null-ls.nvim",
     dependencies = {
       { "jay-babu/mason-null-ls.nvim" },
     },
-    opts = {}
+    opts = {},
     -- opts = function() return { on_attach = require("astronvim.utils.lsp").on_attach } end,
   },
   {

@@ -1,5 +1,5 @@
 Chiruno.format_motion = function()
-  local opts = require("astronvim.utils.lsp").format_opts
+  local opts = require("lsp.formatting")
   local selection = Chiruno.get_selection()
   if selection ~= nil then
     opts.range = {

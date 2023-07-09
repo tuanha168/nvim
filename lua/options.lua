@@ -9,6 +9,10 @@ local options = {
     hidden = false, -- allow hidden buffers
     encoding = "utf-8",
     termencoding = "utf-8",
+    foldenable = true, -- enable fold for nvim-ufo
+    foldlevel = 99, -- set high foldlevel for nvim-ufo
+    foldlevelstart = 99, -- start with all code unfolded
+    foldcolumn = false, -- show foldcolumn in nvim 0.9
     foldmethod = "expr",
     foldexpr = "nvim_treesitter#foldexpr()",
     swapfile = false,
@@ -30,6 +34,7 @@ local options = {
   o = {
     background = "dark",
   },
+  t = vim.t.bufs and vim.t.bufs or { bufs = vim.api.nvim_list_bufs() }, -- initialize buffers for the current tab
 }
 
 vim.opt.iskeyword:append "-"

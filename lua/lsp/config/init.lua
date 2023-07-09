@@ -9,7 +9,7 @@ M.capabilities.textDocument.completion.completionItem.deprecatedSupport = true
 M.capabilities.textDocument.completion.completionItem.commitCharactersSupport = true
 M.capabilities.textDocument.completion.completionItem.tagSupport = { valueSet = { 1 } }
 M.capabilities.textDocument.completion.completionItem.resolveSupport =
-{ properties = { "documentation", "detail", "additionalTextEdits" } }
+  { properties = { "documentation", "detail", "additionalTextEdits" } }
 M.capabilities.textDocument.foldingRange = { dynamicRegistration = false, lineFoldingOnly = true }
 
 M.config = function(server_name)
@@ -30,9 +30,9 @@ M.config = function(server_name)
     lsp_opts.settings = { Lua = { workspace = { checkThirdParty = false } } }
   end
   lsp_opts.on_attach = function(client, bufnr)
-    Chiruno.set_mappings(require("lsp.mappings"))
+    Chiruno.set_mappings(require "lsp.mappings")
     server.on_attach(client, bufnr)
-    require("lsp.on_attach")(client, bufnr)
+    require "lsp.on_attach"(client, bufnr)
   end
 
   return lsp_opts
