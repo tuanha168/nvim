@@ -12,9 +12,9 @@ return {
     },
   },
 
-  {
-    "echasnovski/mini.animate",
-    event = "VeryLazy",
-    opts = {},
-  },
+  -- {
+  --   "echasnovski/mini.animate",
+  --   event = "VeryLazy",
+  --   opts = {},
+  -- },
 }
