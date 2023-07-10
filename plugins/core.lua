@@ -463,11 +463,11 @@ return {
           pinned = true,
           open = "Neotree position=top buffers",
         },
-        {
-          ft = "Outline",
-          pinned = true,
-          open = "AerialOpen",
-        },
+        -- {
+        --   ft = "Outline",
+        --   pinned = true,
+        --   open = "AerialOpen",
+        -- },
         -- any other neo-tree windows
         "neo-tree",
       },
