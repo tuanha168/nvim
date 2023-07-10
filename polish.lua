@@ -49,11 +49,11 @@ return function()
   autocmd({ "BufWritePre" }, {
     pattern = "*",
     callback = function(event)
-      if string.match(event.file, os.getenv "HOME" .. "/.config/nvim/lua/user") then
+      if string.match(event.match, os.getenv "HOME" .. "/.config/nvim/lua/user") then
         Chiruno.auto_push "~/.config/nvim/lua/user"
       end
 
-      if string.match(event.file, os.getenv "HOME" .. "/.dotfile") then Chiruno.auto_push "~/.dotfile" end
+      if string.match(event.match, os.getenv "HOME" .. "/.dotfile") then Chiruno.auto_push "~/.dotfile" end
     end,
   })
 end
