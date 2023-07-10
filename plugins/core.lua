@@ -433,6 +433,12 @@ return {
     end,
   },
 
+  {
+    "folke/edgy.nvim",
+    event = "VeryLazy",
+    opts = {},
+  },
+
   -- {
   --   "folke/twilight.nvim",
   --   event = "BufRead",
