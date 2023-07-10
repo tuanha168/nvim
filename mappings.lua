@@ -41,29 +41,15 @@ local mappings = {
       function()
         local check, telescope = pcall(require, "telescope.builtin")
         if not check then return end
-        local ok, _ = pcall(telescope.git_files)
-        if not ok then telescope.find_files() end
+        pcall(telescope.find_files)
       end,
       desc = "Find files",
     },
     ["<leader>fF"] = {
       function()
-        local cwd = vim.fn.stdpath "config" .. "/.."
-        local search_dirs = {}
-        for _, dir in ipairs(astronvim.supported_configs) do -- search all supported config locations
-          if dir == astronvim.install.home then dir = dir .. "/lua/user" end -- don't search the astronvim core files
-          if vim.fn.isdirectory(dir) == 1 then table.insert(search_dirs, dir) end -- add directory to search if exists
-        end
-        if vim.tbl_isempty(search_dirs) then -- if no config folders found, show warning
-          Chiruno.print "No user configuration files found"
-        else
-          if #search_dirs == 1 then cwd = search_dirs[1] end -- if only one directory, focus cwd
-          require("telescope.builtin").find_files {
-            prompt_title = "Config Files",
-            search_dirs = search_dirs,
-            cwd = cwd,
-          } -- call telescope
-        end
+        local check, telescope = pcall(require, "telescope.builtin")
+        if not check then return end
+        pcall(telescope.git_files)
       end,
       desc = "Find AstroNvim config files",
     },
