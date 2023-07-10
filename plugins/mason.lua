@@ -80,6 +80,10 @@ return {
     event = "BufRead",
   },
   {
+    "mfussenegger/nvim-dap",
+    enabled = false,
+  },
+  {
     "jay-babu/mason-nvim-dap.nvim",
     -- overrides `require("mason-nvim-dap").setup(...)`
     enabled = false,
