@@ -1,7 +1,6 @@
 return {
   {
     "echasnovski/mini.ai",
-    version = "*",
     config = function() require("mini.ai").setup() end,
     event = "BufRead",
   },
@@ -11,5 +10,11 @@ return {
     opts = {
       silent = true,
     },
+  },
+
+  {
+    "echasnovski/mini.animate",
+    event = "VeryLazy",
+    opts = {},
   },
 }
