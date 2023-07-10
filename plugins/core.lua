@@ -86,11 +86,11 @@ return {
           require("flash").jump()
         end,
       },
-      {
-        "S",
-        mode = { "o", "x" },
-        function() require("flash").treesitter() end,
-      },
+      -- {
+      --   "S",
+      --   mode = { "o", "x" },
+      --   function() require("flash").treesitter() end,
+      -- },
     },
   },
 
