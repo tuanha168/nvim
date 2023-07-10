@@ -106,8 +106,7 @@ local mappings = {
     },
     -- Neotree
     ["<leader>e"] = false,
-    ["<c-n>"] = { "<cmd>Neotree toggle<cr>", desc = "Toggle Explorer" },
-    ["<c-g>"] = { "<cmd>Neotree toggle git_status<cr>", desc = "Toggle Explorer" },
+    ["<c-n>"] = { function() require("edgy").toggle "left" end, desc = "Toggle Explorer" },
     -- Illuminate
     ["("] = {
       function() require("illuminate").goto_next_reference() end,
