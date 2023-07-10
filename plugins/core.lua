@@ -40,13 +40,6 @@ return {
     end,
   },
 
-  {
-    "echasnovski/mini.bufremove",
-    opts = {
-      silent = true,
-    },
-  },
-
   { "kylechui/nvim-surround", event = "BufRead", opts = {} },
 
   {
@@ -83,7 +76,6 @@ return {
 
   {
     "folke/flash.nvim",
-    event = "VeryLazy",
     opts = {},
     keys = {
       {
