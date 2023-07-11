@@ -1,6 +1,6 @@
 return {
   {
-    "ixru/nvim-markdown",
+    "vimwiki/vimwiki",
     ft = { "markdown" },
   },
 }
