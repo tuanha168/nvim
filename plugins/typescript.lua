@@ -15,10 +15,7 @@ return {
     },
     opts = {
       on_attach = require("astronvim.utils.lsp").on_attach,
-      handlers = {
-        Chiruno.print "test",
-        function(server) require("astronvim.utils.lsp").setup(server) end,
-      },
+      function(server) require("astronvim.utils.lsp").setup(server) end,
       settings = {
         tsserver_file_preferences = {
           includeInlayParameterNameHints = "all",
