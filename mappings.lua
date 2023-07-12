@@ -45,7 +45,7 @@ local mappings = {
       end,
       desc = "Find files",
     },
-    ["<leader>fF"] = {
+    ["<leader>fg"] = {
       function()
         local check, telescope = pcall(require, "telescope.builtin")
         if not check then return end
