@@ -3,8 +3,8 @@ Chiruno.format_motion = function()
   local selection = Chiruno.get_selection()
   if selection ~= nil then
     opts.range = {
-      ["start"] = { selection.startRow, selection.startCol },
-      ["end"] = { selection.finishRow, selection.finishCol },
+      ["start"] = { selection.startRow, selection.startCol - 1 },
+      ["end"] = { selection.finishRow, selection.finishCol - 1 },
     }
   end
 
