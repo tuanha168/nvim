@@ -3,12 +3,10 @@ Chiruno.format_motion = function()
   local selection = Chiruno.get_selection()
   if selection ~= nil then
     opts.range = {
-      ["start"] = { selection.startRow - 5, selection.startCol },
-      ["end"] = { selection.finishRow - 5, selection.finishCol },
+      ["start"] = { selection.startRow, selection.startCol },
+      ["end"] = { selection.finishRow, selection.finishCol },
     }
   end
-
-  Chiruno.print(opts.range)
 
   vim.lsp.buf.format(opts)
 end
