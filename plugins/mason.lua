@@ -39,11 +39,6 @@ return {
         "yamlls",
 
         "efm",
-
-        "prettierd",
-        "stylua",
-        "eslint_lsp",
-        "pint",
       },
     },
   },
@@ -55,7 +50,6 @@ return {
   {
     "jay-babu/mason-null-ls.nvim",
     -- overrides `require("mason-null-ls").setup(...)`
-    enabled = false,
     opts = {
       ensure_installed = {
         "prettierd",
@@ -64,13 +58,15 @@ return {
         "pint",
       },
       handlers = {
-        pint = function()
-          local null_ls = require "null-ls"
-          null_ls.register(null_ls.builtins.formatting.pint.with {
-            command = "pint",
-            args = { "--preset", "psr12", "--no-interaction", "--quiet", "$FILENAME" },
-          })
+        function ()
         end,
+        -- pint = function()
+        --   local null_ls = require "null-ls"
+        --   null_ls.register(null_ls.builtins.formatting.pint.with {
+        --     command = "pint",
+        --     args = { "--preset", "psr12", "--no-interaction", "--quiet", "$FILENAME" },
+        --   })
+        -- end,
       },
     },
   },
