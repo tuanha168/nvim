@@ -43,10 +43,10 @@ return {
     },
   },
   -- use mason-null-ls to configure Formatters/Linter installation for null-ls sources
-  {
-    "jose-elias-alvarez/null-ls.nvim",
-    enabled = false,
-  },
+  -- {
+  --   "jose-elias-alvarez/null-ls.nvim",
+  --   enabled = false,
+  -- },
   {
     "jay-babu/mason-null-ls.nvim",
     -- overrides `require("mason-null-ls").setup(...)`
@@ -58,8 +58,7 @@ return {
         "pint",
       },
       handlers = {
-        function ()
-        end,
+        function () end,
         -- pint = function()
         --   local null_ls = require "null-ls"
         --   null_ls.register(null_ls.builtins.formatting.pint.with {
