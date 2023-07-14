@@ -1,3 +1,6 @@
+local eslint = require 'efmls-configs.linters.eslint'
+local prettierd = require 'efmls-configs.formatters.prettier_d'
+local stylua = require 'efmls-configs.formatters.stylua'
 return{
   filetypes = {
     "lua"
@@ -13,7 +16,10 @@ return{
       rootMarkers = {".git/"},
         languages = {
             lua = {
-                {formatCommand = "stylua", formatStdin = true}
-            }
+        formatter = stylua,
+            },javascript = {
+    linter = eslint,
+    formatter = prettierd,
+  }
         }
     }}

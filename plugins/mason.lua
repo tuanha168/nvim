@@ -4,6 +4,9 @@ return {
   {
     "williamboman/mason-lspconfig.nvim",
     -- overrides `require("mason-lspconfig").setup(...)`
+    dependencies = {
+      "creativenull/efmls-configs-nvim"
+    },
     opts = {
       ensure_installed = {
         -- lua stuff
