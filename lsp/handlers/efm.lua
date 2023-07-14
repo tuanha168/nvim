@@ -33,5 +33,8 @@ return function()
     scss = prettierd,
     vue = prettierd,
     yaml = prettierd,
+    php = {
+      formatter = require "efmls-configs.formatters.phpcbf",
+    },
   }
 end
