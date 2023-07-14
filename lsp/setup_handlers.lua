@@ -67,6 +67,10 @@ return {
       javascript = javascript,
       typescript = javascript,
       json = javascript,
+      html = javascript,
+      css = javascript,
+      scss = javascript,
+      yaml = javascript,
       vue = javascript,
     }
   end,
