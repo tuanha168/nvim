@@ -33,8 +33,8 @@ return function()
     scss = prettierd,
     vue = prettierd,
     yaml = prettierd,
-    php = {
-      formatter = require "efmls-configs.formatters.php_cs_fixer",
-    },
+    -- php = {
+    --   formatter = require "efmls-configs.formatters.php_cs_fixer",
+    -- },
   }
 end
