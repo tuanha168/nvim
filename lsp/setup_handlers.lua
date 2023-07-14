@@ -38,17 +38,15 @@ return {
   efm = function()
     local efmls = require "efmls-configs"
 
-    local prettierd = require "efmls-configs.formatters.prettier_d"
-
     local lua = {
       formatter = require "efmls-configs.formatters.stylua",
     }
-    local javascript = {
-      formatter = prettierd,
+    local prettierd = {
+      formatter = require "efmls-configs.formatters.prettier_d",
     }
 
     efmls.init {
-      -- on_attach = require("astronvim.utils.lsp").config("efm").on_attach,
+      on_attach = require("astronvim.utils.lsp").config("efm").on_attach,
       init_options = {
         documentFormatting = true,
         hover = true,
@@ -58,22 +56,20 @@ return {
       },
       settings = {
         rootMarkers = { ".git/" },
-        languages = {
-          lua = {},
-        },
+        languages = {},
       },
     }
 
     efmls.setup {
       lua = lua,
-      javascript = javascript,
-      typescript = javascript,
-      json = javascript,
-      html = javascript,
-      css = javascript,
-      scss = javascript,
-      vue = javascript,
-      yaml = javascript,
+      javascript = prettierd,
+      typescript = prettierd,
+      json = prettierd,
+      html = prettierd,
+      css = prettierd,
+      scss = prettierd,
+      vue = prettierd,
+      yaml = prettierd,
     }
   end,
 }
