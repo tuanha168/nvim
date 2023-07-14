@@ -13,7 +13,7 @@ return{
       rootMarkers = {".git/"},
         languages = {
             lua = {
-                {formatCommand = "stylelua", formatStdin = true}
+                {formatCommand = "stylua", formatStdin = true}
             }
         }
     }}
