@@ -1,10 +1,11 @@
+local efmls = require 'efmls-configs'
+
 local eslint = require 'efmls-configs.linters.eslint'
 local prettierd = require 'efmls-configs.formatters.prettier_d'
 local stylua = require 'efmls-configs.formatters.stylua'
-return{
-  filetypes = {
-    "lua"
-  },
+
+efmls.init(
+{
   init_options = {
       documentFormatting = true,
         hover= true,
@@ -14,12 +15,24 @@ return{
     },
     settings = {
       rootMarkers = {".git/"},
-        languages = {
+      languages = {
+        lua = {}
+      }
+    }}
+)
+
+efmls.setup({
             lua = {
         formatter = stylua,
             },javascript = {
     linter = eslint,
     formatter = prettierd,
   }
-        }
-    }}
+        })
+
+return {
+  filetypes = {
+    "lua"
+  },
+
+}
