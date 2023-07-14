@@ -37,7 +37,6 @@ return {
   efm = function()
     local efmls = require "efmls-configs"
 
-    local eslint = require "efmls-configs.linters.eslint"
     local prettierd = require "efmls-configs.formatters.prettier_d"
 
     local lua = {
