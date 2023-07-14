@@ -66,6 +66,7 @@ return {
       lua = lua,
       javascript = javascript,
       typescript = javascript,
+      json = javascript,
       vue = javascript,
     }
   end,
