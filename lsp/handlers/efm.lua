@@ -34,7 +34,7 @@ return function()
     vue = prettierd,
     yaml = prettierd,
     php = {
-      formatter = require "efmls-configs.formatters.phpcbf",
+      formatter = require "efmls-configs.formatters.php_cs_fixer",
     },
   }
 end
