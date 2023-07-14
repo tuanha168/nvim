@@ -34,6 +34,7 @@ return {
       server = opts,
     }
   end,
+
   efm = function()
     local efmls = require "efmls-configs"
 
