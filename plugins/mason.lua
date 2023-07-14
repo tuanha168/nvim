@@ -5,7 +5,7 @@ return {
     "williamboman/mason-lspconfig.nvim",
     -- overrides `require("mason-lspconfig").setup(...)`
     dependencies = {
-      "creativenull/efmls-configs-nvim"
+      "creativenull/efmls-configs-nvim",
     },
     opts = {
       ensure_installed = {
@@ -36,7 +36,14 @@ return {
 
         "rust_analyzer",
 
+        "yamlls",
+
         "efm",
+
+        "prettierd",
+        "stylua",
+        "eslint_lsp",
+        "pint",
       },
     },
   },
