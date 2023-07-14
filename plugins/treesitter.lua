@@ -13,7 +13,7 @@ return {
         "pug",
         "json",
         "css",
-        -- "tsx",
+        "tsx",
         "html",
         "python",
         "markdown",
@@ -55,12 +55,12 @@ return {
     "nvim-treesitter/nvim-treesitter-context",
     config = true,
   },
-  {
-    "HiPhish/nvim-ts-rainbow2",
-    event = "BufRead",
-    dependencies = { "nvim-treesitter/nvim-treesitter" },
-    config = require "user.config.nvim-ts-rainbow2",
-  },
+  -- {
+  --   "HiPhish/nvim-ts-rainbow2",
+  --   event = "BufRead",
+  --   dependencies = { "nvim-treesitter/nvim-treesitter" },
+  --   config = require "user.config.nvim-ts-rainbow2",
+  -- },
   {
     "David-Kunz/markid",
     event = "BufRead",
