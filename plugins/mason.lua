@@ -32,13 +32,20 @@ return {
         -- "python-lsp-server",
 
         "rust_analyzer",
+
+        "efm",
       },
     },
   },
   -- use mason-null-ls to configure Formatters/Linter installation for null-ls sources
   {
+    "jose-elias-alvarez/null-ls.nvim",
+    enabled = false,
+  },
+  {
     "jay-babu/mason-null-ls.nvim",
     -- overrides `require("mason-null-ls").setup(...)`
+    enabled = false,
     opts = {
       ensure_installed = {
         "prettierd",
