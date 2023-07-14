@@ -43,6 +43,9 @@ return {
     local lua = {
       formatter = require "efmls-configs.formatters.stylua",
     }
+    local yaml = {
+      formatter = require "efmls-configs.formatters.yapf",
+    }
     local javascript = {
       formatter = prettierd,
     }
@@ -72,7 +75,7 @@ return {
       html = javascript,
       css = javascript,
       scss = javascript,
-      yaml = javascript,
+      yaml = yaml,
       vue = javascript,
     }
   end,
