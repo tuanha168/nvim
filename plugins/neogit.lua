@@ -2,7 +2,9 @@ return {
   {
     "NeogitOrg/neogit",
     dependencies = "nvim-lua/plenary.nvim",
-    opts = {},
+    opts = {
+      kind = "split",
+    },
     cmd = "Neogit",
   },
 }
