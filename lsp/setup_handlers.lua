@@ -73,6 +73,7 @@ return {
       css = javascript,
       scss = javascript,
       vue = javascript,
+      yaml = javascript,
     }
   end,
 }
