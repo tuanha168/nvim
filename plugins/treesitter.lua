@@ -13,7 +13,7 @@ return {
         "pug",
         "json",
         "css",
-        "tsx",
+        -- "tsx",
         "html",
         "python",
         "markdown",
