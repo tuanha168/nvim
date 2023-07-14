@@ -39,7 +39,13 @@ return {
 
     local eslint = require "efmls-configs.linters.eslint"
     local prettierd = require "efmls-configs.formatters.prettier_d"
-    local stylua = require "efmls-configs.formatters.stylua"
+
+    local lua = {
+      formatter = require "efmls-configs.formatters.stylua",
+    }
+    local javascript = {
+      formatter = prettierd,
+    }
 
     efmls.init {
       init_options = {
@@ -58,13 +64,10 @@ return {
     }
 
     efmls.setup {
-      lua = {
-        formatter = stylua,
-      },
-      javascript = {
-        linter = eslint,
-        formatter = prettierd,
-      },
+      lua = lua,
+      javascript = javascript,
+      typescript = javascript,
+      vue = javascript,
     }
   end,
 }
