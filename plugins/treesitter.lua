@@ -62,6 +62,36 @@ return {
   --   config = require "user.config.nvim-ts-rainbow2",
   -- },
   {
+    "hiphish/rainbow-delimiters.nvim",
+    event = "BufRead",
+    dependencies = { "nvim-treesitter/nvim-treesitter" },
+    config = function()
+      local rainbow_delimiters = require "rainbow-delimiters"
+
+      vim.g.rainbow_delimiters = {
+        strategy = {
+          [""] = rainbow_delimiters.strategy["global"],
+          commonlisp = rainbow_delimiters.strategy["local"],
+        },
+        query = {
+          [""] = "rainbow-delimiters",
+          lua = "rainbow-blocks",
+          vue = "rainbow-delimiters",
+        },
+        highlight = {
+          "RainbowDelimiterRed",
+          "RainbowDelimiterYellow",
+          "RainbowDelimiterBlue",
+          "RainbowDelimiterOrange",
+          "RainbowDelimiterGreen",
+          "RainbowDelimiterViolet",
+          "RainbowDelimiterCyan",
+        },
+        -- blacklist = { "c", "cpp" },
+      }
+    end,
+  },
+  {
     "David-Kunz/markid",
     event = "BufRead",
     dependencies = { "nvim-treesitter/nvim-treesitter" },
