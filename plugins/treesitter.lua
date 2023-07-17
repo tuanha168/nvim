@@ -76,7 +76,6 @@ return {
         query = {
           [""] = "rainbow-delimiters",
           lua = "rainbow-blocks",
-          vue = "rainbow-delimiters",
         },
         highlight = {
           "RainbowDelimiterRed",
