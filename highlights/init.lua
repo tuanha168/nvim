@@ -39,5 +39,9 @@ return function()
     LspInlayHint = { fg = pink, italic = true },
     LspSignatureActiveParameter = { bg = "#666666" },
     FlashMatch = { bg = pink },
+    RainbowDelimiterRed = { fg = "#fcb3ed" },
+    RainbowDelimiterYellow = { fg = "#f7f6c1" },
+    RainbowDelimiterBlue = { fg = "#a3e8ff" },
+    RainbowDelimiterGreen = { fg = "#b3fcb4" },
   }
 end
