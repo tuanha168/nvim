@@ -71,11 +71,11 @@ return {
       vim.g.rainbow_delimiters = {
         strategy = {
           [""] = rainbow_delimiters.strategy["global"],
+          vue = rainbow_delimiters.strategy["local"],
         },
         query = {
           [""] = "rainbow-delimiters",
           lua = "rainbow-blocks",
-          vue = "rainbow-parens",
         },
         highlight = {
           "RainbowDelimiterRed",
