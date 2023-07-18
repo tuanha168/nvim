@@ -168,9 +168,7 @@ local mappings = {
     },
   },
   i = {
-    ["<C-h>"] = { "<C-o>db", noremap = true },
-    ["<C-BS>"] = { function() Chiruno.print "ctrl backspace insert" end, noremap = true },
-    ["<C-Del>"] = { function() Chiruno.print "ctrl del" end, noremap = true },
+    ["<M-BS>"] = { "<C-w>", noremap = true },
   },
   x = {},
   o = {},
