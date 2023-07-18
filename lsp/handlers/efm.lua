@@ -1,5 +1,6 @@
 return function()
-  local efmls = require "efmls-configs"
+  local ok, efmls = pcall(require, "efmls-configs")
+  if not ok then return end
 
   local lua = {
     formatter = require "efmls-configs.formatters.stylua",
