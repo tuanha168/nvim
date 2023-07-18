@@ -1,7 +1,7 @@
 local fs = require "efmls-configs.fs"
 
 local formatter = "pint"
-local args = "--no-interaction --quiet ${INPUT}"
+local args = "--quiet ${INPUT}"
 local command = string.format("%s %s", fs.executable(formatter, fs.Scope.COMPOSER), args)
 
 return {
