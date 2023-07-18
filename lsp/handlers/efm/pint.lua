@@ -1,11 +1,10 @@
 local fs = require "efmls-configs.fs"
 
 local formatter = "pint"
-local args = "--no-interaction --quiet ${INPUT}"
-local command = string.format("%s %s", fs.executable(formatter, fs.Scope.COMPOSER), args)
+local command = string.format("%s --no-interaction --quiet", fs.executable(formatter, fs.Scope.COMPOSER))
 
 return {
   formatCommand = command,
-  formatStdin = false,
+  formatStdin = true,
   rootMarkers = { "pint.json", "composer.json", "composer.lock" },
 }
