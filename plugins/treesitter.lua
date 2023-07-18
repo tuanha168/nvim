@@ -70,7 +70,7 @@ return {
 
       vim.g.rainbow_delimiters = {
         strategy = {
-          [""] = rainbow_delimiters.strategy["global"],
+          [""] = rainbow_delimiters.strategy["local"],
         },
         query = {
           [""] = "rainbow-delimiters",
