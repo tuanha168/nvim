@@ -461,4 +461,8 @@ return {
   --   "folke/which-key.nvim",
   --   enabled = false,
   -- },
+  {
+    "00sapo/visual.nvim",
+    event = "BufRead",
+  },
 }
