@@ -9,7 +9,7 @@ return function()
   }
 
   efmls.init {
-    on_attach = require("astronvim.utils.lsp").config("efm").on_attach,
+    -- on_attach = require("astronvim.utils.lsp").config("efm").on_attach,
     init_options = {
       documentFormatting = true,
       hover = true,
