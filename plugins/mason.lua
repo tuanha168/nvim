@@ -4,9 +4,9 @@ return {
   {
     "williamboman/mason-lspconfig.nvim",
     -- overrides `require("mason-lspconfig").setup(...)`
-    dependencies = {
-      "creativenull/efmls-configs-nvim",
-    },
+    -- dependencies = {
+    --   "creativenull/efmls-configs-nvim",
+    -- },
     opts = {
       ensure_installed = {
         -- lua stuff
@@ -38,19 +38,19 @@ return {
 
         "yamlls",
 
-        "efm",
+        -- "efm",
       },
     },
   },
   -- use mason-null-ls to configure Formatters/Linter installation for null-ls sources
-  {
-    "jose-elias-alvarez/null-ls.nvim",
-    enabled = false,
-  },
+  -- {
+  --   "jose-elias-alvarez/null-ls.nvim",
+  --   enabled = false,
+  -- },
   {
     "jay-babu/mason-null-ls.nvim",
     -- overrides `require("mason-null-ls").setup(...)`
-    enabled = false,
+    -- enabled = false,
     opts = {
       ensure_installed = {
         "prettierd",
