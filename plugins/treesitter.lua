@@ -81,6 +81,9 @@ return {
           "RainbowDelimiterYellow",
           "RainbowDelimiterGreen",
           "RainbowDelimiterOrange",
+          "RainbowDelimiterBlue",
+          -- "RainbowDelimiterViolet",
+          -- "RainbowDelimiterCyan",
         },
         -- blacklist = { "c", "cpp" },
       }
