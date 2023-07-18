@@ -6,6 +6,6 @@ local command = string.format("%s %s", fs.executable(formatter, fs.Scope.COMPOSE
 
 return {
   formatCommand = command,
-  formatStdin = false,
+  formatStdin = true,
   rootMarkers = { "pint.json", "composer.json", "composer.lock" },
 }
