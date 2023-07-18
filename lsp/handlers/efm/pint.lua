@@ -5,6 +5,6 @@ local command = string.format("%s --no-interaction --quiet ${INPUT}", fs.executa
 
 return {
   formatCommand = command,
-  formatStdin = true,
+  formatStdin = false,
   rootMarkers = { "pint.json", "composer.json", "composer.lock" },
 }
