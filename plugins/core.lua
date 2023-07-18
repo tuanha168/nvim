@@ -124,53 +124,53 @@ return {
     build = "npm install -g tsun",
   },
 
-  -- {
-  --   "willothy/flatten.nvim",
-  --   lazy = false,
-  --   opts = {
-  --     callbacks = {
-  --       -- Called when a request to edit file(s) is received
-  --       pre_open = function() vim.cmd ":bd!" end,
-  --       -- Called after a file is opened
-  --       -- Passed the buf id, win id, and filetype of the new window
-  --       -- post_open = function(bufnr, winnr, filetype)
-  --       --   local utils = require "astronvim.utils"
-  --       --   if filetype ~= "gitcommit" then
-  --       --     vim.defer_fn(function()
-  --       --       utils.toggle_term_cmd "lazygit"
-  --       --       vim.cmd ":bd!"
-  --       --     end, 50)
-  --       --   else
-  --       --     vim.api.nvim_create_autocmd("BufWritePost", {
-  --       --       buffer = bufnr,
-  --       --       once = true,
-  --       --       callback = function()
-  --       --         -- This is a bit of a hack, but if you run bufdelete immediately
-  --       --         -- the shell can occasionally freeze
-  --       --         vim.defer_fn(function()
-  --       --           vim.api.nvim_buf_delete(bufnr, {})
-  --       --           utils.toggle_term_cmd "lazygit"
-  --       --         end, 50)
-  --       --       end,
-  --       --     })
-  --       --   end
-  --       -- end,
-  --       -- post_open = function() end,
-  --       -- Called when a file is open in blocking mode, after it's done blocking
-  --       -- (after bufdelete, bufunload, or quitpre for the blocking buffer)
-  --       -- block_end = function()
-  --       --   local openLazygit = vim.api.nvim_replace_termcodes("<leader>gg", true, false, true)
-  --       --   local quit = vim.api.nvim_replace_termcodes("i<Enter>q", true, false, true)
-  --       --   vim.api.nvim_feedkeys(openLazygit, "m", false)
-  --       --   vim.defer_fn(function() vim.api.nvim_feedkeys(quit, "m", false) end, 500)
-  --       -- end,
-  --     },
-  --     window = {
-  --       open = "current",
-  --       focus = "first",
-  --     },
-  --   },
-  -- },
+  {
+    "willothy/flatten.nvim",
+    lazy = false,
+    opts = {
+      callbacks = {
+        -- Called when a request to edit file(s) is received
+        pre_open = function() vim.cmd ":bd!" end,
+        -- Called after a file is opened
+        -- Passed the buf id, win id, and filetype of the new window
+        -- post_open = function(bufnr, winnr, filetype)
+        --   local utils = require "astronvim.utils"
+        --   if filetype ~= "gitcommit" then
+        --     vim.defer_fn(function()
+        --       utils.toggle_term_cmd "lazygit"
+        --       vim.cmd ":bd!"
+        --     end, 50)
+        --   else
+        --     vim.api.nvim_create_autocmd("BufWritePost", {
+        --       buffer = bufnr,
+        --       once = true,
+        --       callback = function()
+        --         -- This is a bit of a hack, but if you run bufdelete immediately
+        --         -- the shell can occasionally freeze
+        --         vim.defer_fn(function()
+        --           vim.api.nvim_buf_delete(bufnr, {})
+        --           utils.toggle_term_cmd "lazygit"
+        --         end, 50)
+        --       end,
+        --     })
+        --   end
+        -- end,
+        -- post_open = function() end,
+        -- Called when a file is open in blocking mode, after it's done blocking
+        -- (after bufdelete, bufunload, or quitpre for the blocking buffer)
+        -- block_end = function()
+        --   local openLazygit = vim.api.nvim_replace_termcodes("<leader>gg", true, false, true)
+        --   local quit = vim.api.nvim_replace_termcodes("i<Enter>q", true, false, true)
+        --   vim.api.nvim_feedkeys(openLazygit, "m", false)
+        --   vim.defer_fn(function() vim.api.nvim_feedkeys(quit, "m", false) end, 500)
+        -- end,
+      },
+      window = {
+        open = "current",
+        focus = "first",
+      },
+    },
+  },
 
   {
     "chrisgrieser/nvim-spider",
