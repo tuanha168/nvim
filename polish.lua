@@ -33,7 +33,11 @@ return function()
 
   autocmd({ "FocusGained", "BufEnter" }, {
     pattern = "*",
-    callback = function() vim.cmd "checktime" end,
+    callback = function()
+      vim.cmd "checktime"
+
+      require "user.Chiruno.func.print" "FocusGained"
+    end,
   })
 
   autocmd({ "BufRead", "BufNewFile" }, {
