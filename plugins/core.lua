@@ -461,4 +461,8 @@ return {
   --   "folke/which-key.nvim",
   --   enabled = false,
   -- },
+  {
+    "tmux-plugins/vim-tmux-focus-events",
+    event = "BufRead",
+  },
 }
