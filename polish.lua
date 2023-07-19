@@ -31,10 +31,10 @@ return function()
     end,
   })
 
-  -- autocmd({ "FocusGained", "BufEnter" }, {
-  --   pattern = "*",
-  --   callback = function() vim.cmd "checktime" end,
-  -- })
+  autocmd({ "FocusGained", "BufEnter" }, {
+    pattern = "*",
+    callback = function() vim.cmd "checktime" end,
+  })
 
   autocmd({ "BufRead", "BufNewFile" }, {
     pattern = "*.conf",
