@@ -19,6 +19,7 @@ local options = {
     -- cmdheight = 1,
     laststatus = 3,
     splitkeep = "screen",
+    autoread = true,
   },
   g = {
     matchup_matchparen_offscreen = { method = "popup" },
