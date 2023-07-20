@@ -60,10 +60,7 @@ return {
       handlers = {
         pint = function()
           local null_ls = require "null-ls"
-          null_ls.register(null_ls.builtins.formatting.pint.with {
-            command = "pint",
-            args = { "--preset", "psr12", "--no-interaction", "--quiet", "$FILENAME" },
-          })
+          null_ls.register(null_ls.builtins.formatting.pint)
         end,
       },
     },

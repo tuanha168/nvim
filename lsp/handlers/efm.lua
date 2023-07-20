@@ -34,8 +34,5 @@ return function()
     scss = prettierd,
     vue = prettierd,
     yaml = prettierd,
-    php = {
-      formatter = require "user.lsp.handlers.efm.pint",
-    },
   }
 end
