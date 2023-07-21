@@ -75,6 +75,7 @@ return {
         query = {
           [""] = "rainbow-delimiters",
           lua = "rainbow-blocks",
+          vue = "rainbow-blocks",
         },
         highlight = {
           "RainbowDelimiterRed",
@@ -82,8 +83,8 @@ return {
           "RainbowDelimiterGreen",
           "RainbowDelimiterOrange",
           "RainbowDelimiterBlue",
-          -- "RainbowDelimiterViolet",
-          -- "RainbowDelimiterCyan",
+          "RainbowDelimiterViolet",
+          "RainbowDelimiterCyan",
         },
         -- blacklist = { "c", "cpp" },
       }
