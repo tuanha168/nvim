@@ -1,6 +1,7 @@
 -- If you need more control, you can use the function()...end notation
 local options = {
   opt = {
+    clipboard = "",
     relativenumber = false,
     completeopt = { "menu", "menuone", "noselect" }, -- better autocomplete options
     smarttab = true,

@@ -81,6 +81,7 @@ local mappings = {
     ["q"] = { "<ESC>:ccl<CR>q", silent = true },
     -- Yank
     ["<c-c>"] = { '"+yiw', desc = "Yank", noremap = true },
+    ["<leader>y"] = { '"+y', desc = "Yank system clipboard", noremap = true },
     -- Telescope
     -- ["``"] = {
     --   "<cmd> Telescope project <CR>",
