@@ -1,5 +1,6 @@
 local mappings = {
   n = {
+    ["<leader>w"] = false,
     ["<leader>l"] = false,
     ["<leader>fm"] = false,
     ["<leader>ls"] = false,
