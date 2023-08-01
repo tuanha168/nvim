@@ -161,6 +161,8 @@ local mappings = {
     [">"] = { ">gv" },
     ["p"] = { '"_dP' },
     ["="] = { "=gv" },
+
+    ["<leader>y"] = { '"+y', desc = "Yank system clipboard", noremap = true },
     -- Disable Yank
     ["c"] = {
       '"_c',
