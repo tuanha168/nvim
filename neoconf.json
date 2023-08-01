@@ -121,8 +121,8 @@
     },
     "tailwindcss": {
       "tailwindCSS.experimental.classRegex": [
-        "[a-zA-Z]*[cC]lass\\s*=\\s*'(\\s|[a-zA-Z\\:\\-\\[\\]]*)'",
-        "[a-zA-Z]*[cC]lass\\s*=\\s*\"(\\s|[a-zA-Z\\:\\-\\[\\]]*)\""
+        "[a-zA-Z]*[cC]lass\\s*=\\s*'([^']*)'",
+        "[a-zA-Z]*[cC]lass\\s*=\\s*\"([^\"]*)\""
       ],
       "tailwindCSS.classAttributes": [
         "class",
