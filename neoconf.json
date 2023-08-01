@@ -120,6 +120,7 @@
       }
     },
     "tailwindcss": {
+      "tailwindCSS.experimental.classRegex": ["[a-zA-Z]*Class='([^']+)'"],
       "tailwindCSS.classAttributes": [
         "class",
         "className",
