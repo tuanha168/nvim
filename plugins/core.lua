@@ -347,7 +347,7 @@ return {
     "windwp/nvim-autopairs",
     event = "InsertEnter",
     opts = function(_, opts)
-      opts.fast_wrap.map = "<C-e>"
+      opts.fast_wrap.map = "<C-l>"
       opts.fast_wrap.keys = "hjklnmyuiopqwertasdfgzxcvb"
       opts.fast_wrap.highlight = "DiffAdd"
       opts.fast_wrap.pattern = string.gsub([[ [%.%:%'%"%)%>%]%)%}%,] ]], "%s+", "")
