@@ -466,8 +466,8 @@ return {
     event = { "UIEnter" },
     config = {
       indent = {
-        chars = { "·", "·", "·", "·" }, -- more code can be found in https://unicodeplus.com/
-        --        chars = { "│", "¦", "┆", "┊", }, -- more code can be found in https://unicodeplus.com/
+        -- chars = { "·", "·", "·", "·" }, -- more code can be found in https://unicodeplus.com/
+        chars = { "│", "¦", "┆", "┊" }, -- more code can be found in https://unicodeplus.com/
 
         style = {
           "#333333",
