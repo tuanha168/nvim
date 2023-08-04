@@ -483,13 +483,13 @@ return {
           vertical_line = "│",
           left_top = "╭",
           left_bottom = "╰",
-          right_arrow = ">",
+          right_arrow = "─",
         },
         style = "#00ffff",
       },
 
       line_num = {
-        style = "#00ffff",
+        style = "#fcb3ed",
       },
     },
   },
