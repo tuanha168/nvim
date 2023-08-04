@@ -16,6 +16,7 @@ return {
         "tsx",
         "html",
         "python",
+        "rust",
         "markdown",
         "markdown_inline",
         "query",
@@ -120,4 +121,37 @@ return {
   --   event = "BufRead",
   --   config = require("user.config.nvim-treesitter-textobjects").config,
   -- },
+  {
+    "shellRaining/hlchunk.nvim",
+    event = { "UIEnter" },
+    dependencies = { "nvim-treesitter/nvim-treesitter" },
+    config = {
+      indent = {
+        -- chars = { "·", "·", "·", "·" }, -- more code can be found in https://unicodeplus.com/
+        chars = { "│", "¦", "┆", "┊" }, -- more code can be found in https://unicodeplus.com/
+
+        style = {
+          "#333333",
+        },
+      },
+      blank = {
+        enable = false,
+      },
+
+      chunk = {
+        chars = {
+          horizontal_line = "─",
+          vertical_line = "│",
+          left_top = "╭",
+          left_bottom = "╰",
+          right_arrow = "─",
+        },
+        style = "#00ffff",
+      },
+
+      line_num = {
+        style = "#fcb3ed",
+      },
+    },
+  },
 }
