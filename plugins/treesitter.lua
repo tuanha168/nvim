@@ -22,6 +22,7 @@ return {
         "query",
         "norg",
         "vim",
+        "kdl",
         "bash",
       }
       opts.sync_install = true
