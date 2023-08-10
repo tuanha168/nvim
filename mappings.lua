@@ -82,7 +82,7 @@ local mappings = {
     -- Yank
     ["<c-c>"] = { '"+yiw', desc = "Yank", noremap = true },
     ["<leader>y"] = { '"+y', desc = "Yank system clipboard", noremap = true },
-    ["<leader>Y"] = { '"+Y', desc = "Yank system clipboard", noremap = true },
+    ["<leader>Y"] = { '"+y$', desc = "Yank system clipboard", noremap = true },
     ["<leader>p"] = { '"+p', desc = "Paste system clipboard", noremap = true },
     ["<leader>P"] = { '"+P', desc = "Paste system clipboard", noremap = true },
     -- Telescope
