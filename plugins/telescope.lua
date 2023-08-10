@@ -44,7 +44,7 @@ return {
     end,
     config = function()
       require("telescope").load_extension "yank_history"
-      vim.keymap.set("n", "<c-p>", "<cmd>Telescope yank_history<cr>", { silent = true })
+      vim.keymap.set("n", "<c-p>", "<cmd>Telescope yank_history<cr><esc>", { silent = true })
       vim.keymap.set({ "n", "x" }, "y", "<Plug>(YankyYank)")
     end,
   },
