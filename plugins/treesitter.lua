@@ -24,6 +24,7 @@ return {
         "vim",
         "kdl",
         "bash",
+        "zsh",
       }
       opts.sync_install = true
       opts.ignore_install = {}
