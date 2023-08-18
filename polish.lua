@@ -33,7 +33,10 @@ return function()
 
   autocmd({ "FocusGained", "BufEnter" }, {
     pattern = "*",
-    callback = function() vim.cmd "checktime" end,
+    callback = function()
+      vim.cmd "checktime"
+      vim.cmd "GitConflictRefresh"
+    end,
   })
 
   autocmd({ "BufRead", "BufNewFile" }, {
