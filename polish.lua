@@ -35,6 +35,8 @@ return function()
     pattern = "*",
     callback = function()
       vim.cmd "checktime"
+      local ok, _ = pcall(require, "git-conflict")
+      if not ok then return end
       vim.cmd "GitConflictRefresh"
     end,
   })
