@@ -25,6 +25,7 @@ return {
         "kdl",
         "bash",
         "dockerfile",
+        "yaml",
       }
       opts.sync_install = true
       opts.ignore_install = {}
