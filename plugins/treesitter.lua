@@ -24,6 +24,7 @@ return {
         "vim",
         "kdl",
         "bash",
+        "dockerfile",
       }
       opts.sync_install = true
       opts.ignore_install = {}
