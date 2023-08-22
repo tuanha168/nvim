@@ -474,7 +474,6 @@ return {
 
     opts = function()
       return {
-        bang_register = "+",
         url_builders = {
           ["yopaz"] = require("repolink").url_builder_for_github "https://github.com",
           -- ["bitbucket.org"] = require("repolink").url_builder_for_bitbucket "https://bitbucket.org",
