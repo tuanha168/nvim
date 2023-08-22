@@ -8,7 +8,7 @@ Chiruno.run_make = function()
       makeCommand = string.gsub(
         makeCommand,
         "tsc",
-        "yarn lint:tsc --watch --noEmit --pretty false | sed -E 's/\\(([[:digit:]]+),([[:digit:]]+)\\)/:\\1:\\2/'"
+        "yarn lint:tsc --noEmit --pretty false | sed -E 's/\\(([[:digit:]]+),([[:digit:]]+)\\)/:\\1:\\2/'"
       )
     elseif string.find(makeCommand, "eslint", 1, true) ~= nil then
       makeCommand = string.gsub(makeCommand, "eslint", "yarn lint:eslint --format unix")
