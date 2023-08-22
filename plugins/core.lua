@@ -444,14 +444,15 @@ return {
   {
     "aznhe21/actions-preview.nvim",
     opts = {
-      nui = {
-        dir = "row",
-        preview = {
-          size = "100%",
-          border = {
-            style = "rounded",
-            padding = { 0, 1 },
-          },
+      telescope = {
+        sorting_strategy = "ascending",
+        layout_strategy = "vertical",
+        layout_config = {
+          width = 0.8,
+          height = 0.9,
+          prompt_position = "right",
+          preview_cutoff = 20,
+          preview_height = function(_, _, max_lines) return max_lines - 15 end,
         },
       },
     },
