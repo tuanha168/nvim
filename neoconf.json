@@ -1,7 +1,9 @@
 {
   "lspconfig": {
     "volar": {
-      "css.customData": ["./tailwind.json"],
+      "css": {
+        "customData": ["./tailwind.json"]
+      },
       "takeOverMode.extension": "Vue.volar",
       "javascript": {
         "inlayHints": {
