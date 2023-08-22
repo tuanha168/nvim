@@ -7,6 +7,7 @@ local mappings = {
     ["<leader>lD"] = false,
     ["<leader>lS"] = false,
     ["<leader>fc"] = false,
+    ["<leader>gL"] = false,
     ["\\"] = false,
     ["|"] = false,
     ["<C-S-Up>"] = { function() require("smart-splits").resize_up() end, noremap = true, desc = "Resize split up" },

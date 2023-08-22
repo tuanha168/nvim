@@ -468,7 +468,7 @@ return {
     dependencies = { "nvim-lua/plenary.nvim" },
     cmd = { "RepoLink" },
     keys = {
-      { "<leader>gL", "<cmd>RepoLink .<cr>", desc = "RepoLink" },
+      { "<leader>gL", mode = { "n", "x" }, ":RepoLink! .<cr>", desc = "RepoLink" },
     },
     opts = function()
       return {
