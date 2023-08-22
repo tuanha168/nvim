@@ -268,6 +268,14 @@ return {
     cmd = { "Dispatch", "Make" },
   },
 
+  {
+    "dmmulroy/tsc.nvim",
+    cmd = "TSC",
+    opts = {
+      bin_path = "./node_modules/.bin/vue-tsc",
+    },
+  },
+
   -- {
   --   "rcarriga/nvim-notify",
   --   config = function()
