@@ -27,9 +27,9 @@ return {
     },
     ["<leader>e"] = {
       function()
-        local plugin, ok = pcall(require, "actions-preview")
+        local ok, actPrew = pcall(require, "actions-preview")
         if ok then
-          plugin.code_actions()
+          actPrew.code_actions()
         else
           vim.lsp.buf.code_action()
         end
