@@ -446,14 +446,23 @@ return {
     opts = {
       telescope = {
         sorting_strategy = "ascending",
-        layout_strategy = "vertical",
-        layout_config = {
-          width = 0.8,
-          height = 0.9,
-          prompt_position = "right",
-          preview_cutoff = 20,
-          preview_height = function(_, _, max_lines) return max_lines - 15 end,
-        },
+        layout_strategy = "horizontal",
+      },
+    },
+  },
+
+  {
+    "MaximilianLloyd/tw-values.nvim",
+    keys = {
+      { "<leader>sv", "<cmd>TWValues<cr>", desc = "Show tailwind CSS values" },
+    },
+    opts = {
+      border = "rounded", -- Valid window border style,
+      show_unknown_classes = true, -- Shows the unknown classes popup
+      focus_preview = true, -- Sets the preview as the current window
+      copy_register = "", -- The register to copy values to,
+      keymaps = {
+        copy = "<C-y>", -- Normal mode keymap to copy the CSS values between {}
       },
     },
   },
