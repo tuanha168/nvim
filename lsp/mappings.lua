@@ -37,10 +37,10 @@ return {
       desc = "LSP code action",
     },
     ["<leader>E"] = { function() vim.lsp.codelens.run() end, desc = "Run code lens" },
-    ["<leader>K"] = {
-      function() vim.lsp.buf.signature_help() end,
-      desc = "Signature help",
-    },
+    -- ["<leader>K"] = {
+    --   function() vim.lsp.buf.signature_help() end,
+    --   desc = "Signature help",
+    -- },
     ["<leader>k"] = {
       function() vim.lsp.buf.hover() end,
       desc = "Hover symbol details",
