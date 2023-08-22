@@ -465,13 +465,11 @@ return {
 
   {
     "9seconds/repolink.nvim",
-    dependencies = {
-      "nvim-lua/plenary.nvim",
+    dependencies = { "nvim-lua/plenary.nvim" },
+    cmd = { "RepoLink" },
+    keys = {
+      { "<leader>K", "<cmd>TWValues<cr>", desc = "Show tailwind CSS values" },
     },
-    cmd = {
-      "RepoLink",
-    },
-
     opts = function()
       return {
         url_builders = {
