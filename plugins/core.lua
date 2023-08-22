@@ -468,7 +468,7 @@ return {
     dependencies = { "nvim-lua/plenary.nvim" },
     cmd = { "RepoLink" },
     keys = {
-      { "<leader>K", "<cmd>TWValues<cr>", desc = "Show tailwind CSS values" },
+      { "<leader>gL", "<cmd>RepoLink .<cr>", desc = "RepoLink" },
     },
     opts = function()
       return {
