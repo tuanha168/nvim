@@ -463,6 +463,28 @@ return {
     },
   },
 
+  {
+    "9seconds/repolink.nvim",
+    dependencies = {
+      "nvim-lua/plenary.nvim",
+    },
+    cmd = {
+      "RepoLink",
+    },
+
+    opts = function()
+      return {
+        bang_register = "+",
+        url_builders = {
+          ["yopaz"] = require("repolink").url_builder_for_github "https://github.com",
+          -- ["bitbucket.org"] = require("repolink").url_builder_for_bitbucket "https://bitbucket.org",
+          -- ["gitlab.com"] = require("repolink").url_builder_for_gitlab "https://gitlab.com",
+          -- ["git.sr.ht"] = require("repolink").url_builder_for_sourcehut "https://git.sr.ht",
+        },
+      }
+    end,
+  },
+
   -- {
   --   "dstein64/vim-startuptime",
   --   cmd = "StartupTime",
