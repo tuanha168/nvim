@@ -444,11 +444,14 @@ return {
   {
     "aznhe21/actions-preview.nvim",
     opts = {
-      preview = {
-        size = "100%",
-        border = {
-          style = "rounded",
-          padding = { 0, 1 },
+      nui = {
+        dir = "row",
+        preview = {
+          size = "100%",
+          border = {
+            style = "rounded",
+            padding = { 0, 1 },
+          },
         },
       },
     },
