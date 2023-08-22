@@ -26,7 +26,14 @@ return {
       desc = "Format code",
     },
     ["<leader>e"] = {
-      function() vim.lsp.buf.code_action() end,
+      function()
+        local plugin, ok = pcall(require, "actions-preview")
+        if ok then
+          plugin.code_actions()
+        else
+          vim.lsp.buf.code_action()
+        end
+      end,
       desc = "LSP code action",
     },
     ["<leader>E"] = { function() vim.lsp.codelens.run() end, desc = "Run code lens" },

@@ -445,7 +445,6 @@ return {
     "aznhe21/actions-preview.nvim",
     event = "BufRead",
     opts = {},
-    config = function() vim.keymap.set({ "v", "n" }, "<leader>e", require("actions-preview").code_actions) end,
   },
 
   -- {
