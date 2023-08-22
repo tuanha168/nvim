@@ -1,5 +1,4 @@
 {
-  "css.customData": ["tailwind.json"],
   "lspconfig": {
     "volar": {
       "takeOverMode.extension": "Vue.volar",
