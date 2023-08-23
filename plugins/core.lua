@@ -268,19 +268,19 @@ return {
     cmd = { "Dispatch", "Make" },
   },
 
-  {
-    "JASONews/glow-hover",
-    opts = function()
-      return {
-        -- The followings are the default values
-        max_width = 50,
-        padding = 10,
-        border = "shadow",
-        glow_path = "glow",
-      }
-    end,
-    event = "LspAttach",
-  },
+  -- {
+  --   "JASONews/glow-hover",
+  --   opts = function()
+  --     return {
+  --       -- The followings are the default values
+  --       max_width = 50,
+  --       padding = 10,
+  --       border = "shadow",
+  --       glow_path = "glow",
+  --     }
+  --   end,
+  --   event = "LspAttach",
+  -- },
 
   -- {
   --   "dmmulroy/tsc.nvim",
