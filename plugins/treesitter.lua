@@ -12,6 +12,7 @@ return {
         "php",
         "pug",
         "json",
+        "jsonc",
         "css",
         "tsx",
         "html",
