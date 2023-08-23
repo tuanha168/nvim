@@ -268,6 +268,12 @@ return {
     cmd = { "Dispatch", "Make" },
   },
 
+  {
+    "JASONews/glow-hover",
+    opts = {},
+    keys = { "<leader>k" },
+  },
+
   -- {
   --   "dmmulroy/tsc.nvim",
   --   cmd = "TSC",
