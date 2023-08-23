@@ -273,7 +273,6 @@ return {
     opts = function()
       return {
         -- The followings are the default values
-        width = 50,
         max_width = 50,
         padding = 10,
         border = "shadow",
