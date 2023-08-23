@@ -270,13 +270,16 @@ return {
 
   {
     "JASONews/glow-hover",
-    opts = {
-      -- The followings are the default values
-      max_width = 50,
-      padding = 10,
-      border = "shadow",
-      glow_path = "glow",
-    },
+    opts = function()
+      return {
+        -- The followings are the default values
+        width = 50,
+        max_width = 50,
+        padding = 10,
+        border = "shadow",
+        glow_path = "glow",
+      }
+    end,
     event = "LspAttach",
   },
 
