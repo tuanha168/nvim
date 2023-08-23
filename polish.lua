@@ -9,7 +9,7 @@ return function()
     local markdown_lines = vim.lsp.util.convert_input_to_markdown_lines(result.contents)
     markdown_lines = vim.lsp.util.trim_empty_lines(markdown_lines)
     if vim.tbl_isempty(markdown_lines) then return end
-    vim.lsp.util.open_floating_preview(markdown_lines, "markdown", config)
+    return vim.lsp.util.open_floating_preview(markdown_lines, "markdown", config)
   end
 
   local autocmd = vim.api.nvim_create_autocmd
