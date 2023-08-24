@@ -42,6 +42,21 @@ return {
       opts.mapping["<C-k>"] = cmp.mapping { i = cmp.mapping.abort(), c = cmp.mapping.close() }
       opts.mapping["<C-j>"] = cmp.mapping { i = cmp.mapping.abort(), c = cmp.mapping.close() }
 
+      local lspkind = require "lspkind"
+
+      opts.formatting = {
+        format = lspkind.cmp_format {
+          mode = "symbol_text",
+          menu = {
+            buffer = "[Buffer]",
+            nvim_lsp = "[LSP]",
+            luasnip = "[LuaSnip]",
+            nvim_lua = "[Lua]",
+            latex_symbols = "[Latex]",
+          },
+        },
+      }
+
       return opts
     end,
   },
