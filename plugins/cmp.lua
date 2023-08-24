@@ -42,17 +42,16 @@ return {
       opts.mapping["<C-k>"] = cmp.mapping { i = cmp.mapping.abort(), c = cmp.mapping.close() }
       opts.mapping["<C-j>"] = cmp.mapping { i = cmp.mapping.abort(), c = cmp.mapping.close() }
 
-      -- local lspkind = require "lspkind"
-
-      -- opts.formatting = {
-      --   format = lspkind.cmp_format {
-      --     before = function(entry, vim_item)
-      --       if entry.source.name == "nvim_lsp" then vim_item.dup = 0 end
-      --       return vim_item
-      --     end,
-      --   },
-      -- }
-
+      return opts
+    end,
+  },
+  {
+    "onsails/lspkind.nvim",
+    opts = function(_, opts)
+      opts.before = function(entry, vim_item)
+        if entry.source.name == "nvim_lsp" then vim_item.dup = 0 end
+        return vim_item
+      end
       return opts
     end,
   },
