@@ -8,12 +8,8 @@ return {
   },
   {
     "hrsh7th/nvim-cmp",
-    dependencies = {
-      "hrsh7th/cmp-nvim-lsp-signature-help",
-    },
     opts = function(_, opts)
       opts.sources = {
-        { name = "nvim_lsp_signature_help", priority = 2000 },
         { name = "nvim_lsp", priority = 1000 },
         -- { name = "codeium", priority = 850 },
         -- { name = "cmp_tabnine", priority = 850 },
