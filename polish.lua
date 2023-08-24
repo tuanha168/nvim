@@ -2,6 +2,17 @@
 -- augroups/autocommands and custom filetypes also this just pure lua so
 -- anything that doesn't fit in the normal config locations above can go here
 return function()
+  vim.lsp.handlers["textDocument/hover"] = function(_, result, ctx, config)
+    config = config or {}
+    config.focus_id = ctx.method
+    config.border = "rounded"
+    if not (result and result.contents) then return end
+    local markdown_lines = vim.lsp.util.convert_input_to_markdown_lines(result.contents)
+    markdown_lines = vim.lsp.util.trim_empty_lines(markdown_lines)
+    if vim.tbl_isempty(markdown_lines) then return end
+    return vim.lsp.util.open_floating_preview(markdown_lines, "plaintext", config)
+  end
+
   local autocmd = vim.api.nvim_create_autocmd
 
   autocmd("BufRead", {
