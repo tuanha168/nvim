@@ -10,11 +10,11 @@ return function()
     local markdown_lines = vim.lsp.util.convert_input_to_markdown_lines(result.contents)
     markdown_lines = vim.lsp.util.trim_empty_lines(markdown_lines)
     if vim.tbl_isempty(markdown_lines) then return end
-    for k,v in pairs(markdown_lines) do
-      markdown_lines[k] = string.gsub(v, '^(%s*.-)%s*$', '%1')
+    for k, v in pairs(markdown_lines) do
+      markdown_lines[k] = string.gsub(v, "^(%s*.-)%s*$", "%1")
     end
     local floating_bufnr, _ = vim.lsp.util.open_floating_preview(markdown_lines, "", config)
-    vim.api.nvim_buf_set_option(floating_bufnr, 'filetype', 'markdown')
+    vim.api.nvim_buf_set_option(floating_bufnr, "filetype", "markdown")
   end
 
   local autocmd = vim.api.nvim_create_autocmd
