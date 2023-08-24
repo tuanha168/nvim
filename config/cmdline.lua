@@ -1,8 +1,6 @@
 local present, cmp = pcall(require, "cmp")
 
-if not present then
-  return
-end
+if not present then return end
 
 -- Set configuration for specific filetype.
 cmp.setup.filetype("gitcommit", {
