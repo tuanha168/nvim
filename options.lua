@@ -2,7 +2,7 @@
 local options = {
   opt = {
     clipboard = "",
-    relativenumber = false,
+    relativenumber = true,
     completeopt = { "menu", "menuone", "noselect" }, -- better autocomplete options
     smarttab = true,
     numberwidth = 4,
@@ -26,7 +26,7 @@ local options = {
     matchup_matchparen_offscreen = { method = "popup" },
     copilot_assume_mapped = true,
     kitty_navigator_no_mappings = 1,
-    lsp_handlers_enabled = false, -- enable or disable default vim.lsp.handlers (hover and signatureHelp)
+    lsp_handlers_enabled = true, -- enable or disable default vim.lsp.handlers (hover and signatureHelp)
     diagnostics_mode = 3, -- set the visibility of diagnostics in the UI (0=off, 1=only show in status line, 2=virtual text off, 3=all on)
   },
   o = {
