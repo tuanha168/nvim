@@ -42,24 +42,16 @@ return {
       opts.mapping["<C-k>"] = cmp.mapping { i = cmp.mapping.abort(), c = cmp.mapping.close() }
       opts.mapping["<C-j>"] = cmp.mapping { i = cmp.mapping.abort(), c = cmp.mapping.close() }
 
-      local lspkind = require "lspkind"
+      -- local lspkind = require "lspkind"
 
-      opts.formatting = {
-        format = lspkind.cmp_format {
-          mode = "symbol_text",
-          before = function(entry, vim_item)
-            if entry.source.name == "nvim_lsp" then vim_item.dup = 0 end
-            return vim_item
-          end,
-          menu = {
-            buffer = "[Buffer]",
-            nvim_lsp = "[LSP]",
-            luasnip = "[LuaSnip]",
-            nvim_lua = "[Lua]",
-            latex_symbols = "[Latex]",
-          },
-        },
-      }
+      -- opts.formatting = {
+      --   format = lspkind.cmp_format {
+      --     before = function(entry, vim_item)
+      --       if entry.source.name == "nvim_lsp" then vim_item.dup = 0 end
+      --       return vim_item
+      --     end,
+      --   },
+      -- }
 
       return opts
     end,
