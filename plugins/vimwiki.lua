@@ -1,8 +1,6 @@
 return {
-  {
-    "vimwiki/vimwiki",
-    config = function ()
-    end,
-    ft = { "markdown" },
-  },
+  -- {
+  --   "vimwiki/vimwiki",
+  --   ft = { "markdown" },
+  -- },
 }
