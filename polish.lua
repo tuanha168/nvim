@@ -7,9 +7,9 @@ return function()
     config.focus_id = ctx.method
     config.border = "rounded"
     if not (result and result.contents) then return end
-    Chiruno.print(result.contents.kind)
     local markdown_lines = vim.lsp.util.convert_input_to_markdown_lines(result.contents)
     markdown_lines = vim.lsp.util.trim_empty_lines(markdown_lines)
+    Chiruno.print(markdown_lines)
     if vim.tbl_isempty(markdown_lines) then return end
     local floating_bufnr, _ = vim.lsp.util.open_floating_preview(markdown_lines, "", config)
     vim.api.nvim_buf_set_option(floating_bufnr, 'filetype', 'markdown')
