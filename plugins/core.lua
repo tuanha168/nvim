@@ -451,7 +451,7 @@ return {
       vim.cmd "let g:VM_maps = {}"
       vim.cmd 'let g:VM_maps["Find Under"] = "<C-e>"'
       vim.cmd 'let g:VM_maps["Find Subword Under"] = "<C-e>"'
-      vim.cmd 'let g:VM_maps["Switch Mode"] = "<Tab>"'
+      vim.cmd 'let g:VM_maps["Switch Mode"] = "v"'
     end,
   },
 
