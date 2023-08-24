@@ -1,6 +1,6 @@
 return {
-  {
-    "vimwiki/vimwiki",
-    ft = { "markdown" },
-  },
+  -- {
+  --   "vimwiki/vimwiki",
+  --   ft = { "markdown" },
+  -- },
 }
