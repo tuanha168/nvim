@@ -47,6 +47,10 @@ return {
       opts.formatting = {
         format = lspkind.cmp_format {
           mode = "symbol_text",
+          before = function(entry, vim_item)
+            if entry.source.name == "nvim_lsp" then vim_item.dup = 0 end
+            return vim_item
+          end,
           menu = {
             buffer = "[Buffer]",
             nvim_lsp = "[LSP]",
