@@ -487,7 +487,11 @@ return {
         function()
           vim.ui.input({ prompt = "Enter origin: " }, function(origin)
             if origin == nil or origin == "" then origin = "origin" end
-            vim.cmd("'<,'>RepoLink! . " .. origin)
+            local selection = Chiruno.get_text_selection().selection
+            vim.api.nvim_win_set_cursor(0, { selection.startRow, selection.startCol })
+            vim.cmd "norm! o"
+            vim.api.nvim_win_set_cursor(0, { selection.finishRow, selection.finishCol })
+            vim.cmd("RepoLink! . " .. origin)
           end)
         end,
         mode = { "n", "x" },
