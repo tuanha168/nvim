@@ -110,6 +110,9 @@ local mappings = {
     ["C"] = {
       '"_C',
     },
+    ["D"] = {
+      '"_D',
+    },
     -- Neotree
     ["<leader>e"] = false,
     ["<c-n>"] = { "<cmd>Neotree toggle<cr>", desc = "Toggle Explorer" },
