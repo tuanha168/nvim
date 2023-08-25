@@ -486,7 +486,8 @@ return {
         "<leader>gL",
         function()
           vim.ui.input({ prompt = "Enter origin: " }, function(origin)
-            -- "<cmd>RepoLink! .<cr>"
+            if origin == nil or origin == "" then origin = "origin" end
+            vim.cmd("'<,'>RepoLink! . " .. origin)
           end)
         end,
         mode = { "n", "x" },
