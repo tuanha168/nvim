@@ -485,13 +485,16 @@ return {
       {
         "<leader>gL",
         function()
-          vim.ui.input({ prompt = "Enter origin: " }, function(origin)
-            if origin == nil or origin == "" then origin = "origin" end
+          vim.ui.input({ prompt = "Enter origin: ", default = "origin" }, function(origin)
+            if origin == nil or origin == "" then return end
             local selection = Chiruno.get_text_selection().selection
+            if vim.api.nvim_get_mode().mode ~= "v" then
+              vim.api.nvim_cmd({ cmd = "normal", bang = true, args = { "v" } }, {})
+            end
             vim.api.nvim_win_set_cursor(0, { selection.startRow, selection.startCol })
             vim.cmd "norm! o"
             vim.api.nvim_win_set_cursor(0, { selection.finishRow, selection.finishCol })
-            vim.cmd("RepoLink! . " .. origin)
+            Chiruno.feedkeys(":RepoLink! . " .. origin .. "<CR>", "n")
           end)
         end,
         mode = { "n", "x" },
