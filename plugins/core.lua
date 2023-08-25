@@ -482,7 +482,16 @@ return {
     dependencies = { "nvim-lua/plenary.nvim" },
     cmd = { "RepoLink" },
     keys = {
-      { "<leader>gL", mode = { "n", "x" }, "<cmd>RepoLink! .<cr>", desc = "RepoLink" },
+      {
+        "<leader>gL",
+        function()
+          vim.ui.input({ prompt = "Enter origin: " }, function(origin)
+            -- "<cmd>RepoLink! .<cr>"
+          end)
+        end,
+        mode = { "n", "x" },
+        desc = "RepoLink",
+      },
     },
     opts = function()
       return {
