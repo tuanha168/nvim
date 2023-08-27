@@ -11,9 +11,12 @@ local signature_setup = {
 }
 
 return function(client, bufnr)
-  Chiruno.print(client.server_capabilities)
-  -- client.server_capabilities.workspace.didChangeWatchedFiles.dynamicRegistration = false
-  if client.server_capabilities.inlayHintProvider then vim.lsp.inlay_hint(bufnr, true) end
+  if client.server_capabilities.workspace then
+    client.server_capabilities.workspace.didChangeWatchedFiles = client.server_capabilities.workspace.didChangeWatchedFiles
+      or {}
+    client.server_capabilities.workspace.didChangeWatchedFiles = { dynamicRegistration = false }
+  end
+  if client.server_capabilities.inlayHintProvider then vim.lsp.buf.inlay_hint(bufnr, true) end
   require("lsp_signature").on_attach(signature_setup, bufnr)
 
   if client.name == "rust_analyzer" then
