@@ -11,6 +11,8 @@ local signature_setup = {
 }
 
 return function(client, bufnr)
+  Chiruno.print(client.server_capabilities.workspace)
+  -- client.server_capabilities.workspace.didChangeWatchedFiles.dynamicRegistration = false
   if client.server_capabilities.inlayHintProvider then vim.lsp.inlay_hint(bufnr, true) end
   require("lsp_signature").on_attach(signature_setup, bufnr)
 
