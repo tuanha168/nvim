@@ -69,23 +69,18 @@ return function()
 
   local deboundComplete
 
-  autocmd({ "InsertChange" }, {
+  autocmd({ "InsertCharPre" }, {
     pattern = "*",
     callback = function()
-      Chiruno.print "InsertChange"
       if deboundComplete then deboundComplete = nil end
 
-      deboundComplete = function()
-        return vim.defer_fn(function()
-          local ok, cmp = pcall(require, "cmp")
-          if not ok then return end
+      deboundComplete = vim.defer_fn(function()
+        local ok, cmp = pcall(require, "cmp")
+        if not ok then return end
 
-          cmp.complete()
-          Chiruno.print "debound"
-        end, 1000)
-      end
-
-      deboundComplete()
+        cmp.complete()
+        Chiruno.print(deboundComplete)
+      end, 1500)
     end,
   })
 end
