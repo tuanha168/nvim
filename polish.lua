@@ -72,7 +72,11 @@ return function()
     callback = function()
       local ok, cmp = pcall(require, "cmp")
       if not ok then return end
-      vim.defer_fn(function() cmp.complete() end, 1000)
+      vim.defer_fn(function()
+        cmp.complete()
+
+        vim.defer_fn(function() cmp.complete() end, 1000)
+      end, 1000)
     end,
   })
 end
