@@ -79,11 +79,19 @@ return function()
       cmp.complete()
 
       deboundComplete()
-    end, 500)
+    end, 1000)
   end
 
   autocmd({ "InsertEnter" }, {
     pattern = "*",
-    callback = function() end,
+    callback = function()
+      debound = true
+      deboundComplete()
+    end,
+  })
+
+  autocmd({ "InsertLeave" }, {
+    pattern = "*",
+    callback = function() debound = false end,
   })
 end
