@@ -8,6 +8,7 @@ return {
       opts.source_selector = {
         winbar = false,
       }
+      opts.window.position = "float"
       return opts
     end,
   },
