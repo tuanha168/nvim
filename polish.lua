@@ -79,8 +79,7 @@ return function()
     pattern = "*",
     callback = function()
       local timer = vim.uv.new_timer()
-      timer:again(deboundComplete)
-      Chiruno.print(deboundComplete)
+      Chiruno.print(deboundComplete.again(timer))
     end,
   })
 end
