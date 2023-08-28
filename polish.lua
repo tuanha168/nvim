@@ -73,7 +73,7 @@ return function()
     vim.validate { fn = { fn, "c", true } }
     timer:start(
       timeout,
-      0,
+      1000,
       vim.schedule_wrap(function()
         if not timer:is_closing() then timer:close() end
 
@@ -90,8 +90,13 @@ return function()
     Chiruno.print "Complete"
   end, 1000)
 
+  timer:stop()
+
   autocmd({ "InsertEnter" }, {
     pattern = "*",
-    callback = function() timer:again() end,
+    callback = function()
+      timer:again()
+      vim.defer_fn(function() timer:set_repeat(1000) end, 1000)
+    end,
   })
 end
