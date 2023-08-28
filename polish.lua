@@ -69,31 +69,27 @@ return function()
 
   local timer = vim.uv.new_timer()
 
-  local deboundComplete = function(fn, timeout)
-    vim.validate { fn = { fn, "c", true } }
-    timer:start(
-      timeout,
-      1000,
-      vim.schedule_wrap(function()
-        timer:stop()
+  timer:start(
+    100,
+    500,
+    vim.schedule_wrap(function()
+      timer:stop()
+      local ok, cmp = pcall(require, "cmp")
+      if not ok then return end
 
-        fn()
-      end)
-    )
-  end
-
-  deboundComplete(function()
-    local ok, cmp = pcall(require, "cmp")
-    if not ok then return end
-
-    cmp.complete()
-    Chiruno.print "Complete"
-  end, 1000)
-
+      cmp.complete()
+      Chiruno.print "Complete"
+    end)
+  )
   timer:stop()
 
-  autocmd({ "InsertCharPre" }, {
+  autocmd({ "InsertEnter", "InsertCharPre" }, {
     pattern = "*",
     callback = function() timer:again() end,
+  })
+
+  autocmd({ "InsertLeave" }, {
+    pattern = "*",
+    callback = function() timer:stop() end,
   })
 end
