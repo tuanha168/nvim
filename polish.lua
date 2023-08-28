@@ -71,14 +71,13 @@ return function()
 
   timer:start(
     100,
-    500,
+    800,
     vim.schedule_wrap(function()
       timer:stop()
       local ok, cmp = pcall(require, "cmp")
       if not ok then return end
 
       cmp.complete()
-      Chiruno.print "Complete"
     end)
   )
   timer:stop()
