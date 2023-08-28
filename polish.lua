@@ -75,7 +75,7 @@ return function()
       timeout,
       1000,
       vim.schedule_wrap(function()
-        if not timer:is_closing() then timer:close() end
+        timer:stop()
 
         fn()
       end)
@@ -92,11 +92,8 @@ return function()
 
   timer:stop()
 
-  autocmd({ "InsertEnter" }, {
+  autocmd({ "InsertCharPre" }, {
     pattern = "*",
-    callback = function()
-      timer:again()
-      vim.defer_fn(function() timer:set_repeat(1000) end, 1000)
-    end,
+    callback = function() timer:again() end,
   })
 end
