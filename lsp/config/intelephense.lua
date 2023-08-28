@@ -1,6 +1,0 @@
-return {
-  filetypes = {
-    "php",
-    "blade",
-  },
-}
