@@ -66,4 +66,13 @@ return function()
       if string.match(event.match, os.getenv "HOME" .. "/.dotfile") then Chiruno.auto_push "~/.dotfile" end
     end,
   })
+
+  autocmd({ "InsertEnter" }, {
+    pattern = "*",
+    callback = function()
+      local ok, cmp = pcall(require, "cmp")
+      if not ok then return end
+      cmp.complete()
+    end,
+  })
 end
