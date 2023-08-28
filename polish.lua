@@ -67,31 +67,19 @@ return function()
     end,
   })
 
-  local debound = false
   local deboundComplete
 
-  deboundComplete = function()
-    vim.defer_fn(function()
-      if not debound then return end
-      local ok, cmp = pcall(require, "cmp")
-      if not ok then return end
-
-      cmp.complete()
-
-      deboundComplete()
-    end, 1000)
-  end
-
-  autocmd({ "InsertEnter" }, {
+  autocmd({ "InsertChange" }, {
     pattern = "*",
     callback = function()
-      debound = true
-      deboundComplete()
-    end,
-  })
+      if deboundComplete then deboundComplete = nil end
 
-  autocmd({ "InsertLeave" }, {
-    pattern = "*",
-    callback = function() debound = false end,
+      deboundComplete = vim.defer_fn(function()
+        local ok, cmp = pcall(require, "cmp")
+        if not ok then return end
+
+        cmp.complete()
+      end, 1000)
+    end,
   })
 end
