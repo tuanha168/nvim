@@ -75,8 +75,8 @@ return function()
       vim.defer_fn(function()
         cmp.complete()
 
-        vim.defer_fn(function() cmp.complete() end, 1000)
-      end, 1000)
+        vim.defer_fn(function() cmp.complete() end, 1500)
+      end, 500)
     end,
   })
 end
