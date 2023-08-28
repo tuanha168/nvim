@@ -67,19 +67,31 @@ return function()
     end,
   })
 
-  local deboundComplete = vim.defer_fn(function()
+  local timer = vim.uv.new_timer()
+
+  local deboundComplete = function(fn, timeout)
+    vim.validate { fn = { fn, "c", true } }
+    timer:start(
+      timeout,
+      0,
+      vim.schedule_wrap(function()
+        if not timer:is_closing() then timer:close() end
+
+        fn()
+      end)
+    )
+  end
+
+  deboundComplete(function()
     local ok, cmp = pcall(require, "cmp")
     if not ok then return end
 
     cmp.complete()
     Chiruno.print "Complete"
-  end, 1500)
+  end, 1000)
 
   autocmd({ "InsertEnter" }, {
     pattern = "*",
-    callback = function()
-      local timer = vim.uv.new_timer()
-      Chiruno.print(deboundComplete.again(timer))
-    end,
+    callback = function() timer:again() end,
   })
 end
