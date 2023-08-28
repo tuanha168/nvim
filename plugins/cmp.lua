@@ -10,7 +10,7 @@ return {
     "hrsh7th/nvim-cmp",
     opts = function(_, opts)
       opts.sources = {
-        { name = "nvim_lsp", priority = 1000, keyword_length = 1 },
+        { name = "nvim_lsp", priority = 1000 },
         -- { name = "codeium", priority = 850 },
         -- { name = "cmp_tabnine", priority = 850 },
         -- { name = "neorg", priority = 750 },
