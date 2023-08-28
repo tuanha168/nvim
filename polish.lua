@@ -67,16 +67,23 @@ return function()
     end,
   })
 
-  autocmd({ "InsertEnter" }, {
-    pattern = "*",
-    callback = function()
+  local debound = false
+  local deboundComplete
+
+  deboundComplete = function()
+    vim.defer_fn(function()
+      if not debound then return end
       local ok, cmp = pcall(require, "cmp")
       if not ok then return end
-      vim.defer_fn(function()
-        cmp.complete()
 
-        vim.defer_fn(function() cmp.complete() end, 1500)
-      end, 500)
-    end,
+      cmp.complete()
+
+      deboundComplete()
+    end, 500)
+  end
+
+  autocmd({ "InsertEnter" }, {
+    pattern = "*",
+    callback = function() end,
   })
 end
