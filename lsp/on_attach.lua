@@ -24,7 +24,9 @@ return function(client, bufnr)
     end
   end
   require("lsp_signature").on_attach(signature_setup, bufnr)
-  client.server_capabilities = require("cmp_nvim_lsp").default_capabilities(client.server_capabilities)
+  client.server_capabilities.textDocument = client.server_capabilities.textDocument or {}
+  client.server_capabilities.textDocument.completion =
+    require("cmp_nvim_lsp").default_capabilities(client.server_capabilities).textDocument.completion
 
   if client.name == "rust_analyzer" then
     local rt = require "rust-tools"
