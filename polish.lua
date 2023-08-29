@@ -71,7 +71,7 @@ return function()
 
   timer:start(
     100,
-    500,
+    1000,
     vim.schedule_wrap(function()
       timer:stop()
       local ok, cmp = pcall(require, "cmp")
