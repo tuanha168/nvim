@@ -17,8 +17,7 @@ return {
     },
   },
   -- Set colorscheme to use
-  -- colorscheme = "dracula",
-  colorscheme = "vscode",
+  colorscheme = "dracula",
   -- colorscheme = "github_dark",
   -- colorscheme = "dark_flat",
 

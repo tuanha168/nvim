@@ -1,14 +1,14 @@
 return {
-  { "projekt0n/github-nvim-theme", config = function() require("github-theme").setup {} end },
-  { "sekke276/dark_flat.nvim" },
-  {
-    "askfiy/visual_studio_code",
-    config = function()
-      require("visual_studio_code").setup {
-        mode = "dark",
-      }
-    end,
-  },
+  -- { "projekt0n/github-nvim-theme", config = function() require("github-theme").setup {} end },
+  -- { "sekke276/dark_flat.nvim" },
+  -- {
+  --   "askfiy/visual_studio_code",
+  --   config = function()
+  --     require("visual_studio_code").setup {
+  --       mode = "dark",
+  --     }
+  --   end,
+  -- },
   {
     "Mofiqul/dracula.nvim",
     opts = {
