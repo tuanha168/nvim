@@ -17,7 +17,7 @@ return {
     },
   },
   -- Set colorscheme to use
-  colorscheme = "kanagawa",
+  colorscheme = "dracula",
 
   -- heirline configuration
   icons = {
