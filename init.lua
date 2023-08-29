@@ -17,7 +17,7 @@ return {
     },
   },
   -- Set colorscheme to use
-  colorscheme = "dracula",
+  colorscheme = "catppuccin",
   -- colorscheme = "github_dark",
   -- colorscheme = "dark_flat",
 

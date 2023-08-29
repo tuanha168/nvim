@@ -10,6 +10,10 @@ return {
   --   end,
   -- },
   {
+    "catppuccin/nvim",
+    name = "catppuccin",
+  },
+  {
     "Mofiqul/dracula.nvim",
     opts = {
       -- customize dracula color palette
