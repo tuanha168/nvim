@@ -17,9 +17,7 @@ return {
     },
   },
   -- Set colorscheme to use
-  colorscheme = "catppuccin",
-  -- colorscheme = "github_dark",
-  -- colorscheme = "dark_flat",
+  colorscheme = "dracula",
 
   -- heirline configuration
   icons = {
