@@ -1,5 +1,11 @@
 return {
   {
+    "rebelot/kanagawa.nvim",
+    opts = {
+      transparent = true,
+    },
+  },
+  {
     "Mofiqul/dracula.nvim",
     opts = {
       -- customize dracula color palette
