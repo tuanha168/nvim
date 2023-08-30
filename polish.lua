@@ -23,6 +23,7 @@ return function()
     pattern = "*",
     callback = function()
       require "user.Chiruno"
+      Chiruno.auto_reload_cmp()
       vim.diagnostic.config { virtual_text = true }
     end,
     once = true,
@@ -66,6 +67,4 @@ return function()
       if string.match(event.match, os.getenv "HOME" .. "/.dotfile") then Chiruno.auto_push "~/.dotfile" end
     end,
   })
-
-  Chiruno.auto_reload_cmp()
 end
