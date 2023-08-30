@@ -1,4 +1,6 @@
-Chiruno.replace_motion = function(mode)
+Chiruno = Chiruno or {}
+
+function Chiruno.replace_motion(mode)
   local cword, selection = Chiruno.get_text_selection().text, Chiruno.get_text_selection().selection
   if cword == nil then return end
   if mode == "line" and selection.finishRow - selection.startRow ~= 0 then return end
@@ -32,3 +34,5 @@ Chiruno.replace_motion = function(mode)
   -- )
   -- vim.schedule(function() Chiruno.open_quickfix "test" end)
 end
+
+return Chiruno.replace_motion

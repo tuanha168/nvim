@@ -1,4 +1,6 @@
-Chiruno.get_text_selection = function()
+Chiruno = Chiruno or {}
+
+function Chiruno.get_text_selection()
   local selection = Chiruno.get_selection()
   if selection == nil then return end
 
@@ -9,3 +11,5 @@ Chiruno.get_text_selection = function()
   table.insert(selectedText, selection.endText)
   return { text = table.concat(selectedText, "\n"), selection = selection }
 end
+
+return Chiruno.get_text_selection

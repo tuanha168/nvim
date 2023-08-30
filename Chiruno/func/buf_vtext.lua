@@ -1,4 +1,6 @@
-Chiruno.buf_vtext = function()
+Chiruno = Chiruno or {}
+
+function Chiruno.buf_vtext()
   local a_orig = vim.fn.getreg "a"
   local mode = vim.fn.mode()
   if mode ~= "v" and mode ~= "V" then vim.cmd [[normal! gv]] end
@@ -7,3 +9,5 @@ Chiruno.buf_vtext = function()
   vim.fn.setreg("a", a_orig)
   return text
 end
+
+return Chiruno.buf_vtext

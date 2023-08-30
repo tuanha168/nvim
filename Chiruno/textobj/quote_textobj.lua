@@ -1,9 +1,11 @@
-Chiruno.is_inside = function(pos, selections)
+Chiruno = Chiruno or {}
+
+function Chiruno.is_inside(pos, selections)
   local buffer = require "nvim-surround.buffer"
   return buffer.comes_before(selections.first_pos, pos) and buffer.comes_before(pos, selections.last_pos)
 end
 
-Chiruno.filter_selections_list = function(selections_list)
+function Chiruno.filter_selections_list(selections_list)
   local buffer = require "nvim-surround.buffer"
   local curpos = buffer.get_curpos()
   local best_selections
@@ -48,7 +50,7 @@ Chiruno.filter_selections_list = function(selections_list)
 end
 
 ---@param mode "i"|"a"
-Chiruno.quote_textobj = function(mode)
+function Chiruno.quote_textobj(mode)
   local buffer = require "nvim-surround.buffer"
 
   if vim.api.nvim_get_mode().mode == "v" then vim.cmd "norm! v" end
@@ -76,3 +78,5 @@ Chiruno.quote_textobj = function(mode)
     buffer.set_curpos(endQuote)
   end
 end
+
+return Chiruno.quote_textobj

@@ -1,4 +1,6 @@
-Chiruno.format_motion = function()
+Chiruno = Chiruno or {}
+
+function Chiruno.format_motion()
   local opts = require("astronvim.utils.lsp").format_opts
   local selection = Chiruno.get_selection()
   local range = nil
@@ -11,3 +13,5 @@ Chiruno.format_motion = function()
 
   vim.lsp.buf.format(vim.tbl_deep_extend("force", opts, { range = range }))
 end
+
+return Chiruno.format_motion

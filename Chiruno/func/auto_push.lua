@@ -1,6 +1,6 @@
 Chiruno = Chiruno or {}
 
-local function auto_push(path)
+function Chiruno.auto_push(path)
   if vim.fn.executable "git-auto-push" == 1 then
     if not Chiruno.isdir_exist "~/.cache/git-auto-push" then vim.cmd "silent !mkdir ~/.cache/git-auto-push" end
     Chiruno.print("Auto Pushing " .. path)
@@ -9,7 +9,5 @@ local function auto_push(path)
     vim.cmd(cmd)
   end
 end
-
-Chiruno.auto_push = auto_push
 
 return Chiruno.auto_push
