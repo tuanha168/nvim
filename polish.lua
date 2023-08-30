@@ -67,28 +67,5 @@ return function()
     end,
   })
 
-  local timer = vim.uv.new_timer()
-
-  timer:start(
-    100,
-    1000,
-    vim.schedule_wrap(function()
-      timer:stop()
-      local ok, cmp = pcall(require, "cmp")
-      if not ok then return end
-
-      cmp.complete()
-    end)
-  )
-  timer:stop()
-
-  autocmd({ "InsertEnter", "InsertCharPre" }, {
-    pattern = "*",
-    callback = function() timer:again() end,
-  })
-
-  autocmd({ "InsertLeave" }, {
-    pattern = "*",
-    callback = function() timer:stop() end,
-  })
+  Chiruno.auto_reload_cmp()
 end
