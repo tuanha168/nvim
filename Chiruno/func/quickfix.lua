@@ -1,5 +1,3 @@
-Chiruno = Chiruno or {}
-
 function Chiruno.get_quickfix_by_title(title)
   for i = 1, 10 do
     local qflist = vim.fn.getqflist { nr = i, id = 0, title = true }

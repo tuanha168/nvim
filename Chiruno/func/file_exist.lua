@@ -1,5 +1,3 @@
-Chiruno = Chiruno or {}
-
 --- Check if a file or directory exists in this path
 function Chiruno.file_exist(file)
   local ok, err, code = os.rename(file, file)

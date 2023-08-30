@@ -1,5 +1,3 @@
-Chiruno = Chiruno or {}
-
 function Chiruno.is_inside(pos, selections)
   local buffer = require "nvim-surround.buffer"
   return buffer.comes_before(selections.first_pos, pos) and buffer.comes_before(pos, selections.last_pos)

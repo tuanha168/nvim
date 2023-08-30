@@ -1,5 +1,3 @@
-Chiruno = Chiruno or {}
-
 function Chiruno.get_text_selection()
   local selection = Chiruno.get_selection()
   if selection == nil then return end

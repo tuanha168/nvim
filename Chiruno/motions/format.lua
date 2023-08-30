@@ -1,5 +1,3 @@
-Chiruno = Chiruno or {}
-
 function Chiruno.format_motion()
   local opts = require("astronvim.utils.lsp").format_opts
   local selection = Chiruno.get_selection()

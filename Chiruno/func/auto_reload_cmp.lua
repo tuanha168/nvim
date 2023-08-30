@@ -1,5 +1,3 @@
-Chiruno = Chiruno or {}
-
 function Chiruno.auto_reload_cmp()
   local autocmd = vim.api.nvim_create_autocmd
   local timer

@@ -1,5 +1,3 @@
-Chiruno = Chiruno or {}
-
 function Chiruno.buf_vtext()
   local a_orig = vim.fn.getreg "a"
   local mode = vim.fn.mode()

@@ -1,5 +1,3 @@
-Chiruno = Chiruno or {}
-
 function _G.custom_complete_list() return { "tsc", "eslint", "stylelint" } end
 
 function Chiruno.run_make()

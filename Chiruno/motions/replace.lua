@@ -1,5 +1,3 @@
-Chiruno = Chiruno or {}
-
 function Chiruno.replace_motion(mode)
   local cword, selection = Chiruno.get_text_selection().text, Chiruno.get_text_selection().selection
   if cword == nil then return end
