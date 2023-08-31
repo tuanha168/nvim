@@ -166,7 +166,7 @@ local mappings = {
     -- Visual Indent
     ["<"] = { "<gv" },
     [">"] = { ">gv" },
-    ["p"] = { "P", noremap = true },
+    ["p"] = { function() Chiruno.print(123) end },
     ["="] = { "=gv" },
 
     ["<leader>y"] = { '"+y', desc = "Yank system clipboard", noremap = true },
