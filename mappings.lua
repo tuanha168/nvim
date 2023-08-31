@@ -166,7 +166,6 @@ local mappings = {
     -- Visual Indent
     ["<"] = { "<gv" },
     [">"] = { ">gv" },
-    ["p"] = { function() Chiruno.print(123) end },
     ["="] = { "=gv" },
 
     ["<leader>y"] = { '"+y', desc = "Yank system clipboard", noremap = true },
@@ -184,7 +183,11 @@ local mappings = {
   i = {
     ["<M-BS>"] = { "<C-w>", noremap = true },
   },
-  x = {},
+  x = {
+    -- swap p
+    ["p"] = { "P" },
+    ["P"] = { "p" },
+  },
   o = {},
 }
 
