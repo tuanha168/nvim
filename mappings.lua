@@ -166,7 +166,7 @@ local mappings = {
     -- Visual Indent
     ["<"] = { "<gv" },
     [">"] = { ">gv" },
-    ["p"] = { '"_dP' },
+    ["p"] = { "P", noremap = true },
     ["="] = { "=gv" },
 
     ["<leader>y"] = { '"+y', desc = "Yank system clipboard", noremap = true },
