@@ -367,6 +367,7 @@ return {
 
   {
     "windwp/nvim-autopairs",
+    enabled = false,
     event = "InsertEnter",
     opts = function(_, opts)
       opts.fast_wrap.map = "<C-l>"
