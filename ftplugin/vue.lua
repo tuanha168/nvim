@@ -18,7 +18,8 @@ vim.keymap.set("i", "=", function()
   return '=""<left>'
 end, { expr = true, buffer = true })
 
-local nPairs = require "nvim-autopairs"
+local ok, nPairs = pcall(require, "nvim-autopairs")
+if not ok then return end
 local Rule = require "nvim-autopairs.rule"
 local ts_conds = require "nvim-autopairs.ts-conds"
 nPairs.add_rules {
