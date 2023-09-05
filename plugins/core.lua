@@ -367,7 +367,7 @@ return {
 
   {
     "windwp/nvim-autopairs",
-    -- enabled = false,
+    enabled = false,
     event = "InsertEnter",
     opts = function(_, opts)
       opts.fast_wrap.map = "<C-l>"
@@ -378,14 +378,14 @@ return {
     end,
   },
 
-  -- {
-  --   "altermo/ultimate-autopair.nvim",
-  --   event = { "InsertEnter", "CmdlineEnter" },
-  --   branch = "v0.6",
-  --   opts = {
-  --     --Config goes here
-  --   },
-  -- },
+  {
+    "altermo/ultimate-autopair.nvim",
+    event = { "InsertEnter", "CmdlineEnter" },
+    branch = "v0.6",
+    opts = {
+      --Config goes here
+    },
+  },
 
   -- {
   --   "smoka7/multicursors.nvim",
