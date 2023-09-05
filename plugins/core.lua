@@ -384,10 +384,10 @@ return {
     branch = "v0.6",
     opts = {
       fastwarp = {
-        map = "<A-e>", --string or table
-        rmap = "<A-E>", --string or table
-        cmap = "<A-e>", --string or table
-        rcmap = "<A-E>", --string or table
+        map = "<C-l>", --string or table
+        rmap = "<C-h>", --string or table
+        cmap = "<C-l>", --string or table
+        rcmap = "<C-h>", --string or table
         multiline = false,
       },
     },
