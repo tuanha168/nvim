@@ -383,7 +383,13 @@ return {
     event = { "InsertEnter", "CmdlineEnter" },
     branch = "v0.6",
     opts = {
-      --Config goes here
+      fastwarp = {
+        map = "<A-e>", --string or table
+        rmap = "<A-E>", --string or table
+        cmap = "<A-e>", --string or table
+        rcmap = "<A-E>", --string or table
+        multiline = false,
+      },
     },
   },
 
