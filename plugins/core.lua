@@ -505,7 +505,7 @@ return {
           if vim.api.nvim_get_mode().mode == "V" or vim.api.nvim_get_mode().mode == "v" then prefix = "'<,'>" end
           vim.ui.input({ prompt = "Enter origin: " }, function(origin)
             if origin == nil or origin == "" then origin = "origin" end
-            Chiruno.feedkeys(":" .. prefix .. "RepoLink! . " .. origin .. "<CR>", "n")
+            Chiruno.feedkeys(":" .. prefix .. "RepoLink! release " .. origin .. "<CR>", "n")
           end)
         end,
         mode = { "n", "x" },
