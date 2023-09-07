@@ -503,9 +503,12 @@ return {
         function()
           local prefix = ""
           if vim.api.nvim_get_mode().mode == "V" or vim.api.nvim_get_mode().mode == "v" then prefix = "'<,'>" end
-          vim.ui.input({ prompt = "Enter origin: " }, function(origin)
+          vim.ui.input({ prompt = "Enter origin(default: origin): " }, function(origin)
             if origin == nil or origin == "" then origin = "origin" end
-            Chiruno.feedkeys(":" .. prefix .. "RepoLink! release " .. origin .. "<CR>", "n")
+            vim.ui.input({ prompt = "Enter branch(default: develop): " }, function(branch)
+              if branch == nil or branch == "" then branch = "develop" end
+              Chiruno.feedkeys(":" .. prefix .. "RepoLink! " .. branch .. " " .. origin .. "<CR>", "n")
+            end)
           end)
         end,
         mode = { "n", "x" },
