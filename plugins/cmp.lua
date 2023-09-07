@@ -15,7 +15,7 @@ return {
         -- { name = "cmp_tabnine", priority = 850 },
         -- { name = "neorg", priority = 750 },
         { name = "luasnip", priority = 750 },
-        -- { name = "buffer", priority = 500, keyword_length = 3 },
+        { name = "buffer", priority = 500, keyword_length = 3 },
         { name = "path", priority = 250 },
       }
 
