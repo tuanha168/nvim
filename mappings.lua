@@ -168,10 +168,10 @@ local mappings = {
     [">"] = { ">gv" },
     ["="] = { "=gv" },
 
-    ["<leader>y"] = { '"+y', desc = "Yank system clipboard", noremap = true },
-    ["<leader>Y"] = { '"+Y', desc = "Yank system clipboard", noremap = true },
-    ["<leader>p"] = { '"+p', desc = "Paste system clipboard", noremap = true },
-    ["<leader>P"] = { '"+P', desc = "Paste system clipboard", noremap = true },
+    -- ["<leader>y"] = { '"+y', desc = "Yank system clipboard", noremap = true },
+    -- ["<leader>Y"] = { '"+Y', desc = "Yank system clipboard", noremap = true },
+    -- ["<leader>p"] = { '"+p', desc = "Paste system clipboard", noremap = true },
+    -- ["<leader>P"] = { '"+P', desc = "Paste system clipboard", noremap = true },
     -- Disable Yank
     ["c"] = {
       '"_c',

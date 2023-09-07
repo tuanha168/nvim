@@ -1,7 +1,7 @@
 -- If you need more control, you can use the function()...end notation
 local options = {
   opt = {
-    clipboard = "",
+    clipboard = "unnamedplus",
     relativenumber = true,
     completeopt = { "menu", "menuone", "noselect" }, -- better autocomplete options
     smarttab = true,
@@ -39,7 +39,6 @@ vim.opt.iskeyword:append "-"
 if vim.g.neovide then
   local opts = {
     guifont = "CaskaydiaCove Nerd Font:h15",
-    clipboard = "unnamedplus",
   }
   for k, v in pairs(opts) do
     options.opt[k] = v
@@ -63,7 +62,6 @@ return options
 --   if vim.g.neovide then
 --     local opts = {
 --       guifont = "CaskaydiaCove Nerd Font:h15",
---       clipboard = "unnamedplus",
 --     }
 --     for k, v in pairs(opts) do
 --       options.opt[k] = v
