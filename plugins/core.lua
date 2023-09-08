@@ -555,4 +555,9 @@ return {
   --   "folke/which-key.nvim",
   --   enabled = false,
   -- },
+
+  { -- TODO: REMOVE neovim-session-manager with AstroNvim v4
+    "Shatur/neovim-session-manager",
+    enabled = false,
+  },
 }
