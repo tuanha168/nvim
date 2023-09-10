@@ -24,7 +24,7 @@ return function(client, bufnr)
     end
   end
   require("lsp_signature").on_attach(signature_setup, bufnr)
-  Chiruno.print(client.server_capabilities)
+  if client.name == "volar" then client.server_capabilities.referencesProvider = false end
 
   if client.name == "rust_analyzer" then
     local rt = require "rust-tools"
