@@ -1,6 +1,6 @@
-return {
-  filetypes = {
-    -- "typescript",
-    "html",
-  },
-}
+-- return {
+--   filetypes = {
+--     "typescript",
+--     "html",
+--   },
+-- }
