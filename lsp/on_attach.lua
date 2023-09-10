@@ -24,7 +24,7 @@ return function(client, bufnr)
     end
   end
   require("lsp_signature").on_attach(signature_setup, bufnr)
-  if client.name == "volar" then client.handlers["textDocument/references"] = function() return nil end end
+  if client.name == "volar" then client.handlers["textDocument/references"] = function(a) Chiruno.print(a) end end
 
   if client.name == "rust_analyzer" then
     local rt = require "rust-tools"
