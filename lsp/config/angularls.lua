@@ -1,6 +1,6 @@
 return {
   filetypes = {
-    "typescript",
+    -- "typescript",
     "html",
   },
 }
