@@ -16,12 +16,12 @@ end
 
 return {
   filetypes = {
-    -- "javascript",
-    -- "javascript.jsx",
-    -- "javascriptreact",
-    -- "typescript",
-    -- "typescript.tsx",
-    -- "typescriptreact",
+    "javascript",
+    "javascript.jsx",
+    "javascriptreact",
+    "typescript",
+    "typescript.tsx",
+    "typescriptreact",
     "vue",
   },
   on_new_config = function(new_config, new_root_dir)
