@@ -24,7 +24,7 @@ return function(client, bufnr)
     end
   end
   require("lsp_signature").on_attach(signature_setup, bufnr)
-  Chiruno.print(client)
+  if client.name == "tsserver" then Chiruno.print(client) end
 
   if client.name == "rust_analyzer" then
     local rt = require "rust-tools"
