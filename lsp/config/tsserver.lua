@@ -1,3 +1,3 @@
--- return {
---   filetypes = { "not_exist_extentions" },
--- }
+return {
+  filetypes = { "not_exist_extentions" },
+}
