@@ -21,6 +21,7 @@ local options = {
     -- cmdheight = 1,
     laststatus = 3,
     splitkeep = "screen",
+    scrolloff = 10,
   },
   g = {
     matchup_matchparen_offscreen = { method = "popup" },
