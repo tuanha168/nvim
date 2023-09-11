@@ -560,4 +560,7 @@ return {
     "Shatur/neovim-session-manager",
     enabled = false,
   },
+  {
+    "pocco81/high-str.nvim",
+  },
 }
