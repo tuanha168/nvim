@@ -563,8 +563,16 @@ return {
   {
     "pocco81/high-str.nvim",
     keys = {
-      { "<leader>hs", ":<c-u>HSHighlight 1<CR>", mode = "v", noremap = true, silent = true },
-      { "<leader>hc", ":<c-u>HSRmHighlight<CR>", mode = "v", noremap = true, silent = true },
+      { "<leader>h1", ":<c-u>HSHighlight 1<CR>", mode = "v", noremap = true, silent = true },
+      { "<leader>h2", ":<c-u>HSHighlight 2<CR>", mode = "v", noremap = true, silent = true },
+      { "<leader>h3", ":<c-u>HSHighlight 3<CR>", mode = "v", noremap = true, silent = true },
+      { "<leader>h4", ":<c-u>HSHighlight 4<CR>", mode = "v", noremap = true, silent = true },
+      { "<leader>h5", ":<c-u>HSHighlight 5<CR>", mode = "v", noremap = true, silent = true },
+      { "<leader>h6", ":<c-u>HSHighlight 6<CR>", mode = "v", noremap = true, silent = true },
+      { "<leader>h7", ":<c-u>HSHighlight 7<CR>", mode = "v", noremap = true, silent = true },
+      { "<leader>h8", ":<c-u>HSHighlight 8<CR>", mode = "v", noremap = true, silent = true },
+      { "<leader>h9", ":<c-u>HSHighlight 9<CR>", mode = "v", noremap = true, silent = true },
+      { "<leader>hc", "v:<c-u>HSRmHighlight<CR>", mode = "n", noremap = true, silent = true },
     },
   },
 }
