@@ -562,5 +562,9 @@ return {
   },
   {
     "pocco81/high-str.nvim",
+    keys = {
+      { "<leader>hs", ":<c-u>HSHighlight 1<CR>", mode = "v", noremap = true, silent = true },
+      { "<leader>hc", ":<c-u>HSRmHighlight<CR>", mode = "n", noremap = true, silent = true },
+    },
   },
 }
