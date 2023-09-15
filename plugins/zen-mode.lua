@@ -11,4 +11,8 @@ return {
       { "<leader>z", "<cmd>ZenMode<CR>", desc = "Zen Mode" },
     },
   },
+  {
+    "folke/twilight.nvim",
+    event = "BufRead",
+  },
 }
