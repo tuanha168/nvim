@@ -80,7 +80,7 @@ local mappings = {
     ["{"] = { "<C-u>zz" },
     -- Close Preview
     ["<CR>"] = { "<CR>zz", silent = true },
-    ["q"] = { "<ESC>:ccl<CR>q", silent = true },
+    -- ["q"] = { "<ESC>:ccl<CR>q", silent = true },
     -- Yank
     ["<c-c>"] = { '"+yiw', desc = "Yank", noremap = true },
     ["<leader>y"] = { '"+y', desc = "Yank system clipboard", noremap = true },
