@@ -1,19 +1,14 @@
 return {
   {
-    "pocco81/true-zen.nvim",
+    "folke/zen-mode.nvim",
     event = "BufEnter",
-    keys = {
-      { "<leader>z", "<cmd>TZAtaraxis<CR>", desc = "Zen Mode" },
-    },
     opts = {
-      modes = {
-        ataraxis = {
-          callbacks = {
-            open_pre = function() require("lualine").hide() end,
-            close_pre = function() require("lualine").hide { unhide = true } end,
-          },
-        },
+      window = {
+        width = 0.70,
       },
+    },
+    keys = {
+      { "<leader>z", "<cmd>ZenMode<CR>", desc = "Zen Mode" },
     },
   },
 }
