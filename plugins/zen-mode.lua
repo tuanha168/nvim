@@ -1,11 +1,9 @@
 return {
   {
-    "folke/zen-mode.nvim",
+    "pocco81/true-zen.nvim",
     event = "BufEnter",
-    opts = {
-      window = {
-        width = 0.70,
-      },
+    keys = {
+      { "<leader>z", "<cmd>TZAtaraxis<CR>", desc = "Zen Mode" },
     },
   },
 }
