@@ -6,6 +6,7 @@ return {
       window = {
         width = 0.60,
       },
+      on_close = function(a) Chiruno.print(a) end,
     },
     keys = {
       {
