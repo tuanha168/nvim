@@ -27,6 +27,7 @@ return {
       context = 15,
       expand = { -- for treesitter, we we always try to expand to the top-most ancestor with these types
         "function_declaration",
+        "if_statement",
         "try_statement",
         "arrow_function",
         "variable_declarator",
