@@ -13,7 +13,6 @@ local function nullWindow()
       swapfile = false,
       filetype = "neo-tree",
       undolevels = -1,
-      focusable = false,
     },
     win_options = {
       colorcolumn = "",
