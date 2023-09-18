@@ -24,11 +24,13 @@ return {
   {
     "folke/twilight.nvim",
     opts = {
+      context = 15,
       expand = { -- for treesitter, we we always try to expand to the top-most ancestor with these types
         "function",
         "method",
         "table",
         "try_statement",
+        "arrow_function",
       },
     },
   },
