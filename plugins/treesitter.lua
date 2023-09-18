@@ -53,8 +53,8 @@ return {
   {
     "windwp/nvim-ts-autotag",
     dependencies = { "nvim-treesitter/nvim-treesitter" },
-    opts = require("user.config.nvim-ts-autotag").opts,
-    config = require("user.config.nvim-ts-autotag").config(),
+    opts = true,
+    config = require "user.config.nvim-ts-autotag"(),
   },
   {
     "nvim-treesitter/nvim-treesitter-context",
