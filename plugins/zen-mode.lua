@@ -2,12 +2,22 @@ return {
   {
     "folke/zen-mode.nvim",
     event = "BufEnter",
-    opts = {
-      window = {
-        width = 0.60,
-      },
-      on_close = function(a) Chiruno.print(a) end,
-    },
+    opts = function()
+      local win
+      return {
+        window = {
+          width = 0.60,
+        },
+        on_open = function(_win) win = _win end,
+        on_close = function()
+          if not win then return end
+          if vim.api.nvim_win_get_buf(win.parent) ~= vim.api.nvim_win_get_buf(win.win) then
+            vim.api.nvim_win_set_buf(win.parent, vim.api.nvim_win_get_buf(win.win))
+            vim.api.nvim_win_set_cursor(win.parent, vim.api.nvim_win_get_cursor(win.win))
+          end
+        end,
+      }
+    end,
     keys = {
       {
         "<leader>z",
