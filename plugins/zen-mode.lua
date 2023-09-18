@@ -30,7 +30,7 @@ return {
         "if_statement",
         "try_statement",
         "arrow_function",
-        "variable_declarator",
+        "lexical_declaration",
       },
     },
   },
