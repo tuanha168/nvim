@@ -16,18 +16,24 @@ local function nullWindow()
     },
     win_options = {
       colorcolumn = "",
+      numbercolumn = false,
       signcolumn = "no",
     },
   }
 
   -- mount/open the component
-  split:mount()
 
-  vim.api.nvim_create_autocmd("ChirunoCustom", {
-    pattern = "NeotreeToggle",
+  vim.api.nvim_create_autocmd("User", {
+    pattern = "ChirunoNeotreeToggle",
     callback = function(e)
-      Chiruno.print(e)
-      split:unmount()
+      if vim.api.nvim_buf_is_valid(e.buf) then
+        local bufName = vim.api.nvim_buf_get_name(e.buf)
+        if string.find(bufName, "neo-tree", 1, true) ~= nil then
+          split:unmount()
+        else
+          split:mount()
+        end
+      end
     end,
     group = vim.api.nvim_create_augroup("NeoTree", { clear = true }),
   })
