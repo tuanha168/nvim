@@ -14,35 +14,8 @@ return {
           -- close NeoTree
           local ok, neo = pcall(require, "neo-tree.command")
           if ok then neo.execute { action = "close" } end
-          local Split = require "nui.split"
-          local event = require("nui.utils.autocmd").event
 
-          local highlights = require "neo-tree.ui.highlights"
-          local split = Split {
-            ns_id = highlights.ns_id,
-            relative = "editor",
-            position = "left",
-            size = "20%",
-            buf_options = {
-              buftype = "nofile",
-              modifiable = false,
-              swapfile = false,
-              filetype = "neo-tree",
-              undolevels = -1,
-            },
-            win_options = {
-              colorcolumn = "",
-              signcolumn = "no",
-            },
-          }
-
-          -- mount/open the component
-          split:mount()
-
-          -- unmount component when cursor leaves buffer
-          split:on(event.BufLeave, function() split:unmount() end)
-
-          -- require("zen-mode").toggle()
+          require("zen-mode").toggle()
         end,
         desc = "Zen Mode",
       },
