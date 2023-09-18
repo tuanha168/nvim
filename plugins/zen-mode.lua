@@ -17,7 +17,9 @@ return {
           local Split = require "nui.split"
           local event = require("nui.utils.autocmd").event
 
+          local highlights = require "neo-tree.ui.highlights"
           local split = Split {
+            ns_id = highlights.ns_id,
             relative = "editor",
             position = "left",
             size = "20%",
