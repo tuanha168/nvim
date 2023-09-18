@@ -16,42 +16,12 @@ return {
         "<c-n>",
         function()
           local ok, neo = pcall(require, "neo-tree.command")
-          if ok then neo.execute { toggle = true } end
+          if ok then
+            neo.execute { toggle = true }
+            vim.api.nvim_exec_autocmds("NeotreeToggle", {})
 
-          local Split = require "nui.split"
-          local event = require("nui.utils.autocmd").event
-
-          local highlights = require "neo-tree.ui.highlights"
-          local split = Split {
-            ns_id = highlights.ns_id,
-            relative = "editor",
-            position = "left",
-            size = "20%",
-            buf_options = {
-              buftype = "nofile",
-              modifiable = false,
-              swapfile = false,
-              filetype = "neo-tree",
-              undolevels = -1,
-            },
-            win_options = {
-              colorcolumn = "",
-              signcolumn = "no",
-            },
-          }
-
-          -- mount/open the component
-          split:mount()
-
-          -- unmount component when cursor leaves buffer
-          vim.api.nvim_create_autocmd("Neotree", {
-            pattern = "*",
-            callback = function(e)
-              Chiruno.print(e)
-              split:unmount()
-            end,
-            group = vim.api.nvim_create_augroup("NeoTree", { clear = true }),
-          })
+            vim.api.nvim_exec_autocmds("ChirunoCustom", { pattern = "NeotreeToggle", modeline = false })
+          end
         end,
         desc = "Neo Tree",
       },
