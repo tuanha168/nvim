@@ -33,7 +33,7 @@ local function nullWindow()
           split:unmount()
         else
           split:mount()
-          vim.api.nvim_win_set_buf(vim.api.nvim_get_current_win(), e.buf)
+          -- vim.api.nvim_win_set_buf(vim.api.nvim_get_current_win(), e.buf)
         end
       end
     end,
