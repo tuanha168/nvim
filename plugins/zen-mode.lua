@@ -15,6 +15,7 @@ return {
           local ok, neo = pcall(require, "neo-tree.command")
           if ok then neo.execute { action = "close" } end
           local Split = require "nui.split"
+          local event = require("nui.utils.autocmd").event
 
           local highlights = require "neo-tree.ui.highlights"
           local split = Split {
@@ -39,7 +40,7 @@ return {
           split:mount()
 
           -- unmount component when cursor leaves buffer
-          split:on("NeotreeLeave", function() split:unmount() end)
+          split:on(event.BufLeave, function() split:unmount() end)
 
           -- require("zen-mode").toggle()
         end,
