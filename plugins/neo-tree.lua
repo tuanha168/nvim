@@ -44,7 +44,14 @@ return {
           split:mount()
 
           -- unmount component when cursor leaves buffer
-          split:on(event.BufLeave, function() split:unmount() end)
+          vim.api.nvim_create_autocmd("Neotree", {
+            pattern = "*",
+            callback = function(e)
+              Chiruno.print(e)
+              split:unmount()
+            end,
+            group = vim.api.nvim_create_augroup("NeoTree", { clear = true }),
+          })
         end,
         desc = "Neo Tree",
       },
