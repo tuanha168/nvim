@@ -8,7 +8,17 @@ return {
       },
     },
     keys = {
-      { "<leader>z", function() require("zen-mode").toggle() end, desc = "Zen Mode" },
+      {
+        "<leader>z",
+        function()
+          -- close NeoTree
+          local ok, neo = pcall(require, "neo-tree.command")
+          if ok then neo.execute { action = "close" } end
+
+          require("zen-mode").toggle()
+        end,
+        desc = "Zen Mode",
+      },
     },
   },
   {
