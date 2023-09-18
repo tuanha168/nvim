@@ -23,6 +23,17 @@ return {
             relative = "editor",
             position = "left",
             size = "20%",
+            buf_options = {
+              buftype = "nofile",
+              modifiable = false,
+              swapfile = false,
+              filetype = "neo-tree",
+              undolevels = -1,
+            },
+            win_options = {
+              colorcolumn = "",
+              signcolumn = "no",
+            },
           }
 
           -- mount/open the component
