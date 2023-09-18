@@ -29,6 +29,7 @@ return {
         "function_declaration",
         "try_statement",
         "arrow_function",
+        "raw_text",
       },
     },
   },
