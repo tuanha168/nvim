@@ -8,7 +8,7 @@ return {
       },
     },
     keys = {
-      { "<leader>z", "<cmd>ZenMode<CR>", desc = "Zen Mode" },
+      { "<leader>z", function() require("zen-mode").toggle() end, desc = "Zen Mode" },
     },
   },
   {
