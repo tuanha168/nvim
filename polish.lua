@@ -16,7 +16,7 @@ local function nullWindow()
     },
     win_options = {
       colorcolumn = "",
-      numbercolumn = false,
+      numberwidth = 1,
       signcolumn = "no",
     },
   }
