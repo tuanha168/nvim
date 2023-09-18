@@ -32,8 +32,8 @@ local function nullWindow()
         if string.find(bufName, "neo-tree", 1, true) ~= nil then
           split:unmount()
         else
-          Chiruno.print(vim.api.nvim_get_current_win())
           split:mount()
+          vim.api.nvim_win_set_buf(vim.api.nvim_get_current_win(), e.buf)
         end
       end
     end,
