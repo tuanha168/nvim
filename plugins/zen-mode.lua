@@ -40,7 +40,7 @@ return {
           split:mount()
 
           -- unmount component when cursor leaves buffer
-          -- split:on(event.BufLeave, function() split:unmount() end)
+          split:on("neo_tree_window_before_open", function() split:unmount() end)
 
           -- require("zen-mode").toggle()
         end,
