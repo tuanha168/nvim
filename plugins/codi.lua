@@ -6,7 +6,6 @@ return {
       "nvim-lua/plenary.nvim",
       "MunifTanjim/nui.nvim",
     },
-    event = "VeryLazy",
     keys = {
       {
         "<leader>at",
@@ -41,6 +40,9 @@ return {
           if string.find(vim.api.nvim_buf_get_name(e.buf), "scratch/src", 1, true) then
             vim.b.scratch_entered = true
             vim.cmd "e"
+            local _ok, neo = pcall(require, "neo-tree.command")
+            if _ok then neo.execute { action = "close" } end
+
             Chiruno.close_null_window()
             vim.cmd "Codi"
             Chiruno.open_null_window()
