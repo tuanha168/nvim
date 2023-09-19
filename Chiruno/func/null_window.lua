@@ -1,7 +1,5 @@
 Chiruno = Chiruno or {}
 
-local Split = require "nui.split"
-
 local options = {
   relative = "editor",
   position = "left",
@@ -22,7 +20,7 @@ local options = {
   },
 }
 
-local split = Split(options)
+local split
 
 function Chiruno.null_window()
   local autocmd = vim.api.nvim_create_autocmd
@@ -62,10 +60,16 @@ function Chiruno.null_window()
   })
 end
 
-function Chiruno.open_null_window() split:unmount() end
-
 function Chiruno.close_null_window()
+  if not split then return end
   split:unmount()
+end
+
+function Chiruno.open_null_window()
+  local ok, Split = pcall(require, "nui.split")
+  if not ok then return end
+
+  if split then split:unmount() end
   split = Split(options)
   split:mount()
   vim.cmd.wincmd "p"

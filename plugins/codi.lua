@@ -4,6 +4,7 @@ return {
     "m-demare/attempt.nvim",
     dependencies = {
       "nvim-lua/plenary.nvim",
+      "MunifTanjim/nui.nvim",
     },
     event = "VeryLazy",
     keys = {
@@ -33,7 +34,7 @@ return {
       if not ok then return end
       telescope.load_extension "attempt"
 
-      vim.api.nvim_create_autocmd({ "BufRead" }, {
+      vim.api.nvim_create_autocmd({ "LspAttach" }, {
         pattern = "*",
         callback = function(e)
           if string.find(vim.api.nvim_buf_get_name(e.buf), "scratch/src", 1, true) then
