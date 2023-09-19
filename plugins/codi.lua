@@ -6,6 +6,7 @@ return {
       "nvim-lua/plenary.nvim",
       "MunifTanjim/nui.nvim",
     },
+    event = "BufReadPre",
     keys = {
       {
         "<leader>at",
@@ -37,6 +38,7 @@ return {
         pattern = "*",
         callback = function(e)
           if vim.b.scratch_entered then return end
+          if string.find(vim.api.nvim_buf_get_name(e.buf), "plug.data", 1, true) then return end
           if string.find(vim.api.nvim_buf_get_name(e.buf), "scratch/src", 1, true) then
             vim.b.scratch_entered = true
             vim.cmd "e"
