@@ -8,6 +8,7 @@ return {
     "m-demare/attempt.nvim",
     dependencies = {
       "nvim-lua/plenary.nvim",
+      "metakirby5/codi.vim",
     },
     event = "VeryLazy",
     keys = {
