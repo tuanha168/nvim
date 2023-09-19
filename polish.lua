@@ -62,7 +62,7 @@ return function()
     callback = function(event)
       if
         string.match(event.match, os.getenv "HOME" .. "/.config/nvim/lua/user")
-        and not string.match(event.match, "scratch")
+        and not string.match(event.match, "scratch/src")
       then
         Chiruno.auto_push "~/.config/nvim/lua/user"
       end

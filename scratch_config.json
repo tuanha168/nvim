@@ -12,7 +12,7 @@
       ]
     }
   ],
-  "scratch_file_dir": "~/.config/nvim/lua/user/scratch/src/",
+  "scratch_file_dir": "${HOME}/.config/nvim/lua/user/scratch/src",
   "filetype_details": {
     "go": {
       "filename": "main",
