@@ -2,7 +2,7 @@ Chiruno = Chiruno or {}
 
 Chiruno.constants = {
   templateBuffer = "template-buffer",
-  templateBufferSize = "15%",
+  templateBufferSize = "18%",
   events = {
     NeoTreeToggle = "ChirunoNeotreeToggle",
   },
