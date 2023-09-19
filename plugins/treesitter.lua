@@ -148,6 +148,8 @@ return {
     event = { "UIEnter" },
     dependencies = { "nvim-treesitter/nvim-treesitter" },
     config = function()
+      local ft = require("hlchunk.utils.filetype").exclude_filetypes
+      local exclude_filetypes = Chiruno.extends_table(ft, { Chiruno.constants.templateBuffer })
       return {
         indent = {
           -- chars = { "·", "·", "·", "·" }, -- more code can be found in https://unicodeplus.com/
@@ -170,7 +172,7 @@ return {
             right_arrow = "─",
           },
           style = "#00ffff",
-          exclude_filetypes = { Chiruno.constants.templateBuffer },
+          exclude_filetypes = exclude_filetypes,
         },
 
         line_num = {
