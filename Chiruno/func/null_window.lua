@@ -64,4 +64,6 @@ function Chiruno.null_window()
   })
 end
 
+function Chiruno.open_null_window() end
+
 return Chiruno.null_window
