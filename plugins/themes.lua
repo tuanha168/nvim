@@ -54,6 +54,23 @@ return {
           if success then return output end
         end,
       }
+      opts.tabline[1].condition = function(self)
+        self.winid = vim.api.nvim_tabpage_list_wins(0)[1]
+        local env = require "user.Chiruno.env"
+        vim.notify(env.templateBuffer, vim.log.levels.WARN)
+        return status.condition.buffer_matches({
+          filetype = {
+            "NvimTree",
+            "OverseerList",
+            "aerial",
+            "dap-repl",
+            "dapui_.",
+            "edgy",
+            "neo%-tree",
+            "undotree",
+          },
+        }, vim.api.nvim_win_get_buf(self.winid))
+      end
 
       opts.statusline = {
         -- default highlight for the entire statusline

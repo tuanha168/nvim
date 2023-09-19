@@ -8,6 +8,7 @@ return {
       opts.source_selector = {
         winbar = false,
       }
+      opts.window.width = Chiruno.constants.templateBufferSize
       -- opts.window.position = "float"
       return opts
     end,
@@ -19,7 +20,7 @@ return {
           if ok then
             neo.execute { toggle = true }
 
-            vim.api.nvim_exec_autocmds("User", { pattern = Chiruno.events.NeoTreeToggle, modeline = false })
+            vim.api.nvim_exec_autocmds("User", { pattern = Chiruno.constants.events.NeoTreeToggle, modeline = false })
           end
         end,
         desc = "Neo Tree",

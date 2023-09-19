@@ -24,7 +24,7 @@ return function()
     callback = function()
       require "user.Chiruno"
       Chiruno.auto_reload_cmp()
-      Chiruno.null_window()
+      -- Chiruno.null_window()
       vim.diagnostic.config { virtual_text = true }
     end,
     once = true,

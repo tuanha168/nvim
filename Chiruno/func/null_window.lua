@@ -41,7 +41,7 @@ function Chiruno.null_window()
   })
 
   autocmd("User", {
-    pattern = Chiruno.events.NeoTreeToggle,
+    pattern = Chiruno.constants.events.NeoTreeToggle,
     callback = function(e)
       if vim.api.nvim_buf_is_valid(e.buf) then
         local bufName = vim.api.nvim_buf_get_name(e.buf)
