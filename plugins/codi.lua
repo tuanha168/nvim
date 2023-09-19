@@ -9,7 +9,18 @@ return {
     dependencies = {
       "nvim-lua/plenary.nvim",
     },
-    opts = {},
+    keys = {
+      {
+        "<leader>at",
+        function()
+          local ok, attempt = pcall(require, "attempt")
+          if not ok then return end
+          attempt.setup()
+          attempt.new_select()
+        end,
+        desc = "Attempt",
+      },
+    },
     config = function()
       local ok, telescope = pcall(require, "telescope")
       if not ok then return end
