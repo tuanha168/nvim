@@ -18,17 +18,6 @@ return {
           if not ok then return end
 
           attempt.new_select()
-          vim.api.nvim_create_autocmd({ "BufEnter" }, {
-            pattern = "*",
-            callback = function(e)
-              if string.find(vim.api.nvim_buf_get_name(e.buf), "scratch", 1, true) then
-                vim.cmd "Codi"
-                local cmds_found, cmds = pcall(vim.api.nvim_get_autocmds, { group = "attempt" })
-                if cmds_found then vim.tbl_map(function(cmd) vim.api.nvim_del_autocmd(cmd.id) end, cmds) end
-              end
-            end,
-            group = vim.api.nvim_create_augroup("attempt", { clear = true }),
-          })
         end,
         desc = "Attempt",
       },
@@ -47,6 +36,15 @@ return {
       local ok, telescope = pcall(require, "telescope")
       if not ok then return end
       telescope.load_extension "attempt"
+
+      vim.api.nvim_create_autocmd({ "BufEnter" }, {
+        pattern = "*",
+        callback = function(e)
+          if string.find(vim.api.nvim_buf_get_name(e.buf), "scratch/src", 1, true) then
+            vim.defer_fn(function() vim.cmd "Codi" end, 500)
+          end
+        end,
+      })
     end,
   },
 }
