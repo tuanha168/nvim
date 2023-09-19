@@ -18,12 +18,16 @@ return {
           if not ok then return end
 
           attempt.new_select()
-          vim.api.nvim_create_autocmd({ "LspAttach" }, {
-            once = true,
+          vim.api.nvim_create_autocmd({ "BufEnter" }, {
             pattern = "*",
             callback = function(e)
-              if string.find(vim.api.nvim_buf_get_name(e.buf), "scratch", 1, true) then vim.cmd "Codi" end
+              if string.find(vim.api.nvim_buf_get_name(e.buf), "scratch", 1, true) then
+                vim.cmd "Codi"
+                local cmds_found, cmds = pcall(vim.api.nvim_get_autocmds, { group = "attempt" })
+                if cmds_found then vim.tbl_map(function(cmd) vim.api.nvim_del_autocmd(cmd.id) end, cmds) end
+              end
             end,
+            group = vim.api.nvim_create_augroup("attempt", { clear = true }),
           })
         end,
         desc = "Attempt",
