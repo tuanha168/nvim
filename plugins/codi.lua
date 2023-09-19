@@ -26,8 +26,10 @@ return {
 
           builtin.find_files {
             prompt_title = "Attempt",
+            search_dirs = { os.getenv "HOME" .. "/.config/nvim/lua/user/scratch/src" },
             cwd = os.getenv "HOME" .. "/.config/nvim/lua/user/scratch/src",
             follow = true,
+            no_ignore_parent = true,
           }
         end,
         desc = "Telescope Attempt",
