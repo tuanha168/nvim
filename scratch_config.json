@@ -12,7 +12,7 @@
       ]
     }
   ],
-  "scratch_file_dir": "/Users/tuanha/.cache/nvim/scratch.nvim",
+  "scratch_file_dir": "~/.config/nvim/lua/user/scratch",
   "filetype_details": {
     "go": {
       "filename": "main",
