@@ -56,7 +56,6 @@ return {
       }
       opts.tabline[1].condition = function(self)
         self.winid = vim.api.nvim_tabpage_list_wins(0)[1]
-        local env = require "user.Chiruno.env"
         return status.condition.buffer_matches({
           filetype = {
             "NvimTree",
@@ -67,7 +66,7 @@ return {
             "edgy",
             "neo%-tree",
             "undotree",
-            env.templateBuffer,
+            "template%-buffer",
           },
         }, vim.api.nvim_win_get_buf(self.winid))
       end

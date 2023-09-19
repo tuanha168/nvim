@@ -4,7 +4,7 @@ function Chiruno.null_window()
   local autocmd = vim.api.nvim_create_autocmd
   local Split = require "nui.split"
 
-  local split = Split {
+  local options = {
     relative = "editor",
     position = "left",
     size = Chiruno.constants.templateBufferSize,
@@ -23,6 +23,8 @@ function Chiruno.null_window()
       cursorline = false,
     },
   }
+
+  local split = Split(options)
 
   autocmd({ "FileType" }, {
     pattern = Chiruno.constants.templateBuffer,
@@ -46,9 +48,10 @@ function Chiruno.null_window()
       if vim.api.nvim_buf_is_valid(e.buf) then
         local bufName = vim.api.nvim_buf_get_name(e.buf)
         if string.find(bufName, "neo-tree", 1, true) ~= nil then
-          split:hide()
+          split:unmount()
         else
-          split:show()
+          split = Split(options)
+          split:mount()
           vim.cmd.wincmd "p"
         end
       end
