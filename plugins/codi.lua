@@ -33,7 +33,7 @@ return {
       if not ok then return end
       telescope.load_extension "attempt"
 
-      vim.api.nvim_create_autocmd({ "BufNew" }, {
+      vim.api.nvim_create_autocmd({ "BufRead" }, {
         pattern = "*",
         callback = function(e)
           if string.find(vim.api.nvim_buf_get_name(e.buf), "scratch/src", 1, true) then
