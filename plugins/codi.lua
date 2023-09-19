@@ -5,7 +5,15 @@ return {
     build = "npm install -g tsun",
   },
   {
-    "LintaoAmons/scratch.nvim",
-    cmd = { "Scratch", "ScratchOpenFzf" },
+    "m-demare/attempt.nvim",
+    dependencies = {
+      "nvim-lua/plenary.nvim",
+    },
+    opts = {},
+    config = function()
+      local ok, telescope = pcall(require, "telescope")
+      if not ok then return end
+      telescope.load_extension "attempt"
+    end,
   },
 }
