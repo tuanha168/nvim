@@ -15,11 +15,15 @@ return {
         function()
           local ok, attempt = pcall(require, "attempt")
           if not ok then return end
-          attempt.setup()
+
           attempt.new_select()
         end,
         desc = "Attempt",
       },
+    },
+    opts = {
+      dir = os.getenv "HOME" .. "/.config/nvim/lua/user/scratch/src",
+      ext_options = { "lua", "js", "ts", "py", "cpp", "c" }, -- Options to choose from
     },
     config = function()
       local ok, telescope = pcall(require, "telescope")
