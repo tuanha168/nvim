@@ -1,7 +1,7 @@
 Chiruno = Chiruno or {}
 
-Chiruno.event = {
+Chiruno.events = {
   NeoTreeToggle = "ChirunoNeotreeToggle",
 }
 
-return Chiruno.event
+return Chiruno.events

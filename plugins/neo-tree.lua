@@ -19,7 +19,7 @@ return {
           if ok then
             neo.execute { toggle = true }
 
-            vim.api.nvim_exec_autocmds("User", { pattern = "ChirunoNeotreeToggle", modeline = false })
+            vim.api.nvim_exec_autocmds("User", { pattern = Chiruno.events.NeoTreeToggle, modeline = false })
           end
         end,
         desc = "Neo Tree",
