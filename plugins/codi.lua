@@ -39,7 +39,9 @@ return {
           if string.find(vim.api.nvim_buf_get_name(e.buf), "scratch/src", 1, true) then
             vim.defer_fn(function()
               vim.cmd "e"
+              Chiruno.close_null_window()
               vim.cmd "Codi"
+              Chiruno.open_null_window()
             end, 1000)
           end
         end,
