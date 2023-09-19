@@ -8,12 +8,9 @@ end
 function Chiruno.null_window()
   local autocmd = vim.api.nvim_create_autocmd
   local Split = require "nui.split"
-
   local buf_file_type = "template-space"
 
-  local highlights = require "neo-tree.ui.highlights"
   local split = Split {
-    ns_id = highlights.ns_id,
     relative = "editor",
     position = "left",
     size = "30",
@@ -33,7 +30,6 @@ function Chiruno.null_window()
     },
   }
 
-  -- mount/open the component
   autocmd({ "FileType" }, {
     pattern = buf_file_type,
     callback = function() vim.opt_local.cursorline = false end,
