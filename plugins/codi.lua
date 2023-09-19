@@ -9,6 +9,7 @@ return {
     dependencies = {
       "nvim-lua/plenary.nvim",
     },
+    event = "VeryLazy",
     keys = {
       {
         "<leader>at",
@@ -17,15 +18,24 @@ return {
           if not ok then return end
 
           attempt.new_select()
+          vim.api.nvim_create_autocmd({ "LspAttach" }, {
+            once = true,
+            pattern = "*",
+            callback = function(e)
+              vim.cmd "Codi"
+              Chiruno.print(vim.api.nvim_buf_get_name(e.buf))
+            end,
+          })
         end,
         desc = "Attempt",
       },
     },
-    opts = {
-      dir = os.getenv "HOME" .. "/.config/nvim/lua/user/scratch/src",
-      ext_options = { "lua", "js", "ts", "py", "cpp", "c" }, -- Options to choose from
-    },
     config = function()
+      require("attempt").setup {
+        dir = os.getenv "HOME" .. "/.config/nvim/lua/user/scratch/src",
+        ext_options = { "lua", "js", "ts", "py", "cpp", "c" }, -- Options to choose from
+      }
+
       local ok, telescope = pcall(require, "telescope")
       if not ok then return end
       telescope.load_extension "attempt"
