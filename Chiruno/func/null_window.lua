@@ -1,10 +1,5 @@
 Chiruno = Chiruno or {}
 
-local function show(split)
-  split:show()
-  Chiruno.feedkeys("<C-w>l", "n")
-end
-
 function Chiruno.null_window()
   local autocmd = vim.api.nvim_create_autocmd
   local Split = require "nui.split"
@@ -54,7 +49,9 @@ function Chiruno.null_window()
         if string.find(bufName, "neo-tree", 1, true) ~= nil then
           split:hide()
         else
-          show(split)
+          vim.cmd [[let g:mybufname=bufname('%')]]
+          split:show()
+          vim.cmd [[exec bufwinnr(g:mybufname) . 'wincmd w']]
         end
       end
     end,
