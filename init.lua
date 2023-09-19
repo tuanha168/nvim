@@ -1,3 +1,5 @@
+require "user.Chiruno"
+
 return {
   -- Configure AstroNvim updates
   updater = {

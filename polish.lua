@@ -22,7 +22,6 @@ return function()
   autocmd("BufRead", {
     pattern = "*",
     callback = function()
-      require "user.Chiruno"
       Chiruno.auto_reload_cmp()
       Chiruno.null_window()
       vim.diagnostic.config { virtual_text = true }
