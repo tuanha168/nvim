@@ -27,25 +27,6 @@ return {
     },
   },
 
-  {
-    "lukas-reineke/indent-blankline.nvim",
-    opts = function(_, opts)
-      opts.filetype_exclude = {
-        "help",
-        "startify",
-        "aerial",
-        "alpha",
-        "dashboard",
-        "lazy",
-        "neogitstatus",
-        "NvimTree",
-        "neo-tree",
-        "Trouble",
-      }
-      return opts
-    end,
-  },
-
   -- {
   --   "folke/edgy.nvim",
   --   event = "VeryLazy",

@@ -3,7 +3,6 @@ Chiruno = Chiruno or {}
 function Chiruno.null_window()
   local autocmd = vim.api.nvim_create_autocmd
   local Split = require "nui.split"
-  local buf_file_type = "template-space"
 
   local split = Split {
     relative = "editor",
@@ -13,7 +12,7 @@ function Chiruno.null_window()
       buftype = "nofile",
       modifiable = false,
       swapfile = false,
-      filetype = buf_file_type,
+      filetype = Chiruno.templateBuffer,
       undolevels = -1,
     },
     win_options = {
@@ -26,7 +25,7 @@ function Chiruno.null_window()
   }
 
   autocmd({ "FileType" }, {
-    pattern = buf_file_type,
+    pattern = Chiruno.templateBuffer,
     callback = function() vim.opt_local.cursorline = false end,
     once = true,
   })
