@@ -147,34 +147,37 @@ return {
     "shellRaining/hlchunk.nvim",
     event = { "UIEnter" },
     dependencies = { "nvim-treesitter/nvim-treesitter" },
-    config = {
-      indent = {
-        -- chars = { "·", "·", "·", "·" }, -- more code can be found in https://unicodeplus.com/
-        chars = { "│", "¦", "┆", "┊" }, -- more code can be found in https://unicodeplus.com/
+    config = function()
+      return {
+        indent = {
+          -- chars = { "·", "·", "·", "·" }, -- more code can be found in https://unicodeplus.com/
+          chars = { "│", "¦", "┆", "┊" }, -- more code can be found in https://unicodeplus.com/
 
-        style = {
-          "#333333",
+          style = {
+            "#333333",
+          },
         },
-      },
-      blank = {
-        enable = false,
-      },
-
-      chunk = {
-        chars = {
-          horizontal_line = "─",
-          vertical_line = "│",
-          left_top = "╭",
-          left_bottom = "╰",
-          right_arrow = "─",
+        blank = {
+          enable = false,
         },
-        style = "#00ffff",
-      },
 
-      line_num = {
-        style = "#fcb3ed",
-      },
-    },
+        chunk = {
+          chars = {
+            horizontal_line = "─",
+            vertical_line = "│",
+            left_top = "╭",
+            left_bottom = "╰",
+            right_arrow = "─",
+          },
+          style = "#00ffff",
+          exclude_filetypes = { Chiruno.constants.templateBuffer },
+        },
+
+        line_num = {
+          style = "#fcb3ed",
+        },
+      }
+    end,
   },
 
   {
