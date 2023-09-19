@@ -44,18 +44,23 @@ function Chiruno.null_window()
 
   autocmd("User", {
     pattern = Chiruno.constants.events.NeoTreeToggle,
-    callback = function(e)
+    callback = function()
       local buffers = vim.fn.getwininfo()
-      Chiruno.print(buffers)
-      if vim.api.nvim_buf_is_valid(e.buf) then
-        local bufName = vim.api.nvim_buf_get_name(e.buf)
-        if string.find(bufName, "neo-tree", 1, true) ~= nil then
-          split:unmount()
-        else
-          split = Split(options)
-          split:mount()
-          vim.cmd.wincmd "p"
+      local haveNeoTree = false
+      for _, buf in ipairs(buffers) do
+        Chiruno.print(vim.api.nvim_buf_get_name(buf.bufnr))
+        if string.find(vim.api.nvim_buf_get_name(buf.bufnr), "neo-tree", 1, true) ~= nil then
+          haveNeoTree = true
+          break
         end
+      end
+
+      if haveNeoTree then
+        split:unmount()
+      else
+        split = Split(options)
+        split:mount()
+        vim.cmd.wincmd "p"
       end
     end,
   })
