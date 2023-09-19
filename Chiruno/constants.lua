@@ -4,6 +4,6 @@ Chiruno.events = {
   NeoTreeToggle = "ChirunoNeotreeToggle",
 }
 
-Chiruno.templateBuffer = "template-space"
+Chiruno.constants = { templateBuffer = "template-space", templateBufferSize = "40" }
 
 return Chiruno.events

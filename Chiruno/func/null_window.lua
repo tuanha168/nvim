@@ -7,12 +7,12 @@ function Chiruno.null_window()
   local split = Split {
     relative = "editor",
     position = "left",
-    size = "30",
+    size = Chiruno.constants.templateBufferSize,
     buf_options = {
       buftype = "nofile",
       modifiable = false,
       swapfile = false,
-      filetype = Chiruno.templateBuffer,
+      filetype = Chiruno.constants.templateBuffer,
       undolevels = -1,
     },
     win_options = {
@@ -25,7 +25,7 @@ function Chiruno.null_window()
   }
 
   autocmd({ "FileType" }, {
-    pattern = Chiruno.templateBuffer,
+    pattern = Chiruno.constants.templateBuffer,
     callback = function() vim.opt_local.cursorline = false end,
     once = true,
   })
