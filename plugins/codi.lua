@@ -1,14 +1,9 @@
 return {
   {
-    "metakirby5/codi.vim",
-    cmd = "Codi",
-    build = "npm install -g tsun",
-  },
-  {
     "m-demare/attempt.nvim",
     dependencies = {
       "nvim-lua/plenary.nvim",
-      -- "metakirby5/codi.vim",
+      { "metakirby5/codi.vim", cmd = "Codi", build = "npm install -g tsun" },
     },
     event = "VeryLazy",
     keys = {
@@ -38,15 +33,17 @@ return {
       if not ok then return end
       telescope.load_extension "attempt"
 
-      vim.api.nvim_create_autocmd({ "BufNew" }, {
-        pattern = "*",
-        callback = function(e)
-          if string.find(vim.api.nvim_buf_get_name(e.buf), "scratch/src", 1, true) then
-            vim.cmd "e"
-            -- vim.defer_fn(function() vim.cmd "Codi" end, 1000)
-          end
-        end,
-      })
+      -- vim.api.nvim_create_autocmd({ "BufWinEnter" }, {
+      --   pattern = "*",
+      --   callback = function(e)
+      --     if string.find(vim.api.nvim_buf_get_name(e.buf), "scratch/src", 1, true) then
+      --       vim.defer_fn(function()
+      --         -- vim.cmd "e"
+      --         -- vim.cmd "Codi"
+      --       end, 1000)
+      --     end
+      --   end,
+      -- })
     end,
   },
 }
