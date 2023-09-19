@@ -22,11 +22,16 @@ return {
             once = true,
             pattern = "*",
             callback = function(e)
-              if string.match(vim.api.nvim_buf_get_name(e.buf), "scratch") then vim.cmd "Codi" end
+              if string.find(vim.api.nvim_buf_get_name(e.buf), "scratch", 1, true) then vim.cmd "Codi" end
             end,
           })
         end,
         desc = "Attempt",
+      },
+      {
+        "<leader>aa",
+        "<cmd>Telescope attempt<cr>",
+        desc = "Telescope Attempt",
       },
     },
     config = function()
