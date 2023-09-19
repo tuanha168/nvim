@@ -8,7 +8,7 @@ return {
     "m-demare/attempt.nvim",
     dependencies = {
       "nvim-lua/plenary.nvim",
-      "metakirby5/codi.vim",
+      -- "metakirby5/codi.vim",
     },
     event = "VeryLazy",
     keys = {
@@ -43,7 +43,7 @@ return {
         callback = function(e)
           if string.find(vim.api.nvim_buf_get_name(e.buf), "scratch/src", 1, true) then
             vim.cmd "e"
-            vim.defer_fn(function() vim.cmd "Codi" end, 1000)
+            -- vim.defer_fn(function() vim.cmd "Codi" end, 1000)
           end
         end,
       })
