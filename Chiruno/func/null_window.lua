@@ -48,7 +48,7 @@ function Chiruno.null_window()
       if vim.api.nvim_buf_is_valid(e.buf) then
         local bufName = vim.api.nvim_buf_get_name(e.buf)
         if string.find(bufName, "neo-tree", 1, true) ~= nil then
-          split:_buf_destroy()
+          split:unmount()
         else
           split = Split(options)
           split:mount()
