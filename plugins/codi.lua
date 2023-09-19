@@ -22,8 +22,7 @@ return {
             once = true,
             pattern = "*",
             callback = function(e)
-              vim.cmd "Codi"
-              Chiruno.print(vim.api.nvim_buf_get_name(e.buf))
+              if string.match(vim.api.nvim_buf_get_name(e.buf), "scratch") then vim.cmd "Codi" end
             end,
           })
         end,

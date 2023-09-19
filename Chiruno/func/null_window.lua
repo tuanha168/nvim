@@ -30,7 +30,7 @@ function Chiruno.null_window()
     local buffers = vim.fn.getwininfo()
     local haveNeoTree = false
     for _, buf in ipairs(buffers) do
-      if string.find(vim.api.nvim_buf_get_name(buf.bufnr), "neo-tree", 1, true) ~= nil then
+      if string.match(vim.api.nvim_buf_get_name(buf.bufnr), "neo-tree") ~= nil then
         haveNeoTree = true
         break
       end
