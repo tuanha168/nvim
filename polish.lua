@@ -60,7 +60,10 @@ return function()
   autocmd({ "BufWritePre" }, {
     pattern = "*",
     callback = function(event)
-      if string.match(event.match, os.getenv "HOME" .. "/.config/nvim/lua/user") then
+      if
+        string.match(event.match, os.getenv "HOME" .. "/.config/nvim/lua/user")
+        and not string.match(event.match, "scratch")
+      then
         Chiruno.auto_push "~/.config/nvim/lua/user"
       end
 
