@@ -37,7 +37,7 @@ return function()
     end,
   })
 
-  autocmd({ "FocusGained", "BufEnterPost" }, {
+  autocmd({ "FocusGained", "BufReadPost" }, {
     pattern = "*",
     callback = function()
       vim.cmd "checktime"

@@ -20,7 +20,16 @@ return {
       },
       {
         "<leader>aa",
-        "<cmd>Telescope attempt<cr>",
+        function()
+          local ok, builtin = pcall(require, "telescope.builtin")
+          if not ok then return end
+
+          builtin.find_files {
+            prompt_title = "Attempt",
+            cwd = os.getenv "HOME" .. "/.config/nvim/lua/user/scratch/src",
+            follow = true,
+          }
+        end,
         desc = "Telescope Attempt",
       },
     },
@@ -28,11 +37,8 @@ return {
       require("attempt").setup {
         dir = os.getenv "HOME" .. "/.config/nvim/lua/user/scratch/src",
         ext_options = { "lua", "js", "ts", "py", "cpp", "c" }, -- Options to choose from
+        list_buffers = true,
       }
-
-      local ok, telescope = pcall(require, "telescope")
-      if not ok then return end
-      telescope.load_extension "attempt"
 
       vim.api.nvim_create_autocmd({ "BufReadPost" }, {
         pattern = "*",
@@ -41,7 +47,6 @@ return {
           if string.find(vim.api.nvim_buf_get_name(e.buf), "plug.data", 1, true) then return end
           if string.find(vim.api.nvim_buf_get_name(e.buf), "scratch/src", 1, true) then
             vim.b.scratch_entered = true
-            vim.cmd "e"
             local _ok, neo = pcall(require, "neo-tree.command")
             if _ok then neo.execute { action = "close" } end
 
