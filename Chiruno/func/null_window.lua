@@ -1,30 +1,31 @@
 Chiruno = Chiruno or {}
 
+local Split = require "nui.split"
+
+local options = {
+  relative = "editor",
+  position = "left",
+  size = Chiruno.constants.templateBufferSize,
+  buf_options = {
+    buftype = "nofile",
+    modifiable = false,
+    swapfile = false,
+    filetype = Chiruno.constants.templateBuffer,
+    undolevels = -1,
+  },
+  win_options = {
+    colorcolumn = "",
+    number = false,
+    relativenumber = false,
+    signcolumn = "no",
+    cursorline = false,
+  },
+}
+
+local split = Split(options)
+
 function Chiruno.null_window()
   local autocmd = vim.api.nvim_create_autocmd
-  local Split = require "nui.split"
-
-  local options = {
-    relative = "editor",
-    position = "left",
-    size = Chiruno.constants.templateBufferSize,
-    buf_options = {
-      buftype = "nofile",
-      modifiable = false,
-      swapfile = false,
-      filetype = Chiruno.constants.templateBuffer,
-      undolevels = -1,
-    },
-    win_options = {
-      colorcolumn = "",
-      number = false,
-      relativenumber = false,
-      signcolumn = "no",
-      cursorline = false,
-    },
-  }
-
-  local split = Split(options)
 
   local function checkNeoTree()
     local buffers = vim.fn.getwininfo()
@@ -37,7 +38,7 @@ function Chiruno.null_window()
     end
 
     if haveNeoTree then
-      split:unmount()
+      Chiruno.open_null_window()
     else
       split:unmount()
       split = Split(options)
@@ -64,6 +65,7 @@ function Chiruno.null_window()
   })
 end
 
-function Chiruno.open_null_window() end
+function Chiruno.open_null_window() split:unmount() end
+function Chiruno.close_null_window() end
 
 return Chiruno.null_window
