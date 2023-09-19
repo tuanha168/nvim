@@ -37,11 +37,12 @@ return {
       if not ok then return end
       telescope.load_extension "attempt"
 
-      vim.api.nvim_create_autocmd({ "BufEnter" }, {
+      vim.api.nvim_create_autocmd({ "BufNew" }, {
         pattern = "*",
         callback = function(e)
           if string.find(vim.api.nvim_buf_get_name(e.buf), "scratch/src", 1, true) then
-            vim.defer_fn(function() vim.cmd "Codi" end, 500)
+            vim.cmd "e"
+            vim.defer_fn(function() vim.cmd "Codi" end, 1000)
           end
         end,
       })
