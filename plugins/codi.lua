@@ -46,8 +46,7 @@ return {
         pattern = "*",
         callback = function(e)
           if vim.b.scratch_entered then return end
-          if string.find(vim.api.nvim_buf_get_name(e.buf), "plug.data", 1, true) then return end
-          if string.find(vim.api.nvim_buf_get_name(e.buf), "scratch/src", 1, true) then
+          if string.find(vim.api.nvim_buf_get_name(e.buf), "scratch/src/scratch", 1, true) then
             vim.b.scratch_entered = true
             local _ok, neo = pcall(require, "neo-tree.command")
             if _ok then neo.execute { action = "close" } end
