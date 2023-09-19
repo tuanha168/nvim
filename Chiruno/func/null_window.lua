@@ -39,6 +39,7 @@ function Chiruno.null_window()
     if haveNeoTree then
       split:unmount()
     else
+      split:unmount()
       split = Split(options)
       split:mount()
       vim.cmd.wincmd "p"
