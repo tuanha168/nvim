@@ -48,12 +48,14 @@ return {
           if vim.b.scratch_entered then return end
           if string.find(vim.api.nvim_buf_get_name(e.buf), "scratch/src/scratch", 1, true) then
             vim.b.scratch_entered = true
-            local _ok, neo = pcall(require, "neo-tree.command")
-            if _ok then neo.execute { action = "close" } end
+            vim.schedule(function()
+              local _ok, neo = pcall(require, "neo-tree.command")
+              if _ok then neo.execute { action = "close" } end
 
-            Chiruno.close_null_window()
-            vim.cmd "Codi"
-            Chiruno.open_null_window()
+              Chiruno.close_null_window()
+              vim.cmd "Codi"
+              Chiruno.open_null_window()
+            end)
           end
         end,
       })
