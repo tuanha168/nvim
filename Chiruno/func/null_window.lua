@@ -1,20 +1,27 @@
 Chiruno = Chiruno or {}
 
+local function show(split)
+  split:show()
+  Chiruno.feedkeys("<C-w>l", "n")
+end
+
 function Chiruno.null_window()
   local autocmd = vim.api.nvim_create_autocmd
   local Split = require "nui.split"
+
+  local buf_file_type = "template-space"
 
   local highlights = require "neo-tree.ui.highlights"
   local split = Split {
     ns_id = highlights.ns_id,
     relative = "editor",
     position = "left",
-    size = "20%",
+    size = "30",
     buf_options = {
       buftype = "nofile",
       modifiable = false,
       swapfile = false,
-      filetype = "neo-tree",
+      filetype = buf_file_type,
       undolevels = -1,
     },
     win_options = {
@@ -22,33 +29,39 @@ function Chiruno.null_window()
       number = false,
       relativenumber = false,
       signcolumn = "no",
+      cursorline = false,
     },
   }
 
   -- mount/open the component
+  autocmd({ "FileType" }, {
+    pattern = buf_file_type,
+    callback = function() vim.opt_local.cursorline = false end,
+    once = true,
+  })
+
   autocmd({ "BufEnter" }, {
     pattern = "*",
     callback = function(e)
       if not e.match or e.match == "" then return end
-      require "user.Chiruno.func.print"(e.match)
       split:mount()
+      Chiruno.feedkeys("<C-w>l", "n")
     end,
+    once = true,
   })
 
   autocmd("User", {
-    pattern = "ChirunoNeotreeToggle",
+    pattern = Chiruno.event.NeoTreeToggle,
     callback = function(e)
       if vim.api.nvim_buf_is_valid(e.buf) then
         local bufName = vim.api.nvim_buf_get_name(e.buf)
         if string.find(bufName, "neo-tree", 1, true) ~= nil then
-          split:unmount()
+          split:hide()
         else
-          split:mount()
-          -- vim.api.nvim_win_set_buf(vim.api.nvim_get_current_win(), e.buf)
+          show(split)
         end
       end
     end,
-    group = vim.api.nvim_create_augroup("NeoTree", { clear = true }),
   })
 end
 
