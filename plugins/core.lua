@@ -118,10 +118,15 @@ return {
     "ray-x/lsp_signature.nvim",
   },
 
+  -- {
+  --   "metakirby5/codi.vim",
+  --   cmd = "Codi",
+  --   build = "npm install -g tsun",
+  -- },
   {
-    "metakirby5/codi.vim",
-    cmd = "Codi",
-    build = "npm install -g tsun",
+    "LintaoAmons/scratch.nvim",
+    cmd = { "Scratch", "ScratchOpenFzf" },
+    -- tag = "v0.7.1" -- use tag for stability, or without this to have latest fixed and functions
   },
 
   -- {
