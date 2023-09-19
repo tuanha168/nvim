@@ -26,6 +26,25 @@ function Chiruno.null_window()
 
   local split = Split(options)
 
+  local function checkNeoTree()
+    local buffers = vim.fn.getwininfo()
+    local haveNeoTree = false
+    for _, buf in ipairs(buffers) do
+      if string.find(vim.api.nvim_buf_get_name(buf.bufnr), "neo-tree", 1, true) ~= nil then
+        haveNeoTree = true
+        break
+      end
+    end
+
+    if haveNeoTree then
+      split:unmount()
+    else
+      split = Split(options)
+      split:mount()
+      vim.cmd.wincmd "p"
+    end
+  end
+
   autocmd({ "FileType" }, {
     pattern = Chiruno.constants.templateBuffer,
     callback = function() vim.opt_local.cursorline = false end,
@@ -34,35 +53,13 @@ function Chiruno.null_window()
 
   autocmd({ "BufEnter" }, {
     pattern = "*",
-    callback = function(e)
-      if not e.match or e.match == "" then return end
-      split:mount()
-      Chiruno.feedkeys("<C-w>l", "n")
-    end,
+    callback = checkNeoTree,
     once = true,
   })
 
   autocmd("User", {
     pattern = Chiruno.constants.events.NeoTreeToggle,
-    callback = function()
-      local buffers = vim.fn.getwininfo()
-      local haveNeoTree = false
-      for _, buf in ipairs(buffers) do
-        Chiruno.print(vim.api.nvim_buf_get_name(buf.bufnr))
-        if string.find(vim.api.nvim_buf_get_name(buf.bufnr), "neo-tree", 1, true) ~= nil then
-          haveNeoTree = true
-          break
-        end
-      end
-
-      if haveNeoTree then
-        split:unmount()
-      else
-        split = Split(options)
-        split:mount()
-        vim.cmd.wincmd "p"
-      end
-    end,
+    callback = checkNeoTree,
   })
 end
 
