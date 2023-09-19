@@ -48,9 +48,11 @@ function Chiruno.null_window()
         if string.find(bufName, "neo-tree", 1, true) ~= nil then
           split:hide()
         else
-          vim.cmd [[let g:mybufname=bufname('%')]]
+          local win = vim.api.nvim_get_current_win()
+          local pos = vim.api.nvim_win_get_cursor(win)
+          Chiruno.print(pos)
           split:show()
-          vim.cmd [[exec bufwinnr(g:mybufname) . 'wincmd w']]
+          vim.api.nvim_win_set_cursor(win, pos)
         end
       end
     end,
