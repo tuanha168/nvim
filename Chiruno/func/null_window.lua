@@ -3,8 +3,12 @@ Chiruno = Chiruno or {}
 local splitLeft
 local splitRight
 
+---@class closeNullWindowOptions
+---@field closeLeft? boolean
+---@field closeRight? boolean
+
 -- Close null window
----@param opts? table<"'closeLeft'"|"'closeRight'", boolean>
+---@param opts? closeNullWindowOptions
 ---@return nil
 function Chiruno.close_null_window(opts)
   opts = Chiruno.extends_table({
