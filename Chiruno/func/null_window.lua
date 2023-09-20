@@ -2,6 +2,7 @@ Chiruno = Chiruno or {}
 
 local splitLeft
 local splitRight
+local nullWindow = true
 
 -- Close null window
 ---@param opts? {left?: boolean, right?: boolean}
@@ -69,6 +70,14 @@ function Chiruno.open_null_window()
   splitRight:mount()
 end
 
+function Chiruno.toggle_null_window()
+  if nullWindow then
+    Chiruno.open_null_window()
+  else
+    Chiruno.close_null_window()
+  end
+end
+
 local function checkNeoTree()
   local buffers = vim.fn.getwininfo()
   local haveNeoTree = false
@@ -81,7 +90,7 @@ local function checkNeoTree()
 
   if haveNeoTree then
     Chiruno.close_null_window()
-  else
+  elseif nullWindow then
     Chiruno.open_null_window()
   end
 end
