@@ -1,19 +1,21 @@
 Chiruno = Chiruno or {}
 
-local split
+local splitLeft
+local splitRight
 
 function Chiruno.close_null_window()
-  if not split then return end
-  split:unmount()
+  if splitLeft then splitLeft:unmount() end
+  if splitRight then splitRight:unmount() end
 end
 
 function Chiruno.open_null_window()
   local ok, Split = pcall(require, "nui.split")
   if not ok then return end
 
-  if split then split:unmount() end
+  if splitLeft then splitLeft:unmount() end
+  if splitRight then splitRight:unmount() end
 
-  split = Split {
+  splitLeft = Split {
     relative = "editor",
     position = "left",
     size = Chiruno.constants.templateBufferSize,
@@ -32,7 +34,30 @@ function Chiruno.open_null_window()
       cursorline = false,
     },
   }
-  split:mount()
+
+  splitRight = Split {
+    relative = "editor",
+    position = "right",
+    size = Chiruno.constants.templateBufferSize,
+    buf_options = {
+      buftype = "nofile",
+      modifiable = false,
+      swapfile = false,
+      filetype = Chiruno.constants.templateBuffer,
+      undolevels = -1,
+    },
+    win_options = {
+      colorcolumn = "",
+      number = false,
+      relativenumber = false,
+      signcolumn = "no",
+      cursorline = false,
+    },
+  }
+
+  splitLeft:mount()
+  vim.cmd.wincmd "p"
+  splitRight:mount()
   vim.cmd.wincmd "p"
 end
 
