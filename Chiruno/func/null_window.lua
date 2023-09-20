@@ -27,6 +27,7 @@ function Chiruno.open_null_window()
     relative = "editor",
     position = "left",
     size = Chiruno.constants.templateBufferSize,
+    focusable = false,
     buf_options = {
       buftype = "nofile",
       modifiable = false,
@@ -47,6 +48,7 @@ function Chiruno.open_null_window()
     relative = "editor",
     position = "right",
     size = Chiruno.constants.templateBufferSize,
+    focusable = false,
     buf_options = {
       buftype = "nofile",
       modifiable = false,
