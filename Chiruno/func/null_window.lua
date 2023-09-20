@@ -50,6 +50,21 @@ function Chiruno.open_null_window()
     position = "right",
     size = Chiruno.constants.templateBufferSize,
     enter = false,
+    border = {
+      padding = {
+        top = 2,
+        bottom = 2,
+        left = 3,
+        right = 3,
+      },
+      style = "none",
+      text = {
+        top = " I am top title ",
+        top_align = "center",
+        bottom = "I am bottom title",
+        bottom_align = "left",
+      },
+    },
     buf_options = {
       buftype = "nofile",
       modifiable = false,
