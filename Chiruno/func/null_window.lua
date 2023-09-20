@@ -3,9 +3,9 @@ Chiruno = Chiruno or {}
 local splitLeft
 local splitRight
 
-function Chiruno.close_null_window()
+function Chiruno.close_null_window(closeRight)
   if splitLeft then splitLeft:unmount() end
-  if splitRight then splitRight:unmount() end
+  if splitRight and closeRight then splitRight:unmount() end
 end
 
 function Chiruno.open_null_window()
