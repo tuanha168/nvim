@@ -21,9 +21,10 @@ local options = {
     relativenumber = false,
     signcolumn = "no",
     cursorline = false,
-    -- fillchars = { eob = " ", vert = " " },
+    fillchars = { eob = " " },
   },
 }
+-- vim.api.nvim_win_set_option()
 
 -- Close null window
 ---@param opts? {left?: boolean, right?: boolean}
