@@ -14,7 +14,7 @@ return function()
     Normal = { bg = nil },
     SignColumn = { bg = bg },
     NvimTreeNormal = { bg = bg },
-    NvimTreeVertSplit = { bg = bg },
+    NeoTreeWinSeparator = { bg = nil, fg = nil },
     NeoTreeNormal = { bg = bg },
     NeoTreeNormalNC = { bg = bg },
     NormalFloat = { bg = bg },
