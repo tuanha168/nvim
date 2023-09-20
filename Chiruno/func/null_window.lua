@@ -4,6 +4,27 @@ local splitLeft
 local splitRight
 local openNullWindow = true
 
+local options = {
+  relative = "editor",
+  size = Chiruno.constants.templateBufferSize,
+  enter = false,
+  buf_options = {
+    buftype = "nofile",
+    modifiable = false,
+    swapfile = false,
+    filetype = Chiruno.constants.templateBuffer,
+    undolevels = -1,
+  },
+  win_options = {
+    colorcolumn = "",
+    number = false,
+    relativenumber = false,
+    signcolumn = "no",
+    cursorline = false,
+    -- fillchars = { eob = " ", vert = " " },
+  },
+}
+
 -- Close null window
 ---@param opts? {left?: boolean, right?: boolean}
 ---@return nil
@@ -24,62 +45,13 @@ function Chiruno.open_null_window()
   if splitLeft then splitLeft:unmount() end
   if splitRight then splitRight:unmount() end
 
-  splitLeft = Split {
-    relative = "editor",
+  splitLeft = Split(Chiruno.extends_table(options, {
     position = "left",
-    size = Chiruno.constants.templateBufferSize,
-    enter = false,
-    buf_options = {
-      buftype = "nofile",
-      modifiable = false,
-      swapfile = false,
-      filetype = Chiruno.constants.templateBuffer,
-      undolevels = -1,
-    },
-    win_options = {
-      colorcolumn = "",
-      number = false,
-      relativenumber = false,
-      signcolumn = "no",
-      cursorline = false,
-    },
-  }
+  }))
 
-  splitRight = Split {
-    relative = "editor",
+  splitRight = Split(Chiruno.extends_table(options, {
     position = "right",
-    size = Chiruno.constants.templateBufferSize,
-    enter = false,
-    border = {
-      padding = {
-        top = 2,
-        bottom = 2,
-        left = 3,
-        right = 3,
-      },
-      style = "none",
-      text = {
-        top = " I am top title ",
-        top_align = "center",
-        bottom = "I am bottom title",
-        bottom_align = "left",
-      },
-    },
-    buf_options = {
-      buftype = "nofile",
-      modifiable = false,
-      swapfile = false,
-      filetype = Chiruno.constants.templateBuffer,
-      undolevels = -1,
-    },
-    win_options = {
-      colorcolumn = "",
-      number = false,
-      relativenumber = false,
-      signcolumn = "no",
-      cursorline = false,
-    },
-  }
+  }))
 
   splitLeft:mount()
   splitRight:mount()
