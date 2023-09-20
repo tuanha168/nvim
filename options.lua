@@ -22,6 +22,10 @@ local options = {
     laststatus = 3,
     splitkeep = "screen",
     scrolloff = 10,
+    fillchars = {
+      eob = " ",
+      vert = " ",
+    },
   },
   g = {
     matchup_matchparen_offscreen = { method = "popup" },

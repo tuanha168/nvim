@@ -24,7 +24,6 @@ local options = {
     -- fillchars = { eob = " " },
   },
 }
--- vim.api.nvim_set_option_value("fillchars", "eob:\\\ ,vert:\\\ ", { filetype = Chiruno.constants.templateBuffer })
 
 -- Close null window
 ---@param opts? {left?: boolean, right?: boolean}
