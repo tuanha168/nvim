@@ -66,9 +66,7 @@ function Chiruno.open_null_window()
   }
 
   splitLeft:mount()
-  vim.cmd.wincmd "p"
   splitRight:mount()
-  vim.cmd.wincmd "p"
 end
 
 local function checkNeoTree()
