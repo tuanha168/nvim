@@ -21,7 +21,7 @@ local options = {
     relativenumber = false,
     signcolumn = "no",
     cursorline = false,
-    fillchars = { eob = " " },
+    -- fillchars = { eob = " " },
   },
 }
 -- vim.api.nvim_win_set_option()
