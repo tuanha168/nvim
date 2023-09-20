@@ -3,8 +3,16 @@ Chiruno = Chiruno or {}
 local splitLeft
 local splitRight
 
+-- Close null window
+---@param opts? table<"'closeLeft'"|"'closeRight'", boolean>
+---@return nil
 function Chiruno.close_null_window(opts)
-  if splitLeft then splitLeft:unmount() end
+  opts = Chiruno.extends_table({
+    closeLeft = true,
+    closeRight = false,
+  }, opts or {})
+
+  if splitLeft and opts.closeLeft then splitLeft:unmount() end
   if splitRight and opts.closeRight then splitRight:unmount() end
 end
 
