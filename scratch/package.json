@@ -2,5 +2,9 @@
   "name": "scratch",
   "version": "1.0.0",
   "main": "index.js",
-  "license": "MIT"
+  "license": "MIT",
+  "dependencies": {
+    "typescript": "^5.2.2",
+    "vue": "^3.3.4"
+  }
 }
