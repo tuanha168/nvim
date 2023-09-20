@@ -148,6 +148,11 @@ local mappings = {
     ["<leader>fd"] = { function() Chiruno.run_make() end, desc = "Run make", noremap = true },
     ["]c"] = { "<cmd>cn<CR>", desc = "Next error", noremap = true },
     ["[c"] = { "<cmd>cp<CR>", desc = "Previous error", noremap = true },
+    ["<leader>z"] = {
+      function() Chiruno.toggle_null_window() end,
+      desc = "Toggle Null Window",
+      noremap = true,
+    },
   },
   v = {
     ["*"] = { '"ayh/<c-r>a<CR>' },

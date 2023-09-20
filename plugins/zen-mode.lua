@@ -23,6 +23,7 @@ return {
   -- },
   {
     "folke/twilight.nvim",
+    cmd = "Twilight",
     opts = {
       context = 20,
       expand = { -- for treesitter, we we always try to expand to the top-most ancestor with these types
@@ -31,16 +32,6 @@ return {
         "try_statement",
         "arrow_function",
         "lexical_declaration",
-      },
-    },
-    keys = {
-      {
-        "<leader>z",
-        function()
-          Chiruno.toggle_null_window()
-          vim.cmd "Twilight"
-        end,
-        desc = "Twilight",
       },
     },
   },
