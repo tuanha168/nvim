@@ -2,7 +2,7 @@ Chiruno = Chiruno or {}
 
 local splitLeft
 local splitRight
-local nullWindow = true
+local openNullWindow = true
 
 -- Close null window
 ---@param opts? {left?: boolean, right?: boolean}
@@ -10,7 +10,7 @@ local nullWindow = true
 function Chiruno.close_null_window(opts)
   opts = Chiruno.extends_table({
     left = true,
-    right = false,
+    right = true,
   }, opts or {})
 
   if splitLeft and opts.left then splitLeft:unmount() end
@@ -71,7 +71,9 @@ function Chiruno.open_null_window()
 end
 
 function Chiruno.toggle_null_window()
-  if nullWindow then
+  openNullWindow = not openNullWindow
+
+  if openNullWindow then
     Chiruno.open_null_window()
   else
     Chiruno.close_null_window()
@@ -89,8 +91,8 @@ local function checkNeoTree()
   end
 
   if haveNeoTree then
-    Chiruno.close_null_window()
-  elseif nullWindow then
+    Chiruno.close_null_window { right = false }
+  elseif openNullWindow then
     Chiruno.open_null_window()
   end
 end

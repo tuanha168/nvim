@@ -51,7 +51,7 @@ return {
             local _ok, neo = pcall(require, "neo-tree.command")
             if _ok then neo.execute { action = "close" } end
 
-            Chiruno.close_null_window { right = true }
+            Chiruno.close_null_window()
             vim.cmd "Codi"
             Chiruno.open_null_window()
           end

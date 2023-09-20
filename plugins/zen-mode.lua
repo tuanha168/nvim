@@ -36,7 +36,10 @@ return {
     keys = {
       {
         "<leader>z",
-        "<cmd>Twilight<cr>",
+        function()
+          Chiruno.toggle_null_window()
+          vim.cmd "Twilight"
+        end,
         desc = "Twilight",
       },
     },
