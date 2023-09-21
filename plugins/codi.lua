@@ -21,10 +21,10 @@ return {
               command = { "zsh" },
             },
             typescript = {
-              command = { "tsun" },
+              command = { "tsun", "--ignore-undefined" },
             },
+            -- How the repl window will be displayed
           },
-          -- How the repl window will be displayed
           -- See below for more information
           repl_open_cmd = require("iron.view").bottom(40),
         },
@@ -105,9 +105,9 @@ return {
             local _ok, neo = pcall(require, "neo-tree.command")
             if _ok then neo.execute { action = "close" } end
 
-            Chiruno.close_null_window()
-            vim.cmd "IronRepl"
-            Chiruno.open_null_window()
+            -- Chiruno.close_null_window()
+            -- vim.cmd "IronRepl"
+            -- Chiruno.open_null_window()
           end
         end,
       })
