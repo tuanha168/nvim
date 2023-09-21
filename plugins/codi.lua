@@ -26,7 +26,7 @@ return {
             -- How the repl window will be displayed
           },
           -- See below for more information
-          repl_open_cmd = require("iron.view").bottom(40),
+          repl_open_cmd = "vertical botright 80 split",
         },
         -- Iron doesn't set keymaps by default anymore.
         -- You can set them here or manually add keymaps to the functions in iron.core
@@ -105,9 +105,9 @@ return {
             local _ok, neo = pcall(require, "neo-tree.command")
             if _ok then neo.execute { action = "close" } end
 
-            -- Chiruno.close_null_window()
-            -- vim.cmd "IronRepl"
-            -- Chiruno.open_null_window()
+            Chiruno.close_null_window()
+            vim.cmd "Codi"
+            Chiruno.open_null_window()
           end
         end,
       })
