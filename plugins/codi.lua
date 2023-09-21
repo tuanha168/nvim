@@ -3,7 +3,7 @@ return {
     "metakirby5/codi.vim",
     cmd = "Codi",
     build = "npm install -g tsun",
-    config = function() vim.g["codi#virtual_text"] = 0 end,
+    -- config = function() vim.g["codi#virtual_text"] = 0 end,
   },
   {
     "m-demare/attempt.nvim",
