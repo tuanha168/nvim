@@ -106,16 +106,15 @@ end
 function Chiruno.null_window()
   local autocmd = vim.api.nvim_create_autocmd
 
-  autocmd({ "FileType" }, {
-    pattern = Chiruno.constants.templateBuffer,
-    callback = function() vim.opt_local.cursorline = false end,
-    once = true,
-  })
-
   autocmd({ "BufEnter" }, {
     pattern = "*",
     callback = checkNullWindow,
     once = true,
+  })
+
+  autocmd({ "BufDelete" }, {
+    pattern = "*",
+    callback = checkNullWindow,
   })
 
   autocmd("User", {
