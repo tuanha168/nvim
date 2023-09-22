@@ -112,11 +112,6 @@ function Chiruno.null_window()
     once = true,
   })
 
-  autocmd({ "BufDelete" }, {
-    pattern = "*",
-    callback = checkNullWindow,
-  })
-
   autocmd("User", {
     pattern = { Chiruno.constants.events.NeoTreeToggle, Chiruno.constants.events.AerialToggle },
     callback = checkNullWindow,
