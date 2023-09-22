@@ -5,6 +5,7 @@ Chiruno.constants = {
   templateBufferSize = "19%",
   events = {
     NeoTreeToggle = "ChirunoNeotreeToggle",
+    AerialToggle = "ChirunoAerialToggle",
   },
 }
 
