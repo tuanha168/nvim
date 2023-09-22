@@ -102,7 +102,13 @@ local mappings = {
       end,
       desc = "Search symbols",
     },
-    ["<leader>O"] = { function() require("aerial").toggle() end, desc = "Symbols outline" },
+    ["<leader>O"] = {
+      function()
+        require("aerial").toggle()
+        vim.api.nvim_exec_autocmds("User", { pattern = Chiruno.constants.events.AerialToggle, modeline = false })
+      end,
+      desc = "Symbols outline",
+    },
 
     -- Disable Yank
     ["c"] = {
