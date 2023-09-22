@@ -38,23 +38,37 @@ function Chiruno.close_null_window(opts)
   if splitRight and opts.right then splitRight:unmount() end
 end
 
-function Chiruno.open_null_window()
+-- Open null window
+---@param opts? {left?: boolean, right?: boolean}
+---@return nil
+function Chiruno.open_null_window(opts)
+  opts = Chiruno.extends_table({
+    left = true,
+    right = true,
+  }, opts or {})
+
   local ok, Split = pcall(require, "nui.split")
   if not ok then return end
 
-  if splitLeft then splitLeft:unmount() end
-  if splitRight then splitRight:unmount() end
+  if opts.left then
+    if splitLeft then splitLeft:unmount() end
 
-  splitLeft = Split(Chiruno.extends_table(options, {
-    position = "left",
-  }))
+    splitLeft = Split(Chiruno.extends_table(options, {
+      position = "left",
+    }))
 
-  splitRight = Split(Chiruno.extends_table(options, {
-    position = "right",
-  }))
+    splitLeft:mount()
+  end
 
-  splitLeft:mount()
-  splitRight:mount()
+  if opts.right then
+    if splitRight then splitRight:unmount() end
+
+    splitRight = Split(Chiruno.extends_table(options, {
+      position = "right",
+    }))
+
+    splitRight:mount()
+  end
 end
 
 function Chiruno.toggle_null_window()
@@ -67,17 +81,18 @@ function Chiruno.toggle_null_window()
   end
 end
 
-local function checkNullWindow(e)
-  Chiruno.print(e)
+local function checkNullWindow()
   local buffers = vim.fn.getwininfo()
   local haveNeoTree = false
+  local haveAerial = false
   for _, buf in ipairs(buffers) do
-    if vim.api.nvim_buf_get_option(buf.buf, "filetype") == "neo-tree" then haveNeoTree = true end
-    if vim.api.nvim_buf_get_option(buf.buf, "filetype") == "aerial" then haveNeoTree = true end
+    if vim.api.nvim_buf_get_option(buf.bufnr, "filetype") == "neo-tree" then haveNeoTree = true end
+    if vim.api.nvim_buf_get_option(buf.bufnr, "filetype") == "aerial" then haveAerial = true end
   end
 
-  if haveNeoTree then
-    Chiruno.close_null_window { right = false }
+  if haveNeoTree or haveAerial then
+    if haveNeoTree then Chiruno.close_null_window { right = false } end
+    if haveAerial then Chiruno.close_null_window { left = false } end
   elseif openNullWindow then
     Chiruno.open_null_window()
   end
