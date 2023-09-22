@@ -72,10 +72,8 @@ local function checkNullWindow(e)
   local buffers = vim.fn.getwininfo()
   local haveNeoTree = false
   for _, buf in ipairs(buffers) do
-    if string.find(vim.api.nvim_buf_get_name(buf.bufnr), "neo-tree", 1, true) ~= nil then
-      haveNeoTree = true
-      break
-    end
+    if vim.api.nvim_buf_get_option(buf.buf, "filetype") == "neo-tree" then haveNeoTree = true end
+    if vim.api.nvim_buf_get_option(buf.buf, "filetype") == "aerial" then haveNeoTree = true end
   end
 
   if haveNeoTree then
