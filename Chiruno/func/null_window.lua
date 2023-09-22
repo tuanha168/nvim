@@ -90,11 +90,16 @@ local function checkNullWindow()
     if vim.api.nvim_buf_get_option(buf.bufnr, "filetype") == "aerial" then haveAerial = true end
   end
 
-  if haveNeoTree or haveAerial then
-    if haveNeoTree then Chiruno.close_null_window { right = false } end
-    if haveAerial then Chiruno.close_null_window { left = false } end
+  if haveNeoTree then
+    Chiruno.close_null_window { right = false }
   elseif openNullWindow then
-    Chiruno.open_null_window()
+    Chiruno.open_null_window { right = false }
+  end
+
+  if haveAerial then
+    Chiruno.close_null_window { left = false }
+  elseif openNullWindow then
+    Chiruno.open_null_window { left = false }
   end
 end
 
