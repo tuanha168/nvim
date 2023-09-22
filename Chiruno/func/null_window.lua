@@ -67,8 +67,7 @@ function Chiruno.toggle_null_window()
   end
 end
 
-local function checkNeoTree(e)
-  Chiruno.print(e)
+local function checkNeoTree()
   local buffers = vim.fn.getwininfo()
   local haveNeoTree = false
   for _, buf in ipairs(buffers) do
