@@ -564,4 +564,5 @@ return {
       { "<leader>hc", ":<c-u>HSRmHighlight<CR>", mode = "v", noremap = true, silent = true },
     },
   },
+  { "Aasim-A/scrollEOF.nvim", opts = {}, event = "BufEnter" },
 }
