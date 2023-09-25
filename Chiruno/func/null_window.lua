@@ -58,7 +58,7 @@ function Chiruno.open_null_window(opts)
     if vim.api.nvim_buf_get_option(buf.bufnr, "filetype") == "aerial" then haveAerial = true end
   end
 
-  if opts.left then
+  if opts.left and not haveNeoTree then
     if splitLeft then splitLeft:unmount() end
 
     splitLeft = Split(Chiruno.extends_table(options, {
@@ -68,7 +68,7 @@ function Chiruno.open_null_window(opts)
     splitLeft:mount()
   end
 
-  if opts.right then
+  if opts.right and not haveAerial then
     if splitRight then splitRight:unmount() end
 
     splitRight = Split(Chiruno.extends_table(options, {
