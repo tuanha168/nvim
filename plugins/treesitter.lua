@@ -28,6 +28,7 @@ return {
         "dockerfile",
         "yaml",
         "terraform",
+        "ssh_config",
       }
       opts.sync_install = true
       opts.ignore_install = {}
