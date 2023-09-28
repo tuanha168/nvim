@@ -39,6 +39,8 @@ return {
         "yamlls",
 
         -- "efm",
+
+        "terraformls",
       },
     },
   },
