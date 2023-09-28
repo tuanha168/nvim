@@ -27,6 +27,7 @@ return {
         "bash",
         "dockerfile",
         "yaml",
+        "terraform",
       }
       opts.sync_install = true
       opts.ignore_install = {}
