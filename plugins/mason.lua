@@ -12,7 +12,6 @@ return {
         -- lua stuff
         "lua_ls",
 
-        -- web dev
         -- "tsserver",
         -- "angular-language-server",
         -- "vetur-vls",
@@ -41,6 +40,8 @@ return {
         -- "efm",
 
         "terraformls",
+        "tflint",
+        "tfsec",
       },
     },
   },
