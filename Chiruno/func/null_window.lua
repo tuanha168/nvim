@@ -44,7 +44,7 @@ end
 function Chiruno.open_null_window(opts)
   opts = Chiruno.extends_table({
     left = true,
-    right = true,
+    right = false,
   }, opts or {})
 
   local ok, Split = pcall(require, "nui.split")
