@@ -41,7 +41,6 @@ return {
 
         "terraformls",
         "tflint",
-        "tfsec",
       },
     },
   },
@@ -59,6 +58,7 @@ return {
         "prettierd",
         "stylua",
         "pint",
+        "tfsec",
       },
       handlers = {
         pint = function()
