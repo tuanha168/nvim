@@ -70,4 +70,12 @@ return function()
       if string.match(event.match, os.getenv "HOME" .. "/.dotfile") then Chiruno.auto_push "~/.dotfile" end
     end,
   })
+
+  local disable_node_modules_eslint_group = vim.api.nvim_create_augroup("DisableNodeModulesEslint", { clear = true })
+
+  autocmd({ "BufNewFile", "BufRead" }, {
+    pattern = { "**/node_modules/**", "node_modules", "/node_modules/*" },
+    callback = function() vim.diagnostic.disable(0) end,
+    group = disable_node_modules_eslint_group,
+  })
 end
