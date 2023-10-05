@@ -68,6 +68,11 @@
         }
       }
     },
+    "phpactor": {
+      "phpactor": {
+        "language_server_completion.trim_leading_dollar": true
+      }
+    },
     "tsserver": {
       "javascript": {
         "inlayHints": {
