@@ -27,7 +27,8 @@ return {
         "eslint",
 
         -- php
-        "intelephense",
+        -- "intelephense",
+        "phpactor",
 
         -- python
         -- "pyright",
