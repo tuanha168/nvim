@@ -82,4 +82,6 @@ return {
       opts.handlers = require("user.dap").handlers(opts.ensure_installed)
     end,
   },
+
+  { "lvht/phpcd.vim", lazy = false, build = "composer install" },
 }
