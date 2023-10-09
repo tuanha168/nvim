@@ -1,13 +1,5 @@
 Chiruno = Chiruno or {}
 
--- generate documentation for flowing function
--- @param tbl table
--- @return string
--- @usage
--- local tbl = { a = 1, b = 2 }
--- print(to_string(tbl))
--- => a = 1
---    b = 2
 local function table_print(tt, indent, done)
   done = done or {}
   indent = indent or 0
