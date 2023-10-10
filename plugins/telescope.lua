@@ -7,6 +7,18 @@ return {
   {
     "nvim-telescope/telescope.nvim",
     lazy = false,
+    opts = function(_, opts)
+      opts.vimgrep_arguments = {
+        "rg",
+        "--color=never",
+        "--no-heading",
+        "--with-filename",
+        "--line-number",
+        "--column",
+        "--smart-case",
+        "--hidden",
+      }
+    end,
   },
   -- {
   --   "nvim-telescope/telescope-project.nvim",
