@@ -8,7 +8,7 @@ return {
     "nvim-telescope/telescope.nvim",
     lazy = false,
     opts = function(_, opts)
-      opts.vimgrep_arguments = {
+      opts.defaults.vimgrep_arguments = {
         "rg",
         "--color=never",
         "--no-heading",
