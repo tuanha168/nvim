@@ -55,12 +55,10 @@ return {
             local _ok, neo = pcall(require, "neo-tree.command")
             if _ok then neo.execute { action = "close" } end
 
-            local splitLeft, splitRight = unpack(Chiruno.get_null_window_status())
-            Chiruno.print(splitLeft)
-            Chiruno.print(splitRight)
-            Chiruno.close_null_window()
+            local status = Chiruno.get_null_window_status()
+            Chiruno.close_null_window { left = status.splitLeft, right = status.splitRight }
             vim.cmd "Codi"
-            Chiruno.open_null_window()
+            Chiruno.open_null_window { left = status.splitLeft, right = status.splitRight }
           end
         end,
       })

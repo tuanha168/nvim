@@ -31,7 +31,7 @@ function Chiruno.get_null_window_status()
   local splitLeftBufnr = splitLeft and splitLeft.bufnr
   local splitRightBufnr = splitRight and splitRight.bufnr
 
-  return { splitLeft = splitLeftBufnr, splitRight = splitRightBufnr }
+  return { splitLeft = splitLeftBufnr and true, splitRight = splitRightBufnr and true }
 end
 
 -- Close null window
