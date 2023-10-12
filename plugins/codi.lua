@@ -56,9 +56,9 @@ return {
             if _ok then neo.execute { action = "close" } end
 
             local status = Chiruno.get_null_window_status()
-            Chiruno.close_null_window { left = status.splitLeft, right = status.splitRight }
-            vim.cmd "Codi"
-            Chiruno.open_null_window { left = status.splitLeft, right = status.splitRight }
+            Chiruno.close_null_window()
+            -- vim.cmd "Codi"
+            Chiruno.open_null_window { left = not not status.splitLeft, right = not not status.splitRight }
           end
         end,
       })

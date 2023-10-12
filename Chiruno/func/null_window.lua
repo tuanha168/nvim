@@ -89,6 +89,8 @@ function Chiruno.open_null_window(opts)
 end
 
 function Chiruno.toggle_null_window()
+  openNullWindow = not openNullWindow
+
   if openNullWindow then
     Chiruno.open_null_window()
   else
