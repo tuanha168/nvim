@@ -58,13 +58,6 @@ return {
   },
 
   -- {
-  --   "ggandor/leap.nvim",
-  --   event = "BufRead",
-  --   opts = function(_, opts) require("leap").setup(opts) end,
-  --   config = function() require("user.config.leap").setup() end,
-  -- },
-
-  -- {
   --   "rlane/pounce.nvim",
   --   keys = "s",
   --   opts = function()
@@ -586,6 +579,14 @@ return {
   { "Aasim-A/scrollEOF.nvim", opts = {}, event = "BufEnter" },
   {
     "ggandor/leap-ast.nvim",
+    dependencies = {
+      {
+        "ggandor/leap.nvim",
+        event = "BufRead",
+        opts = function(_, opts) require("leap").setup(opts) end,
+        config = function() require("user.config.leap").setup() end,
+      },
+    },
     opts = {},
     keys = {
       { "s", function() require("leap-ast").leap() end, desc = "Leap AST" },
