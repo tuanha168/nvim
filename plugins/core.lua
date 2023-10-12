@@ -584,4 +584,11 @@ return {
     },
   },
   { "Aasim-A/scrollEOF.nvim", opts = {}, event = "BufEnter" },
+  {
+    "ggandor/leap-ast.nvim",
+    opts = {},
+    keys = {
+      { "s", function() require("leap-ast").leap() end, desc = "Leap AST" },
+    },
+  },
 }
