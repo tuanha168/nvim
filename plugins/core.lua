@@ -455,7 +455,7 @@ return {
   -- {
   --   "mg979/vim-visual-multi",
   --   branch = "master",
-  --   event = "BufRead",
+  --   event = "VeryLazy",
   --   init = function()
   --     vim.cmd "let g:VM_default_mappings = 0"
   --     vim.cmd "let g:VM_maps = {}"
@@ -464,25 +464,25 @@ return {
   --     vim.cmd 'let g:VM_maps["Switch Mode"] = "v"'
   --   end,
   -- },
-  {
-    "smoka7/multicursors.nvim",
-    event = "VeryLazy",
-    dependencies = {
-      "smoka7/hydra.nvim",
-    },
-    opts = {
-      hint_config = false,
-    },
-    cmd = { "MCstart", "MCvisual", "MCclear", "MCpattern", "MCvisualPattern", "MCunderCursor" },
-    keys = {
-      {
-        mode = { "v", "n" },
-        "<C-e>",
-        "<cmd>MCstart<cr>",
-        desc = "Create a selection for selected text or word under the cursor",
-      },
-    },
-  },
+  -- {
+  --   "smoka7/multicursors.nvim",
+  --   event = "VeryLazy",
+  --   dependencies = {
+  --     "smoka7/hydra.nvim",
+  --   },
+  --   opts = {
+  --     hint_config = false,
+  --   },
+  --   cmd = { "MCstart", "MCvisual", "MCclear", "MCpattern", "MCvisualPattern", "MCunderCursor" },
+  --   keys = {
+  --     {
+  --       mode = { "v", "n" },
+  --       "<C-e>",
+  --       "<cmd>MCstart<cr>",
+  --       desc = "Create a selection for selected text or word under the cursor",
+  --     },
+  --   },
+  -- },
 
   {
     "aznhe21/actions-preview.nvim",
