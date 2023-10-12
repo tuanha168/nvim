@@ -2,7 +2,6 @@ Chiruno = Chiruno or {}
 
 local splitLeft
 local splitRight
-local openNullWindow = true
 
 local options = {
   relative = "editor",
@@ -89,13 +88,11 @@ function Chiruno.open_null_window(opts)
 end
 
 function Chiruno.toggle_null_window()
-  openNullWindow = not openNullWindow
-
-  if openNullWindow then
-    Chiruno.open_null_window()
-  else
-    Chiruno.close_null_window()
-  end
+  -- if openNullWindow then
+  --   Chiruno.open_null_window()
+  -- else
+  --   Chiruno.close_null_window()
+  -- end
 end
 
 local function checkNullWindow()
@@ -107,15 +104,15 @@ local function checkNullWindow()
     if vim.api.nvim_buf_get_option(buf.bufnr, "filetype") == "aerial" then haveAerial = true end
   end
 
-  if haveNeoTree then
+  if haveNeoTree and splitLeft.bufnr then
     Chiruno.close_null_window { right = false }
-  elseif openNullWindow then
+  else
     Chiruno.open_null_window { right = false }
   end
 
-  if haveAerial then
+  if haveAerial and splitRight.bufnr then
     Chiruno.close_null_window { left = false }
-  elseif openNullWindow then
+  else
     Chiruno.open_null_window { left = false }
   end
 end
