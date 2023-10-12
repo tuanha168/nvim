@@ -27,7 +27,12 @@ local options = {
 
 -- Get null window status
 ---@return {splitLeft?: boolean, splitRight?: boolean}
-function Chiruno.get_null_window_status() return { splitLeft = splitLeft, splitRight = splitRight } end
+function Chiruno.get_null_window_status()
+  local splitLeftBufnr = splitLeft and splitLeft.bufnr
+  local splitRightBufnr = splitRight and splitRight.bufnr
+
+  return { splitLeft = splitLeftBufnr, splitRight = splitRightBufnr }
+end
 
 -- Close null window
 ---@param opts? {left?: boolean, right?: boolean}
