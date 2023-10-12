@@ -52,6 +52,11 @@ return {
           if vim.b[e.buf].scratch_entered then return end
           if string.find(vim.api.nvim_buf_get_name(e.buf), "scratch/src/scratch", 1, true) then
             vim.b[e.buf].scratch_entered = true
+            local buffers = vim.fn.getwininfo()
+            local haveNeoTree = false
+            for _, buf in ipairs(buffers) do
+              if vim.api.nvim_buf_get_option(buf.bufnr, "filetype") == "neo-tree" then haveNeoTree = true end
+            end
             local _ok, neo = pcall(require, "neo-tree.command")
             if _ok then neo.execute { action = "close" } end
 
@@ -59,6 +64,8 @@ return {
             Chiruno.close_null_window()
             vim.cmd "Codi"
             Chiruno.open_null_window { left = not not status.splitLeft, right = not not status.splitRight }
+
+            if _ok and haveNeoTree then neo.execute { action = "toggle" } end
           end
         end,
       })
