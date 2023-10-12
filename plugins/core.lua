@@ -452,17 +452,34 @@ return {
   --   opts = {},
   -- },
 
+  -- {
+  --   "mg979/vim-visual-multi",
+  --   branch = "master",
+  --   event = "BufRead",
+  --   init = function()
+  --     vim.cmd "let g:VM_default_mappings = 0"
+  --     vim.cmd "let g:VM_maps = {}"
+  --     vim.cmd 'let g:VM_maps["Find Under"] = "<C-e>"'
+  --     vim.cmd 'let g:VM_maps["Find Subword Under"] = "<C-e>"'
+  --     vim.cmd 'let g:VM_maps["Switch Mode"] = "v"'
+  --   end,
+  -- },
   {
-    "mg979/vim-visual-multi",
-    branch = "master",
-    event = "BufRead",
-    init = function()
-      vim.cmd "let g:VM_default_mappings = 0"
-      vim.cmd "let g:VM_maps = {}"
-      vim.cmd 'let g:VM_maps["Find Under"] = "<C-e>"'
-      vim.cmd 'let g:VM_maps["Find Subword Under"] = "<C-e>"'
-      vim.cmd 'let g:VM_maps["Switch Mode"] = "v"'
-    end,
+    "smoka7/multicursors.nvim",
+    event = "VeryLazy",
+    dependencies = {
+      "smoka7/hydra.nvim",
+    },
+    opts = {},
+    cmd = { "MCstart", "MCvisual", "MCclear", "MCpattern", "MCvisualPattern", "MCunderCursor" },
+    keys = {
+      {
+        mode = { "v", "n" },
+        "<C-e>",
+        "<cmd>MCstart<cr>",
+        desc = "Create a selection for selected text or word under the cursor",
+      },
+    },
   },
 
   {
