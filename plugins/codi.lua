@@ -57,7 +57,7 @@ return {
 
             local status = Chiruno.get_null_window_status()
             Chiruno.close_null_window()
-            -- vim.cmd "Codi"
+            vim.cmd "Codi"
             Chiruno.open_null_window { left = not not status.splitLeft, right = not not status.splitRight }
           end
         end,
