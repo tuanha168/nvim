@@ -470,7 +470,9 @@ return {
     dependencies = {
       "smoka7/hydra.nvim",
     },
-    opts = {},
+    opts = {
+      hint_config = false,
+    },
     cmd = { "MCstart", "MCvisual", "MCclear", "MCpattern", "MCvisualPattern", "MCunderCursor" },
     keys = {
       {
