@@ -32,7 +32,7 @@ return {
 
         -- python
         "pyright",
-        "python-lsp-server",
+        "pylsp",
 
         "rust_analyzer",
 
