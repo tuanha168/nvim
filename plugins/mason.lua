@@ -31,7 +31,7 @@ return {
         -- "phpactor",
 
         -- python
-        "pyright",
+        -- "pyright",
         "pylsp",
 
         "rust_analyzer",
