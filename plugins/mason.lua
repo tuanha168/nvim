@@ -31,8 +31,8 @@ return {
         -- "phpactor",
 
         -- python
-        -- "pyright",
-        -- "python-lsp-server",
+        "pyright",
+        "python-lsp-server",
 
         "rust_analyzer",
 
