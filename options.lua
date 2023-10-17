@@ -2,7 +2,7 @@
 local options = {
   opt = {
     clipboard = "unnamedplus",
-    relativenumber = true,
+    relativenumber = false,
     completeopt = { "menu", "menuone", "noselect" }, -- better autocomplete options
     smarttab = true,
     numberwidth = 4,
