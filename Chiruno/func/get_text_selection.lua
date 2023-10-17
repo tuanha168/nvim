@@ -7,17 +7,17 @@ function Chiruno.get_text_selection(motion_type)
 
   local selectedText = { selection.startText }
 
-  -- Escape all special_symbols
-  for index, line in ipairs(selectedText) do
-    selectedText[index] = vim.fn.escape(line, special_symbols)
-  end
-
   if #selection.currentLine > 2 then
     vim.list_extend(selectedText, vim.list_slice(selection.currentLine, 2, #selection.currentLine - 1))
   end
   table.insert(selectedText, selection.endText)
 
   local raw_text = table.concat(selectedText, "\n")
+
+  -- Escape all special_symbols
+  for index, line in ipairs(selectedText) do
+    selectedText[index] = vim.fn.escape(line, special_symbols)
+  end
 
   local pattern_to_search = table.concat(selectedText, "\\n")
   if motion_type == "line" then
