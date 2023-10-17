@@ -1,10 +1,10 @@
 function Chiruno.live_grep_motion()
-  Chiruno.print(Chiruno.get_text_selection())
+  local text = Chiruno.get_text_selection().text
   require("telescope.builtin").live_grep {
     -- search = Chiruno.get_text_selection().text,
     hidden = true,
   }
-  -- Chiruno.feedkeys(Chiruno.get_text_selection().text, "i")
+  Chiruno.feedkeys(text, "i")
 end
 
 return Chiruno.live_grep_motion
