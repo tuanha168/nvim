@@ -4,7 +4,7 @@ function Chiruno.live_grep_motion()
     -- search = Chiruno.get_text_selection().text,
     hidden = true,
   }
-  Chiruno.feedkeys(text, "i")
+  vim.api.nvim_feedkeys(text .. "<ESC>", "i", false)
 end
 
 return Chiruno.live_grep_motion
