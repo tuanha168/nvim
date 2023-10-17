@@ -13,6 +13,7 @@ function Chiruno.get_text_selection(motion_type)
   end
 
   local pattern_to_search = table.concat(selectedText, "\\n")
+  Chiruno.print(motion_type)
   if motion_type == "line" then
     pattern_to_search = "^" .. selectedText .. "\\n"
   elseif motion_type == "block" then
