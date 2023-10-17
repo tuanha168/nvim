@@ -27,7 +27,7 @@ local mappings = {
       noremap = true,
       desc = "Resize split right",
     },
-    ["*"] = { '"ayiwh/<c-r>a<CR>' },
+    -- ["*"] = { '"ayiwh/<c-r>a<CR>' },
     ["<leader>fs"] = {
       function() Chiruno.operatorfunc_lua "live_grep_motion" end,
       desc = "Live grep motion",
@@ -161,7 +161,7 @@ local mappings = {
     },
   },
   v = {
-    ["*"] = { '"ayh/<c-r>a<CR>' },
+    -- ["*"] = { '"ayh/<c-r>a<CR>' },
     ["<leader>fs"] = {
       function() Chiruno.operatorfunc_lua "live_grep_motion" end,
       desc = "Live grep motion",

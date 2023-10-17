@@ -590,10 +590,7 @@ return {
       {
         "|",
         mode = { "n", "x", "o" },
-        function()
-          local search = require "improved-search"
-          search.in_place()
-        end,
+        function() require("improved-search").in_place() end,
       },
     },
   },
