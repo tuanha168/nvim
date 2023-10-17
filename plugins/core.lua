@@ -588,7 +588,7 @@ return {
     "backdround/improved-search.nvim",
     keys = {
       {
-        "|",
+        "*",
         mode = { "n", "x", "o" },
         function() require("improved-search").in_place() end,
       },
