@@ -17,6 +17,8 @@ function Chiruno.get_text_selection(motion_type)
   end
   table.insert(selectedText, selection.endText)
 
+  local raw_text = table.concat(selectedText, "\n")
+
   local pattern_to_search = table.concat(selectedText, "\\n")
   if motion_type == "line" then
     pattern_to_search = "^" .. selectedText .. "\\n"
@@ -24,7 +26,7 @@ function Chiruno.get_text_selection(motion_type)
     pattern_to_search = ".*" .. table.concat(selectedText, ".*\\n.*") .. ".*"
   end
 
-  return { escaped = pattern_to_search, raw_text = table.concat(selectedText, "\n"), selection = selection }
+  return { escaped = pattern_to_search, raw_text = raw_text, selection = selection }
 end
 
 return Chiruno.get_text_selection
