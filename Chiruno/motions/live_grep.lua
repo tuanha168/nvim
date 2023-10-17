@@ -1,5 +1,5 @@
 function Chiruno.live_grep_motion()
-  require("telescope.builtin").grep_string {
+  require("telescope.builtin").live_grep {
     search = Chiruno.get_text_selection().text,
     hidden = true,
   }
