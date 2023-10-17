@@ -584,4 +584,9 @@ return {
     },
   },
   { "Aasim-A/scrollEOF.nvim", opts = {}, event = "BufEnter" },
+  {
+    "backdround/improved-search.nvim",
+    opts = true,
+    config = function() vim.keymap.set("n", "|", search.in_place) end,
+  },
 }
