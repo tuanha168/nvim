@@ -1,9 +1,11 @@
 function Chiruno.search(mode)
-  local selection = Chiruno.get_text_selection(mode)
-  if not selection then return end
+  local temp = Chiruno.get_text_selection(mode)
+  if not temp then return end
 
-  vim.api.nvim_win_set_cursor(0, { selection.selection.startRow, selection.selection.startCol })
+  local _, escapedText, selection = unpack(temp)
 
-  vim.fn.setreg("/", selection.escapedText)
+  vim.api.nvim_win_set_cursor(0, { selection.startRow, selection.startCol })
+
+  vim.fn.setreg("/", escapedText)
   vim.opt.hlsearch = true
 end
