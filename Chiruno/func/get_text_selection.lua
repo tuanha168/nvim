@@ -24,7 +24,7 @@ function Chiruno.get_text_selection(motion_type)
     pattern_to_search = ".*" .. table.concat(selectedText, ".*\\n.*") .. ".*"
   end
 
-  return { text = pattern_to_search, selection = selection }
+  return { escaped = pattern_to_search, selection = selection }
 end
 
 return Chiruno.get_text_selection
