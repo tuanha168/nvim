@@ -5,16 +5,16 @@ function Chiruno.live_grep_motion(mode)
   -- }
   -- vim.schedule(function() Chiruno.feedkeys("<ESC>", "i") end)
 
-  local pattern_to_search = Chiruno.get_text_selection(mode).text
+  local selection = Chiruno.get_text_selection(mode)
+  if not selection then return end
   -- Use strict pattern search.
   -- if Improved_search_operator_behaviour.strict then pattern_to_search = "\\<" .. pattern_to_search .. "\\>" end
 
   -- Set cursor to left part of selected text (for next search conviniece)
-  local start_row, start_column = get_mark "["
-  vim.api.nvim_win_set_cursor(0, { start_row, start_column })
+  vim.api.nvim_win_set_cursor(0, { selection.selection.startRow, selection.selection.startCol })
 
   -- Set the selected text as a search text
-  vim.fn.setreg("/", pattern_to_search)
+  vim.fn.setreg("/", selection.escapedText)
   vim.opt.hlsearch = true
 end
 
