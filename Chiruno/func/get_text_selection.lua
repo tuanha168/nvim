@@ -1,19 +1,25 @@
 function Chiruno.get_text_selection(motion_type)
   local selection = Chiruno.get_selection()
-  if not selection then return end
+  if selection == nil then return end
 
   if motion_type == "line" then
-    return vim.api.nvim_buf_get_lines(0, selection.startRow - 1, end_line, true)
+    return vim.api.nvim_buf_get_lines(0, selection.startRow - 1, selection.finishRow, true)
   elseif motion_type == "char" then
-    return vim.api.nvim_buf_get_text(0, start_line - 1, start_column, end_line - 1, end_column + 1, {})
+    return vim.api.nvim_buf_get_text(
+      0,
+      selection.startRow - 1,
+      selection.startCol,
+      selection.finishRow - 1,
+      selection.finishCol + 1,
+      {}
+    )
   elseif motion_type == "block" then
-    local selected_lines = vim.api.nvim_buf_get_lines(0, start_line - 1, end_line, true)
+    local selected_lines = vim.api.nvim_buf_get_lines(0, selection.startRow - 1, selection.finishRow, true)
     for i, line in ipairs(selected_lines) do
-      selected_lines[i] = line:sub(start_column + 1, end_column + 1)
+      selected_lines[i] = line:sub(selection.startCol + 1, selection.finishCol + 1)
     end
     return selected_lines
   end
-  if selection == nil then return end
 
   local special_symbols = "^$\\"
   if vim.api.nvim_get_option "magic" then special_symbols = "*^$.~[]\\" end
