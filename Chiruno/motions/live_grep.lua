@@ -1,6 +1,6 @@
 function Chiruno.live_grep_motion()
-  require("telescope.builtin").live_grep {
-    default_text = Chiruno.get_text_selection().escaped,
+  require("telescope.builtin").grep_string {
+    search = Chiruno.get_text_selection().escaped,
     hidden = true,
   }
   vim.schedule(function() Chiruno.feedkeys("<ESC>", "i") end)
