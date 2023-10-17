@@ -12,10 +12,10 @@ function Chiruno.get_text_selection(motion_type)
     selectedText[index] = vim.fn.escape(line, special_symbols)
   end
 
-  -- if #selection.currentLine > 2 then
-  --   vim.list_extend(selectedText, vim.list_slice(selection.currentLine, 2, #selection.currentLine - 1))
-  -- end
-  -- table.insert(selectedText, selection.endText)
+  if #selection.currentLine > 2 then
+    vim.list_extend(selectedText, vim.list_slice(selection.currentLine, 2, #selection.currentLine - 1))
+  end
+  table.insert(selectedText, selection.endText)
 
   local pattern_to_search = table.concat(selectedText, "\\n")
   if motion_type == "line" then
