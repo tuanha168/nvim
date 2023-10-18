@@ -388,19 +388,6 @@ return {
   },
 
   -- {
-  --   "smoka7/multicursors.nvim",
-  --   verylazy = true,
-  --   opts = {},
-  --   keys = {
-  --     {
-  --       "<Leader>m",
-  --       "<cmd>MCstart<cr>",
-  --       desc = "Create a selection for word under the cursor",
-  --     },
-  --   },
-  -- },
-
-  -- {
   --   "jonatan-branting/nvim-better-n",
   --   event = "BufEnter",
   --   opts = function()
@@ -473,6 +460,9 @@ return {
     opts = {
       hint_config = false,
     },
+    cmd = { "MCstart" },
+    cmd = { "MCstart" },
+    cmd = { "MCstart" },
     cmd = { "MCstart" },
     keys = {
       {
