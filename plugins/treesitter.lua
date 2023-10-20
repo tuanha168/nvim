@@ -116,7 +116,8 @@ return {
     end,
   },
   {
-    "David-Kunz/markid",
+    -- "David-Kunz/markid",
+    "tuanha168/markid",
     event = "BufRead",
     dependencies = { "nvim-treesitter/nvim-treesitter" },
     config = require "user.config.markid",
