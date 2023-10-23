@@ -17,7 +17,6 @@ function Chiruno.auto_reload_cmp()
       if not ok then return end
 
       cmp.complete()
-      Chiruno.print "Reload cmp"
     end)
   )
   timer:stop()
