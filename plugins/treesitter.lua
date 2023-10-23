@@ -49,11 +49,12 @@ return {
         },
       }
 
-      opts.pickers = opts.pickers or {}
-      opts.pickers.buffers = opts.pickers.buffers or {}
-
-      opts.pickers.buffers.ignore_current_buffer = true
-      opts.pickers.buffers.sort_lastused = true
+      opts.pickers = {
+        buffers = {
+          ignore_current_buffer = true,
+          sort_lastused = true,
+        },
+      }
 
       return opts
     end,
