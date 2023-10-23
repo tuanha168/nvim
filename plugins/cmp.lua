@@ -41,9 +41,10 @@ return {
       local snip_status_ok, luasnip = pcall(require, "luasnip")
 
       opts.mapping["<Tab>"] = cmp.mapping(function(fallback)
-        if cmp.visible() then
+        --[[ if cmp.visible() then
           cmp.select_next_item()
-        elseif snip_status_ok and luasnip.expand_or_jumpable() then
+        else ]]
+        if snip_status_ok and luasnip.expand_or_jumpable() then
           luasnip.expand_or_jump()
         elseif vim.snippet.jumpable(1) then
           vim.snippet.jump(1)
@@ -52,9 +53,10 @@ return {
         end
       end, { "i", "s" })
       opts.mapping["<S-Tab>"] = cmp.mapping(function(fallback)
-        if cmp.visible() then
+        --[[ if cmp.visible() then
           cmp.select_prev_item()
-        elseif luasnip.jumpable(-1) then
+        else ]]
+        if luasnip.jumpable(-1) then
           luasnip.jump(-1)
         elseif vim.snippet.jumpable(-1) then
           vim.snippet.jump(-1)

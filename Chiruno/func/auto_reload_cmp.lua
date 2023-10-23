@@ -9,14 +9,15 @@ function Chiruno.auto_reload_cmp()
   end
 
   timer:start(
-    100,
-    1000,
+    500,
+    500,
     vim.schedule_wrap(function()
       timer:stop()
       local ok, cmp = pcall(require, "cmp")
       if not ok then return end
 
       cmp.complete()
+      Chiruno.print "Reload cmp"
     end)
   )
   timer:stop()
