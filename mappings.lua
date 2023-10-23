@@ -44,7 +44,7 @@ local mappings = {
       function()
         local check, telescope = pcall(require, "telescope.builtin")
         if not check then return end
-        pcall(telescope.find_files)
+        pcall(telescope.find_files, { sort_mru = true })
       end,
       desc = "Find files",
     },
