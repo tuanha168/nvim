@@ -49,6 +49,7 @@ return {
         },
       }
 
+      opts.pickers = opts.pickers or {}
       opts.pickers.buffers = opts.pickers.buffers or {}
 
       opts.pickers.buffers.ignore_current_buffer = true
