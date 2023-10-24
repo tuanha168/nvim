@@ -51,6 +51,7 @@ return {
           fallback()
         end
       end, { "i", "s" })
+
       opts.mapping["<S-Tab>"] = cmp.mapping(function(fallback)
         if cmp.visible() then
           cmp.select_prev_item()
@@ -58,6 +59,14 @@ return {
           luasnip.jump(-1)
         elseif vim.snippet.jumpable(-1) then
           vim.snippet.jump(-1)
+        else
+          fallback()
+        end
+      end, { "i", "s" })
+
+      opts.mapping["<ESC>"] = cmp.mapping(function(fallback)
+        if cmp.visible() then
+          cmp.close()
         else
           fallback()
         end
