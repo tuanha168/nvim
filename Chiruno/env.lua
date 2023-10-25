@@ -1,5 +1,3 @@
-Chiruno = Chiruno or {}
-
 Chiruno.constants = {
   templateBuffer = "template-buffer",
   templateBufferSize = "19%",

@@ -1,5 +1,3 @@
-Chiruno = Chiruno or {}
-
 local splitLeft
 local splitRight
 local openNullWindow = true

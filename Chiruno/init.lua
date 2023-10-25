@@ -1,4 +1,9 @@
-Chiruno = {}
+Chiruno = {
+  autocmd = {},
+  func = {},
+  motions = {},
+  textobjs = {},
+}
 
 require "user.Chiruno.env"
 
@@ -8,10 +13,7 @@ for _, path in ipairs(paths) do
   local path_split = string.gsub(string.gsub(path, "/", "."), ".*" .. ..., "")
   local file = string.gsub(path_split, "%.lua?$", "") -- trim off .lua\n
 
-  if file ~= ".init" and file ~= ".env" then
-    Chiruno[string.gmatch(file, "([^.]+)")()] = Chiruno[string.gmatch(file, "([^.]+)")()] or {}
-    require(... .. file)
-  end
+  if file ~= ".init" and file ~= ".env" then require(... .. file) end
 end
 
 return Chiruno

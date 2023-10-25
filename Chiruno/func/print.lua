@@ -1,5 +1,3 @@
-Chiruno = Chiruno or {}
-
 local function table_print(tt, indent, done)
   done = done or {}
   indent = indent or 0
