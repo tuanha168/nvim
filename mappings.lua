@@ -27,7 +27,7 @@ local mappings = {
       noremap = true,
       desc = "Resize split right",
     },
-    ["*"] = { function() Chiruno.search "normal" end },
+    ["*"] = { function() Chiruno.operatorfunc_lua "search" end },
     ["<leader>fs"] = {
       function() Chiruno.operatorfunc_lua "live_grep_motion" end,
       desc = "Live grep motion",
