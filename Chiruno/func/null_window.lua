@@ -121,7 +121,7 @@ local function checkNullWindow()
   end
 end
 
-function Chiruno.func.null_window()
+function Chiruno.autocmd.null_window()
   local autocmd = vim.api.nvim_create_autocmd
 
   autocmd({ "BufEnter" }, {
