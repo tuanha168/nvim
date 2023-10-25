@@ -1,10 +1,13 @@
 function Chiruno.replace_motion(mode)
-  local cword, selection = Chiruno.func.get_text_selection().text, Chiruno.func.get_text_selection().selection
-  if cword == nil then return end
+  local textSelection = Chiruno.func.get_text_selection()
+  if not textSelection then return end
+
+  local text, selection = textSelection.text, textSelection.selection
+  if text == nil then return end
   if mode == "line" and selection.finishRow - selection.startRow ~= 0 then return end
 
-  vim.ui.input({ prompt = "Enter replacement: ", default = cword }, function(replaceWord)
-    if replaceWord == nil or replaceWord == "" or replaceWord == cword then return end
+  vim.ui.input({ prompt = "Enter replacement: ", default = text }, function(replaceWord)
+    if replaceWord == nil or replaceWord == "" or replaceWord == text then return end
     if vim.api.nvim_get_mode().mode ~= "v" then
       vim.api.nvim_cmd({ cmd = "normal", bang = true, args = { "v" } }, {})
     end
