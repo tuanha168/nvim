@@ -29,12 +29,12 @@ local mappings = {
     },
     ["*"] = { '"ayiwh/<c-r>a<CR>' },
     ["<leader>fs"] = {
-      function() Chiruno.operatorfunc_lua "live_grep_motion" end,
+      function() Chiruno.func.operatorfunc_lua "live_grep_motion" end,
       desc = "Live grep motion",
       noremap = true,
     },
     ["<leader>r"] = {
-      function() Chiruno.operatorfunc_lua "replace_motion" end,
+      function() Chiruno.func.operatorfunc_lua "replace_motion" end,
     },
     ["<leader>fa"] = {
       function() require("telescope.builtin").find_files { hidden = true, no_ignore = true } end,
@@ -161,14 +161,14 @@ local mappings = {
     },
   },
   v = {
-    ["*"] = { function() Chiruno.operatorfunc_lua "search" end },
+    ["*"] = { function() Chiruno.func.operatorfunc_lua "search" end },
     ["<leader>fs"] = {
-      function() Chiruno.operatorfunc_lua "live_grep_motion" end,
+      function() Chiruno.func.operatorfunc_lua "live_grep_motion" end,
       desc = "Live grep motion",
       noremap = true,
     },
     ["<leader>r"] = {
-      function() Chiruno.operatorfunc_lua "replace_motion" end,
+      function() Chiruno.func.operatorfunc_lua "replace_motion" end,
     },
     -- Yank
     ["<c-c>"] = { '"+y', desc = "Yank", noremap = true },
