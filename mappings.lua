@@ -151,7 +151,7 @@ local mappings = {
         end
       end,
     },
-    ["<leader>fd"] = { function() Chiruno.run_make() end, desc = "Run make", noremap = true },
+    ["<leader>fd"] = { function() Chiruno.func.run_make() end, desc = "Run make", noremap = true },
     ["]c"] = { "<cmd>cn<CR>", desc = "Next error", noremap = true },
     ["[c"] = { "<cmd>cp<CR>", desc = "Previous error", noremap = true },
     ["<leader>z"] = {

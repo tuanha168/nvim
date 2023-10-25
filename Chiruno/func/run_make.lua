@@ -1,6 +1,6 @@
 function _G.custom_complete_list() return { "tsc", "eslint", "stylelint" } end
 
-function Chiruno.run_make()
+function Chiruno.func.run_make()
   vim.ui.input({ prompt = "Enter command", completion = "customlist,v:lua.custom_complete_list" }, function(makeCommand)
     if makeCommand == nil or makeCommand == "" then return end
 
@@ -21,4 +21,4 @@ function Chiruno.run_make()
   end)
 end
 
-return Chiruno.run_make
+return Chiruno.func.run_make
