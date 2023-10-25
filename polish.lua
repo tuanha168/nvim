@@ -54,7 +54,7 @@ return function()
 
   autocmd({ "BufWritePre" }, {
     pattern = "*.norg",
-    callback = function() Chiruno.auto_push "~/neorg" end,
+    callback = function() Chiruno.func.auto_push "~/neorg" end,
   })
 
   autocmd({ "BufWritePre" }, {
@@ -64,10 +64,10 @@ return function()
         string.match(event.match, os.getenv "HOME" .. "/.config/nvim/lua/user")
         and not string.match(event.match, "scratch/src")
       then
-        Chiruno.auto_push "~/.config/nvim/lua/user"
+        Chiruno.func.auto_push "~/.config/nvim/lua/user"
       end
 
-      if string.match(event.match, os.getenv "HOME" .. "/.dotfile") then Chiruno.auto_push "~/.dotfile" end
+      if string.match(event.match, os.getenv "HOME" .. "/.dotfile") then Chiruno.func.auto_push "~/.dotfile" end
     end,
   })
 

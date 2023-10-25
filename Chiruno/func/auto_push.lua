@@ -1,6 +1,6 @@
 local logsDir = "~/.dotfile/logs/git-auto-push"
 
-function Chiruno.auto_push(path)
+function Chiruno.func.auto_push(path)
   if vim.fn.executable "git-auto-push" == 1 then
     if not Chiruno.isdir_exist(logsDir) then vim.cmd("silent !mkdir " .. logsDir) end
     Chiruno.print("Auto Pushing " .. path)
@@ -10,4 +10,4 @@ function Chiruno.auto_push(path)
   end
 end
 
-return Chiruno.auto_push
+return Chiruno.func.auto_push
