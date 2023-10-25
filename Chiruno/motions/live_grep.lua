@@ -3,7 +3,7 @@ function Chiruno.live_grep_motion(mode)
     search = Chiruno.get_text_selection(mode).text,
     hidden = true,
   }
-  vim.schedule(function() Chiruno.feedkeys("<ESC>", "i") end)
+  vim.schedule(function() Chiruno.func.feedkeys("<ESC>", "i") end)
 end
 
 return Chiruno.live_grep_motion

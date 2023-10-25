@@ -12,7 +12,7 @@ function Chiruno.replace_motion(mode)
     vim.api.nvim_win_set_cursor(0, { selection.startRow, selection.startCol })
     vim.cmd "norm! o"
     vim.api.nvim_win_set_cursor(0, { selection.finishRow, selection.finishCol })
-    Chiruno.feedkeys('"ayh/<c-r>a<CR>cgn' .. replaceWord .. "<ESC>", "n")
+    Chiruno.func.feedkeys('"ayh/<c-r>a<CR>cgn' .. replaceWord .. "<ESC>", "n")
   end)
 
   ----------------- VimGrep ----------------

@@ -1,4 +1,4 @@
-function Chiruno.get_selection()
+function Chiruno.func.get_selection()
   local startRow, startCol = unpack(vim.api.nvim_buf_get_mark(0, "["))
   local finishRow, finishCol = unpack(vim.api.nvim_buf_get_mark(0, "]"))
   local currentLine = vim.api.nvim_buf_get_lines(0, startRow - 1, finishRow, false)
@@ -22,4 +22,4 @@ function Chiruno.get_selection()
   }
 end
 
-return Chiruno.get_selection
+return Chiruno.func.get_selection

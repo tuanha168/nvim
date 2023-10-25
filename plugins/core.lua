@@ -507,7 +507,7 @@ return {
             if origin == nil or origin == "" then origin = "origin" end
             vim.ui.input({ prompt = "Enter branch(default: develop): " }, function(branch)
               if branch == nil or branch == "" then branch = "develop" end
-              Chiruno.feedkeys(":" .. prefix .. "RepoLink! " .. branch .. " " .. origin .. "<CR>", "n")
+              Chiruno.func.feedkeys(":" .. prefix .. "RepoLink! " .. branch .. " " .. origin .. "<CR>", "n")
             end)
           end)
         end,

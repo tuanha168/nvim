@@ -1,5 +1,5 @@
 function Chiruno.get_text_selection(motion_type)
-  local selection = Chiruno.get_selection()
+  local selection = Chiruno.func.get_selection()
   if selection == nil then return end
 
   local selectedText = {}

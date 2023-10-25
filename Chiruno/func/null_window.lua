@@ -36,7 +36,7 @@ end
 ---@param opts? {left?: boolean, right?: boolean}
 ---@return nil
 function Chiruno.close_null_window(opts)
-  opts = Chiruno.extends_table({
+  opts = Chiruno.func.extends_table({
     left = true,
     right = true,
   }, opts or {})
@@ -49,7 +49,7 @@ end
 ---@param opts? {left?: boolean, right?: boolean}
 ---@return nil
 function Chiruno.open_null_window(opts)
-  opts = Chiruno.extends_table({
+  opts = Chiruno.func.extends_table({
     left = true,
     right = false,
   }, opts or {})
@@ -71,7 +71,7 @@ function Chiruno.open_null_window(opts)
   if opts.left and not haveNeoTree then
     if splitLeft then splitLeft:unmount() end
 
-    splitLeft = Split(Chiruno.extends_table(options, {
+    splitLeft = Split(Chiruno.func.extends_table(options, {
       position = "left",
     }))
 
@@ -81,7 +81,7 @@ function Chiruno.open_null_window(opts)
   if opts.right and not haveAerial then
     if splitRight then splitRight:unmount() end
 
-    splitRight = Split(Chiruno.extends_table(options, {
+    splitRight = Split(Chiruno.func.extends_table(options, {
       position = "right",
     }))
 
