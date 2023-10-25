@@ -155,7 +155,7 @@ local mappings = {
     ["]c"] = { "<cmd>cn<CR>", desc = "Next error", noremap = true },
     ["[c"] = { "<cmd>cp<CR>", desc = "Previous error", noremap = true },
     ["<leader>z"] = {
-      function() Chiruno.toggle_null_window() end,
+      function() Chiruno.func.toggle_null_window() end,
       desc = "Toggle Null Window",
       noremap = true,
     },

@@ -48,7 +48,7 @@ end
 -- Open null window
 ---@param opts? {left?: boolean, right?: boolean}
 ---@return nil
-function Chiruno.open_null_window(opts)
+function Chiruno.func.open_null_window(opts)
   opts = Chiruno.func.extends_table({
     left = true,
     right = false,
@@ -89,11 +89,11 @@ function Chiruno.open_null_window(opts)
   end
 end
 
-function Chiruno.toggle_null_window()
+function Chiruno.func.toggle_null_window()
   openNullWindow = not openNullWindow
 
   if openNullWindow then
-    Chiruno.open_null_window()
+    Chiruno.func.open_null_window()
   else
     Chiruno.func.close_null_window()
   end
@@ -111,13 +111,13 @@ local function checkNullWindow()
   if haveNeoTree then
     Chiruno.func.close_null_window { right = false }
   elseif openNullWindow then
-    Chiruno.open_null_window { right = false }
+    Chiruno.func.open_null_window { right = false }
   end
 
   if haveAerial then
     Chiruno.func.close_null_window { left = false }
   elseif openNullWindow then
-    Chiruno.open_null_window { left = false }
+    Chiruno.func.open_null_window { left = false }
   end
 end
 
