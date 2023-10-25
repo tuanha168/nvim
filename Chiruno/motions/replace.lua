@@ -1,5 +1,5 @@
 function Chiruno.replace_motion(mode)
-  local cword, selection = Chiruno.get_text_selection().text, Chiruno.get_text_selection().selection
+  local cword, selection = Chiruno.func.get_text_selection().text, Chiruno.func.get_text_selection().selection
   if cword == nil then return end
   if mode == "line" and selection.finishRow - selection.startRow ~= 0 then return end
 
