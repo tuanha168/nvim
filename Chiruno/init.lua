@@ -6,8 +6,10 @@ local paths = vim.split(vim.fn.glob(string.gsub(debug.getinfo(1).source, "^@(.*)
 
 for _, path in ipairs(paths) do
   local path_split = string.gsub(string.gsub(path, "/", "."), ".*" .. ..., "")
-  vim.notify(path_split, vim.log.levels.INFO)
   local file = string.gsub(path_split, "%.lua?$", "") -- trim off .lua\n
+
+  vim.notify(file, vim.log.levels.INFO)
+
   if file ~= ".init" and file ~= ".env" then require(... .. file) end
 end
 
