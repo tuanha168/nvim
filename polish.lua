@@ -23,7 +23,7 @@ return function()
     pattern = "*",
     callback = function()
       Chiruno.autocmd.auto_reload_cmp()
-      Chiruno.null_window()
+      Chiruno.func.null_window()
       vim.diagnostic.config { virtual_text = true }
     end,
     once = true,
