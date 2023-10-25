@@ -99,7 +99,7 @@ function Chiruno.func.toggle_null_window()
   end
 end
 
-local function checkNullWindow()
+function Chiruno.func.checkNullWindow()
   local buffers = vim.fn.getwininfo()
   local haveNeoTree = false
   local haveAerial = false
@@ -121,19 +121,4 @@ local function checkNullWindow()
   end
 end
 
-function Chiruno.autocmd.null_window()
-  local autocmd = vim.api.nvim_create_autocmd
-
-  autocmd({ "BufEnter" }, {
-    pattern = "*",
-    callback = checkNullWindow,
-    once = true,
-  })
-
-  autocmd("User", {
-    pattern = { Chiruno.constants.events.NeoTreeToggle, Chiruno.constants.events.AerialToggle },
-    callback = checkNullWindow,
-  })
-end
-
-return Chiruno.null_window
+return Chiruno.func.checkNullWindow
