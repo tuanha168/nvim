@@ -67,7 +67,7 @@ return {
       opts.mapping["<ESC>"] = cmp.mapping(function(fallback)
         if cmp.visible() then
           cmp.close()
-          Chiruno.get_auto_reload_cmp_timer():stop()
+          Chiruno.autocmd.get_auto_reload_cmp_timer():stop()
         else
           fallback()
         end

@@ -1,7 +1,7 @@
 local autocmd = vim.api.nvim_create_autocmd
 local timer
 
-function Chiruno.auto_reload_cmp()
+function Chiruno.autocmd.auto_reload_cmp()
   if vim.uv then
     timer = vim.uv.new_timer()
   else
@@ -32,6 +32,6 @@ function Chiruno.auto_reload_cmp()
   })
 end
 
-function Chiruno.get_auto_reload_cmp_timer() return timer end
+function Chiruno.autocmd.get_auto_reload_cmp_timer() return timer end
 
-return Chiruno.auto_reload_cmp
+return Chiruno.autocmd.auto_reload_cmp

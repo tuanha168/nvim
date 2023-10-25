@@ -22,7 +22,7 @@ return function()
   autocmd("BufRead", {
     pattern = "*",
     callback = function()
-      Chiruno.auto_reload_cmp()
+      Chiruno.autocmd.auto_reload_cmp()
       Chiruno.null_window()
       vim.diagnostic.config { virtual_text = true }
     end,
