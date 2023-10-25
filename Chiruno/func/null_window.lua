@@ -99,7 +99,7 @@ function Chiruno.func.toggle_null_window()
   end
 end
 
-function Chiruno.func.checkNullWindow()
+function Chiruno.func.check_null_window()
   local buffers = vim.fn.getwininfo()
   local haveNeoTree = false
   local haveAerial = false
@@ -121,4 +121,4 @@ function Chiruno.func.checkNullWindow()
   end
 end
 
-return Chiruno.func.checkNullWindow
+return Chiruno.func.check_null_window
