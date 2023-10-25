@@ -95,7 +95,7 @@ function Chiruno.toggle_null_window()
   if openNullWindow then
     Chiruno.open_null_window()
   else
-    Chiruno.close_null_window()
+    Chiruno.func.close_null_window()
   end
 end
 
@@ -109,13 +109,13 @@ local function checkNullWindow()
   end
 
   if haveNeoTree then
-    Chiruno.close_null_window { right = false }
+    Chiruno.func.close_null_window { right = false }
   elseif openNullWindow then
     Chiruno.open_null_window { right = false }
   end
 
   if haveAerial then
-    Chiruno.close_null_window { left = false }
+    Chiruno.func.close_null_window { left = false }
   elseif openNullWindow then
     Chiruno.open_null_window { left = false }
   end
