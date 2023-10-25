@@ -1,4 +1,4 @@
-function Chiruno.replace_motion(mode)
+function Chiruno.motions.replace_motion(mode)
   local textSelection = Chiruno.func.get_text_selection()
   if not textSelection then return end
 
@@ -36,4 +36,4 @@ function Chiruno.replace_motion(mode)
   -- vim.schedule(function() Chiruno.open_quickfix "test" end)
 end
 
-return Chiruno.replace_motion
+return Chiruno.motions.replace_motion

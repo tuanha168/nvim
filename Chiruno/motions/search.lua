@@ -1,4 +1,4 @@
-function Chiruno.search(mode)
+function Chiruno.motions.search(mode)
   local getSelection = Chiruno.func.get_text_selection(mode)
   if not getSelection then return end
 
