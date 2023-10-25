@@ -35,7 +35,7 @@ end
 -- Close null window
 ---@param opts? {left?: boolean, right?: boolean}
 ---@return nil
-function Chiruno.close_null_window(opts)
+function Chiruno.func.close_null_window(opts)
   opts = Chiruno.func.extends_table({
     left = true,
     right = true,
