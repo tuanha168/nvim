@@ -8,9 +8,10 @@ for _, path in ipairs(paths) do
   local path_split = string.gsub(string.gsub(path, "/", "."), ".*" .. ..., "")
   local file = string.gsub(path_split, "%.lua?$", "") -- trim off .lua\n
 
-  vim.notify(file, vim.log.levels.INFO)
-
-  if file ~= ".init" and file ~= ".env" then require(... .. file) end
+  if file ~= ".init" and file ~= ".env" then
+    Chiruno[string.gmatch(file, "([^.]+)")()] = Chiruno[string.gmatch(file, "([^.]+)")()] or {}
+    require(... .. file)
+  end
 end
 
 return Chiruno
