@@ -259,11 +259,18 @@ return {
   {
     "3rd/image.nvim",
     event = "BufRead",
-    build = "luarocks --local install magick",
-    config = function()
-      package.path = package.path .. ";" .. vim.fn.expand "$HOME" .. "/.luarocks/share/lua/5.1/?/init.lua"
-      require("image").setup()
-    end,
+    config = function() require("image").setup() end,
+    dependencies = {
+      {
+        "theHamsta/nvim_rocks",
+        build = "pip3 install --user hererocks && python3 -mhererocks . -j2.1.0-beta3 -r3.0.0 && cp nvim_rocks.lua lua",
+        config = function()
+          ---- Add here the packages you want to make sure that they are installed
+          local nvim_rocks = require "nvim_rocks"
+          nvim_rocks.ensure_installed { "magick", "cffi-lua" }
+        end,
+      },
+    },
   },
 
   {
