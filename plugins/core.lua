@@ -256,24 +256,24 @@ return {
   --     },
   --   },
   -- },
-  {
-    "3rd/image.nvim",
-    event = "BufRead",
-    config = function() require("image").setup() end,
-    dependencies = {
-      {
-        "theHamsta/nvim_rocks",
-        build = "pip3 install --user hererocks && python3 -mhererocks . -j2.1.0-beta3 -r3.0.0 && cp nvim_rocks.lua lua",
-        config = function()
-          ---- Add here the packages you want to make sure that they are installed
-          local nvim_rocks = require "nvim_rocks"
-          nvim_rocks.ensure_installed { "magick", "cffi-lua" }
-          local magick = require "magick"
-          Chiruno.func.print(magick)
-        end,
-      },
-    },
-  },
+  -- {
+  --   "3rd/image.nvim",
+  --   event = "BufRead",
+  --   config = function() require("image").setup() end,
+  --   dependencies = {
+  --     {
+  --       "theHamsta/nvim_rocks",
+  --       build = "pip3 install --user hererocks && python3 -mhererocks . -j2.1.0-beta3 -r3.0.0 && cp nvim_rocks.lua lua",
+  --       config = function()
+  --         ---- Add here the packages you want to make sure that they are installed
+  --         local nvim_rocks = require "nvim_rocks"
+  --         nvim_rocks.ensure_installed { "magick", "cffi-lua" }
+  --         local magick = require "magick"
+  --         Chiruno.func.print(magick)
+  --       end,
+  --     },
+  --   },
+  -- },
 
   {
     "tpope/vim-dispatch",
