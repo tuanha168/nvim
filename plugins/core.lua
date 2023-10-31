@@ -258,12 +258,11 @@ return {
   -- },
   {
     "3rd/image.nvim",
-    event = "BufRead",
     build = "luarocks --local install magick",
-    opts = function()
+    config = function()
       package.path = package.path .. ";" .. vim.fn.expand "$HOME" .. "/.luarocks/share/lua/5.1/?/init.lua;"
       package.path = package.path .. ";" .. vim.fn.expand "$HOME" .. "/.luarocks/share/lua/5.1/?.lua;"
-      require("image").setup {}
+      require("image").setup()
     end,
   },
 
