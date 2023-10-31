@@ -256,6 +256,11 @@ return {
   --     },
   --   },
   -- },
+  {
+    "3rd/image.nvim",
+    event = "BufRead",
+    opts = true,
+  },
 
   {
     "tpope/vim-dispatch",
