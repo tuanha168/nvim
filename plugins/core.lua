@@ -268,6 +268,8 @@ return {
           ---- Add here the packages you want to make sure that they are installed
           local nvim_rocks = require "nvim_rocks"
           nvim_rocks.ensure_installed { "magick", "cffi-lua" }
+          local magick = require "magick"
+          Chiruno.func.print(magick)
         end,
       },
     },
