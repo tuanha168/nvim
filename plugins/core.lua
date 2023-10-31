@@ -261,7 +261,7 @@ return {
     event = "BufRead",
     build = "luarocks --local install magick",
     config = function()
-      package.path = package.path .. ";" .. vim.fn.expand "$HOME" .. "/.luarocks/share/lua/5.1/magick/init.lua"
+      package.path = package.path .. ";" .. vim.fn.expand "$HOME" .. "/.luarocks/share/lua/5.1/?/init.lua"
       require("image").setup()
     end,
   },
