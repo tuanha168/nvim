@@ -591,7 +591,7 @@ return {
   { "Aasim-A/scrollEOF.nvim", opts = {}, event = "BufEnter" },
   {
     "stevearc/oil.nvim",
-    keys = { { "-", "<CMD>Oil<CR>", mode = "n", noremap = true } },
+    keys = { { "-", "<CMD>Oil<CR>", mode = "n" } },
     cmd = { "Oil" },
     opts = {},
   },
