@@ -596,7 +596,7 @@ return {
         "<leader>-",
         function()
           local oil = require "oil"
-          oil.open_float(oil.get_current_dir())
+          oil.open_float()
         end,
         mode = "n",
       },
