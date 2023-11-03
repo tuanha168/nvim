@@ -592,7 +592,7 @@ return {
   {
     "stevearc/oil.nvim",
     keys = {
-      { "-", "<cmd>Oil<cr>", mode = "n" },
+      { "-", function() require("oil").open() end, mode = "n" },
     },
     opts = {},
   },
