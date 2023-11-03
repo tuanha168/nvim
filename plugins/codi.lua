@@ -53,9 +53,12 @@ return {
           if string.find(vim.api.nvim_buf_get_name(e.buf), "scratch/src/scratch", 1, true) then
             vim.b[e.buf].scratch_entered = true
             local buffers = vim.fn.getwininfo()
+            if not buffers then return end
             local haveNeoTree = false
             for _, buf in ipairs(buffers) do
-              if vim.api.nvim_buf_get_option(buf.bufnr, "filetype") == "neo-tree" then haveNeoTree = true end
+              if vim.api.nvim_get_option_value("filetype", { buf = buf.bufnr }) == "neo-tree" then
+                haveNeoTree = true
+              end
             end
             local _ok, neo = pcall(require, "neo-tree.command")
             if _ok then neo.execute { action = "close" } end
