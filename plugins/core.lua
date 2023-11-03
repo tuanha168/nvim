@@ -597,7 +597,7 @@ return {
         function()
           local oil = require "oil"
           if vim.api.nvim_buf_get_option(0, "filetype") == "oil" then
-            Chiruno.func.feedkeys("<space>qq", "n")
+            require("astronvim.utils.buffer").close()
           else
             oil.open_float()
           end
