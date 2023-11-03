@@ -596,7 +596,7 @@ return {
         "<leader>-",
         function()
           local oil = require "oil"
-          if vim.api.nvim_buf_get_option(0, "filetype") == "oil" then
+          if vim.api.nvim_get_option_value("filetype", {}) == "oil" then
             require("astronvim.utils.buffer").close()
           else
             oil.open_float()
