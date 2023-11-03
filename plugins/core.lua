@@ -596,7 +596,11 @@ return {
         "<leader>-",
         function()
           local oil = require "oil"
-          oil.open_float()
+          if vim.api.nvim_buf_get_option(0, "filetype") == "oil" then
+            Chiruno.func.feedkeys("<leader>qq", "n")
+          else
+            oil.open_float()
+          end
         end,
         mode = "n",
       },
