@@ -64,8 +64,8 @@ function Chiruno.func.open_null_window(opts)
   if not buffers then return end
 
   for _, buf in ipairs(buffers) do
-    if vim.api.nvim_buf_get_option(buf.bufnr, "filetype") == "neo-tree" then haveNeoTree = true end
-    if vim.api.nvim_buf_get_option(buf.bufnr, "filetype") == "aerial" then haveAerial = true end
+    if vim.api.nvim_get_option_value("filetype", { buf = buf.bufnr }) == "neo-tree" then haveNeoTree = true end
+    if vim.api.nvim_get_option_value("filetype", { buf = buf.bufnr }) == "aerial" then haveAerial = true end
   end
 
   if opts.left and not haveNeoTree then
@@ -101,11 +101,12 @@ end
 
 function Chiruno.func.check_null_window()
   local buffers = vim.fn.getwininfo()
+  if not buffers then return end
   local haveNeoTree = false
   local haveAerial = false
   for _, buf in ipairs(buffers) do
-    if vim.api.nvim_buf_get_option(buf.bufnr, "filetype") == "neo-tree" then haveNeoTree = true end
-    if vim.api.nvim_buf_get_option(buf.bufnr, "filetype") == "aerial" then haveAerial = true end
+    if vim.api.nvim_get_option_value("filetype", { buf = buf.bufnr }) == "neo-tree" then haveNeoTree = true end
+    if vim.api.nvim_get_option_value("filetype", { buf = buf.bufnr }) == "aerial" then haveAerial = true end
   end
 
   if haveNeoTree then
