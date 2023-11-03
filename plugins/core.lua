@@ -592,7 +592,7 @@ return {
   {
     "stevearc/oil.nvim",
     keys = {
-      { "<leader>-", function() require("oil").open() end, mode = "n" },
+      { "<leader>-", function() require("oil").open_float() end, mode = "n" },
     },
     opts = {},
   },
