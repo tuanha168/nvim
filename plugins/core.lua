@@ -589,4 +589,10 @@ return {
     },
   },
   { "Aasim-A/scrollEOF.nvim", opts = {}, event = "BufEnter" },
+  {
+    "stevearc/oil.nvim",
+    opts = {},
+    cmd = { "Oil" },
+    config = function() vim.keymap.set("n", "-", "<CMD>Oil<CR>", { desc = "Open parent directory" }) end,
+  },
 }
