@@ -19,7 +19,7 @@ return {
         -- "cssls",
         -- "stylelint_lsp",
         "tailwindcss",
-        -- "html",
+        "html",
         -- "emmet_ls",
         "jsonls",
 
