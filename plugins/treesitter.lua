@@ -29,6 +29,7 @@ return {
         "yaml",
         "terraform",
         "ssh_config",
+        "http",
       }
       opts.sync_install = true
       opts.ignore_install = {}
