@@ -1,6 +1,10 @@
 return {
   "rest-nvim/rest.nvim",
   dependencies = { { "nvim-lua/plenary.nvim" } },
+  keys = {
+    { "<M-r>", "<Plug>RestNvim", desc = "Run" },
+    { "<M-p>", "<Plug>RestNvimPreview", desc = "Preview" },
+  },
   opts = {
     -- Open request results in a horizontal split
     result_split_horizontal = false,
