@@ -3,7 +3,7 @@ return {
   dependencies = { { "nvim-lua/plenary.nvim" } },
   ft = { "http" },
   keys = {
-    { "<leader>rr", "<Plug>RestNvim", desc = "Run" },
+    { "<leader>er", "<Plug>RestNvim", desc = "Run" },
   },
   opts = {
     -- Open request results in a horizontal split

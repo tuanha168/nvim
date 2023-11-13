@@ -25,7 +25,7 @@ return {
       -- "<cmd>Prettier<CR>",
       desc = "Format code",
     },
-    ["<leader>e"] = {
+    ["<leader>ee"] = {
       function()
         local ok, actPrew = pcall(require, "actions-preview")
         if ok then
