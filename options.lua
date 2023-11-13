@@ -13,7 +13,6 @@ local options = {
     -- termencoding = "utf-8",
     foldmethod = "expr",
     foldexpr = "nvim_treesitter#foldexpr()",
-    filetype = "on",
     swapfile = false,
     title = true,
     titlestring = "%f - nvim",

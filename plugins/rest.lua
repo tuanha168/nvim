@@ -1,6 +1,7 @@
 return {
   "rest-nvim/rest.nvim",
   dependencies = { { "nvim-lua/plenary.nvim" } },
+  ft = { "http" },
   keys = {
     { "<M-r>", "<Plug>RestNvim", desc = "Run" },
     { "<M-p>", "<Plug>RestNvimPreview", desc = "Preview" },
