@@ -72,6 +72,7 @@ return function()
       local isBreak = false
       for _, dir in ipairs(autoPushDir) do
         if isBreak then break end
+
         for _, exclude in ipairs(excludeDir) do
           if string.match(event.match, dir) and not string.match(event.match, exclude) then
             Chiruno.func.auto_push(dir)
