@@ -62,9 +62,19 @@ return function()
     callback = function(event)
       local autoPushDir = {
         os.getenv "HOME" .. "/.config/nvim/lua/user",
-        os.getenv "HOME" .. "/.dotfile",
         os.getenv "HOME" .. "/.dotfile/super-secret",
+        os.getenv "HOME" .. "/.dotfile",
       }
+      local excludeDir = { "scratch/src"
+ }
+
+      for _, dir in ipairs(autoPushDir) do
+        if string.match(event.match, dir) then
+          Chiruno.func.auto_push(dir)
+          break
+        end
+      end
+
       if
         string.match(event.match, os.getenv "HOME" .. "/.config/nvim/lua/user")
         and not string.match(event.match, "scratch/src")
