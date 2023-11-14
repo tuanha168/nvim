@@ -74,20 +74,20 @@ return function()
         end
       end
 
-      if
-        string.match(event.match, os.getenv "HOME" .. "/.config/nvim/lua/user")
-        and not string.match(event.match, "scratch/src")
-      then
-        Chiruno.func.auto_push "~/.config/nvim/lua/user"
-      end
-
-      if string.match(event.match, os.getenv "HOME" .. "/.dotfile") then
-        if string.match(event.match, os.getenv "HOME" .. "/.dotfile/super-secret") then
-          Chiruno.func.auto_push "~/.dotfile/super-secret"
-        else
-          Chiruno.func.auto_push "~/.dotfile"
-        end
-      end
+      -- if
+      --   string.match(event.match, os.getenv "HOME" .. "/.config/nvim/lua/user")
+      --   and not string.match(event.match, "scratch/src")
+      -- then
+      --   Chiruno.func.auto_push "~/.config/nvim/lua/user"
+      -- end
+      --
+      -- if string.match(event.match, os.getenv "HOME" .. "/.dotfile") then
+      --   if string.match(event.match, os.getenv "HOME" .. "/.dotfile/super-secret") then
+      --     Chiruno.func.auto_push "~/.dotfile/super-secret"
+      --   else
+      --     Chiruno.func.auto_push "~/.dotfile"
+      --   end
+      -- end
     end,
   })
 
