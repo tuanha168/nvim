@@ -67,7 +67,13 @@ return function()
         Chiruno.func.auto_push "~/.config/nvim/lua/user"
       end
 
-      if string.match(event.match, os.getenv "HOME" .. "/.dotfile") then Chiruno.func.auto_push "~/.dotfile" end
+      if string.match(event.match, os.getenv "HOME" .. "/.dotfile") then
+        if string.match(event.match, os.getenv "HOME" .. "/.dotfile") then
+          Chiruno.func.auto_push "~/.dotfile"
+        else
+          Chiruno.func.auto_push "~/.dotfile"
+        end
+      end
     end,
   })
 
