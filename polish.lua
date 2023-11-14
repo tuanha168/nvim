@@ -60,37 +60,21 @@ return function()
   autocmd({ "BufWritePre" }, {
     pattern = "*",
     callback = function(event)
+      local home = os.getenv "HOME"
+
       local autoPushDir = {
-        os.getenv "HOME" .. "/.config/nvim/lua/user",
-        os.getenv "HOME" .. "/.dotfile/super-secret",
-        os.getenv "HOME" .. "/.dotfile",
+        home .. "/.config/nvim/lua/user",
+        home .. "/.dotfile/superSecret",
+        home .. "/.dotfile",
       }
       local excludeDir = { "scratch/src" }
 
       for _, dir in ipairs(autoPushDir) do
-        Chiruno.func.print(string.match(event.match, dir))
-        Chiruno.func.print(dir)
-        Chiruno.func.print(event.match)
         if string.match(event.match, dir) and not string.match(event.match, table.concat(excludeDir)) then
           Chiruno.func.auto_push(dir)
           break
         end
       end
-
-      -- if
-      --   string.match(event.match, os.getenv "HOME" .. "/.config/nvim/lua/user")
-      --   and not string.match(event.match, "scratch/src")
-      -- then
-      --   Chiruno.func.auto_push "~/.config/nvim/lua/user"
-      -- end
-      --
-      -- if string.match(event.match, os.getenv "HOME" .. "/.dotfile") then
-      --   if string.match(event.match, os.getenv "HOME" .. "/.dotfile/super-secret") then
-      --     Chiruno.func.auto_push "~/.dotfile/super-secret"
-      --   else
-      --     Chiruno.func.auto_push "~/.dotfile"
-      --   end
-      -- end
     end,
   })
 
