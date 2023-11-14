@@ -68,6 +68,9 @@ return function()
       local excludeDir = { "scratch/src" }
 
       for _, dir in ipairs(autoPushDir) do
+        Chiruno.func.print(string.match(event.match, dir))
+        Chiruno.func.print(dir)
+        Chiruno.func.print(event.match)
         if string.match(event.match, dir) and not string.match(event.match, table.concat(excludeDir)) then
           Chiruno.func.auto_push(dir)
           break
