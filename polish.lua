@@ -65,11 +65,10 @@ return function()
         os.getenv "HOME" .. "/.dotfile/super-secret",
         os.getenv "HOME" .. "/.dotfile",
       }
-      local excludeDir = { "scratch/src"
- }
+      local excludeDir = { "scratch/src" }
 
       for _, dir in ipairs(autoPushDir) do
-        if string.match(event.match, dir) then
+        if string.match(event.match, dir) and not string.match(event.match, table.concat(excludeDir)) then
           Chiruno.func.auto_push(dir)
           break
         end
