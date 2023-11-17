@@ -59,6 +59,11 @@ return {
 
       return opts
     end,
+    config = function()
+      require "treesitter-context"
+      require "rainbow-delimiters"
+      require "markid"
+    end,
   },
   {
     "windwp/nvim-ts-autotag",
@@ -86,7 +91,6 @@ return {
   },
   {
     "nvim-treesitter/nvim-treesitter-context",
-    event = "BufRead",
     keys = {
       { "H", function() require("treesitter-context").go_to_context() end, desc = "Go to context" },
     },
@@ -100,7 +104,6 @@ return {
   -- },
   {
     "hiphish/rainbow-delimiters.nvim",
-    event = "BufRead",
     dependencies = { "nvim-treesitter/nvim-treesitter" },
     config = function()
       local rainbow_delimiters = require "rainbow-delimiters"
@@ -130,7 +133,6 @@ return {
   {
     -- "David-Kunz/markid",
     "tuanha168/markid",
-    event = "BufRead",
     dependencies = { "nvim-treesitter/nvim-treesitter" },
     config = require "user.config.markid",
   },
