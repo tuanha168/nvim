@@ -162,7 +162,7 @@ return {
     "shellRaining/hlchunk.nvim",
     event = { "UIEnter" },
     dependencies = { "nvim-treesitter/nvim-treesitter" },
-    config = function()
+    opts = function()
       local ft = require("hlchunk.utils.filetype").exclude_filetypes
       local exclude_filetypes = Chiruno.func.extends_table(ft, { Chiruno.constants.templateBuffer })
       return {
