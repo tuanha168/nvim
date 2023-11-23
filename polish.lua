@@ -34,7 +34,8 @@ return function()
     callback = function(event)
       -- vim.cmd "set laststatus&"
       vim.cmd "syntax sync fromstart"
-      Chiruno.func.print(event.match)
+      if string.match(event.match, "package.json") then
+      end
     end,
   })
 
