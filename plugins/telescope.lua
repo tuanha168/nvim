@@ -100,12 +100,13 @@ return {
   -- },
   {
     "vuki656/package-info.nvim",
+    lazy = false,
     dependency = "MunifTanjim/nui.nvim",
     config = function()
       require("package-info").setup {
         colors = {
-          up_to_date = "237", -- Text color for up to date dependency virtual text
-          outdated = "173", -- Text color for outdated dependency virtual text
+          up_to_date = "#3C4048", -- Text color for up to date dependency virtual text
+          outdated = "#d19a66", -- Text color for outdated dependency virtual text
         },
         icons = {
           enable = true, -- Whether to display icons

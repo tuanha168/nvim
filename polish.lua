@@ -31,10 +31,10 @@ return function()
 
   autocmd({ "BufEnter" }, {
     pattern = "*",
-    callback = function(event)
+    callback = function(--[[ event ]])
       -- vim.cmd "set laststatus&"
       vim.cmd "syntax sync fromstart"
-      if string.match(event.match, "package.json") then require("package-info").show() end
+      -- if string.match(event.match, "package.json") then require("package-info").show() end
     end,
   })
 
