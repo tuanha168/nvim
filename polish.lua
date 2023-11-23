@@ -34,8 +34,7 @@ return function()
     callback = function(event)
       -- vim.cmd "set laststatus&"
       vim.cmd "syntax sync fromstart"
-      if string.match(event.match, "package.json") then
-      end
+      if string.match(event.match, "package.json") then require("package-info").show() end
     end,
   })
 
