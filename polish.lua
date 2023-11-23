@@ -31,9 +31,10 @@ return function()
 
   autocmd({ "BufEnter" }, {
     pattern = "*",
-    callback = function()
+    callback = function(event)
       -- vim.cmd "set laststatus&"
       vim.cmd "syntax sync fromstart"
+      Chiruno.func.print(event.match)
     end,
   })
 
@@ -86,7 +87,7 @@ return function()
 
   local disable_node_modules_eslint_group = vim.api.nvim_create_augroup("DisableNodeModulesEslint", { clear = true })
 
-  autocmd({ "BufNewFile", "BufRead" }, {
+  autocmd({ "BufNewFile", "BufRead", "BufEnter" }, {
     pattern = { "**/node_modules/**", "node_modules", "/node_modules/*" },
     callback = function() vim.diagnostic.disable(0) end,
     group = disable_node_modules_eslint_group,
