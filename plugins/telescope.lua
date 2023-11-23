@@ -98,4 +98,10 @@ return {
   --     vim.keymap.set("n", "<leader>FF", function() locate() end, { silent = true })
   --   end,
   -- },
+  {
+    "vuki656/package-info.nvim",
+    dependency = "MunifTanjim/nui.nvim",
+    opts = {},
+    config = function() require("telescope").load_extension "package_info" end,
+  },
 }
