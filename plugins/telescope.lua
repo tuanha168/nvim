@@ -100,6 +100,7 @@ return {
   -- },
   {
     "vuki656/package-info.nvim",
+    ft = "package.json",
     dependency = "MunifTanjim/nui.nvim",
     opts = {},
     config = function() require("telescope").load_extension "package_info" end,
