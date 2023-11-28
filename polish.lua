@@ -65,7 +65,7 @@ return function()
 
       local autoPushDir = {
         home .. "/.config/nvim/lua/user",
-        home .. "/.dotfile/superSecret",
+        home .. "/.dotfile/super-secret",
         home .. "/.dotfile",
       }
       local excludeDir = { "scratch/src" }
