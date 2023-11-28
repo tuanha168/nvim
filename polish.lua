@@ -75,6 +75,9 @@ return function()
         if isBreak then break end
 
         for _, exclude in ipairs(excludeDir) do
+          Chiruno.func.print(event.match)
+          Chiruno.func.print(dir .. " dir")
+          Chiruno.func.print(string.match(event.match, dir))
           if string.match(event.match, dir) and not string.match(event.match, exclude) then
             Chiruno.func.auto_push(dir)
             isBreak = true
