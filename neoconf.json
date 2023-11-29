@@ -132,7 +132,8 @@
         "ngClass",
         ".*[cC]lass.*",
         ".*[cC]lasses.*"
-      ]
+      ],
+      "tailwindCSS.emmetCompletions": true
     }
   }
 }
