@@ -126,7 +126,7 @@
         "[a-zA-Z]*[cC]lass\\s*=\\s*\"([^\"]*)\"",
         "[a-zA-Z]*[cC]lass\\s*=\\s*\\{(['`\"][^\\{\\}'`\"]*['`\"])*\\}"
       ],
-      "tailwindCSS.experimental.configFile": "tailwind.config{.ts,.js}",
+      "tailwindCSS.experimental.configFile": "tailwind.config.ts",
       "tailwindCSS.classAttributes": [
         "class",
         "className",
