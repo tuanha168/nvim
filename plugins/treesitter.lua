@@ -178,7 +178,6 @@ return {
           style = {
             "#333333",
           },
-          exclude_filetypes = exclude_filetypes,
         },
         blank = {
           enable = false,
@@ -198,7 +197,6 @@ return {
 
         line_num = {
           style = "#fcb3ed",
-          exclude_filetypes = exclude_filetypes,
         },
       }
     end,
