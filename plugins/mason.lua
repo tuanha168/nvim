@@ -58,7 +58,7 @@ return {
       ensure_installed = {
         "prettierd",
         "stylua",
-        "pint",
+        -- "pint",
         "tfsec",
       },
       handlers = {
