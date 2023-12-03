@@ -596,7 +596,7 @@ return {
         "<leader>-",
         function()
           local oil = require "oil"
-          oil.toggle_float()
+          oil.toggle_float(vim.pwd)
         end,
         mode = "n",
       },
