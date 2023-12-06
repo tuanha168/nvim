@@ -7,21 +7,25 @@ return {
         "ma",
         mode = { "n" },
         function() require("harpoon.mark").add_file() end,
+        desc = "Add file to harpoon",
       },
       {
         "mb",
         mode = { "n" },
         function() require("harpoon.ui").nav_prev() end,
+        desc = "Previous mark",
       },
       {
         "mn",
         mode = { "n" },
         function() require("harpoon.ui").nav_next() end,
+        desc = "Next mark",
       },
       {
         "ml",
         mode = { "n" },
         function() require("harpoon.ui").toggle_quick_menu() end,
+        desc = "List marks",
       },
     },
     config = function()
