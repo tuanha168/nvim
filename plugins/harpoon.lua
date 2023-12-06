@@ -10,13 +10,13 @@ return {
         desc = "Add file to harpoon",
       },
       {
-        "mb",
+        "md",
         mode = { "n" },
         function() require("harpoon.ui").nav_prev() end,
         desc = "Previous mark",
       },
       {
-        "mn",
+        "mf",
         mode = { "n" },
         function() require("harpoon.ui").nav_next() end,
         desc = "Next mark",
