@@ -4,12 +4,24 @@ return {
     dependencies = { "nvim-lua/plenary.nvim" },
     keys = {
       {
-        "s",
-        mode = { "n", "x", "o" },
-        function()
-          -- default options: exact mode, multi window, all directions, with a backdrop
-          require("flash").jump()
-        end,
+        "ma",
+        mode = { "n" },
+        function() require("harpoon.mark").add_file() end,
+      },
+      {
+        "mb",
+        mode = { "n" },
+        function() require("harpoon.ui").nav_prev() end,
+      },
+      {
+        "mn",
+        mode = { "n" },
+        function() require("harpoon.ui").nav_next() end,
+      },
+      {
+        "ml",
+        mode = { "n" },
+        function() require("harpoon.ui").toggle_quick_menu() end,
       },
     },
     config = function()
