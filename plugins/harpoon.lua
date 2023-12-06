@@ -52,6 +52,10 @@ return {
         tabline = false,
         tabline_prefix = "   ",
         tabline_suffix = "   ",
+
+        menu = {
+          width = 120,
+        },
       }
     end,
   },
