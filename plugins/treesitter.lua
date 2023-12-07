@@ -169,7 +169,7 @@ return {
     dependencies = { "nvim-treesitter/nvim-treesitter" },
     opts = function()
       local ft = require("hlchunk.utils.filetype").exclude_filetypes
-      local exclude_filetypes = Chiruno.func.extends_table(ft, { Chiruno.constants.templateBuffer, "tmux" })
+      local exclude_filetypes = Chiruno.func.extends_table(ft, { Chiruno.constants.templateBuffer, "tmux", "harpoon" })
       return {
         indent = {
           -- chars = { "·", "·", "·", "·" }, -- more code can be found in https://unicodeplus.com/
