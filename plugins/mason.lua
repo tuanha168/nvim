@@ -3,7 +3,6 @@ return {
   -- use mason-lspconfig to configure LSP installations
   {
     "williamboman/mason-lspconfig.nvim",
-    enabled = false,
     -- overrides `require("mason-lspconfig").setup(...)`
     -- dependencies = {
     --   "creativenull/efmls-configs-nvim",
@@ -54,7 +53,7 @@ return {
   {
     "jay-babu/mason-null-ls.nvim",
     -- overrides `require("mason-null-ls").setup(...)`
-    enabled = false,
+    -- enabled = false,
     opts = {
       ensure_installed = {
         "prettierd",
