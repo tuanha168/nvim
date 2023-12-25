@@ -102,7 +102,6 @@ return function()
         vim.b.large_buf = true
         vim.cmd "syntax off"
         vim.cmd "IlluminatePauseBuf" -- disable vim-illuminate
-        vim.cmd "IndentBlanklineDisable" -- disable indent-blankline.nvim
         vim.opt_local.foldmethod = "manual"
         vim.opt_local.spell = false
       else
