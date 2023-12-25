@@ -39,14 +39,8 @@ return {
       opts.ignore_install = {}
       opts.highlight = {
         enable = true,
+        disable = function() return vim.b.large_buf end,
         additional_vim_regex_highlighting = { "markdown" },
-        is_supported = function()
-          if vim.fn.strwidth(vim.fn.getline ".") > 300 or vim.fn.getfsize(vim.fn.expand "%") > 1024 * 1024 then
-            return false
-          else
-            return true
-          end
-        end,
       }
       opts.indent = {
         enable = true,
