@@ -658,6 +658,13 @@ return {
 
           vim.keymap.set("n", "<c-n>", function() minifiles.close() end, { buffer = buf_id })
 
+          vim.keymap.set("n", "<CR>", function()
+            minifiles.go_in()
+            local fs_entry = minifiles.get_fs_entry()
+            local is_at_file = fs_entry ~= nil and fs_entry.fs_type == "file"
+            if is_at_file then minifiles.close() end
+          end, { buffer = buf_id })
+
           vim.keymap.set("n", ".", function()
             minifiles.go_in()
             local cur_entry_path = minifiles.get_fs_entry().path
