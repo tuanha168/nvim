@@ -623,6 +623,7 @@ return {
             local cur_entry_path = require("mini.files").get_fs_entry().path
             local cur_directory = vim.fs.dirname(cur_entry_path)
             vim.fn.chdir(cur_directory)
+            Chiruno.func.print("Changed directory to: " .. cur_directory)
           end, { buffer = buf_id })
         end,
       })
