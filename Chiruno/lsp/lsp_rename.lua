@@ -28,14 +28,18 @@ function Chiruno.lsp.on_rename(from, to)
       }, 1000, 0)
       if resp and resp.result ~= nil then
         vim.lsp.util.apply_workspace_edit(resp.result, client.offset_encoding)
-        client.notify("workspace/didRenameFiles", {
-          files = {
-            {
-              oldUri = vim.uri_from_fname(from),
-              newUri = vim.uri_from_fname(to),
+
+        vim.defer_fn(function()
+          Chiruno.func.print "notify"
+          client.notify("workspace/didRenameFiles", {
+            files = {
+              {
+                oldUri = vim.uri_from_fname(from),
+                newUri = vim.uri_from_fname(to),
+              },
             },
-          },
-        })
+          })
+        end, 5000)
       end
     end
   end
