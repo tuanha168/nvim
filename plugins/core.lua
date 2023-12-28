@@ -589,40 +589,40 @@ return {
     },
   },
   { "Aasim-A/scrollEOF.nvim", opts = {}, event = "BufEnter" },
-  {
-    "stevearc/oil.nvim",
-    keys = {
-      {
-        "<leader>-",
-        function()
-          local oil = require "oil"
-          oil.toggle_float()
-        end,
-        mode = "n",
-      },
-    },
-    opts = {},
-  },
   -- {
-  --   "echasnovski/mini.files",
+  --   "stevearc/oil.nvim",
   --   keys = {
   --     {
   --       "<leader>-",
-  --       function() require("mini.files").open(vim.api.nvim_buf_get_name(0), true) end,
-  --       desc = "Open mini.files (directory of current file)",
+  --       function()
+  --         local oil = require "oil"
+  --         oil.toggle_float()
+  --       end,
   --       mode = "n",
   --     },
   --   },
-  --   opts = {
-  --     windows = {
-  --       preview = true,
-  --     },
-  --   },
-  --   config = function()
-  --     vim.api.nvim_create_autocmd("User", {
-  --       pattern = "MiniFilesActionRename",
-  --       callback = function(event) Chiruno.lsp.on_rename(event.data.from, event.data.to) end,
-  --     })
-  --   end,
+  --   opts = {},
   -- },
+  {
+    "echasnovski/mini.files",
+    keys = {
+      {
+        "<leader>-",
+        function() require("mini.files").open(vim.api.nvim_buf_get_name(0), true) end,
+        desc = "Open mini.files (directory of current file)",
+        mode = "n",
+      },
+    },
+    opts = {
+      windows = {
+        preview = true,
+      },
+    },
+    config = function()
+      vim.api.nvim_create_autocmd("User", {
+        pattern = "MiniFilesActionRename",
+        callback = function(event) Chiruno.lsp.on_rename(event.data.from, event.data.to) end,
+      })
+    end,
+  },
 }
