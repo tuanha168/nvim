@@ -614,6 +614,28 @@ return {
       },
     },
     opts = function()
+      vim.b.mini_files_ignore = false
+
+      local git_ignore_sorter = function(entries)
+        local all_paths = table.concat(vim.tbl_map(function(entry) return entry.path end, entries), "\n")
+        local output_lines = {}
+        local job_id = vim.fn.jobstart({ "git", "check-ignore", "--stdin" }, {
+          stdout_buffered = true,
+          on_stdout = function(_, data) output_lines = data end,
+        })
+
+        -- command failed to run
+        if job_id < 1 then return entries end
+
+        -- send paths via STDIN
+        vim.fn.chansend(job_id, all_paths)
+        vim.fn.chanclose(job_id, "stdin")
+        vim.fn.jobwait { job_id }
+        return require("mini.files").default_sort(
+          vim.tbl_filter(function(entry) return not vim.tbl_contains(output_lines, entry.path) end, entries)
+        )
+      end
+
       vim.api.nvim_create_autocmd("User", {
         pattern = "MiniFilesBufferCreate",
         callback = function(args)
@@ -624,7 +646,8 @@ return {
 
           vim.keymap.set("n", "H", function()
             vim.b.mini_files_ignore = not vim.b.mini_files_ignore
-            minifiles.refresh()
+
+            minifiles.refresh { content = { sort = vim.b.mini_files_ignore and git_ignore_sorter or nil } }
           end, { buffer = buf_id })
 
           vim.keymap.set("n", "<c-n>", function() minifiles.close() end, { buffer = buf_id })
@@ -650,29 +673,7 @@ return {
       return {
         content = {
           filter = function(entry) return entry.name ~= ".DS_Store" end,
-          sort = function(entries)
-            if vim.b.mini_files_ignore == nil then vim.b.mini_files_ignore = false end
-
-            local all_paths = table.concat(vim.tbl_map(function(entry) return entry.path end, entries), "\n")
-            local output_lines = {}
-            local job_id = vim.fn.jobstart({ "git", "check-ignore", "--stdin" }, {
-              stdout_buffered = true,
-              on_stdout = function(_, data) output_lines = data end,
-            })
-
-            -- command failed to run
-            if job_id < 1 then return entries end
-
-            -- send paths via STDIN
-            vim.fn.chansend(job_id, all_paths)
-            vim.fn.chanclose(job_id, "stdin")
-            vim.fn.jobwait { job_id }
-            return require("mini.files").default_sort(vim.tbl_filter(function(entry)
-              if vim.b.mini_files_ignore then return true end
-
-              return not vim.tbl_contains(output_lines, entry.path)
-            end, entries))
-          end,
+          sort = vim.b.mini_files_ignore and git_ignore_sorter or nil,
         },
         mappings = {
           close = "q",
