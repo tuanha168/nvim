@@ -607,24 +607,24 @@ return {
     "echasnovski/mini.files",
     keys = {
       {
-        "<leader>-",
+        "<c-n>",
         function() require("mini.files").open(vim.api.nvim_buf_get_name(0), true) end,
         desc = "Open mini.files (directory of current file)",
         mode = "n",
       },
     },
-    opts = {
-      windows = {
-        preview = true,
-      },
-    },
-    config = function()
+    opts = function()
       vim.api.nvim_create_autocmd("User", {
         pattern = "MiniFilesActionRename",
         callback = function(event)
           vim.defer_fn(function() Chiruno.lsp.on_rename(event.data.from, event.data.to) end, 0)
         end,
       })
+      return {
+        windows = {
+          preview = true,
+        },
+      }
     end,
   },
 }
