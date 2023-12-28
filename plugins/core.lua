@@ -646,7 +646,9 @@ return {
 
           vim.keymap.set("n", "H", function()
             vim.b.mini_files_ignore = not vim.b.mini_files_ignore
-            local sort = vim.b.mini_files_ignore and git_ignore_sorter or minifiles.default_sort()
+            local sort = vim.b.mini_files_ignore and git_ignore_sorter
+              or function(entries) minifiles.default_sort(entries) end
+
             Chiruno.func.print(sort)
 
             minifiles.refresh { content = { sort = sort } }
