@@ -619,12 +619,14 @@ return {
         callback = function(args)
           local buf_id = args.data.buf_id
           vim.keymap.set("n", ".", function()
-            local minifiles, ok = pcall(require, "mini.files")
-            -- local cur_entry_path = require("mini.files").get_fs_entry().path
-            -- local cur_directory = vim.fs.dirname(cur_entry_path)
-            -- vim.fn.chdir(cur_directory)
-            -- Chiruno.func.feedkeys("<BS>", "n")
-            -- Chiruno.func.print("Changed directory to: " .. cur_directory)
+            local ok, minifiles = pcall(require, "mini.files")
+            if not ok then return end
+            minifiles.go_in()
+            local cur_entry_path = minifiles.get_fs_entry().path
+            local cur_directory = vim.fs.dirname(cur_entry_path)
+            vim.fn.chdir(cur_directory)
+            minifiles.reset()
+            minifiles.reveal_cwd()
           end, { buffer = buf_id })
         end,
       })
