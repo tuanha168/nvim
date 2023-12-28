@@ -619,12 +619,12 @@ return {
         callback = function(args)
           local buf_id = args.data.buf_id
           vim.keymap.set("n", ".", function()
-            -- Works only if cursor is on the valid file system entry
-            local cur_entry_path = require("mini.files").get_fs_entry().path
-            local cur_directory = vim.fs.dirname(cur_entry_path)
-            vim.fn.chdir(cur_directory)
-            Chiruno.func.feedkeys "<BS>"
-            Chiruno.func.print("Changed directory to: " .. cur_directory)
+            Chiruno.func.feedkeys("l", "n")
+            -- local cur_entry_path = require("mini.files").get_fs_entry().path
+            -- local cur_directory = vim.fs.dirname(cur_entry_path)
+            -- vim.fn.chdir(cur_directory)
+            -- Chiruno.func.feedkeys("<BS>", "n")
+            -- Chiruno.func.print("Changed directory to: " .. cur_directory)
           end, { buffer = buf_id })
         end,
       })
