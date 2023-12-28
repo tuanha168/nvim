@@ -615,6 +615,15 @@ return {
     },
     opts = function()
       vim.api.nvim_create_autocmd("User", {
+        pattern = "MiniFilesBufferCreate",
+        callback = function(args)
+          local buf_id = args.data.buf_id
+          -- Tweak left-hand side of mapping to your liking
+          vim.keymap.set("n", "g.", toggle_dotfiles, { buffer = buf_id })
+        end,
+      })
+
+      vim.api.nvim_create_autocmd("User", {
         pattern = "MiniFilesActionRename",
         callback = function(event)
           vim.defer_fn(function() Chiruno.lsp.on_rename(event.data.from, event.data.to) end, 0)
