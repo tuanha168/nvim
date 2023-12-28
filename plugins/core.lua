@@ -645,13 +645,11 @@ return {
           local buf_id = args.data.buf_id
 
           vim.keymap.set("n", "H", function()
-            if vim.b.mini_files_ignore == true then
-              vim.b.mini_files_ignore = false
-            else
-              vim.b.mini_files_ignore = true
-            end
+            vim.b.mini_files_ignore = not vim.b.mini_files_ignore
+            local sort = vim.b.mini_files_ignore and git_ignore_sorter or minifiles.default_sort()
+            Chiruno.func.print(sort)
 
-            minifiles.refresh { content = { sort = vim.b.mini_files_ignore and git_ignore_sorter or nil } }
+            minifiles.refresh { content = { sort = sort } }
           end, { buffer = buf_id })
 
           vim.keymap.set("n", "<c-n>", function() minifiles.close() end, { buffer = buf_id })
