@@ -617,17 +617,21 @@ return {
       vim.api.nvim_create_autocmd("User", {
         pattern = "MiniFilesBufferCreate",
         callback = function(args)
+          local ok, minifiles = pcall(require, "mini.files")
+          if not ok then return end
+
           local buf_id = args.data.buf_id
 
-          vim.keymap.set("n", "<c-n>", function()
-            local ok, minifiles = pcall(require, "mini.files")
-            if not ok then return end
-            minifiles.close()
+          vim.keymap.set("n", "H", function()
+            vim.b.mini_files_ignore = not vim.b.mini_files_ignore
+            minifiles.refresh()
           end, { buffer = buf_id })
 
+          vim.keymap.set("n", "<c-n>", function() minifiles.close() end, { buffer = buf_id })
+
+          vim.keymap.set("n", "<c-n>", function() minifiles.close() end, { buffer = buf_id })
+
           vim.keymap.set("n", ".", function()
-            local ok, minifiles = pcall(require, "mini.files")
-            if not ok then return end
             minifiles.go_in()
             local cur_entry_path = minifiles.get_fs_entry().path
             local cur_directory = vim.fs.dirname(cur_entry_path)
@@ -647,6 +651,8 @@ return {
         content = {
           filter = function(entry) return entry.name ~= ".DS_Store" end,
           sort = function(entries)
+            if vim.b.mini_files_ignore == nil then vim.b.mini_files_ignore = false end
+
             local all_paths = table.concat(vim.tbl_map(function(entry) return entry.path end, entries), "\n")
             local output_lines = {}
             local job_id = vim.fn.jobstart({ "git", "check-ignore", "--stdin" }, {
@@ -662,7 +668,8 @@ return {
             vim.fn.chanclose(job_id, "stdin")
             vim.fn.jobwait { job_id }
             return require("mini.files").default_sort(vim.tbl_filter(function(entry)
-              -- return true
+              if vim.b.mini_files_ignore then return true end
+
               return not vim.tbl_contains(output_lines, entry.path)
             end, entries))
           end,
