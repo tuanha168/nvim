@@ -608,7 +608,12 @@ return {
     keys = {
       {
         "<c-n>",
-        function() require("mini.files").open(vim.api.nvim_buf_get_name(0), true) end,
+        function()
+          local ok, minifiles = pcall(require, "mini.files")
+          if not ok then return end
+          minifiles.open(vim.api.nvim_buf_get_name(0), true)
+          minifiles.reveal_cwd()
+        end,
         desc = "Open mini.files (directory of current file)",
         mode = "n",
       },
