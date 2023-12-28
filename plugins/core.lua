@@ -618,6 +618,13 @@ return {
         pattern = "MiniFilesBufferCreate",
         callback = function(args)
           local buf_id = args.data.buf_id
+
+          vim.keymap.set("n", "<c-n>", function()
+            local ok, minifiles = pcall(require, "mini.files")
+            if not ok then return end
+            minifiles.close()
+          end, { buffer = buf_id })
+
           vim.keymap.set("n", ".", function()
             local ok, minifiles = pcall(require, "mini.files")
             if not ok then return end
@@ -625,8 +632,7 @@ return {
             local cur_entry_path = minifiles.get_fs_entry().path
             local cur_directory = vim.fs.dirname(cur_entry_path)
             vim.fn.chdir(cur_directory)
-            minifiles.reset()
-            minifiles.reveal_cwd()
+            minifiles.open()
           end, { buffer = buf_id })
         end,
       })
