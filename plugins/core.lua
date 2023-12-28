@@ -646,10 +646,10 @@ return {
       return {
         mappings = {
           close = "q",
-          go_in = "l",
-          go_in_plus = "L",
-          go_out = "h",
-          go_out_plus = "H",
+          go_in = "L",
+          go_in_plus = "l",
+          go_out = "H",
+          go_out_plus = "h",
           reset = "<BS>",
           reveal_cwd = "@",
           show_help = "g?",
