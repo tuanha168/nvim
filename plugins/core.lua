@@ -589,18 +589,22 @@ return {
     },
   },
   { "Aasim-A/scrollEOF.nvim", opts = {}, event = "BufEnter" },
+  -- {
+  --   "stevearc/oil.nvim",
+  --   keys = {
+  --     {
+  --       "<leader>-",
+  --       function()
+  --         local oil = require "oil"
+  --         oil.toggle_float()
+  --       end,
+  --       mode = "n",
+  --     },
+  --   },
+  --   opts = {},
+  -- },
   {
-    "stevearc/oil.nvim",
-    keys = {
-      {
-        "<leader>-",
-        function()
-          local oil = require "oil"
-          oil.toggle_float()
-        end,
-        mode = "n",
-      },
-    },
+    "echasnovski/mini.files",
     opts = {},
   },
 }
