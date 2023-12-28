@@ -621,9 +621,7 @@ return {
     config = function()
       vim.api.nvim_create_autocmd("User", {
         pattern = "MiniFilesActionRename",
-        callback = function(event)
-          vim.defer_fn(function() Chiruno.lsp.on_rename(event.data.from, event.data.to) end, 1000)
-        end,
+        callback = function(event) Chiruno.lsp.on_rename(event.data.from, event.data.to) end,
       })
     end,
   },
