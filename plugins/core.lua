@@ -608,7 +608,8 @@ return {
     keys = {
       {
         "<leader>-",
-        "<CMD>lua MiniFiles.open()<CR>",
+        function() require("mini.files").open(vim.api.nvim_buf_get_name(0), true) end,
+        desc = "Open mini.files (directory of current file)",
         mode = "n",
       },
     },
