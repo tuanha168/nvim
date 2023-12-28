@@ -615,6 +615,8 @@ return {
     },
     opts = function()
       vim.b.mini_files_ignore = false
+      local ok, minifiles = pcall(require, "mini.files")
+      if not ok then return end
 
       local git_ignore_sorter = function(entries)
         local all_paths = table.concat(vim.tbl_map(function(entry) return entry.path end, entries), "\n")
@@ -631,7 +633,7 @@ return {
         vim.fn.chansend(job_id, all_paths)
         vim.fn.chanclose(job_id, "stdin")
         vim.fn.jobwait { job_id }
-        return require("mini.files").default_sort(
+        return minifiles.default_sort(
           vim.tbl_filter(function(entry) return not vim.tbl_contains(output_lines, entry.path) end, entries)
         )
       end
@@ -639,18 +641,14 @@ return {
       vim.api.nvim_create_autocmd("User", {
         pattern = "MiniFilesBufferCreate",
         callback = function(args)
-          local ok, minifiles = pcall(require, "mini.files")
-          if not ok then return end
-
           local buf_id = args.data.buf_id
 
           vim.keymap.set("n", "H", function()
             vim.b.mini_files_ignore = not vim.b.mini_files_ignore
-            local sort = vim.b.mini_files_ignore and git_ignore_sorter or minifiles.default_sort
 
-            Chiruno.func.print(sort)
-
-            minifiles.refresh { content = { sort = sort } }
+            minifiles.refresh {
+              content = { sort = vim.b.mini_files_ignore and git_ignore_sorter or minifiles.default_sort },
+            }
           end, { buffer = buf_id })
 
           vim.keymap.set("n", "<c-n>", function() minifiles.close() end, { buffer = buf_id })
@@ -676,7 +674,7 @@ return {
       return {
         content = {
           filter = function(entry) return entry.name ~= ".DS_Store" end,
-          sort = vim.b.mini_files_ignore and git_ignore_sorter or nil,
+          sort = vim.b.mini_files_ignore and git_ignore_sorter or minifiles.default_sort,
         },
         mappings = {
           close = "q",
