@@ -618,5 +618,11 @@ return {
         preview = true,
       },
     },
+    config = function()
+      vim.api.nvim_create_autocmd("User", {
+        pattern = "MiniFilesActionRename",
+        callback = function(event) Chiruno.func.on_rename(event.data.from, event.data.to) end,
+      })
+    end,
   },
 }
