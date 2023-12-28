@@ -623,7 +623,9 @@ return {
         pattern = "MiniFilesActionRename",
         callback = function(event)
           require("mini.files").close()
-          Chiruno.lsp.on_rename(event.data.from, event.data.to)
+          vim.defer_fn(function()
+            Chiruno.lsp.on_rename(event.data.from, event.data.to)
+          end, 1000)
         end,
       })
     end,
