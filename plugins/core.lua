@@ -645,7 +645,11 @@ return {
           local buf_id = args.data.buf_id
 
           vim.keymap.set("n", "H", function()
-            vim.b.mini_files_ignore = not vim.b.mini_files_ignore
+            if vim.b.mini_files_ignore == true then
+              vim.b.mini_files_ignore = false
+            else
+              vim.b.mini_files_ignore = true
+            end
 
             minifiles.refresh { content = { sort = vim.b.mini_files_ignore and git_ignore_sorter or nil } }
           end, { buffer = buf_id })
