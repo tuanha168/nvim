@@ -18,7 +18,6 @@ function Chiruno.lsp.on_rename(from, to)
 
   for _, client in ipairs(clients) do
     if client.supports_method "workspace/willRenameFiles" then
-      ---@diagnostic disable-next-line: invisible
       local resp = client.request_sync("workspace/willRenameFiles", {
         files = {
           {
