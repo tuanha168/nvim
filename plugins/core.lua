@@ -619,7 +619,7 @@ return {
         callback = function(args)
           local buf_id = args.data.buf_id
           vim.keymap.set("n", ".", function()
-            vim.api.nvim_feedkeys("l", "n", false)
+            local minifiles, ok = pcall(require, "mini.files")
             -- local cur_entry_path = require("mini.files").get_fs_entry().path
             -- local cur_directory = vim.fs.dirname(cur_entry_path)
             -- vim.fn.chdir(cur_directory)
