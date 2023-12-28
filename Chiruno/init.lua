@@ -3,6 +3,7 @@ Chiruno = {
   func = {},
   motions = {},
   textobjs = {},
+  lsp = {},
 }
 
 require "user.Chiruno.env"
