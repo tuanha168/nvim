@@ -605,6 +605,17 @@ return {
   -- },
   {
     "echasnovski/mini.files",
-    opts = {},
+    keys = {
+      {
+        "<leader>-",
+        "<CMD>lua MiniFiles.open()<CR>",
+        mode = "n",
+      },
+    },
+    opts = {
+      windows = {
+        preview = true,
+      },
+    },
   },
 }
