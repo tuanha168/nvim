@@ -623,7 +623,7 @@ return {
             local cur_entry_path = require("mini.files").get_fs_entry().path
             local cur_directory = vim.fs.dirname(cur_entry_path)
             vim.fn.chdir(cur_directory)
-            Chiruno.func.print("Changed directory to: " .. cur_directory)
+            Chiruno.func.feedkeys "<BS>@"
           end, { buffer = buf_id })
         end,
       })
@@ -635,6 +635,19 @@ return {
         end,
       })
       return {
+        mappings = {
+          close = "q",
+          go_in = "l",
+          go_in_plus = "L",
+          go_out = "h",
+          go_out_plus = "H",
+          reset = "<BS>",
+          reveal_cwd = "@",
+          show_help = "g?",
+          synchronize = "=",
+          trim_left = "<",
+          trim_right = ">",
+        },
         windows = {
           preview = true,
           width_preview = 50,
