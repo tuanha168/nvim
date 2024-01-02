@@ -7,6 +7,6 @@ return {
     type = "executable",
     command = vim.fn.exepath "js-debug-adapter",
   },
-  ["pwa-node"] = {},
-  ["pwa-chrome"] = {},
+  "pwa-node",
+  "pwa-chrome",
 }
