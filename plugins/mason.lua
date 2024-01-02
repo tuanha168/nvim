@@ -70,21 +70,22 @@ return {
     },
   },
   {
-    "mxsdev/nvim-dap-vscode-js",
-    -- enabled = false,
-    lazy = false,
-    config = function()
-      require("dap-vscode-js").setup {
-        adapters = { "pwa-node", "pwa-chrome" },
-      }
-      for _, language in ipairs { "typescript", "javascript" } do
-        require("dap").configurations[language] = require("user.dap.handlers.js").configurations
-      end
-    end,
-  },
-  {
     "mfussenegger/nvim-dap",
     dependencies = {
+      {
+        "mxsdev/nvim-dap-vscode-js",
+        -- enabled = false,
+        lazy = false,
+        config = function()
+          require("dap-vscode-js").setup {
+            adapters = { "pwa-node", "pwa-chrome" },
+          }
+          local js_dap = require "user.dap.handlers.js"
+          for _, language in ipairs(js_dap.filetypes) do
+            require("dap").configurations[language] = js_dap.configurations
+          end
+        end,
+      },
       {
         "jay-babu/mason-nvim-dap.nvim",
         -- overrides `require("mason-nvim-dap").setup(...)`
