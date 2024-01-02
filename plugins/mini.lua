@@ -79,16 +79,16 @@ return {
             local cur_entry_path = minifiles.get_fs_entry().path
             local cur_directory = vim.fs.dirname(cur_entry_path)
             vim.fn.chdir(cur_directory)
-            minifiles.open()
+            minifiles.open(cur_directory, false)
           end, { buffer = buf_id })
 
           vim.keymap.set("n", "<BS>", function()
-            minifiles.reset()
+            minifiles.open()
             minifiles.go_out()
             local cur_entry_path = minifiles.get_fs_entry().path
             local cur_directory = vim.fs.dirname(cur_entry_path)
             vim.fn.chdir(cur_directory)
-            minifiles.open()
+            minifiles.open(cur_directory, false)
           end, { buffer = buf_id })
 
           -- vim.schedule(function()
