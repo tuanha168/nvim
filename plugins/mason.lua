@@ -72,6 +72,11 @@ return {
   {
     "mxsdev/nvim-dap-vscode-js",
     -- enabled = false,
+    config = function()
+      require("dap-vscode-js").setup {
+        adapters = { "pwa-node", "pwa-chrome", "pwa-msedge", "node-terminal", "pwa-extensionHost" }, -- which adapters to register in nvim-dap
+      }
+    end,
     dependencies = {
       {
         "mfussenegger/nvim-dap",
