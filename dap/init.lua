@@ -18,9 +18,11 @@ M.handlers = function(packages)
   for _, v in ipairs(packages) do
     local present, package = pcall(require, "user/dap/handlers/" .. v)
     if not present then goto continue end
-    handlers[v] = function(config)
-      config = vim.tbl_deep_extend("force", config or {}, package)
-      require("mason-nvim-dap").default_setup(config)
+    for filetype in ipairs(package.filetypes) do
+      handlers[filetype] = function(config)
+        config = vim.tbl_deep_extend("force", config or {}, package)
+        require("mason-nvim-dap").default_setup(config)
+      end
     end
     ::continue::
   end
