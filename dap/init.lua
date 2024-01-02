@@ -19,7 +19,7 @@ M.handlers = function(packages)
     local present, package = pcall(require, "user/dap/handlers/" .. v)
     if not present then goto continue end
     handlers[v] = function(config)
-      config = vim.tbl_deep_extend("force", config or { adapters = {v} }, package)
+      config = vim.tbl_deep_extend("force", config or {}, { adapters = {v} }, package)
       require("mason-nvim-dap").default_setup(config)
     end
     ::continue::
