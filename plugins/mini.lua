@@ -75,6 +75,9 @@ return {
           end, { buffer = buf_id })
 
           vim.keymap.set("n", ".", function()
+            local fs_entry = minifiles.get_fs_entry()
+            if fs_entry == nil or fs_entry.fs_type == "file" then return end
+
             minifiles.go_in()
             local cur_entry_path = minifiles.get_fs_entry().path
             local cur_directory = vim.fs.dirname(cur_entry_path)
