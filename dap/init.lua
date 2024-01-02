@@ -24,7 +24,6 @@ M.handlers = function(packages)
     end
     ::continue::
   end
-  Chiruno.func.print(handlers)
   return handlers
 end
 
