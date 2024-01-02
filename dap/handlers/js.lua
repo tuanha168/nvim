@@ -8,6 +8,7 @@ return {
     "typescript.tsx",
     "vue",
   },
+
   configurations = {
     {
       type = "pwa-node",
