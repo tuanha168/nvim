@@ -15,6 +15,7 @@ M.handlers = function(packages)
       require("mason-nvim-dap").default_setup(config)
     end,
   }
+
   for _, v in ipairs(packages) do
     local present, package = pcall(require, "user/dap/handlers/" .. v)
     if not present then goto continue end
