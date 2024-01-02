@@ -20,10 +20,11 @@ M.handlers = function(packages)
     if not present then goto continue end
     handlers[v] = function(config)
       config = vim.tbl_deep_extend("force", config or {}, package)
-      require("mason-nvim-dap").default_setup(config)
+      return require("mason-nvim-dap").default_setup(config)
     end
     ::continue::
   end
+  Chiruno.func.print(handlers)
   return handlers
 end
 
