@@ -77,6 +77,9 @@ return {
       require("dap-vscode-js").setup {
         adapters = { "pwa-node", "pwa-chrome" },
       }
+      for _, language in ipairs { "typescript", "javascript" } do
+        require("dap").configurations[language] = require("user.dap.handlers.js").configurations
+      end
     end,
   },
   {
@@ -87,7 +90,7 @@ return {
         -- overrides `require("mason-nvim-dap").setup(...)`
         opts = function(_, opts)
           opts.ensure_installed = { "js" }
-          opts.handlers = require("user.dap").handlers(opts.ensure_installed)
+          -- opts.handlers = require("user.dap").handlers(opts.ensure_installed)
         end,
       },
     },
