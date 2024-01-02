@@ -1,6 +1,14 @@
 local M = {}
 
-M.handlers = function(packages)
+local js_languages = {
+  "javascript",
+  "typescript",
+  "javascriptreact",
+  "typescriptreact",
+  "vue"
+}
+
+M.handlers = function()
   -- local dap = require("dap")
   -- local adapters = require("user.dap.adapters")
   -- for k, v in pairs(adapters) do
@@ -16,7 +24,7 @@ M.handlers = function(packages)
     end,
   }
 
-  for _, v in ipairs(packages) do
+  for _, v in ipairs(js_languages) do
     local present, package = pcall(require, "user/dap/handlers/" .. v)
     if not present then goto continue end
     handlers[v] = function(config)
