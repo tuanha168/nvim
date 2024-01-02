@@ -45,7 +45,10 @@ return {
   {
     "numToStr/Comment.nvim",
     opts = function(_, opts) require("Comment").setup(opts) end,
-    config = function() require "user.config.comment" end,
+    config = function()
+      local ok, ft = pcall(require, "Comment.ft")
+      if ok then ft.dosini = { "# %s" } end
+    end,
   },
 
   {
