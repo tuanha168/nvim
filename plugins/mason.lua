@@ -72,24 +72,23 @@ return {
   {
     "mxsdev/nvim-dap-vscode-js",
     -- enabled = false,
+    lazy = false,
     config = function()
       require("dap-vscode-js").setup {
         adapters = { "pwa-node", "pwa-chrome" },
       }
     end,
+  },
+  {
+    "mfussenegger/nvim-dap",
     dependencies = {
       {
-        "mfussenegger/nvim-dap",
-        dependencies = {
-          {
-            "jay-babu/mason-nvim-dap.nvim",
-            -- overrides `require("mason-nvim-dap").setup(...)`
-            opts = function(_, opts)
-              opts.ensure_installed = { "js" }
-              opts.handlers = require("user.dap").handlers(opts.ensure_installed)
-            end,
-          },
-        },
+        "jay-babu/mason-nvim-dap.nvim",
+        -- overrides `require("mason-nvim-dap").setup(...)`
+        opts = function(_, opts)
+          opts.ensure_installed = { "js" }
+          opts.handlers = require("user.dap").handlers(opts.ensure_installed)
+        end,
       },
     },
   },
