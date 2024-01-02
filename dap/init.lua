@@ -15,9 +15,11 @@ M.handlers = function(packages)
       require("mason-nvim-dap").default_setup(config)
     end,
   }
+
   for _, v in ipairs(packages) do
     local present, package = pcall(require, "user/dap/handlers/" .. v)
     if not present then goto continue end
+    Chiruno.func.print(package)
     handlers[v] = function(config)
       config = vim.tbl_deep_extend("force", config or {}, package)
       require("mason-nvim-dap").default_setup(config)
