@@ -1,9 +1,4 @@
 return {
-  adapters = {
-    "pwa-node",
-    "pwa-chrome",
-  },
-
   filetypes = {
     "javascript",
     "javascriptreact",
