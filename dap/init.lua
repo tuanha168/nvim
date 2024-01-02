@@ -1,6 +1,15 @@
 local M = {}
+  local filetypes = {
+    "javascript",
+    "javascriptreact",
+    "javascript.jsx",
+    "typescript",
+    "typescriptreact",
+    "typescript.tsx",
+    "vue",
+  }
 
-M.handlers = function(packages)
+M.handlers = function()
   -- local dap = require("dap")
   -- local adapters = require("user.dap.adapters")
   -- for k, v in pairs(adapters) do
@@ -15,7 +24,7 @@ M.handlers = function(packages)
       require("mason-nvim-dap").default_setup(config)
     end,
   }
-  for _, v in ipairs(packages) do
+  for _, v in ipairs(filetypes) do
     local present, package = pcall(require, "user/dap/handlers/" .. v)
     if not present then goto continue end
     handlers[v] = function(config)
