@@ -78,7 +78,7 @@ return {
     -- overrides `require("mason-nvim-dap").setup(...)`
     -- enabled = false,
     opts = function(_, opts)
-      opts.ensure_installed = { "node2", "chrome" }
+      opts.ensure_installed = { "js" }
       opts.handlers = require("user.dap").handlers(opts.ensure_installed)
     end,
   },
