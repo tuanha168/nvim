@@ -82,6 +82,15 @@ return {
             minifiles.open()
           end, { buffer = buf_id })
 
+          vim.keymap.set("n", "<BS>", function()
+            minifiles.reset()
+            minifiles.go_out()
+            local cur_entry_path = minifiles.get_fs_entry().path
+            local cur_directory = vim.fs.dirname(cur_entry_path)
+            vim.fn.chdir(cur_directory)
+            minifiles.open()
+          end, { buffer = buf_id })
+
           -- vim.schedule(function()
           --   vim.api.nvim_set_option_value("buftype", "acwrite", { buf = buf_id })
           --   vim.api.nvim_buf_set_name(buf_id, minifiles.get_fs_entry(buf_id, 1).path)
