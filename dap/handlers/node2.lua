@@ -1,4 +1,5 @@
 return {
+  filetypes = { "javascript", "javascriptreact", "javascript.jsx", "typescript", "typescriptreact", "typescript.tsx" },
   configurations = {
     -- {
     --   type = "node2",

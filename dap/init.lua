@@ -1,14 +1,6 @@
 local M = {}
 
-local js_languages = {
-  "javascript",
-  "typescript",
-  "javascriptreact",
-  "typescriptreact",
-  "vue"
-}
-
-M.handlers = function()
+M.handlers = function(packages)
   -- local dap = require("dap")
   -- local adapters = require("user.dap.adapters")
   -- for k, v in pairs(adapters) do
@@ -23,8 +15,7 @@ M.handlers = function()
       require("mason-nvim-dap").default_setup(config)
     end,
   }
-
-  for _, v in ipairs(js_languages) do
+  for _, v in ipairs(packages) do
     local present, package = pcall(require, "user/dap/handlers/" .. v)
     if not present then goto continue end
     handlers[v] = function(config)
