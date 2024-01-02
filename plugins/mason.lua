@@ -79,6 +79,8 @@ return {
         config = function()
           require("dap-vscode-js").setup {
             adapters = { "pwa-node", "pwa-chrome" },
+            debugger_path = "",
+            debugger_cmd = { "js-debug-adapter" },
           }
           local js_dap = require "user.dap.handlers.js"
           for _, language in ipairs(js_dap.filetypes) do
