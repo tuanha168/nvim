@@ -70,16 +70,22 @@ return {
     },
   },
   {
-    "mfussenegger/nvim-dap",
+    "mxsdev/nvim-dap-vscode-js",
     -- enabled = false,
-  },
-  {
-    "jay-babu/mason-nvim-dap.nvim",
-    -- overrides `require("mason-nvim-dap").setup(...)`
-    -- enabled = false,
-    opts = function(_, opts)
-      opts.ensure_installed = { "js" }
-      opts.handlers = require("user.dap").handlers(opts.ensure_installed)
-    end,
+    dependencies = {
+      {
+        "mfussenegger/nvim-dap",
+        dependencies = {
+          {
+            "jay-babu/mason-nvim-dap.nvim",
+            -- overrides `require("mason-nvim-dap").setup(...)`
+            opts = function(_, opts)
+              opts.ensure_installed = { "js" }
+              opts.handlers = require("user.dap").handlers(opts.ensure_installed)
+            end,
+          },
+        },
+      },
+    },
   },
 }
