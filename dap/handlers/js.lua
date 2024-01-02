@@ -3,6 +3,7 @@ return {
     "pwa-node",
     "pwa-chrome",
   },
+
   filetypes = {
     "javascript",
     "javascriptreact",
