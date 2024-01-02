@@ -80,7 +80,6 @@ return {
     opts = function(_, opts)
       opts.ensure_installed = { "js" }
       opts.handlers = require("user.dap").handlers(opts.ensure_installed)
-      Chiruno.func.print(opts.handlers)
       opts.adapters = require "user.dap.adapters"
     end,
   },
