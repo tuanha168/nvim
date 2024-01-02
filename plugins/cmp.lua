@@ -19,7 +19,8 @@ return {
         { name = "path", priority = 250 },
       }
 
-      local cmp = require "cmp"
+      local cmp_ok, cmp = pcall(require, "cmp")
+      if not cmp_ok then return end
 
       -- opts.mapping["<CR>"] = cmp.mapping(function(fallback)
       --   -- This little snippet will confirm with tab, and if no entry is selected, will confirm the first item
@@ -55,7 +56,7 @@ return {
       opts.mapping["<S-Tab>"] = cmp.mapping(function(fallback)
         if cmp.visible() then
           cmp.select_prev_item()
-        elseif luasnip.jumpable(-1) then
+        elseif snip_status_ok and luasnip.jumpable(-1) then
           luasnip.jump(-1)
         elseif vim.snippet.jumpable(-1) then
           vim.snippet.jump(-1)
