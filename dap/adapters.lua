@@ -3,8 +3,10 @@ return {
     type = "executable",
     command = vim.fn.exepath "node-debug2-adapter",
   },
-  node = {
+  js = {
     type = "executable",
     command = vim.fn.exepath "js-debug-adapter",
   },
+  ["pwa-node"] = {},
+  ["pwa-chrome"] = {},
 }
