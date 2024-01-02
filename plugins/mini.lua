@@ -82,13 +82,14 @@ return {
             minifiles.open()
           end, { buffer = buf_id })
 
-          vim.schedule(function()
-            vim.api.nvim_buf_set_option(buf_id, "buftype", "acwrite")
-            vim.api.nvim_create_autocmd("BufWriteCmd", {
-              buffer = buf_id,
-              callback = function() require("mini.files").synchronize() end,
-            })
-          end)
+          -- vim.schedule(function()
+          --   vim.api.nvim_set_option_value("buftype", "acwrite", { buf = buf_id })
+          --   vim.api.nvim_buf_set_name(buf_id, minifiles.get_fs_entry(buf_id, 1).path)
+          --   vim.api.nvim_create_autocmd("BufWriteCmd", {
+          --     buffer = buf_id,
+          --     callback = function() minifiles.synchronize() end,
+          --   })
+          -- end)
         end,
       })
 
