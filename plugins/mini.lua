@@ -85,6 +85,8 @@ return {
             minifiles.open(cur_directory, false)
           end, { buffer = buf_id })
 
+          vim.keymap.set("n", "r", function() Chiruno.func.print(vim.api.nvim_buf_get_name(0)) end, { buffer = buf_id })
+
           vim.keymap.set("n", "<BS>", function()
             minifiles.open()
             minifiles.go_out()
