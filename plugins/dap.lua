@@ -67,7 +67,6 @@ return {
       -- },
       {
         "jay-babu/mason-nvim-dap.nvim",
-        enabled = false,
         opts = function(_, opts)
           opts.ensure_installed = { "node2", "chrome" }
           opts.adapters = require "user.dap.adapters"
