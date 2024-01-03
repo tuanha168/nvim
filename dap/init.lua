@@ -16,15 +16,17 @@ M.handlers = function()
     end,
   }
 
-  local adapters = require("user.dap.handlers.adapters")
+  local adapters = require "user.dap.handlers.adapters"
+  local configurations = require "user.dap.handlers.configurations"
+  local filetypes = require "user.dap.handlers.filetypes"
 
-  for k, v in ipairs(adapters) do
-    handlers[v] = function(config)
-      config = vim.tbl_deep_extend("force", config or {}, )
-      config.adapters = require("user.dap.adapters")
+  for k, v in pairs(adapters) do
+    handlers[k] = function(config)
+      config.adapters = v
+      config.filetypes = filetypes
+      config.configurations = configurations
       require("mason-nvim-dap").default_setup(config)
     end
-    ::continue::
   end
 
   return handlers
