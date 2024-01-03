@@ -1,10 +1,12 @@
 return {
   ["pwa-node"] = {
     type = "executable",
-    command = "node-debug2-adapter",
+    command = "node",
+    args = { vim.fn.stdpath "data" .. "/lazy/vscode-js-debug" },
   },
   ["pwa-chrome"] = {
     type = "executable",
-    command = "chrome-debug-adapter",
+    command = "node",
+    args = { vim.fn.stdpath "data" .. "/lazy/vscode-js-debug" },
   },
 }

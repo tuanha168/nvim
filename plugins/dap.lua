@@ -73,6 +73,11 @@ return {
           opts.handlers = require("user.dap").handlers(opts.ensure_installed)
         end,
       },
+      {
+        "microsoft/vscode-js-debug",
+        version = "1.x",
+        build = "npm i && npm run compile vsDebugServerBundle && mv dist out",
+      },
     },
   },
 }
