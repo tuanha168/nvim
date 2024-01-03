@@ -69,6 +69,7 @@ return {
         "jay-babu/mason-nvim-dap.nvim",
         opts = function(_, opts)
           opts.ensure_installed = { "js" }
+          opts.adapters = require "user.dap.adapters"
           opts.handlers = require("user.dap").handlers(opts.ensure_installed)
           return opts
         end,
