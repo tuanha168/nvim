@@ -21,7 +21,7 @@ M.handlers = function()
   local filetypes = require "user.dap.handlers.filetypes"
 
   for k, v in pairs(adapters) do
-    handlers[k] = function(config)
+    handlers["js"] = function(config)
       config.adapters = v
       config.filetypes = filetypes
       config.configurations = configurations
