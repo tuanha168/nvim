@@ -1,13 +1,4 @@
 return {
-  filetypes = {
-    "javascript",
-    "javascriptreact",
-    "javascript.jsx",
-    "typescript",
-    "typescriptreact",
-    "typescript.tsx",
-    "vue",
-  },
   configurations = {
     {
       type = "js",
@@ -72,5 +63,20 @@ return {
       localRoot = "${workspaceFolder}",
       remoteRoot = "/var/www",
     },
+  },
+  filetypes = {
+    "javascript",
+    "javascriptreact",
+    "javascript.jsx",
+    "typescript",
+    "typescriptreact",
+    "typescript.tsx",
+    "vue",
+  },
+  adapters = {
+    type = "executable",
+    command = vim.fn.exepath "js-debug-adapter",
+    -- command = "node",
+    -- args = { vim.fn.stdpath "data" .. "/lazy/vscode-js-debug" },
   },
 }
