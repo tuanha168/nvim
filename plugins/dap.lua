@@ -24,6 +24,8 @@ return {
           "typescript",
         },
       })
+      require("user.dap.adapters").setup()
+      require("user.dap.configurations").setup()
     end,
     dependencies = {
       {
@@ -69,7 +71,7 @@ return {
         "jay-babu/mason-nvim-dap.nvim",
         opts = function(_, opts)
           opts.ensure_installed = { "js" }
-          opts.handlers = require("user.dap").handlers(opts.ensure_installed)
+          -- opts.handlers = require("user.dap").handlers(opts.ensure_installed)
           return opts
         end,
       },
