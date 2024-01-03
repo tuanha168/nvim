@@ -71,6 +71,7 @@ return {
   },
   {
     "mfussenegger/nvim-dap",
+    -- enabled = false,
     config = function()
       -- # Sign
       vim.fn.sign_define("DapBreakpoint", { text = "🟥", texthl = "", linehl = "", numhl = "" })
@@ -113,8 +114,6 @@ return {
       },
       {
         "mxsdev/nvim-dap-vscode-js",
-        -- enabled = false,
-        lazy = false,
         config = function()
           require("dap-vscode-js").setup {
             adapters = { "pwa-node", "pwa-chrome" },
@@ -136,7 +135,6 @@ return {
       },
       {
         "jay-babu/mason-nvim-dap.nvim",
-        -- overrides `require("mason-nvim-dap").setup(...)`
         enabled = false,
         opts = function(_, opts)
           opts.ensure_installed = { "js" }
