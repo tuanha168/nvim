@@ -25,7 +25,7 @@ return {
         },
       })
       require("user.dap.adapters").setup()
-      require("user.dap.configurations").setup()
+      require("user.dap.config").setup()
     end,
     dependencies = {
       {
