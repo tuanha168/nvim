@@ -29,7 +29,7 @@ return {
       restart = true,
     },
     {
-      type = "chrome",
+      type = "pwa-chrome",
       request = "launch",
       name = "Launch & Debug Chrome",
       url = function()
