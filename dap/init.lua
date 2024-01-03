@@ -26,6 +26,7 @@ M.handlers = function(packages)
     end
     ::continue::
   end
+
   return handlers
 end
 
