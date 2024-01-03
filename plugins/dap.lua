@@ -47,32 +47,10 @@ return {
           virt_text_win_col = nil,
         },
       },
-      -- {
-      --   "mxsdev/nvim-dap-vscode-js",
-      --   config = function()
-      --     ---@diagnostic disable-next-line: missing-fields
-      --     require("dap-vscode-js").setup {
-      --       adapters = { "pwa-node", "pwa-chrome" },
-      --       debugger_path = vim.fn.stdpath "data" .. "/lazy/vscode-js-debug",
-      --     }
-      --     local js_dap = require "user.dap.handlers.js"
-      --     for _, language in ipairs(js_dap.filetypes) do
-      --       require("dap").configurations[language] = js_dap.configurations
-      --     end
-      --   end,
-      --   dependencies = {
-      --     {
-      --       "microsoft/vscode-js-debug",
-      --       version = "1.x",
-      --       build = "npm i && npm run compile vsDebugServerBundle && mv dist out",
-      --     },
-      --   },
-      -- },
       {
         "jay-babu/mason-nvim-dap.nvim",
         opts = function(_, opts)
           opts.ensure_installed = { "js" }
-          -- opts.handlers = require("user.dap").handlers(opts.ensure_installed)
           return opts
         end,
       },
