@@ -21,7 +21,7 @@ M.handlers = function(packages)
     if not is_ok then goto continue end
     handlers[v] = function(config)
       config = vim.tbl_deep_extend("force", config or {}, dap_handlers)
-      Chiruno.func.print(config)
+      config.adapters = require("user.dap.adapters")
       require("mason-nvim-dap").default_setup(config)
     end
     ::continue::
