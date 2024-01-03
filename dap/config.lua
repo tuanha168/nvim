@@ -1,6 +1,6 @@
 local js_debuggers = {
   {
-    type = "js",
+    type = "pwa-node",
     request = "launch",
     name = "Launch file",
     program = "${file}",
@@ -10,7 +10,7 @@ local js_debuggers = {
     restart = true,
   },
   {
-    type = "js",
+    type = "pwa-node",
     request = "attach",
     name = "Attach",
     processId = require("dap.utils").pick_process,
@@ -20,7 +20,7 @@ local js_debuggers = {
     restart = true,
   },
   {
-    type = "js",
+    type = "pwa-chrome",
     request = "launch",
     name = "Launch & Debug Chrome",
     url = function()
@@ -41,7 +41,7 @@ local js_debuggers = {
     userDataDir = false,
   },
   {
-    type = "js",
+    type = "pwa-node",
     request = "attach",
     name = "Attach Program (port 9229)",
     cwd = "${workspaceFolder}",
@@ -51,7 +51,7 @@ local js_debuggers = {
     port = 9229,
   },
   {
-    type = "js",
+    type = "pwa-node",
     request = "attach",
     name = "Attach Program From Docker (port 9229)",
     cwd = "${workspaceFolder}",
