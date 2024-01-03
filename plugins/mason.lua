@@ -117,7 +117,7 @@ return {
         lazy = false,
         config = function()
           require("dap-vscode-js").setup {
-            adapters = { "pwa-node", "pwa-chrome" },
+            adapters = { "node", "chrome" },
             debugger_path = "",
             debugger_cmd = { "js-debug-adapter" },
           }
