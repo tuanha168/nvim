@@ -46,7 +46,7 @@ return {
       end,
       port = 9222,
       webRoot = "${workspaceFolder}",
-      skipFiles = { "<node_internals>/**", "!**/node_modules/**", "**/$KNOWN_TOOLS$/**" },
+      skipFiles = { "<node_internals>/**", "!**/node_modules/**", "**/$KNOWN_TOOLS$/**", "**/**/*.js" },
       protocol = "inspector",
       sourceMaps = true,
       userDataDir = false,
