@@ -24,8 +24,9 @@ return {
           "typescript",
         },
       })
-      require("user.dap.adapters").setup()
-      require("user.dap.config").setup()
+      local dap = require "dap"
+      require("user.dap.adapters").setup(dap)
+      require("user.dap.config").setup(dap)
     end,
     dependencies = {
       {
