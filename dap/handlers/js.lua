@@ -17,6 +17,7 @@ return {
       program = "${file}",
       cwd = "${workspaceFolder}",
       sourceMaps = true,
+      skipFiles = { "<node_internals>/**", "!**/node_modules/**", "**/$KNOWN_TOOLS$/**" },
       restart = true,
     },
     {
@@ -26,6 +27,7 @@ return {
       processId = require("dap.utils").pick_process,
       cwd = "${workspaceFolder}",
       sourceMaps = true,
+      skipFiles = { "<node_internals>/**", "!**/node_modules/**", "**/$KNOWN_TOOLS$/**" },
       restart = true,
     },
     {
@@ -44,7 +46,7 @@ return {
       end,
       port = 9222,
       webRoot = "${workspaceFolder}",
-      skipFiles = { "<node_internals>/**", "<node_modules>/**" },
+      skipFiles = { "<node_internals>/**", "!**/node_modules/**", "**/$KNOWN_TOOLS$/**" },
       protocol = "inspector",
       sourceMaps = true,
       userDataDir = false,
@@ -56,7 +58,7 @@ return {
       cwd = "${workspaceFolder}",
       sourceMaps = true,
       restart = true,
-      skipFiles = { "<node_internals>/**" },
+      skipFiles = { "<node_internals>/**", "!**/node_modules/**", "**/$KNOWN_TOOLS$/**" },
       port = 9229,
     },
     {
@@ -66,7 +68,7 @@ return {
       cwd = "${workspaceFolder}",
       sourceMaps = true,
       restart = true,
-      skipFiles = { "<node_internals>/**" },
+      skipFiles = { "<node_internals>/**", "!**/node_modules/**", "**/$KNOWN_TOOLS$/**" },
       port = 9229,
       localRoot = "${workspaceFolder}",
       remoteRoot = "/var/www",
