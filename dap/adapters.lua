@@ -1,10 +1,10 @@
 return {
   ["pwa-node"] = {
     type = "executable",
-    command = "vscode-node-debug2",
+    command = "node-debug2-adapter",
   },
   ["pwa-chrome"] = {
     type = "executable",
-    command = "vscode-node-debug2",
+    command = "chrome-debug-adapter",
   },
 }
