@@ -10,7 +10,7 @@ return {
       },
     }
 
-    dap.adapters["pwa-node"] = {
+    dap.adapters["pwa-chrome"] = {
       type = "server",
       host = "localhost",
       port = "${port}",
