@@ -1,6 +1,6 @@
 return {
   {
-    type = "pwa-node",
+    type = "js",
     request = "launch",
     name = "Launch file",
     program = "${file}",
@@ -10,7 +10,7 @@ return {
     restart = true,
   },
   {
-    type = "pwa-node",
+    type = "js",
     request = "attach",
     name = "Attach",
     processId = require("dap.utils").pick_process,
@@ -20,7 +20,7 @@ return {
     restart = true,
   },
   {
-    type = "pwa-chrome",
+    type = "js",
     request = "launch",
     name = "Launch & Debug Chrome",
     url = function()
@@ -41,7 +41,7 @@ return {
     userDataDir = false,
   },
   {
-    type = "pwa-node",
+    type = "js",
     request = "attach",
     name = "Attach Program (port 9229)",
     cwd = "${workspaceFolder}",
@@ -51,7 +51,7 @@ return {
     port = 9229,
   },
   {
-    type = "pwa-node",
+    type = "js",
     request = "attach",
     name = "Attach Program From Docker (port 9229)",
     cwd = "${workspaceFolder}",

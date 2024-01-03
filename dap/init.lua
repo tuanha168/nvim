@@ -1,6 +1,6 @@
 local M = {}
 
-M.handlers = function()
+M.handlers = function(packages)
   -- local dap = require("dap")
   -- local adapters = require("user.dap.adapters")
   -- for k, v in pairs(adapters) do
@@ -16,19 +16,15 @@ M.handlers = function()
     end,
   }
 
-  local adapters = require "user.dap.handlers.adapters"
-  local configurations = require "user.dap.handlers.configurations"
-  local filetypes = require "user.dap.handlers.filetypes"
-
-  for k, v in pairs(adapters) do
-    handlers["js"] = function(config)
-      config.adapters = v
-      config.filetypes = filetypes
-      config.configurations = configurations
+  for _, v in ipairs(packages) do
+    local present, package = pcall(require, "user/dap/handlers/" .. v)
+    if not present then goto continue end
+    handlers[v] = function(config)
+      config = vim.tbl_deep_extend("force", config or {}, package)
       require("mason-nvim-dap").default_setup(config)
     end
+    ::continue::
   end
-
   return handlers
 end
 
