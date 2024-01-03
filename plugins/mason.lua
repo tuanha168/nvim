@@ -117,19 +117,26 @@ return {
         lazy = false,
         config = function()
           require("dap-vscode-js").setup {
-            adapters = { "node", "chrome" },
-            debugger_path = "",
-            debugger_cmd = { "js-debug-adapter" },
+            adapters = { "pwa-node", "pwa-chrome" },
+            debugger_path = vim.fn.stdpath "data" .. "/lazy/vscode-js-debug",
           }
           local js_dap = require "user.dap.handlers.js"
           for _, language in ipairs(js_dap.filetypes) do
             require("dap").configurations[language] = js_dap.configurations
           end
         end,
+        dependencies = {
+          {
+            "microsoft/vscode-js-debug",
+            version = "1.x",
+            build = "npm i && npm run compile vsDebugServerBundle && mv dist out",
+          },
+        },
       },
       {
         "jay-babu/mason-nvim-dap.nvim",
         -- overrides `require("mason-nvim-dap").setup(...)`
+        enabled = false,
         opts = function(_, opts)
           opts.ensure_installed = { "js" }
           -- opts.handlers = require("user.dap").handlers(opts.ensure_installed)
