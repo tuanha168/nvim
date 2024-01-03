@@ -124,7 +124,6 @@ return {
           for _, language in ipairs(js_dap.filetypes) do
             require("dap").configurations[language] = js_dap.configurations
           end
-          Chiruno.func.print(require("dap").adapters)
         end,
         dependencies = {
           {
