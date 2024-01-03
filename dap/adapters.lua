@@ -3,7 +3,7 @@ return {
     dap.adapters["pwa-node"] = {
       type = "executable",
       command = "js-debug-adapter",
-      args = { "${port}" },
+      args = { "9229" },
     }
 
     dap.adapters["pwa-chrome"] = {
