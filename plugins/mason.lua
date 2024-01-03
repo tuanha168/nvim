@@ -115,6 +115,7 @@ return {
       {
         "mxsdev/nvim-dap-vscode-js",
         config = function()
+          ---@diagnostic disable-next-line: missing-fields
           require("dap-vscode-js").setup {
             adapters = { "pwa-node", "pwa-chrome" },
             debugger_path = vim.fn.stdpath "data" .. "/lazy/vscode-js-debug",
