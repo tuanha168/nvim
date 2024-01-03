@@ -75,7 +75,7 @@ return {
   },
   adapters = {
     type = "executable",
-    command = vim.fn.exepath "js-debug-adapter",
+    command = "js-debug-adapter",
     -- command = "node",
     -- args = { vim.fn.stdpath "data" .. "/lazy/vscode-js-debug" },
   },
