@@ -73,6 +73,7 @@ return {
           opts.layouts = opts.layouts or { { element = {} } }
           for _, item in ipairs(opts.layouts) do
             item.element.size = 0.3
+            item.element.position = "left"
           end
           return opts
         end,
