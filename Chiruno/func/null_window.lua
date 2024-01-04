@@ -95,14 +95,11 @@ function Chiruno.func.toggle_null_window()
   openNullWindow = not openNullWindow
 
   Chiruno.func.check_null_window()
-  -- if openNullWindow then
-  --   Chiruno.func.open_null_window()
-  -- else
-  --   Chiruno.func.close_null_window()
-  -- end
 end
 
 function Chiruno.func.check_null_window()
+  if not openNullWindow then return Chiruno.func.close_null_window() end
+
   local buffers = vim.fn.getwininfo()
   if not buffers then return end
   local haveNeoTree = false
@@ -116,13 +113,13 @@ function Chiruno.func.check_null_window()
 
   if haveNeoTree or haveDapUi then
     Chiruno.func.close_null_window { right = false }
-  elseif openNullWindow then
+  else
     Chiruno.func.open_null_window { right = false }
   end
 
   if haveAerial then
     Chiruno.func.close_null_window { left = false }
-  elseif openNullWindow then
+  else
     Chiruno.func.open_null_window { left = false }
   end
 end
