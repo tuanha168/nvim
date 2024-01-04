@@ -36,6 +36,7 @@ end
 ---@param opts? {left?: boolean, right?: boolean}
 ---@return nil
 function Chiruno.func.close_null_window(opts)
+  openNullWindow = false
   opts = Chiruno.func.extends_table({
     left = true,
     right = true,
@@ -49,6 +50,7 @@ end
 ---@param opts? {left?: boolean, right?: boolean}
 ---@return nil
 function Chiruno.func.open_null_window(opts)
+  openNullWindow = true
   opts = Chiruno.func.extends_table({
     left = true,
     right = false,
