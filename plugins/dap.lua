@@ -76,16 +76,16 @@ return {
               elements = {
                 "watches",
               },
-              size = 0.3,
+              size = 0.2,
               position = "left", -- Can be "left" or "right"
             },
-            -- {
-            --   elements = {
-            --     "repl",
-            --   },
-            --   size = 10,
-            --   position = "bottom", -- Can be "bottom" or "top"
-            -- },
+            {
+              elements = {
+                "repl",
+              },
+              size = 10,
+              position = "bottom", -- Can be "bottom" or "top"
+            },
           }
           dapui.setup(opts)
         end,
