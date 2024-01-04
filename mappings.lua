@@ -164,7 +164,9 @@ local mappings = {
         local ok, dapui = pcall(require, "dapui")
         if not ok then return end
         dapui.toggle()
-        vim.api.nvim_exec_autocmds("User", { pattern = Chiruno.constants.events.DapUi, modeline = false })
+        vim.schedule(
+          function() vim.api.nvim_exec_autocmds("User", { pattern = Chiruno.constants.events.DapUi, modeline = false }) end
+        )
       end,
       desc = "Toggle Debugger UI",
     },
