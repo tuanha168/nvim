@@ -7,9 +7,8 @@ function Chiruno.autocmd.null_window()
     once = true,
   })
 
-  local a,c = ipairs(Chiruno.constants.events)
   autocmd("User", {
-    pattern = ,
+    pattern = Chiruno.func.parse_from_table(Chiruno.constants.events, "values"),
     callback = Chiruno.func.check_null_window,
   })
 end
