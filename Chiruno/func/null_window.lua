@@ -94,11 +94,12 @@ end
 function Chiruno.func.toggle_null_window()
   openNullWindow = not openNullWindow
 
-  if openNullWindow then
-    Chiruno.func.open_null_window()
-  else
-    Chiruno.func.close_null_window()
-  end
+  Chiruno.func.check_null_window()
+  -- if openNullWindow then
+  --   Chiruno.func.open_null_window()
+  -- else
+  --   Chiruno.func.close_null_window()
+  -- end
 end
 
 function Chiruno.func.check_null_window()
