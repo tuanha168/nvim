@@ -7,8 +7,9 @@ function Chiruno.autocmd.null_window()
     once = true,
   })
 
+  local a,c = ipairs(Chiruno.constants.events)
   autocmd("User", {
-    pattern = { Chiruno.constants.events.NeoTreeToggle, Chiruno.constants.events.AerialToggle },
+    pattern = ,
     callback = Chiruno.func.check_null_window,
   })
 end
