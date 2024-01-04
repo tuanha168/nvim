@@ -59,14 +59,17 @@ return {
         opts = function(_, opts)
           local dap, dapui = require "dap", require "dapui"
           dap.listeners.after.event_initialized["dapui_config"] = function()
+            Chiruno.func.print "event_initialized"
             dapui.open()
             vim.api.nvim_exec_autocmds("User", { pattern = Chiruno.constants.events.DapUi, modeline = false })
           end
           dap.listeners.before.event_terminated["dapui_config"] = function()
+            Chiruno.func.print "event_terminated"
             dapui.close()
             vim.api.nvim_exec_autocmds("User", { pattern = Chiruno.constants.events.DapUi, modeline = false })
           end
           dap.listeners.before.event_exited["dapui_config"] = function()
+            Chiruno.func.print "event_exited"
             dapui.close()
             vim.api.nvim_exec_autocmds("User", { pattern = Chiruno.constants.events.DapUi, modeline = false })
           end
