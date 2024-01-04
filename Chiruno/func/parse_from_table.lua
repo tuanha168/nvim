@@ -1,7 +1,7 @@
 -- Close null window
 ---@param table table<string | number, any>
 ---@param keys_or_values "keys" | "values"
----@return nil
+---@return table<number, string>
 function Chiruno.func.parse_from_table(table, keys_or_values)
   keys_or_values = keys_or_values or "keys"
   local result = {}
