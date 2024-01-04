@@ -107,6 +107,7 @@ function Chiruno.func.check_null_window()
   for _, buf in ipairs(buffers) do
     if vim.api.nvim_get_option_value("filetype", { buf = buf.bufnr }) == "neo-tree" then haveNeoTree = true end
     if vim.api.nvim_get_option_value("filetype", { buf = buf.bufnr }) == "aerial" then haveAerial = true end
+    if string.find(vim.api.nvim_get_option_value("filetype", { buf = buf.bufnr }), "dapui") then haveAerial = true end
   end
 
   if haveNeoTree then
