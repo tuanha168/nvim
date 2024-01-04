@@ -64,7 +64,6 @@ return {
           end
           dap.listeners.before.event_terminated["dapui_config"] = function()
             dapui.close()
-            Chiruno.func.print "Open dapui"
             vim.api.nvim_exec_autocmds("User", { pattern = Chiruno.constants.events.DapUi, modeline = false })
           end
           dap.listeners.before.event_exited["dapui_config"] = function()
