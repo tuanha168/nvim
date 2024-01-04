@@ -71,7 +71,8 @@ return {
             vim.api.nvim_exec_autocmds("User", { pattern = Chiruno.constants.events.DapUi, modeline = false })
           end
           opts.layouts = opts.layouts or { { element = {} } }
-          opts.layouts.element.size = 0.3
+          local _, item = ipairs(opts.layouts)
+          item.element.size = 0.3
           return opts
         end,
       },
