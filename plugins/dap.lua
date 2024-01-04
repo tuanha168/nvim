@@ -70,6 +70,23 @@ return {
             dapui.close()
             vim.api.nvim_exec_autocmds("User", { pattern = Chiruno.constants.events.DapUi, modeline = false })
           end
+          opts.layouts = {
+            {
+              -- You can change the order of elements in the sidebar
+              elements = {
+                "watches",
+              },
+              size = 0.3,
+              position = "left", -- Can be "left" or "right"
+            },
+            -- {
+            --   elements = {
+            --     "repl",
+            --   },
+            --   size = 10,
+            --   position = "bottom", -- Can be "bottom" or "top"
+            -- },
+          }
           dapui.setup(opts)
         end,
       },
