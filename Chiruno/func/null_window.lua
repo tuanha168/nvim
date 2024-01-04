@@ -111,7 +111,7 @@ function Chiruno.func.check_null_window()
     if string.find(vim.api.nvim_get_option_value("filetype", { buf = buf.bufnr }), "dapui") then haveDapUi = true end
   end
 
-  if haveNeoTree then
+  if haveNeoTree or haveDapUi then
     Chiruno.func.close_null_window { right = false }
   elseif openNullWindow then
     Chiruno.func.open_null_window { right = false }
@@ -121,12 +121,6 @@ function Chiruno.func.check_null_window()
     Chiruno.func.close_null_window { left = false }
   elseif openNullWindow then
     Chiruno.func.open_null_window { left = false }
-  end
-
-  if haveDapUi then
-    Chiruno.func.close_null_window()
-  elseif openNullWindow then
-    Chiruno.func.open_null_window()
   end
 end
 
