@@ -56,22 +56,21 @@ return {
       },
       {
         "rcarriga/nvim-dap-ui",
-        opts = function(_, opts)
+        config = function()
           local dap, dapui = require "dap", require "dapui"
           dap.listeners.after.event_initialized["dapui_config"] = function()
-            -- dapui.open()
-            Chiruno.func.print "Open dapui"
+            dapui.open()
             vim.api.nvim_exec_autocmds("User", { pattern = Chiruno.constants.events.DapUi, modeline = false })
           end
           dap.listeners.before.event_terminated["dapui_config"] = function()
             dapui.close()
+            Chiruno.func.print "Open dapui"
             vim.api.nvim_exec_autocmds("User", { pattern = Chiruno.constants.events.DapUi, modeline = false })
           end
           dap.listeners.before.event_exited["dapui_config"] = function()
             dapui.close()
             vim.api.nvim_exec_autocmds("User", { pattern = Chiruno.constants.events.DapUi, modeline = false })
           end
-          return opts
         end,
       },
     },
