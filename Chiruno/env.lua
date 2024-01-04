@@ -4,6 +4,7 @@ Chiruno.constants = {
   events = {
     NeoTreeToggle = "ChirunoNeotreeToggle",
     AerialToggle = "ChirunoAerialToggle",
+    DapUi = "ChirunoDapUi",
   },
 }
 
