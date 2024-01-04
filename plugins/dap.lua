@@ -70,8 +70,8 @@ return {
             dapui.close()
             vim.api.nvim_exec_autocmds("User", { pattern = Chiruno.constants.events.DapUi, modeline = false })
           end
-          opts.layout = opts.layout or { element = {} }
-          opts.layout.element.size = 0.3
+          opts.layouts = opts.layouts or { { element = {} } }
+          opts.layouts.element.size = 0.3
           return opts
         end,
       },
