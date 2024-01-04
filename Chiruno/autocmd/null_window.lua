@@ -7,10 +7,10 @@ function Chiruno.autocmd.null_window()
     once = true,
   })
 
-  autocmd("User", {
-    pattern = Chiruno.func.parse_from_table(Chiruno.constants.events, "values"),
-    callback = Chiruno.func.check_null_window,
-  })
+  -- autocmd("User", {
+  --   pattern = Chiruno.func.parse_from_table(Chiruno.constants.events, "values"),
+  --   callback = Chiruno.func.check_null_window,
+  -- })
 end
 
 return Chiruno.autocmd.null_window
