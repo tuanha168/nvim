@@ -74,18 +74,24 @@ return {
             {
               -- You can change the order of elements in the sidebar
               elements = {
-                "watches",
+                -- Provide IDs as strings or tables with "id" and "size" keys
+                {
+                  id = "watches",
+                },
+                { id = "repl", size = 0.25 },
+                { id = "console", size = 0.25 },
               },
-              size = 0.2,
+              size = 0.3,
               position = "left", -- Can be "left" or "right"
             },
-            {
-              elements = {
-                "repl",
-              },
-              size = 10,
-              position = "bottom", -- Can be "bottom" or "top"
-            },
+            -- {
+            --   elements = {
+            --     "repl",
+            --     "console",
+            --   },
+            --   size = 10,
+            --   position = "bottom", -- Can be "bottom" or "top"
+            -- },
           }
           dapui.setup(opts)
         end,
