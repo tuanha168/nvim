@@ -6,6 +6,10 @@ Chiruno.constants = {
     AerialToggle = "ChirunoAerialToggle",
     DapUi = "ChirunoDapUi",
   },
+  null_window = {
+    leftPanelIgnore = { "neo-tree", "dapui", "dbui" },
+    rightPanelIgnore = { "aerial" },
+  },
 }
 
 return Chiruno.constants
