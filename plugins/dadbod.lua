@@ -3,7 +3,7 @@ return {
     "kristijanhusak/vim-dadbod-ui",
     dependencies = {
       { "tpope/vim-dadbod" },
-      { "vim-dadbod-ssh" },
+      { "pbogut/vim-dadbod-ssh" },
       { "kristijanhusak/vim-dadbod-completion", ft = { "sql", "mysql", "plsql" } },
     },
     cmd = {
