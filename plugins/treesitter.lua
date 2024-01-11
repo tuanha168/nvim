@@ -172,7 +172,7 @@ return {
       local ft = require("hlchunk.utils.filetype").exclude_filetypes
       local exclude_filetypes = Chiruno.func.extends_table(
         ft,
-        { [Chiruno.constants.templateBuffer] = true, tmux = true, harpoon = true, minifiles = true }
+        { [Chiruno.constants.templateBuffer] = true, tmux = true, harpoon = true, minifiles = true, dbui = true }
       )
       return {
         indent = {
