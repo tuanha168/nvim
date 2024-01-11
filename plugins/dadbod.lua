@@ -3,7 +3,14 @@ return {
     "kristijanhusak/vim-dadbod-ui",
     dependencies = {
       { "tpope/vim-dadbod" },
-      { "pbogut/vim-dadbod-ssh" },
+      {
+        "pbogut/vim-dadbod-ssh",
+        init = function()
+          vim.cmd [[
+            let g:my_db = "ssh://yopaz-dev:mysql://root:FUGNafjjCx5EDefk@127.0.0.1:3306" 
+          ]]
+        end,
+      },
       { "kristijanhusak/vim-dadbod-completion", ft = { "sql", "mysql", "plsql" } },
     },
     cmd = {
