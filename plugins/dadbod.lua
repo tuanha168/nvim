@@ -6,6 +6,17 @@ return {
       { "pbogut/vim-dadbod-ssh" },
       { "kristijanhusak/vim-dadbod-completion", ft = { "sql", "mysql", "plsql" } },
     },
+    keys = {
+      {
+        "<leader>cdb",
+        -- ssh -L 7000:localhost:3306 -N yopaz-dev
+        function()
+          vim.cmd.DBUIToggle()
+          vim.api.nvim_exec_autocmds("User", { pattern = Chiruno.constants.events.DBUI, modeline = false })
+        end,
+        desc = "DBUIToggle",
+      },
+    },
     cmd = {
       "DBUI",
       "DBUIToggle",

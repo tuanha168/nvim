@@ -5,6 +5,7 @@ Chiruno.constants = {
     NeoTreeToggle = "ChirunoNeotreeToggle",
     AerialToggle = "ChirunoAerialToggle",
     DapUi = "ChirunoDapUi",
+    DBUI = "ChirunoDBUI",
   },
   null_window = {
     leftPanelIgnore = { "neo-tree", "dapui", "dbui" },
