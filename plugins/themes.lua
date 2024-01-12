@@ -45,13 +45,7 @@ return {
     },
   },
   {
-    "windwp/windline.nvim",
-    event = "VeryLazy",
-    config = function() require "wlsample.airline" end,
-  },
-  {
     "rebelot/heirline.nvim",
-    enabled = false,
     opts = function(_, opts)
       local status = require "astronvim.utils.status"
       local codeium = {
