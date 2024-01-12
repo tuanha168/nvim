@@ -47,7 +47,7 @@ return {
   {
     "windwp/windline.nvim",
     event = "VeryLazy",
-    config = function() require "wlsample.bubble2" end,
+    config = function() require "wlsample.airline" end,
   },
   {
     "rebelot/heirline.nvim",
