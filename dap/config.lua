@@ -8,7 +8,6 @@ local js_debuggers = {
     sourceMaps = true,
     skipFiles = { "<node_internals>/**", "!**/node_modules/**", "**/$KNOWN_TOOLS$/**" },
     restart = true,
-    justMyCode = true,
   },
   {
     type = "pwa-node",
@@ -19,7 +18,6 @@ local js_debuggers = {
     sourceMaps = true,
     skipFiles = { "<node_internals>/**", "!**/node_modules/**", "**/$KNOWN_TOOLS$/**" },
     restart = true,
-    justMyCode = true,
   },
   {
     type = "pwa-chrome",
@@ -37,8 +35,8 @@ local js_debuggers = {
     end,
     port = 9222,
     webRoot = "${workspaceFolder}",
-    skipFiles = { "<node_internals>/**", "!**/node_modules/**", "**/$KNOWN_TOOLS$/**", "**/**/*.js" },
-    protocol = "inspector",
+    -- skipFiles = { "<node_internals>/**", "!**/node_modules/**", "**/$KNOWN_TOOLS$/**", "**/**/*.js" },
+    -- protocol = "inspector",
     sourceMaps = true,
     userDataDir = false,
   },
@@ -51,7 +49,6 @@ local js_debuggers = {
     restart = true,
     skipFiles = { "<node_internals>/**", "!**/node_modules/**", "**/$KNOWN_TOOLS$/**" },
     port = 9229,
-    justMyCode = true,
   },
   {
     type = "pwa-node",
@@ -64,7 +61,6 @@ local js_debuggers = {
     port = 9229,
     localRoot = "${workspaceFolder}",
     remoteRoot = "/var/www",
-    justMyCode = true,
   },
 }
 
