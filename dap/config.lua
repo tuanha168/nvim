@@ -37,11 +37,10 @@ local js_debuggers = {
     end,
     port = 9222,
     webRoot = "${workspaceFolder}",
-    skipFiles = { "<node_internals>/**", "!**/node_modules/**", "**/$KNOWN_TOOLS$/**", "**/**/*.js" },
+    -- skipFiles = { "<node_internals>/**", "!**/node_modules/**", "**/$KNOWN_TOOLS$/**", "**/**/*.js" },
     protocol = "inspector",
     sourceMaps = true,
     userDataDir = false,
-    justMyCode = true,
   },
   {
     type = "pwa-node",
