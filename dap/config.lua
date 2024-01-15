@@ -36,7 +36,7 @@ local js_debuggers = {
       end)
     end,
     port = 9222,
-    -- webRoot = "${workspaceFolder}",
+    webRoot = "${workspaceFolder}",
     skipFiles = { "<node_internals>/**", "!**/node_modules/**", "**/$KNOWN_TOOLS$/**", "**/**/*.js" },
     protocol = "inspector",
     sourceMaps = true,
