@@ -5,7 +5,7 @@ return {
       host = "localhost",
       port = "${port}",
       executable = {
-        command = "js-debug-adapter",
+        command = vim.fn.exepath "js-debug-adapter",
         args = { "${port}" },
       },
     }
@@ -15,7 +15,7 @@ return {
       host = "localhost",
       port = "${port}",
       executable = {
-        command = "js-debug-adapter",
+        command = vim.fn.exepath "js-debug-adapter",
         args = { "${port}" },
       },
     }
