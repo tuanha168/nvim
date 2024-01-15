@@ -18,9 +18,9 @@ return function(client, bufnr)
   end
   if client.server_capabilities.inlayHintProvider then
     if vim.lsp.inlay_hint then
-      vim.lsp.inlay_hint(bufnr, true)
+      vim.lsp.inlay_hint.enable(bufnr, true)
     else
-      vim.lsp.buf.inlay_hint(bufnr, true)
+      vim.lsp.buf.inlay_hint.enable(bufnr, true)
     end
   end
   require("lsp_signature").on_attach(signature_setup, bufnr)
