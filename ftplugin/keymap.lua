@@ -1,1 +1,1 @@
-vim.o.filetype = "c"
+vim.o.ft = "c"
