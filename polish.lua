@@ -53,6 +53,11 @@ return function()
     callback = function() vim.cmd "setf dosini" end,
   })
 
+  autocmd({ "BufRead", "BufNewFile" }, {
+    pattern = "*.keymap",
+    callback = function() vim.cmd "setf c" end,
+  })
+
   autocmd({ "BufWritePre" }, {
     pattern = "*.norg",
     callback = function() Chiruno.func.auto_push "~/neorg" end,
