@@ -101,9 +101,10 @@ return {
           end, { buffer = buf_id })
 
           vim.keymap.set("n", "<c-o>", function()
+            local Path = require "plenary.path"
             local cur_entry_path = minifiles.get_fs_entry().path
-            Chiruno.func.print(minifiles.get_fs_entry())
-            vim.fn.setreg("+", cur_entry_path)
+            local relpath = Path:new(cur_entry_path):make_relative(vim.fn.getcwd())
+            vim.fn.setreg("+", relpath)
           end, { buffer = buf_id })
 
           -- vim.schedule(function()
