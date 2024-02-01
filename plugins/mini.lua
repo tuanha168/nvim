@@ -101,10 +101,10 @@ return {
           end, { buffer = buf_id })
 
           vim.keymap.set("n", "<c-o>", function()
-            local Path = require "plenary.path"
-            local cur_entry_path = minifiles.get_fs_entry().path
-            local relpath = Path:new(cur_entry_path):make_relative(vim.fn.getcwd())
-            vim.fn.setreg("+", relpath)
+            local path = minifiles.get_fs_entry().path
+            local have_plenary, Path = pcall(require, "plenary.path")
+            if have_plenary then path = Path:new(path):make_relative(vim.fn.getcwd()) end
+            vim.fn.setreg("+", path)
           end, { buffer = buf_id })
 
           -- vim.schedule(function()
