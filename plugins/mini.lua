@@ -105,6 +105,7 @@ return {
             local have_plenary, Path = pcall(require, "plenary.path")
             if have_plenary then path = Path:new(path):make_relative(vim.fn.getcwd()) end
             vim.fn.setreg("+", path)
+            Chiruno.func.print(path)
           end, { buffer = buf_id })
 
           -- vim.schedule(function()
