@@ -1,6 +1,7 @@
 return {
   {
     "nvim-treesitter/nvim-treesitter",
+    enabled = false,
     opts = function(_, opts)
       require "markid"
       require "treesitter-context"
