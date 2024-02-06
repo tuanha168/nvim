@@ -101,9 +101,9 @@ return function()
   local buf_large_group = vim.api.nvim_create_augroup("BufLarge", { clear = true })
 
   autocmd({ "BufReadPre" }, {
-    callback = function()
-      local ok, stats = pcall(vim.loop.fs_stat, vim.api.nvim_buf_get_name(vim.api.nvim_get_current_buf()))
-      if ok and stats and (stats.size > 1000000) then
+    callback = function(event)
+      local ok, stats = pcall(vim.loop.fs_stat, vim.api.nvim_buf_get_name(event.buf))
+      if ok and stats and (stats.size > 1000000 or vim.api.nvim_buf_line_count(event.buf) > 50000) then
         vim.b.large_buf = true
         vim.cmd "syntax off"
         vim.cmd "IlluminatePauseBuf" -- disable vim-illuminate
