@@ -114,7 +114,7 @@ return {
 
   {
     "RRethy/vim-illuminate",
-    event = "BufRead",
+    event = "BufReadPre",
   },
 
   {

@@ -106,7 +106,7 @@ return function()
       if ok and stats and (stats.size > 100000 or vim.api.nvim_buf_line_count(event.buf) > 3000) then
         vim.b.large_buf = true
         vim.cmd "syntax off"
-        -- vim.cmd "IlluminatePauseBuf" -- disable vim-illuminate
+        vim.cmd "IlluminatePauseBuf" -- disable vim-illuminate
         vim.opt_local.foldmethod = "manual"
         vim.opt_local.spell = false
       else
