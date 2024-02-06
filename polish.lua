@@ -103,7 +103,7 @@ return function()
   autocmd({ "BufReadPre" }, {
     callback = function(event)
       local ok, stats = pcall(vim.loop.fs_stat, vim.api.nvim_buf_get_name(event.buf))
-      if ok and stats and (stats.size > 100000 or vim.api.nvim_buf_line_count(event.buf) > 50) then
+      if ok and stats and (stats.size > 100000 or vim.api.nvim_buf_line_count(event.buf) > 3000) then
         vim.b.large_buf = true
         vim.cmd "syntax off"
         -- vim.cmd "IlluminatePauseBuf" -- disable vim-illuminate
