@@ -112,10 +112,10 @@ return {
     config = function() vim.api.nvim_set_keymap("n", "<C-y>", "<cmd>UndotreeToggle<CR>", { silent = true }) end,
   },
 
-  -- {
-  --   "RRethy/vim-illuminate",
-  --   event = "BufReadPre",
-  -- },
+  {
+    "RRethy/vim-illuminate",
+    event = "BufReadPre",
+  },
 
   {
     "ray-x/lsp_signature.nvim",
