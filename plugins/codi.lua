@@ -5,6 +5,14 @@ return {
     build = "npm install -g tsun",
   },
   {
+    "0x100101/lab.nvim",
+    cmd = "Lab",
+    dependencies = {
+      "nvim-lua/plenary.nvim",
+    },
+    opts = {}
+  },
+  {
     "m-demare/attempt.nvim",
     dependencies = {
       "nvim-lua/plenary.nvim",
