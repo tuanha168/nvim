@@ -7,10 +7,11 @@ return {
   {
     "0x100101/lab.nvim",
     cmd = "Lab",
+    build = "cd js && npm ci",
     dependencies = {
       "nvim-lua/plenary.nvim",
     },
-    opts = {}
+    opts = {},
   },
   {
     "m-demare/attempt.nvim",
