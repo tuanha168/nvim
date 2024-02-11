@@ -17,7 +17,7 @@ return function(client, bufnr)
     client.server_capabilities.workspace.didChangeWatchedFiles = { dynamicRegistration = false }
   end
   if client.server_capabilities.inlayHintProvider then
-    if vim.lsp and vim.lsp.inlay_hint then
+    if vim.lsp.inlay_hint then
       vim.lsp.inlay_hint.enable(bufnr, true)
     else
       vim.lsp.buf.inlay_hint.enable(bufnr, true)
