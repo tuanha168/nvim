@@ -104,7 +104,9 @@ local mappings = {
     },
     ["<leader>O"] = {
       function()
-        require("aerial").toggle()
+        local ok, aerial = pcall(require, "aerial")
+        if not ok then return end
+        aerial.toggle()
         vim.api.nvim_exec_autocmds("User", { pattern = Chiruno.constants.events.ToggleWindow, modeline = false })
       end,
       desc = "Symbols outline",
