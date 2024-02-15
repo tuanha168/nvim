@@ -89,6 +89,7 @@ end
 function Chiruno.func.check_null_window()
   if not openNullWindow then return Chiruno.func.close_null_window() end
 
+  Chiruno.func.print('toggle')
   local buffers = vim.fn.getwininfo()
   if not buffers then return end
   local haveLeftPanel = false
@@ -96,14 +97,18 @@ function Chiruno.func.check_null_window()
   for _, buf in ipairs(buffers) do
     for _, ft in ipairs(Chiruno.constants.null_window.leftPanelIgnore) do
       if string.find(vim.api.nvim_get_option_value("filetype", { buf = buf.bufnr }), ft) then
+        Chiruno.func.print(ft)
         haveLeftPanel = true
+        Chiruno.func.print({haveLeftPanel=haveLeftPanel})
         break
       end
     end
 
     for _, ft in ipairs(Chiruno.constants.null_window.rightPanelIgnore) do
       if string.find(vim.api.nvim_get_option_value("filetype", { buf = buf.bufnr }), ft) then
+        Chiruno.func.print(ft)
         haveRightPanel = true
+        Chiruno.func.print({haveRightPanel=haveRightPanel})
         break
       end
     end
