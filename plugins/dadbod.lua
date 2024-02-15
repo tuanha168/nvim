@@ -41,6 +41,15 @@ return {
       "DBUIAddConnection",
       "DBUIFindBuffer",
     },
-    init = function() vim.g.db_ui_use_nerd_fonts = 1 end,
+    init = function()
+      vim.g.db_ui_use_nerd_fonts = 1
+
+      vim.api.nvim_create_autocmd("VimLeavePre", {
+        pattern = "*",
+        callback = function()
+          if vim.g.db_ui_ssh_connection then vim.uv.kill(vim.g.db_ui_ssh_connection) end
+        end,
+      })
+    end,
   },
 }
