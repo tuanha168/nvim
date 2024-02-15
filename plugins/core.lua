@@ -77,25 +77,25 @@ return {
   --   end,
   -- },
 
-  {
-    "folke/flash.nvim",
-    opts = {},
-    keys = {
-      {
-        "s",
-        mode = { "n", "x", "o" },
-        function()
-          -- default options: exact mode, multi window, all directions, with a backdrop
-          require("flash").jump()
-        end,
-      },
-      -- {
-      --   "S",
-      --   mode = { "o", "x" },
-      --   function() require("flash").treesitter() end,
-      -- },
-    },
-  },
+  -- {
+  --   "folke/flash.nvim",
+  --   opts = {},
+  --   keys = {
+  --     {
+  --       "s",
+  --       mode = { "n", "x", "o" },
+  --       function()
+  --         -- default options: exact mode, multi window, all directions, with a backdrop
+  --         require("flash").jump()
+  --       end,
+  --     },
+  --     -- {
+  --     --   "S",
+  --     --   mode = { "o", "x" },
+  --     --   function() require("flash").treesitter() end,
+  --     -- },
+  --   },
+  -- },
 
   { "wellle/targets.vim", event = "BufEnter" },
 
@@ -537,9 +537,10 @@ return {
       },
     },
     opts = function()
+      local api = require("repolink.api")
       return {
         url_builders = {
-          ["yopaz"] = require("repolink").url_builder_for_github "https://github.com",
+          ["yopaz"] = api.url_builder_for_github()
           -- ["bitbucket.org"] = require("repolink").url_builder_for_bitbucket "https://bitbucket.org",
           -- ["gitlab.com"] = require("repolink").url_builder_for_gitlab "https://gitlab.com",
           -- ["git.sr.ht"] = require("repolink").url_builder_for_sourcehut "https://git.sr.ht",
