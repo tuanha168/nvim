@@ -95,11 +95,18 @@ function Chiruno.func.check_null_window()
   local haveRightPanel = false
   for _, buf in ipairs(buffers) do
     for _, ft in ipairs(Chiruno.constants.null_window.leftPanelIgnore) do
-      if string.find(vim.api.nvim_get_option_value("filetype", { buf = buf.bufnr }), ft) then haveLeftPanel = true end
+      Chiruno.func.print { vim.api.nvim_get_option_value("filetype", { buf = buf.bufnr }), ft, string.find(vim.api.nvim_get_option_value("filetype", { buf = buf.bufnr }), ft) }
+      if string.find(vim.api.nvim_get_option_value("filetype", { buf = buf.bufnr }), ft) then
+        haveLeftPanel = true
+        break
+      end
     end
 
     for _, ft in ipairs(Chiruno.constants.null_window.rightPanelIgnore) do
-      if string.find(vim.api.nvim_get_option_value("filetype", { buf = buf.bufnr }), ft) then haveRightPanel = true end
+      if string.find(vim.api.nvim_get_option_value("filetype", { buf = buf.bufnr }), ft) then
+        haveRightPanel = true
+        break
+      end
     end
   end
 
