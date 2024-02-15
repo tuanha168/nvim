@@ -36,7 +36,6 @@ end
 ---@param opts? {left?: boolean, right?: boolean}
 ---@return nil
 function Chiruno.func.close_null_window(opts)
-  openNullWindow = false
   opts = Chiruno.func.extends_table({
     left = true,
     right = true,
@@ -52,7 +51,7 @@ end
 function Chiruno.func.open_null_window(opts)
   openNullWindow = true
   opts = Chiruno.func.extends_table({
-    left = true,
+    left = false,
     right = false,
   }, opts or {})
 
@@ -109,17 +108,14 @@ function Chiruno.func.check_null_window()
     end
   end
 
-  if haveLeftPanel then
-    Chiruno.func.close_null_window { right = false }
-  else
-    Chiruno.func.open_null_window { right = false }
-  end
+  local open = { left = false, right = false }
 
-  if haveRightPanel then
-    Chiruno.func.close_null_window { left = false }
-  else
-    Chiruno.func.open_null_window { left = false }
-  end
+  if not haveLeftPanel then open.left = true end
+
+  if not haveRightPanel then open.right = true end
+
+  Chiruno.func.close_null_window()
+  Chiruno.func.open_null_window(open)
 end
 
 return Chiruno.func.check_null_window
