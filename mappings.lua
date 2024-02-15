@@ -105,7 +105,7 @@ local mappings = {
     ["<leader>O"] = {
       function()
         require("aerial").toggle()
-        vim.api.nvim_exec_autocmds("User", { pattern = Chiruno.constants.events.AerialToggle, modeline = false })
+        vim.api.nvim_exec_autocmds("User", { pattern = Chiruno.constants.events.ToggleWindow, modeline = false })
       end,
       desc = "Symbols outline",
     },
@@ -134,7 +134,7 @@ local mappings = {
     ["<leader>qq"] = {
       function()
         require("astronvim.utils.buffer").close()
-        vim.api.nvim_exec_autocmds("User", { pattern = Chiruno.constants.events.NeoTreeToggle, modeline = false })
+        vim.api.nvim_exec_autocmds("User", { pattern = Chiruno.constants.events.ToggleWindow, modeline = false })
       end,
       desc = "Close buffer",
       silent = true,
@@ -164,7 +164,7 @@ local mappings = {
         local ok, dapui = pcall(require, "dapui")
         if not ok then return end
         dapui.toggle()
-        vim.api.nvim_exec_autocmds("User", { pattern = Chiruno.constants.events.DapUi, modeline = false })
+        vim.api.nvim_exec_autocmds("User", { pattern = Chiruno.constants.events.ToggleWindow, modeline = false })
       end,
       desc = "Toggle Debugger UI",
     },

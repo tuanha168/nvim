@@ -26,7 +26,7 @@ return {
         -- ssh -L 7000:localhost:3306 -N yopaz-dev
         function()
           vim.cmd.DBUIToggle()
-          vim.api.nvim_exec_autocmds("User", { pattern = Chiruno.constants.events.DBUI, modeline = false })
+          vim.api.nvim_exec_autocmds("User", { pattern = Chiruno.constants.events.ToggleWindow, modeline = false })
         end,
         desc = "DBUIToggle",
       },

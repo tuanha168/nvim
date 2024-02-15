@@ -109,7 +109,12 @@ return {
     "mbbill/undotree",
     cmd = "UndotreeToggle",
     event = "BufRead",
-    config = function() vim.api.nvim_set_keymap("n", "<C-y>", "<cmd>UndotreeToggle<CR>", { silent = true }) end,
+    config = function()
+      vim.keymap.set("n", "<C-y>", function()
+        vim.cmd "UndotreeToggle"
+        vim.api.nvim_exec_autocmds("User", { pattern = Chiruno.constants.events.ToggleWindow, modeline = false })
+      end, { silent = true })
+    end,
   },
 
   {
@@ -537,10 +542,10 @@ return {
       },
     },
     opts = function()
-      local api = require("repolink.api")
+      local api = require "repolink.api"
       return {
         url_builders = {
-          ["yopaz"] = api.url_builder_for_github()
+          ["yopaz"] = api.url_builder_for_github(),
           -- ["bitbucket.org"] = require("repolink").url_builder_for_bitbucket "https://bitbucket.org",
           -- ["gitlab.com"] = require("repolink").url_builder_for_gitlab "https://gitlab.com",
           -- ["git.sr.ht"] = require("repolink").url_builder_for_sourcehut "https://git.sr.ht",
