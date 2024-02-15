@@ -8,7 +8,7 @@ Chiruno.constants = {
     DBUI = "ChirunoDBUI",
   },
   null_window = {
-    leftPanelIgnore = { "neo%-tree", "dapui", "dbui" },
+    leftPanelIgnore = { "neo%-tree", "dapui", "dbui", "undotree" },
     rightPanelIgnore = { "aerial" },
   },
 }
