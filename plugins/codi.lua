@@ -76,7 +76,7 @@ return {
             Chiruno.func.close_null_window()
             -- vim.cmd "Codi"
             vim.cmd "Lab code run"
-            Chiruno.func.open_null_window { left = not not status.splitLeft, right = not not status.splitRight }
+            Chiruno.func.check_null_window()
 
             if _ok and haveNeoTree then neo.execute { action = "toggle" } end
           end

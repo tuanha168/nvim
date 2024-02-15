@@ -59,18 +59,7 @@ function Chiruno.func.open_null_window(opts)
   local ok, Split = pcall(require, "nui.split")
   if not ok then return end
 
-  local buffers = vim.fn.getwininfo()
-  local haveNeoTree = false
-  local haveAerial = false
-
-  if not buffers then return end
-
-  for _, buf in ipairs(buffers) do
-    if vim.api.nvim_get_option_value("filetype", { buf = buf.bufnr }) == "neo-tree" then haveNeoTree = true end
-    if vim.api.nvim_get_option_value("filetype", { buf = buf.bufnr }) == "aerial" then haveAerial = true end
-  end
-
-  if opts.left and not haveNeoTree then
+  if opts.left then
     if splitLeft then splitLeft:unmount() end
 
     splitLeft = Split(Chiruno.func.extends_table(options, {
@@ -80,7 +69,7 @@ function Chiruno.func.open_null_window(opts)
     splitLeft:mount()
   end
 
-  if opts.right and not haveAerial then
+  if opts.right then
     if splitRight then splitRight:unmount() end
 
     splitRight = Split(Chiruno.func.extends_table(options, {
