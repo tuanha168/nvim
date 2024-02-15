@@ -7,7 +7,7 @@ function Chiruno.autocmd.null_window()
     once = true,
   })
 
-  autocmd({ "BufNew", "BufLeave" }, {
+  autocmd({ "BufNew", "BufDelete" }, {
     pattern = "*",
     callback = Chiruno.func.check_null_window,
   })
