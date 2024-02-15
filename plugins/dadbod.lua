@@ -24,8 +24,10 @@ return {
       {
         "<leader>cdb",
         function()
-          -- ssh -L 7000:localhost:3306 -N yopaz-dev
-          vim.system({ "ssh", "-L", "7000:localhost:3306", "-N", "yopaz-dev" }, { text = true })
+          if not vim.g.db_ui_ssh_connection then
+            -- ssh -L 7000:localhost:3306 -N yopaz-dev
+            vim.g.db_ui_ssh_connection = vim.system({ "ssh", "-L", "7000:localhost:3306", "-N", "yopaz-dev" }, { text = true })
+          end
           vim.cmd.DBUIToggle()
           vim.api.nvim_exec_autocmds("User", { pattern = Chiruno.constants.events.ToggleWindow, modeline = false })
         end,
