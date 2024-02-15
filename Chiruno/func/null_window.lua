@@ -46,14 +46,10 @@ function Chiruno.func.close_null_window(opts)
 end
 
 -- Open null window
----@param opts? {left?: boolean, right?: boolean}
+---@param opts {left: boolean, right: boolean}
 ---@return nil
 local function open_null_window(opts)
   openNullWindow = true
-  opts = Chiruno.func.extends_table({
-    left = true,
-    right = true,
-  }, opts or {})
 
   local ok, Split = pcall(require, "nui.split")
   if not ok then return end
@@ -108,11 +104,11 @@ function Chiruno.func.check_null_window()
     end
   end
 
-  local open = { left = false, right = false }
+  local open = { left = true, right = false }
 
-  if not haveLeftPanel then open.left = true end
+  if haveLeftPanel then open.left = false end
 
-  if not haveRightPanel then open.right = true end
+  if haveRightPanel then open.right = false end
 
   Chiruno.func.close_null_window()
   open_null_window(open)
