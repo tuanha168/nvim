@@ -7,15 +7,10 @@ function Chiruno.autocmd.null_window()
     once = true,
   })
 
-  autocmd({ "BufNew", "BufDelete" }, {
-    pattern = "*",
+  autocmd("User", {
+    pattern = Chiruno.constants.events.ToggleWindow,
     callback = Chiruno.func.check_null_window,
   })
-
-  -- autocmd("User", {
-  --   pattern = Chiruno.constants.events.ToggleWindow,
-  --   callback = Chiruno.func.check_null_window,
-  -- })
 end
 
 return Chiruno.autocmd.null_window
