@@ -109,16 +109,10 @@ function Chiruno.func.check_null_window()
     end
   end
 
-  if haveLeftPanel then
-    Chiruno.func.close_null_window { right = false }
+  if haveLeftPanel or haveRightPanel then
+    Chiruno.func.close_null_window { left = haveRightPanel, right = haveLeftPanel }
   else
-    Chiruno.func.open_null_window { right = false }
-  end
-
-  if haveRightPanel then
-    Chiruno.func.close_null_window { left = false }
-  else
-    Chiruno.func.open_null_window { left = false }
+    Chiruno.func.open_null_window { left = not haveRightPanel, right = not haveLeftPanel }
   end
 end
 
