@@ -1,4 +1,5 @@
 local json = require('neoconf.json')
+local test = json.encode()
 Chiruno.func.print(json.decode([[
 {
   "lspconfig": {
