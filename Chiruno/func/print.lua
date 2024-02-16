@@ -1,6 +1,6 @@
 local function table_print(tt, indent, done)
   done = done or {}
-  indent = indent or 0
+  indent = indent or 2
   if type(tt) == "table" then
     local sb = {}
     for key, value in pairs(tt) do
@@ -10,7 +10,7 @@ local function table_print(tt, indent, done)
         table.insert(sb, key .. " = {\n")
         table.insert(sb, table_print(value, indent + 2, done))
         table.insert(sb, string.rep(" ", indent)) -- indent it
-        table.insert(sb, "}")
+        table.insert(sb, "}\n")
       elseif "number" == type(key) then
         table.insert(sb, string.format('"%s"\n', tostring(value)))
       else
@@ -19,7 +19,7 @@ local function table_print(tt, indent, done)
     end
     return table.concat(sb)
   else
-    return tt
+    return tt .. "\n"
   end
 end
 
@@ -27,7 +27,7 @@ local function to_string(tbl)
   if "nil" == type(tbl) then
     return tostring(nil)
   elseif "table" == type(tbl) then
-    return table_print(tbl)
+    return "{\n" .. table_print(tbl) .. "}"
   elseif "string" == type(tbl) then
     return tbl
   else
@@ -39,9 +39,7 @@ function Chiruno.func.print(...)
   local result = ""
   for _, v in ipairs { ... } do
     local r = to_string(v)
-    if result ~= "" then
-      result = result .. "\n\n"
-    end
+    if result ~= "" then result = result .. "\n\n" end
     result = result .. to_string(r)
   end
   vim.notify(to_string(result), vim.log.levels.WARN)
