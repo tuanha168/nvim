@@ -7,6 +7,6 @@
 ---@field file string expanded value of `<afile>`
 ---@field data any arbitrary data passed from `nvim_exec_autocmds()`
 
----@class NullWindowOptions
----@field left boolean
----@field right boolean
+---@alias NullWindowOptionKeys "left" | "right"
+
+---@alias NullWindowOptions table<NullWindowOptionKeys, boolean>

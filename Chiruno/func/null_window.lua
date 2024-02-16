@@ -83,7 +83,7 @@ end
 
 -- Check for ignore
 ---@param bufnr number
----@param opts? "left" | "right"
+---@param opts? NullWindowOptionKeys
 ---@return boolean
 function Chiruno.func.check_ignore_window(bufnr, opts)
   if not opts or opts == "left" then
@@ -117,7 +117,7 @@ function Chiruno.func.check_null_window(e)
     if Chiruno.func.check_ignore_window(buf.bufnr, "right") then haveRightPanel = true end
   end
 
-  ---@class NullWindowOptions
+  ---@type NullWindowOptions
   local opts = { left = true, right = true }
 
   local ok, userConfig = pcall(require, "user.init")
