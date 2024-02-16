@@ -6,3 +6,7 @@
 ---@field buf number
 ---@field file string
 ---@field data any
+
+---@class NullWindowOptions
+---@field left boolean
+---@field right boolean
