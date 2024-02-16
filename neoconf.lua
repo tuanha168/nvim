@@ -1,9 +1,7 @@
-local json = require "neoconf.json"
-
 local file = io.open("neoconf.json", "w")
 if not file then return end
 
-file:write(json.encode {
+local config = {
   ["lspconfig"] = {
     ["volar"] = {
       ["takeOverMode.extension"] = "Vue.volar",
@@ -149,6 +147,10 @@ file:write(json.encode {
       },
     },
   },
-})
+}
+
+local json = require "neoconf.json"
+
+file:write(json.encode(config))
 
 file:close()
