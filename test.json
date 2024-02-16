@@ -1,0 +1,128 @@
+{
+  "lspconfig": {
+    "cssls": {
+      "css": { "validate": "false" },
+      "less": { "validate": "false" },
+      "scss": { "validate": "false" }
+    },
+    "intelephense": {
+      "intelephense": {
+        "diagnostics": {
+          "undefinedClassConstants": "false",
+          "undefinedConstants": "false",
+          "undefinedFunctions": "false",
+          "undefinedMethods": "false",
+          "undefinedProperties": "false",
+          "undefinedTypes": "false",
+          "undefinedVariables": "false"
+        }
+      }
+    },
+    "rust_analyzer": {
+      "rust-analyzer": {
+        "checkOnSave": { "command": "clippy", "enable": "true" },
+        "lens": { "enable": "true" }
+      }
+    },
+    "tailwindcss": {
+      "tailwindCSS.classAttributes": [
+        "class",
+        "className",
+        "ngClass",
+        ".*[cC]lass.*",
+        ".*[cC]lasses.*"
+      ],
+      "tailwindCSS.emmetCompletions": "true",
+      "tailwindCSS.experimental.classRegex": [
+        "[a-zA-Z]*[cC]lass\\s*=\\s*'([^']*)'",
+        "[a-zA-Z]*[cC]lass\\s*=\\s*\"([^\"]*)\"",
+        "[a-zA-Z]*[cC]lass\\s*=\\s*\\{(['`\"][^\\{\\}'`\"]*['`\"])*\\}"
+      ]
+    },
+    "tsserver": {
+      "javascript": {
+        "inlayHints": {
+          "enumMemberValues.enabled": "true",
+          "functionLikeReturnTypes.enabled": "true",
+          "parameterNames": {
+            "enabled": "all",
+            "suppressWhenArgumentMatchesName": "true"
+          },
+          "parameterTypes.enabled": "true",
+          "propertyDeclarationTypes.enabled": "true",
+          "variableTypes": {
+            "enabled": "true",
+            "suppressWhenTypeMatchesName": "true"
+          }
+        }
+      },
+      "typescript": {
+        "inlayHints": {
+          "enumMemberValues.enabled": "true",
+          "functionLikeReturnTypes.enabled": "true",
+          "parameterNames": {
+            "enabled": "all",
+            "suppressWhenArgumentMatchesName": "true"
+          },
+          "parameterTypes.enabled": "true",
+          "propertyDeclarationTypes.enabled": "true",
+          "variableTypes": {
+            "enabled": "true",
+            "suppressWhenTypeMatchesName": "true"
+          }
+        },
+        "tsserver": {
+          "web": { "projectWideIntellisense": { "enabled": "true" } }
+        }
+      }
+    },
+    "volar": {
+      "css.customData": [
+        "/Users/tuanha/.config/nvim/lua/user/.vscode/tailwind.json"
+      ],
+      "javascript": {
+        "inlayHints": {
+          "enumMemberValues.enabled": "true",
+          "functionLikeReturnTypes.enabled": "true",
+          "parameterNames": {
+            "enabled": "all",
+            "suppressWhenArgumentMatchesName": "true"
+          },
+          "parameterTypes.enabled": "true",
+          "propertyDeclarationTypes.enabled": "true",
+          "variableTypes": {
+            "enabled": "true",
+            "suppressWhenTypeMatchesName": "true"
+          }
+        }
+      },
+      "takeOverMode.extension": "Vue.volar",
+      "typescript": {
+        "inlayHints": {
+          "enumMemberValues.enabled": "true",
+          "functionLikeReturnTypes.enabled": "true",
+          "parameterNames": {
+            "enabled": "all",
+            "suppressWhenArgumentMatchesName": "true"
+          },
+          "parameterTypes.enabled": "true",
+          "propertyDeclarationTypes.enabled": "true",
+          "variableTypes": {
+            "enabled": "true",
+            "suppressWhenTypeMatchesName": "true"
+          }
+        },
+        "tsserver": {
+          "web": { "projectWideIntellisense": { "enabled": "true" } }
+        }
+      },
+      "vue": {
+        "inlayHints": {
+          "inlineHandlerLeading": "true",
+          "missingProps": "true",
+          "optionsWrapper": "true"
+        }
+      }
+    }
+  }
+}
