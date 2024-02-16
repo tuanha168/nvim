@@ -101,6 +101,7 @@ function Chiruno.func.check_ignore_window(bufnr, opts)
   return false
 end
 
+---@param e? AutocmdCallbackEvent
 function Chiruno.func.check_null_window(e)
   if e and (not e.match or e.match == "") then return end
 
