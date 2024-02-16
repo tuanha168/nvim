@@ -38,7 +38,11 @@ end
 function Chiruno.func.print(...)
   local result = ""
   for _, v in ipairs { ... } do
-    result = result .. to_string(v) .. "\r\n\r\n"
+    local r = to_string(v)
+    if result ~= "" then
+      result = result .. "\n"
+    end
+    result = result .. to_string(r)
   end
   vim.notify(to_string(result), vim.log.levels.WARN)
 end
