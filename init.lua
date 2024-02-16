@@ -64,5 +64,5 @@ return {
       },
     },
   },
-  null_window = { left = true, right = true }
+  null_window = { left = true, right = false }
 }
