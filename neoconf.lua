@@ -1,152 +1,158 @@
-local haveJson, json = pcall(require,"json")
+local haveJson, json = pcall(require, "json")
 if not haveJson then return end
 
 local file = io.open("neoconf.json", "w")
 if not file then return end
 
 local config = {
-  ["lspconfig"] = {
-    ["volar"] = {
-      ["takeOverMode.extension"] = "Vue.volar",
-      ["vue"] = {
-        ["inlayHints"] = {
-          ["missingProps"] = "true",
-          ["inlineHandlerLeading"] = "true",
-          ["optionsWrapper"] = "true",
+  lspconfig = {
+    volar = {
+      takeOverMode = {
+        extension = "Vue.volar",
+      },
+      vue = {
+        inlayHints = {
+          missingProps = "true",
+          inlineHandlerLeading = "true",
+          optionsWrapper = "true",
         },
       },
-      ["typescript"] = {
-        ["tsserver"] = {
-          ["web"] = {
-            ["projectWideIntellisense"] = {
-              ["enabled"] = "true",
+      typescript = {
+        tsserver = {
+          web = {
+            projectWideIntellisense = {
+              enabled = "true",
             },
           },
         },
-        ["inlayHints"] = {
-          ["enumMemberValues.enabled"] = "true",
-          ["functionLikeReturnTypes.enabled"] = "true",
-          ["propertyDeclarationTypes.enabled"] = "true",
-          ["parameterNames"] = {
-            ["enabled"] = "all",
-            ["suppressWhenArgumentMatchesName"] = "true",
+        inlayHints = {
+          enumMemberValues = { enabled = "true" },
+          functionLikeReturnTypes = { enabled = "true" },
+          propertyDeclarationTypes = { enabled = "true" },
+          parameterNames = {
+            enabled = "all",
+            suppressWhenArgumentMatchesName = "true",
           },
-          ["variableTypes"] = {
-            ["enabled"] = "true",
-            ["suppressWhenTypeMatchesName"] = "true",
+          variableTypes = {
+            enabled = "true",
+            suppressWhenTypeMatchesName = "true",
           },
-          ["parameterTypes.enabled"] = "true",
+          parameterTypes = { enabled = "true" },
         },
       },
-      ["css.customData"] = {
+      css = { customData = {
         os.getenv "HOME" .. "/.config/nvim/lua/user/.vscode/tailwind.json",
-      },
-      ["javascript"] = {
-        ["inlayHints"] = {
-          ["enumMemberValues.enabled"] = "true",
-          ["functionLikeReturnTypes.enabled"] = "true",
-          ["propertyDeclarationTypes.enabled"] = "true",
-          ["parameterNames"] = {
-            ["enabled"] = "all",
-            ["suppressWhenArgumentMatchesName"] = "true",
+      } },
+      javascript = {
+        inlayHints = {
+          enumMemberValues = { enabled = "true" },
+          functionLikeReturnTypes = { enabled = "true" },
+          propertyDeclarationTypes = { enabled = "true" },
+          parameterNames = {
+            enabled = "all",
+            suppressWhenArgumentMatchesName = "true",
           },
-          ["variableTypes"] = {
-            ["enabled"] = "true",
-            ["suppressWhenTypeMatchesName"] = "true",
+          variableTypes = {
+            enabled = "true",
+            suppressWhenTypeMatchesName = "true",
           },
-          ["parameterTypes.enabled"] = "true",
+          parameterTypes = { enabled = "true" },
         },
       },
     },
-    ["tailwindcss"] = {
-      ["tailwindCSS.classAttributes"] = {
-        "class",
-        "className",
-        "ngClass",
-        ".*[cC]lass.*",
-        ".*[cC]lasses.*",
+    tailwindcss = {
+      tailwindCSS = {
+        classAttributes = {
+          "class",
+          "className",
+          "ngClass",
+          ".*[cC]lass.*",
+          ".*[cC]lasses.*",
+        },
+        experimental = {
+          classRegex = {
+            "[a-zA-Z]*[cC]lass\\s*=\\s*'([^']*)'",
+            '[a-zA-Z]*[cC]lass\\s*=\\s*"([^"]*)"',
+            "[a-zA-Z]*[cC]lass\\s*=\\s*\\{(['`\"][^\\{\\}'`\"]*['`\"])*\\}",
+          },
+        },
+        emmetCompletions = "true",
       },
-      ["tailwindCSS.experimental.classRegex"] = {
-        "[a-zA-Z]*[cC]lass\\s*=\\s*'([^']*)'",
-        '[a-zA-Z]*[cC]lass\\s*=\\s*"([^"]*)"',
-        "[a-zA-Z]*[cC]lass\\s*=\\s*\\{(['`\"][^\\{\\}'`\"]*['`\"])*\\}",
-      },
-      ["tailwindCSS.emmetCompletions"] = "true",
     },
-    ["intelephense"] = {
-      ["intelephense"] = {
-        ["diagnostics"] = {
-          ["undefinedFunctions"] = "false",
-          ["undefinedConstants"] = "false",
-          ["undefinedClassConstants"] = "false",
-          ["undefinedMethods"] = "false",
-          ["undefinedProperties"] = "false",
-          ["undefinedVariables"] = "false",
-          ["undefinedTypes"] = "false",
+    intelephense = {
+      intelephense = {
+        diagnostics = {
+          undefinedFunctions = "false",
+          undefinedConstants = "false",
+          undefinedClassConstants = "false",
+          undefinedMethods = "false",
+          undefinedProperties = "false",
+          undefinedVariables = "false",
+          undefinedTypes = "false",
         },
       },
     },
-    ["rust_analyzer"] = {
+    rust_analyzer = {
       ["rust-analyzer"] = {
-        ["lens"] = {
-          ["enable"] = "true",
+        lens = {
+          enable = "true",
         },
-        ["checkOnSave"] = {
-          ["command"] = "clippy",
-          ["enable"] = "true",
+        checkOnSave = {
+          command = "clippy",
+          enable = "true",
         },
       },
     },
-    ["tsserver"] = {
-      ["typescript"] = {
-        ["tsserver"] = {
-          ["web"] = {
-            ["projectWideIntellisense"] = {
-              ["enabled"] = "true",
+    tsserver = {
+      typescript = {
+        tsserver = {
+          web = {
+            projectWideIntellisense = {
+              enabled = "true",
             },
           },
         },
-        ["inlayHints"] = {
-          ["enumMemberValues.enabled"] = "true",
-          ["functionLikeReturnTypes.enabled"] = "true",
-          ["propertyDeclarationTypes.enabled"] = "true",
-          ["parameterNames"] = {
-            ["enabled"] = "all",
-            ["suppressWhenArgumentMatchesName"] = "true",
+        inlayHints = {
+          enumMemberValues = { enabled = "true" },
+          functionLikeReturnTypes = { enabled = "true" },
+          propertyDeclarationTypes = { enabled = "true" },
+          parameterNames = {
+            enabled = "all",
+            suppressWhenArgumentMatchesName = "true",
           },
-          ["variableTypes"] = {
-            ["enabled"] = "true",
-            ["suppressWhenTypeMatchesName"] = "true",
+          variableTypes = {
+            enabled = "true",
+            suppressWhenTypeMatchesName = "true",
           },
-          ["parameterTypes.enabled"] = "true",
+          parameterTypes = { enabled = "true" },
         },
       },
-      ["javascript"] = {
-        ["inlayHints"] = {
-          ["enumMemberValues.enabled"] = "true",
-          ["functionLikeReturnTypes.enabled"] = "true",
-          ["propertyDeclarationTypes.enabled"] = "true",
-          ["parameterNames"] = {
-            ["enabled"] = "all",
-            ["suppressWhenArgumentMatchesName"] = "true",
+      javascript = {
+        inlayHints = {
+          enumMemberValues = { enabled = "true" },
+          functionLikeReturnTypes = { enabled = "true" },
+          propertyDeclarationTypes = { enabled = "true" },
+          parameterNames = {
+            enabled = "all",
+            suppressWhenArgumentMatchesName = "true",
           },
-          ["variableTypes"] = {
-            ["enabled"] = "true",
-            ["suppressWhenTypeMatchesName"] = "true",
+          variableTypes = {
+            enabled = "true",
+            suppressWhenTypeMatchesName = "true",
           },
-          ["parameterTypes.enabled"] = "true",
+          parameterTypes = { enabled = "true" },
         },
       },
     },
-    ["cssls"] = {
-      ["less"] = {
-        ["validate"] = "false",
+    cssls = {
+      less = {
+        validate = "false",
       },
-      ["css"] = {
-        ["validate"] = "false",
+      css = {
+        validate = "false",
       },
-      ["scss"] = {
-        ["validate"] = "false",
+      scss = {
+        validate = "false",
       },
     },
   },
