@@ -40,7 +40,7 @@ function Chiruno.func.print(...)
   for _, v in ipairs { ... } do
     local r = to_string(v)
     if result ~= "" then
-      result = result .. "\n"
+      result = result .. "\n\n"
     end
     result = result .. to_string(r)
   end
