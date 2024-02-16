@@ -12,7 +12,7 @@ function Chiruno.autocmd.null_window()
     callback = function(e)
       for _, ft in ipairs(Chiruno.constants.null_window.leftPanelIgnore) do
         if string.find(vim.api.nvim_get_option_value("filetype", { buf = e.bufnr }), ft) then
-          vim.schedule(Chiruno.func.check_null_window)
+          Chiruno.func.check_null_window()
           break
         end
       end
