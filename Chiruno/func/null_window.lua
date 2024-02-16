@@ -81,6 +81,24 @@ function Chiruno.func.toggle_null_window()
   Chiruno.func.check_null_window()
 end
 
+function Chiruno.func.check_ignore_window(opts)
+  if opts.left then
+    for _, ft in ipairs(Chiruno.constants.null_window.leftPanelIgnore) do
+      if string.find(vim.api.nvim_get_option_value("filetype", { buf = buf.bufnr }), ft) then
+        return true
+      end
+    end
+  end
+
+  if opts.right then
+    for _, ft in ipairs(Chiruno.constants.null_window.rightPanelIgnore) do
+      if string.find(vim.api.nvim_get_option_value("filetype", { buf = buf.bufnr }), ft) then
+      return true
+      end
+    end
+  end
+end
+
 function Chiruno.func.check_null_window()
   if not openNullWindow then return Chiruno.func.close_null_window() end
 
