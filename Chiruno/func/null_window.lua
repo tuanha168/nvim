@@ -104,6 +104,7 @@ function Chiruno.func.check_null_window()
     end
   end
 
+  -- default open null_window
   local open = { left = true, right = false }
 
   if haveLeftPanel then open.left = false end
