@@ -104,19 +104,19 @@ function Chiruno.func.check_null_window()
     end
   end
 
-  local options = { left = true, right = true }
+  local opts = { left = true, right = true }
 
   local ok, userConfig = pcall(require, "user.init")
   if ok then
-    options = Chiruno.func.extends_table(options, userConfig.null_window or {})
+    opts = Chiruno.func.extends_table(opts, userConfig.null_window or {})
   end
 
-  if haveLeftPanel then options.left = false end
+  if haveLeftPanel then opts.left = false end
 
-  if haveRightPanel then options.right = false end
+  if haveRightPanel then opts.right = false end
 
   Chiruno.func.close_null_window()
-  open_null_window(options)
+  open_null_window(opts)
 end
 
 return Chiruno.func.check_null_window
