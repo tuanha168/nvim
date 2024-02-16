@@ -35,6 +35,8 @@ local function to_string(tbl)
   end
 end
 
-function Chiruno.func.print(tbl) vim.notify(to_string(tbl), vim.log.levels.WARN) end
+function Chiruno.func.print(...)
+  vim.notify(to_string(...), vim.log.levels.WARN)
+end
 
 return Chiruno.func.print
