@@ -9,5 +9,4 @@
 
 ---@alias NullWindowOptionKeys "left" | "right"
 
----@class NullWindowOptions
----@field [NullWindowOptionKeys] boolean
+---@alias NullWindowOptions table<NullWindowOptionKeys, boolean>
