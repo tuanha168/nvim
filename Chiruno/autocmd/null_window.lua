@@ -9,7 +9,10 @@ function Chiruno.autocmd.null_window()
 
   autocmd({ "BufLeave" }, {
     pattern = "*",
-    callback = Chiruno.func.check_null_window,
+    callback = function(e)
+      Print(e)
+      -- vim.defer_fn(Chiruno.func.check_null_window, 500)
+    end,
   })
 
   autocmd("User", {
