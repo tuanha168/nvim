@@ -33,7 +33,7 @@ function Chiruno.func.get_null_window_status()
 end
 
 -- Close null window
----@param opts? {left?: boolean, right?: boolean}
+---@param opts? NullWindowOptions
 ---@return nil
 function Chiruno.func.close_null_window(opts)
   opts = Chiruno.func.extends_table({
@@ -46,7 +46,7 @@ function Chiruno.func.close_null_window(opts)
 end
 
 -- Open null window
----@param opts {left: boolean, right: boolean}
+---@param opts NullWindowOptions
 ---@return nil
 local function open_null_window(opts)
   openNullWindow = true
@@ -117,6 +117,7 @@ function Chiruno.func.check_null_window(e)
     if Chiruno.func.check_ignore_window(buf.bufnr, "right") then haveRightPanel = true end
   end
 
+  ---@class NullWindowOptions
   local opts = { left = true, right = true }
 
   local ok, userConfig = pcall(require, "user.init")
