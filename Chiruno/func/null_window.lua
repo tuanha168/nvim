@@ -101,7 +101,9 @@ function Chiruno.func.check_ignore_window(bufnr, opts)
   return false
 end
 
-function Chiruno.func.check_null_window()
+function Chiruno.func.check_null_window(e)
+  if e and e.match or e.match == "" then return end
+
   if not openNullWindow then return Chiruno.func.close_null_window() end
 
   local buffers = vim.fn.getwininfo()
