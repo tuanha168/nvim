@@ -19,7 +19,7 @@ local function table_print(tt, indent, done)
     end
     return table.concat(sb)
   else
-    return tt .. "\n"
+    return tt
   end
 end
 
