@@ -102,7 +102,8 @@ function Chiruno.func.check_ignore_window(bufnr, opts)
 end
 
 function Chiruno.func.check_null_window(e)
-  if e and e.match or e.match == "" then return end
+  if e and (not e.match or e.match == "") then return end
+  Print(e)
 
   if not openNullWindow then return Chiruno.func.close_null_window() end
 
@@ -127,9 +128,7 @@ function Chiruno.func.check_null_window(e)
 
   Chiruno.func.close_null_window()
 
-  if opts.left or opts.right then
-    open_null_window(opts)
-  end
+  if opts.left or opts.right then open_null_window(opts) end
 end
 
 return Chiruno.func.check_null_window
