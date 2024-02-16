@@ -10,8 +10,19 @@ function Chiruno.autocmd.null_window()
   autocmd({ "BufLeave" }, {
     pattern = "*",
     callback = function(e)
-      Print(e)
-      -- vim.defer_fn(Chiruno.func.check_null_window, 500)
+      for _, ft in ipairs(Chiruno.constants.null_window.leftPanelIgnore) do
+        if string.find(vim.api.nvim_get_option_value("filetype", { buf = e.bufnr }), ft) then
+          vim.schedule(Chiruno.func.check_null_window)
+          return
+        end
+      end
+
+      -- for _, ft in ipairs(Chiruno.constants.null_window.rightPanelIgnore) do
+      --   if string.find(vim.api.nvim_get_option_value("filetype", { buf = e.bufnr }), ft) then
+      --     vim.schedule(Chiruno.func.check_null_window)
+      --     return
+      --   end
+      -- end
     end,
   })
 
