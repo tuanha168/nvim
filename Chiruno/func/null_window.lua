@@ -81,22 +81,23 @@ function Chiruno.func.toggle_null_window()
   Chiruno.func.check_null_window()
 end
 
-function Chiruno.func.check_ignore_window(opts)
-  if opts.left then
+-- Check for ignore
+---@param opts? "left" | "right"
+---@return boolean
+function Chiruno.func.check_ignore_window(opts, bufnr)
+  if not opts or opts == "left" then
     for _, ft in ipairs(Chiruno.constants.null_window.leftPanelIgnore) do
-      if string.find(vim.api.nvim_get_option_value("filetype", { buf = buf.bufnr }), ft) then
-        return true
-      end
+      if string.find(vim.api.nvim_get_option_value("filetype", { buf = bufnr }), ft) then return true end
     end
   end
 
-  if opts.right then
+  if not opts or opts == "right" then
     for _, ft in ipairs(Chiruno.constants.null_window.rightPanelIgnore) do
-      if string.find(vim.api.nvim_get_option_value("filetype", { buf = buf.bufnr }), ft) then
-      return true
-      end
+      if string.find(vim.api.nvim_get_option_value("filetype", { buf = bufnr }), ft) then return true end
     end
   end
+
+  return false
 end
 
 function Chiruno.func.check_null_window()
@@ -107,27 +108,19 @@ function Chiruno.func.check_null_window()
   local haveLeftPanel = false
   local haveRightPanel = false
   for _, buf in ipairs(buffers) do
-    for _, ft in ipairs(Chiruno.constants.null_window.leftPanelIgnore) do
-      if string.find(vim.api.nvim_get_option_value("filetype", { buf = buf.bufnr }), ft) then
-        haveLeftPanel = true
-        break
-      end
+    if Chiruno.func.check_ignore_window("left", buf.bufnr) then
+      haveLeftPanel = true
     end
 
-    for _, ft in ipairs(Chiruno.constants.null_window.rightPanelIgnore) do
-      if string.find(vim.api.nvim_get_option_value("filetype", { buf = buf.bufnr }), ft) then
-        haveRightPanel = true
-        break
-      end
+    if Chiruno.func.check_ignore_window("right", buf.bufnr) then
+      haveRightPanel = true
     end
   end
 
   local opts = { left = true, right = true }
 
   local ok, userConfig = pcall(require, "user.init")
-  if ok then
-    opts = Chiruno.func.extends_table(opts, userConfig.null_window or {})
-  end
+  if ok then opts = Chiruno.func.extends_table(opts, userConfig.null_window or {}) end
 
   if haveLeftPanel then opts.left = false end
 
