@@ -82,9 +82,10 @@ function Chiruno.func.toggle_null_window()
 end
 
 -- Check for ignore
+---@param bufnr number
 ---@param opts? "left" | "right"
 ---@return boolean
-function Chiruno.func.check_ignore_window(opts, bufnr)
+function Chiruno.func.check_ignore_window(bufnr, opts)
   if not opts or opts == "left" then
     for _, ft in ipairs(Chiruno.constants.null_window.leftPanelIgnore) do
       if string.find(vim.api.nvim_get_option_value("filetype", { buf = bufnr }), ft) then return true end
@@ -108,13 +109,9 @@ function Chiruno.func.check_null_window()
   local haveLeftPanel = false
   local haveRightPanel = false
   for _, buf in ipairs(buffers) do
-    if Chiruno.func.check_ignore_window("left", buf.bufnr) then
-      haveLeftPanel = true
-    end
+    if Chiruno.func.check_ignore_window(buf.bufnr, "left") then haveLeftPanel = true end
 
-    if Chiruno.func.check_ignore_window("right", buf.bufnr) then
-      haveRightPanel = true
-    end
+    if Chiruno.func.check_ignore_window(buf.bufnr, "right") then haveRightPanel = true end
   end
 
   local opts = { left = true, right = true }
