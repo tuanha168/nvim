@@ -124,7 +124,10 @@ function Chiruno.func.check_null_window()
   if haveRightPanel then opts.right = false end
 
   Chiruno.func.close_null_window()
-  open_null_window(opts)
+
+  if opts.left or opts.right then
+    open_null_window(opts)
+  end
 end
 
 return Chiruno.func.check_null_window
