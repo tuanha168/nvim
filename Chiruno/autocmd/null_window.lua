@@ -10,9 +10,7 @@ function Chiruno.autocmd.null_window()
   autocmd({ "BufLeave" }, {
     pattern = "*",
     callback = function(e)
-      if Chiruno.func.check_ignore_window(e.bufnr) then
-        Chiruno.func.check_null_window()
-      end
+      if Chiruno.func.check_ignore_window(e.bufnr) then vim.schedule(Chiruno.func.check_null_window) end
     end,
   })
 
