@@ -101,8 +101,8 @@ return {
       { "H", function() require("treesitter-context").go_to_context() end, desc = "Go to context" },
     },
     config = function()
-      vim.api.nvim_set_hl(0, "TreesitterContextBottom", { underline = true, sp = "#00FFFF" })
-      vim.api.nvim_set_hl(0, "TreesitterContextLineNumberBottom", { underline = true, sp = "#00FFFF" })
+      vim.api.nvim_set_hl(0, "TreesitterContextBottom", { underline = true })
+      vim.api.nvim_set_hl(0, "TreesitterContextLineNumberBottom", { underline = true })
     end,
   },
   -- {
