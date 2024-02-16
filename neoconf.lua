@@ -1,10 +1,5 @@
 local json = require "neoconf.json"
 
-local paths =
-  vim.split(vim.fn.glob(string.gsub(debug.getinfo(1).source, "^@(.*)init.lua$", "%1") .. "neoconf.lua"), "\n")
-
-print(debug.getinfo(1).source, paths, { test = "ok" })
-
 return json.encode {
   ["lspconfig"] = {
     ["volar"] = {
@@ -40,7 +35,7 @@ return json.encode {
         },
       },
       ["css.customData"] = {
-        "/Users/tuanha/.config/nvim/lua/user/.vscode/tailwind.json",
+        os.getenv "HOME" .. "/.config/nvim/lua/user/.vscode/tailwind.json",
       },
       ["javascript"] = {
         ["inlayHints"] = {

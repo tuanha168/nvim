@@ -26,9 +26,7 @@ return function()
       Chiruno.autocmd.null_window()
       vim.diagnostic.config { virtual_text = true }
 
-      vim.defer_fn(function()
-        print = Chiruno.func.print
-      end, 5)
+      Print = Chiruno.func.print
     end,
     once = true,
   })
