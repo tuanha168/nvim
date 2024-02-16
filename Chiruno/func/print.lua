@@ -36,9 +36,11 @@ local function to_string(tbl)
 end
 
 function Chiruno.func.print(...)
+  local result = ""
   for _, v in ipairs { ... } do
-    vim.notify(to_string(v), vim.log.levels.WARN)
+    result = result .. to_string(v) .. "\r\n\r\n"
   end
+  vim.notify(to_string(result), vim.log.levels.WARN)
 end
 
 return Chiruno.func.print
