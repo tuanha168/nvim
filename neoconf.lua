@@ -1,6 +1,11 @@
 local json = require "neoconf.json"
 
-local test = json.encode {
+local paths =
+  vim.split(vim.fn.glob(string.gsub(debug.getinfo(1).source, "^@(.*)init.lua$", "%1") .. "neoconf.lua"), "\n")
+
+print(debug.getinfo(1).source, paths, { test = "ok" })
+
+return json.encode {
   ["lspconfig"] = {
     ["volar"] = {
       ["takeOverMode.extension"] = "Vue.volar",
@@ -147,4 +152,3 @@ local test = json.encode {
     },
   },
 }
-Chiruno.func.print(test)

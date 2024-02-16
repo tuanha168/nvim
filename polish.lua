@@ -25,6 +25,10 @@ return function()
       Chiruno.autocmd.auto_reload_cmp()
       Chiruno.autocmd.null_window()
       vim.diagnostic.config { virtual_text = true }
+
+      vim.defer_fn(function()
+        print = Chiruno.func.print
+      end, 5)
     end,
     once = true,
   })
