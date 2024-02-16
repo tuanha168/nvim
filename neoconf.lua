@@ -1,3 +1,6 @@
+local haveJson, json = pcall(require,"json")
+if not haveJson then return end
+
 local file = io.open("neoconf.json", "w")
 if not file then return end
 
@@ -148,8 +151,6 @@ local config = {
     },
   },
 }
-
-local json = require "neoconf.json"
 
 file:write(json.encode(config))
 
