@@ -54,6 +54,8 @@ local function open_null_window(opts)
   local ok, Split = pcall(require, "nui.split")
   if not ok then return end
 
+  local current_bufnr = vim.api.nvim_get_current_buf()
+
   if opts.left then
     if splitLeft then splitLeft:unmount() end
 
@@ -73,6 +75,8 @@ local function open_null_window(opts)
 
     splitRight:mount()
   end
+
+  vim.api.nvim_win_set_buf(0, current_bufnr)
 end
 
 function Chiruno.func.toggle_null_window()
