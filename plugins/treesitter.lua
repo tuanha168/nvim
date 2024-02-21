@@ -34,6 +34,7 @@ return {
         "terraform",
         "ssh_config",
         "http",
+        "go",
       }
       opts.sync_install = true
       opts.ignore_install = {}
