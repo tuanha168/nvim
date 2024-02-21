@@ -42,6 +42,8 @@ return {
 
         "terraformls",
         "tflint",
+
+        "gopls",
       },
     },
   },
