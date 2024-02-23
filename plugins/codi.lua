@@ -78,7 +78,7 @@ return {
 
             Chiruno.func.close_null_window()
             vim.cmd(cmd)
-            Chiruno.func.check_null_window()
+            vim.defer_fn(function() Chiruno.func.check_null_window() end, 10)
 
             if _ok and haveNeoTree then neo.execute { action = "toggle" } end
           end
