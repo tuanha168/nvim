@@ -6,7 +6,7 @@
     "module": "esnext",
     "moduleResolution": "Node",
     "useDefineForClassFields": true,
-    "lib": ["esnext", "dom"],
+    "lib": ["esnext", "dom", "ES2015"],
     "esModuleInterop": true,
     "allowSyntheticDefaultImports": true,
     "sourceMap": true,
