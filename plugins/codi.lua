@@ -1,11 +1,8 @@
-local cmd
-
 return {
   {
     "metakirby5/codi.vim",
     cmd = "Codi",
     build = "npm install -g tsun",
-    config = function() cmd = "Codi" end,
   },
   -- {
   --   "0x100101/lab.nvim",
@@ -15,7 +12,6 @@ return {
   --     "nvim-lua/plenary.nvim",
   --   },
   --   opts = {},
-  --   config = function() cmd = "Lab code run" end,
   -- },
   {
     "m-demare/attempt.nvim",
@@ -76,9 +72,11 @@ return {
             local _ok, neo = pcall(require, "neo-tree.command")
             if _ok then neo.execute { action = "close" } end
 
+            local status = Chiruno.func.get_null_window_status()
             Chiruno.func.close_null_window()
-            vim.cmd(cmd)
-            vim.defer_fn(function() Chiruno.func.check_null_window() end, 10)
+            vim.cmd "Codi"
+            -- vim.cmd "Lab code run"
+            Chiruno.func.check_null_window()
 
             if _ok and haveNeoTree then neo.execute { action = "toggle" } end
           end
