@@ -72,11 +72,12 @@ return {
             local _ok, neo = pcall(require, "neo-tree.command")
             if _ok then neo.execute { action = "close" } end
 
-            local status = Chiruno.func.get_null_window_status()
             Chiruno.func.close_null_window()
-            vim.cmd "Codi"
-            -- vim.cmd "Lab code run"
+            local haveCodi = pcall(vim.cmd, "Codi")
+            if not haveCodi then pcall(vim.cmd, "Lab code run") end
             Chiruno.func.check_null_window()
+
+            vim.keymap.set("n", "<leader>K", "<cmd>CodiExpand<CR>", { buffer = e.buf })
 
             if _ok and haveNeoTree then neo.execute { action = "toggle" } end
           end
