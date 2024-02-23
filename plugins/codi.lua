@@ -73,11 +73,15 @@ return {
             if _ok then neo.execute { action = "close" } end
 
             Chiruno.func.close_null_window()
+            ---@diagnostic disable-next-line: param-type-mismatch
             local haveCodi = pcall(vim.cmd, "Codi")
-            if not haveCodi then pcall(vim.cmd, "Lab code run") end
+            if haveCodi then
+              vim.keymap.set("n", "<leader>K", "<cmd>CodiExpand<CR>", { buffer = e.buf })
+            else
+              ---@diagnostic disable-next-line: param-type-mismatch
+              pcall(vim.cmd, "Lab code run")
+            end
             Chiruno.func.check_null_window()
-
-            vim.keymap.set("n", "<leader>K", "<cmd>CodiExpand<CR>", { buffer = e.buf })
 
             if _ok and haveNeoTree then neo.execute { action = "toggle" } end
           end
