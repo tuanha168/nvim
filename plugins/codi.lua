@@ -1,18 +1,18 @@
 return {
-  -- {
-  --   "metakirby5/codi.vim",
-  --   cmd = "Codi",
-  --   build = "npm install -g tsun",
-  -- },
   {
-    "0x100101/lab.nvim",
-    cmd = "Lab",
-    build = "cd js && npm ci",
-    dependencies = {
-      "nvim-lua/plenary.nvim",
-    },
-    opts = {},
+    "metakirby5/codi.vim",
+    cmd = "Codi",
+    build = "npm install -g tsun",
   },
+  -- {
+  --   "0x100101/lab.nvim",
+  --   cmd = "Lab",
+  --   build = "cd js && npm ci",
+  --   dependencies = {
+  --     "nvim-lua/plenary.nvim",
+  --   },
+  --   opts = {},
+  -- },
   {
     "m-demare/attempt.nvim",
     dependencies = {
@@ -74,8 +74,8 @@ return {
 
             local status = Chiruno.func.get_null_window_status()
             Chiruno.func.close_null_window()
-            -- vim.cmd "Codi"
-            vim.cmd "Lab code run"
+            vim.cmd "Codi"
+            -- vim.cmd "Lab code run"
             Chiruno.func.check_null_window()
 
             if _ok and haveNeoTree then neo.execute { action = "toggle" } end
