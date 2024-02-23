@@ -7,7 +7,7 @@
     "moduleResolution": "Node",
     "useDefineForClassFields": true,
     "lib": ["esnext", "dom", "ES2015"],
-    "esModuleInterop": false,
+    "esModuleInterop": true,
     "allowSyntheticDefaultImports": true,
     "sourceMap": true,
     "strict": true,
@@ -21,6 +21,6 @@
       "@root/*": ["./*"]
     }
   },
-  "include": ["src/**/*.ts", "src/**/*.d.ts"],
+  "include": ["src/*.ts", "src/**/*.ts","src/*.d.ts",  "src/**/*.d.ts"],
   "exclude": ["dist", "node_modules"]
 }
