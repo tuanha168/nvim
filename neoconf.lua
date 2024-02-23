@@ -1,7 +1,8 @@
 local haveJson, json = pcall(require, "json")
 if not haveJson then return end
 
-local file = io.open("neoconf.json", "w")
+local home = os.getenv "HOME"
+local file = io.open(home .. "/.config/nvim/lua/user/neoconf.json", "w")
 if not file then return end
 
 local config = {
@@ -41,7 +42,7 @@ local config = {
         },
       },
       css = { customData = {
-        os.getenv "HOME" .. "/.config/nvim/lua/user/.vscode/tailwind.json",
+        home .. "/.config/nvim/lua/user/.vscode/tailwind.json",
       } },
       javascript = {
         inlayHints = {
