@@ -3,12 +3,7 @@ return {
     "metakirby5/codi.vim",
     cmd = "Codi",
     build = "npm install -g tsun",
-    config = function()
-      require('codi.vim')
-      vim.cmd [[
-        g:codi#autocmd = None
-      ]]
-    end,
+    config = function() vim.g["codi#autocmd"] = "None" end,
   },
   -- {
   --   "0x100101/lab.nvim",
