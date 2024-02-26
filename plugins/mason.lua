@@ -63,12 +63,12 @@ return {
         "pint",
         "tfsec",
       },
-      handlers = {
-        pint = function()
-          local null_ls = require "null-ls"
-          null_ls.register(null_ls.builtins.formatting.pint)
-        end,
-      },
+      -- handlers = {
+      --   pint = function()
+      --     local null_ls = require "null-ls"
+      --     null_ls.register(null_ls.builtins.formatting.pint)
+      --   end,
+      -- },
     },
   },
 }
