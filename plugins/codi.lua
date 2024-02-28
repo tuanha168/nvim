@@ -83,9 +83,9 @@ return {
                 callback = function() pcall(vim.cmd, "Codi") end,
                 buffer = e.buf,
               })
-              vim.api.nvim_create_autocmd("BufWritePost", {
+              vim.api.nvim_create_autocmd("InsertEnter", {
                 ---@diagnostic disable-next-line: param-type-mismatch
-                callback = function() pcall(vim.cmd, "Codi") end,
+                callback = function() pcall(vim.cmd, "Codi!") end,
                 buffer = e.buf,
               })
             else
