@@ -16,7 +16,7 @@ return {
         -- "angular-language-server",
         -- "vetur-vls",
         "volar",
-        -- "cssls",
+        "cssls",
         -- "stylelint_lsp",
         "tailwindcss",
         "html",
