@@ -41,9 +41,11 @@ local config = {
           parameterTypes = { enabled = "true" },
         },
       },
-      css = { customData = {
-        home .. "/.config/nvim/lua/user/.vscode/tailwind.json",
-      } },
+      css = {
+        customData = {
+          home .. "/.config/nvim/lua/user/.vscode/tailwind.json",
+        },
+      },
       javascript = {
         inlayHints = {
           enumMemberValues = { enabled = "true" },
