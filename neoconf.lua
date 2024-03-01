@@ -149,13 +149,22 @@ local config = {
     },
     cssls = {
       less = {
-        validate = "false",
+        validate = "true",
+        lint = {
+          unknownAtRules = "ignore",
+        },
       },
       css = {
-        validate = "false",
+        validate = "true",
+        lint = {
+          unknownAtRules = "ignore",
+        },
       },
       scss = {
-        validate = "false",
+        validate = "true",
+        lint = {
+          unknownAtRules = "ignore",
+        },
       },
     },
   },
