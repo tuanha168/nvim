@@ -40,7 +40,7 @@ return {
       opts.ignore_install = {}
       opts.highlight = {
         enable = true,
-        disable = function() return vim.b.large_buf end,
+        disable = function(_, bufnr) return vim.b[bufnr].large_buf  end,
         additional_vim_regex_highlighting = { "markdown" },
       }
       opts.indent = {
