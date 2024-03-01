@@ -112,7 +112,7 @@ return function()
         -- vim.b[event.buf].large_buf = true
         -- vim.cmd "syntax off"
         ---@diagnostic disable-next-line: param-type-mismatch
-        pcall(vim.cmd, "IlluminatePauseBuf") -- disable vim-illuminate
+        -- pcall(vim.cmd, "IlluminatePauseBuf") -- disable vim-illuminate
         vim.opt_local.foldmethod = "manual"
         vim.opt_local.spell = false
       -- else
