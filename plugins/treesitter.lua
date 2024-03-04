@@ -40,16 +40,16 @@ return {
       opts.ignore_install = {}
       opts.highlight = {
         enable = true,
-        disable = function(_, bufnr) return vim.b[bufnr].large_buf  end,
+        disable = function(_, bufnr) return vim.b[bufnr].large_buf end,
         additional_vim_regex_highlighting = { "markdown" },
       }
       opts.indent = {
         enable = true,
-        disable = function(_, bufnr) return vim.b[bufnr].large_buf  end,
+        disable = function(_, bufnr) return vim.b[bufnr].large_buf end,
       }
       opts.incremental_selection = {
         enable = true,
-        disable = function(_, bufnr) return vim.b[bufnr].large_buf  end,
+        disable = function(_, bufnr) return vim.b[bufnr].large_buf end,
         keymaps = {
           init_selection = "<S-Up>",
           node_incremental = "<S-Up>",
@@ -60,7 +60,7 @@ return {
 
       opts.pickers = {
         enable = true,
-        disable = function(_, bufnr) return vim.b[bufnr].large_buf  end,
+        disable = function(_, bufnr) return vim.b[bufnr].large_buf end,
         buffers = {
           ignore_current_buffer = true,
           sort_lastused = true,
@@ -217,5 +217,13 @@ return {
   {
     "jwalton512/vim-blade",
     ft = "blade",
+  },
+
+  {
+    "code-biscuits/nvim-biscuits",
+    dependencies = {
+      "nvim-treesitter/nvim-treesitter",
+    },
+    opts = {},
   },
 }
