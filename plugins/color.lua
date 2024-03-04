@@ -11,5 +11,10 @@ return {
       render = "background",
       enable_tailwind = true,
     },
+    init = function()
+      vim.schedule_wrap(function()
+        vim.cmd "HighlightColors On"
+      end)
+    end,
   },
 }
