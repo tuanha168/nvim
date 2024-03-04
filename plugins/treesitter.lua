@@ -219,15 +219,15 @@ return {
     ft = "blade",
   },
 
-  {
-    "code-biscuits/nvim-biscuits",
-    dependencies = {
-      "nvim-treesitter/nvim-treesitter",
-    },
-    event = { "InsertLeave", "CursorHoldI" },
-    opts = {
-      on_events = { "InsertLeave", "CursorHoldI" },
-      show_on_start = true,
-    },
-  },
+  -- {
+  --   "code-biscuits/nvim-biscuits",
+  --   dependencies = {
+  --     "nvim-treesitter/nvim-treesitter",
+  --   },
+  --   event = { "InsertLeave", "CursorHoldI" },
+  --   opts = {
+  --     on_events = { "InsertLeave", "CursorHoldI" },
+  --     show_on_start = true,
+  --   },
+  -- },
 }
