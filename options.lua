@@ -18,6 +18,7 @@ local options = {
     titlestring = "%f - nvim",
     conceallevel = 3,
     wrap = true,
+    linebreak = false, -- wrap lines at 'breakat'
     -- cmdheight = 1,
     laststatus = 3,
     splitkeep = "screen",

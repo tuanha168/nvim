@@ -225,6 +225,9 @@ return {
       "nvim-treesitter/nvim-treesitter",
     },
     event = { "InsertLeave", "CursorHoldI" },
-    opts = { on_events = { "InsertLeave", "CursorHoldI" } },
+    opts = {
+      on_events = { "InsertLeave", "CursorHoldI" },
+      show_on_start = true,
+    },
   },
 }
