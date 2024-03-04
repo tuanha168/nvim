@@ -18,7 +18,8 @@ return {
         mode = "n",
         "<C-g>",
         function() vim.api.nvim_call_function("codeium#Chat", {}) end,
-
+        expr = true,
+        silent = true,
       },
       {
         mode = "i",
@@ -30,14 +31,14 @@ return {
       {
         mode = "i",
         "<C-j>",
-        function() vim.api.nvim_call_function("codeium#CycleCompletions", {}) end,
+        function() vim.api.nvim_call_function("codeium#CycleCompletions", {1}) end,
         expr = true,
         silent = true,
       },
       {
         mode = "i",
         "<C-k>",
-        function() vim.api.nvim_call_function("codeium#CycleCompletions", {}) end,
+        function() vim.api.nvim_call_function("codeium#CycleCompletions", {-1}) end,
         expr = true,
         silent = true,
       },
