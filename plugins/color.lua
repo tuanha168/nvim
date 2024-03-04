@@ -14,7 +14,6 @@ return {
     init = function()
       vim.defer_fn(function()
         vim.cmd "HighlightColors On"
-        Print "ok"
       end, 1000)
     end,
   },
