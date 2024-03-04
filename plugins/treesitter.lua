@@ -224,6 +224,7 @@ return {
     dependencies = {
       "nvim-treesitter/nvim-treesitter",
     },
-    opts = {},
+    event = { "InsertLeave", "CursorHoldI" },
+    opts = { on_events = { "InsertLeave", "CursorHoldI" } },
   },
 }
