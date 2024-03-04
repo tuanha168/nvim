@@ -12,10 +12,10 @@ return {
       enable_tailwind = true,
     },
     init = function()
-      vim.schedule(function()
+      vim.defer_fn(function()
         vim.cmd "HighlightColors On"
-        Print('ok')
-      end)
+        Print "ok"
+      end, 1000)
     end,
   },
 }
