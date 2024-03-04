@@ -8,7 +8,7 @@ return {
     "brenoprata10/nvim-highlight-colors",
     event = "User AstroFile",
     opts = {
-      render = "virtual",
+      render = "background",
       enable_tailwind = true,
     },
   },
