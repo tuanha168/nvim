@@ -59,7 +59,36 @@ return {
   --     }
   --   end,
   -- },
-  { "cbochs/grapple.nvim", dependencies = {
-    { "nvim-tree/nvim-web-devicons", lazy = true },
-  } },
+  {
+    "cbochs/grapple.nvim",
+    dependencies = {
+      { "nvim-tree/nvim-web-devicons", lazy = true },
+    },
+    keys = {
+      {
+        "ma",
+        mode = { "n" },
+        function() require("harpoon.mark").add_file() end,
+        desc = "Add file to harpoon",
+      },
+      {
+        "md",
+        mode = { "n" },
+        function() require("grapple").cycle("backward") end,
+        desc = "Previous mark",
+      },
+      {
+        "mf",
+        mode = { "n" },
+        function() require("grapple").cycle("forward") end,
+        desc = "Next mark",
+      },
+      {
+        "ml",
+        mode = { "n" },
+        function() require("grapple").toggle_scopes() end,
+        desc = "List marks",
+      },
+    },
+  },
 }
