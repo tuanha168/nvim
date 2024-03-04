@@ -14,6 +14,7 @@ return {
     init = function()
       vim.schedule_wrap(function()
         vim.cmd "HighlightColors On"
+        Print('ok')
       end)
     end,
   },
