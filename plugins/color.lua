@@ -9,8 +9,7 @@ return {
     event = "User AstroFile",
     config = function()
       require("nvim-highlight-colors").setup {
-        render = "background",
-        enable_tailwind = true,
+        render = "virtual",
       }
       vim.cmd "HighlightColors On"
     end,
