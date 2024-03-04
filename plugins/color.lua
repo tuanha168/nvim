@@ -7,14 +7,12 @@ return {
   {
     "brenoprata10/nvim-highlight-colors",
     event = "User AstroFile",
-    opts = {
-      render = "background",
-      enable_tailwind = true,
-    },
-    init = function()
-      vim.defer_fn(function()
-        vim.cmd "HighlightColors On"
-      end, 1000)
+    config = function()
+      require("nvim-highlight-colors").setup {
+        render = "background",
+        enable_tailwind = true,
+      }
+      vim.cmd "HighlightColors On"
     end,
   },
 }
