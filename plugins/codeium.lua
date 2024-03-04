@@ -16,6 +16,7 @@ return {
     config = function()
       vim.g.codeium_disable_bindings = 1
       vim.keymap.set("i", "<C-f>", function() return vim.fn["codeium#Accept"]() end, { expr = true, silent = true })
+      vim.keymap.set("n", "<C-g>", function() return vim.fn["codeium#Chat"]() end, { expr = true, silent = true })
       vim.keymap.set(
         "i",
         "<C-j>",
