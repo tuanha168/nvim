@@ -68,7 +68,7 @@ return {
       {
         "ma",
         mode = { "n" },
-        function() require("harpoon.mark").add_file() end,
+        function() require("grapple").toggle() end,
         desc = "Add file to harpoon",
       },
       {
@@ -86,7 +86,7 @@ return {
       {
         "ml",
         mode = { "n" },
-        function() require("grapple").toggle_scopes() end,
+        function() require("grapple").toggle_tags() end,
         desc = "List marks",
       },
     },
