@@ -14,24 +14,11 @@ return {
     -- enabled = false,
     event = "InsertEnter",
     keys = {
-      { mode = "n", "<C-g>", function() return vim.fn["codeium#Chat"]() end },
-      { mode = "i", "<C-f>", function() return vim.fn["codeium#Accept"]() end, { expr = true, silent = true } },
+      { mode = "n", "<C-g>", function() vim.fn["codeium#Chat"]() end, expr = true, silent = true },
+      { mode = "i", "<C-f>", function() vim.fn["codeium#Accept"]() end, expr = true, silent = true },
+      { mode = "i", "<C-j>", function() vim.fn["codeium#CycleCompletions"](1) end, expr = true, silent = true },
+      { mode = "i", "<C-k>", function() vim.fn["codeium#CycleCompletions"](-1) end, expr = true, silent = true },
     },
-    config = function()
-      vim.g.codeium_disable_bindings = 1
-      vim.keymap.set("i", "<C-f>", function() return vim.fn["codeium#Accept"]() end, { expr = true, silent = true })
-      vim.keymap.set(
-        "i",
-        "<C-j>",
-        function() return vim.fn["codeium#CycleCompletions"](1) end,
-        { expr = true, silent = true }
-      )
-      vim.keymap.set(
-        "i",
-        "<C-k>",
-        function() return vim.fn["codeium#CycleCompletions"](-1) end,
-        { expr = true, silent = true }
-      )
-    end,
+    config = function() vim.g.codeium_disable_bindings = 1 end,
   },
 }
