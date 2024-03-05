@@ -64,7 +64,8 @@ return {
         "tfsec",
       },
       handlers = {
-        pint = function()
+        pint = function(name, method)
+          Print(name, method)
           local null_ls = require "null-ls"
           local pint = Chiruno.func.extends_table(null_ls.builtins.formatting.pint, {
             generator_opts = {
