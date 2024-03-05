@@ -66,11 +66,7 @@ return {
       handlers = {
         pint = function()
           local null_ls = require "null-ls"
-          local pint = null_ls.builtins.formatting.pint
-          -- pint.generator_opts.command = "pint"
-          Print(pint)
-
-          null_ls.register(pint)
+          null_ls.register(null_ls.builtins.formatting.pint.with({ command = "pint" }))
         end,
       },
     },
