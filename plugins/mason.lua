@@ -66,7 +66,12 @@ return {
       handlers = {
         pint = function()
           local null_ls = require "null-ls"
-          null_ls.register(null_ls.builtins.formatting.pint)
+          local pint = Chiruno.func.extends_table(null_ls.builtins.formatting.pint, {
+            generator_opts = {
+              command = "pint",
+            },
+          })
+          null_ls.register(pint)
         end,
       },
     },
