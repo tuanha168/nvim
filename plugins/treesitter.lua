@@ -35,6 +35,7 @@ return {
         "ssh_config",
         "http",
         "go",
+        "xml",
       }
       opts.sync_install = true
       opts.ignore_install = {}
