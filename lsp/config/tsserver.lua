@@ -27,6 +27,16 @@ return {
 
   on_new_config = function(new_config, new_root_dir)
     new_config.init_options = {
+      preferences = {
+        includeInlayParameterNameHints = "all",
+        includeInlayParameterNameHintsWhenArgumentMatchesName = true,
+        includeInlayFunctionParameterTypeHints = true,
+        includeInlayVariableTypeHints = true,
+        includeInlayPropertyDeclarationTypeHints = true,
+        includeInlayFunctionLikeReturnTypeHints = true,
+        includeInlayEnumMemberValueHints = true,
+        importModuleSpecifierPreference = "non-relative",
+      },
       plugins = {
         {
           name = "@vue/typescript-plugin",
