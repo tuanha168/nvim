@@ -15,7 +15,7 @@ return {
         "tsserver",
         -- "angular-language-server",
         -- "vetur-vls",
-        "volar",
+        -- "volar",
         "cssls",
         -- "stylelint_lsp",
         "tailwindcss",
