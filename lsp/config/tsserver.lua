@@ -33,7 +33,7 @@ return {
       {
         name = "@vue/typescript-plugin",
         location = get_typescript_server_path(),
-        languages = { "javascript", "typescript", "vue" },
+        languages = { "vue", "javascript", "typescript" },
       },
     },
   },
