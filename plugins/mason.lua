@@ -65,8 +65,8 @@ return {
       },
       handlers = {
         pint = function()
-          local null_ls = require "null-ls"
-          null_ls.register(null_ls.builtins.formatting.pint.with({ command = "pint" }))
+          -- local null_ls = require "null-ls"
+          -- null_ls.register(null_ls.builtins.formatting.pint.with({ command = "pint" }))
         end,
       },
     },
