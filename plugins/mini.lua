@@ -51,7 +51,10 @@ return {
         vim.fn.chanclose(job_id, "stdin")
         vim.fn.jobwait { job_id }
         return minifiles.default_sort(
-          vim.tbl_filter(function(entry) return not vim.tbl_contains(output_lines, entry.path) end, entries)
+          vim.tbl_filter(function(entry)
+            Print(output_lines)
+            return not vim.tbl_contains(output_lines, entry.path)
+          end, entries)
         )
       end
 
