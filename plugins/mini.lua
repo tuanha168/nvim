@@ -138,7 +138,10 @@ return {
           filter = function(entry) return entry.name ~= ".DS_Store" end,
           sort = vim.b.mini_files_ignore and git_ignore_sorter or minifiles.default_sort,
           prefix = function(entry)
-            if vim.tbl_contains(ignored_entries, entry.path) then Print(entry) end
+            Print(ignored_entries)
+            if vim.tbl_contains(ignored_entries, entry.path) then
+              return ' ', 'MiniFilesDirectory'
+            end
 
             return minifiles.default_prefix(entry)
           end,
