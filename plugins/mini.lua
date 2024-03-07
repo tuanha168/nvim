@@ -72,7 +72,7 @@ return {
               content = {
                 sort = vim.b.mini_files_ignore and git_ignore_sorter or minifiles.default_sort,
                 prefix = function(entry)
-                  Print(entry)
+                  Print(ignored_entries, entry.path)
                   if vim.tbl_contains(ignored_entries, entry.path) then
                     Print(ignored_entries)
                     return " ", "MiniFilesDirectory"
