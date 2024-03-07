@@ -141,13 +141,6 @@ return {
         content = {
           filter = function(entry) return entry.name ~= ".DS_Store" end,
           sort = vim.b.mini_files_ignore and git_ignore_sorter or minifiles.default_sort,
-          prefix = function(entry)
-            if vim.tbl_contains(get_ignore_entries { entry }, entry.path) then
-              return " ", "Comment"
-            end
-
-            return minifiles.default_prefix(entry)
-          end,
         },
         mappings = {
           close = "q",
