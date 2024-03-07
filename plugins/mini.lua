@@ -35,7 +35,7 @@ return {
       local ok, minifiles = pcall(require, "mini.files")
       if not ok then return end
 
-      local git_ignore_sorter = function(entries)
+      local get_ignore_entries = function(entries)
         local all_paths = table.concat(vim.tbl_map(function(entry) return entry.path end, entries), "\n")
         local output_lines = {}
         local job_id = vim.fn.jobstart({ "git", "check-ignore", "--stdin" }, {
@@ -50,9 +50,12 @@ return {
         vim.fn.chansend(job_id, all_paths)
         vim.fn.chanclose(job_id, "stdin")
         vim.fn.jobwait { job_id }
+        return output_lines
+      end
+
+      local git_ignore_sorter = function(entries)
         return minifiles.default_sort(vim.tbl_filter(function(entry)
-          if vim.tbl_contains(output_lines, entry.path) then Print(entry) end
-          return not vim.tbl_contains(output_lines, entry.path)
+          return not vim.tbl_contains(get_ignore_entries(entries), entry.path)
         end, entries))
       end
 
@@ -133,6 +136,7 @@ return {
         content = {
           filter = function(entry) return entry.name ~= ".DS_Store" end,
           sort = vim.b.mini_files_ignore and git_ignore_sorter or minifiles.default_sort,
+          prefix = 
         },
         mappings = {
           close = "q",
