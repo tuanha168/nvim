@@ -50,12 +50,10 @@ return {
         vim.fn.chansend(job_id, all_paths)
         vim.fn.chanclose(job_id, "stdin")
         vim.fn.jobwait { job_id }
-        return minifiles.default_sort(
-          vim.tbl_filter(function(entry)
-            Print(output_lines)
-            return not vim.tbl_contains(output_lines, entry.path)
-          end, entries)
-        )
+        return minifiles.default_sort(vim.tbl_filter(function(entry)
+          if vim.tbl_contains(output_lines, entry.path) then Print(entry) end
+          return not vim.tbl_contains(output_lines, entry.path)
+        end, entries))
       end
 
       vim.api.nvim_create_autocmd("User", {
