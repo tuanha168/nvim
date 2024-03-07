@@ -69,7 +69,18 @@ return {
             vim.b.mini_files_ignore = not vim.b.mini_files_ignore
 
             minifiles.refresh {
-              content = { sort = vim.b.mini_files_ignore and git_ignore_sorter or minifiles.default_sort },
+              content = {
+                sort = vim.b.mini_files_ignore and git_ignore_sorter or minifiles.default_sort,
+                prefix = function(entry)
+                  Print(entry)
+                  if vim.tbl_contains(ignored_entries, entry.path) then
+                    Print(ignored_entries)
+                    return " ", "MiniFilesDirectory"
+                  end
+
+                  return minifiles.default_prefix(entry)
+                end,
+              },
             }
           end, { buffer = buf_id })
 
@@ -137,14 +148,6 @@ return {
         content = {
           filter = function(entry) return entry.name ~= ".DS_Store" end,
           sort = vim.b.mini_files_ignore and git_ignore_sorter or minifiles.default_sort,
-          prefix = function(entry)
-            Print(ignored_entries)
-            if vim.tbl_contains(ignored_entries, entry.path) then
-              return ' ', 'MiniFilesDirectory'
-            end
-
-            return minifiles.default_prefix(entry)
-          end,
         },
         mappings = {
           close = "q",
