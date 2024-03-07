@@ -63,25 +63,25 @@ local config = {
         },
       },
     },
-    -- tailwindcss = {
-    --   tailwindCSS = {
-    --     classAttributes = {
-    --       "class",
-    --       "className",
-    --       "ngClass",
-    --       ".*[cC]lass.*",
-    --       ".*[cC]lasses.*",
-    --     },
-    --     experimental = {
-    --       classRegex = {
-    --         "[a-zA-Z]*[cC]lass\\s*=\\s*'([^']*)'",
-    --         '[a-zA-Z]*[cC]lass\\s*=\\s*"([^"]*)"',
-    --         "[a-zA-Z]*[cC]lass\\s*=\\s*\\{(['`\"][^\\{\\}'`\"]*['`\"])*\\}",
-    --       },
-    --     },
-    --     emmetCompletions = "true",
-    --   },
-    -- },
+    tailwindcss = {
+      tailwindCSS = {
+        classAttributes = {
+          "class",
+          "className",
+          "ngClass",
+          ".*[cC]lass.*",
+          ".*[cC]lasses.*",
+        },
+        experimental = {
+          classRegex = {
+            "[a-zA-Z]*[cC]lass\\s*=\\s*'([^']*)'",
+            '[a-zA-Z]*[cC]lass\\s*=\\s*"([^"]*)"',
+            "[a-zA-Z]*[cC]lass\\s*=\\s*\\{(['`\"][^\\{\\}'`\"]*['`\"])*\\}",
+          },
+        },
+        emmetCompletions = "true",
+      },
+    },
     intelephense = {
       intelephense = {
         format = { braces = "k&r" },
