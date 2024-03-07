@@ -54,9 +54,12 @@ return {
       end
 
       local git_ignore_sorter = function(entries)
-        return minifiles.default_sort(vim.tbl_filter(function(entry)
-          return not vim.tbl_contains(get_ignore_entries(entries), entry.path)
-        end, entries))
+        return minifiles.default_sort(
+          vim.tbl_filter(
+            function(entry) return not vim.tbl_contains(get_ignore_entries(entries), entry.path) end,
+            entries
+          )
+        )
       end
 
       vim.api.nvim_create_autocmd("User", {
@@ -136,7 +139,11 @@ return {
         content = {
           filter = function(entry) return entry.name ~= ".DS_Store" end,
           sort = vim.b.mini_files_ignore and git_ignore_sorter or minifiles.default_sort,
-          prefix = 
+          prefix = function(entry)
+            if vim.tbl_contains(get_ignore_entries(), entry.path) then Print(entry) end
+
+            return minifiles.default_prefix(entry)
+          end,
         },
         mappings = {
           close = "q",
