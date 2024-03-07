@@ -84,6 +84,7 @@ local config = {
     },
     intelephense = {
       intelephense = {
+        format = { braces = "k&r" },
         diagnostics = {
           undefinedFunctions = "false",
           undefinedConstants = "false",
