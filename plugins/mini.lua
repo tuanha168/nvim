@@ -35,8 +35,8 @@ return {
       local ok, minifiles = pcall(require, "mini.files")
       if not ok then return end
 
-      local ignored_entries = {}
       local get_ignore_entries = function(entries)
+        local ignored_entries = {}
         local all_paths = table.concat(vim.tbl_map(function(entry) return entry.path end, entries), "\n")
         local job_id = vim.fn.jobstart({ "git", "check-ignore", "--stdin" }, {
           stdout_buffered = true,
@@ -50,13 +50,15 @@ return {
         vim.fn.chansend(job_id, all_paths)
         vim.fn.chanclose(job_id, "stdin")
         vim.fn.jobwait { job_id }
+        return ignored_entries
       end
 
       local git_ignore_sorter = function(entries)
-        get_ignore_entries(entries)
-
         return minifiles.default_sort(
-          vim.tbl_filter(function(entry) return not vim.tbl_contains(ignored_entries, entry.path) end, entries)
+          vim.tbl_filter(
+            function(entry) return not vim.tbl_contains(get_ignore_entries(entries), entry.path) end,
+            entries
+          )
         )
       end
 
@@ -71,14 +73,6 @@ return {
             minifiles.refresh {
               content = {
                 sort = vim.b.mini_files_ignore and git_ignore_sorter or minifiles.default_sort,
-                prefix = function(entry)
-                  if vim.tbl_contains(ignored_entries, entry.path) then
-                    Print(ignored_entries)
-                    return " ", "MiniFilesDirectory"
-                  end
-
-                  return minifiles.default_prefix(entry)
-                end,
               },
             }
           end, { buffer = buf_id })
@@ -147,6 +141,13 @@ return {
         content = {
           filter = function(entry) return entry.name ~= ".DS_Store" end,
           sort = vim.b.mini_files_ignore and git_ignore_sorter or minifiles.default_sort,
+          prefix = function(entry)
+            if vim.tbl_contains(get_ignore_entries { entry }, entry.path) then
+              return " ", "MiniFilesDirectory"
+            end
+
+            return minifiles.default_prefix(entry)
+          end,
         },
         mappings = {
           close = "q",
