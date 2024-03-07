@@ -143,7 +143,7 @@ return {
           sort = vim.b.mini_files_ignore and git_ignore_sorter or minifiles.default_sort,
           prefix = function(entry)
             if vim.tbl_contains(get_ignore_entries { entry }, entry.path) then
-              return " ", "MiniFilesDirectory"
+              return " ", "Comment"
             end
 
             return minifiles.default_prefix(entry)
