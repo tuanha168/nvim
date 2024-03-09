@@ -67,6 +67,9 @@ return function()
     pattern = "*",
     ---@param event AutocmdCallbackEvent
     callback = function(event)
+      local ok, userConfig = pcall(require, "user.init")
+      if ok and not userConfig.auto_push_config then return end
+
       local home = os.getenv "HOME"
 
       local autoPushDir = {
@@ -83,7 +86,7 @@ return function()
         for _, exclude in ipairs(excludeDir) do
           if string.match(event.match, dir) and not string.match(event.match, exclude) then
             Chiruno.func.auto_push(dir:gsub("%%", ""))
-            if string.match(event.match, 'user/neoconf.lua') then
+            if string.match(event.match, "user/neoconf.lua") then
               vim.schedule(function() vim.cmd("silent !lua " .. event.match) end)
             end
             isBreak = true
@@ -115,8 +118,8 @@ return function()
         -- pcall(vim.cmd, "IlluminatePauseBuf") -- disable vim-illuminate
         vim.opt_local.foldmethod = "manual"
         vim.opt_local.spell = false
-      -- else
-      --   vim.b[event.buf].large_buf = false
+        -- else
+        --   vim.b[event.buf].large_buf = false
       end
       vim.b[event.buf].large_buf = false
     end,
