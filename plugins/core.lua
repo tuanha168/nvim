@@ -529,10 +529,11 @@ return {
         function()
           local prefix = ""
           if vim.api.nvim_get_mode().mode == "V" or vim.api.nvim_get_mode().mode == "v" then prefix = "'<,'>" end
-          vim.ui.input({ prompt = "Enter origin(default: origin): " }, function(origin)
+          vim.ui.input({ prompt = "Origin (default: origin): " }, function(origin)
             if origin == nil or origin == "" then origin = "origin" end
-            vim.ui.input({ prompt = "Enter branch(default: develop): " }, function(branch)
-              if branch == nil or branch == "" then branch = "develop" end
+            local current_branch = string.sub(vim.fn.system("git branch --show-current"), 1, -2)
+            vim.ui.input({ prompt = "Branch:", default = current_branch }, function(branch)
+              if branch == nil or branch == "" then branch = current_branch end
               Chiruno.func.feedkeys(":" .. prefix .. "RepoLink! " .. branch .. " " .. origin .. "<CR>", "n")
             end)
           end)
