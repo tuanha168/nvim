@@ -15,8 +15,8 @@
     "allowJs": true,
     "experimentalDecorators": true,
     "baseUrl": ".",
+    "outDir": "dist",
     "resolveJsonModule": true,
-    "noEmit": true,
     "paths": {
       "@/*": ["./src/*"],
       "@root/*": ["./*"]
