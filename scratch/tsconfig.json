@@ -3,7 +3,7 @@
     "isolatedModules": true,
     "skipLibCheck": true,
     "target": "ESNext",
-    "module": "ESNext",
+    "module": "CommonJS",
     "moduleResolution": "Node",
     "useDefineForClassFields": true,
     "lib": ["esnext", "dom", "ES2015"],
