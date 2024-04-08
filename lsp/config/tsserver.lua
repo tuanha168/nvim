@@ -18,22 +18,25 @@ local function get_typescript_server_path(root_dir)
 end
 
 return {
+  compilerOptions = {
+    noErrorTruncate = true,
+  },
   init_options = {
-    preferences = {
-      includeInlayParameterNameHints = "all",
-      includeInlayParameterNameHintsWhenArgumentMatchesName = true,
-      includeInlayFunctionParameterTypeHints = true,
-      includeInlayVariableTypeHints = true,
-      includeInlayPropertyDeclarationTypeHints = true,
-      includeInlayFunctionLikeReturnTypeHints = true,
-      includeInlayEnumMemberValueHints = true,
-      importModuleSpecifierPreference = "non-relative",
-    },
+    -- preferences = {
+    --   includeInlayParameterNameHints = "all",
+    --   includeInlayParameterNameHintsWhenArgumentMatchesName = true,
+    --   includeInlayFunctionParameterTypeHints = true,
+    --   includeInlayVariableTypeHints = true,
+    --   includeInlayPropertyDeclarationTypeHints = true,
+    --   includeInlayFunctionLikeReturnTypeHints = true,
+    --   includeInlayEnumMemberValueHints = true,
+    --   importModuleSpecifierPreference = "non-relative",
+    -- },
     plugins = {
       {
         name = "@vue/typescript-plugin",
         location = get_typescript_server_path(),
-        languages = { "vue", "javascript", "typescript" },
+        languages = {"javascript", "typescript", "vue"},
       },
     },
   },
