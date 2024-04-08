@@ -1,3 +1,3 @@
 return {
-  { "rushjs1/nuxt-goto.nvim", filetype = "vue" },
+  { "rushjs1/nuxt-goto.nvim", ft = { "vue" } },
 }
