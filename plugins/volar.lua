@@ -1,3 +1,3 @@
 return {
-  { "rushjs1/nuxt-goto.nvim", event = "VeryLazy" },
+  { "rushjs1/nuxt-goto.nvim", lazy = false },
 }
