@@ -56,6 +56,7 @@ return {
       },
       {
         "rcarriga/nvim-dap-ui",
+        dependencies = { "nvim-neotest/nvim-nio" },
         config = function(_, opts)
           local dap, dapui = require "dap", require "dapui"
           dap.listeners.after.event_initialized["dapui_config"] = function()
