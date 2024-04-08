@@ -12,7 +12,7 @@ return {
         -- lua stuff
         "lua_ls",
 
-        "tsserver",
+        -- "tsserver",
         -- "angular-language-server",
         -- "vetur-vls",
         "volar",
@@ -60,7 +60,7 @@ return {
       ensure_installed = {
         "prettierd",
         "stylua",
-        "pint",
+        -- "pint",
         "tfsec",
       },
       handlers = {
