@@ -32,13 +32,13 @@ return {
     --   includeInlayEnumMemberValueHints = true,
     --   importModuleSpecifierPreference = "non-relative",
     -- },
-    plugins = {
-      {
-        name = "@vue/typescript-plugin",
-        location = get_typescript_server_path(),
-        languages = {"javascript", "typescript", "vue"},
-      },
-    },
+    -- plugins = {
+    --   {
+    --     name = "@vue/typescript-plugin",
+    --     location = get_typescript_server_path(),
+    --     languages = { "javascript", "typescript", "vue" },
+    --   },
+    -- },
   },
   filetypes = {
     "javascript",
@@ -49,4 +49,23 @@ return {
     "typescriptreact",
     "vue",
   },
+  on_new_config = function(new_config)
+    new_config.init_options.plugins = {
+      {
+        name = "@vue/typescript-plugin",
+        location = get_typescript_server_path(),
+        languages = { "javascript", "typescript", "vue" },
+      },
+    }
+    new_config.init_options.preferences = {
+      includeInlayParameterNameHints = "all",
+      includeInlayParameterNameHintsWhenArgumentMatchesName = true,
+      includeInlayFunctionParameterTypeHints = true,
+      includeInlayVariableTypeHints = true,
+      includeInlayPropertyDeclarationTypeHints = true,
+      includeInlayFunctionLikeReturnTypeHints = true,
+      includeInlayEnumMemberValueHints = true,
+      importModuleSpecifierPreference = "non-relative",
+    }
+  end,
 }
