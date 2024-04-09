@@ -82,12 +82,26 @@ return {
           type = "coreclr",
           name = "launch - netcoredbg",
           request = "launch",
+          env = "ASPNETCORE_ENVIRONMENT=Development",
+          args = {
+            "/p:EnvironmentName=Development", -- this is a msbuild jk
+            --  this is set via environment variable ASPNETCORE_ENVIRONMENT=Development
+            "--urls=http://localhost:5002",
+            "--environment=Development",
+          },
           program = function() return vim.fn.input("Path to dll", vim.fn.getcwd() .. "/bin/Debug/", "file") end,
         },
         {
           type = "coreclr",
           name = "attach - netcoredbg",
           request = "attach",
+          env = "ASPNETCORE_ENVIRONMENT=Development",
+          args = {
+            "/p:EnvironmentName=Development", -- this is a msbuild jk
+            --  this is set via environment variable ASPNETCORE_ENVIRONMENT=Development
+            "--urls=http://localhost:5002",
+            "--environment=Development",
+          },
           processId = require("dap.utils").pick_process,
         },
       },
