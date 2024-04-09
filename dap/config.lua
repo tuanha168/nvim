@@ -89,7 +89,12 @@ return {
             "--urls=http://localhost:5002",
             "--environment=Development",
           },
-          program = function() return vim.fn.input("Path to dll", vim.fn.getcwd() .. "/bin/Debug/", "file") end,
+          program = function()
+            local dir = vim.loop.cwd() .. "/" .. vim.fn.glob "bin/Debug/net*/"
+            local name = dir .. vim.fn.glob("*.csproj"):gsub("%.csproj$", ".dll")
+            if not Chiruno.func.file_exist(name) then os.execute "dotnet build" end
+            return name
+          end,
         },
         {
           type = "coreclr",
