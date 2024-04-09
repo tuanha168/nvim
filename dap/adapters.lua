@@ -1,5 +1,10 @@
 return {
   setup = function(dap)
+    dap.adapters.coreclr = {
+      type = "executable",
+      command = "netcoredbg",
+      args = { "--interpreter=vscode" },
+    }
     dap.adapters["pwa-node"] = {
       type = "server",
       host = "localhost",
