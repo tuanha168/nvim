@@ -46,8 +46,7 @@ return {
         "gopls",
 
         -- C# .NET
-        "csharp_ls",
-        "fsautocomplete",
+        "omnisharp",
       },
     },
   },
