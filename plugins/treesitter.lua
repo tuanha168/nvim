@@ -36,6 +36,7 @@ return {
         "http",
         "go",
         "xml",
+        "c_sharp",
       }
       opts.sync_install = true
       opts.ignore_install = {}

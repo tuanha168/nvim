@@ -44,6 +44,10 @@ return {
         "tflint",
 
         "gopls",
+
+        -- C# .NET
+        "csharp_ls",
+        "fsautocomplete",
       },
     },
   },
