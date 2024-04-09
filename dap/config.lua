@@ -86,7 +86,7 @@ return {
           args = {
             "/p:EnvironmentName=Development", -- this is a msbuild jk
             --  this is set via environment variable ASPNETCORE_ENVIRONMENT=Development
-            "--urls=http://localhost:5002",
+            "--urls=http://localhost:5091",
             "--environment=Development",
           },
           program = function()
@@ -104,7 +104,7 @@ return {
           args = {
             "/p:EnvironmentName=Development", -- this is a msbuild jk
             --  this is set via environment variable ASPNETCORE_ENVIRONMENT=Development
-            "--urls=http://localhost:5002",
+            "--urls=http://localhost:5091",
             "--environment=Development",
           },
           processId = require("dap.utils").pick_process,
