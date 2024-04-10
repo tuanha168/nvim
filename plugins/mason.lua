@@ -4,9 +4,10 @@ return {
   {
     "williamboman/mason-lspconfig.nvim",
     -- overrides `require("mason-lspconfig").setup(...)`
-    -- dependencies = {
-    --   "creativenull/efmls-configs-nvim",
-    -- },
+    dependencies = {
+      -- C# .NET omnisharp
+      "Hoffs/omnisharp-extended-lsp.nvim",
+    },
     opts = {
       ensure_installed = {
         -- lua stuff
