@@ -1,13 +1,7 @@
 return {
   {
     "catgoose/vue-goto-definition.nvim",
-    keys = {
-      {
-        "gd",
-        function() require("vue-goto-definition").goto_definition() end,
-        mode = { "n" },
-      },
-    },
+    event = "VeryLazy",
     opts = {
       filters = {
         auto_imports = true,
