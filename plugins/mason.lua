@@ -13,7 +13,7 @@ return {
         -- lua stuff
         "lua_ls",
 
-        "tsserver",
+        -- "tsserver",
         -- "angular-language-server",
         -- "vuels",
         "volar",
