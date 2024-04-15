@@ -547,6 +547,7 @@ return {
       return {
         url_builders = {
           ["yopaz"] = api.url_builder_for_github(),
+          ["yopaz-liberty"] = api.url_builder_for_github(),
           -- ["bitbucket.org"] = require("repolink").url_builder_for_bitbucket "https://bitbucket.org",
           -- ["gitlab.com"] = require("repolink").url_builder_for_gitlab "https://gitlab.com",
           -- ["git.sr.ht"] = require("repolink").url_builder_for_sourcehut "https://git.sr.ht",
