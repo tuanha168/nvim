@@ -54,7 +54,7 @@ return {
       function() vim.lsp.buf.rename() end,
       desc = "Rename current symbol",
     },
-    -- ../plugins/lsp_plugin.lua:5
+    -- ../plugins/lsp_plugin.lua:20
     ["gd"] = {
       function() vim.lsp.buf.definition() end,
       desc = "Show the definition of current symbol",
