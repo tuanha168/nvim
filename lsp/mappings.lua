@@ -54,6 +54,10 @@ return {
       function() vim.lsp.buf.rename() end,
       desc = "Rename current symbol",
     },
+    ["gd"] = {
+      function() vim.lsp.buf.definition() end,
+      desc = "Show the definition of current symbol",
+    },
   },
   v = {
     ["<leader>la"] = false,
