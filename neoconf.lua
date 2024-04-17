@@ -28,12 +28,12 @@ local config = {
         },
         inlayHints = {
           enumMemberValues = { enabled = "true" },
-          functionLikeReturnTypes = { enabled = "true" },
           propertyDeclarationTypes = { enabled = "true" },
           parameterNames = {
             enabled = "all",
             suppressWhenArgumentMatchesName = "true",
           },
+          -- functionLikeReturnTypes = { enabled = "true" },
           -- variableTypes = {
           --   enabled = "true",
           --   suppressWhenTypeMatchesName = "true",
@@ -49,16 +49,16 @@ local config = {
       javascript = {
         inlayHints = {
           enumMemberValues = { enabled = "true" },
-          functionLikeReturnTypes = { enabled = "true" },
           propertyDeclarationTypes = { enabled = "true" },
           parameterNames = {
             enabled = "all",
             suppressWhenArgumentMatchesName = "true",
           },
-          variableTypes = {
-            enabled = "true",
-            suppressWhenTypeMatchesName = "true",
-          },
+          -- functionLikeReturnTypes = { enabled = "true" },
+          -- variableTypes = {
+          --   enabled = "true",
+          --   suppressWhenTypeMatchesName = "true",
+          -- },
           parameterTypes = { enabled = "true" },
         },
       },
@@ -118,32 +118,32 @@ local config = {
         },
         inlayHints = {
           enumMemberValues = { enabled = "true" },
-          functionLikeReturnTypes = { enabled = "true" },
           propertyDeclarationTypes = { enabled = "true" },
           parameterNames = {
             enabled = "all",
             suppressWhenArgumentMatchesName = "true",
           },
-          variableTypes = {
-            enabled = "true",
-            suppressWhenTypeMatchesName = "true",
-          },
+          -- functionLikeReturnTypes = { enabled = "true" },
+          -- variableTypes = {
+          --   enabled = "true",
+          --   suppressWhenTypeMatchesName = "true",
+          -- },
           parameterTypes = { enabled = "true" },
         },
       },
       javascript = {
         inlayHints = {
           enumMemberValues = { enabled = "true" },
-          functionLikeReturnTypes = { enabled = "true" },
           propertyDeclarationTypes = { enabled = "true" },
           parameterNames = {
             enabled = "all",
             suppressWhenArgumentMatchesName = "true",
           },
-          variableTypes = {
-            enabled = "true",
-            suppressWhenTypeMatchesName = "true",
-          },
+          -- functionLikeReturnTypes = { enabled = "true" },
+          -- variableTypes = {
+          --   enabled = "true",
+          --   suppressWhenTypeMatchesName = "true",
+          -- },
           parameterTypes = { enabled = "true" },
         },
       },
