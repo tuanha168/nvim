@@ -28,16 +28,16 @@ local config = {
         },
         inlayHints = {
           enumMemberValues = { enabled = "true" },
-          functionLikeReturnTypes = { enabled = "true" },
+          -- functionLikeReturnTypes = { enabled = "true" },
           propertyDeclarationTypes = { enabled = "true" },
           parameterNames = {
             enabled = "all",
             suppressWhenArgumentMatchesName = "true",
           },
-          variableTypes = {
-            enabled = "true",
-            suppressWhenTypeMatchesName = "true",
-          },
+          -- variableTypes = {
+          --   enabled = "true",
+          --   suppressWhenTypeMatchesName = "true",
+          -- },
           parameterTypes = { enabled = "true" },
         },
       },
