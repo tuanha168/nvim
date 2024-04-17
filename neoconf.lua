@@ -28,7 +28,7 @@ local config = {
         },
         inlayHints = {
           enumMemberValues = { enabled = "true" },
-          -- functionLikeReturnTypes = { enabled = "true" },
+          functionLikeReturnTypes = { enabled = "true" },
           propertyDeclarationTypes = { enabled = "true" },
           parameterNames = {
             enabled = "all",
