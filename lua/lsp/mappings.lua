@@ -39,10 +39,10 @@ return {
       desc = "Rename current symbol",
     },
     -- ../plugins/lsp_plugin.lua:20
-    ["gd"] = {
-      function() vim.lsp.buf.definition() end,
-      desc = "Show the definition of current symbol",
-    },
+    -- ["gd"] = {
+    --   function() vim.lsp.buf.definition() end,
+    --   desc = "Show the definition of current symbol",
+    -- },
   },
   v = {
     ["<Leader>la"] = false,
