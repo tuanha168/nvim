@@ -51,15 +51,16 @@ return {
         desc = "Search symbols",
       },
       {
-        "gy",
+        "gt",
         function() require("fzf-lua").lsp_typedefs() end,
-        desc = "Search symbols",
+        desc = "Definition of current type",
       },
       {
         "<Leader>ee",
         function() require("fzf-lua").lsp_code_actions() end,
         desc = "LSP code action",
       },
+      { "<Leader>gl", function() require("fzf-lua").diagnostics_workspace() end, desc = "Search diagnostics" },
     },
   },
 }
