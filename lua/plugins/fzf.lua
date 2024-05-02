@@ -21,7 +21,7 @@ return {
       },
       {
         "<Leader>fw",
-        function() require("fzf-lua").grep() end,
+        function() require("fzf-lua").live_grep() end,
         desc = "Find files",
       },
       {
