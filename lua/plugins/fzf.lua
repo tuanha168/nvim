@@ -26,7 +26,7 @@ return {
       },
       {
         "<Leader>fs",
-        function() require("fzf-lua").grep_cword() end,
+        function() Chiruno.func.operatorfunc_lua "live_grep_motion" end,
         desc = "Find files",
       },
       {
