@@ -65,6 +65,11 @@ return {
         function() require("fzf-lua").diagnostics_workspace() end,
         desc = "Search diagnostics",
       },
+      {
+        "<Leader>fk",
+        function() require("fzf-lua").keymaps() end,
+        desc = "Search diagnostics",
+      },
     },
   },
 }
