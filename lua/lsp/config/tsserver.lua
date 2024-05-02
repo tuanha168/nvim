@@ -1,7 +1,8 @@
-local tsdk = require("mason-registry").get_package("typescript-language-server"):get_install_path()
-.. "/node_modules/typescript/lib"
-local vuePlugin = require("mason-registry").get_package("vue-language-server"):get_install_path()
-  .. "/node_modules/@vue/language-server"
+local registry = require "mason-registry"
+registry.refresh()
+
+local tsdk = registry.get_package("typescript-language-server"):get_install_path() .. "/node_modules/typescript/lib"
+local vuePlugin = registry.get_package("vue-language-server"):get_install_path() .. "/node_modules/@vue/language-server"
 
 return {
   compilerOptions = {
