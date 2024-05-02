@@ -81,7 +81,7 @@ autocmd({ "BufWritePre" }, {
       for _, exclude in ipairs(excludeDir) do
         if string.match(event.match, dir) and not string.match(event.match, exclude) then
           Chiruno.func.auto_push(dir:gsub("%%", ""))
-          if string.match(event.match, "user/neoconf.lua") then
+          if string.match(event.match, "nvim/neoconf.lua") then
             vim.schedule(function() vim.cmd("silent !lua " .. event.match) end)
           end
           isBreak = true
