@@ -67,7 +67,10 @@ return {
       },
       {
         "<Leader>fk",
-        function() require("fzf-lua").keymaps() end,
+        function()
+          require("fzf-lua").keymaps()
+          vim.ui.select {}
+        end,
         desc = "Search diagnostics",
       },
     },
