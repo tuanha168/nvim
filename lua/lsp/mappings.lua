@@ -15,6 +15,7 @@ return {
     ["<Leader>lS"] = false,
     ["K"] = false,
     ["gT"] = false,
+    ["gd"] = false,
     ["<Leader>l"] = {
       function() vim.diagnostic.open_float() end,
       desc = "Hover diagnostics",
