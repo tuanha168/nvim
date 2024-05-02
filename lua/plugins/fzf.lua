@@ -40,6 +40,21 @@ return {
         function() require("fzf-lua").lsp_document_symbols() end,
         desc = "Search symbols",
       },
+      {
+        "gd",
+        function() require("fzf-lua").lsp_definitions() end,
+        desc = "Search symbols",
+      },
+      {
+        "gr",
+        function() require("fzf-lua").lsp_references() end,
+        desc = "Search symbols",
+      },
+      {
+        "gy",
+        function() require("fzf-lua").lsp_typedefs() end,
+        desc = "Search symbols",
+      },
     },
   },
 }
