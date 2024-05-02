@@ -2,10 +2,23 @@ local haveJson, json = pcall(require, "json")
 if not haveJson then return end
 
 local home = os.getenv "HOME"
-local file = io.open(home .. "/.config/nvim/lua/user/neoconf.json", "w")
+local file = io.open(home .. "/.config/nvim/neoconf.json", "w")
 if not file then return end
 
 local config = {
+  neodev = {
+    library = {
+      enabled = true,
+      plugins = true,
+    },
+  },
+  neoconf = {
+    plugins = {
+      lua_ls = {
+        enabled = true,
+      },
+    },
+  },
   lspconfig = {
     volar = {
       takeOverMode = {
