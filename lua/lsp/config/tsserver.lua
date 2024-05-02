@@ -1,5 +1,5 @@
 return function()
-  vim.defer_fn(function()
+  vim.schedule(function()
     local registry = require "mason-registry"
 
     local tsdk = registry.get_package("typescript-language-server"):get_install_path() .. "/node_modules/typescript/lib"
