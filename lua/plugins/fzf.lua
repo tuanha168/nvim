@@ -35,6 +35,11 @@ return {
         function() require("fzf-lua").resume() end,
         desc = "Find files",
       },
+      {
+        "<Leader>o",
+        function() require("fzf-lua").lsp_document_symbols() end,
+        desc = "Search symbols",
+      },
     },
   },
 }
