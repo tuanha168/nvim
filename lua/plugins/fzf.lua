@@ -24,11 +24,11 @@ return {
         function() require("fzf-lua").live_grep_native() end,
         desc = "Find files",
       },
-      -- {
-      --   "<Leader>fs",
-      --   function() require("fzf-lua").grep_cword() end,
-      --   desc = "Find files",
-      -- },
+      {
+        "<Leader>fs",
+        function() require("fzf-lua").grep_cword() end,
+        desc = "Find files",
+      },
       {
         "<Leader>f<CR>",
         function() require("fzf-lua").resume() end,
