@@ -30,6 +30,11 @@ return {
         desc = "Find files",
       },
       {
+        "<Leader>f<CR>",
+        function() require("fzf-lua").resume() end,
+        desc = "Find files",
+      },
+      {
         "<Leader>fs",
         mode = "v",
         function() require("fzf-lua").grep_visual() end,
