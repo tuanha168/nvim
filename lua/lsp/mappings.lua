@@ -34,11 +34,6 @@ return {
       function() vim.lsp.buf.hover() end,
       desc = "Hover symbol details",
     },
-    ["<Leader>gl"] = { function() require("telescope.builtin").diagnostics() end, desc = "Search diagnostics" },
-    ["gt"] = {
-      function() require("telescope.builtin").lsp_type_definitions() end,
-      desc = "Definition of current type",
-    },
     ["gR"] = {
       function() vim.lsp.buf.rename() end,
       desc = "Rename current symbol",
