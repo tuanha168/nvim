@@ -1,7 +1,5 @@
 local registry = require "mason-registry"
-registry.update(function() Print(require("mason-lspconfig").get_available_servers()) end)
 
-Print("outside", require("mason-lspconfig").get_available_servers())
 local tsdk = registry.get_package("typescript-language-server"):get_install_path() .. "/node_modules/typescript/lib"
 local vuePlugin = registry.get_package("vue-language-server"):get_install_path() .. "/node_modules/@vue/language-server"
 

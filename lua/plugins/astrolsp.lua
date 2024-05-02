@@ -2,7 +2,10 @@
 -- Configuration documentation can be found with `:h astrolsp`
 -- NOTE: We highly recommend setting up the Lua Language Server (`:LspInstall lua_ls`)
 --       as this provides autocomplete and documentation while editing
-if true then return {} end
+local registry = require "mason-registry"
+registry.update(function() Print(require("mason-lspconfig").get_available_servers()) end)
+
+Print("outside", require("mason-lspconfig").get_available_servers())
 
 ---@type LazySpec
 return {
@@ -12,9 +15,9 @@ return {
   opts = {
     -- Configuration table of features provided by AstroLSP
     features = {
-      autoformat = false,     -- enable or disable auto formatting on start
-      codelens = true,        -- enable/disable codelens refresh on start
-      inlay_hints = true,     -- enable/disable inlay hints on start
+      autoformat = false, -- enable or disable auto formatting on start
+      codelens = true, -- enable/disable codelens refresh on start
+      inlay_hints = true, -- enable/disable inlay hints on start
       semantic_tokens = true, -- enable/disable semantic token highlighting
     },
     -- customize lsp formatting options
