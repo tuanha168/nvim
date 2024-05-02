@@ -1,14 +1,14 @@
 local mappings = {
   n = {
-    ["<leader>w"] = false,
-    ["<leader>l"] = false,
-    ["<leader>fm"] = false,
-    ["<leader>ls"] = false,
-    ["<leader>lD"] = false,
-    ["<leader>lS"] = false,
-    ["<leader>fc"] = false,
-    ["<leader>gL"] = false,
-    ["<leader>h"] = false,
+    ["<Leader>w"] = false,
+    ["<Leader>l"] = false,
+    ["<Leader>fm"] = false,
+    ["<Leader>ls"] = false,
+    ["<Leader>lD"] = false,
+    ["<Leader>lS"] = false,
+    ["<Leader>fc"] = false,
+    ["<Leader>gL"] = false,
+    ["<Leader>h"] = false,
     ["\\"] = false,
     ["|"] = false,
     ["<C-S-Up>"] = { function() require("smart-splits").resize_up() end, noremap = true, desc = "Resize split up" },
@@ -28,19 +28,19 @@ local mappings = {
       desc = "Resize split right",
     },
     ["*"] = { '"ayiwh/<c-r>a<CR>' },
-    ["<leader>fs"] = {
+    ["<Leader>fs"] = {
       function() Chiruno.func.operatorfunc_lua "live_grep_motion" end,
       desc = "Live grep motion",
       noremap = true,
     },
-    ["<leader>r"] = {
+    ["<Leader>r"] = {
       function() Chiruno.func.operatorfunc_lua "replace_motion" end,
     },
-    ["<leader>fa"] = {
+    ["<Leader>fa"] = {
       function() require("telescope.builtin").find_files { hidden = true, no_ignore = true } end,
       desc = "Find all files",
     },
-    ["<leader>ff"] = {
+    ["<Leader>ff"] = {
       function()
         local check, telescope = pcall(require, "telescope.builtin")
         if not check then return end
@@ -48,7 +48,7 @@ local mappings = {
       end,
       desc = "Find files",
     },
-    ["<leader>fg"] = {
+    ["<Leader>fg"] = {
       function()
         local check, telescope = pcall(require, "telescope.builtin")
         if not check then return end
@@ -61,7 +61,7 @@ local mappings = {
     -- ["L"] = { function() require("gitsigns").next_hunk() end, desc = "Next Git hunk" },
     -- ["H"] = { "^" },
     -- ["L"] = { "$" },
-    ["<leader>pp"] = { "<cmd>Gitsigns preview_hunk<CR>" },
+    ["<Leader>pp"] = { "<cmd>Gitsigns preview_hunk<CR>" },
     -- Moving
     ["K"] = { ":m .-2<CR>==", silent = true },
     ["J"] = { ":m .+1<CR>==", silent = true },
@@ -83,15 +83,15 @@ local mappings = {
     -- ["q"] = { "<ESC>:ccl<CR>q", silent = true },
     -- Yank
     ["<c-c>"] = { '"+yiw', desc = "Yank", noremap = true },
-    ["<leader>y"] = { '"+y', desc = "Yank system clipboard", noremap = true },
-    ["<leader>Y"] = { '"+y$', desc = "Yank system clipboard", noremap = true },
-    ["<leader>p"] = { '"+p', desc = "Paste system clipboard", noremap = true },
-    ["<leader>P"] = { '"+P', desc = "Paste system clipboard", noremap = true },
+    ["<Leader>y"] = { '"+y', desc = "Yank system clipboard", noremap = true },
+    ["<Leader>Y"] = { '"+y$', desc = "Yank system clipboard", noremap = true },
+    ["<Leader>p"] = { '"+p', desc = "Paste system clipboard", noremap = true },
+    ["<Leader>P"] = { '"+P', desc = "Paste system clipboard", noremap = true },
     -- Telescope
     -- ["``"] = {
     --   "<cmd> Telescope project <CR>",
     -- },
-    ["<leader>o"] = {
+    ["<Leader>o"] = {
       function()
         local aerial_avail, _ = pcall(require, "aerial")
         if aerial_avail then
@@ -102,7 +102,7 @@ local mappings = {
       end,
       desc = "Search symbols",
     },
-    ["<leader>O"] = {
+    ["<Leader>O"] = {
       function()
         local ok, aerial = pcall(require, "aerial")
         if not ok then return end
@@ -123,7 +123,7 @@ local mappings = {
       '"_D',
     },
     -- Neotree
-    ["<leader>e"] = false,
+    ["<Leader>e"] = false,
     -- Illuminate
     ["("] = {
       function() require("illuminate").goto_next_reference() end,
@@ -131,9 +131,9 @@ local mappings = {
     [")"] = {
       function() require("illuminate").goto_prev_reference() end,
     },
-    ["<leader>c"] = false,
-    ["<leader>q"] = false,
-    ["<leader>qq"] = {
+    ["<Leader>c"] = false,
+    ["<Leader>q"] = false,
+    ["<Leader>qq"] = {
       function()
         require("astrocore.buffer").close()
         vim.api.nvim_exec_autocmds("User", { pattern = Chiruno.constants.events.ToggleWindow, modeline = false })
@@ -153,15 +153,15 @@ local mappings = {
         end
       end,
     },
-    ["<leader>fd"] = { function() Chiruno.func.run_make() end, desc = "Run make", noremap = true },
+    ["<Leader>fd"] = { function() Chiruno.func.run_make() end, desc = "Run make", noremap = true },
     ["]c"] = { "<cmd>cn<CR>", desc = "Next error", noremap = true },
     ["[c"] = { "<cmd>cp<CR>", desc = "Previous error", noremap = true },
-    ["<leader>z"] = {
+    ["<Leader>z"] = {
       function() Chiruno.func.toggle_null_window() end,
       desc = "Toggle Null Window",
       noremap = true,
     },
-    ["<leader>du"] = {
+    ["<Leader>du"] = {
       function()
         local ok, dapui = pcall(require, "dapui")
         if not ok then return end
@@ -173,12 +173,12 @@ local mappings = {
   },
   v = {
     ["*"] = { function() Chiruno.func.operatorfunc_lua "search" end },
-    ["<leader>fs"] = {
+    ["<Leader>fs"] = {
       function() Chiruno.func.operatorfunc_lua "live_grep_motion" end,
       desc = "Live grep motion",
       noremap = true,
     },
-    ["<leader>r"] = {
+    ["<Leader>r"] = {
       function() Chiruno.func.operatorfunc_lua "replace_motion" end,
     },
     -- Yank
@@ -197,10 +197,10 @@ local mappings = {
     [">"] = { ">gv" },
     ["="] = { "=gv" },
 
-    -- ["<leader>y"] = { '"+y', desc = "Yank system clipboard", noremap = true },
-    -- ["<leader>Y"] = { '"+Y', desc = "Yank system clipboard", noremap = true },
-    -- ["<leader>p"] = { '"+p', desc = "Paste system clipboard", noremap = true },
-    -- ["<leader>P"] = { '"+P', desc = "Paste system clipboard", noremap = true },
+    -- ["<Leader>y"] = { '"+y', desc = "Yank system clipboard", noremap = true },
+    -- ["<Leader>Y"] = { '"+Y', desc = "Yank system clipboard", noremap = true },
+    -- ["<Leader>p"] = { '"+p', desc = "Paste system clipboard", noremap = true },
+    -- ["<Leader>P"] = { '"+P', desc = "Paste system clipboard", noremap = true },
     -- Disable Yank
     ["c"] = {
       '"_c',
