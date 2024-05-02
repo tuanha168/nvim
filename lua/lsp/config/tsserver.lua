@@ -1,7 +1,7 @@
-local tsdk = require("mason-registry").get_package("typescript-language-server"):get_install_path()
-    .. "/node_modules/typescript/lib"
+-- local tsdk = require("mason-registry").get_package("typescript-language-server"):get_install_path()
+-- .. "/node_modules/typescript/lib"
 local vuePlugin = require("mason-registry").get_package("vue-language-server"):get_install_path()
-    .. "/node_modules/@vue/language-server"
+  .. "/node_modules/@vue/language-server"
 
 return {
   compilerOptions = {
@@ -24,10 +24,10 @@ return {
         languages = { "javascript", "typescript", "vue" },
       },
     },
-    tsserver = {
-      -- This overwrite the path from the local project, in case your project ts version is not compatible with the plugin
-      path = tsdk,
-    },
+    -- tsserver = {
+    --   -- This overwrite the path from the local project, in case your project ts version is not compatible with the plugin
+    --   path = tsdk,
+    -- },
     preferences = {
       includeInlayParameterNameHints = "all",
       includeInlayParameterNameHintsWhenArgumentMatchesName = true,
