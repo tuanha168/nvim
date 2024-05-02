@@ -1,45 +1,20 @@
-return function()
+return function(_,opts)
   local registry = require "mason-registry"
 
   local tsdk = registry.get_package("typescript-language-server"):get_install_path() .. "/node_modules/typescript/lib"
   local vuePlugin = registry.get_package("vue-language-server"):get_install_path()
     .. "/node_modules/@vue/language-server"
 
-  require("lspconfig").tsserver.setup {
-    compilerOptions = {
-      noErrorTruncate = true,
-    },
-    filetypes = {
-      "javascript",
-      "javascript.jsx",
-      "javascriptreact",
-      "typescript",
-      "typescript.tsx",
-      "typescriptreact",
-      "vue",
-    },
-    init_options = {
-      plugins = {
-        {
-          name = "@vue/typescript-plugin",
-          location = vuePlugin,
-          languages = { "javascript", "typescript", "vue" },
-        },
-      },
-      tsserver = {
-        -- This overwrite the path from the local project, in case your project ts version is not compatible with the plugin
-        path = tsdk,
-      },
-      preferences = {
-        includeInlayParameterNameHints = "all",
-        includeInlayParameterNameHintsWhenArgumentMatchesName = true,
-        includeInlayFunctionParameterTypeHints = true,
-        -- includeInlayVariableTypeHints = true,
-        includeInlayPropertyDeclarationTypeHints = true,
-        -- includeInlayFunctionLikeReturnTypeHints = true,
-        includeInlayEnumMemberValueHints = true,
-        importModuleSpecifierPreference = "non-relative",
-      },
+  opts.init_options.plugins = {
+    {
+      name = "@vue/typescript-plugin",
+      location = vuePlugin,
+      languages = { "javascript", "typescript", "vue" },
     },
   }
+  opts.init_options.tsserver = {
+    -- This overwrite the path from the local project, in case your project ts version is not compatible with the plugin
+    path = tsdk,
+  }
+  require("lspconfig").tsserver.setup(opts)
 end
