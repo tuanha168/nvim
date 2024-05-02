@@ -2,10 +2,6 @@
 -- Configuration documentation can be found with `:h astrolsp`
 -- NOTE: We highly recommend setting up the Lua Language Server (`:LspInstall lua_ls`)
 --       as this provides autocomplete and documentation while editing
-local registry = require "mason-registry"
-registry.update(function() Print(require("mason-lspconfig").get_available_servers()) end)
-
-Print("outside", require("mason-lspconfig").get_available_servers())
 
 ---@type LazySpec
 return {
