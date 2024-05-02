@@ -46,7 +46,17 @@ return {
       omnisharp = require "lsp.config.omnisharp",
       stylelint_lsp = require "lsp.config.stylelint_lsp",
       tailwindcss = require "lsp.config.tailwindcss",
-      tsserver = {},
+      tsserver = {
+        filetypes = {
+          "javascript",
+          "javascript.jsx",
+          "javascriptreact",
+          "typescript",
+          "typescript.tsx",
+          "typescriptreact",
+          "vue",
+        },
+      },
       volar = require "lsp.config.volar",
     },
     -- customize how language servers are attached
