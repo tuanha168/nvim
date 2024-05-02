@@ -7,6 +7,7 @@
 return {
   {
     "nvim-telescope/telescope.nvim",
+    enabled = false,
     opts = function(_, opts)
       opts.defaults.vimgrep_arguments = {
         "rg",
@@ -145,7 +146,6 @@ return {
         -- provided one, if nothing is provided it will use `yarn`
         package_manager = "yarn",
       }
-      require("telescope").load_extension "package_info"
     end,
   },
 }
