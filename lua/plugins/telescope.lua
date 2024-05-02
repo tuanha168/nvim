@@ -7,14 +7,6 @@
 return {
   {
     "nvim-telescope/telescope.nvim",
-    tag = "0.1.6",
-    dependencies = {
-      { "nvim-lua/plenary.nvim" },
-      {
-        "nvim-telescope/telescope-fzy-native.nvim",
-      },
-    },
-    lazy = false,
     opts = function(_, opts)
       opts.defaults.vimgrep_arguments = {
         "rg",
