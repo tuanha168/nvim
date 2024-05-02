@@ -10,7 +10,7 @@ function Chiruno.motions.live_grep_motion(mode)
   end
 
   local fzf_ok, fzf = pcall(require, "fzf-lua")
-  if fzf_ok then fzf.grep() end
+  if fzf_ok then fzf.grep { search = Chiruno.func.get_text_selection(mode).text } end
 end
 
 return Chiruno.motions.live_grep_motion

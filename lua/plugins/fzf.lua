@@ -26,6 +26,7 @@ return {
       },
       {
         "<Leader>fs",
+        mode = { "n", "v" },
         function() Chiruno.func.operatorfunc_lua "live_grep_motion" end,
         desc = "Find files",
       },
