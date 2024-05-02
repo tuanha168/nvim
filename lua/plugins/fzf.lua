@@ -19,6 +19,11 @@ return {
         function() require("fzf-lua").oldfiles() end,
         desc = "Find files",
       },
+      {
+        "<Leader>fw",
+        function() require("fzf-lua").grep() end,
+        desc = "Find files",
+      },
     },
   },
 }
