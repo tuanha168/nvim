@@ -7,14 +7,12 @@
 return {
   {
     "nvim-telescope/telescope.nvim",
+    tag = "0.1.6",
     dependencies = {
+      { "nvim-lua/plenary.nvim" },
       {
-        "telescope-fzf-native.nvim",
-        build = "make",
+        "nvim-telescope/telescope-fzy-native.nvim",
       },
-      {
-        "nvim-telescope/telescope-fzy-native.nvim"
-      }
     },
     lazy = false,
     opts = function(_, opts)
@@ -31,14 +29,6 @@ return {
         "!.git",
       }
       opts.extensions = opts.extensions or {}
-      -- opts.extensions.fzf = {
-      --   fuzzy = true,                   -- false will only do exact matching
-      --   override_generic_sorter = true, -- override the generic sorter
-      --   override_file_sorter = true,    -- override the file sorter
-      --   case_mode = "smart_case",       -- or "ignore_case" or "respect_case"
-      --   -- the default case_mode is "smart_case"
-      -- }
-      -- require("telescope").load_extension "fzf"
       opts.extensions.fzy_native = {
         override_generic_sorter = false,
         override_file_sorter = true,
@@ -130,7 +120,7 @@ return {
       require("package-info").setup {
         colors = {
           up_to_date = "#3C4048", -- Text color for up to date dependency virtual text
-          outdated = "#d19a66",   -- Text color for outdated dependency virtual text
+          outdated = "#d19a66", -- Text color for outdated dependency virtual text
         },
         icons = {
           enable = true, -- Whether to display icons
@@ -139,8 +129,8 @@ return {
             outdated = "|  ", -- Icon for outdated dependencies
           },
         },
-        autostart = true,               -- Whether to autostart when `package.json` is opened
-        hide_up_to_date = false,        -- It hides up to date versions when displaying virtual text
+        autostart = true, -- Whether to autostart when `package.json` is opened
+        hide_up_to_date = false, -- It hides up to date versions when displaying virtual text
         hide_unstable_versions = false, -- It hides unstable versions from version list e.g next-11.1.3-canary3
         -- Can be `npm`, `yarn`, or `pnpm`. Used for `delete`, `install` etc...
         -- The plugin will try to auto-detect the package manager based on
