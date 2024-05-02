@@ -5,7 +5,7 @@ return function()
   local vuePlugin = registry.get_package("vue-language-server"):get_install_path()
     .. "/node_modules/@vue/language-server"
 
-  return {
+  require("lspconfig").tsserver.setup {
     compilerOptions = {
       noErrorTruncate = true,
     },
