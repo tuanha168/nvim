@@ -6,6 +6,7 @@ return {
   {
     "williamboman/mason-lspconfig.nvim",
     dependencies = { "williamboman/mason.nvim" },
+    lazy = false,
     -- overrides `require("mason-lspconfig").setup(...)`
     opts = function(_, opts)
       -- add more things to the ensure_installed table protecting against community packs modifying it
@@ -55,6 +56,7 @@ return {
   {
     "jay-babu/mason-null-ls.nvim",
     dependencies = { "williamboman/mason.nvim" },
+    lazy = false,
     -- overrides `require("mason-null-ls").setup(...)`
     opts = function(_, opts)
       -- add more things to the ensure_installed table protecting against community packs modifying it
