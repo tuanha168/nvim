@@ -7,6 +7,7 @@ local mappings = {
     ["<Leader>lD"] = false,
     ["<Leader>lS"] = false,
     ["<Leader>fc"] = false,
+    ["<Leader>gl"] = false,
     ["<Leader>gL"] = false,
     ["<Leader>h"] = false,
     ["\\"] = false,
