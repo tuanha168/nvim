@@ -57,7 +57,6 @@ return {
   -- },
   {
     "gbprod/yanky.nvim",
-    event = "VeryLazy",
     dependencies = { "nvim-telescope/telescope.nvim" },
     opts = function()
       require("yanky").setup {
