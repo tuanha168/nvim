@@ -55,6 +55,11 @@ return {
         function() require("fzf-lua").lsp_typedefs() end,
         desc = "Search symbols",
       },
+      {
+        "<Leader>ee",
+        function() require("fzf-lua").lsp_code_actions() end,
+        desc = "LSP code action",
+      },
     },
   },
 }

@@ -25,17 +25,6 @@ return {
       -- "<cmd>Prettier<CR>",
       desc = "Format code",
     },
-    ["<Leader>ee"] = {
-      function()
-        local ok, actPrew = pcall(require, "actions-preview")
-        if ok then
-          actPrew.code_actions()
-        else
-          vim.lsp.buf.code_action()
-        end
-      end,
-      desc = "LSP code action",
-    },
     ["<Leader>E"] = { function() vim.lsp.codelens.run() end, desc = "Run code lens" },
     -- ["<Leader>K"] = {
     --   function() vim.lsp.buf.signature_help() end,

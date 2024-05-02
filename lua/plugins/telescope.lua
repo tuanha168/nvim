@@ -62,6 +62,18 @@ return {
         end,
         desc = "Search symbols",
       },
+      {
+        "<Leader>ee",
+        function()
+          local ok, actPrew = pcall(require, "actions-preview")
+          if ok then
+            actPrew.code_actions()
+          else
+            vim.lsp.buf.code_action()
+          end
+        end,
+        desc = "LSP code action",
+      },
     },
   },
   -- {
