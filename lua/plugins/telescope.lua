@@ -31,25 +31,15 @@ return {
       require("telescope").load_extension "fzf"
     end,
     keys = {
-      ["<Leader>fa"] = {
+      {
+        "<Leader>fa",
         function() require("telescope.builtin").find_files { hidden = true, no_ignore = true } end,
         desc = "Find all files",
       },
-      ["<Leader>ff"] = {
-        function()
-          local check, telescope = pcall(require, "telescope.builtin")
-          if not check then return end
-          pcall(telescope.find_files)
-        end,
+      {
+        "<Leader>ff",
+        function() require("telescope.builtin").find_files() end,
         desc = "Find files",
-      },
-      ["<Leader>fg"] = {
-        function()
-          local check, telescope = pcall(require, "telescope.builtin")
-          if not check then return end
-          pcall(telescope.git_files)
-        end,
-        desc = "Find AstroNvim config files",
       },
     },
   },
