@@ -2,12 +2,13 @@
 --   local search = vim.fn.input { prompt = "Search files: " }
 --   vim.cmd(vim.api.nvim_replace_termcodes("Telescope locate file=" .. search, true, true, true))
 -- end
+local enable_telescope = false
 
 ---@type LazySpec
 return {
   {
     "nvim-telescope/telescope.nvim",
-    enabled = false,
+    enabled = enable_telescope,
     opts = function(_, opts)
       opts.defaults.vimgrep_arguments = {
         "rg",
@@ -57,6 +58,7 @@ return {
   -- },
   {
     "gbprod/yanky.nvim",
+    enabled = enable_telescope,
     event = "VeryLazy",
     dependencies = { "nvim-telescope/telescope.nvim" },
     opts = function()
