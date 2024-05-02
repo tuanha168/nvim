@@ -1,5 +1,8 @@
 function Chiruno.motions.live_grep_motion(mode)
-  require("telescope.builtin").grep_string {
+  local ok, telescope = pcall(require, "telescope")
+  if not ok then return end
+
+  telescope.grep_string {
     search = Chiruno.func.get_text_selection(mode).text,
     hidden = true,
   }
