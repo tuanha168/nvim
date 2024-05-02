@@ -43,6 +43,13 @@ return {
         function() require("telescope.builtin").find_files() end,
         desc = "Find files",
       },
+      {
+        "<Leader>fs",
+        mode = { "n", "v" },
+        function() Chiruno.func.operatorfunc_lua "live_grep_motion" end,
+        desc = "Live grep motion",
+        noremap = true,
+      },
     },
   },
   -- {
