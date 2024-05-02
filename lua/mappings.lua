@@ -36,26 +36,6 @@ local mappings = {
     ["<Leader>r"] = {
       function() Chiruno.func.operatorfunc_lua "replace_motion" end,
     },
-    ["<Leader>fa"] = {
-      function() require("telescope.builtin").find_files { hidden = true, no_ignore = true } end,
-      desc = "Find all files",
-    },
-    ["<Leader>ff"] = {
-      function()
-        local check, telescope = pcall(require, "telescope.builtin")
-        if not check then return end
-        pcall(telescope.find_files)
-      end,
-      desc = "Find files",
-    },
-    ["<Leader>fg"] = {
-      function()
-        local check, telescope = pcall(require, "telescope.builtin")
-        if not check then return end
-        pcall(telescope.git_files)
-      end,
-      desc = "Find AstroNvim config files",
-    },
     -- Gitsigns
     -- ["H"] = { function() require("gitsigns").prev_hunk() end, desc = "Previous Git hunk" },
     -- ["L"] = { function() require("gitsigns").next_hunk() end, desc = "Next Git hunk" },

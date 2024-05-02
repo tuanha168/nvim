@@ -22,14 +22,36 @@ return {
       }
       opts.extensions = opts.extensions or {}
       opts.extensions.fzf = {
-        fuzzy = true,                   -- false will only do exact matching
+        fuzzy = true, -- false will only do exact matching
         override_generic_sorter = true, -- override the generic sorter
-        override_file_sorter = true,    -- override the file sorter
-        case_mode = "smart_case",       -- or "ignore_case" or "respect_case"
+        override_file_sorter = true, -- override the file sorter
+        case_mode = "smart_case", -- or "ignore_case" or "respect_case"
         -- the default case_mode is "smart_case"
       }
       require("telescope").load_extension "fzf"
     end,
+    keys = {
+      ["<Leader>fa"] = {
+        function() require("telescope.builtin").find_files { hidden = true, no_ignore = true } end,
+        desc = "Find all files",
+      },
+      ["<Leader>ff"] = {
+        function()
+          local check, telescope = pcall(require, "telescope.builtin")
+          if not check then return end
+          pcall(telescope.find_files)
+        end,
+        desc = "Find files",
+      },
+      ["<Leader>fg"] = {
+        function()
+          local check, telescope = pcall(require, "telescope.builtin")
+          if not check then return end
+          pcall(telescope.git_files)
+        end,
+        desc = "Find AstroNvim config files",
+      },
+    },
   },
   -- {
   --   "nvim-telescope/telescope-project.nvim",
