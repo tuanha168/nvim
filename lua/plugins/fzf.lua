@@ -34,11 +34,6 @@ return {
         function() require("fzf-lua").resume() end,
         desc = "Find files",
       },
-      {
-        "<Leader>fs",
-        function() require("fzf-lua").grep_visual() end,
-        desc = "Find files",
-      },
     },
   },
 }
