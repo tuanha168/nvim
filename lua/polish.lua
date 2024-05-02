@@ -68,7 +68,7 @@ autocmd({ "BufWritePre" }, {
     local home = os.getenv "HOME"
 
     local autoPushDir = {
-      home .. "/.config/nvim/lua/user",
+      home .. "/.config/nvim",
       home .. "/.dotfile/super%-secret",
       home .. "/.dotfile",
     }

@@ -41,8 +41,8 @@ return {
 
           builtin.find_files {
             prompt_title = "Attempt",
-            search_dirs = { os.getenv "HOME" .. "/.config/nvim/lua/user/scratch/src" },
-            cwd = os.getenv "HOME" .. "/.config/nvim/lua/user/scratch/src",
+            search_dirs = { os.getenv "HOME" .. "/.config/nvim/scratch/src" },
+            cwd = os.getenv "HOME" .. "/.config/nvim/scratch/src",
             follow = true,
             no_ignore_parent = true,
           }
@@ -52,7 +52,7 @@ return {
     },
     config = function()
       require("attempt").setup {
-        dir = os.getenv "HOME" .. "/.config/nvim/lua/user/scratch/src",
+        dir = os.getenv "HOME" .. "/.config/nvim/scratch/src",
         ext_options = { "lua", "ts", "py" }, -- Options to choose from
         list_buffers = true,
       }

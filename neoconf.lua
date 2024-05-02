@@ -56,7 +56,7 @@ local config = {
       },
       css = {
         customData = {
-          home .. "/.config/nvim/lua/user/.vscode/tailwind.json",
+          home .. "/.config/nvim/.vscode/tailwind.json",
         },
       },
       javascript = {
