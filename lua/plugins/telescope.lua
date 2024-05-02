@@ -2,7 +2,7 @@
 --   local search = vim.fn.input { prompt = "Search files: " }
 --   vim.cmd(vim.api.nvim_replace_termcodes("Telescope locate file=" .. search, true, true, true))
 -- end
-local enable_telescope = false
+local enable_telescope = true
 
 ---@type LazySpec
 return {
