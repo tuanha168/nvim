@@ -88,7 +88,7 @@ return {
           vim.keymap.set("n", "<CR>", function()
             local fs_entry = minifiles.get_fs_entry()
             local is_at_file = fs_entry ~= nil and fs_entry.fs_type == "file"
-            minifiles.go_in()
+            minifiles.go_in({})
             if is_at_file then minifiles.close() end
           end, { buffer = buf_id })
 
@@ -96,7 +96,7 @@ return {
             local fs_entry = minifiles.get_fs_entry()
             if fs_entry == nil or fs_entry.fs_type == "file" then return end
 
-            minifiles.go_in()
+            minifiles.go_in({})
             local cur_entry_path = minifiles.get_fs_entry().path
             local cur_directory = vim.fs.dirname(cur_entry_path)
             vim.fn.chdir(cur_directory)
