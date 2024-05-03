@@ -58,41 +58,42 @@ return {
       GitDelete = "",
     },
   },
-  -- {
-  -- "rebelot/heirline.nvim",
-  -- event = "BufEnter",
-  -- dependencies = {
-  --   {
-  --     "AstroNvim/astrocore",
-  --     "AstroNvim/astroui"
-  --   },
-  -- },
-  -- opts = function(_, opts)
-  --   local status = require "astroui.status"
-  --   local codeium = {
-  --     provider = function()
-  --       local success, output = pcall(vim.fn["codeium#GetStatusString"])
-  --       if success then return output end
-  --     end,
-  --   }
-  --   opts.statusline = {
-  --     hl = { fg = "fg", bg = "bg" },
-  --     status.component.mode(),
-  --     status.component.git_branch(),
-  --     status.component.file_info(),
-  --     status.component.git_diff(),
-  --     status.component.diagnostics(),
-  --     status.component.fill(),
-  --     status.component.cmd_info(),
-  --     codeium,
-  --     status.component.fill(),
-  --     status.component.lsp(),
-  --     status.component.virtual_env(),
-  --     status.component.treesitter(),
-  --     status.component.nav(),
-  --     status.component.mode { surround = { separator = "right" } },
-  --   }
-  --   return opts
-  -- end,
-  -- },
+  {
+    "rebelot/heirline.nvim",
+    event = "BufEnter",
+    dependencies = {
+      {
+        "AstroNvim/astrocore",
+        "AstroNvim/astroui",
+      },
+    },
+    opts = function(_, opts)
+      local status = require "astroui.status"
+      local codeium = {
+        provider = function()
+          local success, output = pcall(vim.fn["codeium#GetStatusString"])
+          if success then return output end
+        end,
+      }
+      opts.statusline = {
+        hl = { fg = "fg", bg = "bg" },
+        status.component.mode(),
+        status.component.git_branch(),
+        status.component.file_info(),
+        status.component.git_diff(),
+        status.component.diagnostics(),
+        status.component.fill(),
+        status.component.cmd_info(),
+        codeium,
+        status.component.fill(),
+        status.component.lsp(),
+        status.component.virtual_env(),
+        status.component.treesitter(),
+        status.component.nav(),
+        status.component.mode { surround = { separator = "right" } },
+      }
+      return opts
+    end,
+    config = function(...) require "astronvim.plugins.configs.heirline"(...) end,
+  },
 }
