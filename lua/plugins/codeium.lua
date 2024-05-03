@@ -22,7 +22,7 @@ return {
         "<C-j>",
         function()
           local cmp_ok, cmp = pcall(require, "cmp")
-          if cmp_ok then cmp.mapping.abort() end
+          if cmp_ok then cmp.mapping.close() end
           return vim.fn["codeium#CycleCompletions"](1)
         end,
         expr = true,
@@ -33,7 +33,7 @@ return {
         "<C-k>",
         function()
           local cmp_ok, cmp = pcall(require, "cmp")
-          if cmp_ok then cmp.mapping.abort() end
+          if cmp_ok then cmp.mapping.close() end
           return vim.fn["codeium#CycleCompletions"](-1)
         end,
         expr = true,

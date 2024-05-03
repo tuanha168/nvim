@@ -37,8 +37,8 @@ return {
       --     fallback()
       --   end
       -- end, { "i", "s" })
-      opts.mapping["<C-k>"] = false
-      opts.mapping["<C-j>"] = false
+      opts.mapping["<C-k>"] = {}
+      opts.mapping["<C-j>"] = {}
 
       local snip_status_ok, luasnip = pcall(require, "luasnip")
 
