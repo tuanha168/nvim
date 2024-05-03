@@ -1,17 +1,3 @@
-vim.lsp.handlers["textDocument/hover"] = function(_, result, ctx, config)
-  config = config or {}
-  config.focus_id = ctx.method
-  config.border = "rounded"
-  if not (result and result.contents) then return end
-  local markdown_lines = vim.lsp.util.convert_input_to_markdown_lines(result.contents)
-  if vim.tbl_isempty(markdown_lines) then return end
-  for k, v in pairs(markdown_lines) do
-    markdown_lines[k] = string.gsub(v, "^(%s*.-)%s*$", "%1")
-  end
-  local floating_bufnr, _ = vim.lsp.util.open_floating_preview(markdown_lines, "", config)
-  vim.api.nvim_buf_set_option(floating_bufnr, "filetype", "markdown")
-end
-
 -- Generate neoconf
 local neoconf = os.getenv "HOME" .. "/.config/nvim/neoconf"
 if not Chiruno.func.file_exist(neoconf .. ".json") then
