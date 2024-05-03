@@ -13,6 +13,12 @@ vim.lsp.handlers["textDocument/hover"] = function(_, result, ctx, config)
   vim.api.nvim_buf_set_option(floating_bufnr, "filetype", "markdown")
 end
 
+local neoconf = os.getenv "HOME" .. "/.config/nvim/neoconf"
+if not Chiruno.func.file_exist(neoconf .. ".json") then
+  Print("Generate neoconf:", neoconf .. ".json")
+  vim.schedule(function() vim.cmd("silent !lua " .. neoconf .. ".lua") end)
+end
+
 local autocmd = vim.api.nvim_create_autocmd
 
 autocmd("BufRead", {
