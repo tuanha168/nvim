@@ -12,61 +12,57 @@ local green = get_hlgroup("String").fg
 
 ---@type LazySpec
 return {
-  "AstroNvim/astroui",
-  ---@type AstroUIOpts
-  opts = {
-    -- change colorscheme
-    colorscheme = "dracula",
-    -- AstroUI allows you to easily modify highlight groups easily for any and all colorschemes
-    highlights = {
-      init = {
-        Visual = { bg = pink },
-        -- TelescopeBorder = { fg = bg_alt, bg = bg },
-        -- TelescopeNormal = { bg = bg },
-        -- TelescopePreviewBorder = { fg = bg, bg = bg },
-        TelescopePreviewNormal = { bg = bg },
-        TelescopePreviewTitle = { fg = green, bg = pink },
-        -- TelescopePromptBorder = { fg = bg, bg = bg },
-        TelescopePromptNormal = { fg = "#ffffff", bg = bg },
-        -- TelescopePromptPrefix = { fg = red, bg = bg },
-        TelescopePromptTitle = { fg = green, bg = pink },
-        -- TelescopeResultsBorder = { fg = bg, bg = bg },
-        TelescopeResultsNormal = { bg = bg },
-        TelescopeResultsTitle = { fg = green, bg = pink },
-        LspInlayHint = { fg = pink, italic = true },
-        LspSignatureActiveParameter = { bg = "#666666" },
+  {
+
+    "AstroNvim/astroui",
+    ---@type AstroUIOpts
+    opts = {
+      -- change colorscheme
+      colorscheme = "dracula",
+      -- AstroUI allows you to easily modify highlight groups easily for any and all colorschemes
+      highlights = {
+        init = {
+          Visual = { bg = pink },
+          -- TelescopeBorder = { fg = bg_alt, bg = bg },
+          -- TelescopeNormal = { bg = bg },
+          -- TelescopePreviewBorder = { fg = bg, bg = bg },
+          TelescopePreviewNormal = { bg = bg },
+          TelescopePreviewTitle = { fg = green, bg = pink },
+          -- TelescopePromptBorder = { fg = bg, bg = bg },
+          TelescopePromptNormal = { fg = "#ffffff", bg = bg },
+          -- TelescopePromptPrefix = { fg = red, bg = bg },
+          TelescopePromptTitle = { fg = green, bg = pink },
+          -- TelescopeResultsBorder = { fg = bg, bg = bg },
+          TelescopeResultsNormal = { bg = bg },
+          TelescopeResultsTitle = { fg = green, bg = pink },
+          LspInlayHint = { fg = pink, italic = true },
+          LspSignatureActiveParameter = { bg = "#666666" },
+        },
       },
-    },
-    -- Icons can be configured throughout the interface
-    icons = {
-      -- configure the loading of the lsp in the status line
-      LSPLoading1 = "⠋",
-      LSPLoading2 = "⠙",
-      LSPLoading3 = "⠹",
-      LSPLoading4 = "⠸",
-      LSPLoading5 = "⠼",
-      LSPLoading6 = "⠴",
-      LSPLoading7 = "⠦",
-      LSPLoading8 = "⠧",
-      LSPLoading9 = "⠇",
-      LSPLoading10 = "⠏",
-      VimIcon = "",
-      ScrollText = "",
-      GitBranch = "",
-      GitAdd = "",
-      GitChange = "",
-      GitDelete = "",
+      -- Icons can be configured throughout the interface
+      icons = {
+        -- configure the loading of the lsp in the status line
+        LSPLoading1 = "⠋",
+        LSPLoading2 = "⠙",
+        LSPLoading3 = "⠹",
+        LSPLoading4 = "⠸",
+        LSPLoading5 = "⠼",
+        LSPLoading6 = "⠴",
+        LSPLoading7 = "⠦",
+        LSPLoading8 = "⠧",
+        LSPLoading9 = "⠇",
+        LSPLoading10 = "⠏",
+        VimIcon = "",
+        ScrollText = "",
+        GitBranch = "",
+        GitAdd = "",
+        GitChange = "",
+        GitDelete = "",
+      },
     },
   },
   {
     "rebelot/heirline.nvim",
-    event = "BufEnter",
-    dependencies = {
-      {
-        "AstroNvim/astrocore",
-        "AstroNvim/astroui",
-      },
-    },
     opts = function(_, opts)
       local status = require "astroui.status"
       local codeium = {
@@ -94,6 +90,5 @@ return {
       }
       return opts
     end,
-    config = function(...) require "astronvim.plugins.configs.heirline"(...) end,
   },
 }
