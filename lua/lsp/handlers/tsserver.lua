@@ -1,5 +1,4 @@
 return function(_, opts)
-  Print(opts)
   local registry = require "mason-registry"
 
   local tsdk = registry.get_package("typescript-language-server"):get_install_path() .. "/node_modules/typescript/lib"
