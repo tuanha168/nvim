@@ -37,8 +37,8 @@ return {
       --     fallback()
       --   end
       -- end, { "i", "s" })
-      opts.mapping["<C-k>"] = cmp.mapping { i = cmp.mapping.abort(), c = cmp.mapping.close() }
-      opts.mapping["<C-j>"] = cmp.mapping { i = cmp.mapping.abort(), c = cmp.mapping.close() }
+      opts.mapping["<C-k>"] = false
+      opts.mapping["<C-j>"] = false
 
       local snip_status_ok, luasnip = pcall(require, "luasnip")
 

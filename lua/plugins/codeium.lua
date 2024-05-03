@@ -28,7 +28,17 @@ return {
         expr = true,
         silent = true,
       },
-      { mode = "i", "<C-k>", function() return vim.fn["codeium#CycleCompletions"](-1) end, expr = true, silent = true },
+      {
+        mode = "i",
+        "<C-k>",
+        function()
+          local cmp_ok, cmp = pcall(require, "cmp")
+          if cmp_ok then cmp.mapping.abort() end
+          return vim.fn["codeium#CycleCompletions"](-1)
+        end,
+        expr = true,
+        silent = true,
+      },
     },
     config = function() vim.g.codeium_disable_bindings = 1 end,
   },
