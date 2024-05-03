@@ -103,7 +103,7 @@ local disable_node_modules_eslint_group = vim.api.nvim_create_augroup("DisableNo
 
 autocmd({ "BufNewFile", "BufRead", "BufEnter" }, {
   pattern = { "**/node_modules/**", "node_modules", "/node_modules/*" },
-  callback = function() vim.diagnostic.disable(0) end,
+  callback = function() vim.diagnostic.enable(false) end,
   group = disable_node_modules_eslint_group,
 })
 
