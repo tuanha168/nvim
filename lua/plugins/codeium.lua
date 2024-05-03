@@ -21,8 +21,8 @@ return {
         mode = "i",
         "<C-j>",
         function()
-          local cmp_ok, cmp = pcall(require, "cmp")
-          if cmp_ok then cmp.abort() end
+          -- local cmp_ok, cmp = pcall(require, "cmp")
+          -- if cmp_ok then cmp.abort() end
           return vim.fn["codeium#CycleCompletions"](1)
         end,
         expr = true,
@@ -32,8 +32,8 @@ return {
         mode = "i",
         "<C-k>",
         function()
-          local cmp_ok, cmp = pcall(require, "cmp")
-          if cmp_ok then cmp.abort() end
+          -- local cmp_ok, cmp = pcall(require, "cmp")
+          -- if cmp_ok then cmp.abort() end
           return vim.fn["codeium#CycleCompletions"](-1)
         end,
         expr = true,
