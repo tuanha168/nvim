@@ -14,6 +14,7 @@ return {
     "Exafunction/codeium.vim",
     -- enabled = false,
     event = "InsertEnter",
+    dependencies = { "hrsh7th/nvim-cmp" },
     keys = {
       { mode = "n", "<C-g>", function() return vim.fn["codeium#Chat"]() end, expr = true, silent = true },
       { mode = "i", "<C-f>", function() return vim.fn["codeium#Accept"]() end, expr = true, silent = true },
@@ -22,7 +23,7 @@ return {
         "<C-j>",
         function()
           local cmp_ok, cmp = pcall(require, "cmp")
-          if cmp_ok then cmp.mapping.close() end
+          if cmp_ok then cmp.abort() end
           return vim.fn["codeium#CycleCompletions"](1)
         end,
         expr = true,
@@ -33,7 +34,7 @@ return {
         "<C-k>",
         function()
           local cmp_ok, cmp = pcall(require, "cmp")
-          if cmp_ok then cmp.mapping.close() end
+          if cmp_ok then cmp.abort() end
           return vim.fn["codeium#CycleCompletions"](-1)
         end,
         expr = true,
