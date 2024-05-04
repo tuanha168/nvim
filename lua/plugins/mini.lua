@@ -40,32 +40,23 @@ return {
         -- technically can filter entries here too, and checking gitignore for _every entry individually_
         -- like I would have to in `content.filter` above is too slow. Here we can give it _all_ the entries
         -- at once, which is much more performant.
-        local all_paths = table.concat(
-          vim.tbl_map(function(entry)
-            return entry.path
-          end, entries),
-          '\n'
-        )
+        local all_paths = table.concat(vim.tbl_map(function(entry) return entry.path end, entries), "\n")
         local output_lines = {}
-        local job_id = vim.fn.jobstart({ 'git', 'check-ignore', '--stdin' }, {
+        local job_id = vim.fn.jobstart({ "git", "check-ignore", "--stdin" }, {
           stdout_buffered = true,
-          on_stdout = function(_, data)
-            output_lines = data
-          end,
+          on_stdout = function(_, data) output_lines = data end,
         })
 
         -- command failed to run
-        if job_id < 1 then
-          return entries
-        end
+        if job_id < 1 then return entries end
 
         -- send paths via STDIN
         vim.fn.chansend(job_id, all_paths)
-        vim.fn.chanclose(job_id, 'stdin')
-        vim.fn.jobwait({ job_id })
-        return require('mini.files').default_sort(vim.tbl_filter(function(entry)
-          return not vim.tbl_contains(output_lines, entry.path)
-        end, entries))
+        vim.fn.chanclose(job_id, "stdin")
+        vim.fn.jobwait { job_id }
+        return require("mini.files").default_sort(
+          vim.tbl_filter(function(entry) return not vim.tbl_contains(output_lines, entry.path) end, entries)
+        )
       end
 
       vim.api.nvim_create_autocmd("User", {
@@ -84,12 +75,15 @@ return {
           end, { buffer = buf_id })
 
           vim.keymap.set("n", "<c-n>", function() minifiles.close() end, { buffer = buf_id })
-          vim.keymap.set("n", "q", function() minifiles.close() end, { buffer = buf_id })
+          vim.keymap.set("n", "r", function()
+            Print(123)
+            minifiles.close()
+          end, { buffer = buf_id })
 
           vim.keymap.set("n", "<CR>", function()
             local fs_entry = minifiles.get_fs_entry()
             local is_at_file = fs_entry ~= nil and fs_entry.fs_type == "file"
-            minifiles.go_in({})
+            minifiles.go_in {}
             if is_at_file then minifiles.close() end
           end, { buffer = buf_id })
 
@@ -97,7 +91,7 @@ return {
             local fs_entry = minifiles.get_fs_entry()
             if fs_entry == nil or fs_entry.fs_type == "file" then return end
 
-            minifiles.go_in({})
+            minifiles.go_in {}
             local cur_entry_path = minifiles.get_fs_entry().path
             local cur_directory = vim.fs.dirname(cur_entry_path)
             vim.fn.chdir(cur_directory)
