@@ -60,9 +60,9 @@ return {
       end
 
       vim.api.nvim_create_autocmd("User", {
-        pattern = "MiniFilesExplorerOpen",
+        pattern = "MiniFilesBufferCreate",
         callback = function(args)
-          local buf_id = args.buf
+          local buf_id = args.data.buf_id
 
           vim.keymap.set("n", "H", function()
             vim.b.mini_files_ignore = not vim.b.mini_files_ignore
