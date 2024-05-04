@@ -69,7 +69,7 @@ return {
       end
 
       vim.api.nvim_create_autocmd("User", {
-        pattern = "MiniFilesBufferOpen",
+        pattern = "MiniFilesExplorerOpen",
         callback = function(args)
           Print(args)
           -- local buf_id = args.data.buf_id
