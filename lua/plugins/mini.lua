@@ -71,70 +71,70 @@ return {
       vim.api.nvim_create_autocmd("User", {
         pattern = "MiniFilesExplorerOpen",
         callback = function(args)
-          Print(args)
-          -- local buf_id = args.data.buf_id
+          local buf_id = args.buf
 
-          -- vim.keymap.set("n", "H", function()
-          --   vim.b.mini_files_ignore = not vim.b.mini_files_ignore
+          vim.keymap.set("n", "H", function()
+            vim.b.mini_files_ignore = not vim.b.mini_files_ignore
 
-          --   minifiles.refresh {
-          --     content = {
-          --       sort = vim.b.mini_files_ignore and git_ignore_sorter or minifiles.default_sort,
-          --     },
-          --   }
-          -- end, { buffer = buf_id })
+            minifiles.refresh {
+              content = {
+                sort = vim.b.mini_files_ignore and git_ignore_sorter or minifiles.default_sort,
+              },
+            }
+          end, { buffer = buf_id })
 
-          -- vim.keymap.set("n", "<c-n>", function() minifiles.close() end, { buffer = buf_id })
+          vim.keymap.set("n", "<c-n>", function() minifiles.close() end, { buffer = buf_id })
+          vim.keymap.set("n", "q", function() minifiles.close() end, { buffer = buf_id })
 
-          -- vim.keymap.set("n", "<CR>", function()
-          --   local fs_entry = minifiles.get_fs_entry()
-          --   local is_at_file = fs_entry ~= nil and fs_entry.fs_type == "file"
-          --   minifiles.go_in({})
-          --   if is_at_file then minifiles.close() end
-          -- end, { buffer = buf_id })
+          vim.keymap.set("n", "<CR>", function()
+            local fs_entry = minifiles.get_fs_entry()
+            local is_at_file = fs_entry ~= nil and fs_entry.fs_type == "file"
+            minifiles.go_in({})
+            if is_at_file then minifiles.close() end
+          end, { buffer = buf_id })
 
-          -- vim.keymap.set("n", ".", function()
-          --   local fs_entry = minifiles.get_fs_entry()
-          --   if fs_entry == nil or fs_entry.fs_type == "file" then return end
+          vim.keymap.set("n", ".", function()
+            local fs_entry = minifiles.get_fs_entry()
+            if fs_entry == nil or fs_entry.fs_type == "file" then return end
 
-          --   minifiles.go_in({})
-          --   local cur_entry_path = minifiles.get_fs_entry().path
-          --   local cur_directory = vim.fs.dirname(cur_entry_path)
-          --   vim.fn.chdir(cur_directory)
-          --   minifiles.open(cur_directory, false)
-          -- end, { buffer = buf_id })
+            minifiles.go_in({})
+            local cur_entry_path = minifiles.get_fs_entry().path
+            local cur_directory = vim.fs.dirname(cur_entry_path)
+            vim.fn.chdir(cur_directory)
+            minifiles.open(cur_directory, false)
+          end, { buffer = buf_id })
 
-          -- vim.keymap.set("n", "r", function()
-          --   minifiles.close()
-          --   minifiles.open(vim.api.nvim_buf_get_name(0), true)
-          --   minifiles.reveal_cwd()
-          -- end, { buffer = buf_id })
+          vim.keymap.set("n", "r", function()
+            minifiles.close()
+            minifiles.open(vim.api.nvim_buf_get_name(0), true)
+            minifiles.reveal_cwd()
+          end, { buffer = buf_id })
 
-          -- vim.keymap.set("n", "<BS>", function()
-          --   minifiles.open()
-          --   minifiles.go_out()
-          --   local cur_entry_path = minifiles.get_fs_entry().path
-          --   local cur_directory = vim.fs.dirname(cur_entry_path)
-          --   vim.fn.chdir(cur_directory)
-          --   minifiles.open(cur_directory, false)
-          -- end, { buffer = buf_id })
+          vim.keymap.set("n", "<BS>", function()
+            minifiles.open()
+            minifiles.go_out()
+            local cur_entry_path = minifiles.get_fs_entry().path
+            local cur_directory = vim.fs.dirname(cur_entry_path)
+            vim.fn.chdir(cur_directory)
+            minifiles.open(cur_directory, false)
+          end, { buffer = buf_id })
 
-          -- vim.keymap.set("n", "<c-o>", function()
-          --   local path = minifiles.get_fs_entry().path
-          --   local have_plenary, Path = pcall(require, "plenary.path")
-          --   if have_plenary then path = Path:new(path):make_relative(vim.fn.getcwd()) end
-          --   vim.fn.setreg("+", path)
-          --   Chiruno.func.print(path)
-          -- end, { buffer = buf_id })
+          vim.keymap.set("n", "<c-o>", function()
+            local path = minifiles.get_fs_entry().path
+            local have_plenary, Path = pcall(require, "plenary.path")
+            if have_plenary then path = Path:new(path):make_relative(vim.fn.getcwd()) end
+            vim.fn.setreg("+", path)
+            Chiruno.func.print(path)
+          end, { buffer = buf_id })
 
-          -- -- vim.schedule(function()
-          -- --   vim.api.nvim_set_option_value("buftype", "acwrite", { buf = buf_id })
-          -- --   vim.api.nvim_buf_set_name(buf_id, minifiles.get_fs_entry(buf_id, 1).path)
-          -- --   vim.api.nvim_create_autocmd("BufWriteCmd", {
-          -- --     buffer = buf_id,
-          -- --     callback = function() minifiles.synchronize() end,
-          -- --   })
-          -- -- end)
+          -- vim.schedule(function()
+          --   vim.api.nvim_set_option_value("buftype", "acwrite", { buf = buf_id })
+          --   vim.api.nvim_buf_set_name(buf_id, minifiles.get_fs_entry(buf_id, 1).path)
+          --   vim.api.nvim_create_autocmd("BufWriteCmd", {
+          --     buffer = buf_id,
+          --     callback = function() minifiles.synchronize() end,
+          --   })
+          -- end)
         end,
       })
 
