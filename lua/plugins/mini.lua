@@ -69,8 +69,9 @@ return {
       end
 
       vim.api.nvim_create_autocmd("User", {
-        pattern = "MiniFilesExplorerOpen",
+        pattern = "MiniFilesBufferOpen",
         callback = function(args)
+          Print(args)
           local buf_id = args.data.buf_id
 
           vim.keymap.set("n", "H", function()
@@ -84,7 +85,6 @@ return {
           end, { buffer = buf_id })
 
           vim.keymap.set("n", "<c-n>", function() minifiles.close() end, { buffer = buf_id })
-          vim.keymap.set("n", "q", function() Print(123) end, { buffer = buf_id })
 
           vim.keymap.set("n", "<CR>", function()
             local fs_entry = minifiles.get_fs_entry()
@@ -150,7 +150,7 @@ return {
           sort = vim.b.mini_files_ignore and git_ignore_sorter or minifiles.default_sort,
         },
         mappings = {
-          close = "",
+          close = "q",
           go_in = "L",
           go_in_plus = "l",
           go_out = "H",
