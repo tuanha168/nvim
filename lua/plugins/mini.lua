@@ -84,6 +84,7 @@ return {
           end, { buffer = buf_id })
 
           vim.keymap.set("n", "<c-n>", function() minifiles.close() end, { buffer = buf_id })
+          vim.keymap.set("n", "q", function() minifiles.close() end, { buffer = buf_id })
 
           vim.keymap.set("n", "<CR>", function()
             local fs_entry = minifiles.get_fs_entry()
@@ -149,7 +150,6 @@ return {
           sort = vim.b.mini_files_ignore and git_ignore_sorter or minifiles.default_sort,
         },
         mappings = {
-          close = "q",
           go_in = "L",
           go_in_plus = "l",
           go_out = "H",
