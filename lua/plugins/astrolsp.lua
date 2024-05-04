@@ -22,7 +22,6 @@ return {
       format_on_save = false,
       disabled = { -- disable formatting capabilities for the listed language servers
         "lua_ls",
-        "stylua",
         "jsonls",
         -- "intelephense",
         -- "eslint",
@@ -31,10 +30,9 @@ return {
         "tailwindcss",
       },
       timeout_ms = 1000, -- default format timeout
-      filter = function(client) -- fully override the default formatting function
-        Print(client)
-        return true
-      end,
+      -- filter = function(client) -- fully override the default formatting function
+      --   return true
+      -- end,
     },
     -- enable servers that you already have installed without mason
     servers = {},
