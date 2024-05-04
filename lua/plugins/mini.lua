@@ -84,6 +84,8 @@ return {
           end, { buffer = buf_id })
 
           vim.keymap.set("n", "<c-n>", function() minifiles.close() end, { buffer = buf_id })
+          vim.keymap.set("n", "q", function()  end, { buffer = buf_id })
+          Print(12)
 
           vim.keymap.set("n", "<CR>", function()
             local fs_entry = minifiles.get_fs_entry()
