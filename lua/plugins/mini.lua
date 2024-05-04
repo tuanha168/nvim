@@ -96,8 +96,8 @@ return {
 
           vim.keymap.set("n", "r", function()
             minifiles.close()
-            minifiles.open(vim.api.nvim_buf_get_name(0), true)
-            minifiles.reveal_cwd()
+            -- minifiles.open(vim.api.nvim_buf_get_name(0), true)
+            -- minifiles.reveal_cwd()
           end, { buffer = buf_id })
 
           vim.keymap.set("n", "<BS>", function()
