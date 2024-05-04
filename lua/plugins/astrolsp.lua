@@ -19,7 +19,7 @@ return {
     -- customize lsp formatting options
     formatting = {
       -- control auto formatting on save
-      format_on_save = true,
+      format_on_save = false,
       disabled = { -- disable formatting capabilities for the listed language servers
         "lua_ls",
         "stylua",
