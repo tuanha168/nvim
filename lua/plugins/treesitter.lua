@@ -40,6 +40,7 @@ return {
         "go",
         "xml",
         "c_sharp",
+        "yuck",
       })
       opts.sync_install = true
       opts.ignore_install = {}
