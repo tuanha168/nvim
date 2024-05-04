@@ -150,6 +150,7 @@ return {
           sort = vim.b.mini_files_ignore and git_ignore_sorter or minifiles.default_sort,
         },
         mappings = {
+          close = "",
           go_in = "L",
           go_in_plus = "l",
           go_out = "H",
