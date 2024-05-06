@@ -3,7 +3,7 @@ return function(_, opts)
 
   local tsdk = registry.get_package("typescript-language-server"):get_install_path() .. "/node_modules/typescript/lib"
   local vuePlugin = registry.get_package("vue-language-server"):get_install_path()
-    .. "/node_modules/@vue/language-server"
+    .. "/node_modules/@vue/typescript-plugin"
 
   opts.init_options.plugins = {
     {
