@@ -120,7 +120,6 @@ local config = {
     tsserver = {
       typescript = {
         tsserver = {
-          maxTsServerMemory = 8192,
           web = {
             projectWideIntellisense = {
               enabled = "true",
