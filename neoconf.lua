@@ -21,9 +21,6 @@ local config = {
   },
   lspconfig = {
     volar = {
-      takeOverMode = {
-        extension = "Vue.volar",
-      },
       vue = {
         inlayHints = {
           missingProps = "true",
@@ -123,6 +120,7 @@ local config = {
     tsserver = {
       typescript = {
         tsserver = {
+          maxTsServerMemory = 8192,
           web = {
             projectWideIntellisense = {
               enabled = "true",
