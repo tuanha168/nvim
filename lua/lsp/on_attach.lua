@@ -4,13 +4,9 @@ return function(client, bufnr)
       or {}
     client.server_capabilities.workspace.didChangeWatchedFiles = { dynamicRegistration = false }
   end
-  -- if client.server_capabilities.inlayHintProvider then
-  --   if vim.lsp.inlay_hint then
-  --     vim.lsp.inlay_hint.enable()
-  --   else
-  --     vim.lsp.buf.inlay_hint.enable()
-  --   end
-  -- end
+  if client.server_capabilities.inlayHintProvider then
+    if vim.lsp.inlay_hint and not vim.lsp.inlay_hint.is_enabled(bufnr) then vim.lsp.inlay_hint.enable() end
+  end
 
   if client.name == "rust_analyzer" then
     local rt = require "rust-tools"
