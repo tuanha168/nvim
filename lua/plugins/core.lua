@@ -50,10 +50,8 @@ return {
       ignore = "^$",
     },
     config = function(_, opts)
-      Print(opts)
       local ft = require "Comment.ft"
       ft.set("dosini", "# %s")
-      Print(123)
       require("Comment").setup(opts)
     end,
   },
