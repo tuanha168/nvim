@@ -36,7 +36,7 @@ return {
           callback = function(event)
             if
               vim.tbl_contains({ "help", "nofile", "quickfix" }, vim.bo[event.buf].buftype)
-              and vim.tbl_contains({ "minifiles" }, vim.bo[event.buf].filetype)
+              and not vim.tbl_contains({ "minifiles" }, vim.bo[event.buf].filetype)
             then
               vim.keymap.set("n", "q", "<Cmd>close<CR>", {
                 desc = "Close window",
