@@ -25,7 +25,7 @@ return {
           local ok, minifiles = pcall(require, "mini.files")
           if not ok then return end
           local status, _ = pcall(minifiles.open, vim.api.nvim_buf_get_name(0), true)
-          if not status then minifiles.open() end
+          if not status then minifiles.open(nil, false) end
           minifiles.reveal_cwd()
         end,
         desc = "Open mini.files (directory of current file)",
@@ -95,11 +95,16 @@ return {
             minifiles.open(cur_directory, false)
           end, { buffer = buf_id })
 
-          vim.keymap.set("n", "r", function()
+          vim.keymap.set("n", "t", function()
             minifiles.close()
             local status, _ = pcall(minifiles.open, vim.api.nvim_buf_get_name(0), true)
-            if not status then minifiles.open() end
+            if not status then minifiles.open(nil, false) end
             minifiles.reveal_cwd()
+          end, { buffer = buf_id })
+
+          vim.keymap.set("n", "r", function()
+            minifiles.close()
+            minifiles.open(nil, false)
           end, { buffer = buf_id })
 
           vim.keymap.set("n", "<BS>", function()
