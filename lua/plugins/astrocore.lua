@@ -29,6 +29,7 @@ return {
     -- NOTE: keycodes follow the casing in the vimdocs. For example, `<Leader>` must be capitalized
     mappings = require "mappings",
     autocmds = {
+      -- $HOME/.local/share/nvim/lazy/AstroNvim/lua/astronvim/plugins/_astrocore_autocmds.lua:234
       q_close_windows = {
         {
           event = "BufWinEnter",
