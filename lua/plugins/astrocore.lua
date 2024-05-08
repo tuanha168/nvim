@@ -24,9 +24,30 @@ return {
       update_in_insert = false,
     },
     -- vim options can be configured here
-    options = require("options"),
+    options = require "options",
     -- Mappings can be configured through AstroCore as well.
     -- NOTE: keycodes follow the casing in the vimdocs. For example, `<Leader>` must be capitalized
-    mappings = require("mappings"),
+    mappings = require "mappings",
+    autocmds = {
+      q_close_windows = {
+        {
+          event = "BufWinEnter",
+          desc = "Make q close help, man, quickfix, dap floats",
+          callback = function(event)
+            if
+              vim.tbl_contains({ "help", "nofile", "quickfix" }, vim.bo[event.buf].buftype)
+              and vim.tbl_contains({ "minifiles" }, vim.bo[event.buf].filetype)
+            then
+              vim.keymap.set("n", "q", "<Cmd>close<CR>", {
+                desc = "Close window",
+                buffer = event.buf,
+                silent = true,
+                nowait = true,
+              })
+            end
+          end,
+        },
+      },
+    },
   },
 }
