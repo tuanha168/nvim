@@ -48,7 +48,12 @@ return {
           end
 
           local okFzF, fzf = pcall(require, "fzf-lua")
-          if okFzF then fzf.files() end
+          if okFzF then
+            fzf.files {
+              cwd = os.getenv "HOME" .. "/.config/nvim/scratch/src",
+              no_ignore_parent = true,
+            }
+          end
         end,
         desc = "Telescope Attempt",
       },
