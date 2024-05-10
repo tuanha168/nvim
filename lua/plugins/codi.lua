@@ -52,6 +52,7 @@ return {
             fzf.files {
               prompt = "Attempt",
               cwd = os.getenv "HOME" .. "/.config/nvim/scratch/src",
+              fd_opts = "--hidden --follow --exclude .git --no-ignore",
               no_ignore_parent = true,
             }
           end
