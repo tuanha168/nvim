@@ -36,16 +36,19 @@ return {
       {
         "<leader>aa",
         function()
-          local ok, builtin = pcall(require, "telescope.builtin")
-          if not ok then return end
+          local okTelescope, builtin = pcall(require, "telescope.builtin")
+          if okTelescope then
+            builtin.find_files {
+              prompt_title = "Attempt",
+              search_dirs = { os.getenv "HOME" .. "/.config/nvim/scratch/src" },
+              cwd = os.getenv "HOME" .. "/.config/nvim/scratch/src",
+              follow = true,
+              no_ignore_parent = true,
+            }
+          end
 
-          builtin.find_files {
-            prompt_title = "Attempt",
-            search_dirs = { os.getenv "HOME" .. "/.config/nvim/scratch/src" },
-            cwd = os.getenv "HOME" .. "/.config/nvim/scratch/src",
-            follow = true,
-            no_ignore_parent = true,
-          }
+          local okFzF, fzf = pcall(require, "fzf-lua")
+          if okFzF then fzf.builtin() end
         end,
         desc = "Telescope Attempt",
       },
