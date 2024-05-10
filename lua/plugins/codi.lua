@@ -48,7 +48,7 @@ return {
           end
 
           local okFzF, fzf = pcall(require, "fzf-lua")
-          if okFzF then fzf.builtin() end
+          if okFzF then fzf.files() end
         end,
         desc = "Telescope Attempt",
       },
