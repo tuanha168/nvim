@@ -50,6 +50,7 @@ return {
           local okFzF, fzf = pcall(require, "fzf-lua")
           if okFzF then
             fzf.files {
+              prompt = "Attempt",
               cwd = os.getenv "HOME" .. "/.config/nvim/scratch/src",
               no_ignore_parent = true,
             }
