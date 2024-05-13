@@ -26,7 +26,7 @@ return {
 
         -- lint
         -- "eslint",
-        "eslint_d",
+        "eslintd",
 
         -- php
         "intelephense",
