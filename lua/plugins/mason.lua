@@ -25,7 +25,7 @@ return {
         "jsonls",
 
         -- lint
-        "eslint",
+        -- "eslint",
         "eslint_d",
 
         -- php
