@@ -32,10 +32,10 @@ return {
         "null-ls",
       },
       timeout_ms = 1000, -- default format timeout
-      filter = function(client) -- fully override the default formatting function
-        Print(client.name)
-        return true
-      end,
+      -- filter = function(client) -- fully override the default formatting function
+      --   Print(client.name)
+      --   return true
+      -- end,
     },
     -- enable servers that you already have installed without mason
     servers = {},
@@ -44,6 +44,7 @@ return {
     config = {
       cssls = require "lsp.config.cssls",
       eslint = require "lsp.config.eslint",
+      eslintd = require "lsp.config.eslint",
       html = require "lsp.config.html",
       intelephense = require "lsp.config.intelephense",
       omnisharp = require "lsp.config.omnisharp",
