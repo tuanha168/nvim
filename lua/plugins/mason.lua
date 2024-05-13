@@ -25,8 +25,7 @@ return {
         "jsonls",
 
         -- lint
-        -- "eslint",
-        "eslintd",
+        "eslint",
 
         -- php
         "intelephense",
