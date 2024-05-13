@@ -26,6 +26,7 @@ return {
         -- "intelephense",
         -- "eslint",
         "prettierd",
+        "tsserver",
         "volar",
         "tailwindcss",
       },
