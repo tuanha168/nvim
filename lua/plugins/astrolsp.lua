@@ -32,7 +32,7 @@ return {
       },
       timeout_ms = 1000, -- default format timeout
       filter = function(client) -- fully override the default formatting function
-        Print(client.name)
+        Print(client)
         return true
       end,
     },
