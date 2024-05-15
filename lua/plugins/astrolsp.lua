@@ -49,7 +49,7 @@ return {
       stylelint_lsp = require "lsp.config.stylelint_lsp",
       tailwindcss = require "lsp.config.tailwindcss",
       tsserver = require "lsp.config.tsserver",
-      volar = require "lsp.config.volar",
+      -- volar = require "lsp.config.volar",
     },
     -- customize how language servers are attached
     handlers = require "lsp.setup_handlers",
