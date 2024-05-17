@@ -41,6 +41,8 @@ return {
         "xml",
         "c_sharp",
         "yuck",
+        "dot",
+        "ini"
       })
       opts.sync_install = true
       opts.ignore_install = {}
