@@ -9,10 +9,10 @@ return function(client, bufnr)
   -- end
   if client.name == "eslint" then
     Print(client.name)
-    require("null-ls").disable { "prettierd" }
+    Print(client.resolved_capabilities)
+    -- require("null-ls").disable { "prettierd" }
     client.resolved_capabilities.document_formatting = true
     client.resolved_capabilities.document_range_formatting = true
-    Print(client.resolved_capabilities)
   end
 
   if client.name == "rust_analyzer" then
