@@ -35,6 +35,7 @@ return {
         "dockerfile",
         "yaml",
         "terraform",
+        "git_config",
         "ssh_config",
         "http",
         "go",
