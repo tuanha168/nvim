@@ -9,11 +9,9 @@ return function(client, bufnr)
   -- end
   if client.name == "eslint" then
     client.server_capabilities = client.server_capabilities or {}
-    client.server_capabilities.document_formatting = true
-    client.server_capabilities.document_range_formatting = true
+    client.server_capabilities.documentFormattingProvider = true
     client.config.capabilities = client.config.capabilities or {}
-    client.config.capabilities.document_formatting = true
-    client.config.capabilities.document_range_formatting = true
+    client.config.capabilities.documentFormattingProvider = true
     require("null-ls").disable { "prettierd" }
   end
 
