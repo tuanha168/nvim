@@ -25,7 +25,7 @@ return {
         "jsonls",
 
         -- lint
-        "eslint",
+        -- "eslint",
 
         -- php
         "intelephense",
@@ -63,6 +63,7 @@ return {
         "stylua",
         -- "pint",
         "tfsec",
+        "eslint_d"
       })
     end,
   },
