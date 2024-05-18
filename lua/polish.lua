@@ -5,6 +5,11 @@ if not Chiruno.func.file_exist(neoconf .. ".json") then
   vim.schedule(function() vim.cmd("silent !lua " .. neoconf .. ".lua") end)
 end
 
+-- Add filetype
+vim.filetype.add({
+  pattern = { [".*/hypr/.*%.conf"] = "hyprlang" },
+})
+
 local autocmd = vim.api.nvim_create_autocmd
 
 autocmd("BufRead", {

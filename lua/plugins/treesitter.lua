@@ -43,7 +43,8 @@ return {
         "c_sharp",
         "yuck",
         "dot",
-        "ini"
+        "ini",
+        "hyprlang"
       })
       opts.sync_install = true
       opts.ignore_install = {}
