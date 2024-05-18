@@ -7,6 +7,7 @@ return function(client, bufnr)
   -- if client.server_capabilities.inlayHintProvider then
   --   if vim.lsp.inlay_hint and not vim.lsp.inlay_hint.is_enabled(bufnr) then vim.lsp.inlay_hint.enable() end
   -- end
+  if client.name == "eslint" then require("null-ls").disable { "prettierd" } end
 
   if client.name == "rust_analyzer" then
     local rt = require "rust-tools"
