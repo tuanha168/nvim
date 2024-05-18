@@ -43,6 +43,7 @@ return {
     config = {
       cssls = require "lsp.config.cssls",
       eslint = require "lsp.config.eslint",
+      eslint_d = require "lsp.config.eslint",
       html = require "lsp.config.html",
       intelephense = require "lsp.config.intelephense",
       omnisharp = require "lsp.config.omnisharp",
