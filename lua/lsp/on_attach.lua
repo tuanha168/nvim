@@ -7,10 +7,12 @@ return function(client, bufnr)
   -- if client.server_capabilities.inlayHintProvider then
   --   if vim.lsp.inlay_hint and not vim.lsp.inlay_hint.is_enabled(bufnr) then vim.lsp.inlay_hint.enable() end
   -- end
+  Print(client.name)
   if client.name == "eslint" then
     require("null-ls").disable { "prettierd" }
-    client.resolved_capabilities.document_formatting = allow_formatting
-    client.resolved_capabilities.document_range_formatting = allow_formatting
+    client.resolved_capabilities.document_formatting = true
+    client.resolved_capabilities.document_range_formatting = true
+    Print(client.resolved_capabilities)
   end
 
   if client.name == "rust_analyzer" then
