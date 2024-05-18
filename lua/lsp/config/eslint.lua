@@ -9,4 +9,8 @@ return {
     ".eslintrc.yml",
     ".git"
   ),
+  init_options = {
+
+    format = { enable = true },
+  },
 }
