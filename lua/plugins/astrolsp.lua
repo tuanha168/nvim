@@ -31,10 +31,10 @@ return {
         "tailwindcss",
       },
       timeout_ms = 1000, -- default format timeout
-      -- filter = function(client) -- fully override the default formatting function
-      --   Print(client.name)
-      --   return true
-      -- end,
+      filter = function(client) -- fully override the default formatting function
+        Print(client.name)
+        return true
+      end,
     },
     -- enable servers that you already have installed without mason
     servers = {},
