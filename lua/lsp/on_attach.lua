@@ -8,11 +8,12 @@ return function(client, bufnr)
   --   if vim.lsp.inlay_hint and not vim.lsp.inlay_hint.is_enabled(bufnr) then vim.lsp.inlay_hint.enable() end
   -- end
   if client.name == "eslint" then
-    Print(client)
-    client.resolved_capabilities = client.resolved_capabilities or {}
-    client.resolved_capabilities.document_formatting = true
-    client.resolved_capabilities.document_range_formatting = true
-    Print(client.resolved_capabilities)
+    client.server_capabilities = client.server_capabilities or {}
+    client.server_capabilities.document_formatting = true
+    client.server_capabilities.document_range_formatting = true
+    client.config.capabilities = client.config.capabilities or {}
+    client.config.capabilities.document_formatting = true
+    client.config.capabilities.document_range_formatting = true
     require("null-ls").disable { "prettierd" }
   end
 
