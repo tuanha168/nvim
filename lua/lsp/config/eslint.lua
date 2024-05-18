@@ -10,7 +10,6 @@ return {
     ".git"
   ),
   init_options = {
-
     format = { enable = true },
   },
 }
