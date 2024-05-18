@@ -9,6 +9,7 @@ return function(client, bufnr)
   -- end
   if client.name == "eslint" then
     Print(client.name)
+    client.resolved_capabilities = client.resolved_capabilities or {}
     client.resolved_capabilities.document_formatting = true
     client.resolved_capabilities.document_range_formatting = true
     Print(client.resolved_capabilities)
