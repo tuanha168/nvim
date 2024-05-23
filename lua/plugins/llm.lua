@@ -13,7 +13,6 @@ return {
       dismiss_keymap = "<C-d>",
       request_body = {
         parameters = {
-
           max_new_tokens = 60,
           temperature = 0.2,
           top_p = 0.95,
