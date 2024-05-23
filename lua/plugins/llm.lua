@@ -1,7 +1,7 @@
 return {
   {
     "huggingface/llm.nvim",
-    -- enabled = false,
+    enabled = false,
     opts = {
       backend = "ollama",
       lsp = {

@@ -12,7 +12,7 @@ return {
   -- },
   {
     "Exafunction/codeium.vim",
-    enabled = false,
+    -- enabled = false,
     event = "InsertEnter",
     keys = {
       { mode = "n", "<C-g>", function() return vim.fn["codeium#Chat"]() end, expr = true, silent = true },
