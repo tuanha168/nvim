@@ -14,7 +14,7 @@ return {
         ollama = require("codecompanion.adapters").use("ollama", {
           schema = {
             model = {
-              default = "llama3",
+              default = "deepseek-coder:6.7b",
             },
           },
         }),
