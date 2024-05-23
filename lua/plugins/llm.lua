@@ -9,13 +9,14 @@ return {
       enable_suggestions_on_startup = true,
       model = "llama3",
       url = "http://localhost:11434/api/generate",
-      -- request_body = {
-      --   -- Modelfile options for the model you use
-      --   options = {
-      --     temperature = 0.2,
-      --     top_p = 0.95,
-      --   },
-      -- },
+      accept_keymap = "<C-f>",
+      dismiss_keymap = "<C-j>",
+      request_body = {
+        options = {
+          temperature = 0.2,
+          top_p = 0.95,
+        },
+      },
     },
   },
 }
