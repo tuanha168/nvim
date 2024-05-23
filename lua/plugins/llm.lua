@@ -11,6 +11,7 @@ return {
       url = "http://localhost:11434/api/generate",
       accept_keymap = "<C-f>",
       dismiss_keymap = "<C-d>",
+      tls_skip_verify_insecure = false,
       request_body = {
         parameters = {
           max_new_tokens = 60,
