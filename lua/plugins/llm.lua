@@ -7,8 +7,8 @@ return {
         bin_path = vim.api.nvim_call_function("stdpath", { "data" }) .. "/mason/bin/llm-ls",
       },
       enable_suggestions_on_startup = true,
-      -- model = "deepseek-coder:6.7b",
-      model = "llama3",
+      model = "deepseek-coder:6.7b",
+      -- model = "llama3",
       url = "http://localhost:11434/api/generate",
       tokens_to_clear = { "<|endoftext|>" },
       fim = {
