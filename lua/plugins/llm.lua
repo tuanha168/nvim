@@ -10,9 +10,11 @@ return {
       model = "llama3",
       url = "http://localhost:11434/api/generate",
       accept_keymap = "<C-f>",
-      dismiss_keymap = "<C-j>",
+      dismiss_keymap = "<C-d>",
       request_body = {
-        options = {
+        parameters = {
+
+          max_new_tokens = 60,
           temperature = 0.2,
           top_p = 0.95,
         },
