@@ -84,9 +84,6 @@ local mappings = {
     ["C"] = {
       '"_C',
     },
-    ["D"] = {
-      '"_D',
-    },
     -- Neotree
     ["<Leader>e"] = false,
     -- Illuminate
