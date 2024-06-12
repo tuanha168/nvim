@@ -10,12 +10,16 @@ vim.keymap.set("i", "=", function()
     "directive_argument",
     "directive_name",
   }
+  if node then
+    return node:type()
+  end
+
   if not node or not vim.tbl_contains(nodes_active_in, node:type()) then
     -- The cursor is not on an attribute node
     return "="
   end
 
-  return '=""<left>' + node:type()
+  return '=""<left>'
 end, { expr = true, buffer = true })
 
 local ok, nPairs = pcall(require, "nvim-autopairs")
