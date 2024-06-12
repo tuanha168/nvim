@@ -14,13 +14,14 @@ return {
   init_options = {
     preferences = {
       includeInlayParameterNameHints = "all",
-      includeInlayParameterNameHintsWhenArgumentMatchesName = true,
-      includeInlayFunctionParameterTypeHints = true,
+      -- includeInlayParameterNameHintsWhenArgumentMatchesName = true,
+      -- includeInlayFunctionParameterTypeHints = true,
+      -- includeInlayPropertyDeclarationTypeHints = true,
+      -- includeInlayEnumMemberValueHints = true,
+      -- importModuleSpecifierPreference = "non-relative",
+
       -- includeInlayVariableTypeHints = true,
-      includeInlayPropertyDeclarationTypeHints = true,
       -- includeInlayFunctionLikeReturnTypeHints = true,
-      includeInlayEnumMemberValueHints = true,
-      importModuleSpecifierPreference = "non-relative",
     },
   },
 }
