@@ -7,12 +7,10 @@ vim.keymap.set("i", "=", function()
   local node = vim.treesitter.get_node { pos = left_of_cursor_range }
   local nodes_active_in = {
     "attribute_name",
+    "directive_value",
     "directive_argument",
     "directive_name",
   }
-  if node then
-    return node:type()
-  end
 
   if not node or not vim.tbl_contains(nodes_active_in, node:type()) then
     -- The cursor is not on an attribute node
