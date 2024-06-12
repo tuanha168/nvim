@@ -15,7 +15,7 @@ vim.keymap.set("i", "=", function()
     return "="
   end
 
-  return '=""<left>'
+  return '=""<left>' + node:type()
 end, { expr = true, buffer = true })
 
 local ok, nPairs = pcall(require, "nvim-autopairs")
