@@ -133,7 +133,7 @@ autocmd({ "BufWritePost" }, {
       pos = pos - 1
     end
     if pom ~= "" then
-      vim.fn.system("dce maven sh -c \"./mvnw compile\"")
+      vim.cmd("silent !dce maven sh -c \"./mvnw compile\"")
     else
       vim.api.nvim_echo({ { "No pom.xml found.", "WarningMsg" } }, true, {})
     end
