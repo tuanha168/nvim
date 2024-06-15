@@ -133,7 +133,7 @@ autocmd({ "BufWritePost" }, {
       pos = pos - 1
     end
     if pom ~= "" then
-      vim.schedule(function() vim.cmd "!./rebuild" end)
+      vim.schedule(function() vim.cmd "silent !tmux new -d \"./rebuild\"" end)
     else
       vim.api.nvim_echo({ { "No pom.xml found.", "WarningMsg" } }, true, {})
     end
