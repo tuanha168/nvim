@@ -133,7 +133,7 @@ autocmd({ "BufWritePost" }, {
       pos = pos - 1
     end
     if pom ~= "" then
-      vim.cmd 'silent !./rebuild'
+      vim.schedule(function() vim.cmd "!./rebuild" end)
     else
       vim.api.nvim_echo({ { "No pom.xml found.", "WarningMsg" } }, true, {})
     end
