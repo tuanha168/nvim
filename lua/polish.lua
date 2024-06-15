@@ -120,7 +120,7 @@ autocmd({ "BufReadPre" }, {
 })
 
 autocmd({ "BufWritePost" }, {
-  pattern = "*.java",
+  pattern = "*",
   callback = function()
     local fp = vim.fn.expand "%:p"
     local pos = #fp
@@ -134,8 +134,6 @@ autocmd({ "BufWritePost" }, {
     end
     if pom ~= "" then
       vim.schedule(function() vim.cmd "silent !tmux new -d \"./rebuild\"" end)
-    else
-      vim.api.nvim_echo({ { "No pom.xml found.", "WarningMsg" } }, true, {})
     end
   end,
 })
