@@ -6,9 +6,9 @@ if not Chiruno.func.file_exist(neoconf .. ".json") then
 end
 
 -- Add filetype
-vim.filetype.add({
+vim.filetype.add {
   pattern = { [".*/hypr/.*%.conf"] = "hyprlang" },
-})
+}
 
 local autocmd = vim.api.nvim_create_autocmd
 
@@ -117,4 +117,27 @@ autocmd({ "BufReadPre" }, {
   end,
   group = buf_large_group,
   pattern = "*",
+})
+
+autocmd({ "BufWritePost" }, {
+  pattern = "*.java",
+  callback = function()
+    local fp = vim.fn.expand "%:p"
+    local pos = #fp
+    local pom = ""
+    while pos > 0 do
+      if fp:sub(pos, pos) == "/" then
+        pom = fp:sub(1, pos) .. "pom.xml"
+        if vim.fn.filereadable(pom) == 1 then break end
+      end
+      pos = pos - 1
+    end
+    Print(11)
+    if pom ~= "" then
+      vim.fn.system("dce maven sh -c \"./mvnw compile\"")
+      Print(12)
+    else
+      vim.api.nvim_echo({ { "No pom.xml found.", "WarningMsg" } }, true, {})
+    end
+  end,
 })
