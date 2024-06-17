@@ -654,7 +654,4 @@ return {
       }
     end,
   },
-  {
-    "lambdalisue/vim-suda",
-  },
 }
