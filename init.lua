@@ -18,6 +18,9 @@ if not pcall(require, "lazy") then
   vim.cmd.quit()
 end
 
+vim.cmd "let g:suda_smart_edit = 1"
+vim.cmd "let g:suda#noninteractive = 1"
+
 require "Chiruno"
 require "lazy_setup"
 require "polish"
