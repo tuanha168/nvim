@@ -656,6 +656,6 @@ return {
   },
   {
     "lambdalisue/vim-suda",
-    opts = function() vim.cmd "let g:suda_smart_edit = 1" end,
+    config = function() vim.cmd "let g:suda_smart_edit = 1" end,
   },
 }
