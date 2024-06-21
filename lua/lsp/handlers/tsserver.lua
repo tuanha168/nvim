@@ -9,7 +9,15 @@ return function(_, opts)
     {
       name = "@vue/typescript-plugin",
       location = vuePlugin,
-      languages = { "javascript", "typescript", "vue" },
+      languages = {
+        "javascript",
+        "javascript.jsx",
+        "javascriptreact",
+        "typescript",
+        "typescript.tsx",
+        "typescriptreact",
+        "vue",
+      },
     },
   }
   opts.init_options.tsserver = {
