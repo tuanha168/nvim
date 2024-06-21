@@ -14,7 +14,7 @@ return {
     "Exafunction/codeium.vim",
     -- enabled = false,
     event = "InsertEnter",
-    branch = "main",
+    tag = "1.8.37",
     keys = {
       { mode = "n", "<C-g>", function() return vim.fn["codeium#Chat"]() end, expr = true, silent = true },
       { mode = "i", "<C-f>", function() return vim.fn["codeium#Accept"]() end, expr = true, silent = true },
