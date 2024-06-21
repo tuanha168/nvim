@@ -40,8 +40,8 @@ return {
         silent = true,
       },
     },
-    config = function()
-      vim.g.codeium_disable_bindings = 1
-    end,
+    -- config = function()
+    --   vim.g.codeium_disable_bindings = 1
+    -- end,
   },
 }
