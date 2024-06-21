@@ -17,12 +17,11 @@ return {
     keys = {
       { mode = "n", "<C-g>", function() return vim.fn["codeium#Chat"]() end, expr = true, silent = true },
       { mode = "i", "<C-f>", function() return vim.fn["codeium#Accept"]() end, expr = true, silent = true },
-      { mode = "i", "<C-h>", function() return vim.fn["codeium#Complete"]() end, expr = true, silent = true },
       {
         mode = "i",
         "<C-J>",
         function()
-          return vim.fn["codeium#CycleCompletions"](1)
+          return vim.fn["codeium#CycleOrComplete"]()
         end,
         expr = true,
         silent = true,
