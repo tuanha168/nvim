@@ -17,4 +17,5 @@ return function(_, opts)
   --   path = tsdk,
   -- }
   require("lspconfig").tsserver.setup(opts)
+  Print(opts)
 end
