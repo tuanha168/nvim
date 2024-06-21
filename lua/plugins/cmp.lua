@@ -37,8 +37,14 @@ return {
       --     fallback()
       --   end
       -- end, { "i", "s" })
-      opts.mapping["<C-k>"] = cmp.mapping(function(fallback) fallback() end)
-      opts.mapping["<C-j>"] = cmp.mapping(function(fallback) fallback() end)
+      opts.mapping["<C-k>"] = cmp.mapping(function(fallback)
+        Print(1)
+        fallback()
+      end)
+      opts.mapping["<C-j>"] = cmp.mapping(function(fallback)
+        Print(2)
+        fallback()
+      end)
 
       local snip_status_ok, luasnip = pcall(require, "luasnip")
 
@@ -47,7 +53,7 @@ return {
           cmp.select_next_item()
         elseif snip_status_ok and luasnip.expand_or_jumpable() then
           luasnip.expand_or_jump()
-        elseif vim.snippet.active({ direction = 1 }) then
+        elseif vim.snippet.active { direction = 1 } then
           vim.snippet.jump(1)
         else
           fallback()
@@ -59,7 +65,7 @@ return {
           cmp.select_prev_item()
         elseif snip_status_ok and luasnip.jumpable(-1) then
           luasnip.jump(-1)
-        elseif vim.snippet.active({ direction = -1 }) then
+        elseif vim.snippet.active { direction = -1 } then
           vim.snippet.jump(-1)
         else
           fallback()
