@@ -42,6 +42,18 @@ return {
     },
     config = function()
       vim.g.codeium_disable_bindings = 1
+      vim.schedule(function()
+        vim.keymap.set("i", "<C-j>", function()
+          local cmp_ok, cmp = pcall(require, "cmp")
+          if cmp_ok then cmp.abort() end
+          return vim.fn["codeium#CycleCompletions"](1)
+        end)
+        vim.keymap.set("i", "<C-k>", function()
+          local cmp_ok, cmp = pcall(require, "cmp")
+          if cmp_ok then cmp.abort() end
+          return vim.fn["codeium#CycleCompletions"](-1)
+        end)
+      end)
     end,
   },
 }
