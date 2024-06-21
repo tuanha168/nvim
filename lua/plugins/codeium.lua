@@ -19,7 +19,7 @@ return {
       { mode = "i", "<C-f>", function() return vim.fn["codeium#Accept"]() end, expr = true, silent = true },
       {
         mode = "i",
-        "<C-j>",
+        "<C-J>",
         function()
           local cmp_ok, cmp = pcall(require, "cmp")
           if cmp_ok then cmp.abort() end
@@ -30,7 +30,7 @@ return {
       },
       {
         mode = "i",
-        "<C-k>",
+        "<C-K>",
         function()
           local cmp_ok, cmp = pcall(require, "cmp")
           if cmp_ok then cmp.abort() end
@@ -42,18 +42,6 @@ return {
     },
     config = function()
       vim.g.codeium_disable_bindings = 1
-      vim.schedule(function()
-        vim.keymap.set("i", "<C-j>", function()
-          local cmp_ok, cmp = pcall(require, "cmp")
-          if cmp_ok then cmp.abort() end
-          return vim.fn["codeium#CycleCompletions"](1)
-        end)
-        vim.keymap.set("i", "<C-k>", function()
-          local cmp_ok, cmp = pcall(require, "cmp")
-          if cmp_ok then cmp.abort() end
-          return vim.fn["codeium#CycleCompletions"](-1)
-        end)
-      end)
     end,
   },
 }
