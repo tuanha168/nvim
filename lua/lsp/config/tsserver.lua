@@ -1,7 +1,3 @@
-local registry = require "mason-registry"
-
-local vuePlugin = registry.get_package("vue-language-server"):get_install_path() .. "/node_modules/@vue/language-server"
-
 return {
   compilerOptions = {
     noErrorTruncate = true,
@@ -16,13 +12,6 @@ return {
     "vue",
   },
   init_options = {
-    plugins = {
-      {
-        name = "@vue/typescript-plugin",
-        location = vuePlugin,
-        languages = { "javascript", "typescript", "vue" },
-      },
-    },
     preferences = {
       includeInlayParameterNameHints = "all",
       includeInlayParameterNameHintsWhenArgumentMatchesName = true,
