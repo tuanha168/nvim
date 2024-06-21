@@ -47,7 +47,7 @@ return {
           cmp.select_next_item()
         elseif snip_status_ok and luasnip.expand_or_jumpable() then
           luasnip.expand_or_jump()
-        elseif vim.snippet.jumpable(1) then
+        elseif vim.snippet.active({ direction = 1 }) then
           vim.snippet.jump(1)
         else
           fallback()
@@ -59,7 +59,7 @@ return {
           cmp.select_prev_item()
         elseif snip_status_ok and luasnip.jumpable(-1) then
           luasnip.jump(-1)
-        elseif vim.snippet.jumpable(-1) then
+        elseif vim.snippet.active({ direction = -1 }) then
           vim.snippet.jump(-1)
         else
           fallback()

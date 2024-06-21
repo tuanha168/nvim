@@ -23,6 +23,7 @@ return {
         function()
           -- local cmp_ok, cmp = pcall(require, "cmp")
           -- if cmp_ok then cmp.abort() end
+          Print('c-j')
           return vim.fn["codeium#CycleCompletions"](1)
         end,
         expr = true,
@@ -34,6 +35,7 @@ return {
         function()
           -- local cmp_ok, cmp = pcall(require, "cmp")
           -- if cmp_ok then cmp.abort() end
+          Print('c-k')
           return vim.fn["codeium#CycleCompletions"](-1)
         end,
         expr = true,
