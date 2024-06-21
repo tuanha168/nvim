@@ -13,7 +13,7 @@ return {
   {
     "Exafunction/codeium.vim",
     -- enabled = false,
-    event = "InsertEnter",
+    event = "BufEnter",
     branch = "main",
     keys = {
       { mode = "n", "<C-g>", function() return vim.fn["codeium#Chat"]() end, expr = true, silent = true },
