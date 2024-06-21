@@ -37,8 +37,14 @@ return {
       --     fallback()
       --   end
       -- end, { "i", "s" })
-      opts.mapping["<C-K>"] = cmp.mapping(function(fallback) fallback() end)
-      opts.mapping["<C-J>"] = cmp.mapping(function(fallback) fallback() end)
+      opts.mapping["<C-K>"] = cmp.mapping(function(fallback)
+        cmp.abort()
+        fallback()
+      end)
+      opts.mapping["<C-J>"] = cmp.mapping(function(fallback)
+        cmp.abort()
+        fallback()
+      end)
 
       local snip_status_ok, luasnip = pcall(require, "luasnip")
 
