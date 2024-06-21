@@ -21,24 +21,18 @@ return {
       {
         mode = "i",
         "<C-J>",
-        function()
-          return vim.fn["codeium#CycleOrComplete"]()
-        end,
+        function() return vim.fn["codeium#CycleOrComplete"]() end,
         expr = true,
         silent = true,
       },
       {
         mode = "i",
         "<C-K>",
-        function()
-          return vim.fn["codeium#CycleCompletions"](-1)
-        end,
+        function() return vim.fn["codeium#CycleCompletions"](-1) end,
         expr = true,
         silent = true,
       },
     },
-    config = function()
-      vim.g.codeium_disable_bindings = 1
-    end,
+    config = function() vim.g.codeium_disable_bindings = 1 end,
   },
 }
