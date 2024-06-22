@@ -10,12 +10,6 @@ local mappings = {
     ["<Leader>gl"] = false,
     ["<Leader>gL"] = false,
     ["<Leader>h"] = false,
-    ["<C-N>"] = {
-      function()
-        local astro = require "astrocore"
-        astro.toggle_term_cmd("yazi")
-      end,
-    },
     ["\\"] = false,
     ["|"] = false,
     ["<C-S-Up>"] = { function() require("smart-splits").resize_up() end, noremap = true, desc = "Resize split up" },
