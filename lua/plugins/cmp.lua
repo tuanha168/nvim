@@ -64,6 +64,9 @@ return {
         end
       end, { "i", "s" })
 
+      opts.mapping["<Down>"] = opts.mapping["<Tab>"]
+      opts.mapping["<Up>"] = opts.mapping["<S-Tab>"]
+
       opts.mapping["<S-Tab>"] = cmp.mapping(function(fallback)
         if cmp.visible() then
           cmp.select_prev_item()
