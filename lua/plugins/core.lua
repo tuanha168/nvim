@@ -612,24 +612,24 @@ return {
     },
   },
   { "Aasim-A/scrollEOF.nvim", opts = {}, event = "BufEnter" },
-  {
-    "stevearc/oil.nvim",
-    dependencies = {
-      { "nvim-neo-tree/neo-tree.nvim", enabled = false },
-      { "echasnovski/mini.files", enabled = false },
-    },
-    keys = {
-      {
-        "<C-N>",
-        function()
-          local oil = require "oil"
-          oil.toggle_float()
-        end,
-        mode = "n",
-      },
-    },
-    opts = {},
-  },
+  -- {
+  --   "stevearc/oil.nvim",
+  --   dependencies = {
+  --     { "nvim-neo-tree/neo-tree.nvim", enabled = false },
+  --     { "echasnovski/mini.files", enabled = false },
+  --   },
+  --   keys = {
+  --     {
+  --       "<C-N>",
+  --       function()
+  --         local oil = require "oil"
+  --         oil.toggle_float()
+  --       end,
+  --       mode = "n",
+  --     },
+  --   },
+  --   opts = {},
+  -- },
   {
     "vuki656/package-info.nvim",
     lazy = false,
