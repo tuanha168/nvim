@@ -12,7 +12,7 @@ return {
   -- },
   {
     "Exafunction/codeium.vim",
-    -- enabled = false,
+    enabled = false,
     event = "BufEnter",
     branch = "main",
     keys = {
