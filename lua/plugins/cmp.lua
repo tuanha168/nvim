@@ -49,6 +49,7 @@ return {
       local snip_status_ok, luasnip = pcall(require, "luasnip")
 
       opts.mapping["<Tab>"] = cmp.mapping(function(fallback)
+        Print(vim.fn.has "nvim-0.10")
         if cmp.visible() then
           local entry = cmp.get_selected_entry()
           if not entry then
