@@ -20,6 +20,10 @@ return {
         { name = "path", priority = 250 },
       }
 
+      opts.experimental = {
+        ghost_text = true,
+      }
+
       local cmp_ok, cmp = pcall(require, "cmp")
       if not cmp_ok then return end
 
