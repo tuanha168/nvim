@@ -49,7 +49,6 @@ return {
       local snip_status_ok, luasnip = pcall(require, "luasnip")
 
       opts.mapping["<Tab>"] = cmp.mapping(function(fallback)
-        Print(vim.fn.has "nvim-0.10")
         if cmp.visible() then
           local entry = cmp.get_selected_entry()
           if not entry then
@@ -59,7 +58,7 @@ return {
           end
         elseif snip_status_ok and luasnip.expand_or_jumpable() then
           luasnip.expand_or_jump()
-        elseif vim.fn.has "nvim-0.10" and vim.snippet.active { direction = 1 } then
+        elseif vim.fn.has "nvim-0.10" == 1 and vim.snippet.active { direction = 1 } then
           vim.snippet.jump(1)
         else
           fallback()
