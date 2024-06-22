@@ -20,26 +20,26 @@ return {
         { name = "path", priority = 250 },
       }
 
-      opts.experimental = {
-        ghost_text = true,
-      }
+      -- opts.experimental = {
+      --   ghost_text = true,
+      -- }
 
       local cmp_ok, cmp = pcall(require, "cmp")
       if not cmp_ok then return end
 
-      opts.mapping["<CR>"] = cmp.mapping(function(fallback)
-        if cmp.visible() then
-          local entry = cmp.get_selected_entry()
-          if not entry then
-            cmp.select_next_item { behavior = cmp.SelectBehavior.Select }
-            cmp.confirm()
-          else
-            cmp.confirm()
-          end
-        else
-          fallback()
-        end
-      end, { "i", "s" })
+      -- opts.mapping["<CR>"] = cmp.mapping(function(fallback)
+      --   if cmp.visible() then
+      --     local entry = cmp.get_selected_entry()
+      --     if not entry then
+      --       cmp.select_next_item { behavior = cmp.SelectBehavior.Select }
+      --       cmp.confirm()
+      --     else
+      --       cmp.confirm()
+      --     end
+      --   else
+      --     fallback()
+      --   end
+      -- end, { "i", "s" })
 
       opts.mapping["<C-K>"] = cmp.mapping(function(fallback)
         cmp.abort()
