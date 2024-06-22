@@ -33,7 +33,7 @@ return {
       },
     },
     opts = function()
-      vim.b.mini_files_ignore = false
+      vim.g.mini_files_ignore = false
       local ok, minifiles = pcall(require, "mini.files")
       if not ok then return end
 
@@ -66,11 +66,11 @@ return {
           local buf_id = args.data.buf_id
 
           vim.keymap.set("n", "H", function()
-            vim.b.mini_files_ignore = not vim.b.mini_files_ignore
+            vim.g.mini_files_ignore = not vim.g.mini_files_ignore
 
             minifiles.refresh {
               content = {
-                sort = vim.b.mini_files_ignore and git_ignore_sorter or minifiles.default_sort,
+                sort = vim.g.mini_files_ignore and git_ignore_sorter or minifiles.default_sort,
               },
             }
           end, { buffer = buf_id })
@@ -144,7 +144,7 @@ return {
       return {
         content = {
           filter = function(entry) return entry.name ~= ".DS_Store" end,
-          sort = vim.b.mini_files_ignore and git_ignore_sorter or minifiles.default_sort,
+          sort = vim.g.mini_files_ignore and git_ignore_sorter or minifiles.default_sort,
         },
         mappings = {
           close = "q",
