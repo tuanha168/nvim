@@ -12,6 +12,7 @@ return function(client, bufnr)
     client.server_capabilities.documentFormattingProvider = true
     client.config.capabilities = client.config.capabilities or {}
     client.config.capabilities.documentFormattingProvider = true
+    Print(client)
     require("null-ls").disable { "prettierd" }
   end
 
