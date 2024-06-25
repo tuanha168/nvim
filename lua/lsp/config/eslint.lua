@@ -6,7 +6,6 @@ return {
     ".eslintrc.js",
     ".eslintrc.ts",
     ".eslintrc.json",
-    ".eslintrc.yml",
-    ".git"
+    ".eslintrc.yml"
   ),
 }
