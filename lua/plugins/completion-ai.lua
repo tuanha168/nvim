@@ -1,5 +1,6 @@
 ---@type LazySpec
 return {
+  -- supermaven
   {
     "supermaven-inc/supermaven-nvim",
     opts = {
