@@ -29,6 +29,8 @@ return {
       end, { noremap = true, silent = true })
     end,
   },
+
+  -- tabnine
   -- {
   --   "tzachar/cmp-tabnine",
   --   event = "InsertEnter",
