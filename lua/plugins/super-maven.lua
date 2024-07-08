@@ -4,8 +4,6 @@ return {
     opts = {
       keymaps = {
         accept_suggestion = "<C-F>",
-        clear_suggestion = "<C-G>",
-        accept_word = "<C-H>",
       },
       -- ignore_filetypes = { cpp = true },
       -- color = {
