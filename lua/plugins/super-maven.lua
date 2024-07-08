@@ -14,7 +14,7 @@ return {
       -- disable_inline_completion = false, -- disables inline completion for use with cmp
       disable_keymaps = true, -- disables built in keymaps for more manual control
     },
-    config = function(opts)
+    config = function(_, opts)
       require("supermaven-nvim").setup(opts)
 
       vim.keymap.set("i", "<C-F>", function()
