@@ -21,6 +21,11 @@ return {
         local suggestion = require "supermaven-nvim.completion_preview"
         if suggestion.has_suggestion() then suggestion.on_accept_suggestion() end
       end, { noremap = true, silent = true })
+
+      vim.keymap.set("i", "<C-J>", function()
+        local suggestion = require "supermaven-nvim.completion_preview"
+        if suggestion.has_suggestion() then suggestion.on_accept_suggestion_word() end
+      end, { noremap = true, silent = true })
     end,
   },
 }
