@@ -3,7 +3,7 @@ return {
   -- supermaven
   {
     "supermaven-inc/supermaven-nvim",
-    event = "BufEnter",
+    event = "LspAttach",
     opts = {
       -- keymaps = {
       --   accept_suggestion = "<C-F>",
