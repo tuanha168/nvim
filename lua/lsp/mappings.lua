@@ -23,7 +23,9 @@ return {
     },
     ["<Leader>fm"] = {
       -- function() Chiruno.func.operatorfunc_lua "format_motion" end,
-      function() vim.lsp.buf.format(require("astrolsp").format_opts) end,
+      function()
+        vim.lsp.buf.format(require("astrolsp").format_opts --[[@as vim.lsp.buf.format.Opts?]])
+      end,
       -- "<cmd>Prettier<CR>",
       desc = "Format code",
     },
