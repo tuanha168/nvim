@@ -18,7 +18,7 @@ return {
       disable_keymaps = true, -- disables built in keymaps for more manual control
     },
     config = function(_, opts)
-      require("supermaven-nvim").setup(opts)
+      require("supermaven-nvim").setup(opts or {})
 
       vim.keymap.set("i", "<C-F>", function()
         local suggestion = require "supermaven-nvim.completion_preview"
