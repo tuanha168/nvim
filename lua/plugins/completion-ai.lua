@@ -35,7 +35,7 @@ return {
   -- copilot
   {
     "zbirenbaum/copilot.lua",
-    event = "BufEnter",
+    event = "BufRead",
     enabled = false,
     opts = {
       panel = {
@@ -56,6 +56,7 @@ return {
   -- codeium
   -- {
   --   "jcdickinson/codeium.nvim",
+  --   event = "BufRead",
   --   enabled = false,
   --   dependencies = {
   --     "nvim-lua/plenary.nvim",
@@ -67,7 +68,7 @@ return {
   {
     "Exafunction/codeium.vim",
     enabled = false,
-    event = "BufEnter",
+    event = "BufRead",
     branch = "main",
     keys = {
       { mode = "n", "<C-g>", function() return vim.fn["codeium#Chat"]() end, expr = true, silent = true },
