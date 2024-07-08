@@ -3,6 +3,7 @@ return {
   -- supermaven
   {
     "supermaven-inc/supermaven-nvim",
+    event = "BufEnter",
     opts = {
       -- keymaps = {
       --   accept_suggestion = "<C-F>",
