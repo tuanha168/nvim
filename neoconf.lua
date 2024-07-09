@@ -179,7 +179,7 @@ local config = {
       },
     },
     eslint = {
-      settings = {
+      eslint = {
         experimental = {
           -- allows to use flat config format
           useFlatConfig = true,
