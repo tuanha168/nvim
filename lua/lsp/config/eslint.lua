@@ -6,6 +6,8 @@ return {
     ".eslintrc.js",
     ".eslintrc.ts",
     ".eslintrc.json",
-    ".eslintrc.yml"
+    ".eslintrc.yml",
+    "eslint.config.js",
+    "eslint.config.ts"
   ),
 }
