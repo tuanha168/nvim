@@ -64,19 +64,19 @@ return {
         "pint",
         "tfsec",
       })
-      opts.handlers.prettierd = function()
-        local h = require "null-ls.helpers"
-        require("null-ls").register(require("null-ls").builtins.formatting.prettierd.with {
-          generator_opts = {
+      -- opts.handlers.prettierd = function()
+      --   local h = require "null-ls.helpers"
+      --   require("null-ls").register(require("null-ls").builtins.formatting.prettierd.with {
+      --     generator_opts = {
 
-            runtime_condition = h.cache.by_bufnr(function(params)
-              Print(params)
-              Print(vim.lsp.get_clients())
-              return true
-            end),
-          },
-        })
-      end
+      --       runtime_condition = h.cache.by_bufnr(function(params)
+      --         Print(params)
+      --         Print(vim.lsp.get_clients())
+      --         return true
+      --       end),
+      --     },
+      --   })
+      -- end
     end,
   },
 }
