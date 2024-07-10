@@ -15,10 +15,6 @@ return function(client, bufnr)
     -- require("null-ls").disable { "prettierd" }
   end
 
-  if client.name == "null-ls" then
-    Print(client)
-  end
-
   if client.name == "rust_analyzer" then
     local rt = require "rust-tools"
     vim.keymap.set("n", "<leader>k", rt.hover_actions.hover_actions, { buffer = bufnr })
