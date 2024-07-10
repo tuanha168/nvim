@@ -66,7 +66,7 @@ return {
       })
       opts.handlers.prettierd = function()
         local h = require "null-ls.helpers"
-        require("null-ls").register(require("null-ls").builtins.formatting.prettier.with {
+        require("null-ls").register(require("null-ls").builtins.formatting.prettierd.with {
           runtime_condition = h.cache.by_bufnr(function(params)
             Print(params)
             Print(vim.lsp.get_clients())
