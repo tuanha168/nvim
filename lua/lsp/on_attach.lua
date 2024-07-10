@@ -12,6 +12,11 @@ return function(client, bufnr)
     client.server_capabilities.documentFormattingProvider = true
     client.config.capabilities = client.config.capabilities or {}
     client.config.capabilities.documentFormattingProvider = true
+    -- require("null-ls").disable { "prettierd" }
+  end
+
+  if client.name == "null-ls" then
+    Print(client)
   end
 
   if client.name == "rust_analyzer" then
