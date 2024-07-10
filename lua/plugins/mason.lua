@@ -64,6 +64,9 @@ return {
         "pint",
         "tfsec",
       })
+      opts.handlers.prettierd = function ()
+        Print("prettierd")
+      end
     end,
   },
 }
