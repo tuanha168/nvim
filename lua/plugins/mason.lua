@@ -65,6 +65,7 @@ return {
         "tfsec",
       })
       opts.handlers.prettierd = function()
+        Print(1)
         require("null-ls").register(require("null-ls").builtins.formatting.prettier.with {
           runtime_condition = function()
             Print(vim.lsp.get_clients())
