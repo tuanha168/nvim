@@ -66,7 +66,8 @@ return {
       })
       opts.handlers.prettierd = function()
         require("null-ls").register(require("null-ls").builtins.formatting.prettier.with {
-          condition = function(utils)
+          runtime_condition = function(utils)
+            Print(vim.lsp.get_clients())
             return utils.root_has_file "package.json"
               or utils.root_has_file ".prettierrc"
               or utils.root_has_file ".prettierrc.json"
