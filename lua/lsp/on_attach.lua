@@ -12,7 +12,6 @@ return function(client, bufnr)
     client.server_capabilities.documentFormattingProvider = true
     client.config.capabilities = client.config.capabilities or {}
     client.config.capabilities.documentFormattingProvider = true
-    Print(require("null-ls").get_source { "prettierd" })
   end
 
   if client.name == "rust_analyzer" then
