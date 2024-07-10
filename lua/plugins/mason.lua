@@ -70,7 +70,7 @@ return {
           runtime_condition = h.cache.by_bufnr(function(params)
             Print(params)
             Print(vim.lsp.get_clients())
-            return false
+            return true
           end),
         })
       end
