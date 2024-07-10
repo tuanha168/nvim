@@ -50,7 +50,6 @@ return {
       tailwindcss = require "lsp.config.tailwindcss",
       tsserver = require "lsp.config.tsserver",
       volar = require "lsp.config.volar",
-      prettierd = function() Print "prettierd" return {} end,
     },
     -- customize how language servers are attached
     handlers = require "lsp.setup_handlers",
