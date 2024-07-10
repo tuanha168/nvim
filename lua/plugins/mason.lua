@@ -67,13 +67,6 @@ return {
       opts.handlers.prettierd = function()
         local h = require "null-ls.helpers"
         require("null-ls").register(require("null-ls").builtins.formatting.prettierd.with {
-          condition = function()
-            Print(vim.defer_fn(function()
-              Print(vim.lsp.get_clients())
-              Print "test"
-              return "ok"
-            end, 1000))
-          end,
           runtime_condition = h.cache.by_bufnr(function(params)
             Print(params)
             Print(vim.lsp.get_clients())
