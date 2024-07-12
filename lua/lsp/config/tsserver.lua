@@ -16,7 +16,7 @@ return {
       includeInlayParameterNameHints = "all",
       includeInlayParameterNameHintsWhenArgumentMatchesName = false,
       -- includeInlayFunctionParameterTypeHints = true,
-      includeInlayPropertyDeclarationTypeHints = true,
+      -- includeInlayPropertyDeclarationTypeHints = true,
       includeInlayEnumMemberValueHints = true,
       importModuleSpecifierPreference = "non-relative",
 
