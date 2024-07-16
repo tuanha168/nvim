@@ -13,7 +13,7 @@ return {
           },
         },
         grep = {
-          rg_opts = "--hidden --column --line-number --no-heading --color=always --smart-case --max-columns=4096 -e",
+          rg_opts = "--multiline --hidden --column --line-number --no-heading --color=always --smart-case --max-columns=4096 -e",
         },
       }
     end,
