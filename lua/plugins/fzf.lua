@@ -7,7 +7,7 @@ return {
     config = function()
       -- calling `setup` is optional for customization
       require("fzf-lua").setup {
-        { "fzf-tmux", "fzf-native" },
+        { "fzf-native" },
         keymap = {
           fzf = {
             ["ctrl-q"] = "select-all+accept",
