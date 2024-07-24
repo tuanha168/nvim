@@ -16,7 +16,10 @@ return {
           rg_opts = "--multiline --hidden --column --line-number --no-heading --color=always --smart-case --max-columns=4096 -e",
         },
         oldfiles = {
-
+          stat_fn = function(file)
+            Print(file)
+            return true
+          end,
         },
       }
     end,
