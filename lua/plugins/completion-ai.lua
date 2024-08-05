@@ -22,7 +22,7 @@ return {
 
       vim.keymap.set("i", "<C-F>", function()
         local suggestion = require "supermaven-nvim.completion_preview"
-        if suggestion.has_suggestion() then suggestion.on_accept_suggestion() end
+        suggestion.on_accept_suggestion()
       end, { noremap = true, silent = true })
 
       vim.keymap.set("i", "<C-J>", function()
