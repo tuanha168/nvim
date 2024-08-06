@@ -59,16 +59,11 @@ return {
 
   {
     "max397574/better-escape.nvim",
-    opts = {
-      default_mappings = true,
-      mappings = {
-        i = {
-          j = {
-            j = function() return "<c-v>j<c-v>j" end,
-          },
-        },
-      },
-    },
+    opts = function(_, opts)
+      opts.mapping = { "jk", "jj", "kk" }
+      opts.clear_empty_lines = true
+      return opts
+    end,
   },
 
   -- {
