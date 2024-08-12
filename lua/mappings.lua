@@ -165,6 +165,10 @@ local mappings = {
     ["C"] = {
       '"_C',
     },
+    ["+"] = { "<C-a>", noremap = true },
+    ["-"] = { "<C-x>", noremap = true },
+    ["g+"] = { "g<C-a>", noremap = true },
+    ["g-"] = { "g<C-x>", noremap = true },
   },
   i = {
     ["<M-BS>"] = { "<C-w>", noremap = true },
