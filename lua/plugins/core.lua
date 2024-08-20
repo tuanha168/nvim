@@ -97,7 +97,7 @@ return {
       },
       {
         "S",
-        mode = { "o", "x" },
+        mode = { "n", "x", "o" },
         function() require("flash").treesitter() end,
       },
     },
