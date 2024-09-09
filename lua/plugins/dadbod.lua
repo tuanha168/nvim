@@ -27,7 +27,7 @@ return {
         function()
           if not vim.g.db_ui_ssh_connection then
             -- ssh -L 7000:localhost:3306 -N yopaz-dev
-            local _, pid = vim.uv.spawn("ssh", { args = { "-L", "7000:localhost:3306", "-N", "yopaz-dev" } })
+            local _, pid = vim.uv.spawn("ssh", { args = { "-L", "7000:localhost:8163", "-N", "yopaz-dev" } })
             vim.g.db_ui_ssh_connection = pid
           end
           vim.cmd.DBUIToggle()
