@@ -28,6 +28,7 @@ local config = {
           vBindShorthand = false,
           destructuredProps = false,
           inlineHandlerLeading = false,
+          eventArgumentInInlineHandlers = true,
         },
       },
       css = {
