@@ -22,7 +22,13 @@ local config = {
   lspconfig = {
     volar = {
       vue = {
-        inlayHints = {},
+        inlayHints = {
+          missingProps = false,
+          optionsWrapper = false,
+          vBindShorthand = false,
+          destructuredProps = false,
+          inlineHandlerLeading = false,
+        },
       },
       css = {
         customData = {
