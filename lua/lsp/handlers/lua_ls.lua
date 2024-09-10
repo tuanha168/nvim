@@ -1,8 +1,9 @@
 return function(_, opts)
   opts.settings = opts.settings or {}
-  opts.settings.hint = opts.settings.hint or {}
+  opts.settings.Lua = opts.settings.Lua or {}
+  opts.settings.Lua.hint = opts.settings.Lua.hint or {}
 
-  opts.settings.hint.enable = true
+  opts.settings.Lua.hint.enable = true
   Print(vim.inspect(opts))
 
   local test = {
