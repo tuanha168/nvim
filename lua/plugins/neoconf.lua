@@ -1,3 +1,5 @@
+local home = os.getenv "HOME"
+
 ---@type LazySpec
 return {
   {
