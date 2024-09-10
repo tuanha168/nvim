@@ -27,6 +27,7 @@ local options = {
       eob = " ",
       vert = " ",
     },
+    -- vbs = 15,
   },
   g = {
     matchup_matchparen_offscreen = { method = "popup" },
