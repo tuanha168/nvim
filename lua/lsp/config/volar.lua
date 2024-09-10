@@ -8,9 +8,4 @@ return {
     "typescriptreact",
     "vue",
   },
-  -- init_options = {
-  --   vue = {
-  --     hybridMode = false,
-  --   },
-  -- },
 }
