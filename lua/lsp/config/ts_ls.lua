@@ -2,15 +2,6 @@ return {
   compilerOptions = {
     noErrorTruncate = true,
   },
-  filetypes = {
-    "javascript",
-    "javascript.jsx",
-    "javascriptreact",
-    "typescript",
-    "typescript.tsx",
-    "typescriptreact",
-    "vue",
-  },
   init_options = {
     preferences = {
       includeInlayParameterNameHints = "all",
