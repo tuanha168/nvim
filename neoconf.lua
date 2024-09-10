@@ -23,11 +23,11 @@ local config = {
     volar = {
       vue = {
         inlayHints = {
-          missingProps = false,
-          optionsWrapper = false,
-          vBindShorthand = false,
-          destructuredProps = false,
-          inlineHandlerLeading = false,
+          missingProps = true,
+          optionsWrapper = true,
+          vBindShorthand = true,
+          destructuredProps = true,
+          inlineHandlerLeading = true,
         },
       },
       css = {
