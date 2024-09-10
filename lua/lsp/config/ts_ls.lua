@@ -21,7 +21,7 @@ return {
       importModuleSpecifierPreference = "non-relative",
 
       includeInlayVariableTypeHints = true,
-      includeInlayFunctionLikeReturnTypeHints = true,
+      -- includeInlayFunctionLikeReturnTypeHints = true,
     },
   },
 }
