@@ -19,62 +19,65 @@ local config = {
       },
     },
   },
+  ---@type lspconfig.options
   lspconfig = {
     volar = {
-      vue = {
-        server = {
-          hybridMode = false,
+      settings = {
+        vue = {
+          server = {
+            hybridMode = false,
+          },
+          inlayHints = {
+            missingProps = true,
+            optionsWrapper = true,
+            vBindShorthand = true,
+            destructuredProps = true,
+            inlineHandlerLeading = true,
+          },
         },
-        inlayHints = {
-          missingProps = true,
-          optionsWrapper = true,
-          vBindShorthand = true,
-          destructuredProps = true,
-          inlineHandlerLeading = true,
-        },
-      },
-      typescript = {
-        tsserver = {
-          web = {
-            projectWideIntellisense = {
-              enabled = "true",
+        typescript = {
+          tsserver = {
+            web = {
+              projectWideIntellisense = {
+                enabled = "true",
+              },
             },
           },
-        },
-        inlayHints = {
-          enumMemberValues = { enabled = "true" },
-          propertyDeclarationTypes = { enabled = "true" },
-          parameterNames = {
-            enabled = "all",
-            suppressWhenArgumentMatchesName = "true",
+          inlayHints = {
+            enumMemberValues = { enabled = "true" },
+            propertyDeclarationTypes = { enabled = "true" },
+            parameterNames = {
+              enabled = "all",
+              suppressWhenArgumentMatchesName = "true",
+            },
+            -- functionLikeReturnTypes = { enabled = "true" },
+            -- variableTypes = {
+            --   enabled = "true",
+            --   suppressWhenTypeMatchesName = "true",
+            -- },
+            parameterTypes = { enabled = "true" },
           },
-          -- functionLikeReturnTypes = { enabled = "true" },
-          -- variableTypes = {
-          --   enabled = "true",
-          --   suppressWhenTypeMatchesName = "true",
-          -- },
-          parameterTypes = { enabled = "true" },
         },
-      },
-      css = {
-        customData = {
-          home .. "/.config/nvim/.vscode/tailwind.json",
-        },
-      },
-      javascript = {
-        inlayHints = {
-          enumMemberValues = { enabled = "true" },
-          propertyDeclarationTypes = { enabled = "true" },
-          parameterNames = {
-            enabled = "all",
-            suppressWhenArgumentMatchesName = "true",
+        css = {
+          customData = {
+            home .. "/.config/nvim/.vscode/tailwind.json",
           },
-          -- functionLikeReturnTypes = { enabled = "true" },
-          -- variableTypes = {
-          --   enabled = "true",
-          --   suppressWhenTypeMatchesName = "true",
-          -- },
-          parameterTypes = { enabled = "true" },
+        },
+        javascript = {
+          inlayHints = {
+            enumMemberValues = { enabled = "true" },
+            propertyDeclarationTypes = { enabled = "true" },
+            parameterNames = {
+              enabled = "all",
+              suppressWhenArgumentMatchesName = "true",
+            },
+            -- functionLikeReturnTypes = { enabled = "true" },
+            -- variableTypes = {
+            --   enabled = "true",
+            --   suppressWhenTypeMatchesName = "true",
+            -- },
+            parameterTypes = { enabled = "true" },
+          },
         },
       },
     },
