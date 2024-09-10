@@ -43,7 +43,7 @@ local options = {
 }
 
 vim.cmd("set verbosefile=$HOME/.dotfile/logs/nvim.log")
-vim.cmd("set vbs=15")
+vim.cmd("set vbs=1")
 
 vim.opt.iskeyword:append "-"
 
