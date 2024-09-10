@@ -4,5 +4,13 @@ return function(_, opts)
 
   opts.settings.hint.enable = true
 
+  local test = {
+    1,
+    2,
+    3,
+    4,
+    5,
+  }
+
   require("lspconfig").lua_ls.setup(opts)
 end
