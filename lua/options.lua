@@ -27,6 +27,8 @@ local options = {
       eob = " ",
       vert = " ",
     },
+    -- verbosefile = "$HOME/.dotfile/logs/nvim.log",
+    -- vbs = 15,
   },
   g = {
     matchup_matchparen_offscreen = { method = "popup" },
@@ -39,8 +41,6 @@ local options = {
   },
   o = {
     background = "dark",
-    verbosefile = "$HOME/.dotfile/logs/nvim.log",
-    -- vbs = 15,
   },
 }
 
