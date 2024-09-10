@@ -20,8 +20,8 @@ return {
       includeInlayEnumMemberValueHints = true,
       importModuleSpecifierPreference = "non-relative",
 
-      includeInlayVariableTypeHints = true,
-      -- includeInlayFunctionLikeReturnTypeHints = true,
+      -- includeInlayVariableTypeHints = true,
+      includeInlayFunctionLikeReturnTypeHints = true,
     },
   },
 }
