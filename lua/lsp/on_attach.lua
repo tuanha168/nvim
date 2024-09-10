@@ -4,9 +4,6 @@ return function(client, bufnr)
       or {}
     client.server_capabilities.workspace.didChangeWatchedFiles = { dynamicRegistration = false }
   end
-  -- if client.server_capabilities.inlayHintProvider then
-  --   if vim.lsp.inlay_hint and not vim.lsp.inlay_hint.is_enabled(bufnr) then vim.lsp.inlay_hint.enable() end
-  -- end
   if client.name == "eslint" then
     client.server_capabilities = client.server_capabilities or {}
     client.server_capabilities.documentFormattingProvider = true
@@ -15,8 +12,8 @@ return function(client, bufnr)
     require("null-ls").disable { "prettierd" }
   end
 
-  if client.name == "rust_analyzer" then
-    local rt = require "rust-tools"
-    vim.keymap.set("n", "<leader>k", rt.hover_actions.hover_actions, { buffer = bufnr })
-  end
+  -- if client.name == "rust_analyzer" then
+  --   local rt = require "rust-tools"
+  --   vim.keymap.set("n", "<leader>k", rt.hover_actions.hover_actions, { buffer = bufnr })
+  -- end
 end
