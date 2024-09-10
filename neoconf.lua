@@ -30,29 +30,6 @@ local config = {
           inlineHandlerLeading = true,
         },
       },
-      typescript = {
-        tsserver = {
-          web = {
-            projectWideIntellisense = {
-              enabled = "true",
-            },
-          },
-        },
-        inlayHints = {
-          enumMemberValues = { enabled = "true" },
-          propertyDeclarationTypes = { enabled = "true" },
-          parameterNames = {
-            enabled = "all",
-            suppressWhenArgumentMatchesName = "true",
-          },
-          -- functionLikeReturnTypes = { enabled = "true" },
-          -- variableTypes = {
-          --   enabled = "true",
-          --   suppressWhenTypeMatchesName = "true",
-          -- },
-          parameterTypes = { enabled = "true" },
-        },
-      },
       css = {
         customData = {
           home .. "/.config/nvim/.vscode/tailwind.json",
