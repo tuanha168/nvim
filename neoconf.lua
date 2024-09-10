@@ -30,12 +30,14 @@ local config = {
           inlineHandlerLeading = true,
         },
       },
-      css = {
-        customData = {
-          home .. "/.config/nvim/.vscode/tailwind.json",
+      typescript = {
+        tsserver = {
+          web = {
+            projectWideIntellisense = {
+              enabled = "true",
+            },
+          },
         },
-      },
-      javascript = {
         inlayHints = {
           enumMemberValues = { enabled = "true" },
           propertyDeclarationTypes = { enabled = "true" },
@@ -49,6 +51,11 @@ local config = {
           --   suppressWhenTypeMatchesName = "true",
           -- },
           parameterTypes = { enabled = "true" },
+        },
+      },
+      css = {
+        customData = {
+          home .. "/.config/nvim/.vscode/tailwind.json",
         },
       },
     },
