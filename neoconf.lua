@@ -22,6 +22,9 @@ local config = {
   lspconfig = {
     volar = {
       vue = {
+        server = {
+          hybridMode = false,
+        },
         inlayHints = {
           missingProps = true,
           optionsWrapper = true,
