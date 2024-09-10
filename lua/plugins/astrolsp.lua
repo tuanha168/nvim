@@ -26,7 +26,7 @@ return {
         "intelephense",
         -- "eslint",
         -- "prettierd",
-        "tsserver",
+        "ts_ls",
         "volar",
         "tailwindcss",
       },
@@ -48,7 +48,7 @@ return {
       omnisharp = require "lsp.config.omnisharp",
       stylelint_lsp = require "lsp.config.stylelint_lsp",
       tailwindcss = require "lsp.config.tailwindcss",
-      tsserver = require "lsp.config.tsserver",
+      ts_ls = require "lsp.config.ts_ls",
       volar = require "lsp.config.volar",
     },
     -- customize how language servers are attached

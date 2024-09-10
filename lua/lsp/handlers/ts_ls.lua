@@ -20,9 +20,9 @@ return function(_, opts)
       },
     },
   }
-  opts.init_options.tsserver = {
+  opts.init_options.ts_ls = {
     -- This overwrite the path from the local project, in case your project ts version is not compatible with the plugin
     path = tsdk,
   }
-  require("lspconfig").tsserver.setup(opts)
+  require("lspconfig").ts_ls.setup(opts)
 end

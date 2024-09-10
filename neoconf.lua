@@ -29,7 +29,7 @@ local config = {
         -- },
       },
       typescript = {
-        tsserver = {
+        ts_ls = {
           web = {
             projectWideIntellisense = {
               enabled = "true",
@@ -117,9 +117,9 @@ local config = {
         },
       },
     },
-    tsserver = {
+    ts_ls = {
       typescript = {
-        tsserver = {
+        ts_ls = {
           web = {
             projectWideIntellisense = {
               enabled = "true",
