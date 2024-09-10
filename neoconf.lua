@@ -20,59 +20,6 @@ local config = {
     },
   },
   lspconfig = {
-    volar = {
-      vue = {
-        -- inlayHints = {
-        --   missingProps = "true",
-        --   inlineHandlerLeading = "true",
-        --   optionsWrapper = "true",
-        -- },
-      },
-      typescript = {
-        ts_ls = {
-          web = {
-            projectWideIntellisense = {
-              enabled = "true",
-            },
-          },
-        },
-        -- inlayHints = {
-        --   enumMemberValues = { enabled = "true" },
-        --   propertyDeclarationTypes = { enabled = "true" },
-        --   parameterNames = {
-        --     enabled = "all",
-        --     suppressWhenArgumentMatchesName = "true",
-        --   },
-        --   -- functionLikeReturnTypes = { enabled = "true" },
-        --   -- variableTypes = {
-        --   --   enabled = "true",
-        --   --   suppressWhenTypeMatchesName = "true",
-        --   -- },
-        --   parameterTypes = { enabled = "true" },
-        -- },
-      },
-      css = {
-        customData = {
-          home .. "/.config/nvim/.vscode/tailwind.json",
-        },
-      },
-      javascript = {
-        -- inlayHints = {
-        --   enumMemberValues = { enabled = "true" },
-        --   propertyDeclarationTypes = { enabled = "true" },
-        --   parameterNames = {
-        --     enabled = "all",
-        --     suppressWhenArgumentMatchesName = "true",
-        --   },
-        --   -- functionLikeReturnTypes = { enabled = "true" },
-        --   -- variableTypes = {
-        --   --   enabled = "true",
-        --   --   suppressWhenTypeMatchesName = "true",
-        --   -- },
-        --   parameterTypes = { enabled = "true" },
-        -- },
-      },
-    },
     tailwindcss = {
       tailwindCSS = {
         classAttributes = {
@@ -115,47 +62,6 @@ local config = {
           command = "clippy",
           enable = "true",
         },
-      },
-    },
-    ts_ls = {
-      typescript = {
-        ts_ls = {
-          web = {
-            projectWideIntellisense = {
-              enabled = "true",
-            },
-          },
-        },
-        -- inlayHints = {
-        --   enumMemberValues = { enabled = "true" },
-        --   propertyDeclarationTypes = { enabled = "true" },
-        --   parameterNames = {
-        --     enabled = "all",
-        --     suppressWhenArgumentMatchesName = "true",
-        --   },
-        --   -- functionLikeReturnTypes = { enabled = "true" },
-        --   -- variableTypes = {
-        --   --   enabled = "true",
-        --   --   suppressWhenTypeMatchesName = "true",
-        --   -- },
-        --   parameterTypes = { enabled = "true" },
-        -- },
-      },
-      javascript = {
-        -- inlayHints = {
-        --   enumMemberValues = { enabled = "true" },
-        --   propertyDeclarationTypes = { enabled = "true" },
-        --   parameterNames = {
-        --     enabled = "all",
-        --     suppressWhenArgumentMatchesName = "true",
-        --   },
-        --   -- functionLikeReturnTypes = { enabled = "true" },
-        --   -- variableTypes = {
-        --   --   enabled = "true",
-        --   --   suppressWhenTypeMatchesName = "true",
-        --   -- },
-        --   parameterTypes = { enabled = "true" },
-        -- },
       },
     },
     cssls = {
