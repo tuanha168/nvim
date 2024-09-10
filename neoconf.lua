@@ -122,47 +122,6 @@ local config = {
         },
       },
     },
-    tsserver = {
-      typescript = {
-        tsserver = {
-          web = {
-            projectWideIntellisense = {
-              enabled = "true",
-            },
-          },
-        },
-        -- inlayHints = {
-        --   enumMemberValues = { enabled = "true" },
-        --   propertyDeclarationTypes = { enabled = "true" },
-        --   parameterNames = {
-        --     enabled = "all",
-        --     suppressWhenArgumentMatchesName = "true",
-        --   },
-        --   -- functionLikeReturnTypes = { enabled = "true" },
-        --   -- variableTypes = {
-        --   --   enabled = "true",
-        --   --   suppressWhenTypeMatchesName = "true",
-        --   -- },
-        --   parameterTypes = { enabled = "true" },
-        -- },
-      },
-      javascript = {
-        -- inlayHints = {
-        --   enumMemberValues = { enabled = "true" },
-        --   propertyDeclarationTypes = { enabled = "true" },
-        --   parameterNames = {
-        --     enabled = "all",
-        --     suppressWhenArgumentMatchesName = "true",
-        --   },
-        --   -- functionLikeReturnTypes = { enabled = "true" },
-        --   -- variableTypes = {
-        --   --   enabled = "true",
-        --   --   suppressWhenTypeMatchesName = "true",
-        --   -- },
-        --   parameterTypes = { enabled = "true" },
-        -- },
-      },
-    },
     cssls = {
       less = {
         validate = "true",
