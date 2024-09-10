@@ -3,6 +3,7 @@ return function(_, opts)
   opts.settings.hint = opts.settings.hint or {}
 
   opts.settings.hint.enable = true
+  Print(vim.inspect(opts))
 
   local test = {
     1,
