@@ -5,7 +5,6 @@ local home = os.getenv "HOME"
 local file = io.open(home .. "/.config/nvim/neoconf.json", "w")
 if not file then return end
 
-  ---@type lspconfig.options
 local config = {
   neodev = {
     library = {
