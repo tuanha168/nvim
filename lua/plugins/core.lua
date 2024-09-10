@@ -658,4 +658,13 @@ return {
       }
     end,
   },
+
+  {
+    "stevearc/aerial.nvim",
+    opts = function(_, opts)
+      opts.backends = { "lsp", "markdown", "asciidoc", "man" }
+
+      return opts
+    end,
+  }
 }
