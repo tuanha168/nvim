@@ -27,7 +27,7 @@ local options = {
       eob = " ",
       vert = " ",
     },
-    verbosefile = "$HOME/.dotfile/logs/nvim.log",
+    -- verbosefile = "$HOME/.dotfile/logs/nvim.log",
     -- vbs = 15,
   },
   g = {
