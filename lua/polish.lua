@@ -154,16 +154,17 @@ vim.lsp.handlers[methods.textDocument_inlayHint] = function(err, result, ctx, co
         :map(function(hint)
           local label = hint.label
           if not label then return hint end
+          local temp = ""
 
-          if type(label) == "string" and label:len() >= 30 then label = label:sub(1, 29) .. ellipsis end
+          if type(label) == "string" and label:len() >= 30 then temp = label:sub(1, 29) .. ellipsis else temp = label end
 
           if type(label) == "table" then
             for _, lb in ipairs(label) do
-              if type(lb.value) == "string" and lb.value:len() >= 2 then lb.value = lb.value:sub(1, 1) .. ellipsis end
+              if type(lb.value) == "string" and temp:len() >= 30 then temp = temp:sub(1, 29) .. ellipsis else temp = temp .. lb.value end
             end
           end
 
-          hint.label = label
+          hint.label = temp
           return hint
         end)
         :totable()
