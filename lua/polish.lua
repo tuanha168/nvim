@@ -146,6 +146,7 @@ local lsp_inlay_hint_key = {
 
 vim.lsp.handlers[methods.textDocument_inlayHint] = function(err, result, ctx, config)
   local client = vim.lsp.get_client_by_id(ctx.client_id)
+  local maxLength = 30
 
   for _, lsp in pairs(lsp_inlay_hint_key) do
     if client and (client.name == lsp) then
@@ -159,14 +160,12 @@ vim.lsp.handlers[methods.textDocument_inlayHint] = function(err, result, ctx, co
           if type(label) == "string" then
             temp = label
 
-            if temp:len() >= 30 then
-              temp = temp:sub(1, 29) .. ellipsis
-            end
+            if temp:len() >= maxLength then temp = temp:sub(1, maxLength - 1) .. ellipsis end
           elseif type(label) == "table" then
             for _, lb in ipairs(label) do
               if type(lb.value) == "string" then temp = temp .. lb.value end
             end
-            if temp and temp:len() >= 30 then temp = temp:sub(1, 29) .. ellipsis end
+            if temp and temp:len() >= maxLength then temp = temp:sub(1, maxLength - 1) .. ellipsis end
           end
 
           hint.label = temp
