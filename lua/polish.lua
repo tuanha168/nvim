@@ -158,9 +158,9 @@ vim.lsp.handlers[methods.textDocument_inlayHint] = function(err, result, ctx, co
           if type(label) == "string" and label:len() >= 30 then label = label:sub(1, 29) .. ellipsis end
 
           if type(label) == "table" then
-            Print "label"
-            label.value = label.value:sub(1, 29) .. ellipsis
-            return hint
+            for _, lb in ipairs(label) do
+              if type(lb) == "string" and lb:len() >= 30 then lb = lb:sub(1, 29) .. ellipsis end
+            end
           end
 
           hint.label = label
