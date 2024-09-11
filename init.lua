@@ -24,15 +24,15 @@ local inlay_hint_handler = vim.lsp.handlers[methods.textDocument_inlayHint]
 
 vim.lsp.handlers[methods.textDocument_inlayHint] = function(err, result, ctx, config)
     local client = vim.lsp.get_client_by_id(ctx.client_id)
-    if client and client.name == 'ts_ls' or client.name == 'volar' then
-        result = vim.iter.map(function(hint)
+    if client and (client.name == 'ts_ls' or client.name == 'volar') then
+        result = vim.iter(result):map(function(hint)
             local label = hint.label ---@type string
             if label:len() >= 5 then
                 label = label:sub(1, 4) .. ellipsis
             end
             hint.label = label
             return hint
-        end, result)
+        end)
     end
 
     inlay_hint_handler(err, result, ctx, config)
