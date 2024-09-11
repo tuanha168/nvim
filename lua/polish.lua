@@ -140,8 +140,8 @@ local ellipsis = "..."
 local methods = vim.lsp.protocol.Methods
 local inlay_hint_handler = vim.lsp.handlers[methods.textDocument_inlayHint]
 local lsp_inlay_hint_key = {
-  'volar',
-  'ts_ls',
+  "volar",
+  "ts_ls",
 }
 
 vim.lsp.handlers[methods.textDocument_inlayHint] = function(err, result, ctx, config)
@@ -158,6 +158,7 @@ vim.lsp.handlers[methods.textDocument_inlayHint] = function(err, result, ctx, co
           if type(label) == "string" and label:len() >= 30 then label = label:sub(1, 29) .. ellipsis end
 
           if type(label) == "table" then
+            Print "label"
             label.value = label.value:sub(1, 29) .. ellipsis
             return hint
           end
