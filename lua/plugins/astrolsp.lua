@@ -77,24 +77,24 @@ return {
           callback = function() vim.lsp.buf.clear_references() end,
         },
       },
-      no_insert_inlay_hints = {
-        cond = vim.lsp.inlay_hint and "textDocument/inlayHint" or false,
-        {
-          event = "InsertEnter",
-          desc = "disable inlay hints on insert",
-          callback = function(args)
-            local filter = { bufnr = args.buf }
-            if vim.lsp.inlay_hint.is_enabled(filter) then
-              vim.lsp.inlay_hint.enable(false, filter)
-              vim.api.nvim_create_autocmd("InsertLeave", {
-                buffer = args.buf,
-                once = true,
-                callback = function() vim.lsp.inlay_hint.enable(true, filter) end,
-              })
-            end
-          end,
-        },
-      },
+      -- no_insert_inlay_hints = {
+      --   cond = vim.lsp.inlay_hint and "textDocument/inlayHint" or false,
+      --   {
+      --     event = "InsertEnter",
+      --     desc = "disable inlay hints on insert",
+      --     callback = function(args)
+      --       local filter = { bufnr = args.buf }
+      --       if vim.lsp.inlay_hint.is_enabled(filter) then
+      --         vim.lsp.inlay_hint.enable(false, filter)
+      --         vim.api.nvim_create_autocmd("InsertLeave", {
+      --           buffer = args.buf,
+      --           once = true,
+      --           callback = function() vim.lsp.inlay_hint.enable(true, filter) end,
+      --         })
+      --       end
+      --     end,
+      --   },
+      -- },
     },
     -- mappings to be set up on attaching of a language server
     mappings = require "lsp.mappings",
