@@ -132,28 +132,35 @@ autocmd({ "BufWritePost" }, {
       end
       pos = pos - 1
     end
-    if pom ~= "" then
-      vim.schedule(function() vim.cmd "silent !tmux new -d \"./rebuild\"" end)
-    end
+    if pom ~= "" then vim.schedule(function() vim.cmd 'silent !tmux new -d "./rebuild"' end) end
   end,
 })
 
 local ellipsis = "..."
 local methods = vim.lsp.protocol.Methods
 local inlay_hint_handler = vim.lsp.handlers[methods.textDocument_inlayHint]
+local lsp_inlay_hint_key = {
+  volar = "label",
+  ts_ls = "value",
+}
 
 vim.lsp.handlers[methods.textDocument_inlayHint] = function(err, result, ctx, config)
   local client = vim.lsp.get_client_by_id(ctx.client_id)
-  if client and (client.name == "ts_ls" or client.name == "volar") then
-    result = vim.iter(result):map(function(hint)
-      local label = hint.label ---@type string
-      Print(label)
-      if label and label:len() >= 30 then label = label:sub(1, 29) .. ellipsis end
-      hint.label = label
-      return hint
-    end):totable()
+
+  for lsp, key in pairs(lsp_inlay_hint_key) do
+    if client and (client.name == lsp) then
+      result = vim
+        .iter(result)
+        :map(function(hint)
+          local label = hint[key] ---@type string
+          Print(hint)
+          if label and label:len() >= 30 then label = label:sub(1, 29) .. ellipsis end
+          hint[key] = label
+          return hint
+        end)
+        :totable()
+    end
   end
 
   inlay_hint_handler(err, result, ctx, config)
 end
-
