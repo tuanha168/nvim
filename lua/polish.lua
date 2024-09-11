@@ -144,7 +144,7 @@ local lsp_inlay_hint_key = {
   "ts_ls",
 }
 
--- https://github.com/neovim/neovim/issues/27240
+-- https://github.com/neovim/neovim/issues/27240#issuecomment-2053854899
 vim.lsp.handlers[methods.textDocument_inlayHint] = function(err, result, ctx, config)
   local client = vim.lsp.get_client_by_id(ctx.client_id)
   local maxLength = 20
