@@ -159,7 +159,7 @@ vim.lsp.handlers[methods.textDocument_inlayHint] = function(err, result, ctx, co
 
           if type(label) == "table" then
             for _, lb in ipairs(label) do
-              if type(lb) == "string" and lb:len() >= 2 then lb = lb:sub(1, 1) .. ellipsis end
+              if type(lb.value) == "string" and lb.value:len() >= 2 then lb.value = lb.value:sub(1, 1) .. ellipsis end
             end
           end
 
