@@ -147,7 +147,7 @@ local lsp_inlay_hint_key = {
 vim.lsp.handlers[methods.textDocument_inlayHint] = function(err, result, ctx, config)
   local client = vim.lsp.get_client_by_id(ctx.client_id)
 
-  for lsp in ipairs(lsp_inlay_hint_key) do
+  for _, lsp in pairs(lsp_inlay_hint_key) do
     if client and (client.name == lsp) then
       result = vim
         .iter(result)
