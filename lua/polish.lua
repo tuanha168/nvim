@@ -147,7 +147,8 @@ vim.lsp.handlers[methods.textDocument_inlayHint] = function(err, result, ctx, co
   if client and (client.name == "ts_ls" or client.name == "volar") then
     result = vim.iter(result):map(function(hint)
       local label = hint.label ---@type string
-      if label:len() >= 30 then label = label:sub(1, 29) .. ellipsis end
+      Print(label)
+      if label and label:len() >= 30 then label = label:sub(1, 29) .. ellipsis end
       hint.label = label
       return hint
     end):totable()
