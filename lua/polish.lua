@@ -140,21 +140,29 @@ local ellipsis = "..."
 local methods = vim.lsp.protocol.Methods
 local inlay_hint_handler = vim.lsp.handlers[methods.textDocument_inlayHint]
 local lsp_inlay_hint_key = {
-  volar = "label",
-  ts_ls = "value",
+  'volar',
+  'ts_ls',
 }
 
 vim.lsp.handlers[methods.textDocument_inlayHint] = function(err, result, ctx, config)
   local client = vim.lsp.get_client_by_id(ctx.client_id)
 
-  for lsp, key in pairs(lsp_inlay_hint_key) do
+  for lsp in pairs(lsp_inlay_hint_key) do
     if client and (client.name == lsp) then
       result = vim
         .iter(result)
         :map(function(hint)
-          local label = hint[key] ---@type string
-          if label and label:len() >= 30 then label = label:sub(1, 29) .. ellipsis end
-          hint[key] = label
+          local label = hint.label
+          if not label then return hint end
+
+          if type(label) == "string" and label:len() >= 30 then label = label:sub(1, 29) .. ellipsis end
+
+          if type(label) == "table" then
+            label.value = label.value:sub(1, 29) .. ellipsis
+            return hint
+          end
+
+          hint.label = label
           return hint
         end)
         :totable()
