@@ -144,9 +144,10 @@ local lsp_inlay_hint_key = {
   "ts_ls",
 }
 
+-- https://github.com/neovim/neovim/issues/27240
 vim.lsp.handlers[methods.textDocument_inlayHint] = function(err, result, ctx, config)
   local client = vim.lsp.get_client_by_id(ctx.client_id)
-  local maxLength = 30
+  local maxLength = 20
 
   for _, lsp in pairs(lsp_inlay_hint_key) do
     if client and (client.name == lsp) then
