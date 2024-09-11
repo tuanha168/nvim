@@ -31,8 +31,7 @@ vim.lsp.handlers[methods.textDocument_inlayHint] = function(err, result, ctx, co
       if label:len() >= 30 then label = label:sub(1, 29) .. ellipsis end
       hint.label = label
       return hint
-    end)
-    Print("after", result)
+    end):totable()
   end
 
   inlay_hint_handler(err, result, ctx, config)
