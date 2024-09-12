@@ -7,4 +7,5 @@ return {
   --   Print(opts)
   --   require("lspconfig").eslint.setup(opts)
   -- end,
+  volar = function() end,
 }
