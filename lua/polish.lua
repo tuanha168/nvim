@@ -150,7 +150,7 @@ vim.lsp.handlers[methods.textDocument_inlayHint] = function(err, result, ctx, co
   local maxLength = 20
 
   for _, lsp in pairs(lsp_inlay_hint_key) do
-    if client and (client.name == lsp) then
+    if client and result and (client.name == lsp) then
       result = vim
         .iter(result)
         :map(function(hint)
