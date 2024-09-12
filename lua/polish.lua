@@ -156,20 +156,21 @@ vim.lsp.handlers[methods.textDocument_inlayHint] = function(err, result, ctx, co
         :map(function(hint)
           local label = hint.label
           if not label then return hint end
-          local temp = ""
 
+          -- string
           if type(label) == "string" then
-            temp = label
-
-            if temp:len() >= maxLength then temp = temp:sub(1, maxLength - 1) .. ellipsis end
+            if label:len() >= maxLength then label = label:sub(1, maxLength - 1) .. ellipsis end
+            hint.label = label
+          -- table
           elseif type(label) == "table" then
+            local temp = ""
             for _, lb in ipairs(label) do
               if type(lb.value) == "string" then temp = temp .. lb.value end
             end
             if temp and temp:len() >= maxLength then temp = temp:sub(1, maxLength - 1) .. ellipsis end
+            hint.label = temp
           end
 
-          hint.label = temp
           return hint
         end)
         :totable()
