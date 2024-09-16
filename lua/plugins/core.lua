@@ -556,6 +556,7 @@ return {
     },
     opts = function()
       local api = require "repolink.api"
+      Print('repolink')
       return {
         url_builders = {
           ["yopaz"] = api.url_builder_for_github(),
