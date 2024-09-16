@@ -537,7 +537,7 @@ return {
     cmd = { "RepoLink" },
     keys = {
       {
-        "<leader>gl",
+        "<Leader>gl",
         function()
           local prefix = ""
           if vim.api.nvim_get_mode().mode == "V" or vim.api.nvim_get_mode().mode == "v" then prefix = "'<,'>" end
@@ -551,7 +551,6 @@ return {
           end)
         end,
         mode = { "n", "x" },
-        remap = false,
         desc = "RepoLink",
       },
     },
