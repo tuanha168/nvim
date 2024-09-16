@@ -556,7 +556,6 @@ return {
     },
     opts = function()
       local api = require "repolink.api"
-      Print("RepoLink enabled")
       return {
         url_builders = {
           ["yopaz"] = api.url_builder_for_github(),
