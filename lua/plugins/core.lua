@@ -551,6 +551,7 @@ return {
           end)
         end,
         mode = { "n", "x" },
+        remap = true,
         desc = "RepoLink",
       },
     },
