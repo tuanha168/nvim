@@ -8,8 +8,5 @@ return {
         opts[k] = v
       end
     end,
-    keys = {
-      { "<Leader>gL", false },
-    },
   },
 }
