@@ -537,7 +537,7 @@ return {
     cmd = { "RepoLink" },
     keys = {
       {
-        "<leader>gL",
+        "<leader>gl",
         function()
           local prefix = ""
           if vim.api.nvim_get_mode().mode == "V" or vim.api.nvim_get_mode().mode == "v" then prefix = "'<,'>" end
@@ -557,7 +557,6 @@ return {
     },
     opts = function()
       local api = require "repolink.api"
-      Print('repolink')
       return {
         url_builders = {
           ["yopaz"] = api.url_builder_for_github(),
