@@ -1,5 +1,5 @@
 return {
-  on_attach = function() end,
+  -- on_attach = function() end,
   signs = {
     add = { hl = "GitSignsAdd", text = "+", numhl = "GitSignsAddNr", linehl = "GitSignsAddLn" },
     change = { hl = "GitSignsChange", text = "|", numhl = "GitSignsChangeNr", linehl = "GitSignsChangeLn" },
