@@ -110,7 +110,7 @@ return {
             elseif haveTsw then
               vim.api.nvim_create_autocmd("BufWritePost", {
                 ---@diagnostic disable-next-line: param-type-mismatch
-                callback = function() pcall(vim.cmd, "Tsw show_variables=true show_order=true") end,
+                callback = function() pcall(vim.cmd, "silent! Tsw show_variables=true show_order=true") end,
                 buffer = e.buf,
               })
             else
