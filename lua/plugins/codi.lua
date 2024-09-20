@@ -1,10 +1,17 @@
 ---@type LazySpec
 return {
+  -- {
+  --   "metakirby5/codi.vim",
+  --   cmd = "Codi",
+  --   build = "npm install -g tsun",
+  --   config = function() vim.g["codi#autocmd"] = "None" end,
+  -- },
   {
-    "metakirby5/codi.vim",
-    cmd = "Codi",
-    build = "npm install -g tsun",
-    config = function() vim.g["codi#autocmd"] = "None" end,
+    "typed-rocks/ts-worksheet-neovim",
+    opts = {
+      severity = vim.diagnostic.severity.WARN,
+    },
+    config = function(_, opts) require("tsw").setup(opts) end,
   },
   -- {
   --   "0x100101/lab.nvim",
@@ -87,6 +94,7 @@ return {
             Chiruno.func.close_null_window()
             ---@diagnostic disable-next-line: param-type-mismatch
             local haveCodi = pcall(vim.cmd, "Codi")
+            local haveTsw = pcall(vim.cmd, "Tsw")
             if haveCodi then
               vim.keymap.set("n", "<leader>K", "<cmd>CodiExpand<CR>", { buffer = e.buf })
               vim.api.nvim_create_autocmd("BufWritePost", {
@@ -97,6 +105,17 @@ return {
               vim.api.nvim_create_autocmd("InsertEnter", {
                 ---@diagnostic disable-next-line: param-type-mismatch
                 callback = function() pcall(vim.cmd, "Codi!") end,
+                buffer = e.buf,
+              })
+            elseif haveTsw then
+              vim.api.nvim_create_autocmd("BufWritePost", {
+                ---@diagnostic disable-next-line: param-type-mismatch
+                callback = function() pcall(vim.cmd, "Tsw") end,
+                buffer = e.buf,
+              })
+              vim.api.nvim_create_autocmd("InsertEnter", {
+                ---@diagnostic disable-next-line: param-type-mismatch
+                callback = function() pcall(vim.cmd, "Tsw!") end,
                 buffer = e.buf,
               })
             else
