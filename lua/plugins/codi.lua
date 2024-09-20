@@ -1,18 +1,18 @@
 ---@type LazySpec
 return {
-  -- {
-  --   "metakirby5/codi.vim",
-  --   cmd = "Codi",
-  --   build = "npm install -g tsun",
-  --   config = function() vim.g["codi#autocmd"] = "None" end,
-  -- },
   {
-    "typed-rocks/ts-worksheet-neovim",
-    opts = {
-      severity = vim.diagnostic.severity.HINT,
-    },
-    config = function(_, opts) require("tsw").setup(opts) end,
+    "metakirby5/codi.vim",
+    cmd = "Codi",
+    build = "npm install -g tsun",
+    config = function() vim.g["codi#autocmd"] = "None" end,
   },
+  -- {
+  --   "typed-rocks/ts-worksheet-neovim",
+  --   opts = {
+  --     severity = vim.diagnostic.severity.HINT,
+  --   },
+  --   config = function(_, opts) require("tsw").setup(opts) end,
+  -- },
   -- {
   --   "0x100101/lab.nvim",
   --   cmd = "Lab",
