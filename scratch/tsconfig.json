@@ -22,6 +22,6 @@
       "@root/*": ["./*"]
     }
   },
-  "include": ["src/*.ts", "src/**/*.ts", "src/*.d.ts", "src/**/*.d.ts", "eslint.config.mjs"],
+  "include": ["src/*", "eslint.config.mjs"],
   "exclude": ["dist", "node_modules"]
 }
