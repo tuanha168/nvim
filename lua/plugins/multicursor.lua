@@ -59,11 +59,11 @@ return {
         end
       end)
 
-      -- Align cursor columns.
-      vim.keymap.set("n", "<leader>a", mc.alignCursors)
+      -- -- Align cursor columns.
+      -- vim.keymap.set("n", "<leader>a", mc.alignCursors)
 
-      -- Split visual selections by regex.
-      vim.keymap.set("v", "S", mc.splitCursors)
+      -- -- Split visual selections by regex.
+      -- vim.keymap.set("v", "S", mc.splitCursors)
 
       -- Append/insert for each line of visual selections.
       vim.keymap.set("v", "I", mc.insertVisual)
@@ -76,11 +76,11 @@ return {
       vim.keymap.set("v", "<leader>t", function() mc.transposeCursors(1) end)
       vim.keymap.set("v", "<leader>T", function() mc.transposeCursors(-1) end)
 
-      -- Customize how cursors look.
-      vim.api.nvim_set_hl(0, "MultiCursorCursor", { link = "Cursor" })
-      vim.api.nvim_set_hl(0, "MultiCursorVisual", { link = "Visual" })
-      vim.api.nvim_set_hl(0, "MultiCursorDisabledCursor", { link = "Visual" })
-      vim.api.nvim_set_hl(0, "MultiCursorDisabledVisual", { link = "Visual" })
+      -- -- Customize how cursors look.
+      -- vim.api.nvim_set_hl(0, "MultiCursorCursor", { link = "Cursor" })
+      -- vim.api.nvim_set_hl(0, "MultiCursorVisual", { link = "Visual" })
+      -- vim.api.nvim_set_hl(0, "MultiCursorDisabledCursor", { link = "Visual" })
+      -- vim.api.nvim_set_hl(0, "MultiCursorDisabledVisual", { link = "Visual" })
     end,
   },
   -- {
