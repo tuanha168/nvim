@@ -24,7 +24,7 @@ return {
       vim.keymap.set({ "n", "v" }, "<down>", function() mc.addCursor "j" end)
 
       -- Add a cursor and jump to the next word under cursor.
-      vim.keymap.set({ "n", "v" }, "<c-n>", function() mc.addCursor "*" end)
+      vim.keymap.set({ "n", "v" }, "<C-e>", function() mc.addCursor "*" end)
 
       -- Jump to the next word under cursor but do not add a cursor.
       vim.keymap.set({ "n", "v" }, "<c-s>", function() mc.skipCursor "*" end)
