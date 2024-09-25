@@ -26,7 +26,7 @@ local mappings = {
       noremap = true,
       desc = "Resize split right",
     },
-    ["*"] = { '"ayiwh/<c-r>a<CR>' },
+    -- ["*"] = { '"ayiwh/<c-r>a<CR>' },
     ["<Leader>r"] = {
       function() Chiruno.func.operatorfunc_lua "replace_motion" end,
     },
@@ -132,7 +132,7 @@ local mappings = {
     },
   },
   v = {
-    ["*"] = { function() Chiruno.func.operatorfunc_lua "search" end },
+    -- ["*"] = { function() Chiruno.func.operatorfunc_lua "search" end },
     ["<Leader>r"] = {
       function() Chiruno.func.operatorfunc_lua "replace_motion" end,
     },
