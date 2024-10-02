@@ -635,4 +635,9 @@ return {
       return opts
     end,
   },
+
+  {
+    "nvim-ufo",
+    enabled = false,
+  }
 }
