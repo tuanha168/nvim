@@ -24,11 +24,6 @@ return {
     },
     opts = {
       initial_state = false,
-      callbacks = {
-        on_enable = function ()
-          vim.cmd("Markview splitEnable")
-        end
-      }
     }
   },
 }
