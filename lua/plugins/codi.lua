@@ -70,7 +70,7 @@ return {
     config = function()
       require("attempt").setup {
         dir = os.getenv "HOME" .. "/.config/nvim/scratch/src",
-        ext_options = { "lua", "ts", "py" }, -- Options to choose from
+        ext_options = { "lua", "mts", "py" }, -- Options to choose from
         list_buffers = true,
       }
 
