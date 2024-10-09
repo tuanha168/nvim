@@ -20,7 +20,8 @@
     "paths": {
       "@/*": ["./src/*"],
       "@root/*": ["./*"]
-    }
+    },
+    "moduleDetection": "force"
   },
   "include": ["src/*", "eslint.config.mjs"],
   "exclude": ["dist", "node_modules"]
