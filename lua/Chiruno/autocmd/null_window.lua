@@ -16,6 +16,8 @@ function Chiruno.autocmd.null_window()
     pattern = Chiruno.constants.events.ToggleWindow,
     callback = Chiruno.func.check_null_window,
   })
+
+  vim.keymap.set("n", "<Leader>z", Chiruno.func.toggle_null_window, { desc = "Toggle Null Window", noremap = true })
 end
 
 return Chiruno.autocmd.null_window

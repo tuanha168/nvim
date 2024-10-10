@@ -116,11 +116,6 @@ local mappings = {
     ["<Leader>fd"] = { function() Chiruno.func.run_make() end, desc = "Run make", noremap = true },
     ["]c"] = { "<cmd>cn<CR>", desc = "Next error", noremap = true },
     ["[c"] = { "<cmd>cp<CR>", desc = "Previous error", noremap = true },
-    ["<Leader>z"] = {
-      function() Chiruno.func.toggle_null_window() end,
-      desc = "Toggle Null Window",
-      noremap = true,
-    },
     ["<Leader>du"] = {
       function()
         local ok, dapui = pcall(require, "dapui")
