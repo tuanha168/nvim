@@ -179,7 +179,9 @@ vim.lsp.handlers[methods.textDocument_inlayHint] = function(err, result, ctx, co
 
   autocmd({ "BufWinEnter", "BufEnter" }, {
     pattern = "*",
-    callback = function(event) Print(vim.tbl_contains({ "help", "nofile", "quickfix" }, vim.bo[event.buf].buftype)) end,
+    callback = function(event)
+      if vim.bo[event.buf].buftype == "quickfix" then Print(vim.bo[event.buf].buftype) end
+    end,
   })
 
   inlay_hint_handler(err, result, ctx, config)
