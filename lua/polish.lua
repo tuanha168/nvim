@@ -177,10 +177,18 @@ vim.lsp.handlers[methods.textDocument_inlayHint] = function(err, result, ctx, co
     end
   end
 
-  autocmd({ "BufWinEnter", "BufEnter" }, {
+  autocmd({ "BufEnter" }, {
     pattern = "*",
     callback = function(event)
-      if vim.bo[event.buf].buftype == "quickfix" then Print(vim.bo[event.buf].buftype) end
+      if vim.bo[event.buf].buftype == "quickfix" then
+        vim.keymap.set("n", "dd", function()
+          local items = vim.fn.getqflist()
+          local line = vim.fn.line "."
+          table.remove(items, line)
+          vim.fn.setqflist(items, "r")
+          vim.api.nvim_win_set_cursor(0, { line, 0 })
+        end, { silent = true, buffer = event.buf, desc = "Remove entry from QF" })
+      end
     end,
   })
 
