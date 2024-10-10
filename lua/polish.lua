@@ -182,6 +182,7 @@ vim.lsp.handlers[methods.textDocument_inlayHint] = function(err, result, ctx, co
     callback = function(event)
       if vim.bo[event.buf].buftype == "quickfix" then
         vim.keymap.set("n", "dd", function()
+          Print "ok"
           local items = vim.fn.getqflist()
           local line = vim.fn.line "."
           table.remove(items, line)
