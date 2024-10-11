@@ -9,6 +9,9 @@ end
 vim.filetype.add {
   pattern = { [".*/hypr/.*%.conf"] = "hyprlang" },
 }
+vim.filetype.add {
+  pattern = { [".*%.env.*"] = "sh" },
+}
 
 local autocmd = vim.api.nvim_create_autocmd
 
