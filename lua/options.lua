@@ -29,6 +29,7 @@ local options = {
     },
   },
   g = {
+    editorconfig = false,
     matchup_matchparen_offscreen = { method = "popup" },
     copilot_assume_mapped = true,
     kitty_navigator_no_mappings = 1,
