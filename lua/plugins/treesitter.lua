@@ -4,6 +4,7 @@
 return {
   {
     "nvim-treesitter/nvim-treesitter",
+    enabled = false,
     opts = function(_, opts)
       require "markid"
       require "treesitter-context"
@@ -80,176 +81,176 @@ return {
       return opts
     end,
   },
-  {
-    "windwp/nvim-ts-autotag",
-    dependencies = { "nvim-treesitter/nvim-treesitter" },
-    opts = {
-      filetypes = {
-        "html",
-        "javascript",
-        "typescript",
-        "javascriptreact",
-        "typescriptreact",
-        "svelte",
-        "vue",
-        "tsx",
-        "jsx",
-        "rescript",
-        "xml",
-        "php",
-        "markdown",
-        "glimmer",
-        "handlebars",
-        "hbs",
-      },
-    },
-  },
-  {
-    "nvim-treesitter/nvim-treesitter-context",
-    -- event = "BufRead",
-    dependencies = { "nvim-treesitter/nvim-treesitter" },
-    keys = {
-      { "H", function() require("treesitter-context").go_to_context() end, desc = "Go to context" },
-    },
-    config = function()
-      vim.api.nvim_set_hl(0, "TreesitterContextBottom", { underline = true })
-      vim.api.nvim_set_hl(0, "TreesitterContextLineNumberBottom", { underline = true })
-      require("treesitter-context").setup {
-        max_lines = 5,
-      }
-    end,
-  },
   -- {
-  --   "HiPhish/nvim-ts-rainbow2",
-  --   event = "BufRead",
+  --   "windwp/nvim-ts-autotag",
   --   dependencies = { "nvim-treesitter/nvim-treesitter" },
-  --   config = require "config.nvim-ts-rainbow2",
+  --   opts = {
+  --     filetypes = {
+  --       "html",
+  --       "javascript",
+  --       "typescript",
+  --       "javascriptreact",
+  --       "typescriptreact",
+  --       "svelte",
+  --       "vue",
+  --       "tsx",
+  --       "jsx",
+  --       "rescript",
+  --       "xml",
+  --       "php",
+  --       "markdown",
+  --       "glimmer",
+  --       "handlebars",
+  --       "hbs",
+  --     },
+  --   },
   -- },
-  {
-    "hiphish/rainbow-delimiters.nvim",
-    -- event = "BufRead",
-    dependencies = { "nvim-treesitter/nvim-treesitter" },
-    config = function()
-      local rainbow_delimiters = require "rainbow-delimiters"
-
-      vim.g.rainbow_delimiters = {
-        strategy = {
-          [""] = rainbow_delimiters.strategy["global"],
-        },
-        query = {
-          [""] = "rainbow-delimiters",
-          lua = "rainbow-blocks",
-          vue = "rainbow-blocks",
-        },
-        highlight = {
-          "RainbowDelimiterRed",
-          "RainbowDelimiterYellow",
-          "RainbowDelimiterGreen",
-          "RainbowDelimiterOrange",
-          "RainbowDelimiterBlue",
-          "RainbowDelimiterViolet",
-          "RainbowDelimiterCyan",
-        },
-        -- blacklist = { "c", "cpp" },
-      }
-    end,
-  },
-  {
-    -- "David-Kunz/markid",
-    "tuanha168/markid",
-    -- event = "BufRead",
-    dependencies = { "nvim-treesitter/nvim-treesitter" },
-    config = require "config.markid",
-  },
   -- {
-  --   "ckolkey/ts-node-action",
+  --   "nvim-treesitter/nvim-treesitter-context",
+  --   -- event = "BufRead",
   --   dependencies = { "nvim-treesitter/nvim-treesitter" },
-  --   event = "BufRead",
-  --   opts = {},
+  --   keys = {
+  --     { "H", function() require("treesitter-context").go_to_context() end, desc = "Go to context" },
+  --   },
   --   config = function()
-  --     vim.keymap.set({ "n" }, "<leader>m", require("ts-node-action").node_action, { desc = "Trigger Node Action" })
-  --
-  --     require("null-ls").register {
-  --       name = "more_actions",
-  --       method = { require("null-ls").methods.CODE_ACTION },
-  --       filetypes = { "_all" },
-  --       generator = {
-  --         fn = require("ts-node-action").available_actions,
+  --     vim.api.nvim_set_hl(0, "TreesitterContextBottom", { underline = true })
+  --     vim.api.nvim_set_hl(0, "TreesitterContextLineNumberBottom", { underline = true })
+  --     require("treesitter-context").setup {
+  --       max_lines = 5,
+  --     }
+  --   end,
+  -- },
+  -- -- {
+  -- --   "HiPhish/nvim-ts-rainbow2",
+  -- --   event = "BufRead",
+  -- --   dependencies = { "nvim-treesitter/nvim-treesitter" },
+  -- --   config = require "config.nvim-ts-rainbow2",
+  -- -- },
+  -- {
+  --   "hiphish/rainbow-delimiters.nvim",
+  --   -- event = "BufRead",
+  --   dependencies = { "nvim-treesitter/nvim-treesitter" },
+  --   config = function()
+  --     local rainbow_delimiters = require "rainbow-delimiters"
+
+  --     vim.g.rainbow_delimiters = {
+  --       strategy = {
+  --         [""] = rainbow_delimiters.strategy["global"],
   --       },
+  --       query = {
+  --         [""] = "rainbow-delimiters",
+  --         lua = "rainbow-blocks",
+  --         vue = "rainbow-blocks",
+  --       },
+  --       highlight = {
+  --         "RainbowDelimiterRed",
+  --         "RainbowDelimiterYellow",
+  --         "RainbowDelimiterGreen",
+  --         "RainbowDelimiterOrange",
+  --         "RainbowDelimiterBlue",
+  --         "RainbowDelimiterViolet",
+  --         "RainbowDelimiterCyan",
+  --       },
+  --       -- blacklist = { "c", "cpp" },
   --     }
   --   end,
   -- },
   -- {
-  --   "nvim-treesitter/nvim-treesitter-textobjects",
+  --   -- "David-Kunz/markid",
+  --   "tuanha168/markid",
+  --   -- event = "BufRead",
   --   dependencies = { "nvim-treesitter/nvim-treesitter" },
-  --   event = "BufRead",
-  --   config = require("config.nvim-treesitter-textobjects").config,
+  --   config = require "config.markid",
   -- },
-  {
-    "shellRaining/hlchunk.nvim",
-    event = { "UIEnter" },
-    dependencies = { "nvim-treesitter/nvim-treesitter" },
-    opts = function()
-      local ft = require("hlchunk.utils.filetype").exclude_filetypes
-      local exclude_filetypes = Chiruno.func.extends_table(ft, {
-        [Chiruno.constants.templateBuffer] = true,
-        tmux = true,
-        harpoon = true,
-        minifiles = true,
-        dbui = true,
-        fzf = true,
-      })
-      return {
-        indent = {
-          -- chars = { "·", "·", "·", "·" }, -- more code can be found in https://unicodeplus.com/
-          chars = { "│", "¦", "┆", "┊" }, -- more code can be found in https://unicodeplus.com/
+  -- -- {
+  -- --   "ckolkey/ts-node-action",
+  -- --   dependencies = { "nvim-treesitter/nvim-treesitter" },
+  -- --   event = "BufRead",
+  -- --   opts = {},
+  -- --   config = function()
+  -- --     vim.keymap.set({ "n" }, "<leader>m", require("ts-node-action").node_action, { desc = "Trigger Node Action" })
+  -- --
+  -- --     require("null-ls").register {
+  -- --       name = "more_actions",
+  -- --       method = { require("null-ls").methods.CODE_ACTION },
+  -- --       filetypes = { "_all" },
+  -- --       generator = {
+  -- --         fn = require("ts-node-action").available_actions,
+  -- --       },
+  -- --     }
+  -- --   end,
+  -- -- },
+  -- -- {
+  -- --   "nvim-treesitter/nvim-treesitter-textobjects",
+  -- --   dependencies = { "nvim-treesitter/nvim-treesitter" },
+  -- --   event = "BufRead",
+  -- --   config = require("config.nvim-treesitter-textobjects").config,
+  -- -- },
+  -- {
+  --   "shellRaining/hlchunk.nvim",
+  --   event = { "UIEnter" },
+  --   dependencies = { "nvim-treesitter/nvim-treesitter" },
+  --   opts = function()
+  --     local ft = require("hlchunk.utils.filetype").exclude_filetypes
+  --     local exclude_filetypes = Chiruno.func.extends_table(ft, {
+  --       [Chiruno.constants.templateBuffer] = true,
+  --       tmux = true,
+  --       harpoon = true,
+  --       minifiles = true,
+  --       dbui = true,
+  --       fzf = true,
+  --     })
+  --     return {
+  --       indent = {
+  --         -- chars = { "·", "·", "·", "·" }, -- more code can be found in https://unicodeplus.com/
+  --         chars = { "│", "¦", "┆", "┊" }, -- more code can be found in https://unicodeplus.com/
 
-          style = {
-            "#333333",
-          },
-        },
-        blank = {
-          enable = false,
-        },
+  --         style = {
+  --           "#333333",
+  --         },
+  --       },
+  --       blank = {
+  --         enable = false,
+  --       },
 
-        chunk = {
-          chars = {
-            horizontal_line = "─",
-            vertical_line = "│",
-            left_top = "╭",
-            left_bottom = "╰",
-            right_arrow = "─",
-          },
-          style = "#00ffff",
-          exclude_filetypes = exclude_filetypes,
-        },
+  --       chunk = {
+  --         chars = {
+  --           horizontal_line = "─",
+  --           vertical_line = "│",
+  --           left_top = "╭",
+  --           left_bottom = "╰",
+  --           right_arrow = "─",
+  --         },
+  --         style = "#00ffff",
+  --         exclude_filetypes = exclude_filetypes,
+  --       },
 
-        line_num = {
-          style = "#fcb3ed",
-        },
-      }
-    end,
-  },
-
-  {
-    "jwalton512/vim-blade",
-    ft = "blade",
-  },
+  --       line_num = {
+  --         style = "#fcb3ed",
+  --       },
+  --     }
+  --   end,
+  -- },
 
   -- {
-  --   "code-biscuits/nvim-biscuits",
-  --   dependencies = {
-  --     "nvim-treesitter/nvim-treesitter",
-  --   },
-  --   event = { "InsertLeave", "CursorHoldI" },
-  --   opts = {
-  --     on_events = { "InsertLeave", "CursorHoldI" },
-  --     show_on_start = true,
-  --   },
+  --   "jwalton512/vim-blade",
+  --   ft = "blade",
   -- },
-  {
-    "davidmh/mdx.nvim",
-    config = true,
-    dependencies = { "nvim-treesitter/nvim-treesitter" },
-  },
+
+  -- -- {
+  -- --   "code-biscuits/nvim-biscuits",
+  -- --   dependencies = {
+  -- --     "nvim-treesitter/nvim-treesitter",
+  -- --   },
+  -- --   event = { "InsertLeave", "CursorHoldI" },
+  -- --   opts = {
+  -- --     on_events = { "InsertLeave", "CursorHoldI" },
+  -- --     show_on_start = true,
+  -- --   },
+  -- -- },
+  -- {
+  --   "davidmh/mdx.nvim",
+  --   config = true,
+  --   dependencies = { "nvim-treesitter/nvim-treesitter" },
+  -- },
 }
