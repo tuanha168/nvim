@@ -19,7 +19,8 @@ local function get_eslint_server_path()
     if util.path.exists(found_bin) then return path end
   end
   if util.search_ancestors(root_dir, check_dir) then
-    return found_bin
+    Print(found_bin)
+    return { found_bin, "--stdio" }
   else
     return {"~/.local/share/nvim/mason/bin/vscode-eslint-language-server", "--stdio"}
   end
