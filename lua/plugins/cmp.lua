@@ -91,15 +91,15 @@ return {
       return opts
     end,
   },
-  {
-    "onsails/lspkind.nvim",
-    opts = function(_, opts)
-      opts.before = function(entry, vim_item)
-        if entry.source.name == "nvim_lsp" then vim_item.dup = 0 end
-        return vim_item
-      end
-      return opts
-    end,
-  },
+  -- {
+  --   "onsails/lspkind.nvim",
+  --   opts = function(_, opts)
+  --     opts.before = function(entry, vim_item)
+  --       if entry.source.name == "nvim_lsp" then vim_item.dup = 0 end
+  --       return vim_item
+  --     end
+  --     return opts
+  --   end,
+  -- },
   { "hrsh7th/cmp-cmdline", event = "VeryLazy", config = function() require "config.cmdline" end },
 }
