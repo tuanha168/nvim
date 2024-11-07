@@ -14,7 +14,7 @@ return {
         local haveRepoLink, _ = pcall(require, "repolink")
         if not haveRepoLink then return end
 
-        vim.keymap.set("n", "<Leader>gL", function()
+        vim.keymap.set({ "n", "x" }, "<Leader>gL", function()
           local prefix = ""
           if vim.api.nvim_get_mode().mode == "V" or vim.api.nvim_get_mode().mode == "v" then prefix = "'<,'>" end
           vim.ui.input({ prompt = "Origin (default: origin): " }, function(origin)
