@@ -10,7 +10,7 @@ local function get_eslint_server_path(root_dir)
   if util.search_ancestors(root_dir, check_dir) then
     return { found_bin }
   else
-    return {"~/.local/share/nvim/mason/bin/vscode-eslint-language-server", "--stdio"}
+    return { "~/.local/share/nvim/mason/bin/vscode-eslint-language-server", "--stdio" }
   end
 end
 
@@ -26,7 +26,5 @@ return {
     "eslint.config.mjs",
     "eslint.config.ts"
   ),
-  on_new_config = function(new_config, new_root_dir)
-    new_config.cmd = get_eslint_server_path(new_root_dir)
-  end,
+  on_new_config = function(new_config, new_root_dir) new_config.cmd = get_eslint_server_path(new_root_dir) end,
 }
