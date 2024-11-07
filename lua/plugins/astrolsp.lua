@@ -16,6 +16,9 @@ return {
       inlay_hints = true, -- enable/disable inlay hints on start
       semantic_tokens = true, -- enable/disable semantic token highlighting
     },
+    -- lsp_handlers = {
+    --   ["textDocument/hover"] = vim.lsp.with(vim.lsp.handlers.hover, { border = "rounded", silent = true }),
+    -- },
     -- customize lsp formatting options
     formatting = {
       -- control auto formatting on save
