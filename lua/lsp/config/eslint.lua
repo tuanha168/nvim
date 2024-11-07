@@ -1,7 +1,7 @@
 local util = require "lspconfig.util"
 
 local function get_eslint_server_path(root_dir)
-  local global_bin = require("mason-registry").get_package("eslint"):get_install_path()
+  local global_bin = require("mason-registry").get_package("eslint-lsp"):get_install_path()
   Print(global_bin)
 
   local found_bin = ""
