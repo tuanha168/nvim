@@ -1,17 +1,6 @@
 local util = require "lspconfig.util"
 
-local root_dir = util.root_pattern(
-  ".eslintrc.cjs",
-  ".eslintrc.js",
-  ".eslintrc.ts",
-  ".eslintrc.json",
-  ".eslintrc.yml",
-  "eslint.config.js",
-  "eslint.config.mjs",
-  "eslint.config.ts"
-)
-
-local function get_eslint_server_path()
+local function get_eslint_server_path(root_dir)
   local found_bin = ""
 
   local function check_dir(path)
@@ -28,6 +17,17 @@ end
 
 return {
   -- filetypes = { "javascript", "javascriptreact", "typescript", "typescriptreact", "vue", "json" },
-  cmd = get_eslint_server_path(),
-  root_dir = root_dir,
+  root_dir = util.root_pattern(
+    ".eslintrc.cjs",
+    ".eslintrc.js",
+    ".eslintrc.ts",
+    ".eslintrc.json",
+    ".eslintrc.yml",
+    "eslint.config.js",
+    "eslint.config.mjs",
+    "eslint.config.ts"
+  ),
+  on_new_config = function(new_config, new_root_dir)
+    new_config.cmd = get_eslint_server_path(new_root_dir)
+  end,
 }
