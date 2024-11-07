@@ -2,7 +2,7 @@ local util = require "lspconfig.util"
 
 local function get_eslint_server_path(root_dir)
   local global_bin = require("mason-registry").get_package("eslint-lsp"):get_install_path()
-  Print(global_bin)
+    .. "/node_modules/.bin/vscode-eslint-language-server"
 
   local found_bin = ""
 
@@ -13,7 +13,7 @@ local function get_eslint_server_path(root_dir)
   if util.search_ancestors(root_dir, check_dir) then
     return { found_bin }
   else
-    return { "~/.local/share/nvim/mason/bin/vscode-eslint-language-server", "--stdio" }
+    return { global_bin, "--stdio" }
   end
 end
 
