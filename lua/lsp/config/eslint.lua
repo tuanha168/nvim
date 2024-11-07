@@ -1,5 +1,8 @@
 local util = require "lspconfig.util"
 
+local masonBin = require("mason-registry").get_package("eslint"):get_install_path()
+  .. "/node_modules/typescript/lib"
+
 return {
   -- filetypes = { "javascript", "javascriptreact", "typescript", "typescriptreact", "vue", "json" },
   cmd = { "eslint", "--stdio" },
