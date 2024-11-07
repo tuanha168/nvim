@@ -7,6 +7,8 @@ return {
       for k, v in pairs(conf) do
         opts[k] = v
       end
+
+      return opts
     end,
   },
 }
