@@ -12,7 +12,7 @@ local root_dir = util.root_pattern(
 )
 
 local function get_eslint_server_path()
-  local global_bin = require("mason-registry").get_package("eslint-lsp"):get_install_path()
+  local global_bin = require("mason-registry").get_package("eslint"):get_install_path()
     .. "/node_modules/typescript/lib"
 
   local found_bin = ""
