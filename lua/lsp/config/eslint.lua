@@ -12,9 +12,6 @@ local root_dir = util.root_pattern(
 )
 
 local function get_eslint_server_path()
-  local global_bin = require("mason-registry").get_package("eslint"):get_install_path()
-    .. "/node_modules/typescript/lib"
-
   local found_bin = ""
 
   local function check_dir(path)
@@ -24,7 +21,7 @@ local function get_eslint_server_path()
   if util.search_ancestors(root_dir, check_dir) then
     return found_bin
   else
-    return global_bin
+    return nil
   end
 end
 
