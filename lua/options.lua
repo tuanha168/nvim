@@ -33,8 +33,6 @@ local options = {
     matchup_matchparen_offscreen = { method = "popup" },
     copilot_assume_mapped = true,
     kitty_navigator_no_mappings = 1,
-    resession_enabled = false,
-    codelens_enabled = false,
   },
   o = {
     background = "dark",
