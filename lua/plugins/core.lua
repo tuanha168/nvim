@@ -611,4 +611,11 @@ return {
     "nvim-ufo",
     enabled = false,
   },
+
+  {
+    "kyallanum/ndi.nvim",
+    dependencies = {
+      "junegunn/fzf",
+    },
+  },
 }
