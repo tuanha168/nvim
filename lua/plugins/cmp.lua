@@ -9,6 +9,9 @@ return {
   },
   {
     "hrsh7th/nvim-cmp",
+    dependencies = {
+      "SergioRibera/cmp-dotenv",
+    },
     opts = function(_, opts)
       opts.sources = {
         { name = "nvim_lsp", priority = 1000 },
