@@ -202,10 +202,8 @@ vim.lsp.handlers[methods.textDocument_inlayHint] = function(err, result, ctx, co
       if not haveNullLs then return end
 
       if vim.lsp.get_clients({ bufnr = event.buf, name = "eslint" })[1] then
-        Print("Disable prettierd")
         nullLs.disable { "prettierd" }
       else
-        Print("enable prettierd")
         nullLs.enable { "prettierd" }
       end
     end,
