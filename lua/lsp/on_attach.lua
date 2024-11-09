@@ -12,7 +12,7 @@ return function(client, bufnr)
     require("null-ls").disable { "prettierd" }
   end
 
-  vim.api.nvim_create_autocmd({ "BufReadPost" }, {
+  vim.api.nvim_create_autocmd({ "BufEnter" }, {
     pattern = "*",
     callback = function(event)
       if vim.lsp.get_clients({ bufnr = event.buf, name = "eslint" })[1] then
