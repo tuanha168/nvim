@@ -15,7 +15,7 @@ return function(client, bufnr)
   vim.api.nvim_create_autocmd({ "BufEnter" }, {
     pattern = "*",
     callback = function(event)
-      for _, lsp in pairs(vim.lsp.get_clients()) do
+      for _, lsp in pairs(vim.lsp.get_clients { bufnr = event.buf }) do
         if lsp.name == "eslint" then
           -- vim.lsp.buf.format { bufnr = event.buf }
           Print "eslint"
