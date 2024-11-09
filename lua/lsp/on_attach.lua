@@ -12,6 +12,11 @@ return function(client, bufnr)
     require("null-ls").disable { "prettierd" }
   end
 
+  vim.api.nvim_create_autocmd({ "BufEnter" }, {
+    pattern = "*",
+    callback = function(event) Print("BufEnter", event.buf) end,
+  })
+
   -- if client.name == "rust_analyzer" then
   --   local rt = require "rust-tools"
   --   vim.keymap.set("n", "<leader>k", rt.hover_actions.hover_actions, { buffer = bufnr })
