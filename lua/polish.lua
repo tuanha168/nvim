@@ -195,7 +195,7 @@ vim.lsp.handlers[methods.textDocument_inlayHint] = function(err, result, ctx, co
     end,
   })
 
-  autocmd({ "BufEnter", "BufReadPost" }, {
+  autocmd({ "BufEnter", "BufReadPre" }, {
     pattern = "*",
     callback = function(event)
       local haveNullLs, nullLs = pcall(require, "null-ls")
