@@ -9,19 +9,7 @@ return function(client, bufnr)
     client.server_capabilities.documentFormattingProvider = true
     client.config.capabilities = client.config.capabilities or {}
     client.config.capabilities.documentFormattingProvider = true
-    require("null-ls").disable { "prettierd" }
   end
-
-  vim.api.nvim_create_autocmd({ "BufEnter" }, {
-    pattern = "*",
-    callback = function(event)
-      if vim.lsp.get_clients({ bufnr = event.buf, name = "eslint" })[1] then
-        require("null-ls").disable { "prettierd" }
-      else
-        require("null-ls").enable { "prettierd" }
-      end
-    end,
-  })
 
   -- if client.name == "rust_analyzer" then
   --   local rt = require "rust-tools"
