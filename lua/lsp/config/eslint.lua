@@ -9,8 +9,7 @@ local function get_eslint_server_path(root_dir)
   end
 
   if util.search_ancestors(root_dir, check_dir) then
-    return { found_bin }
-    -- return { found_bin, "--stdio" }
+    return { found_bin, "--stdio" }
   end
 
   return { "vscode-eslint-language-server", "--stdio" }
