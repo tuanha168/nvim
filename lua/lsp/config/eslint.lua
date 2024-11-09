@@ -25,5 +25,5 @@ return {
     "eslint.config.mjs",
     "eslint.config.ts"
   ),
-  -- on_new_config = function(new_config, new_root_dir) new_config.cmd = get_eslint_server_path(new_root_dir) end,
+  on_new_config = function(new_config, new_root_dir) new_config.cmd = get_eslint_server_path(new_root_dir) end,
 }
