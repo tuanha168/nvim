@@ -610,5 +610,5 @@ return {
   {
     "nvim-ufo",
     enabled = false,
-  }
+  },
 }
