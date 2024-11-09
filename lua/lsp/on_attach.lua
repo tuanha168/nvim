@@ -16,10 +16,8 @@ return function(client, bufnr)
     pattern = "*",
     callback = function(event)
       if vim.lsp.get_clients({ bufnr = event.buf, name = "eslint" })[1] then
-        Print(event.buf, true)
         require("null-ls").disable { "prettierd" }
       else
-        Print(event.buf, false)
         require("null-ls").enable { "prettierd" }
       end
     end,
