@@ -195,7 +195,7 @@ vim.lsp.handlers[methods.textDocument_inlayHint] = function(err, result, ctx, co
     end,
   })
 
-  autocmd({ "BufEnter", "BufReadPre" }, {
+  autocmd({ "BufEnter", "VimEnter" }, {
     pattern = "*",
     callback = function(event)
       Print("Enable prettierd")
