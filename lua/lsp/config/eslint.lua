@@ -1,20 +1,5 @@
 local util = require "lspconfig.util"
 
-local function get_eslint_server_path(root_dir)
-  local found_bin = ""
-
-  local function check_dir(path)
-    found_bin = util.path.join(path, "node_modules", ".bin", "eslint-lsp")
-    if util.path.exists(found_bin) then return found_bin end
-  end
-
-  if util.search_ancestors(root_dir, check_dir) then
-    return { found_bin, "--stdio" }
-  end
-
-  return { "vscode-eslint-language-server", "--stdio" }
-end
-
 return {
   -- filetypes = { "javascript", "javascriptreact", "typescript", "typescriptreact", "vue", "json" },
   root_dir = util.root_pattern(
@@ -27,5 +12,4 @@ return {
     "eslint.config.mjs",
     "eslint.config.ts"
   ),
-  on_new_config = function(new_config, new_root_dir) new_config.cmd = get_eslint_server_path(new_root_dir) end,
 }
