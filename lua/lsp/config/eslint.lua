@@ -4,8 +4,8 @@ local function get_eslint_server_path(root_dir)
   local found_bin = ""
 
   local function check_dir(path)
-    found_bin = util.path.join(path, "node_modules", ".bin", "eslint")
-    if util.path.exists(found_bin) then return path end
+    found_bin = util.path.join(path, "node_modules", ".bin", "eslint-lsp")
+    if util.path.exists(found_bin) then return { path, "--stdio" } end
   end
 
   if util.search_ancestors(root_dir, check_dir) then return { found_bin } end
