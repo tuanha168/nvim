@@ -195,5 +195,19 @@ vim.lsp.handlers[methods.textDocument_inlayHint] = function(err, result, ctx, co
     end,
   })
 
+  autocmd({ "BufEnter" }, {
+    pattern = "*",
+    callback = function(event)
+      local haveNullLs, nullLs = pcall(require, "null-ls")
+      if not haveNullLs then return end
+
+      if vim.lsp.get_clients({ bufnr = event.buf, name = "eslint" })[1] then
+        nullLs.disable { "prettierd" }
+      else
+        nullLs.enable { "prettierd" }
+      end
+    end,
+  })
+
   inlay_hint_handler(err, result, ctx, config)
 end
