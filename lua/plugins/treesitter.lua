@@ -45,6 +45,7 @@ return {
         "dot",
         "ini",
         "hyprlang",
+        "nu",
       })
       opts.sync_install = true
       opts.ignore_install = {}
