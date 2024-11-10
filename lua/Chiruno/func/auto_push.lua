@@ -5,9 +5,8 @@ function Chiruno.func.auto_push(path)
     if not Chiruno.func.isdir_exist(logsDir) then vim.cmd("silent !mkdir " .. logsDir) end
     Print("Auto Pushing", path)
     local folder_name = vim.fn.fnamemodify(path, ":t")
-    local cmd = "silent !git-auto-push " .. path .. " >> " .. logsDir .. "/" .. folder_name .. ".log &"
-    Print(cmd)
-    -- vim.schedule(function() vim.cmd(cmd) end)
+    local cmd = "silent !disown git-auto-push " .. path .. " >> " .. logsDir .. "/" .. folder_name .. ".log &"
+    vim.schedule(function() vim.cmd(cmd) end)
   end
 end
 
