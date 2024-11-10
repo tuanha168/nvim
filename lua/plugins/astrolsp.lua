@@ -50,6 +50,9 @@ return {
       tailwindcss = require "lsp.config.tailwindcss",
       ts_ls = require "lsp.config.ts_ls",
       volar = require "lsp.config.volar",
+      nushell = {
+        filetypes = { "nu" },
+      }
     },
     -- customize how language servers are attached
     handlers = require "lsp.setup_handlers",
