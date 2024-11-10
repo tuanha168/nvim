@@ -6,6 +6,7 @@ function Chiruno.func.auto_push(path)
     Print("Auto Pushing", path)
     local folder_name = vim.fn.fnamemodify(path, ":t")
     local cmd = "silent !disown git-auto-push " .. path .. " >> " .. logsDir .. "/" .. folder_name .. ".log &"
+    Print(cmd)
     vim.schedule(function() vim.cmd(cmd) end)
   end
 end
