@@ -48,6 +48,7 @@ return {
 
         -- C# .NET
         "omnisharp",
+        "nushell"
       })
     end,
   },
