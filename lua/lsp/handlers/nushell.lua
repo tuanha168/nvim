@@ -1,1 +1,4 @@
-return function(client, bufnr) require("lspconfig").nushell.setup {} end
+return function(client, bufnr)
+  Print(client.name)
+  require("lspconfig").nushell.setup {}
+end
