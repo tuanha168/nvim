@@ -8,4 +8,5 @@ return {
   --   Print(opts)
   --   require("lspconfig").eslint.setup(opts)
   -- end,
+  nushell = require "lsp.handlers.nushell",
 }
