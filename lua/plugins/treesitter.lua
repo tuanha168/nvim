@@ -4,6 +4,9 @@
 return {
   {
     "nvim-treesitter/nvim-treesitter",
+    dependencies = {
+        { "nushell/tree-sitter-nu" },
+    },
     opts = function(_, opts)
       require "markid"
       require "treesitter-context"
