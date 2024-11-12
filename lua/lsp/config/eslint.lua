@@ -12,14 +12,4 @@ return {
     "eslint.config.mjs",
     "eslint.config.ts"
   ),
-  settings = {
-    eslint = {
-      experimental = {
-        useFlatConfig = false,
-      },
-    },
-    experimental = {
-      useFlatConfig = false,
-    },
-  },
 }
