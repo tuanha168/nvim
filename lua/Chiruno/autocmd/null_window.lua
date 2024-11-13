@@ -22,7 +22,7 @@ function Chiruno.autocmd.null_window()
     group = null_window_augroup,
   })
 
-  autocmd({ "WinNew", "WinClosed" }, {
+  autocmd({ "WinEnter", "WinClosed" }, {
     pattern = "*",
     callback = Chiruno.func.on_null_win_enter,
     group = null_window_augroup,

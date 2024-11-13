@@ -36,6 +36,8 @@ end
 ---@param opts? NullWindowOptions
 ---@return nil
 function Chiruno.func.close_null_window(opts)
+  openNullWindow = false
+
   opts = Chiruno.func.extends_table({
     left = true,
     right = true,
@@ -75,14 +77,6 @@ local function open_null_window(opts)
 
     splitRight:mount()
   end
-
-  local augroup = [[
-    augroup Focus
-      autocmd!
-      autocmd WinEnter * lua Chiruno.func.on_null_win_enter()
-    augroup end]]
-
-  vim.api.nvim_exec2(augroup:format(splitLeft.winid, splitLeft.winid), { output = false })
 
   vim.api.nvim_win_set_buf(0, current_bufnr)
 end
@@ -153,28 +147,28 @@ end
 
 ---@param e? AutocmdCallbackEvent
 function Chiruno.func.on_null_win_enter(e)
-  -- local count = 0
+  local count = 0
   if not e then return end
-  Print(e)
-  Print(is_float(e.id))
 
-  --vim.defer_fn(function()
-  --  for _, win in ipairs(vim.api.nvim_tabpage_list_wins(0)) do
-  --    if win ~= splitLeft.winid and not is_float(win) then count = count + 1 end
-  --  end
-  --  if count > 1 then return Chiruno.func.close_null_window() end
+  if e.event == "WinClosed" then
+    if not splitLeft or not splitRight then Chiruno.func.check_null_window() end
+    return
+  end
 
-  --  local win = vim.api.nvim_get_current_win()
-  --  if is_float(win) then return end
+  vim.defer_fn(function()
+    local win = vim.api.nvim_get_current_win()
+    if is_float(win) then return end
 
-  --  if (splitLeft and win == splitLeft.winid) or (splitRight and win == splitRight.winid) then
-  --    Chiruno.func.toggle_null_window()
-  --    Chiruno.func.toggle_null_window()
-  --    return
-  --  end
+    for _, _win in ipairs(vim.api.nvim_tabpage_list_wins(0)) do
+      if _win ~= splitLeft.winid and not is_float(_win) then count = count + 1 end
+    end
+    if count > 1 then return Chiruno.func.close_null_window() end
 
-  --  if not splitLeft or not splitRight then Chiruno.func.check_null_window() end
-  --end, 10)
+    if (splitLeft and win == splitLeft.winid) or (splitRight and win == splitRight.winid) then
+
+      return
+    end
+  end, 10)
 end
 
 return Chiruno.func.check_null_window
