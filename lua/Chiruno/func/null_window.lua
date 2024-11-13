@@ -156,16 +156,18 @@ function Chiruno.func.on_null_win_enter()
 
   vim.defer_fn(function()
     for _, win in ipairs(vim.api.nvim_tabpage_list_wins(0)) do
-      if win ~= splitLeft.winid and not is_float(win) then
-        count = count + 1
-      end
+      if win ~= splitLeft.winid and not is_float(win) then count = count + 1 end
     end
     if count > 1 then return Chiruno.func.close_null_window() end
 
-    # local win = vim.api.nvim_get_current_win()
-    #   Chiruno.func.toggle_null_window()
-    #   Chiruno.func.toggle_null_window()
-    # end
+    local win = vim.api.nvim_get_current_win()
+    if is_float(win) then return end
+
+    if win == splitLeft.winid or win == splitRight.winid then
+      Chiruno.func.toggle_null_window()
+      Chiruno.func.toggle_null_window()
+      return
+    end
   end, 10)
 end
 
