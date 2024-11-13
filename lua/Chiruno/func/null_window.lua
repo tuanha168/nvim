@@ -149,22 +149,11 @@ function Chiruno.func.check_null_window(e)
   if opts.left or opts.right then open_null_window(opts) end
 end
 
----@param win number
----@return boolean?
-local function is_float(win)
-  local opts = vim.api.nvim_win_get_config(win)
-  return opts and opts.relative and opts.relative ~= ""
-end
-
 function Chiruno.func.on_null_win_enter()
   local win = vim.api.nvim_get_current_win()
-  Print(win, splitLeft.winid)
-  if win == splitLeft.winid and not is_float(win) then
-    -- HACK: when returning from a float window, vim initially enters the parent window.
-    -- give 10ms to get back to the focus window before closing
-    vim.defer_fn(function()
-      if vim.api.nvim_get_current_win() ~= splitLeft.winid then Chiruno.func.close_null_window() end
-    end, 10)
+  if win == splitLeft.winid then
+    Chiruno.func.toggle_null_window()
+    Chiruno.func.toggle_null_window()
   end
 end
 
