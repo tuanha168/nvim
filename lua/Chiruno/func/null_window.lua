@@ -168,10 +168,9 @@ function Chiruno.func.on_null_win_enter(e)
     local closedWin = tonumber(e.match)
     if closedWin and is_float(closedWin) then return end
 
-    vim.defer_fn(function()
-      Print(closedWin)
-      if is_only_one_window() then Chiruno.func.check_null_window() end
-    end, 10)
+    -- vim.defer_fn(function()
+    --   if is_only_one_window() then Chiruno.func.check_null_window() end
+    -- end, 10)
     return
   end
 
