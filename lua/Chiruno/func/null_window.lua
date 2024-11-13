@@ -34,7 +34,9 @@ end
 local function is_only_one_window()
   local count = 0
   for _, _win in ipairs(vim.api.nvim_tabpage_list_wins(0)) do
-    if (splitLeft and _win ~= splitLeft.winid) or (splitRight and _win ~= splitRight.winid) and not is_float(_win) then
+    if
+      ((splitLeft and _win ~= splitLeft.winid) or (splitRight and _win ~= splitRight.winid)) and not is_float(_win)
+    then
       count = count + 1
     end
   end
@@ -162,7 +164,9 @@ function Chiruno.func.on_null_win_enter(e)
     local closedWin = tonumber(e.match)
     if closedWin and is_float(closedWin) then return end
 
-    if is_only_one_window() then Chiruno.func.check_null_window() end
+    vim.defer_fn(function()
+      if is_only_one_window() then Chiruno.func.check_null_window() end
+    end, 10)
     return
   end
 
@@ -171,8 +175,6 @@ function Chiruno.func.on_null_win_enter(e)
     if is_float(win) then return end
 
     if not is_only_one_window() then Chiruno.func.close_null_window() end
-
-    if (splitLeft and win == splitLeft.winid) or (splitRight and win == splitRight.winid) then return end
   end, 10)
 end
 
