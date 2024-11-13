@@ -76,6 +76,19 @@ local function open_null_window(opts)
     splitRight:mount()
   end
 
+  local augroup = [[
+    augroup Focus
+      autocmd!
+      autocmd WinClosed %d ++once ++nested lua require("focus.views.focus").close()
+      autocmd WinEnter * lua require("focus.views.focus").on_win_enter()
+      autocmd CursorMoved * lua require("focus.views.focus").fix_layout()
+      autocmd VimResized * lua require("focus.views.focus").fix_layout(true)
+      autocmd CursorHold * lua require("focus.views.focus").fix_layout()
+      autocmd BufWinEnter * lua require("focus.views.focus").on_buf_win_enter()
+    augroup end]]
+
+  vim.api.nvim_exec2(augroup:format(splitLeft, splitLeft), { output = false })
+
   vim.api.nvim_win_set_buf(0, current_bufnr)
 end
 
