@@ -12,9 +12,7 @@ function Chiruno.autocmd.null_window()
 
   autocmd({ "WinEnter", "WinClosed" }, {
     pattern = "*",
-    callback = function(e)
-      Chiruno.func.on_null_win_enter(e)
-    end,
+    callback = Chiruno.func.on_null_win_enter,
 
     group = null_window_augroup,
   })
