@@ -79,12 +79,7 @@ local function open_null_window(opts)
   local augroup = [[
     augroup Focus
       autocmd!
-      autocmd WinClosed %d ++once ++nested lua Chiruno.func.close_null_window()
       autocmd WinEnter * lua Chiruno.func.on_null_win_enter()
-      autocmd CursorMoved * lua require("focus.views.focus").fix_layout()
-      autocmd VimResized * lua require("focus.views.focus").fix_layout(true)
-      autocmd CursorHold * lua require("focus.views.focus").fix_layout()
-      autocmd BufWinEnter * lua require("focus.views.focus").on_buf_win_enter()
     augroup end]]
 
   vim.api.nvim_exec2(augroup:format(splitLeft.winid, splitLeft.winid), { output = false })
