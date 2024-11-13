@@ -1,6 +1,6 @@
 Chiruno.constants = {
-  templateBuffer = "template-buffer",
-  templateBufferSize = "19%",
+  nullWindowName = "template-buffer",
+  nullWindowSize = "19%",
   events = {
     ToggleWindow = "ChirunoToggleWindow",
   },

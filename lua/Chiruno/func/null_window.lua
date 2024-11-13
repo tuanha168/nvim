@@ -4,13 +4,13 @@ local openNullWindow = true
 
 local options = {
   relative = "editor",
-  size = Chiruno.constants.templateBufferSize,
+  size = Chiruno.constants.nullWindowSize,
   enter = false,
   buf_options = {
     buftype = "nofile",
     modifiable = false,
     swapfile = false,
-    filetype = Chiruno.constants.templateBuffer,
+    filetype = Chiruno.constants.nullWindowName,
     undolevels = -1,
   },
   win_options = {

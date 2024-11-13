@@ -10,7 +10,7 @@ return {
       opts.source_selector = {
         winbar = false,
       }
-      opts.window.width = Chiruno.constants.templateBufferSize
+      opts.window.width = Chiruno.constants.nullWindowSize
       -- opts.window.position = "float"
       return opts
     end,
