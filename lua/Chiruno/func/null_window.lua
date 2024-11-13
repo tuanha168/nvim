@@ -151,8 +151,12 @@ local function is_float(win)
   return opts and opts.relative and opts.relative ~= ""
 end
 
-function Chiruno.func.on_null_win_enter()
-  local count = 0
+---@param e? AutocmdCallbackEvent
+function Chiruno.func.on_null_win_enter(e)
+  -- local count = 0
+  if not e then return end
+  Print(e)
+  Print(is_float(e.id))
 
   --vim.defer_fn(function()
   --  for _, win in ipairs(vim.api.nvim_tabpage_list_wins(0)) do
