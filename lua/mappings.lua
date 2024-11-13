@@ -93,6 +93,11 @@ local mappings = {
     },
     ["<Leader>c"] = false,
     ["<Leader>q"] = false,
+    ["<Leader>qq"] = {
+      require("astrocore.buffer").close,
+      desc = "Close buffer",
+      silent = true,
+    },
     ["+"] = { "<C-a>", noremap = true },
     ["-"] = { "<C-x>", noremap = true },
     ["<C-z>i"] = { "<C-i>" },
