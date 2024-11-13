@@ -21,8 +21,6 @@ return {
           local ok, neo = pcall(require, "neo-tree.command")
           if ok then
             neo.execute { toggle = true }
-
-            --vim.api.nvim_exec_autocmds("User", { pattern = Chiruno.constants.events.ToggleWindow, modeline = false })
           end
         end,
         desc = "Neo Tree",

@@ -59,19 +59,7 @@ return {
         "rcarriga/nvim-dap-ui",
         dependencies = { "nvim-neotest/nvim-nio" },
         config = function(_, opts)
-          local dap, dapui = require "dap", require "dapui"
-          dap.listeners.after.event_initialized["dapui_config"] = function()
-            dapui.open()
-            --vim.api.nvim_exec_autocmds("User", { pattern = Chiruno.constants.events.ToggleWindow, modeline = false })
-          end
-          dap.listeners.before.event_terminated["dapui_config"] = function()
-            dapui.close()
-            --vim.api.nvim_exec_autocmds("User", { pattern = Chiruno.constants.events.ToggleWindow, modeline = false })
-          end
-          dap.listeners.before.event_exited["dapui_config"] = function()
-            dapui.close()
-            --vim.api.nvim_exec_autocmds("User", { pattern = Chiruno.constants.events.ToggleWindow, modeline = false })
-          end
+          local dapui = require "dapui"
           opts.layouts = {
             {
               -- You can change the order of elements in the sidebar

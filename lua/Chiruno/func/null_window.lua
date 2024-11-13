@@ -30,12 +30,15 @@ local function is_float(win)
   return opts and opts.relative and opts.relative ~= ""
 end
 
+---@param win? number
 ---@return boolean?
-local function is_only_one_window()
+local function is_only_one_window(win)
   local count = 0
   for _, _win in ipairs(vim.api.nvim_tabpage_list_wins(0)) do
     if
-      ((splitLeft and _win ~= splitLeft.winid) or (splitRight and _win ~= splitRight.winid)) and not is_float(_win)
+      ((splitLeft and _win ~= splitLeft.winid) or (splitRight and _win ~= splitRight.winid))
+      and not is_float(_win)
+      and (not win or win ~= _win)
     then
       count = count + 1
     end
@@ -126,7 +129,8 @@ function Chiruno.func.check_ignore_window(bufnr, opts)
 end
 
 ---@param e? AutocmdCallbackEvent
-function Chiruno.func.check_null_window(e)
+---@param closedWin? number
+function Chiruno.func.check_null_window(e, closedWin)
   if e and (not e.match or e.match == "") then return end
 
   if not openNullWindow then return Chiruno.func.close_null_window() end
@@ -136,9 +140,12 @@ function Chiruno.func.check_null_window(e)
   local haveLeftPanel = false
   local haveRightPanel = false
   for _, buf in ipairs(buffers) do
+    if buf.winid == closedWin then goto continue end
+
     if Chiruno.func.check_ignore_window(buf.bufnr, "left") then haveLeftPanel = true end
 
     if Chiruno.func.check_ignore_window(buf.bufnr, "right") then haveRightPanel = true end
+    ::continue::
   end
 
   ---@type NullWindowOptions
@@ -159,18 +166,12 @@ end
 ---@param e? AutocmdCallbackEvent
 function Chiruno.func.on_null_win_enter(e)
   if not e then return end
-  if e.match == Chiruno.constants.events.ToggleWindow then
-    Chiruno.func.check_null_window(e)
-    return
-  end
 
   if e.event == "WinClosed" then
     local closedWin = tonumber(e.match)
     if closedWin and is_float(closedWin) then return end
 
-    vim.defer_fn(function()
-      if is_only_one_window() then Chiruno.func.check_null_window() end
-    end, 0)
+    if is_only_one_window(closedWin) then Chiruno.func.check_null_window(e, closedWin) end
     return
   end
 

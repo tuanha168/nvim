@@ -69,8 +69,8 @@ local mappings = {
       function()
         local ok, aerial = pcall(require, "aerial")
         if not ok then return end
+
         aerial.toggle()
-        --vim.api.nvim_exec_autocmds("User", { pattern = Chiruno.constants.events.ToggleWindow, modeline = false })
       end,
       desc = "Symbols outline",
     },
@@ -93,14 +93,6 @@ local mappings = {
     },
     ["<Leader>c"] = false,
     ["<Leader>q"] = false,
-    ["<Leader>qq"] = {
-      function()
-        require("astrocore.buffer").close()
-        --vim.api.nvim_exec_autocmds("User", { pattern = Chiruno.constants.events.ToggleWindow, modeline = false })
-      end,
-      desc = "Close buffer",
-      silent = true,
-    },
     ["+"] = { "<C-a>", noremap = true },
     ["-"] = { "<C-x>", noremap = true },
     ["<C-z>i"] = { "<C-i>" },
@@ -120,8 +112,8 @@ local mappings = {
       function()
         local ok, dapui = pcall(require, "dapui")
         if not ok then return end
+
         dapui.toggle()
-        --vim.api.nvim_exec_autocmds("User", { pattern = Chiruno.constants.events.ToggleWindow, modeline = false })
       end,
       desc = "Toggle Debugger UI",
     },
