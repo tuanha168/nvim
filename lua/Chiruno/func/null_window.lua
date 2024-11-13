@@ -80,14 +80,14 @@ local function open_null_window(opts)
     augroup Focus
       autocmd!
       autocmd WinClosed %d ++once ++nested lua require("focus.views.focus").close()
-      autocmd WinEnter * lua require("focus.views.focus").on_win_enter()
+      autocmd WinEnter * lua Chiruno.func.on_null_win_enter()
       autocmd CursorMoved * lua require("focus.views.focus").fix_layout()
       autocmd VimResized * lua require("focus.views.focus").fix_layout(true)
       autocmd CursorHold * lua require("focus.views.focus").fix_layout()
       autocmd BufWinEnter * lua require("focus.views.focus").on_buf_win_enter()
     augroup end]]
 
-  vim.api.nvim_exec2(augroup:format(splitLeft.bufnr, splitLeft.bufnr), { output = false })
+  -- vim.api.nvim_exec2(augroup:format(splitLeft.bufnr, splitLeft.bufnr), { output = false })
 
   vim.api.nvim_win_set_buf(0, current_bufnr)
 end
@@ -147,6 +147,25 @@ function Chiruno.func.check_null_window(e)
   Chiruno.func.close_null_window()
 
   if opts.left or opts.right then open_null_window(opts) end
+end
+
+---@param win number
+---@return boolean?
+local function is_float(win)
+  local opts = vim.api.nvim_win_get_config(win)
+  return opts and opts.relative and opts.relative ~= ""
+end
+
+function Chiruno.func.on_null_win_enter()
+  local win = vim.api.nvim_get_current_win()
+  Print(win)
+  if win ~= splitLeft.bufnr and not is_float(win) then
+    -- HACK: when returning from a float window, vim initially enters the parent window.
+    -- give 10ms to get back to the focus window before closing
+    vim.defer_fn(function()
+      if vim.api.nvim_get_current_win() ~= splitLeft.bufnr then Chiruno.func.close_null_window() end
+    end, 10)
+  end
 end
 
 return Chiruno.func.check_null_window
