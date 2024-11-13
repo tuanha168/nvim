@@ -168,6 +168,8 @@ function Chiruno.func.on_null_win_enter()
       Chiruno.func.toggle_null_window()
       return
     end
+
+    if not splitLeft or not splitRight then Chiruno.func.check_null_window() end
   end, 10)
 end
 
