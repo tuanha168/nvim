@@ -161,6 +161,7 @@ function Chiruno.func.on_null_win_enter(e)
   if not e then return end
   if e.match == Chiruno.constants.events.ToggleWindow then
     if is_only_one_window() then Chiruno.func.check_null_window() end
+    return
   end
 
   if e.event == "WinClosed" then
@@ -168,6 +169,7 @@ function Chiruno.func.on_null_win_enter(e)
     if closedWin and is_float(closedWin) then return end
 
     vim.defer_fn(function()
+      Print(closedWin)
       if is_only_one_window() then Chiruno.func.check_null_window() end
     end, 10)
     return
