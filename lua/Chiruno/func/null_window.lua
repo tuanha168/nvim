@@ -144,6 +144,13 @@ function Chiruno.func.check_null_window(e)
   if opts.left or opts.right then open_null_window(opts) end
 end
 
+---@param win number
+---@return boolean?
+local function is_float(win)
+  local opts = vim.api.nvim_win_get_config(win)
+  return opts and opts.relative and opts.relative ~= ""
+end
+
 function Chiruno.func.on_null_win_enter()
   local win_amount = #vim.api.nvim_tabpage_list_wins(0)
   if win_amount > 2 then
