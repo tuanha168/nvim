@@ -116,7 +116,7 @@ return {
     config = function()
       vim.keymap.set("n", "<C-y>", function()
         vim.cmd "UndotreeToggle"
-        vim.api.nvim_exec_autocmds("User", { pattern = Chiruno.constants.events.ToggleWindow, modeline = false })
+        --vim.api.nvim_exec_autocmds("User", { pattern = Chiruno.constants.events.ToggleWindow, modeline = false })
       end, { silent = true })
     end,
   },

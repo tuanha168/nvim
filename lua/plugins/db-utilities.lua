@@ -31,7 +31,7 @@ return {
           --   vim.g.db_ui_ssh_connection = pid
           -- end
           vim.cmd.DBUIToggle()
-          vim.api.nvim_exec_autocmds("User", { pattern = Chiruno.constants.events.ToggleWindow, modeline = false })
+          --vim.api.nvim_exec_autocmds("User", { pattern = Chiruno.constants.events.ToggleWindow, modeline = false })
         end,
         desc = "DBUIToggle",
       },
