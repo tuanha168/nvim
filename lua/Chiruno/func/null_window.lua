@@ -152,10 +152,11 @@ local function is_float(win)
 end
 
 function Chiruno.func.on_null_win_enter()
-  local win_amount = #vim.api.nvim_tabpage_list_wins(0)
-  if win_amount > 2 then
-    return Chiruno.func.close_null_window()
-  end
+  local win_amount = vim.api.nvim_tabpage_list_wins(0)
+  local count = 0
+  -- if win_amount > 2 then
+  --   return Chiruno.func.close_null_window()
+  -- end
 
   local win = vim.api.nvim_get_current_win()
   if win == splitLeft.winid then
