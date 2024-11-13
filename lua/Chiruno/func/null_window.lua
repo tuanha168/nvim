@@ -40,7 +40,7 @@ local function is_only_one_window()
       count = count + 1
     end
   end
-  return count == 1
+  return count <= 1
 end
 
 -- Get null window status
@@ -153,7 +153,9 @@ function Chiruno.func.check_null_window(e)
 
   Chiruno.func.close_null_window()
 
-  if opts.left or opts.right then open_null_window(opts) end
+  vim.defer_fn(function()
+    if (opts.left or opts.right) and is_only_one_window() then open_null_window(opts) end
+  end, 10)
 end
 
 ---@param e? AutocmdCallbackEvent
