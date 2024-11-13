@@ -163,7 +163,7 @@ function Chiruno.func.on_null_win_enter()
     local win = vim.api.nvim_get_current_win()
     if is_float(win) then return end
 
-    if win == splitLeft.winid or win == splitRight.winid then
+    if (splitLeft and win == splitLeft.winid) or (splitRight and win == splitRight.winid) then
       Chiruno.func.toggle_null_window()
       Chiruno.func.toggle_null_window()
       return
