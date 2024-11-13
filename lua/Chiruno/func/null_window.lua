@@ -87,7 +87,7 @@ local function open_null_window(opts)
       autocmd BufWinEnter * lua require("focus.views.focus").on_buf_win_enter()
     augroup end]]
 
-  vim.api.nvim_exec2(augroup:format(splitLeft, splitLeft), { output = false })
+  vim.api.nvim_exec2(augroup:format(splitLeft.bufnr, splitLeft.bufnr), { output = false })
 
   vim.api.nvim_win_set_buf(0, current_bufnr)
 end
