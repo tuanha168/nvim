@@ -22,18 +22,23 @@ return {
   --     },
   --   },
   -- },
+  -- {
+  --   "folke/twilight.nvim",
+  --   cmd = "Twilight",
+  --   opts = {
+  --     context = 20,
+  --     expand = { -- for treesitter, we we always try to expand to the top-most ancestor with these types
+  --       "function_declaration",
+  --       "if_statement",
+  --       "try_statement",
+  --       "arrow_function",
+  --       "lexical_declaration",
+  --     },
+  --   },
+  -- },
   {
-    "folke/twilight.nvim",
-    cmd = "Twilight",
-    opts = {
-      context = 20,
-      expand = { -- for treesitter, we we always try to expand to the top-most ancestor with these types
-        "function_declaration",
-        "if_statement",
-        "try_statement",
-        "arrow_function",
-        "lexical_declaration",
-      },
-    },
+    "cdmill/focus.nvim",
+    cmd = { "Focus", "Zen", "Narrow" },
+    opts = {},
   },
 }
