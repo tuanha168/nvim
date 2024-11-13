@@ -87,7 +87,7 @@ local function open_null_window(opts)
       autocmd BufWinEnter * lua require("focus.views.focus").on_buf_win_enter()
     augroup end]]
 
-  vim.api.nvim_exec2(augroup:format(splitLeft.bufnr, splitLeft.bufnr), { output = false })
+  vim.api.nvim_exec2(augroup:format(splitLeft.winid, splitLeft.winid), { output = false })
 
   vim.api.nvim_win_set_buf(0, current_bufnr)
 end
@@ -158,12 +158,12 @@ end
 
 function Chiruno.func.on_null_win_enter()
   local win = vim.api.nvim_get_current_win()
-  Print(win, splitLeft.bufnr)
-  if win == splitLeft.bufnr and not is_float(win) then
+  Print(win, splitLeft.winid)
+  if win == splitLeft.winid and not is_float(win) then
     -- HACK: when returning from a float window, vim initially enters the parent window.
     -- give 10ms to get back to the focus window before closing
     vim.defer_fn(function()
-      if vim.api.nvim_get_current_win() ~= splitLeft.bufnr then Chiruno.func.close_null_window() end
+      if vim.api.nvim_get_current_win() ~= splitLeft.winid then Chiruno.func.close_null_window() end
     end, 10)
   end
 end
