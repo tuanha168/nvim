@@ -30,6 +30,17 @@ local function is_float(win)
   return opts and opts.relative and opts.relative ~= ""
 end
 
+---@return boolean?
+local function is_only_one_window()
+  local count = 0
+  for _, _win in ipairs(vim.api.nvim_tabpage_list_wins(0)) do
+    if (splitLeft and _win ~= splitLeft.winid) or (splitRight and _win ~= splitRight.winid) and not is_float(_win) then
+      count = count + 1
+    end
+  end
+  return count == 1
+end
+
 -- Get null window status
 ---@return {splitLeft?: boolean, splitRight?: boolean}
 function Chiruno.func.get_null_window_status()
@@ -151,21 +162,15 @@ function Chiruno.func.on_null_win_enter(e)
     local closedWin = tonumber(e.match)
     if closedWin and is_float(closedWin) then return end
 
-    local count = 0
-    for _, _win in ipairs(vim.api.nvim_tabpage_list_wins(0)) do
-      if (splitLeft and _win ~= splitLeft.winid) or (splitRight and _win ~= splitRight.winid) and not is_float(_win) then
-        count = count + 1
-      end
-    end
-    if count > 1 then return end
-
-    Chiruno.func.check_null_window()
+    if is_only_one_window() then Chiruno.func.check_null_window() end
     return
   end
 
   vim.defer_fn(function()
     local win = vim.api.nvim_get_current_win()
     if is_float(win) then return end
+
+    if not is_only_one_window() then Chiruno.func.close_null_window() end
 
     if (splitLeft and win == splitLeft.winid) or (splitRight and win == splitRight.winid) then return end
   end, 10)
