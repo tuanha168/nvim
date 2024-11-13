@@ -159,8 +159,10 @@ end
 ---@param e? AutocmdCallbackEvent
 function Chiruno.func.on_null_win_enter(e)
   if not e then return end
+  if e.match == Chiruno.constants.events.ToggleWindow then
+    if is_only_one_window() then Chiruno.func.check_null_window() end
+  end
 
-  Print(e)
   if e.event == "WinClosed" then
     local closedWin = tonumber(e.match)
     if closedWin and is_float(closedWin) then return end
