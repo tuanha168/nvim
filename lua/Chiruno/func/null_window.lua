@@ -23,6 +23,13 @@ local options = {
   },
 }
 
+---@param win number
+---@return boolean?
+local function is_float(win)
+  local opts = vim.api.nvim_win_get_config(win)
+  return opts and opts.relative and opts.relative ~= ""
+end
+
 -- Get null window status
 ---@return {splitLeft?: boolean, splitRight?: boolean}
 function Chiruno.func.get_null_window_status()
@@ -49,6 +56,14 @@ end
 ---@param opts NullWindowOptions
 ---@return nil
 local function open_null_window(opts)
+  local count = 0
+  for _, _win in ipairs(vim.api.nvim_tabpage_list_wins(0)) do
+    if (splitLeft and _win ~= splitLeft.winid) or (splitRight and _win ~= splitRight.winid) and not is_float(_win) then
+      count = count + 1
+    end
+  end
+  if count > 1 then return end
+
   openNullWindow = true
 
   local ok, Split = pcall(require, "nui.split")
@@ -136,18 +151,12 @@ function Chiruno.func.check_null_window(e)
   if opts.left or opts.right then open_null_window(opts) end
 end
 
----@param win number
----@return boolean?
-local function is_float(win)
-  local opts = vim.api.nvim_win_get_config(win)
-  return opts and opts.relative and opts.relative ~= ""
-end
-
 ---@param e? AutocmdCallbackEvent
 function Chiruno.func.on_null_win_enter(e)
   if not e then return end
 
   if e.event == "WinClosed" then
+    Print('close')
     Chiruno.func.check_null_window(e)
     return
   end
@@ -156,15 +165,7 @@ function Chiruno.func.on_null_win_enter(e)
     local win = vim.api.nvim_get_current_win()
     if is_float(win) then return end
 
-    for _, _win in ipairs(vim.api.nvim_tabpage_list_wins(0)) do
-      if _win ~= splitLeft.winid and not is_float(_win) then count = count + 1 end
-    end
-    if count > 1 then return Chiruno.func.close_null_window() end
-
-    if (splitLeft and win == splitLeft.winid) or (splitRight and win == splitRight.winid) then
-
-      return
-    end
+    if (splitLeft and win == splitLeft.winid) or (splitRight and win == splitRight.winid) then return end
   end, 10)
 end
 
