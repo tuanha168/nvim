@@ -12,13 +12,13 @@ function Chiruno.autocmd.null_window()
 
   autocmd({ "BufWipeout" }, {
     pattern = "*",
-    callback = Chiruno.func.check_null_window,
+    callback = Chiruno.func.on_null_win_enter,
     group = null_window_augroup,
   })
 
   autocmd("User", {
     pattern = Chiruno.constants.events.ToggleWindow,
-    callback = Chiruno.func.check_null_window,
+    callback = Chiruno.func.on_null_win_enter,
     group = null_window_augroup,
   })
 

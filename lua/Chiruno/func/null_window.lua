@@ -68,7 +68,7 @@ end
 -- Open null window
 ---@param opts NullWindowOptions
 ---@return nil
-local function open_null_window(opts)
+function Chiruno.func.open_null_window(opts)
   openNullWindow = true
 
   local ok, Split = pcall(require, "nui.split")
@@ -153,9 +153,7 @@ function Chiruno.func.check_null_window(e)
 
   Chiruno.func.close_null_window()
 
-  vim.defer_fn(function()
-    if (opts.left or opts.right) and is_only_one_window() then open_null_window(opts) end
-  end, 10)
+  if opts.left or opts.right then Chiruno.func.open_null_window(opts) end
 end
 
 ---@param e? AutocmdCallbackEvent
@@ -172,12 +170,12 @@ function Chiruno.func.on_null_win_enter(e)
     return
   end
 
-  vim.defer_fn(function()
-    local win = vim.api.nvim_get_current_win()
-    if is_float(win) then return end
+  local win = vim.api.nvim_get_current_win()
+  if is_float(win) then return end
 
+  -- vim.defer_fn(function()
     if not is_only_one_window() then Chiruno.func.close_null_window() end
-  end, 10)
+  -- end, 10)
 end
 
 return Chiruno.func.check_null_window
