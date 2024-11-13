@@ -79,7 +79,7 @@ local function open_null_window(opts)
   local augroup = [[
     augroup Focus
       autocmd!
-      autocmd WinClosed %d ++once ++nested lua require("focus.views.focus").close()
+      autocmd WinClosed %d ++once ++nested lua Chiruno.func.close_null_window()
       autocmd WinEnter * lua Chiruno.func.on_null_win_enter()
       autocmd CursorMoved * lua require("focus.views.focus").fix_layout()
       autocmd VimResized * lua require("focus.views.focus").fix_layout(true)
