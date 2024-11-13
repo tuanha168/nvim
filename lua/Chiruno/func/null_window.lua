@@ -36,8 +36,6 @@ end
 ---@param opts? NullWindowOptions
 ---@return nil
 function Chiruno.func.close_null_window(opts)
-  openNullWindow = false
-
   opts = Chiruno.func.extends_table({
     left = true,
     right = true,
@@ -152,6 +150,11 @@ function Chiruno.func.on_null_win_enter(e)
 
   if e.event == "WinClosed" then
     if not splitLeft or not splitRight then Chiruno.func.check_null_window() end
+
+    for _, _win in ipairs(vim.api.nvim_tabpage_list_wins(0)) do
+      if _win ~= splitLeft.winid and not is_float(_win) then count = count + 1 end
+    end
+    if count > 1 then return Chiruno.func.check_null_window(e) end
     return
   end
 
