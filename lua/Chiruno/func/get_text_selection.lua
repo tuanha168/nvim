@@ -25,7 +25,7 @@ function Chiruno.func.get_text_selection(motion_type)
   end
 
   local special_symbols = "^$\\"
-  if vim.api.nvim_get_option "magic" then special_symbols = "*^$.~[]\\" end
+  if vim.api.nvim_get_option_value("magic", {}) then special_symbols = "*^$.~[]\\" end
 
   -- Escape all special_symbols
   for index, line in ipairs(selectedText) do

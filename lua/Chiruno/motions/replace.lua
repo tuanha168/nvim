@@ -1,5 +1,5 @@
 function Chiruno.motions.replace_motion(mode)
-  local textSelection = Chiruno.func.get_text_selection()
+  local textSelection = Chiruno.func.get_text_selection(mode)
   if not textSelection then return end
 
   local text, selection = textSelection.text, textSelection.selection
