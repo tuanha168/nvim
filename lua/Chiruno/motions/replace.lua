@@ -6,7 +6,7 @@ function Chiruno.motions.replace_motion(mode)
   if text == nil then return end
   if mode == "line" and selection.finishRow - selection.startRow ~= 0 then return end
 
-  vim.ui.input({ prompt = "Enter replacement: ", completion = text }, function(replaceWord)
+  vim.ui.input({ prompt = "Enter replacement: ", default = text }, function(replaceWord)
     if replaceWord == nil or replaceWord == "" or replaceWord == text then return end
     if vim.api.nvim_get_mode().mode ~= "v" then
       vim.api.nvim_cmd({ cmd = "normal", bang = true, args = { "v" } }, {})
