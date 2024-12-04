@@ -28,9 +28,9 @@ return {
     event = "VeryLazy", -- Or `LspAttach`
     priority = 1000, -- needs to be loaded in first
     opts = {
+      preset = "minimal",
       options = {
         use_icons_from_diagnostic = true,
-        multilines = true,
       },
     },
   },
