@@ -31,6 +31,8 @@ return {
       preset = "minimal",
       options = {
         use_icons_from_diagnostic = true,
+        multiple_diag_under_cursor = true,
+        multilines = true,
       },
     },
   },
