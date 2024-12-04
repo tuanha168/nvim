@@ -30,6 +30,7 @@ return {
     opts = {
       options = {
         use_icons_from_diagnostic = true,
+        multilines = true,
       },
     },
   },
