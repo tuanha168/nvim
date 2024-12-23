@@ -5,7 +5,7 @@ return {
   {
     "nvim-treesitter/nvim-treesitter",
     dependencies = {
-        { "nushell/tree-sitter-nu" },
+      { "nushell/tree-sitter-nu" },
     },
     opts = function(_, opts)
       require "markid"
@@ -255,5 +255,14 @@ return {
     "davidmh/mdx.nvim",
     config = true,
     dependencies = { "nvim-treesitter/nvim-treesitter" },
+  },
+
+  {
+    "aaronik/treewalker.nvim",
+    dependencies = { "nvim-treesitter/nvim-treesitter" },
+    opts = {
+      highlight = true, -- Whether to briefly highlight the node after jumping to it
+      highlight_duration = 250, -- How long should above highlight last (in ms)
+    },
   },
 }
