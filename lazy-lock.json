@@ -89,6 +89,7 @@
   "todo-comments.nvim": { "branch": "main", "commit": "ae0a2afb47cf7395dc400e5dc4e05274bf4fb9e0" },
   "toggleterm.nvim": { "branch": "main", "commit": "022ff5594acccc8d90d2e46dc43994f7722ebdf7" },
   "tree-sitter-nu": { "branch": "main", "commit": "dc22e2577eb09d1d0de50802c59da2eca98a0e7b" },
+  "treewalker.nvim": { "branch": "main", "commit": "e591604021cf8be6df081ee4c4853e29d48da9af" },
   "tw-values.nvim": { "branch": "main", "commit": "34183307a8a3867afb1f52a262d89faac6b20f9d" },
   "ultimate-autopair.nvim": { "branch": "v0.6", "commit": "9e3209190c22953566ae4e6436ad2b4ff4dabb95" },
   "undotree": { "branch": "master", "commit": "78b5241191852ffa9bb5da5ff2ee033160798c3b" },
