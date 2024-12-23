@@ -261,10 +261,10 @@ return {
     "aaronik/treewalker.nvim",
     dependencies = { "nvim-treesitter/nvim-treesitter" },
     keys = {
-      { "j", "<cmd>Treewalker Down<CR>", desc = "TreeWalker Down" },
-      { "k", "<cmd>Treewalker Up<CR>", desc = "TreeWalker Up" },
-      { "l", "<cmd>Treewalker Right<CR>", desc = "TreeWalker Right" },
-      { "h", "<cmd>Treewalker Left<CR>", desc = "TreeWalker Left" },
+      { "<Down>", "<cmd>Treewalker Down<CR>", desc = "TreeWalker Down" },
+      { "<Up>", "<cmd>Treewalker Up<CR>", desc = "TreeWalker Up" },
+      { "<Right>", "<cmd>Treewalker Right<CR>", desc = "TreeWalker Right" },
+      { "<Left>", "<cmd>Treewalker Left<CR>", desc = "TreeWalker Left" },
     },
     opts = {
       highlight = true, -- Whether to briefly highlight the node after jumping to it
