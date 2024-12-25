@@ -113,4 +113,8 @@ return {
     event = "VeryLazy",
     config = function() require "config.cmdline" end,
   },
+  {
+    "rcarriga/cmp-dap",
+    enabled = false,
+  },
 }
