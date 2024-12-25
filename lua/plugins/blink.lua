@@ -1,9 +1,9 @@
+---@type LazySpec
 return {
   {
     "saghen/blink.cmp",
     dependencies = "rafamadriz/friendly-snippets",
-    version = "*",
-
+    build = "cargo build --release",
     ---@module 'blink.cmp'
     ---@type blink.cmp.Config
     opts = {
@@ -39,11 +39,6 @@ return {
           if type == ":" then return { "cmdline" } end
           return {}
         end,
-      },
-      fuzzy = {
-        prebuilt_binaries = {
-          download = true,
-        },
       },
     },
   },
