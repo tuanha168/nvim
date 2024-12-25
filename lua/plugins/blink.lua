@@ -2,7 +2,7 @@ return {
   {
     "saghen/blink.cmp",
     dependencies = "rafamadriz/friendly-snippets",
-    version = '*',
+    version = "*",
 
     ---@module 'blink.cmp'
     ---@type blink.cmp.Config
@@ -18,6 +18,11 @@ return {
           if type == ":" then return { "cmdline" } end
           return {}
         end,
+      },
+      fuzzy = {
+        prebuilt_binaries = {
+          download = true,
+        },
       },
     },
   },
