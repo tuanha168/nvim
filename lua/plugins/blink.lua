@@ -11,8 +11,22 @@ return {
         preset = "default",
         ["<Up>"] = { "select_prev", "fallback" },
         ["<Down>"] = { "select_next", "fallback" },
-        ["<Tab>"] = { "snippet_forward", "fallback" },
-        ["<S-Tab>"] = { "snippet_backward", "fallback" },
+        ["<Tab>"] = {
+          "select_next",
+          "snippet_forward",
+          "fallback",
+        },
+        ["<S-Tab>"] = {
+          "select_prev",
+          "snippet_backward",
+          "fallback",
+        },
+        ["<CR>"] = { "accept", "fallback" },
+      },
+      completion = {
+        list = {
+          selection = "auto_insert",
+        },
       },
       sources = {
         default = { "lsp", "path", "snippets", "buffer" },
