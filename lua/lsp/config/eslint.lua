@@ -1,7 +1,7 @@
 local util = require "lspconfig.util"
 
 return {
-  -- filetypes = { "javascript", "javascriptreact", "typescript", "typescriptreact", "vue", "json" },
+  -- filetypes = { "javascript", "javascriptreact", "typescript", "typescriptreact", "vue", "json", "svg" },
   root_dir = util.root_pattern(
     ".eslintrc",
     ".eslintrc.cjs",
