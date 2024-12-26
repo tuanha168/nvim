@@ -54,7 +54,6 @@ return {
   -- use mason-null-ls to configure Formatters/Linter installation for null-ls sources
   {
     "jay-babu/mason-null-ls.nvim",
-    enabled = false,
     dependencies = { "williamboman/mason-lspconfig.nvim" },
     -- overrides `require("mason-null-ls").setup(...)`
     opts = function(_, opts)
@@ -65,19 +64,19 @@ return {
         -- "pint",
         "tfsec",
       })
-      -- opts.handlers.prettierd = function()
-      --   local h = require "null-ls.helpers"
-      --   require("null-ls").register(require("null-ls").builtins.formatting.prettierd.with {
-      --     generator_opts = {
+      opts.handlers.prettierd = function()
+        local h = require "null-ls.helpers"
+        require("null-ls").register(require("null-ls").builtins.formatting.prettierd.with {
+          generator_opts = {
 
-      --       runtime_condition = h.cache.by_bufnr(function(params)
-      --         Print(params)
-      --         Print(vim.lsp.get_clients())
-      --         return true
-      --       end),
-      --     },
-      --   })
-      -- end
+            runtime_condition = h.cache.by_bufnr(function(params)
+              Print(params)
+              Print(vim.lsp.get_clients())
+              return true
+            end),
+          },
+        })
+      end
     end,
   },
 }

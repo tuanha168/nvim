@@ -4,7 +4,6 @@
 return {
   {
     "nvimtools/none-ls.nvim",
-    enabled = false,
     dependencies = { "nvim-lspconfig" },
     opts = function(_, config)
       -- config variable is the default configuration table for the setup function call
@@ -19,24 +18,6 @@ return {
         -- null_ls.builtins.formatting.prettier,
       }
       return config -- return final config table
-    end,
-  },
-
-  {
-    "mhartington/formatter.nvim",
-    opts = function()
-      return {
-        logging = true,
-        log_level = vim.log.levels.WARN,
-        filetype = {
-          lua = {
-            require("formatter.filetypes.lua").stylua,
-          },
-          ["*"] = {
-            require("formatter.filetypes.any").remove_trailing_whitespace,
-          },
-        },
-      }
     end,
   },
 }
