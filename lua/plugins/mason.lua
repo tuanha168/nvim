@@ -87,6 +87,7 @@ return {
             "svelte",
             "astro",
             "htmlangular",
+            "svg",
           },
         })
       end
