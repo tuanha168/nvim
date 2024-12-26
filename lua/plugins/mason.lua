@@ -64,19 +64,31 @@ return {
         -- "pint",
         "tfsec",
       })
-      opts.handlers.prettierd = function()
-        local h = require "null-ls.helpers"
-        require("null-ls").register(require("null-ls").builtins.formatting.prettierd.with {
-          generator_opts = {
-
-            runtime_condition = h.cache.by_bufnr(function(params)
-              Print(params)
-              Print(vim.lsp.get_clients())
-              return true
-            end),
-          },
-        })
-      end
+      -- opts.handlers.prettierd = function()
+      --   require("null-ls").register(require("null-ls").builtins.formatting.prettierd.with {
+      --     filetypes = {
+      --       "javascript",
+      --       "javascriptreact",
+      --       "typescript",
+      --       "typescriptreact",
+      --       "vue",
+      --       "css",
+      --       "scss",
+      --       "less",
+      --       "html",
+      --       "json",
+      --       "jsonc",
+      --       "yaml",
+      --       "markdown",
+      --       "markdown.mdx",
+      --       "graphql",
+      --       "handlebars",
+      --       "svelte",
+      --       "astro",
+      --       "htmlangular",
+      --     },
+      --   })
+      -- end
     end,
   },
 }
