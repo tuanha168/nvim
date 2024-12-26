@@ -63,34 +63,33 @@ return {
         "stylua",
         -- "pint",
         "tfsec",
-        "xmlformatter",
       })
-      opts.handlers.xmlformatter = function()
-        require("null-ls").register(require("null-ls").builtins.formatting.prettierd.with {
-          filetypes = {
-            "javascript",
-            "javascriptreact",
-            "typescript",
-            "typescriptreact",
-            "vue",
-            "css",
-            "scss",
-            "less",
-            "html",
-            "json",
-            "jsonc",
-            "yaml",
-            "markdown",
-            "markdown.mdx",
-            "graphql",
-            "handlebars",
-            "svelte",
-            "astro",
-            "htmlangular",
-            "svg",
-          },
-        })
-      end
+      -- opts.handlers.prettierd = function()
+      --   require("null-ls").register(require("null-ls").builtins.formatting.prettierd.with {
+      --     filetypes = {
+      --       "javascript",
+      --       "javascriptreact",
+      --       "typescript",
+      --       "typescriptreact",
+      --       "vue",
+      --       "css",
+      --       "scss",
+      --       "less",
+      --       "html",
+      --       "json",
+      --       "jsonc",
+      --       "yaml",
+      --       "markdown",
+      --       "markdown.mdx",
+      --       "graphql",
+      --       "handlebars",
+      --       "svelte",
+      --       "astro",
+      --       "htmlangular",
+      --       "svg",
+      --     },
+      --   })
+      -- end
     end,
   },
 }
