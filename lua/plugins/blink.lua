@@ -13,15 +13,13 @@ return {
         ["<Down>"] = { "select_next", "fallback" },
         ["<Tab>"] = {
           "select_next",
-          "snippet_forward",
           "fallback",
         },
         ["<S-Tab>"] = {
           "select_prev",
-          "snippet_backward",
           "fallback",
         },
-        ["<CR>"] = { "accept", "fallback" },
+        -- ["<CR>"] = { "select_and_accept", "fallback" },
       },
       -- completion = {
       --   list = {
