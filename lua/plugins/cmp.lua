@@ -2,7 +2,6 @@
 return {
   {
     "L3MON4D3/LuaSnip",
-    enabled = false,
     config = function(--[[ plugin, opts ]])
       -- require "plugins.configs.luasnip"(plugin, opts) -- include the default astronvim config that calls the setup call
       require("luasnip.loaders.from_vscode").lazy_load { paths = { "./" } } -- load snippets paths
@@ -10,7 +9,6 @@ return {
   },
   {
     "hrsh7th/nvim-cmp",
-    enabled = false,
     dependencies = {
       "SergioRibera/cmp-dotenv",
     },
@@ -109,7 +107,6 @@ return {
   -- },
   {
     "hrsh7th/cmp-cmdline",
-    enabled = false,
     event = "VeryLazy",
     config = function() require "config.cmdline" end,
   },
