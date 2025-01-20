@@ -23,11 +23,11 @@ return {
         },
         ["<CR>"] = { "accept", "fallback" },
       },
-      completion = {
-        list = {
-          selection = "auto_insert",
-        },
-      },
+      -- completion = {
+      --   list = {
+      --     selection = "auto_insert",
+      --   },
+      -- },
       sources = {
         default = { "lsp", "path", "snippets", "buffer" },
 
