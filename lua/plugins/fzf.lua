@@ -15,6 +15,12 @@ return {
         grep = {
           rg_opts = "--multiline --hidden --column --line-number --no-heading --color=always --smart-case --max-columns=4096 -e",
         },
+        oldfiles = {
+          include_current_session = true,
+        },
+        buffers = {
+          cwd_only = true,
+        },
       }
     end,
     keys = {
