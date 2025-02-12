@@ -4,3 +4,7 @@
 !yarn.lock
 !tsconfig.json
 !src
+!composer.json
+!composer.lock
+!.prettierrc.json
+!eslint.config.mjs
