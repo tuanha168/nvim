@@ -3,7 +3,7 @@ return {
   {
     "metakirby5/codi.vim",
     cmd = "Codi",
-    build = "npm install -g tsun",
+    build = "npm install -g tsun; composer g require psy/psysh:@stable",
     config = function() vim.g["codi#autocmd"] = "None" end,
   },
   -- {
