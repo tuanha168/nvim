@@ -130,7 +130,7 @@ return {
     event = "BufRead",
     config = function()
       require("lsp_signature").setup {
-        floating_window = false,
+        floating_window = true,
         bind = true,
         hint_enable = false,
         handler_opts = {
