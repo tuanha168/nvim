@@ -19,8 +19,9 @@ return {
     },
     -- Diagnostics configuration (for vim.diagnostics.config({...})) when diagnostics are on
     diagnostics = {
-      virtual_text = true,
-      underline = true,
+      virtual_text = false,
+      virtual_lines = true,
+      underline = false,
       update_in_insert = false,
     },
     -- vim options can be configured here
