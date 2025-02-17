@@ -125,23 +125,23 @@ return {
     event = "BufReadPre",
   },
 
-  {
-    "ray-x/lsp_signature.nvim",
-    event = "BufRead",
-    config = function()
-      require("lsp_signature").setup {
-        floating_window = true,
-        bind = true,
-        hint_enable = false,
-        handler_opts = {
-          border = "rounded",
-        },
-        always_trigger = true,
-        toggle_key = "<C-z>i",
-        toggle_key_flip_floatwin_setting = true,
-      }
-    end,
-  },
+  -- {
+  --   "ray-x/lsp_signature.nvim",
+  --   event = "BufRead",
+  --   config = function()
+  --     require().setup {
+  --       floating_window = true,
+  --       bind = true,
+  --       hint_enable = false,
+  --       handler_opts = {
+  --         border = "rounded",
+  --       },
+  --       always_trigger = true,
+  --       toggle_key = "<C-z>i",
+  --       toggle_key_flip_floatwin_setting = true,
+  --     }
+  --   end,
+  -- },
 
   -- {
   --   "willothy/flatten.nvim",

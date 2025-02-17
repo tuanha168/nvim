@@ -48,6 +48,12 @@ return {
     --   desc = "Show the definition of current symbol",
     -- },
   },
+  i = {
+    ["<C-z>i"] = {
+      vim.lsp.buf.signature_help,
+      desc = "Signature help",
+    },
+  },
   v = {
     ["<Leader>la"] = false,
     ["<Leader>fm"] = {
