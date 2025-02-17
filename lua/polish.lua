@@ -6,8 +6,9 @@ if not Chiruno.func.file_exist(neoconf .. ".json") then
 end
 
 vim.diagnostic.config {
-  virtual_text = true,
+  virtual_lines = true,
 }
+vim.()()
 
 -- Add filetype
 vim.filetype.add {
