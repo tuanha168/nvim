@@ -21,7 +21,7 @@ return {
     diagnostics = {
       virtual_text = false,
       virtual_lines = true,
-      underline = false,
+      underline = true,
       update_in_insert = false,
     },
     -- vim options can be configured here
