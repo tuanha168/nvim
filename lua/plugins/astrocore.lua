@@ -19,10 +19,10 @@ return {
     },
     -- Diagnostics configuration (for vim.diagnostics.config({...})) when diagnostics are on
     diagnostics = {
-      virtual_text = false,
-      virtual_lines = true,
+      virtual_text = true,
+      -- virtual_lines = true,
       underline = true,
-      -- update_in_insert = false,
+      update_in_insert = false,
     },
     -- vim options can be configured here
     options = require "options",
