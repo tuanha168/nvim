@@ -9,8 +9,8 @@ return {
     -- },
     opts = function(_, opts)
       -- require "markid"
-      -- require "treesitter-context"
-      -- require "rainbow-delimiters"
+      require "treesitter-context"
+      require "rainbow-delimiters"
 
       opts.ensure_installed = require("astrocore").list_insert_unique(opts.ensure_installed, {
         "lua",
@@ -86,7 +86,6 @@ return {
   },
   {
     "windwp/nvim-ts-autotag",
-    enabled = false,
     dependencies = { "nvim-treesitter/nvim-treesitter" },
     opts = {
       filetypes = {
@@ -132,7 +131,6 @@ return {
   -- },
   {
     "hiphish/rainbow-delimiters.nvim",
-    enabled = false,
     -- event = "BufRead",
     dependencies = { "nvim-treesitter/nvim-treesitter" },
     config = function()
@@ -161,9 +159,8 @@ return {
     end,
   },
   {
-    -- "David-Kunz/markid",
-    "tuanha168/markid",
-    enabled = false,
+    "David-Kunz/markid",
+    -- "tuanha168/markid",
     -- event = "BufRead",
     dependencies = { "nvim-treesitter/nvim-treesitter" },
     config = require "config.markid",
@@ -194,7 +191,6 @@ return {
   -- },
   {
     "shellRaining/hlchunk.nvim",
-    enabled = false,
     event = { "UIEnter" },
     dependencies = { "nvim-treesitter/nvim-treesitter" },
     opts = function()
@@ -257,7 +253,6 @@ return {
   -- },
   {
     "davidmh/mdx.nvim",
-    config = true,
     dependencies = { "nvim-treesitter/nvim-treesitter" },
   },
 
