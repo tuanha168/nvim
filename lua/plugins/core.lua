@@ -120,11 +120,6 @@ return {
     end,
   },
 
-  {
-    "RRethy/vim-illuminate",
-    event = "BufReadPre",
-  },
-
   -- {
   --   "ray-x/lsp_signature.nvim",
   --   event = "BufRead",

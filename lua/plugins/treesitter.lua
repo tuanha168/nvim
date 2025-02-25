@@ -271,4 +271,10 @@ return {
       highlight_duration = 250, -- How long should above highlight last (in ms)
     },
   },
+
+  {
+    "RRethy/vim-illuminate",
+    enabled = false,
+    event = "BufReadPre",
+  },
 }
