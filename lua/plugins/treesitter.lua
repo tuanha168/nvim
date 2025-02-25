@@ -4,13 +4,13 @@
 return {
   {
     "nvim-treesitter/nvim-treesitter",
-    dependencies = {
-      { "nushell/tree-sitter-nu" },
-    },
+    -- dependencies = {
+    --   { "nushell/tree-sitter-nu" },
+    -- },
     opts = function(_, opts)
-      require "markid"
-      require "treesitter-context"
-      require "rainbow-delimiters"
+      -- require "markid"
+      -- require "treesitter-context"
+      -- require "rainbow-delimiters"
 
       opts.ensure_installed = require("astrocore").list_insert_unique(opts.ensure_installed, {
         "lua",
@@ -86,6 +86,7 @@ return {
   },
   {
     "windwp/nvim-ts-autotag",
+    enabled = false,
     dependencies = { "nvim-treesitter/nvim-treesitter" },
     opts = {
       filetypes = {
@@ -131,6 +132,7 @@ return {
   -- },
   {
     "hiphish/rainbow-delimiters.nvim",
+    enabled = false,
     -- event = "BufRead",
     dependencies = { "nvim-treesitter/nvim-treesitter" },
     config = function()
@@ -161,6 +163,7 @@ return {
   {
     -- "David-Kunz/markid",
     "tuanha168/markid",
+    enabled = false,
     -- event = "BufRead",
     dependencies = { "nvim-treesitter/nvim-treesitter" },
     config = require "config.markid",
@@ -191,6 +194,7 @@ return {
   -- },
   {
     "shellRaining/hlchunk.nvim",
+    enabled = false,
     event = { "UIEnter" },
     dependencies = { "nvim-treesitter/nvim-treesitter" },
     opts = function()
@@ -259,6 +263,7 @@ return {
 
   {
     "aaronik/treewalker.nvim",
+    enabled = false,
     dependencies = { "nvim-treesitter/nvim-treesitter" },
     keys = {
       { "<Down>", "<cmd>Treewalker Down<CR>", desc = "TreeWalker Down" },
