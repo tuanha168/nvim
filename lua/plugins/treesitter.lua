@@ -158,13 +158,13 @@ return {
       }
     end,
   },
-  -- {
-  --   "David-Kunz/markid",
-  --   -- "tuanha168/markid",
-  --   -- event = "BufRead",
-  --   dependencies = { "nvim-treesitter/nvim-treesitter" },
-  --   config = require "config.markid",
-  -- },
+  {
+    "David-Kunz/markid",
+    -- "tuanha168/markid",
+    -- event = "BufRead",
+    dependencies = { "nvim-treesitter/nvim-treesitter" },
+    config = require "config.markid",
+  },
   -- {
   --   "ckolkey/ts-node-action",
   --   dependencies = { "nvim-treesitter/nvim-treesitter" },
