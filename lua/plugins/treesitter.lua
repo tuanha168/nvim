@@ -158,13 +158,13 @@ return {
       }
     end,
   },
-  {
-    "David-Kunz/markid",
-    -- "tuanha168/markid",
-    -- event = "BufRead",
-    dependencies = { "nvim-treesitter/nvim-treesitter" },
-    config = require "config.markid",
-  },
+  -- {
+  --   "David-Kunz/markid",
+  --   -- "tuanha168/markid",
+  --   -- event = "BufRead",
+  --   dependencies = { "nvim-treesitter/nvim-treesitter" },
+  --   config = require "config.markid",
+  -- },
   -- {
   --   "ckolkey/ts-node-action",
   --   dependencies = { "nvim-treesitter/nvim-treesitter" },
@@ -189,51 +189,51 @@ return {
   --   event = "BufRead",
   --   config = require("config.nvim-treesitter-textobjects").config,
   -- },
-  {
-    "shellRaining/hlchunk.nvim",
-    event = { "UIEnter" },
-    dependencies = { "nvim-treesitter/nvim-treesitter" },
-    opts = function()
-      local ft = require("hlchunk.utils.filetype").exclude_filetypes
-      local exclude_filetypes = Chiruno.func.extends_table(ft, {
-        [Chiruno.constants.nullWindowName] = true,
-        tmux = true,
-        harpoon = true,
-        minifiles = true,
-        dbui = true,
-        fzf = true,
-      })
-      return {
-        indent = {
-          -- chars = { "·", "·", "·", "·" }, -- more code can be found in https://unicodeplus.com/
-          chars = { "│", "¦", "┆", "┊" }, -- more code can be found in https://unicodeplus.com/
+  -- {
+  --   "shellRaining/hlchunk.nvim",
+  --   event = { "UIEnter" },
+  --   dependencies = { "nvim-treesitter/nvim-treesitter" },
+  --   opts = function()
+  --     local ft = require("hlchunk.utils.filetype").exclude_filetypes
+  --     local exclude_filetypes = Chiruno.func.extends_table(ft, {
+  --       [Chiruno.constants.nullWindowName] = true,
+  --       tmux = true,
+  --       harpoon = true,
+  --       minifiles = true,
+  --       dbui = true,
+  --       fzf = true,
+  --     })
+  --     return {
+  --       indent = {
+  --         -- chars = { "·", "·", "·", "·" }, -- more code can be found in https://unicodeplus.com/
+  --         chars = { "│", "¦", "┆", "┊" }, -- more code can be found in https://unicodeplus.com/
 
-          style = {
-            "#333333",
-          },
-        },
-        blank = {
-          enable = false,
-        },
+  --         style = {
+  --           "#333333",
+  --         },
+  --       },
+  --       blank = {
+  --         enable = false,
+  --       },
 
-        chunk = {
-          chars = {
-            horizontal_line = "─",
-            vertical_line = "│",
-            left_top = "╭",
-            left_bottom = "╰",
-            right_arrow = "─",
-          },
-          style = "#00ffff",
-          exclude_filetypes = exclude_filetypes,
-        },
+  --       chunk = {
+  --         chars = {
+  --           horizontal_line = "─",
+  --           vertical_line = "│",
+  --           left_top = "╭",
+  --           left_bottom = "╰",
+  --           right_arrow = "─",
+  --         },
+  --         style = "#00ffff",
+  --         exclude_filetypes = exclude_filetypes,
+  --       },
 
-        line_num = {
-          style = "#fcb3ed",
-        },
-      }
-    end,
-  },
+  --       line_num = {
+  --         style = "#fcb3ed",
+  --       },
+  --     }
+  --   end,
+  -- },
 
   {
     "jwalton512/vim-blade",
@@ -256,25 +256,24 @@ return {
     dependencies = { "nvim-treesitter/nvim-treesitter" },
   },
 
-  {
-    "aaronik/treewalker.nvim",
-    enabled = false,
-    dependencies = { "nvim-treesitter/nvim-treesitter" },
-    keys = {
-      { "<Down>", "<cmd>Treewalker Down<CR>", desc = "TreeWalker Down" },
-      { "<Up>", "<cmd>Treewalker Up<CR>", desc = "TreeWalker Up" },
-      { "<Right>", "<cmd>Treewalker Right<CR>", desc = "TreeWalker Right" },
-      { "<Left>", "<cmd>Treewalker Left<CR>", desc = "TreeWalker Left" },
-    },
-    opts = {
-      highlight = true, -- Whether to briefly highlight the node after jumping to it
-      highlight_duration = 250, -- How long should above highlight last (in ms)
-    },
-  },
+  -- {
+  --   "aaronik/treewalker.nvim",
+  --   enabled = false,
+  --   dependencies = { "nvim-treesitter/nvim-treesitter" },
+  --   keys = {
+  --     { "<Down>", "<cmd>Treewalker Down<CR>", desc = "TreeWalker Down" },
+  --     { "<Up>", "<cmd>Treewalker Up<CR>", desc = "TreeWalker Up" },
+  --     { "<Right>", "<cmd>Treewalker Right<CR>", desc = "TreeWalker Right" },
+  --     { "<Left>", "<cmd>Treewalker Left<CR>", desc = "TreeWalker Left" },
+  --   },
+  --   opts = {
+  --     highlight = true, -- Whether to briefly highlight the node after jumping to it
+  --     highlight_duration = 250, -- How long should above highlight last (in ms)
+  --   },
+  -- },
 
   {
     "RRethy/vim-illuminate",
-    enabled = false,
     event = "BufReadPre",
   },
 }
