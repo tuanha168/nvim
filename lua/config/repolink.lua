@@ -26,6 +26,7 @@ M.opts = function()
     url_builders = {
       ["yopaz"] = api.url_builder_for_github(),
       ["yopaz-liberty"] = api.url_builder_for_github(),
+      ["git:ByapzGb3Px-W6TQotA-w@gitlab.dig-pg.net"] = api.url_builder_for_gitlab "https://gitlab.dig-pg.net",
     },
   }
 end
