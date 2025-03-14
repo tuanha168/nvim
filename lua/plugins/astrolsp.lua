@@ -11,9 +11,9 @@ return {
   opts = {
     -- Configuration table of features provided by AstroLSP
     features = {
-      autoformat = false, -- enable or disable auto formatting on start
-      codelens = true, -- enable/disable codelens refresh on start
-      inlay_hints = true, -- enable/disable inlay hints on start
+      autoformat = false,     -- enable or disable auto formatting on start
+      codelens = true,        -- enable/disable codelens refresh on start
+      inlay_hints = true,     -- enable/disable inlay hints on start
       semantic_tokens = true, -- enable/disable semantic token highlighting
     },
     -- customize lsp formatting options
@@ -21,7 +21,7 @@ return {
       -- control auto formatting on save
       format_on_save = false,
       disabled = { -- disable formatting capabilities for the listed language servers
-        "lua_ls",
+        -- "lua_ls",
         "jsonls",
         "intelephense",
         -- "eslint",
