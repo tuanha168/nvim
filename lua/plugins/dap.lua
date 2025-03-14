@@ -57,6 +57,7 @@ return {
       },
       {
         "igorlfs/nvim-dap-view",
+        config = true,
         opts = {
           winbar = {
             show = true,
