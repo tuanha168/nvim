@@ -25,14 +25,11 @@ return {
       -- function() Chiruno.func.operatorfunc_lua "format_motion" end,
       function()
         local ok, conform = pcall(require, "conform")
-        local lint_ok, lint = pcall(require, "lint")
         if ok then
           conform.format({}, function(err, did_edit)
             if err and not did_edit then
               vim.lsp.buf.format(require("astrolsp").format_opts --[[@as vim.lsp.buf.format.Opts?]])
             end
-
-            if lint_ok then lint.try_lint() end
           end)
           return
         end
@@ -70,7 +67,17 @@ return {
   v = {
     ["<Leader>la"] = false,
     ["<Leader>fm"] = {
-      function() Chiruno.func.operatorfunc_lua "format_motion" end,
+      function()
+        local ok, conform = pcall(require, "conform")
+        if ok then
+          conform.format({}, function(err, did_edit)
+            if err and not did_edit then Chiruno.func.operatorfunc_lua "format_motion" end
+          end)
+          return
+        end
+
+        Chiruno.func.operatorfunc_lua "format_motion"
+      end,
       -- "<cmd>Prettier<CR>",
       desc = "Format code",
     },

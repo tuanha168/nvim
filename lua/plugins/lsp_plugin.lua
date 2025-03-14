@@ -32,35 +32,33 @@ return {
   --   },
   -- },
   {
-      'mfussenegger/nvim-lint',
+    "mfussenegger/nvim-lint",
     config = function()
-      require('lint').linters_by_ft = {
-        js = { 'eslint' },
-        ts = { 'eslint' },
-        vue = { 'eslint' },
+      require("lint").linters_by_ft = {
+        js = { "eslint" },
+        ts = { "eslint" },
+        vue = { "eslint" },
       }
 
-      vim.api.nvim_create_autocmd({ "BufWritePost" }, {
-        callback = function()
-          require("lint").try_lint()
-        end,
+      vim.api.nvim_create_autocmd({ "BufReadPost", "InsertLeave", "TextChanged" }, {
+        callback = function() require("lint").try_lint() end,
       })
-    end
+    end,
   },
   {
-"stevearc/conform.nvim",
+    "stevearc/conform.nvim",
     opts = {
-formatters_by_ft = {
-    lua = { "stylua" },
-    -- Conform will run multiple formatters sequentially
-    python = { "isort", "black" },
-    -- You can customize some of the format options for the filetype (:help conform.format)
-    rust = { "rustfmt", lsp_format = "fallback" },
-    -- Conform will run the first available formatter
-    javascript = { "eslint", "prettierd", "prettier", stop_after_first = true },
-    typescript = { "eslint", "prettierd", "prettier", stop_after_first = true },
-    vue = {"eslint",  "prettierd", "prettier", stop_after_first = true },
+      formatters_by_ft = {
+        lua = { "stylua" },
+        -- Conform will run multiple formatters sequentially
+        python = { "isort", "black" },
+        -- You can customize some of the format options for the filetype (:help conform.format)
+        rust = { "rustfmt", lsp_format = "fallback" },
+        -- Conform will run the first available formatter
+        javascript = { "eslint", "prettierd", "prettier", stop_after_first = true },
+        typescript = { "eslint", "prettierd", "prettier", stop_after_first = true },
+        vue = { "eslint", "prettierd", "prettier", stop_after_first = true },
+      },
+    },
   },
-    }
-  }
 }
