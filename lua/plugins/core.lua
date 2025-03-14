@@ -114,9 +114,7 @@ return {
     cmd = "UndotreeToggle",
     event = "BufRead",
     config = function()
-      vim.keymap.set("n", "<C-y>", function()
-        vim.cmd "UndotreeToggle"
-      end, { silent = true })
+      vim.keymap.set("n", "<C-y>", function() vim.cmd "UndotreeToggle" end, { silent = true })
     end,
   },
 
@@ -616,5 +614,11 @@ return {
   {
     "indent-blankline.nvim",
     commit = "e7a4442e055ec953311e77791546238d1eaae507",
+  },
+
+  {
+    "lafarr/hierarchy.nvim",
+    opts = {},
+    cmd = "FunctionReferences",
   },
 }
