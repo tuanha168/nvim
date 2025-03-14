@@ -26,28 +26,14 @@ return {
         },
       })
       local dap = require "dap"
-      require("config.dap.adapters").setup(dap)
-      require("config.dap.config").setup(dap)
-      require("config.dap.listeners").setup(dap)
+      require("dap.adapters").setup(dap)
+      require("dap.config").setup(dap)
+      require("dap.listeners").setup(dap)
     end,
     dependencies = {
       {
         "theHamsta/nvim-dap-virtual-text",
-        opts = {
-          enabled = true,
-          enabled_commands = true,
-          highlight_changed_variables = true,
-          highlight_new_as_changed = true,
-          show_stop_reason = true,
-          commented = false,
-          only_first_definition = true,
-          all_references = true,
-          filter_references_pattern = "<module",
-          virt_text_pos = "eol",
-          all_frames = false,
-          virt_lines = false,
-          virt_text_win_col = nil,
-        },
+        opts = {},
       },
       {
         "jay-babu/mason-nvim-dap.nvim",
