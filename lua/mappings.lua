@@ -84,6 +84,8 @@ local mappings = {
     },
     -- Neotree
     ["<Leader>e"] = false,
+    -- Neotree
+    ["<Leader>o"] = false,
     -- Illuminate
     ["("] = {
       function() require("illuminate").goto_next_reference() end,
