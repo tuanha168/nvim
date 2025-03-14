@@ -24,6 +24,16 @@ return {
     ["<Leader>fm"] = {
       -- function() Chiruno.func.operatorfunc_lua "format_motion" end,
       function()
+        local ok, conform = pcall(require, "conform")
+        if ok then
+          conform.format({}, function(err, did_edit)
+            if err and not did_edit then
+              vim.lsp.buf.format(require("astrolsp").format_opts --[[@as vim.lsp.buf.format.Opts?]])
+            end
+          end)
+          return
+        end
+
         vim.lsp.buf.format(require("astrolsp").format_opts --[[@as vim.lsp.buf.format.Opts?]])
       end,
       -- "<cmd>Prettier<CR>",
