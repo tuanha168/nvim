@@ -69,9 +69,9 @@ return {
             height = 12,
             terminal = {
               -- 'left'|'right'|'above'|'below': Terminal position in layout
-              position = "left",
+              position = "right",
               -- List of debug adapters for which the terminal should be ALWAYS hidden
-              hide = {},
+              hide = { "chrome", "pwa-chrome" },
               -- Hide the terminal when starting a new session
               start_hidden = false,
             },
