@@ -36,7 +36,7 @@ return {
     config = function()
       require("lint").linters_by_ft = {
         js = { "eslint" },
-        ts = { "eslint" },
+        typescript = { "eslint" },
         vue = { "eslint" },
       }
 
