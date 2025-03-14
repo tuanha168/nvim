@@ -28,6 +28,7 @@ return {
       local dap = require "dap"
       require("dap.adapters").setup(dap)
       require("dap.config").setup(dap)
+      require("dap.listeners").setup(dap)
     end,
     dependencies = {
       {
