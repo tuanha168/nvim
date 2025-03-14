@@ -35,11 +35,40 @@ return {
       'mfussenegger/nvim-lint',
     config = function()
       require('lint').linters_by_ft = {
-        js = { 'eslint', 'prettier' },
-        ts = { 'eslint', 'prettier' },
-        vue = { 'eslint', 'prettier' },
+        js = { 'eslint' },
+        ts = { 'eslint' },
+        vue = { 'eslint' },
         lua = { 'stylua' },
       }
+
+      vim.api.nvim_create_autocmd({ "BufWritePost" }, {
+        callback = function()
+          require("lint").try_lint()
+        end,
+      })
     end
+  },
+  {
+"stevearc/conform.nvim",
+    config = function()
+      require("conform").setup({
+        -- default_options = {
+        --   formatters = {
+        --     go = "gofmt",
+        --     javascript = "prettier",
+        --     typescript = "prettier",
+        --     markdown = "prettier",
+        --     json = "prettier",
+        --     yaml = "prettier",
+        --     html = "prettier",
+        --     css = "prettier",
+        --     scss = "prettier",
+        --     less = "prettier",
+        --     java = "prettier",
+        --     graphql = "prettier",
+        --   },
+        -- },
+      })
+    end,
   }
 }
