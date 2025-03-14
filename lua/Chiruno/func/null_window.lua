@@ -33,17 +33,18 @@ end
 ---@param win? number
 ---@return boolean?
 local function is_only_one_window(win)
-  local count = 0
-  for _, _win in ipairs(vim.api.nvim_tabpage_list_wins(0)) do
-    if
-      ((splitLeft and _win ~= splitLeft.winid) or (splitRight and _win ~= splitRight.winid))
-      and not is_float(_win)
-      and (not win or win ~= _win)
-    then
-      count = count + 1
-    end
-  end
-  return count <= 1
+  -- local count = 0
+  -- for _, _win in ipairs(vim.api.nvim_tabpage_list_wins(0)) do
+  --   if
+  --     ((splitLeft and _win ~= splitLeft.winid) or (splitRight and _win ~= splitRight.winid))
+  --     and not is_float(_win)
+  --     and (not win or win ~= _win)
+  --   then
+  --     count = count + 1
+  --   end
+  -- end
+  -- return count <= 1
+  return true
 end
 
 -- Get null window status
