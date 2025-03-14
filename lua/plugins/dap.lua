@@ -56,38 +56,39 @@ return {
         end,
       },
       { "igorlfs/nvim-dap-view", opts = {} },
-      -- {
-      --   "rcarriga/nvim-dap-ui",
-      --   dependencies = { "nvim-neotest/nvim-nio" },
-      --   config = function(_, opts)
-      --     local dapui = require "dapui"
-      --     opts.layouts = {
-      --       {
-      --         -- You can change the order of elements in the sidebar
-      --         elements = {
-      --           -- Provide IDs as strings or tables with "id" and "size" keys
-      --           { id = "repl", size = 0.5 },
-      --           { id = "console", size = 0.25 },
-      --           {
-      --             id = "watches",
-      --             size = 0.25,
-      --           },
-      --         },
-      --         size = 0.25,
-      --         position = "left", -- Can be "left" or "right"
-      --       },
-      --       -- {
-      --       --   elements = {
-      --       --     "repl",
-      --       --     "console",
-      --       --   },
-      --       --   size = 10,
-      --       --   position = "bottom", -- Can be "bottom" or "top"
-      --       -- },
-      --     }
-      --     dapui.setup(opts)
-      --   end,
-      -- },
+      {
+        "rcarriga/nvim-dap-ui",
+        enabled = false,
+        dependencies = { "nvim-neotest/nvim-nio" },
+        config = function(_, opts)
+          local dapui = require "dapui"
+          opts.layouts = {
+            {
+              -- You can change the order of elements in the sidebar
+              elements = {
+                -- Provide IDs as strings or tables with "id" and "size" keys
+                { id = "repl", size = 0.5 },
+                { id = "console", size = 0.25 },
+                {
+                  id = "watches",
+                  size = 0.25,
+                },
+              },
+              size = 0.25,
+              position = "left", -- Can be "left" or "right"
+            },
+            -- {
+            --   elements = {
+            --     "repl",
+            --     "console",
+            --   },
+            --   size = 10,
+            --   position = "bottom", -- Can be "bottom" or "top"
+            -- },
+          }
+          dapui.setup(opts)
+        end,
+      },
     },
   },
 }
