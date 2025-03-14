@@ -38,7 +38,6 @@ return {
         js = { 'eslint' },
         ts = { 'eslint' },
         vue = { 'eslint' },
-        lua = { 'stylua' },
       }
 
       vim.api.nvim_create_autocmd({ "BufWritePost" }, {
@@ -50,25 +49,18 @@ return {
   },
   {
 "stevearc/conform.nvim",
-    config = function()
-      require("conform").setup({
-        -- default_options = {
-        --   formatters = {
-        --     go = "gofmt",
-        --     javascript = "prettier",
-        --     typescript = "prettier",
-        --     markdown = "prettier",
-        --     json = "prettier",
-        --     yaml = "prettier",
-        --     html = "prettier",
-        --     css = "prettier",
-        --     scss = "prettier",
-        --     less = "prettier",
-        --     java = "prettier",
-        --     graphql = "prettier",
-        --   },
-        -- },
-      })
-    end,
+    opts = {
+formatters_by_ft = {
+    lua = { "stylua" },
+    -- Conform will run multiple formatters sequentially
+    python = { "isort", "black" },
+    -- You can customize some of the format options for the filetype (:help conform.format)
+    rust = { "rustfmt", lsp_format = "fallback" },
+    -- Conform will run the first available formatter
+    javascript = { "eslint", "prettierd", "prettier", stop_after_first = true },
+    typescript = { "eslint", "prettierd", "prettier", stop_after_first = true },
+    vue = {"eslint",  "prettierd", "prettier", stop_after_first = true },
+  },
+    }
   }
 }
