@@ -64,12 +64,27 @@ return {
               -- 'left'|'right'|'above'|'below': Terminal position in layout
               position = "right",
               -- List of debug adapters for which the terminal should be ALWAYS hidden
-              hide = { "chrome", "pwa-chrome" },
+              -- hide = { "chrome", "pwa-chrome" },
               -- Hide the terminal when starting a new session
               start_hidden = false,
             },
           },
         },
+        config = function(_, opts)
+          vim.api.nvim_create_autocmd({ "FileType" }, {
+            pattern = { "dap-view-term" },
+            callback = function(event)
+              vim.schedule(function()
+                local session = require("dap").session()
+                if session and session.filetype == "vue" then
+                  vim.api.nvim_buf_delete(event.buf, { force = true })
+                end
+              end)
+            end,
+          })
+
+          require("dap-view").setup(opts)
+        end,
       },
       {
         "rcarriga/nvim-dap-ui",
