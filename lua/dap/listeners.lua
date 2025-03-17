@@ -99,7 +99,7 @@ return {
       -- dv.open()
     end
     dap.listeners.before.event_terminated["dap-view-config"] = function()
-      vim.keymap.set("n", "<Leader>K", "<cmd>TWValues<cr>", { desc = "Show tailwind CSS values" })
+      -- vim.keymap.set("n", "<Leader>K", "<cmd>TWValues<cr>", { desc = "Show tailwind CSS values" })
       dv.close()
     end
     dap.listeners.before.event_exited["dap-view-config"] = function()
