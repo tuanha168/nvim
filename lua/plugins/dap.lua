@@ -56,7 +56,7 @@ return {
             show = true,
             sections = { "watches", "exceptions", "breakpoints", "threads", "repl" },
             -- Must be one of the sections declared above
-            default_section = "watches",
+            default_section = "repl",
           },
           windows = {
             height = 12,
