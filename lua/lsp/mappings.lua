@@ -47,6 +47,7 @@ return {
     ["<Leader>k"] = {
       function() vim.lsp.buf.hover() end,
       desc = "Hover symbol details",
+      noremap = false,
     },
     ["gR"] = {
       function() vim.lsp.buf.rename() end,
