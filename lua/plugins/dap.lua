@@ -76,9 +76,8 @@ return {
             callback = function(event)
               vim.schedule(function()
                 local session = require("dap").session()
-                if session and session.filetype == "vue" then
-                  vim.api.nvim_buf_delete(event.buf, { force = true })
-                end
+                Print(session)
+                if session and session.filetype == "vue" then vim.api.nvim_buf_delete(event.buf, { force = true }) end
               end)
             end,
           })
