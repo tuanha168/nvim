@@ -91,16 +91,16 @@ return {
     if not ok then return end
 
     dap.listeners.before.attach["dap-view-config"] = function()
+      vim.keymap.set("n", "<Leader>k", function() Dap_better_hover() end, { buffer = 0 })
       vim.keymap.set("n", "<Leader>k", function() Dap_better_hover() end)
       -- dv.open()
     end
     dap.listeners.before.launch["dap-view-config"] = function()
+      vim.keymap.set("n", "<Leader>k", function() Dap_better_hover() end, { buffer = 0 })
       vim.keymap.set("n", "<Leader>k", function() Dap_better_hover() end)
       -- dv.open()
     end
-    dap.listeners.before.event_terminated["dap-view-config"] = function()
-      dv.close()
-    end
+    dap.listeners.before.event_terminated["dap-view-config"] = function() dv.close() end
     dap.listeners.before.event_exited["dap-view-config"] = function()
       vim.keymap.set("n", "<Leader>k", function() vim.lsp.buf.hover() end)
       dv.close()

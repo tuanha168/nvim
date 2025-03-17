@@ -44,10 +44,10 @@ return {
     --   function() vim.lsp.buf.signature_help() end,
     --   desc = "Signature help",
     -- },
-    -- ["<Leader>k"] = {
-    --   function() vim.lsp.buf.hover() end,
-    --   desc = "Hover symbol details",
-    -- },
+    ["<Leader>k"] = {
+      function() vim.lsp.buf.hover() end,
+      desc = "Hover symbol details",
+    },
     ["gR"] = {
       function() vim.lsp.buf.rename() end,
       desc = "Rename current symbol",
