@@ -44,6 +44,13 @@ return {
       },
       {
         "igorlfs/nvim-dap-view",
+        keys = {
+          {
+            "<Leader>dk",
+            function() require("config.nvim-dap-view").Dap_better_hover() end,
+            desc = "Dap Hover",
+          },
+        },
         opts = {
           winbar = {
             show = false,
