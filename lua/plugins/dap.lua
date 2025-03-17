@@ -52,7 +52,6 @@ return {
             default_section = "watches",
           },
           windows = {
-            show = false,
             height = 12,
             terminal = {
               -- 'left'|'right'|'above'|'below': Terminal position in layout
