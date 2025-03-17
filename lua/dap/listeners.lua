@@ -99,9 +99,11 @@ return {
       -- dv.open()
     end
     dap.listeners.before.event_terminated["dap-view-config"] = function()
+      dv.close()
+    end
+    dap.listeners.before.event_exited["dap-view-config"] = function()
       vim.keymap.set("n", "<Leader>k", function() vim.lsp.buf.hover() end, { noremap = true, silent = true })
       dv.close()
     end
-    dap.listeners.before.event_exited["dap-view-config"] = function() dv.close() end
   end,
 }
