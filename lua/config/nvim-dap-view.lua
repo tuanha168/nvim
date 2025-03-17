@@ -39,7 +39,6 @@ end
 
 function M.Dap_better_hover(expr)
   local value = dap_eval_expression(expr)
-  Print(value)
 
   local bufnr, winid = vim.lsp.util.open_floating_preview({}, "dap-float", {
     focusable = true,
