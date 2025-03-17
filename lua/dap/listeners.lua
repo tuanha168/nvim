@@ -4,10 +4,10 @@ local api = vim.api
 ---@return string
 local function dap_eval_expression(expr)
   local mode = api.nvim_get_mode()
-  if mode.mode == 'v' then
+  if mode.mode == "v" then
     -- [bufnum, lnum, col, off]; 1-indexed
-    local start = vim.fn.getpos('v')
-    local end_ = vim.fn.getpos('.')
+    local start = vim.fn.getpos "v"
+    local end_ = vim.fn.getpos "."
 
     local start_row = start[2]
     local start_col = start[3]
@@ -22,13 +22,13 @@ local function dap_eval_expression(expr)
       start_col, end_col = end_col, start_col
     end
 
-    api.nvim_feedkeys(api.nvim_replace_termcodes('<ESC>', true, false, true), 'n', false)
+    api.nvim_feedkeys(api.nvim_replace_termcodes("<ESC>", true, false, true), "n", false)
 
     -- buf_get_text is 0-indexed; end-col is exclusive
     local lines = api.nvim_buf_get_text(0, start_row - 1, start_col - 1, end_row - 1, end_col, {})
-    return table.concat(lines, '\n')
+    return table.concat(lines, "\n")
   end
-  expr = expr or '<cexpr>'
+  expr = expr or "<cexpr>"
   if type(expr) == "function" then
     return expr()
   else
@@ -90,13 +90,16 @@ return {
     local ok, dv = pcall(require, "dap-view")
     if not ok then return end
 
-    -- dap.listeners.before.attach["dap-view-config"] = function() dv.open() end
+    dap.listeners.before.attach["dap-view-config"] = function()
+      vim.keymap.set("n", "<Leader>k", function() Dap_better_hover() end, { noremap = true, silent = true })
+      -- dv.open()
+    end
     dap.listeners.before.launch["dap-view-config"] = function()
-      vim.keymap.set("n", "<leader>k", function() Dap_better_hover() end)
+      vim.keymap.set("n", "<Leader>k", function() Dap_better_hover() end, { noremap = true, silent = true })
       -- dv.open()
     end
     dap.listeners.before.event_terminated["dap-view-config"] = function()
-      vim.keymap.set("n", "<leader>k", function() vim.lsp.buf.hover() end)
+      vim.keymap.set("n", "<Leader>k", function() vim.lsp.buf.hover() end, { noremap = true, silent = true })
       dv.close()
     end
     dap.listeners.before.event_exited["dap-view-config"] = function() dv.close() end
