@@ -82,13 +82,13 @@ function Chiruno.func.open_null_window(opts)
   if opts.left then
     if splitLeft then splitLeft:unmount() end
 
-    vim.schedule(function() splitLeft:mount() end)
+    splitLeft:mount()
   end
 
   if opts.right then
     if splitRight then splitRight:unmount() end
 
-    vim.schedule(function() splitRight:mount() end)
+    splitRight:mount()
   end
 
   vim.api.nvim_win_set_buf(0, current_bufnr)
@@ -175,7 +175,7 @@ function Chiruno.func.on_null_win_enter(e)
   -- if not is_only_one_window() then
   -- Chiruno.func.close_null_window()
   -- end
-  Chiruno.func.check_null_window()
+  Chiruno.func.check_null_window(e)
 end
 
 function Chiruno.func.setup_null_window()

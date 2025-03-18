@@ -5,14 +5,14 @@ function Chiruno.autocmd.null_window()
 
   local autocmd = vim.api.nvim_create_autocmd
 
-  autocmd({ "BufEnter" }, {
+  autocmd({ "BufEnter", "BufWinEnter", "WinEnter" }, {
     pattern = "*",
     callback = Chiruno.func.check_null_window,
     group = null_window_augroup,
     once = true,
   })
 
-  autocmd({ "WinEnter", "WinClosed" }, {
+  autocmd({  "WinClosed" }, {
     pattern = "*",
     callback = Chiruno.func.on_null_win_enter,
 
