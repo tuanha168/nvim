@@ -1,4 +1,6 @@
 function Chiruno.autocmd.null_window()
+  Chiruno.func.setup_null_window()
+
   local null_window_augroup = vim.api.nvim_create_augroup("NullWindow", { clear = true })
 
   local autocmd = vim.api.nvim_create_autocmd

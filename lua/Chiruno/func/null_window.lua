@@ -21,18 +21,10 @@ local options = {
   },
 }
 
-local ok, Split = pcall(require, "nui.split")
-if not ok then return end
-
 ---@class NuiSplit
-local splitLeft = Split(Chiruno.func.extends_table(options, {
-  position = "left",
-}))
-
+local splitLeft
 ---@class NuiSplit
-local splitRight = Split(Chiruno.func.extends_table(options, {
-  position = "right",
-}))
+local splitRight
 
 ---@param win number
 ---@return boolean?
@@ -167,6 +159,7 @@ end
 function Chiruno.func.on_null_win_enter(e)
   if not e then return end
 
+  Print(e)
   if e.event == "WinClosed" then
     local closedWin = tonumber(e.match)
     if closedWin and is_float(closedWin) then return end
@@ -184,6 +177,21 @@ function Chiruno.func.on_null_win_enter(e)
   -- Chiruno.func.close_null_window()
   -- end
   Chiruno.func.check_null_window()
+end
+
+function Chiruno.func.setup_null_window()
+  local ok, Split = pcall(require, "nui.split")
+  if not ok then return end
+
+  ---@class NuiSplit
+  splitLeft = Split(Chiruno.func.extends_table(options, {
+    position = "left",
+  }))
+
+  ---@class NuiSplit
+  splitRight = Split(Chiruno.func.extends_table(options, {
+    position = "right",
+  }))
 end
 
 return Chiruno.func.check_null_window
