@@ -1,7 +1,3 @@
----@class NuiSplit
-local splitLeft
----@class NuiSplit
-local splitRight
 local openNullWindow = true
 
 local options = {
@@ -24,6 +20,19 @@ local options = {
     -- fillchars = { eob = " " },
   },
 }
+
+local ok, Split = pcall(require, "nui.split")
+if not ok then return end
+
+---@class NuiSplit
+local splitLeft = Split(Chiruno.func.extends_table(options, {
+  position = "left",
+}))
+
+---@class NuiSplit
+local splitRight = Split(Chiruno.func.extends_table(options, {
+  position = "right",
+}))
 
 ---@param win number
 ---@return boolean?
@@ -76,27 +85,16 @@ end
 function Chiruno.func.open_null_window(opts)
   openNullWindow = true
 
-  local ok, Split = pcall(require, "nui.split")
-  if not ok then return end
-
   local current_bufnr = vim.api.nvim_get_current_buf()
 
   if opts.left then
     if splitLeft then splitLeft:unmount() end
-
-    splitLeft = Split(Chiruno.func.extends_table(options, {
-      position = "left",
-    }))
 
     splitLeft:mount()
   end
 
   if opts.right then
     if splitRight then splitRight:unmount() end
-
-    splitRight = Split(Chiruno.func.extends_table(options, {
-      position = "right",
-    }))
 
     splitRight:mount()
   end
