@@ -128,7 +128,7 @@ function Chiruno.func.check_ignore_window(bufnr, opts)
   return false
 end
 
----@param e? AutocmdCallbackEvent
+---@param e? vim.api.keyset.create_autocmd.callback_args
 ---@param closedWin? number
 function Chiruno.func.check_null_window(e, closedWin)
   if e and (not e.match or e.match == "") then return end
@@ -163,7 +163,7 @@ function Chiruno.func.check_null_window(e, closedWin)
   if opts.left or opts.right then Chiruno.func.open_null_window(opts) end
 end
 
----@param e? AutocmdCallbackEvent
+---@param e? vim.api.keyset.create_autocmd.callback_args
 function Chiruno.func.on_null_win_enter(e)
   if not e then return end
 

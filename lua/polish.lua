@@ -74,7 +74,7 @@ autocmd({ "BufWritePre" }, {
 
 autocmd({ "BufWritePre" }, {
   pattern = "*",
-  ---@param event AutocmdCallbackEvent
+  ---@param event vim.api.keyset.create_autocmd.callback_args
   callback = function(event)
     local ok, userConfig = pcall(require, "config")
     if ok and not userConfig.auto_push_config then return end
@@ -117,7 +117,7 @@ autocmd({ "BufNewFile", "BufRead", "BufEnter" }, {
 local buf_large_group = vim.api.nvim_create_augroup("BufLarge", { clear = true })
 
 autocmd({ "BufReadPre" }, {
-  ---@param event AutocmdCallbackEvent
+  ---@param event vim.api.keyset.create_autocmd.callback_args
   callback = function(event)
     local ok, stats = pcall(vim.uv.fs_stat, vim.api.nvim_buf_get_name(event.buf))
     if ok and stats and (stats.size > 100000 or vim.api.nvim_buf_line_count(event.buf) > 3000) then
