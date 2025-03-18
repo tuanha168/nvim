@@ -1,26 +1,20 @@
 ---@type LazySpec
 return {
-  -- {
-  --   "folke/zen-mode.nvim",
-  --   opts = {
-  --     window = {
-  --       width = 0.60,
-  --     },
-  --   },
-  --   keys = {
-  --     {
-  --       "<leader>z",
-  --       function()
-  --         -- close NeoTree
-  --         local ok, neo = pcall(require, "neo-tree.command")
-  --         if ok then neo.execute { action = "close" } end
-
-  --         require("zen-mode").toggle()
-  --       end,
-  --       desc = "Zen Mode",
-  --     },
-  --   },
-  -- },
+  {
+    "folke/zen-mode.nvim",
+    opts = {
+      window = {
+        width = 0.60,
+      },
+    },
+    keys = {
+      {
+        "<leader>z",
+        function() require("zen-mode").toggle() end,
+        desc = "Zen Mode",
+      },
+    },
+  },
   -- {
   --   "folke/twilight.nvim",
   --   cmd = "Twilight",
@@ -35,21 +29,21 @@ return {
   --     },
   --   },
   -- },
-  {
-    "cdmill/focus.nvim",
-    cmd = { "Focus", "Zen", "Narrow" },
-    opts = {
-      auto_zen = true,
-      zen = {
-        diagnostics = true,
-      },
-    },
-    keys = {
-      {
-        "<leader>z",
-        "<cmd>Focus<CR>",
-        desc = "Zen Mode",
-      },
-    },
-  },
+  -- {
+  --   "cdmill/focus.nvim",
+  --   cmd = { "Focus", "Zen", "Narrow" },
+  --   opts = {
+  --     auto_zen = true,
+  --     zen = {
+  --       diagnostics = true,
+  --     },
+  --   },
+  --   keys = {
+  --     {
+  --       "<leader>z",
+  --       "<cmd>Focus<CR>",
+  --       desc = "Zen Mode",
+  --     },
+  --   },
+  -- },
 }
