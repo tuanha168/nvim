@@ -172,7 +172,7 @@ function Chiruno.func.on_null_win_enter(e)
     if closedWin and is_float(closedWin) then return end
 
     -- if is_only_one_window(closedWin) then
-    -- Chiruno.func.check_null_window(e, closedWin)
+    Chiruno.func.check_null_window(e, closedWin)
     -- end
     return
   end
@@ -181,8 +181,9 @@ function Chiruno.func.on_null_win_enter(e)
   if is_float(win) then return end
 
   -- if not is_only_one_window() then
-  Chiruno.func.close_null_window()
+  -- Chiruno.func.close_null_window()
   -- end
+  Chiruno.func.check_null_window(e)
 end
 
 return Chiruno.func.check_null_window
