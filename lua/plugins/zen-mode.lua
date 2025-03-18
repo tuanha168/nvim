@@ -1,27 +1,26 @@
 ---@type LazySpec
 return {
-  -- {
-  --   "folke/zen-mode.nvim",
-  --   event = "BufEnter",
-  --   opts = {
-  --     window = {
-  --       width = 0.60,
-  --     },
-  --   },
-  --   keys = {
-  --     {
-  --       "<leader>z",
-  --       function()
-  --         -- close NeoTree
-  --         local ok, neo = pcall(require, "neo-tree.command")
-  --         if ok then neo.execute { action = "close" } end
-  --
-  --         require("zen-mode").toggle()
-  --       end,
-  --       desc = "Zen Mode",
-  --     },
-  --   },
-  -- },
+  {
+    "folke/zen-mode.nvim",
+    opts = {
+      window = {
+        width = 0.60,
+      },
+    },
+    keys = {
+      {
+        "<leader>z",
+        function()
+          -- close NeoTree
+          local ok, neo = pcall(require, "neo-tree.command")
+          if ok then neo.execute { action = "close" } end
+
+          require("zen-mode").toggle()
+        end,
+        desc = "Zen Mode",
+      },
+    },
+  },
   -- {
   --   "folke/twilight.nvim",
   --   cmd = "Twilight",

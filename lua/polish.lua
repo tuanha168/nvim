@@ -15,14 +15,14 @@ vim.filetype.add {
 
 local autocmd = vim.api.nvim_create_autocmd
 
-autocmd("BufRead", {
-  pattern = "*",
-  callback = function()
-    -- Chiruno.autocmd.auto_reload_cmp()
-    Chiruno.autocmd.null_window()
-  end,
-  once = true,
-})
+-- autocmd("BufRead", {
+--   pattern = "*",
+--   callback = function()
+--     -- Chiruno.autocmd.auto_reload_cmp()
+--     Chiruno.autocmd.null_window()
+--   end,
+--   once = true,
+-- })
 
 autocmd({ "BufEnter", "LspAttach" }, {
   pattern = "*",
