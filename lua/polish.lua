@@ -24,19 +24,19 @@ local autocmd = vim.api.nvim_create_autocmd
 --   once = true,
 -- })
 
-autocmd({ "BufEnter", "LspAttach" }, {
-  pattern = "*",
-  callback = function(event)
-    local haveNullLs, nullLs = pcall(require, "null-ls")
-    if not haveNullLs then return end
+-- autocmd({ "BufEnter", "LspAttach" }, {
+--   pattern = "*",
+--   callback = function(event)
+--     local haveNullLs, nullLs = pcall(require, "null-ls")
+--     if not haveNullLs then return end
 
-    if vim.lsp.get_clients({ bufnr = event.buf, name = "eslint" })[1] then
-      nullLs.disable { "prettierd" }
-    else
-      nullLs.enable { "prettierd" }
-    end
-  end,
-})
+--     if vim.lsp.get_clients({ bufnr = event.buf, name = "eslint" })[1] then
+--       nullLs.disable { "prettierd" }
+--     else
+--       nullLs.enable { "prettierd" }
+--     end
+--   end,
+-- })
 
 autocmd({ "BufEnter" }, {
   pattern = "*",
