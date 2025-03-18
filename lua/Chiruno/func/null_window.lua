@@ -183,7 +183,7 @@ function Chiruno.func.on_null_win_enter(e)
   -- if not is_only_one_window() then
   -- Chiruno.func.close_null_window()
   -- end
-  Chiruno.func.check_null_window(e)
+  Chiruno.func.check_null_window()
 end
 
 return Chiruno.func.check_null_window
