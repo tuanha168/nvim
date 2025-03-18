@@ -39,5 +39,12 @@ return {
     "cdmill/focus.nvim",
     cmd = { "Focus", "Zen", "Narrow" },
     opts = {},
+    keys = {
+      {
+        "<leader>z",
+        "<cmd>Focus<CR><cmd>Zen<CR>",
+        desc = "Zen Mode",
+      },
+    },
   },
 }
