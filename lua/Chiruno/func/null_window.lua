@@ -1,4 +1,6 @@
+---@class NuiSplit
 local splitLeft
+---@class NuiSplit
 local splitRight
 local openNullWindow = true
 
