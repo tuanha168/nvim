@@ -159,16 +159,6 @@ end
 function Chiruno.func.on_null_win_enter(e)
   if not e then return end
 
-  for _, ft in ipairs { "neo%-tree", "dapui", "dbui", "DressingInput" } do
-    if string.find(vim.api.nvim_get_option_value("filetype", { buf = e.buf }), ft) then
-      local closedWin = tonumber(e.match)
-      if closedWin then Print(is_float(closedWin)) end
-      local win = vim.api.nvim_get_current_win()
-      if win then Print(is_float(win)) end
-      Print(vim.api.nvim_get_option_value("filetype", { buf = e.buf }))
-    end
-  end
-
   if e.event == "WinClosed" then
     local closedWin = tonumber(e.match)
     if closedWin and is_float(closedWin) then return end
