@@ -82,13 +82,13 @@ function Chiruno.func.open_null_window(opts)
   if opts.left then
     if splitLeft then splitLeft:unmount() end
 
-    splitLeft:mount()
+    vim.schedule(function() splitLeft:mount() end)
   end
 
   if opts.right then
     if splitRight then splitRight:unmount() end
 
-    splitRight:mount()
+    vim.schedule(function() splitRight:mount() end)
   end
 
   vim.api.nvim_win_set_buf(0, current_bufnr)
