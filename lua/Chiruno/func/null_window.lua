@@ -166,7 +166,6 @@ end
 ---@param e? vim.api.keyset.create_autocmd.callback_args
 function Chiruno.func.on_null_win_enter(e)
   if not e then return end
-  Print(vim.api.nvim_get_option_value("filetype", { buf = e.buf }))
 
   if e.event == "WinClosed" then
     local closedWin = tonumber(e.match)
