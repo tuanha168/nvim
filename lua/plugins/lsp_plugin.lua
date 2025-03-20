@@ -42,8 +42,7 @@ return {
 
       vim.api.nvim_create_autocmd({ "LspAttach", "InsertLeave", "TextChanged" }, {
         callback = function()
-          local get_clients = vim.lsp.get_clients or vim.lsp.get_active_clients
-          local client = get_clients({ bufnr = 0 })[1] or {}
+          local client = vim.lsp.get_clients({ bufnr = 0 })[1] or {}
           require("lint").try_lint(nil, { cwd = client.root_dir })
         end,
       })
