@@ -1,0 +1,20 @@
+{
+  "name": "friendly-snippets",
+  "engines": {
+    "vscode": "^1.11.0"
+  },
+  "contributes": {
+    "snippets": [
+      {
+        "language": [
+          "vue",
+          "javascript",
+          "javascriptreact",
+          "typescript",
+          "typescriptreact"
+        ],
+        "path": "./snippets/js.json"
+      }
+    ]
+  }
+}

@@ -1,0 +1,27 @@
+{
+  "compilerOptions": {
+    "isolatedModules": true,
+    "skipLibCheck": true,
+    "target": "ESNext",
+    "module": "CommonJS",
+    "moduleResolution": "Node",
+    "useDefineForClassFields": true,
+    "lib": ["esnext", "dom", "ES2015"],
+    "esModuleInterop": true,
+    "allowSyntheticDefaultImports": true,
+    "sourceMap": true,
+    "strict": true,
+    "jsx": "preserve",
+    "allowJs": true,
+    "experimentalDecorators": true,
+    "baseUrl": ".",
+    "outDir": "dist",
+    "resolveJsonModule": true,
+    "paths": {
+      "@/*": ["./src/*"],
+      "@root/*": ["./*"]
+    }
+  },
+  "include": ["src/*", "eslint.config.mjs"],
+  "exclude": ["dist", "node_modules"]
+}
