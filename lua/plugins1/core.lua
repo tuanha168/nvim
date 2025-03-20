@@ -409,16 +409,6 @@ return {
     },
   },
 
-  {
-    "9seconds/repolink.nvim",
-    dependencies = { "nvim-lua/plenary.nvim" },
-    event = "User AstroGitFile",
-    enabled = vim.fn.executable "git" == 1,
-    cmd = { "RepoLink" },
-    keys = require("config.repolink").lazyKeys,
-    opts = require("config.repolink").opts,
-  },
-
   -- {
   --   "dstein64/vim-startuptime",
   --   cmd = "StartupTime",

@@ -70,7 +70,7 @@ local mappings = {
   -- Yank
   { "<c-c>", '"+y', desc = "Yank", noremap = true, mode = { "v" } },
   -- Gitsigns
-  { "<c-u>", ":Gitsigns undo_stage_hunk<CR>", silent = true, mode = { "v" } },
+  { "<c-u>", ":Gitsigns undo_stage_hunk<CR>", silent = true },
   { "<c-s>", ":Gitsigns stage_hunk<CR>", silent = true, mode = { "v" } },
   { "u", ":Gitsigns reset_hunk<CR>", silent = true, mode = { "v" } },
   -- Moving

@@ -1,25 +1,45 @@
 return {
   -- on_attach = function() end,
   signs = {
-    add = { hl = "GitSignsAdd", text = "+", numhl = "GitSignsAddNr", linehl = "GitSignsAddLn" },
-    change = { hl = "GitSignsChange", text = "|", numhl = "GitSignsChangeNr", linehl = "GitSignsChangeLn" },
-    delete = { hl = "GitSignsDelete", text = "_", numhl = "GitSignsDeleteNr", linehl = "GitSignsDeleteLn" },
-    topdelete = { hl = "GitSignsDelete", text = "‾", numhl = "GitSignsDeleteNr", linehl = "GitSignsDeleteLn" },
-    changedelete = { hl = "GitSignsChange", text = "~", numhl = "GitSignsChangeNr", linehl = "GitSignsChangeLn" },
+    add = { text = "+" },
+    change = { text = "┃" },
+    delete = { text = "_" },
+    topdelete = { text = "‾" },
+    changedelete = { text = "~" },
+    untracked = { text = "┆" },
   },
+  signs_staged = {
+    add = { text = "+" },
+    change = { text = "┃" },
+    delete = { text = "_" },
+    topdelete = { text = "‾" },
+    changedelete = { text = "~" },
+    untracked = { text = "┆" },
+  },
+  signs_staged_enable = true,
   signcolumn = true, -- Toggle with `:Gitsigns toggle_signs`
   numhl = false, -- Toggle with `:Gitsigns toggle_numhl`
   linehl = false, -- Toggle with `:Gitsigns toggle_linehl`
   word_diff = false, -- Toggle with `:Gitsigns toggle_word_diff`
   watch_gitdir = {
-    interval = 1000,
     follow_files = true,
   },
-  attach_to_untracked = true,
+  auto_attach = true,
+  attach_to_untracked = false,
+  current_line_blame = true, -- Toggle with `:Gitsigns toggle_current_line_blame`
+  current_line_blame_opts = {
+    virt_text = true,
+    virt_text_pos = "eol", -- 'eol' | 'overlay' | 'right_align'
+    delay = 1000,
+    ignore_whitespace = false,
+    virt_text_priority = 100,
+    use_focus = true,
+  },
+  current_line_blame_formatter = "<author>, <author_time:%R> - <summary>",
   sign_priority = 6,
   update_debounce = 100,
   status_formatter = nil, -- Use default
-  max_file_length = 40000,
+  max_file_length = 40000, -- Disable if file is longer than this (in lines)
   preview_config = {
     -- Options passed to nvim_open_win
     border = "single",
@@ -28,15 +48,13 @@ return {
     row = 0,
     col = 1,
   },
-  yadm = {
-    enable = false,
-  },
-  current_line_blame = true,
-  current_line_blame_opts = {
-    virt_text = true,
-    virt_text_pos = "eol", -- 'eol' | 'overlay' | 'right_align'
-    delay = 0,
-    ignore_whitespace = false,
-  },
-  current_line_blame_formatter = "<author>, <author_time:%Y-%m-%d> - <summary>",
+  on_attach = function(bufnr)
+    local haveRepoLink, _ = pcall(require, "repolink")
+    if not haveRepoLink then return end
+
+    local keys = require("config.repolink").lazyKeys
+    for _, key in ipairs(keys) do
+      vim.keymap.set(key.mode, key[1], key[2], { buffer = bufnr, desc = key.desc })
+    end
+  end,
 }
