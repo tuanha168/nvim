@@ -43,7 +43,8 @@ return {
       vim.api.nvim_create_autocmd({ "LspAttach", "InsertLeave", "TextChanged" }, {
         callback = function()
           local client = vim.lsp.get_clients({ bufnr = 0 })[1] or {}
-          require("lint").try_lint(nil, { cwd = client.root_dir })
+          local util = require "lspconfig.util"
+          require("lint").try_lint(nil, { cwd = client.root_dir or util.root_pattern("package.json", ".git")() })
         end,
       })
     end,
