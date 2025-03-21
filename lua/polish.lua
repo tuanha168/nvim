@@ -49,7 +49,7 @@ autocmd({ "BufEnter" }, {
 
 autocmd({ "FocusGained", "BufReadPost" }, {
   pattern = "*",
-  callback = function(e)
+  callback = function()
     vim.cmd "checktime"
     local ok, _ = pcall(require, "git-conflict")
     if not ok then return end
