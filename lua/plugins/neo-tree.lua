@@ -50,7 +50,7 @@ return {
             folder_closed = "",
             folder_open = "",
             folder_empty = "󰜌",
-            folder_empty_open = "",
+            folder_empty_open = "",
             provider = function(icon, node, state) -- default icon provider utilizes nvim-web-devicons if available
               if node.type == "file" or node.type == "terminal" then
                 local success, web_devicons = pcall(require, "nvim-web-devicons")
@@ -64,11 +64,11 @@ return {
             end,
             -- The next two settings are only a fallback, if you use nvim-web-devicons and configure default icons there
             -- then these will never be used.
-            default = "*",
+            default = "󰈙",
             highlight = "NeoTreeFileIcon",
           },
           modified = {
-            symbol = "[+]",
+            symbol = "",
             highlight = "NeoTreeModified",
           },
           name = {
@@ -78,16 +78,14 @@ return {
           },
           git_status = {
             symbols = {
-              -- Change type
-              added = "", -- or "✚", but this is redundant info if you use git_status_colors on the name
-              modified = "", -- or "", but this is redundant info if you use git_status_colors on the name
-              deleted = "✖", -- this can only be used in the git_status source
-              renamed = "󰁕", -- this can only be used in the git_status source
-              -- Status type
-              untracked = "",
-              ignored = "",
-              unstaged = "󰄱",
-              staged = "",
+              staged = "✓",
+              untracked = "★",
+              ignored = "◌",
+              modified = "",
+              deleted = "",
+              added = "",
+              unstaged = "✗",
+              renamed = "➜",
               conflict = "",
             },
           },
@@ -119,7 +117,68 @@ return {
         -- A list of functions, each representing a global custom command
         -- that will be available in all sources (if not overridden in `opts[source_name].commands`)
         -- see `:h neo-tree-custom-commands-global`
-        commands = {},
+        commands = {
+          parent_or_close = function(state)
+            local node = state.tree:get_node()
+            if node:has_children() and node:is_expanded() then
+              state.commands.toggle_node(state)
+            else
+              require("neo-tree.ui.renderer").focus_node(state, node:get_parent_id())
+            end
+          end,
+          child_or_open = function(state)
+            local node = state.tree:get_node()
+            if node:has_children() then
+              if not node:is_expanded() then -- if unexpanded, expand
+                state.commands.toggle_node(state)
+              else -- if expanded and has children, seleect the next child
+                if node.type == "file" then
+                  state.commands.open(state)
+                else
+                  require("neo-tree.ui.renderer").focus_node(state, node:get_child_ids()[1])
+                end
+              end
+            else -- if has no children
+              state.commands.open(state)
+            end
+          end,
+          copy_selector = function(state)
+            local node = state.tree:get_node()
+            local filepath = node:get_id()
+            local filename = node.name
+            local modify = vim.fn.fnamemodify
+
+            local vals = {
+              ["BASENAME"] = modify(filename, ":r"),
+              ["EXTENSION"] = modify(filename, ":e"),
+              ["FILENAME"] = filename,
+              ["PATH (CWD)"] = modify(filepath, ":."),
+              ["PATH (HOME)"] = modify(filepath, ":~"),
+              ["PATH"] = filepath,
+              ["URI"] = vim.uri_from_fname(filepath),
+            }
+
+            local options = vim.tbl_filter(function(val) return vals[val] ~= "" end, vim.tbl_keys(vals))
+            if vim.tbl_isempty(options) then
+              vim.notify("No values to copy", vim.log.levels.WARN)
+              return
+            end
+            table.sort(options)
+            vim.ui.select(options, {
+              prompt = "Choose to copy to clipboard:",
+              format_item = function(item) return ("%s: %s"):format(item, vals[item]) end,
+            }, function(choice)
+              local result = vals[choice]
+              if result then
+                vim.notify(("Copied: `%s`"):format(result))
+                vim.fn.setreg("+", result)
+              end
+            end)
+          end,
+          system_open = function(state)
+            vim.ui.open(state.tree:get_node():get_id())
+          end,
+        },
         window = {
           position = "left",
           width = 40,
@@ -134,10 +193,13 @@ return {
             },
             ["<2-LeftMouse>"] = "open",
             ["<cr>"] = "open",
+            ["<S-CR>"] = "system_open",
+            ["O"] = "system_open",
+            ["h"] = "parent_or_close",
+            ["l"] = "child_or_open",
             ["<esc>"] = "cancel", -- close preview or floating neo-tree window
             ["P"] = { "toggle_preview", config = { use_float = true, use_image_nvim = true } },
             -- Read `# Preview Mode` for more information
-            ["l"] = "focus_preview",
             ["S"] = "open_split",
             ["s"] = "open_vsplit",
             -- ["S"] = "split_with_window_picker",
@@ -167,6 +229,7 @@ return {
             ["x"] = "cut_to_clipboard",
             ["p"] = "paste_from_clipboard",
             ["c"] = "copy", -- takes text input for destination, also accepts the optional config.show_path option like "add":
+            ["Y"] = "copy_selector",
             -- ["c"] = {
             --  "copy",
             --  config = {

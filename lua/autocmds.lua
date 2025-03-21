@@ -1,113 +1,91 @@
+local home = os.getenv "HOME"
+
+local autoPushDir = {
+  home .. "/.config/nvim",
+  home .. "/.dotfile/super%-secret",
+  home .. "/.dotfile",
+}
+local excludeDir = { "scratch/src" }
+
+---@class LegendaryAutoCmd
+---@field [1] any (string|array)
+---@field [2] string|(fun(args: vim.api.keyset.create_autocmd.callback_args): boolean?)
+
+---@type (LegendaryAutoCmd)[]
 return {
-	{
-		"LspAttach",
-		function(e)
-			require("lsp.mappings").setup(e.buf)
-		end
-	},
-	{
-		{ "BufEnter", "LspAttach" },
-		function(event)
-			local haveNullLs, nullLs = pcall(require, "null-ls")
-			if not haveNullLs then return end
+  {
+    "LspAttach",
+    function(e) require("lsp.mappings").setup(e.buf) end,
+  },
+  {
+    { "BufEnter" },
+    function() vim.cmd "syntax sync fromstart" end,
+  },
+  {
+    { "FocusGained", "BufReadPost" },
+    function()
+      vim.cmd "checktime"
+      local ok, _ = pcall(require, "git-conflict")
+      if not ok then return end
+      vim.cmd "GitConflictRefresh"
+    end,
+  },
+  {
+    { "BufRead", "BufNewFile" },
+    function() vim.cmd "setf dosini" end,
+  },
+  {
+    { "BufRead", "BufNewFile" },
+    function() vim.cmd "setf c" end,
+    opts = {
+      pattern = "*.keymap",
+    },
+  },
+  {
+    { "BufWritePre" },
+    function() Chiruno.func.auto_push "~/neorg" end,
+    opts = {
+      pattern = "*.norg",
+    },
+  },
+  {
+    { "BufWritePre" },
+    ---@param event vim.api.keyset.create_autocmd.callback_args
+    function(event)
+      local ok, userConfig = pcall(require, "config")
+      if ok and not userConfig.auto_push_config then return end
 
-			if vim.lsp.get_clients({ bufnr = event.buf, name = "eslint" })[1] then
-				nullLs.disable { "prettierd" }
-			else
-				nullLs.enable { "prettierd" }
-			end
-		end,
-	},
-	{
-		{ "BufEnter" },
-		function() vim.cmd "syntax sync fromstart" end,
-	},
-	{
-		{ "FocusGained", "BufReadPost" },
-		function()
-			vim.cmd "checktime"
-			local ok, _ = pcall(require, "git-conflict")
-			if not ok then return end
-			vim.cmd "GitConflictRefresh"
-		end,
-	},
-	{
-		{ "BufRead", "BufNewFile" },
-		function() vim.cmd "setf dosini" end,
-	},
-	{
-		{ "BufRead", "BufNewFile" },
-		function() vim.cmd "setf c" end,
-		opts = {
-			pattern = "*.keymap",
-		},
-	},
-	{
-		{ "BufWritePre" },
-		function() Chiruno.func.auto_push "~/neorg" end,
-		opts = {
-			pattern = "*.norg",
-		},
-	},
-	{
-		{ "BufWritePre" },
-		---@param event vim.api.keyset.create_autocmd.callback_args
-		function(event)
-			local ok, userConfig = pcall(require, "config")
-			if ok and not userConfig.auto_push_config then return end
+      local isBreak = false
 
-			local home = os.getenv "HOME"
+      for _, dir in ipairs(autoPushDir) do
+        if isBreak then break end
 
-			local autoPushDir = {
-				home .. "/.config/nvim",
-				home .. "/.dotfile/super%-secret",
-				home .. "/.dotfile",
-			}
-			local excludeDir = { "scratch/src" }
+        for _, exclude in ipairs(excludeDir) do
+          if string.match(event.match, dir) and not string.match(event.match, exclude) then
+            Chiruno.func.auto_push(dir:gsub("%%", ""))
+            if string.match(event.match, "nvim/neoconf.lua") then
+              vim.schedule(function() vim.cmd("silent !lua " .. event.match) end)
+            end
+            isBreak = true
+            break
+          end
+        end
+      end
+    end,
+  },
 
-			local isBreak = false
-			for _, dir in ipairs(autoPushDir) do
-				if isBreak then break end
-
-				for _, exclude in ipairs(excludeDir) do
-					if string.match(event.match, dir) and not string.match(event.match, exclude) then
-						Chiruno.func.auto_push(dir:gsub("%%", ""))
-						if string.match(event.match, "nvim/neoconf.lua") then
-							vim.schedule(function() vim.cmd("silent !lua " .. event.match) end)
-						end
-						isBreak = true
-						break
-					end
-				end
-			end
-		end,
-	},
-	{
-		{ "BufEnter" },
-		function(event)
-			if vim.bo[event.buf].buftype == "quickfix" then
-				vim.keymap.set("n", "dd", function()
-					local items = vim.fn.getqflist()
-					local line = vim.fn.line "."
-					table.remove(items, line)
-					vim.fn.setqflist(items, "r")
-					vim.api.nvim_win_set_cursor(0, { line, 0 })
-				end, { silent = true, buffer = event.buf, desc = "Remove entry from QF" })
-			end
-		end,
-	},
-
-	{
-		name = "DisableNodeModulesEslint",
-		clear = true,
-		{
-			{ "BufNewFile", "BufRead", "BufEnter" },
-			function()
-				vim.diagnostic.enable(false)
-			end,
-			opts = {
-				pattern = { "**/node_modules/**", "node_modules", "/node_modules/*" },
-			},
-		},
-	},
+  {
+    { "BufEnter" },
+    function(event)
+      if vim.bo[event.buf].buftype == "quickfix" then
+        vim.keymap.set("n", "dd", function()
+          local items = vim.fn.getqflist()
+          local line = vim.fn.line "."
+          table.remove(items, line)
+          vim.fn.setqflist(items, "r")
+          vim.api.nvim_win_set_cursor(0, { line, 0 })
+        end, { silent = true, buffer = event.buf, desc = "Remove entry from QF" })
+      end
+    end,
+  },
 }
