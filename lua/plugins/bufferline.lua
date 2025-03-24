@@ -113,7 +113,7 @@ return {
           --     -- can also be a table containing 2 custom separators
           --     -- [focused and unfocused]. eg: { '|', '|' }
           -- separator_style = "slant" | "slope" | "thick" | "thin" | { "any", "any" },
-          separator_style = { "", "  a" },
+          separator_style = { "", "" },
         },
       }
     end,
