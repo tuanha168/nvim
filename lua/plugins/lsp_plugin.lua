@@ -4,9 +4,9 @@ return {
     "mfussenegger/nvim-lint",
     config = function()
       require("lint").linters_by_ft = {
-        js = { "eslint" },
-        typescript = { "eslint" },
-        vue = { "eslint" },
+        -- js = { "eslint" },
+        -- typescript = { "eslint" },
+        -- vue = { "eslint" },
       }
 
       vim.api.nvim_create_autocmd({ "LspAttach", "InsertLeave", "TextChanged" }, {
@@ -32,7 +32,7 @@ return {
         typescript = { "eslint", "prettierd", "prettier", stop_after_first = true },
         vue = { "eslint", "prettierd", "prettier", stop_after_first = true },
         html = { "prettier", stop_after_first = true },
-        json = { "jsonls", "prettier", stop_after_first = true },
+        json = { "jsonls", "prettierd", "prettier", stop_after_first = true },
       },
     },
   },
