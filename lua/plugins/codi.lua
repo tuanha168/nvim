@@ -63,6 +63,14 @@ return {
               no_ignore_parent = true,
             }
           end
+
+          if Snacks then
+            Snacks.picker.files {
+              cwd = os.getenv "HOME" .. "/.config/nvim/scratch/src",
+              prompt = "Attempt: ",
+              ignored = true,
+            }
+          end
         end,
         desc = "Telescope Attempt",
       },
