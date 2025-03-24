@@ -2,8 +2,8 @@ local mappings = {
   -- ["*"] = { '"ayiwh/<c-r>a<CR>' },
   { "<Leader>r", function() Chiruno.func.operatorfunc_lua "replace_motion" end },
   -- Gitsigns
-  -- ["H"] = { function() require("gitsigns").prev_hunk() end, description = "Previous Git hunk" },
-  -- ["L"] = { function() require("gitsigns").next_hunk() end, description = "Next Git hunk" },
+  {"[g", function() require("gitsigns").nav_hunk('prev') end, description = "Previous Git hunk" },
+  {"]g", function() require("gitsigns").nav_hunk('next') end, description = "Next Git hunk" },
   -- ["H"] = { "^" },
   -- ["L"] = { "$" },
   { "<Leader>pp", "<cmd>Gitsigns preview_hunk<CR>" },
