@@ -10,6 +10,9 @@ return {
             "buffers",
           },
         },
+        lualine_x = {
+          "filetype",
+        },
       },
     },
   },
