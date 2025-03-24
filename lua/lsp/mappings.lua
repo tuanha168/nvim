@@ -28,6 +28,20 @@ return {
         opts = { buffer = bufnr },
       },
 
+      {
+        "<Leader>ee",
+        function()
+          local ok, actPrew = pcall(require, "actions-preview")
+          if ok then
+            actPrew.code_actions()
+          else
+            vim.lsp.buf.code_action()
+          end
+        end,
+        description = "LSP code action",
+        opts = { buffer = bufnr },
+      },
+
       { "<Leader>E", function() vim.lsp.codelens.run() end, description = "Run code lens", opts = { buffer = bufnr } },
 
       {
