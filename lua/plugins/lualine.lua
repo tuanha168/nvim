@@ -1,19 +1,24 @@
 return {
+  -- {
+  --   "nvim-lualine/lualine.nvim",
+  --   event = "VeryLazy",
+  --   dependencies = { "nvim-tree/nvim-web-devicons" },
+  --   opts = {
+  --     tabline = {
+  --       lualine_a = {
+  --         {
+  --           "buffers",
+  --         },
+  --       },
+  --       lualine_x = {
+  --         "filetype",
+  --       },
+  --     },
+  --   },
+  -- },
   {
-    "nvim-lualine/lualine.nvim",
-    event = "VeryLazy",
-    dependencies = { "nvim-tree/nvim-web-devicons" },
-    opts = {
-      tabline = {
-        lualine_a = {
-          {
-            "buffers",
-          },
-        },
-        lualine_x = {
-          "filetype",
-        },
-      },
-    },
-  },
+  	"rebelot/heirline.nvim",
+  	event = "VeryLazy",
+  	opts = {}
+  }
 }
