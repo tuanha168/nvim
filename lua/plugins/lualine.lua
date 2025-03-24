@@ -80,7 +80,7 @@ return {
         init = function(self) self.filename = vim.api.nvim_buf_get_name(self.bufnr) end,
         hl = function(self)
           if self.is_active then
-            return "TabLineSel"
+            return "DiffDelete"
           -- why not?
           -- elseif not vim.api.nvim_buf_is_loaded(self.bufnr) then
           --     return { fg = "gray" }
@@ -128,7 +128,7 @@ return {
       -- The final touch!
       local TablineBufferBlock = utils.surround({ "  ", "   " }, function(self)
         if self.is_active then
-          return utils.get_highlight("TabLineSel").bg
+          return utils.get_highlight("DiffDelete").bg
         else
           return utils.get_highlight("TabLine").bg
         end
