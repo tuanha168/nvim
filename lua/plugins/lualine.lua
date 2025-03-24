@@ -19,10 +19,8 @@ return {
   {
     "rebelot/heirline.nvim",
     event = "VeryLazy",
-    opts = {},
-    config = function(opts)
-      require("heirline").setup(opts)
-
+    dependencies = { "nvim-tree/nvim-web-devicons" },
+    config = function()
       local utils = require "heirline.utils"
 
       local TablineBufnr = {
@@ -64,6 +62,17 @@ return {
           end,
           hl = { fg = "orange" },
         },
+      }
+
+      local FileIcon = {
+        init = function(self)
+          local filename = self.filename
+          local extension = vim.fn.fnamemodify(filename, ":e")
+          self.icon, self.icon_color =
+            require("nvim-web-devicons").get_icon_color(filename, extension, { default = true })
+        end,
+        provider = function(self) return self.icon and (self.icon .. " ") end,
+        hl = function(self) return { fg = self.icon_color } end,
       }
 
       -- Here the filename block finally comes together
@@ -133,7 +142,12 @@ return {
         -- by the way, open a lot of buffers and try clicking them ;)
       )
 
-      if BufferLine then Print(BufferLine.init()) end
+      require("heirline").setup {
+        tabline = { BufferLine },
+      }
+
+      vim.o.showtabline = 2
+      vim.cmd [[au FileType * if index(['wipe', 'delete'], &bufhidden) >= 0 | set nobuflisted | endif]]
     end,
   },
 }
