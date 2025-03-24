@@ -7,7 +7,7 @@ require("lazy").setup {
 			config = true,
 			opts = {
 				library = {
-					"~/.local/share/nvim-temp/lazy/",
+					"~/.local/share/nvim/lazy/",
 				},
 			},
 		},
