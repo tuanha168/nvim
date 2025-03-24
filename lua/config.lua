@@ -1,3 +1,3 @@
 return {
-  auto_push_config = true,
+  auto_push_config = false,
 }
