@@ -15,5 +15,5 @@ require("lazy").setup {
 	-- Configure any other `lazy.nvim` configuration options here
 	install = { colorscheme = { "Mofiqul/dracula.nvim" } },
 	-- automatically check for plugin updates
-	checker = { enabled = true },
+	-- checker = { enabled = true },
 }

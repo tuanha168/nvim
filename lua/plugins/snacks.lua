@@ -191,30 +191,4 @@ return {
       })
     end,
   },
-
-  { "kylechui/nvim-surround", event = "BufRead", opts = {} },
-
-  {
-    "max397574/better-escape.nvim",
-    commit = "7e86edafb8c7e73699e0320f225464a298b96d12",
-    opts = function(_, opts)
-      opts.mapping = { "jk", "jj", "kk" }
-      opts.clear_empty_lines = true
-      return opts
-    end,
-  },
-
-  { "mrjones2014/smart-splits.nvim" },
-
-  {
-    "chrisgrieser/nvim-spider",
-    opts = {},
-    keys = {
-      -- Keymaps
-      { "w", function() require("spider").motion "w" end, desc = "Spider-w", mode = { "n", "x", "o" } },
-      { "e", function() require("spider").motion "e" end, desc = "Spider-e", mode = { "n", "x", "o" } },
-      { "b", function() require("spider").motion "b" end, desc = "Spider-b", mode = { "n", "x", "o" } },
-      { "ge", function() require("spider").motion "ge" end, desc = "Spider-ge", mode = { "n", "x", "o" } },
-    },
-  },
 }

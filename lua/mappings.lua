@@ -95,6 +95,10 @@ local mappings = {
   { "P", "p", mode = { "x" } },
 
   { "gG", ":<c-u>normal! ggVG<cr>", description = "Buffer as text object", mode = { "x", "o" } },
+
+	-- move between buffers
+  { "<Tab>", "<cmd>bn<CR>", description = "Move to next buffer" },
+  { "<S-Tab>", "<cmd>bp<CR>", description = "Move to previous buffer" },
 }
 
 return mappings
