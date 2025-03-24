@@ -32,7 +32,7 @@ return {
         typescript = { "eslint", "prettierd", "prettier", stop_after_first = true },
         vue = { "eslint", "prettierd", "prettier", stop_after_first = true },
         html = { "prettier", stop_after_first = true },
-        json = { "prettier", stop_after_first = true },
+        json = { "jsonls", "prettier", stop_after_first = true },
       },
     },
   },
