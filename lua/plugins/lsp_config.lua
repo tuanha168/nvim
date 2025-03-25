@@ -38,7 +38,7 @@ return {
         handlers = {
           function(server_name)
             local server = servers[server_name] or {}
-            server.capabilities = require('blink.cmp').get_lsp_capabilities(vim.lsp.protocol.make_client_capabilities())
+            server.capabilities = require('blink.cmp').get_lsp_capabilities()
             server.on_attach = require "lsp.on_attach"
             require("lspconfig")[server_name].setup(server)
           end,
