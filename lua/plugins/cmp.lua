@@ -135,11 +135,6 @@ return {
     ---@module 'blink.cmp'
     ---@type blink.cmp.Config
     opts = {
-      -- highlight = {
-      --   -- supporting themes: tokyonight
-      --   -- not supported: nightfox
-      --   use_nvim_cmp_as_default = true,
-      -- },
       sources = {
         -- completion = {
         --   enabled_providers = { "lsp", "path", "snippets", "buffer" },
