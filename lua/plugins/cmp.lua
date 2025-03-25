@@ -31,23 +31,25 @@ return {
         formatting = {
           format = function(entry, vim_item)
             vim_item.menu = ({
-              nvim_lsp = '[LSP]',
-              luasnip = '[Snippet]',
-              path = '[Path]',
+              nvim_lsp = "[LSP]",
+              luasnip = "[Snippet]",
+              buffer = "[Buffer]",
+              path = "[Path]",
             })[entry.source.name]
 
             vim_item.dup = ({
               nvim_lsp = 0,
               luasnip = 0,
+              buffer = 0,
               path = 0,
             })[entry.source.name] or 0
 
             return vim_item
-          end
+          end,
         },
         snippet = {
           expand = function(args)
-            vim.snippet.expand(args.body)   -- For native neovim snippets (Neovim v0.10+)
+            vim.snippet.expand(args.body) -- For native neovim snippets (Neovim v0.10+)
             if snip_status_ok then
               luasnip.lsp_expand(args.body) -- For `luasnip` users.
             end
@@ -55,19 +57,20 @@ return {
         },
         mapping = {
           ["<C-Space>"] = cmp.mapping.complete(),
-          ["<CR>"] = cmp.mapping(function(fallback)
-            if cmp.visible() then
-              local entry = cmp.get_selected_entry()
-              if not entry then
-                cmp.select_next_item { behavior = cmp.SelectBehavior.Select }
-                cmp.confirm()
-              else
-                cmp.confirm()
-              end
-            else
-              fallback()
-            end
-          end, { "i", "s" }),
+          ["<CR>"] = cmp.mapping.confirm { select = false },
+          -- ["<CR>"] = cmp.mapping(function(fallback)
+          --   if cmp.visible() then
+          --     local entry = cmp.get_selected_entry()
+          --     if not entry then
+          --       cmp.select_next_item { behavior = cmp.SelectBehavior.Select }
+          --       cmp.confirm()
+          --     else
+          --       cmp.confirm()
+          --     end
+          --   else
+          --     fallback()
+          --   end
+          -- end, { "i", "s" }),
           ["<C-K>"] = cmp.mapping(function(fallback)
             cmp.mapping.close()
             fallback()
@@ -114,7 +117,7 @@ return {
           -- { name = "neorg", priority = 750 },
           { name = "luasnip", priority = 750 },
           -- { name = "dotenv", priority = 750 },
-          -- { name = "buffer", priority = 500 },
+          { name = "buffer", priority = 500, keyword_length = 3 },
           { name = "path", priority = 250 },
         },
       }
