@@ -43,6 +43,7 @@ local options = {
     signcolumn = "yes",
     tabstop = 2,
     undofile = true,
+    jumpoptions = "",
   },
   g = {
     mapleader = " ",

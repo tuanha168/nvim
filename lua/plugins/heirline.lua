@@ -1,21 +1,4 @@
 return {
-  -- {
-  --   "nvim-lualine/lualine.nvim",
-  --   event = "VeryLazy",
-  --   dependencies = { "nvim-tree/nvim-web-devicons" },
-  --   opts = {
-  --     tabline = {
-  --       lualine_a = {
-  --         {
-  --           "buffers",
-  --         },
-  --       },
-  --       lualine_x = {
-  --         "filetype",
-  --       },
-  --     },
-  --   },
-  -- },
   {
     "rebelot/heirline.nvim",
     event = "VeryLazy",
@@ -25,7 +8,7 @@ return {
 
       local TablineBufnr = {
         provider = function(self) return tostring(self.bufnr) .. ". " end,
-        hl = "Comment",
+        hl = "cyan",
       }
 
       -- we redefine the filename component, as we probably only want the tail and not the relative path
@@ -45,8 +28,8 @@ return {
       local TablineFileFlags = {
         {
           condition = function(self) return vim.api.nvim_get_option_value("modified", { buf = self.bufnr }) end,
-          provider = "[+]",
-          hl = { fg = "green" },
+          provider = "   ",
+          hl = { fg = "red" },
         },
         {
           condition = function(self)
@@ -80,7 +63,7 @@ return {
         init = function(self) self.filename = vim.api.nvim_buf_get_name(self.bufnr) end,
         hl = function(self)
           if self.is_active then
-            return { fg = utils.get_highlight("diffAdded").fg }
+            return { fg = "cyan" }
           -- why not?
           -- elseif not vim.api.nvim_buf_is_loaded(self.bufnr) then
           --     return { fg = "gray" }
@@ -125,13 +108,20 @@ return {
         },
       }
 
+      local leftDelimiter = { provider = "   ", hl = "cyan" }
+      local rightDelimiter = { provider = "   ", hl = "cyan" }
+
       -- The final touch!
-      local TablineBufferBlock = utils.surround({ "  ", "   " }, function(self)
+      local TablineBufferBlock = utils.surround({ leftDelimiter.provider, rightDelimiter.provider }, function(self)
         if self.is_active then
-          return utils.get_highlight("TabLineSel").bg
+          if self.provider == leftDelimiter.provider then return leftDelimiter.hl end
+          if self.provider == rightDelimiter.provider then return rightDelimiter.hl end
         else
-          return utils.get_highlight("TabLine").bg
+          if self.provider == leftDelimiter.provider then return utils.get_highlight("TabLine").bg end
+          if self.provider == rightDelimiter.provider then return utils.get_highlight("TabLine").bg end
         end
+
+        return utils.get_highlight("TabLine").bg
       end, { TablineFileNameBlock, TablineCloseButton })
 
       -- and here we go
