@@ -27,8 +27,8 @@ return {
       },
       gitbrowse = {
         remote_patterns = {
-          { "^ssh://yopaz:([^/]+)/(.*)$", "https://github.com/%1/%2" },
-          { "^ssh://yopaz-liberty:([^/]+)/(.*)$", "https://github.com/%1/%2" },
+          { "^git@yopaz:(.+)$", "https://github.com/%1" },
+          { "^git@yopaz-liberty:(.+)$", "https://github.com/%1" },
 
           { "^(https?://.*)%.git$", "%1" },
           { "^git@(.+):(.+)%.git$", "https://%1/%2" },
