@@ -52,6 +52,13 @@ return {
       },
 
       {
+        "gR",
+        function() vim.lsp.buf.rename() end,
+        description = "Rename current symbol",
+        opts = { buffer = bufnr },
+      },
+
+      {
         "<C-z>i",
         vim.lsp.buf.signature_help,
         description = "Signature help",
