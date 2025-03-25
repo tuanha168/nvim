@@ -8,8 +8,13 @@ function Chiruno.func.get_selection()
   else
     local posv = vim.fn.getpos "v"
     local posdot = vim.fn.getpos "."
-    startRow, startCol = posv[2], posv[3]
-    finishRow, finishCol = posdot[2], posdot[3]
+    if posdot[2] > posv[2] then
+      startRow, startCol = posv[2], posv[3]
+      finishRow, finishCol = posdot[2], posdot[3]
+    else
+      startRow, startCol = posdot[2], posdot[3]
+      finishRow, finishCol = posv[2], posv[3]
+    end
   end
 
   local currentLine = vim.api.nvim_buf_get_lines(0, startRow - 1, finishRow, false)
