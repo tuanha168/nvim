@@ -25,6 +25,12 @@ return {
           -- wo = { wrap = true } -- Wrap notifications
         },
       },
+      gitbrowse = {
+        remote_patterns = {
+          { "^ssh://yopaz:([^/]+)/(.*)$", "https://github.com/%1/%2" },
+          { "^ssh://yopaz-liberty:([^/]+)/(.*)$", "https://github.com/%1/%2" },
+        },
+      },
     },
     keys = {
       -- Top Pickers & Explorer
