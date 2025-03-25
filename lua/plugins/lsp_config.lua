@@ -27,6 +27,7 @@ return {
           },
         },
         volar = require "lsp.config.volar",
+        eslint = {}
       }
 
       local ensure_installed = vim.tbl_keys(servers or {})
@@ -40,9 +41,6 @@ return {
         "html",
         -- "emmet_ls",
         "jsonls",
-
-        -- lint
-        -- "eslint",
 
         -- php
         "intelephense",
