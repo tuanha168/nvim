@@ -2,6 +2,7 @@
 return {
   {
     "mfussenegger/nvim-dap",
+    lazy = true,
     config = function()
       require("dap.ext.vscode").load_launchjs(nil, {
         ["python"] = {
