@@ -1,6 +1,6 @@
 ---@type LazySpec
 
-local db_ui_ssh_connection
+local dbUiSshConnection
 
 return {
   {
@@ -28,10 +28,10 @@ return {
       {
         "<leader>cdb",
         function()
-          if not db_ui_ssh_connection then
+          if not dbUiSshConnection then
             -- ssh -L 7000:localhost:3306 -N yopaz-dev
             local obj = vim.system({ "ssh", "-L", "7000:localhost:3306", "-N", "test-ec2" }, { text = true })
-            db_ui_ssh_connection = obj
+            dbUiSshConnection = obj
           end
           vim.cmd.DBUIToggle()
         end,
@@ -50,7 +50,7 @@ return {
       vim.api.nvim_create_autocmd("VimLeavePre", {
         pattern = "*",
         callback = function()
-          if db_ui_ssh_connection then db_ui_ssh_connection:kill(9) end
+          if dbUiSshConnection then dbUiSshConnection:kill(9) end
         end,
       })
     end,
