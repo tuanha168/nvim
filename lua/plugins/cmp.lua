@@ -180,7 +180,7 @@ return {
         },
         autocomplete = {
           border = vim.g.borderStyle,
-          min_width = 10,          -- max_width controlled by draw-function
+          min_width = 10,               -- max_width controlled by draw-function
           max_height = 10,
           cycle = { from_top = false }, -- cycle at bottom, but not at the top
           draw = function(ctx)
