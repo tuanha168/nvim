@@ -40,6 +40,7 @@ return {
       },
       {
         "jay-babu/mason-nvim-dap.nvim",
+        lazy = true,
         opts = function(_, opts)
           opts.ensure_installed = { "js", "netcoredbg" }
           return opts
