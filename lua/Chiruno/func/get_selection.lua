@@ -1,19 +1,21 @@
-function Chiruno.func.get_selection()
-  local startRow, startCol
-  local finishRow, finishCol
+function Chiruno.func.get_selection(motion_type)
+  local startRow, startCol = unpack(vim.api.nvim_buf_get_mark(0, "["))
+  local finishRow, finishCol = unpack(vim.api.nvim_buf_get_mark(0, "]"))
 
-  if vim.api.nvim_get_mode().mode == "n" then
-    startRow, startCol = unpack(vim.api.nvim_win_get_cursor(0))
-    finishRow, finishCol = startRow, startCol
-  else
-    local posv = vim.fn.getpos "v"
-    local posdot = vim.fn.getpos "."
-    if posdot[2] > posv[2] then
-      startRow, startCol = posv[2], posv[3]
-      finishRow, finishCol = posdot[2], posdot[3]
+  if not motion_type then
+    if vim.api.nvim_get_mode().mode == "n" then
+      startRow, startCol = unpack(vim.api.nvim_win_get_cursor(0))
+      finishRow, finishCol = startRow, startCol
     else
-      startRow, startCol = posdot[2], posdot[3]
-      finishRow, finishCol = posv[2], posv[3]
+      local posv = vim.fn.getpos "v"
+      local posdot = vim.fn.getpos "."
+      if posdot[2] > posv[2] then
+        startRow, startCol = posv[2], posv[3]
+        finishRow, finishCol = posdot[2], posdot[3]
+      else
+        startRow, startCol = posdot[2], posdot[3]
+        finishRow, finishCol = posv[2], posv[3]
+      end
     end
   end
 
