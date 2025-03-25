@@ -6,9 +6,12 @@ return {
     config = function()
       local utils = require "heirline.utils"
 
+      local leftDelimiter = { provider = "   ", hl = "red" }
+      local rightDelimiter = { provider = "   ", hl = "red" }
+
       local TablineBufnr = {
         provider = function(self) return tostring(self.bufnr) .. ". " end,
-        hl = "cyan",
+        hl = { fg = "red"},
       }
 
       -- we redefine the filename component, as we probably only want the tail and not the relative path
@@ -107,9 +110,6 @@ return {
           },
         },
       }
-
-      local leftDelimiter = { provider = "   ", hl = "cyan" }
-      local rightDelimiter = { provider = "   ", hl = "cyan" }
 
       -- The final touch!
       local TablineBufferBlock = utils.surround({ leftDelimiter.provider, rightDelimiter.provider }, function(self)
