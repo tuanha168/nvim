@@ -1,4 +1,5 @@
 function Chiruno.func.get_selection()
+  Print(vim.api.nvim_get_mode())
   local startRow, startCol = unpack(vim.api.nvim_buf_get_mark(0, "["))
   local finishRow, finishCol = unpack(vim.api.nvim_buf_get_mark(0, "]"))
 
