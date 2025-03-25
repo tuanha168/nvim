@@ -2,9 +2,6 @@
 return {
   {
     "mfussenegger/nvim-dap",
-    keys = {
-      { "<Leader>dc", function() end, desc = "Continue" },
-    },
     config = function()
       require("dap.ext.vscode").load_launchjs(nil, {
         ["python"] = {
