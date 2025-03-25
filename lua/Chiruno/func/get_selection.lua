@@ -1,7 +1,12 @@
 function Chiruno.func.get_selection()
-  Print(vim.api.nvim_get_mode())
-  local startRow, startCol = unpack(vim.api.nvim_buf_get_mark(0, "["))
-  local finishRow, finishCol = unpack(vim.api.nvim_buf_get_mark(0, "]"))
+  local startRow, startCol
+  local finishRow, finishCol
+
+  if vim.api.nvim_get_mode().mode == "n" then
+  else
+    startRow, startCol = unpack(vim.api.nvim_buf_get_mark(0, "["))
+    finishRow, finishCol = unpack(vim.api.nvim_buf_get_mark(0, "]"))
+  end
 
   local currentLine = vim.api.nvim_buf_get_lines(0, startRow - 1, finishRow, false)
   if #currentLine == 0 then return end
