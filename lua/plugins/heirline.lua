@@ -11,7 +11,6 @@ return {
 
       local TablineBufnr = {
         provider = function(self) return tostring(self.bufnr) .. ". " end,
-        hl = { fg = "red"},
       }
 
       -- we redefine the filename component, as we probably only want the tail and not the relative path
