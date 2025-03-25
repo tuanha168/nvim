@@ -132,18 +132,15 @@ return {
 
           if selection == nil then return end
           vim.schedule(function()
-            vim.ui.input({ prompt = "Origin (default: origin): " }, function(origin)
-              if origin == nil or origin == "" then origin = "origin" end
-              local current_branch = string.sub(vim.fn.system "git branch --show-current", 1, -2)
-              vim.ui.input({ prompt = "Branch:", default = current_branch }, function(branch)
-                if branch == nil or branch == "" then branch = current_branch end
-                Snacks.gitbrowse {
-                  branch = branch,
-                  what = "file",
-                  line_start = selection.startRow,
-                  line_end = selection.finishRow,
-                }
-              end)
+            local current_branch = string.sub(vim.fn.system "git branch --show-current", 1, -2)
+            vim.ui.input({ prompt = "Branch:", default = current_branch }, function(branch)
+              if branch == nil or branch == "" then branch = current_branch end
+              Snacks.gitbrowse {
+                branch = branch,
+                what = "file",
+                line_start = selection.startRow,
+                line_end = selection.finishRow,
+              }
             end)
           end)
         end,
