@@ -52,13 +52,11 @@ return {
             end
           end, { "i", "s" }),
           ["<C-K>"] = cmp.mapping(function(fallback)
-          	Print(1)
-            cmp.mapping.abort()
+            cmp.mapping.close()
             fallback()
           end),
           ["<C-J>"] = cmp.mapping(function(fallback)
-          	Print(2)
-            cmp.mapping.abort()
+            cmp.mapping.close()
             fallback()
           end),
           ["<Tab>"] = cmp.mapping(function(fallback)
