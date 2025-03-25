@@ -40,8 +40,6 @@ return {
         handlers = {
           function(server_name)
             local server = servers[server_name] or {}
-
-            Print(capabilities)
             server.capabilities = vim.tbl_deep_extend("force", {}, capabilities, server.capabilities or {})
             server.on_attach = require "lsp.on_attach"
             require("lspconfig")[server_name].setup(server)
