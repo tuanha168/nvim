@@ -26,7 +26,12 @@ return {
           },
         },
         volar = require "lsp.config.volar",
-        eslint = {}
+        eslint = {},
+        tailwindcss = {},
+        jsonls = {},
+        intelephense = {},
+        yamlls = {},
+        omnisharp = {},
       }
 
       require("mason-lspconfig").setup {
