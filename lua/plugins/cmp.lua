@@ -135,15 +135,15 @@ return {
     ---@module 'blink.cmp'
     ---@type blink.cmp.Config
     opts = {
-      highlight = {
-        -- supporting themes: tokyonight
-        -- not supported: nightfox
-        use_nvim_cmp_as_default = true,
-      },
+      -- highlight = {
+      --   -- supporting themes: tokyonight
+      --   -- not supported: nightfox
+      --   use_nvim_cmp_as_default = true,
+      -- },
       sources = {
-        completion = {
-          enabled_providers = { "lsp", "path", "snippets", "buffer" },
-        },
+        -- completion = {
+        --   enabled_providers = { "lsp", "path", "snippets", "buffer" },
+        -- },
         providers = {
           snippets = {
             min_keyword_length = 1, -- don't show when triggered manually, useful for JSON keys
@@ -153,7 +153,6 @@ return {
             opts = { get_cwd = vim.fn.getcwd },
           },
           buffer = {
-            fallback_for = {}, -- disable being fallback for LSP
             max_items = 4,
             min_keyword_length = 4,
             score_offset = -3,
