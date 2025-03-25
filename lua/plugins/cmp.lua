@@ -132,6 +132,8 @@ return {
     event = "InsertEnter",
     version = "v0.*", -- REQUIRED `tag` needed to download pre-built binary
 
+    ---@module 'blink.cmp'
+    ---@type blink.cmp.Config
     opts = {
       sources = {
         completion = {
