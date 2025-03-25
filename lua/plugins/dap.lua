@@ -37,17 +37,19 @@ return {
     },
   },
   {
-    "theHamsta/nvim-dap-virtual-text",
-    lazy = true,
-    opts = {},
-  },
-  {
     "igorlfs/nvim-dap-view",
     keys = {
       {
         "<Leader>dk",
         function() require("config.nvim-dap-view").Dap_better_hover() end,
         desc = "Dap Hover",
+      },
+    },
+    dependencies = {
+      {
+        "theHamsta/nvim-dap-virtual-text",
+        lazy = true,
+        opts = {},
       },
     },
     opts = {
