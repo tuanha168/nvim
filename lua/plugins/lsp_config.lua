@@ -8,7 +8,6 @@ return {
         opts = {},
       },
       "williamboman/mason-lspconfig.nvim",
-      "WhoIsSethDaniel/mason-tool-installer.nvim",
       "hrsh7th/cmp-nvim-lsp",
     },
     config = function()
@@ -29,43 +28,6 @@ return {
         volar = require "lsp.config.volar",
         eslint = {}
       }
-
-      local ensure_installed = vim.tbl_keys(servers or {})
-      vim.list_extend(ensure_installed, {
-        -- "ts_ls",
-        -- "angular-language-server",
-        -- "vuels",
-        "cssls",
-        -- "stylelint_lsp",
-        "tailwindcss",
-        "html",
-        -- "emmet_ls",
-        "jsonls",
-
-        -- php
-        "intelephense",
-        -- "phpactor",
-
-        -- python
-        -- "pyright",
-        "pylsp",
-
-        "rust_analyzer",
-
-        "yamlls",
-
-        -- "efm",
-
-        "terraformls",
-        "tflint",
-
-        "gopls",
-
-        -- C# .NET
-        "omnisharp",
-      })
-
-      require("mason-tool-installer").setup { ensure_installed = ensure_installed }
 
       require("mason-lspconfig").setup {
         ensure_installed = vim.tbl_keys(servers),
