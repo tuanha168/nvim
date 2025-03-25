@@ -49,13 +49,13 @@ return {
         },
         snippet = {
           expand = function(args)
-            vim.snippet.expand(args.body) -- For native neovim snippets (Neovim v0.10+)
+            vim.snippet.expand(args.body)   -- For native neovim snippets (Neovim v0.10+)
             if snip_status_ok then
               luasnip.lsp_expand(args.body) -- For `luasnip` users.
             end
           end,
         },
-        mapping = {
+        mapping = cmp.mapping.preset.insert({
           ["<C-Space>"] = cmp.mapping.complete(),
           ["<CR>"] = cmp.mapping.confirm { select = false },
           -- ["<CR>"] = cmp.mapping(function(fallback)
@@ -109,16 +109,16 @@ return {
               fallback()
             end
           end, { "i", "s" }),
-        },
+        }),
         sources = cmp.config.sources {
           { name = "nvim_lsp", priority = 1000 },
           -- { name = "codeium", priority = 850 },
           -- { name = "cmp_tabnine", priority = 850 },
           -- { name = "neorg", priority = 750 },
-          { name = "luasnip", priority = 750 },
+          { name = "luasnip",  priority = 750 },
           -- { name = "dotenv", priority = 750 },
-          { name = "buffer", priority = 500, keyword_length = 3 },
-          { name = "path", priority = 250 },
+          { name = "buffer",   priority = 500, keyword_length = 3 },
+          { name = "path",     priority = 250 },
         },
       }
 
