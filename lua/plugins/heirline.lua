@@ -117,8 +117,8 @@ return {
           if self.provider == leftDelimiter.provider then return leftDelimiter.hl end
           if self.provider == rightDelimiter.provider then return rightDelimiter.hl end
         else
-          if self.provider == leftDelimiter.provider then return "Comments" end
-          if self.provider == rightDelimiter.provider then return "Comments" end
+          if self.provider == leftDelimiter.provider then return utils.get_highlight("Comment").fg end
+          if self.provider == rightDelimiter.provider then return utils.get_highlight("Comment").fg end
         end
 
         return utils.get_highlight("TabLine").bg
