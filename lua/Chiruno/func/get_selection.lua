@@ -6,9 +6,10 @@ function Chiruno.func.get_selection()
     startRow, startCol = unpack(vim.api.nvim_win_get_cursor(0))
     finishRow, finishCol = startRow, startCol
   else
-    startRow, startCol = unpack(vim.api.nvim_buf_get_mark(0, "<"))
-    finishRow, finishCol = unpack(vim.api.nvim_buf_get_mark(0, ">"))
-    Print { posv = vim.fn.getpos "v", posdot = vim.fn.getpos "." }
+    local posv = vim.fn.getpos "v"
+    local posdot = vim.fn.getpos "."
+    startRow, startCol = posv[2], posv[3]
+    finishRow, finishCol = posdot[2], posdot[3]
   end
 
   local currentLine = vim.api.nvim_buf_get_lines(0, startRow - 1, finishRow, false)

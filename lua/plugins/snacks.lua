@@ -129,6 +129,7 @@ return {
         "<leader>gL",
         function()
           local selection = Chiruno.func.get_selection()
+
           if selection == nil then return end
           vim.schedule(function()
             vim.ui.input({ prompt = "Origin (default: origin): " }, function(origin)
