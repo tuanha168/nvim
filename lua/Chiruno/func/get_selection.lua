@@ -8,7 +8,7 @@ function Chiruno.func.get_selection()
   else
     startRow, startCol = unpack(vim.api.nvim_buf_get_mark(0, "<"))
     finishRow, finishCol = unpack(vim.api.nvim_buf_get_mark(0, ">"))
-    Print { startRow = startRow, finishRow = finishRow, pos = vim.fn.getpos "v" }
+    Print { posv = vim.fn.getpos "v", posdot = vim.fn.getpos "." }
   end
 
   local currentLine = vim.api.nvim_buf_get_lines(0, startRow - 1, finishRow, false)
