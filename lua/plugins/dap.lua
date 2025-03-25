@@ -37,10 +37,10 @@ return {
         "theHamsta/nvim-dap-virtual-text",
         opts = {},
       },
-      -- {
-      --   "jay-babu/mason-nvim-dap.nvim",
-      --   opts = { ensure_installed = { "js", "netcoredbg" } },
-      -- },
+      {
+        "jay-babu/mason-nvim-dap.nvim",
+        opts = { ensure_installed = { "js", "netcoredbg" } },
+      },
       {
         "igorlfs/nvim-dap-view",
         keys = {
