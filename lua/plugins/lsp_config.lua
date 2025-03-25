@@ -8,7 +8,7 @@ return {
         opts = {},
       },
       "williamboman/mason-lspconfig.nvim",
-      "hrsh7th/cmp-nvim-lsp",
+      -- "hrsh7th/cmp-nvim-lsp",
     },
     config = function()
       local servers = {
@@ -37,11 +37,7 @@ return {
         handlers = {
           function(server_name)
             local server = servers[server_name] or {}
-
-            local capabilities = vim.lsp.protocol.make_client_capabilities()
-            capabilities = vim.tbl_deep_extend("force", capabilities, require("cmp_nvim_lsp").default_capabilities())
-
-            server.capabilities = vim.tbl_deep_extend("force", {}, server.capabilities or {}, capabilities)
+            server.capabilities = vim.lsp.protocol.make_client_capabilities()
             server.on_attach = require "lsp.on_attach"
             require("lspconfig")[server_name].setup(server)
           end,
