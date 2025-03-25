@@ -54,16 +54,16 @@ local mappings = {
   { "<Leader>fd", function() Chiruno.func.run_make() end, description = "Run make", opts = { noremap = true } },
   { "]c", "<cmd>cn<CR>", description = "Next error", opts = { noremap = true } },
   { "[c", "<cmd>cp<CR>", description = "Previous error", opts = { noremap = true } },
-  {
-    "<Leader>du",
-    function()
-      local ok, dapui = pcall(require, "dapui")
-      if not ok then return end
+  -- {
+  --   "<Leader>du",
+  --   function()
+  --     local ok, dapui = pcall(require, "dapui")
+  --     if not ok then return end
 
-      dapui.toggle()
-    end,
-    description = "Toggle Debugger UI",
-  },
+  --     dapui.toggle()
+  --   end,
+  --   description = "Toggle Debugger UI",
+  -- },
 
   -- ["*"] = { function() Chiruno.func.operatorfunc_lua "search" end },
   { "<Leader>r", function() Chiruno.func.operatorfunc_lua "replace_motion" end, mode = { "v" } },
