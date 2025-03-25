@@ -28,9 +28,26 @@ return {
       local snip_status_ok, luasnip = pcall(require, "luasnip")
 
       local opts = {
+        formatting = {
+          format = function(entry, vim_item)
+            vim_item.menu = ({
+              nvim_lsp = '[LSP]',
+              luasnip = '[Snippet]',
+              path = '[Path]',
+            })[entry.source.name]
+
+            vim_item.dup = ({
+              nvim_lsp = 0,
+              luasnip = 0,
+              path = 0,
+            })[entry.source.name] or 0
+
+            return vim_item
+          end
+        },
         snippet = {
           expand = function(args)
-            vim.snippet.expand(args.body) -- For native neovim snippets (Neovim v0.10+)
+            vim.snippet.expand(args.body)   -- For native neovim snippets (Neovim v0.10+)
             if snip_status_ok then
               luasnip.lsp_expand(args.body) -- For `luasnip` users.
             end
@@ -92,13 +109,13 @@ return {
         },
         sources = cmp.config.sources {
           { name = "nvim_lsp", priority = 1000 },
-          -- -- { name = "codeium", priority = 850 },
-          -- -- { name = "cmp_tabnine", priority = 850 },
-          -- -- { name = "neorg", priority = 750 },
-          -- { name = "luasnip", priority = 750 },
-          -- -- { name = "dotenv", priority = 750 },
-          -- -- { name = "buffer", priority = 500 },
-          -- { name = "path", priority = 250 },
+          -- { name = "codeium", priority = 850 },
+          -- { name = "cmp_tabnine", priority = 850 },
+          -- { name = "neorg", priority = 750 },
+          { name = "luasnip", priority = 750 },
+          -- { name = "dotenv", priority = 750 },
+          -- { name = "buffer", priority = 500 },
+          { name = "path", priority = 250 },
         },
       }
 
