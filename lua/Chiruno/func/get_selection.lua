@@ -3,7 +3,8 @@ function Chiruno.func.get_selection()
   local finishRow, finishCol
 
   if vim.api.nvim_get_mode().mode == "n" then
-    Print(vim.api.nvim_win_get_cursor(0))
+    startRow, startCol = unpack(vim.api.nvim_win_get_cursor(0))
+    finishRow, finishCol = startRow, startCol
   else
     startRow, startCol = unpack(vim.api.nvim_buf_get_mark(0, "["))
     finishRow, finishCol = unpack(vim.api.nvim_buf_get_mark(0, "]"))
