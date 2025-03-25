@@ -42,15 +42,6 @@ return {
   --   config = function() require("config.vim-matchup").setup() end,
   -- },
 
-  {
-    "mbbill/undotree",
-    cmd = "UndotreeToggle",
-    event = "BufRead",
-    config = function()
-      vim.keymap.set("n", "<C-y>", function() vim.cmd "UndotreeToggle" end, { silent = true })
-    end,
-  },
-
   -- {
   --   "ray-x/lsp_signature.nvim",
   --   event = "BufRead",
