@@ -1,7 +1,7 @@
+---@type vim.SystemObj
+-- local dbUiSshConnection
+
 ---@type LazySpec
-
-local dbUiSshConnection
-
 return {
   {
     "kristijanhusak/vim-dadbod-ui",
@@ -28,11 +28,11 @@ return {
       {
         "<leader>cdb",
         function()
-          if not dbUiSshConnection then
-            -- ssh -L 7000:localhost:3306 -N yopaz-dev
-            local obj = vim.system({ "ssh", "-L", "7000:localhost:3306", "-N", "test-ec2" }, { text = true })
-            dbUiSshConnection = obj
-          end
+          -- if not dbUiSshConnection then
+          --   -- ssh -L 7000:localhost:3306 -N yopaz-dev
+          --   local obj = vim.system({ "ssh", "-L", "7000:localhost:3306", "-N", "test-ec2" }, { text = true })
+          --   dbUiSshConnection = obj
+          -- end
           vim.cmd.DBUIToggle()
         end,
         desc = "DBUIToggle",
@@ -47,12 +47,12 @@ return {
     init = function()
       vim.g.db_ui_use_nerd_fonts = 1
 
-      vim.api.nvim_create_autocmd("VimLeavePre", {
-        pattern = "*",
-        callback = function()
-          if dbUiSshConnection then dbUiSshConnection:kill(9) end
-        end,
-      })
+      -- vim.api.nvim_create_autocmd("VimLeavePre", {
+      --   pattern = "*",
+      --   callback = function()
+      --     if dbUiSshConnection then dbUiSshConnection:kill(9) end
+      --   end,
+      -- })
     end,
   },
 }
