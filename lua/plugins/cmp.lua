@@ -148,7 +148,7 @@ return {
             score_offset = -1,
           },
           path = {
-            opts = { get_cwd = vim.uv.cwd },
+            opts = { get_cwd = vim.fn.getcwd },
           },
           buffer = {
             fallback_for = {}, -- disable being fallback for LSP
