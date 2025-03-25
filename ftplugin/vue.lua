@@ -20,10 +20,10 @@
 --   return '=""<left>'
 -- end, { expr = true, buffer = true })
 
-local ok, nPairs = pcall(require, "nvim-autopairs")
-if not ok then return end
-local Rule = require "nvim-autopairs.rule"
-local ts_conds = require "nvim-autopairs.ts-conds"
-nPairs.add_rules {
-  Rule("{{", "  }", "vue"):set_end_pair_length(2):with_pair(ts_conds.is_ts_node "text"),
-}
+-- local ok, nPairs = pcall(require, "nvim-autopairs")
+-- if not ok then return end
+-- local Rule = require "nvim-autopairs.rule"
+-- local ts_conds = require "nvim-autopairs.ts-conds"
+-- nPairs.add_rules {
+--   Rule("{{", "  }", "vue"):set_end_pair_length(2):with_pair(ts_conds.is_ts_node "text"),
+-- }
