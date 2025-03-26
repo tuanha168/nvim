@@ -54,7 +54,7 @@ return {
           end,
         },
         mapping = cmp.mapping.preset.insert({
-          ["<C-Space>"] = cmp.mapping.complete(),
+          ["<C-Space>"] = cmp.mapping(cmp.mapping.complete(), { "i", "c" }),
           ["<CR>"] = cmp.mapping(cmp.mapping.confirm { select = false }, { "i", "c" }),
           ["<C-K>"] = cmp.mapping(function(fallback)
             cmp.mapping.close()
