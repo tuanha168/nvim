@@ -55,20 +55,7 @@ return {
         },
         mapping = cmp.mapping.preset.insert({
           ["<C-Space>"] = cmp.mapping.complete(),
-          ["<CR>"] = cmp.mapping.confirm { select = false },
-          -- ["<CR>"] = cmp.mapping(function(fallback)
-          --   if cmp.visible() then
-          --     local entry = cmp.get_selected_entry()
-          --     if not entry then
-          --       cmp.select_next_item { behavior = cmp.SelectBehavior.Select }
-          --       cmp.confirm()
-          --     else
-          --       cmp.confirm()
-          --     end
-          --   else
-          --     fallback()
-          --   end
-          -- end, { "i", "s" }),
+          ["<CR>"] = cmp.mapping(cmp.mapping.confirm { select = false }, { "i", "c" }),
           ["<C-K>"] = cmp.mapping(function(fallback)
             cmp.mapping.close()
             fallback()
