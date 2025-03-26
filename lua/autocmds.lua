@@ -99,4 +99,11 @@ return {
       end
     end,
   },
+
+  {
+    { "TextChanged" },
+    function()
+      pcall(vim.cmd, "Gitsigns refresh")
+    end,
+  }
 }
