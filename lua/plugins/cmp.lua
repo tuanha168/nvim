@@ -1,12 +1,6 @@
 ---@type LazySpec
 return {
   {
-    "L3MON4D3/LuaSnip",
-    config = function( --[[ plugin, opts ]])
-      require("luasnip.loaders.from_vscode").lazy_load { paths = { "./" } } -- load snippets paths
-    end,
-  },
-  {
     "hrsh7th/nvim-cmp",
     dependencies = {
       -- "SergioRibera/cmp-dotenv",
@@ -22,8 +16,6 @@ return {
     config = function()
       local cmp_ok, cmp = pcall(require, "cmp")
       if not cmp_ok then return end
-
-      -- local snip_status_ok, luasnip = pcall(require, "luasnip")
 
       local opts = {
         formatting = {
@@ -47,10 +39,7 @@ return {
         },
         snippet = {
           expand = function(args)
-            -- vim.snippet.expand(args.body)   -- For native neovim snippets (Neovim v0.10+)
-            -- if snip_status_ok then
-            --   luasnip.lsp_expand(args.body) -- For `luasnip` users.
-            -- end
+            vim.snippet.expand(args.body)   -- For native neovim snippets (Neovim v0.10+)
           end,
         },
         mapping = cmp.mapping.preset.insert({
@@ -67,9 +56,7 @@ return {
           ["<Tab>"] = cmp.mapping(function(fallback)
             if cmp.visible() then
               cmp.select_next_item()
-            -- elseif snip_status_ok and luasnip.expand_or_jumpable() then
-            --   luasnip.expand_or_jump()
-            elseif vim.fn.has "nvim-0.10" == 1 and vim.snippet.active { direction = 1 } then
+            elseif vim.snippet.active { direction = 1 } then
               vim.snippet.jump(1)
             else
               fallback()
@@ -78,8 +65,6 @@ return {
           ["<S-Tab>"] = cmp.mapping(function(fallback)
             if cmp.visible() then
               cmp.select_prev_item()
-            -- elseif snip_status_ok and luasnip.jumpable(-1) then
-            --   luasnip.jump(-1)
             elseif vim.snippet.active { direction = -1 } then
               vim.snippet.jump(-1)
             else
