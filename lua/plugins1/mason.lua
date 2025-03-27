@@ -54,13 +54,8 @@ return {
   -- use mason-null-ls to configure Formatters/Linter installation for null-ls sources
   {
     "jay-babu/mason-null-ls.nvim",
-    enabled = false,
     dependencies = {
       "williamboman/mason-lspconfig.nvim",
-      {
-        "nvimtools/none-ls.nvim",
-        enabled = false,
-      }
     },
     -- overrides `require("mason-null-ls").setup(...)`
     opts = function(_, opts)
@@ -71,32 +66,6 @@ return {
         -- "pint",
         "tfsec",
       })
-      -- opts.handlers.prettierd = function()
-      --   require("null-ls").register(require("null-ls").builtins.formatting.prettierd.with {
-      --     filetypes = {
-      --       "javascript",
-      --       "javascriptreact",
-      --       "typescript",
-      --       "typescriptreact",
-      --       "vue",
-      --       "css",
-      --       "scss",
-      --       "less",
-      --       "html",
-      --       "json",
-      --       "jsonc",
-      --       "yaml",
-      --       "markdown",
-      --       "markdown.mdx",
-      --       "graphql",
-      --       "handlebars",
-      --       "svelte",
-      --       "astro",
-      --       "htmlangular",
-      --       "svg",
-      --     },
-      --   })
-      -- end
     end,
   },
 }
