@@ -32,6 +32,7 @@ return {
         intelephense = {},
         yamlls = {},
         omnisharp = {},
+        prettierd = {},
       }
 
       require("mason-lspconfig").setup {
