@@ -32,7 +32,6 @@ return {
         intelephense = {},
         yamlls = {},
         omnisharp = {},
-        prettierd = {},
       }
 
       require("mason-lspconfig").setup {
@@ -54,6 +53,23 @@ return {
         underline = true,
         update_in_insert = false,
         show_diagnostic_autocmds = { 'InsertLeave', 'TextChanged' },
+      })
+    end,
+  },
+
+  {
+    "jay-babu/mason-null-ls.nvim",
+    dependencies = {
+      "williamboman/mason-lspconfig.nvim",
+    },
+    -- overrides `require("mason-null-ls").setup(...)`
+    opts = function(_, opts)
+      -- add more things to the ensure_installed table protecting against community packs modifying it
+      opts.ensure_installed = require("astrocore").list_insert_unique(opts.ensure_installed, {
+        "prettierd",
+        "stylua",
+        -- "pint",
+        "tfsec",
       })
     end,
   },
