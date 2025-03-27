@@ -22,17 +22,17 @@ return {
     "stevearc/conform.nvim",
     opts = {
       formatters_by_ft = {
-        lua = { "stylua", lsp_format = "fallback", stop_after_first = true },
+        lua = { "stylua", "lua_ls", stop_after_first = true },
         -- Conform will run multiple formatters sequentially
         python = { "isort", "black", stop_after_first = true },
         -- You can customize some of the format options for the filetype (:help conform.format)
-        rust = { "rustfmt", lsp_format = "fallback", stop_after_first = true },
+        rust = { "rustfmt", stop_after_first = true },
         -- Conform will run the first available formatter
-        javascript = { "eslint", "prettierd", "prettier", stop_after_first = true },
-        typescript = { "eslint", "prettierd", "prettier", stop_after_first = true },
-        vue = { "eslint", "prettierd", "prettier", lsp_format = "fallback", stop_after_first = true },
-        html = { "prettierd", "prettier", stop_after_first = true },
-        json = { "prettierd", "prettier", lsp_format = "fallback", stop_after_first = true },
+        javascript = { "eslint", "prettierd", "prettier", "volar", stop_after_first = true },
+        typescript = { "eslint", "prettierd", "prettier", "volar", stop_after_first = true },
+        vue = { "eslint", "prettierd", "prettier", "volar", stop_after_first = true },
+        html = { "prettierd", "prettier", "volar", stop_after_first = true },
+        json = { "prettierd", "prettier", stop_after_first = true },
       },
     },
   },
