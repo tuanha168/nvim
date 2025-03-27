@@ -17,8 +17,7 @@ return {
           local ok, conform = pcall(require, "conform")
           if ok then
             conform.format({}, function(err, did_edit)
-              Print({err = err, did_edit = did_edit})
-              if err or not did_edit then vim.lsp.buf.format() end
+              if err and not did_edit then vim.lsp.buf.format() end
             end)
             return
           end
