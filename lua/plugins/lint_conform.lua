@@ -33,6 +33,7 @@ return {
         vue = { "eslint", "prettierd", "prettier", "volar", stop_after_first = true },
         html = { "prettierd", "prettier", "volar", stop_after_first = true },
         json = { "prettierd", "prettier", stop_after_first = true },
+        php = { "pint", stop_after_first = true },
       },
     },
   },
