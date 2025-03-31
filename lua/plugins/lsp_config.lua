@@ -32,7 +32,9 @@ return {
         intelephense = {},
         yamlls = {},
         omnisharp = {},
-        ts_ls = false,
+        ts_ls = {
+          disable = true
+        },
       }
 
       require("mason-lspconfig").setup {
@@ -41,7 +43,7 @@ return {
         handlers = {
           function(server_name)
             local server = servers[server_name] or {}
-            if server == false then
+            if server.disable then
               return
             end
             server.capabilities = vim.tbl_deep_extend("force", {}, capabilities, server.capabilities or {})
