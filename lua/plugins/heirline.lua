@@ -1,22 +1,27 @@
 local function get_unique_path(bufnr)
+  -- Get full filepath, filename, and directory
   local filepath = vim.api.nvim_buf_get_name(bufnr)
-  local filename = vim.fn.fnamemodify(filepath, ":t")      -- Get just the filename
-  local full_path = vim.fn.fnamemodify(filepath, ":.:h")   -- Relative path excluding filename
+  if filepath == "" then return "[No Name]" end   -- Handle empty buffers
 
-  -- Collect all buffers with their filenames and full paths
+  local filename = vim.fn.fnamemodify(filepath, ":t")
+  local full_path = vim.fn.fnamemodify(filepath, ":.:h")
+
+  -- Step 1: Collect all filenames and paths (only once!)
   local buffers = vim.api.nvim_list_bufs()
-  local file_map = {}
+  local file_map = {}   -- { filename -> { path1, path2, ... } }
 
   for _, b in ipairs(buffers) do
     if vim.api.nvim_buf_is_loaded(b) then
       local b_filepath = vim.api.nvim_buf_get_name(b)
-      local b_filename = vim.fn.fnamemodify(b_filepath, ":t")
-      local b_path = vim.fn.fnamemodify(b_filepath, ":.:h")
+      if b_filepath ~= "" then
+        local b_filename = vim.fn.fnamemodify(b_filepath, ":t")
+        local b_path = vim.fn.fnamemodify(b_filepath, ":.:h")
 
-      if not file_map[b_filename] then
-        file_map[b_filename] = {}
+        if not file_map[b_filename] then
+          file_map[b_filename] = {}
+        end
+        table.insert(file_map[b_filename], b_path)
       end
-      table.insert(file_map[b_filename], b_path)
     end
   end
 
@@ -25,27 +30,36 @@ local function get_unique_path(bufnr)
     return filename
   end
 
-  -- Function to find the common prefix of multiple paths
-  local function find_common_prefix(paths)
-    if #paths == 0 then return "" end
-    local prefix = paths[1]
+  -- Step 2: Find minimal unique path
+  local paths = file_map[filename]
 
-    for _, path in ipairs(paths) do
-      while not vim.startswith(path, prefix) do
-        prefix = vim.fn.fnamemodify(prefix, ":h")         -- Trim last folder
-        if prefix == "" then break end
+  local function find_unique_subpath(target_path)
+    local target_parts = vim.split(target_path, "/", { plain = true })
+    local min_unique = {}
+
+    for level = #target_parts, 1, -1 do
+      local candidate = table.concat(vim.list_slice(target_parts, 1, level), "/") .. "/.."
+      local unique = true
+
+      for _, other_path in ipairs(paths) do
+        if other_path ~= target_path and vim.startswith(other_path, candidate) then
+          unique = false
+          break
+        end
+      end
+
+      if unique then
+        return candidate
       end
     end
-    return prefix
+
+    return target_path     -- Fallback (shouldn't happen)
   end
 
-  local common_prefix = find_common_prefix(file_map[filename])
-
-  -- Strip the common prefix from the current file's path
-  local unique_subpath = full_path:gsub("^" .. vim.pesc(common_prefix) .. "/", "")
-
-  return unique_subpath .. "/.." .. "/" .. filename
+  local minimal_path = find_unique_subpath(full_path)
+  return minimal_path .. "/" .. filename
 end
+
 
 return {
   {
