@@ -7,21 +7,28 @@ local function find_unique_subpath(target_path, paths)
     split_paths[path] = vim.split(path, "/", { plain = true })
   end
 
-  -- Find common prefix length
-  local min_common_level = 1
-  for _, other_parts in pairs(split_paths) do
-    if other_parts ~= target_parts then
-      for i = 1, math.min(#target_parts, #other_parts) do
-        if target_parts[i] ~= other_parts[i] then
+  -- Find the first unique segment
+  for level = 1, #target_parts do
+    local candidate = table.concat(vim.list_slice(target_parts, level, #target_parts), "/")
+    local is_unique = true
+
+    for _, other_parts in pairs(split_paths) do
+      if other_parts ~= target_parts then
+        local other_candidate = table.concat(vim.list_slice(other_parts, level, #other_parts), "/")
+        if other_candidate == candidate then
+          is_unique = false
           break
         end
-        min_common_level = i + 1
       end
+    end
+
+    if is_unique then
+      return candidate
     end
   end
 
-  -- Return the unique minimal subpath
-  return table.concat(vim.list_slice(target_parts, min_common_level, #target_parts), "/")
+  -- Fallback (shouldn't happen)
+  return target_path
 end
 
 local function get_unique_path(bufnr)
@@ -34,6 +41,7 @@ local function get_unique_path(bufnr)
   local buffers = vim.api.nvim_list_bufs()
   local file_map = {}
 
+  -- Build a map of filenames to all their directory paths
   for _, b in ipairs(buffers) do
     if vim.api.nvim_buf_is_loaded(b) then
       local b_filepath = vim.api.nvim_buf_get_name(b)
@@ -49,12 +57,15 @@ local function get_unique_path(bufnr)
     end
   end
 
+  -- If the filename is unique, return it directly
   if #file_map[filename] == 1 then
     return filename
   end
 
+  -- Otherwise, determine the minimal unique path
   local paths = file_map[filename]
   local minimal_path = find_unique_subpath(full_path, paths)
+
   return minimal_path .. "/" .. filename
 end
 
