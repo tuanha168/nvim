@@ -1,19 +1,19 @@
 local function find_unique_subpath(target_path, paths)
   local target_parts = vim.split(target_path, "/", { plain = true })
-  local all_parts = {}
+  local split_paths = {}
 
-  -- Convert paths into parts
+  -- Convert all paths into parts
   for _, path in ipairs(paths) do
-    all_parts[path] = vim.split(path, "/", { plain = true })
+    split_paths[path] = vim.split(path, "/", { plain = true })
   end
 
-  -- Find the first unique folder level from the back
-  for level = #target_parts, 1, -1 do
-    local candidate = table.concat(vim.list_slice(target_parts, level), "/")
+  -- Find the first unique segment
+  for level = 1, #target_parts do
+    local candidate = table.concat(vim.list_slice(target_parts, level, #target_parts), "/")
     local is_unique = true
 
-    for _, other_parts in pairs(all_parts) do
-      local other_candidate = table.concat(vim.list_slice(other_parts, level), "/")
+    for _, other_parts in pairs(split_paths) do
+      local other_candidate = table.concat(vim.list_slice(other_parts, level, #other_parts), "/")
       if other_candidate == candidate and other_parts ~= target_parts then
         is_unique = false
         break
@@ -25,7 +25,7 @@ local function find_unique_subpath(target_path, paths)
     end
   end
 
-  -- Fallback: return full path (should not happen)
+  -- Fallback (shouldn't happen)
   return target_path
 end
 
