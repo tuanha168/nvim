@@ -2,18 +2,18 @@ local function find_unique_subpath(target_path, paths)
   local target_parts = vim.split(target_path, "/", { plain = true })
   local all_parts = {}
 
-  -- Convert paths into parts
+  -- Convert paths into split parts
   for _, path in ipairs(paths) do
     all_parts[path] = vim.split(path, "/", { plain = true })
   end
 
   -- Find the minimal unique prefix
   for level = 1, #target_parts do
-    local candidate = table.concat(vim.list_slice(target_parts, 1, level), "/")
+    local candidate = table.concat(vim.list_slice(target_parts, #target_parts - level + 1), "/")
     local is_unique = true
 
     for _, other_parts in pairs(all_parts) do
-      local other_candidate = table.concat(vim.list_slice(other_parts, 1, level), "/")
+      local other_candidate = table.concat(vim.list_slice(other_parts, #other_parts - level + 1), "/")
       if other_candidate == candidate and other_parts ~= target_parts then
         is_unique = false
         break
@@ -25,8 +25,8 @@ local function find_unique_subpath(target_path, paths)
     end
   end
 
-  -- If no unique folder found, return `../`
-  return table.concat(vim.list_slice(target_parts, 1, #target_parts - 1), "/") .. "/.."
+  -- If no unique folder found, return full path
+  return target_path
 end
 
 local function get_unique_path(bufnr)
