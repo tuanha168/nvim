@@ -79,7 +79,7 @@ return {
           -- self.filename will be defined later, just keep looking at the example!
           local filename = self.filename
           filename = filename == "" and "[No Name]" or vim.fn.fnamemodify(filename, ":t")
-          return get_unique_filename(filename)
+          return get_unique_filename(filename, false)
         end,
         hl = function(self) return { bold = self.is_active or self.is_visible, italic = true } end,
       }
