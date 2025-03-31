@@ -25,32 +25,26 @@ local function get_unique_path(bufnr)
     return filename
   end
 
-  -- Find minimal unique path by comparing directories
-  local function find_minimal_unique_path(paths, target_path)
-    local path_parts = vim.split(target_path, "/", { plain = true })
-    local min_unique = {}
+  -- Function to find the common prefix of multiple paths
+  local function find_common_prefix(paths)
+    if #paths == 0 then return "" end
+    local prefix = paths[1]
 
-    for level = #path_parts, 1, -1 do
-      local candidate = table.concat(vim.list_slice(path_parts, 1, level), "/") .. "/.."
-      local unique = true
-
-      for _, other_path in ipairs(paths) do
-        if other_path ~= target_path and vim.startswith(other_path, candidate) then
-          unique = false
-          break
-        end
-      end
-
-      if unique then
-        return candidate
+    for _, path in ipairs(paths) do
+      while not vim.startswith(path, prefix) do
+        prefix = vim.fn.fnamemodify(prefix, ":h")         -- Trim last folder
+        if prefix == "" then break end
       end
     end
-
-    return target_path     -- fallback (shouldn't happen)
+    return prefix
   end
 
-  local minimal_path = find_minimal_unique_path(file_map[filename], full_path)
-  return minimal_path .. "/" .. filename
+  local common_prefix = find_common_prefix(file_map[filename])
+
+  -- Strip the common prefix from the current file's path
+  local unique_subpath = full_path:gsub("^" .. vim.pesc(common_prefix) .. "/", "")
+
+  return unique_subpath .. "/.." .. "/" .. filename
 end
 
 return {
