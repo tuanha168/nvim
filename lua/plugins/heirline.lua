@@ -1,62 +1,28 @@
----Get the names of all current listed buffers
----@return table
-local function get_current_filenames()
-  local listed_buffers = vim.tbl_filter(
-    function(bufnr) return vim.bo[bufnr].buflisted and vim.api.nvim_buf_is_loaded(bufnr) end,
-    vim.api.nvim_list_bufs()
-  )
+local function get_unique_filename(bufnr)
+  local filename = vim.fn.fnamemodify(vim.api.nvim_buf_get_name(bufnr), ":t")   -- Get filename
+  local path = vim.fn.fnamemodify(vim.api.nvim_buf_get_name(bufnr), ":h")       -- Get directory
 
-  return vim.tbl_map(vim.api.nvim_buf_get_name, listed_buffers)
-end
+  -- Get all visible buffers
+  local buffers = vim.api.nvim_list_bufs()
+  local filenames = {}
 
----Get unique name for the current buffer
----@param filename string
----@param shorten boolean
----@return string
-local function get_unique_filename(filename, shorten)
-  local filenames = vim.tbl_filter(
-    function(filename_other) return filename_other ~= filename end,
-    get_current_filenames()
-  )
-
-  if shorten then
-    filename = vim.fn.pathshorten(filename)
-    filenames = vim.tbl_map(vim.fn.pathshorten, filenames)
-  end
-
-  -- Reverse filenames in order to compare their names
-  filename = string.reverse(filename)
-  filenames = vim.tbl_map(string.reverse, filenames)
-
-  local index
-
-  -- For every other filename, compare it with the name of the current file char-by-char to
-  -- find the minimum index `i` where the i-th character is different for the two filenames
-  -- After doing it for every filename, get the maximum value of `i`
-  if next(filenames) then
-    index = math.max(unpack(vim.tbl_map(function(filename_other)
-      for i = 1, #filename do
-        -- Compare i-th character of both names until they aren't equal
-        if filename:sub(i, i) ~= filename_other:sub(i, i) then return i end
+  for _, b in ipairs(buffers) do
+    if vim.api.nvim_buf_is_loaded(b) then
+      local name = vim.fn.fnamemodify(vim.api.nvim_buf_get_name(b), ":t")
+      if not filenames[name] then
+        filenames[name] = {}
       end
-      return 1
-    end, filenames)))
-  else
-    index = 1
-  end
-
-  -- Iterate backwards (since filename is reversed) until a "/" is found
-  -- in order to show a valid file path
-  while index <= #filename do
-    if filename:sub(index, index) == "/" then
-      index = index - 1
-      break
+      table.insert(filenames[name], b)
     end
-
-    index = index + 1
   end
 
-  return string.reverse(string.sub(filename, 1, index))
+  -- If more than one buffer has the same filename, append directory
+  if #filenames[filename] > 1 then
+    local parent = vim.fn.fnamemodify(path, ":t")     -- Get immediate parent directory
+    filename = parent .. "/" .. filename
+  end
+
+  return filename
 end
 
 return {
@@ -77,10 +43,7 @@ return {
       -- we redefine the filename component, as we probably only want the tail and not the relative path
       local TablineFileName = {
         provider = function(self)
-          -- self.filename will be defined later, just keep looking at the example!
-          local filename = self.filename
-          filename = filename == "" and "[No Name]" or vim.fn.fnamemodify(filename, ":t")
-          return get_unique_filename(filename, false)
+          return " " .. get_unique_filename(self.bufnr) .. " "
         end,
         hl = function(self) return { bold = self.is_active or self.is_visible, italic = true } end,
       }
