@@ -1,28 +1,56 @@
-local function get_unique_filename(bufnr)
-  local filename = vim.fn.fnamemodify(vim.api.nvim_buf_get_name(bufnr), ":t")   -- Get filename
-  local path = vim.fn.fnamemodify(vim.api.nvim_buf_get_name(bufnr), ":h")       -- Get directory
+local function get_unique_path(bufnr)
+  local filepath = vim.api.nvim_buf_get_name(bufnr)
+  local filename = vim.fn.fnamemodify(filepath, ":t")      -- Get just the filename
+  local full_path = vim.fn.fnamemodify(filepath, ":.:h")   -- Relative path excluding filename
 
-  -- Get all visible buffers
+  -- Collect all buffers with their filenames and full paths
   local buffers = vim.api.nvim_list_bufs()
-  local filenames = {}
+  local file_map = {}
 
   for _, b in ipairs(buffers) do
     if vim.api.nvim_buf_is_loaded(b) then
-      local name = vim.fn.fnamemodify(vim.api.nvim_buf_get_name(b), ":t")
-      if not filenames[name] then
-        filenames[name] = {}
+      local b_filepath = vim.api.nvim_buf_get_name(b)
+      local b_filename = vim.fn.fnamemodify(b_filepath, ":t")
+      local b_path = vim.fn.fnamemodify(b_filepath, ":.:h")
+
+      if not file_map[b_filename] then
+        file_map[b_filename] = {}
       end
-      table.insert(filenames[name], b)
+      table.insert(file_map[b_filename], b_path)
     end
   end
 
-  -- If more than one buffer has the same filename, append directory
-  if #filenames[filename] > 1 then
-    local parent = vim.fn.fnamemodify(path, ":t")     -- Get immediate parent directory
-    filename = parent .. "/" .. filename
+  -- If filename is unique, return just the filename
+  if #file_map[filename] == 1 then
+    return filename
   end
 
-  return filename
+  -- Find minimal unique path by comparing directories
+  local function find_minimal_unique_path(paths, target_path)
+    local path_parts = vim.split(target_path, "/", { plain = true })
+    local min_unique = {}
+
+    for level = #path_parts, 1, -1 do
+      local candidate = table.concat(vim.list_slice(path_parts, 1, level), "/") .. "/.."
+      local unique = true
+
+      for _, other_path in ipairs(paths) do
+        if other_path ~= target_path and vim.startswith(other_path, candidate) then
+          unique = false
+          break
+        end
+      end
+
+      if unique then
+        return candidate
+      end
+    end
+
+    return target_path     -- fallback (shouldn't happen)
+  end
+
+  local minimal_path = find_minimal_unique_path(file_map[filename], full_path)
+  return minimal_path .. "/" .. filename
 end
 
 return {
@@ -43,7 +71,7 @@ return {
       -- we redefine the filename component, as we probably only want the tail and not the relative path
       local TablineFileName = {
         provider = function(self)
-          return " " .. get_unique_filename(self.bufnr) .. " "
+          return " " .. get_unique_path(self.bufnr) .. " "
         end,
         hl = function(self) return { bold = self.is_active or self.is_visible, italic = true } end,
       }
