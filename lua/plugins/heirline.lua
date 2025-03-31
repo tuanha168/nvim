@@ -58,13 +58,14 @@ local function get_unique_filename(filename, shorten)
 
   return string.reverse(string.sub(filename, 1, index))
 end
+
 return {
   {
     "rebelot/heirline.nvim",
     event = "VeryLazy",
     dependencies = { "nvim-tree/nvim-web-devicons" },
     config = function()
-      local utils = require "heirline.utils"
+      local utils = require("heirline.utils")
 
       local leftDelimiter = { provider = "   ", hl = "red" }
       local rightDelimiter = { provider = "   ", hl = "red" }
