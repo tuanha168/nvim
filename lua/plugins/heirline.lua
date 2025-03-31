@@ -1,14 +1,36 @@
+local function find_unique_subpath(target_path, paths)
+  local target_parts = vim.split(target_path, "/", { plain = true })
+
+  for level = #target_parts, 1, -1 do
+    local candidate = table.concat(vim.list_slice(target_parts, 1, level), "/") .. "/.."
+    local unique = true
+
+    for _, other_path in ipairs(paths) do
+      if other_path ~= target_path and vim.startswith(other_path, candidate) then
+        unique = false
+        break
+      end
+    end
+
+    if unique then
+      return candidate
+    end
+  end
+
+  return target_path -- Fallback (shouldn't happen)
+end
+
 local function get_unique_path(bufnr)
   -- Get full filepath, filename, and directory
   local filepath = vim.api.nvim_buf_get_name(bufnr)
-  if filepath == "" then return "[No Name]" end   -- Handle empty buffers
+  if filepath == "" then return "[No Name]" end -- Handle empty buffers
 
   local filename = vim.fn.fnamemodify(filepath, ":t")
   local full_path = vim.fn.fnamemodify(filepath, ":.:h")
 
   -- Step 1: Collect all filenames and paths (only once!)
   local buffers = vim.api.nvim_list_bufs()
-  local file_map = {}   -- { filename -> { path1, path2, ... } }
+  local file_map = {} -- { filename -> { path1, path2, ... } }
 
   for _, b in ipairs(buffers) do
     if vim.api.nvim_buf_is_loaded(b) then
@@ -30,33 +52,10 @@ local function get_unique_path(bufnr)
     return filename
   end
 
-  -- Step 2: Find minimal unique path
   local paths = file_map[filename]
 
-  local function find_unique_subpath(target_path)
-    local target_parts = vim.split(target_path, "/", { plain = true })
-    local min_unique = {}
-
-    for level = #target_parts, 1, -1 do
-      local candidate = table.concat(vim.list_slice(target_parts, 1, level), "/") .. "/.."
-      local unique = true
-
-      for _, other_path in ipairs(paths) do
-        if other_path ~= target_path and vim.startswith(other_path, candidate) then
-          unique = false
-          break
-        end
-      end
-
-      if unique then
-        return candidate
-      end
-    end
-
-    return target_path     -- Fallback (shouldn't happen)
-  end
-
-  local minimal_path = find_unique_subpath(full_path)
+  -- Step 2: Find minimal unique path
+  local minimal_path = find_unique_subpath(full_path, paths)
   return minimal_path .. "/" .. filename
 end
 
