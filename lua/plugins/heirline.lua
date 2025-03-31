@@ -1,3 +1,63 @@
+---Get the names of all current listed buffers
+---@return table
+local function get_current_filenames()
+  local listed_buffers = vim.tbl_filter(
+    function(bufnr) return vim.bo[bufnr].buflisted and vim.api.nvim_buf_is_loaded(bufnr) end,
+    vim.api.nvim_list_bufs()
+  )
+
+  return vim.tbl_map(vim.api.nvim_buf_get_name, listed_buffers)
+end
+
+---Get unique name for the current buffer
+---@param filename string
+---@param shorten boolean
+---@return string
+local function get_unique_filename(filename, shorten)
+  local filenames = vim.tbl_filter(
+    function(filename_other) return filename_other ~= filename end,
+    get_current_filenames()
+  )
+
+  if shorten then
+    filename = vim.fn.pathshorten(filename)
+    filenames = vim.tbl_map(vim.fn.pathshorten, filenames)
+  end
+
+  -- Reverse filenames in order to compare their names
+  filename = string.reverse(filename)
+  filenames = vim.tbl_map(string.reverse, filenames)
+
+  local index
+
+  -- For every other filename, compare it with the name of the current file char-by-char to
+  -- find the minimum index `i` where the i-th character is different for the two filenames
+  -- After doing it for every filename, get the maximum value of `i`
+  if next(filenames) then
+    index = math.max(unpack(vim.tbl_map(function(filename_other)
+      for i = 1, #filename do
+        -- Compare i-th character of both names until they aren't equal
+        if filename:sub(i, i) ~= filename_other:sub(i, i) then return i end
+      end
+      return 1
+    end, filenames)))
+  else
+    index = 1
+  end
+
+  -- Iterate backwards (since filename is reversed) until a "/" is found
+  -- in order to show a valid file path
+  while index <= #filename do
+    if filename:sub(index, index) == "/" then
+      index = index - 1
+      break
+    end
+
+    index = index + 1
+  end
+
+  return string.reverse(string.sub(filename, 1, index))
+end
 return {
   {
     "rebelot/heirline.nvim",
@@ -19,7 +79,7 @@ return {
           -- self.filename will be defined later, just keep looking at the example!
           local filename = self.filename
           filename = filename == "" and "[No Name]" or vim.fn.fnamemodify(filename, ":t")
-          return filename
+          return get_unique_filename(filename)
         end,
         hl = function(self) return { bold = self.is_active or self.is_visible, italic = true } end,
       }
@@ -36,7 +96,7 @@ return {
         {
           condition = function(self)
             return not vim.api.nvim_get_option_value("modifiable", { buf = self.bufnr })
-              or vim.api.nvim_get_option_value("readonly", { buf = self.bufnr })
+                or vim.api.nvim_get_option_value("readonly", { buf = self.bufnr })
           end,
           provider = function(self)
             if vim.api.nvim_get_option_value("buftype", { buf = self.bufnr }) == "terminal" then
@@ -54,7 +114,7 @@ return {
           local filename = self.filename
           local extension = vim.fn.fnamemodify(filename, ":e")
           self.icon, self.icon_color =
-            require("nvim-web-devicons").get_icon_color(filename, extension, { default = true })
+              require("nvim-web-devicons").get_icon_color(filename, extension, { default = true })
         end,
         provider = function(self) return self.icon and (self.icon .. " ") end,
         hl = function(self) return { fg = self.icon_color } end,
@@ -66,9 +126,9 @@ return {
         hl = function(self)
           if self.is_active then
             return { fg = "cyan" }
-          -- why not?
-          -- elseif not vim.api.nvim_buf_is_loaded(self.bufnr) then
-          --     return { fg = "gray" }
+            -- why not?
+            -- elseif not vim.api.nvim_buf_is_loaded(self.bufnr) then
+            --     return { fg = "gray" }
           else
             return "TabLine"
           end
@@ -128,7 +188,7 @@ return {
         TablineBufferBlock,
         { provider = "", hl = { fg = "gray" } }, -- left truncation, optional (defaults to "<")
         { provider = "", hl = { fg = "gray" } } -- right trunctation, also optional (defaults to ...... yep, ">")
-        -- by the way, open a lot of buffers and try clicking them ;)
+      -- by the way, open a lot of buffers and try clicking them ;)
       )
 
       require("heirline").setup {
