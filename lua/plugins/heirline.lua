@@ -1,36 +1,43 @@
 local function find_unique_subpath(target_path, paths)
   local target_parts = vim.split(target_path, "/", { plain = true })
+  local path_levels = {}
 
-  for level = #target_parts, 1, -1 do
-    local candidate = table.concat(vim.list_slice(target_parts, 1, level), "/") .. "/.."
-    local unique = true
+  -- Split all paths into parts
+  local all_parts = {}
+  for _, path in ipairs(paths) do
+    all_parts[path] = vim.split(path, "/", { plain = true })
+  end
 
-    for _, other_path in ipairs(paths) do
-      if other_path ~= target_path and vim.startswith(other_path, candidate) then
-        unique = false
+  -- Find the minimal unique prefix
+  for level = 1, #target_parts do
+    local candidate = table.concat(target_parts, level, "/")
+    local is_unique = true
+
+    for _, other_parts in pairs(all_parts) do
+      if table.concat(other_parts, level, "/") == candidate and other_parts ~= target_parts then
+        is_unique = false
         break
       end
     end
 
-    if unique then
+    if is_unique then
       return candidate
     end
   end
 
-  return target_path -- Fallback (shouldn't happen)
+  -- If no unique folder found, return `../`
+  return table.concat(target_parts, "/", #target_parts - 1) .. "/.."
 end
 
 local function get_unique_path(bufnr)
-  -- Get full filepath, filename, and directory
   local filepath = vim.api.nvim_buf_get_name(bufnr)
-  if filepath == "" then return "[No Name]" end -- Handle empty buffers
+  if filepath == "" then return "[No Name]" end
 
   local filename = vim.fn.fnamemodify(filepath, ":t")
   local full_path = vim.fn.fnamemodify(filepath, ":.:h")
 
-  -- Step 1: Collect all filenames and paths (only once!)
   local buffers = vim.api.nvim_list_bufs()
-  local file_map = {} -- { filename -> { path1, path2, ... } }
+  local file_map = {}
 
   for _, b in ipairs(buffers) do
     if vim.api.nvim_buf_is_loaded(b) then
@@ -47,18 +54,14 @@ local function get_unique_path(bufnr)
     end
   end
 
-  -- If filename is unique, return just the filename
   if #file_map[filename] == 1 then
     return filename
   end
 
   local paths = file_map[filename]
-
-  -- Step 2: Find minimal unique path
   local minimal_path = find_unique_subpath(full_path, paths)
   return minimal_path .. "/" .. filename
 end
-
 
 return {
   {
