@@ -7,8 +7,8 @@ local function find_unique_subpath(target_path, paths)
     split_paths[path] = vim.split(path, "/", { plain = true })
   end
 
-  -- Find the first unique segment
-  for level = 1, #target_parts do
+  -- Find the minimal unique subpath
+  for level = 2, #target_parts do -- Start from level 2 to avoid common top-level directories
     local candidate = table.concat(vim.list_slice(target_parts, level, #target_parts), "/")
     local is_unique = true
 
@@ -25,7 +25,7 @@ local function find_unique_subpath(target_path, paths)
     end
   end
 
-  -- Fallback (shouldn't happen)
+  -- Fallback to full path if necessary
   return target_path
 end
 
