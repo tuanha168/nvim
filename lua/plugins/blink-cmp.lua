@@ -120,37 +120,43 @@ return {
       --
       -- See :h blink-cmp-config-keymap for defining your own keymap
       keymap = {
-        preset = 'none',
-        ['<C-space>'] = { 'show', 'show_documentation', 'hide_documentation' },
-        ['<C-e>'] = { 'hide', 'fallback' },
-        ['<C-y>'] = { 'select_and_accept' },
+        preset = "none",
+        ["<C-space>"] = { "show", "show_documentation", "hide_documentation" },
+        ["<C-e>"] = { "hide", "fallback" },
+        ["<C-y>"] = { "select_and_accept" },
 
-        ['<Up>'] = { 'select_prev', 'fallback' },
-        ['<Down>'] = { 'select_next', 'fallback' },
-        ['<C-p>'] = { 'select_prev', 'fallback_to_mappings' },
-        ['<C-n>'] = { 'select_next', 'fallback_to_mappings' },
+        ["<Up>"] = { "select_prev", "fallback" },
+        ["<Down>"] = { "select_next", "fallback" },
+        ["<C-p>"] = { "select_prev", "fallback_to_mappings" },
+        ["<C-n>"] = { "select_next", "fallback_to_mappings" },
 
-        ['<Tab>'] = { 'select_next', 'fallback_to_mappings' },
-        ['<S-Tab>'] = { 'select_prev', 'fallback_to_mappings' },
+        ["<Tab>"] = { "select_next", "fallback_to_mappings" },
+        ["<S-Tab>"] = { "select_prev", "fallback_to_mappings" },
 
-        ['<CR>'] = { 'accept', 'fallback' },
+        ["<CR>"] = { "accept", "fallback" },
 
-        ['<C-k>'] = { 'show_signature', 'hide_signature', 'fallback' },
+        ["<C-k>"] = { "show_signature", "hide_signature", "fallback" },
       },
 
       appearance = {
         -- 'mono' (default) for 'Nerd Font Mono' or 'normal' for 'Nerd Font'
         -- Adjusts spacing to ensure icons are aligned
-        nerd_font_variant = 'mono'
+        nerd_font_variant = "mono",
       },
 
       -- (Default) Only show the documentation popup when manually triggered
-      completion = { documentation = { auto_show = true } },
+      completion = {
+        documentation = { auto_show = true },
+        trigger = {
+          show_on_keyword = true,
+        },
+        accept = { resolve_timeout_ms = 5000 },
+      },
 
       -- Default list of enabled providers defined so that you can extend it
       -- elsewhere in your config, without redefining it, due to `opts_extend`
       sources = {
-        default = { 'lsp', 'path', 'snippets', 'buffer' },
+        default = { "lsp", "path", "snippets", "buffer" },
       },
 
       -- (Default) Rust fuzzy matcher for typo resistance and significantly better performance
@@ -158,8 +164,8 @@ return {
       -- when the Rust fuzzy matcher is not available, by using `implementation = "prefer_rust"`
       --
       -- See the fuzzy documentation for more information
-      fuzzy = { implementation = "prefer_rust_with_warning" }
+      fuzzy = { implementation = "prefer_rust_with_warning" },
     },
-    opts_extend = { "sources.default" }
+    opts_extend = { "sources.default" },
   },
 }
