@@ -168,6 +168,9 @@ return {
           },
           ghost_text = { enabled = true },
         },
+        keymap = {
+          ["<CR>"] = { "accept_and_enter", "fallback" },
+        },
       },
 
       -- Default list of enabled providers defined so that you can extend it
