@@ -64,7 +64,14 @@ return {
             if server.enabled == false then
               return
             end
-            server.capabilities = vim.tbl_deep_extend("force", {}, capabilities, server.capabilities or {})
+            server.capabilities = vim.tbl_deep_extend("force", {
+              workspace = {
+                workspaceFolders = true,
+                didChangeWatchedFiles = {
+                  dynamicRegistration = true,
+                },
+              },
+            }, capabilities, server.capabilities or {})
             -- server.on_attach = require "lsp.on_attach"
             require("lspconfig")[server_name].setup(server)
           end,
