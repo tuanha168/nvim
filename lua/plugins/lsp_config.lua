@@ -40,6 +40,7 @@ return {
         ts_ls = {
           disable = true
         },
+        stylelint_lsp = require "lsp.config.stylelint_lsp",
       }
 
       require("mason-lspconfig").setup {
