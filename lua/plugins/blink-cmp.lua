@@ -158,6 +158,7 @@ return {
         },
         trigger = {
           show_on_keyword = true,
+          show_on_insert_on_trigger_character = true,
         },
       },
       cmdline = {
