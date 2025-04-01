@@ -146,6 +146,11 @@ return {
 
       -- (Default) Only show the documentation popup when manually triggered
       completion = {
+        menu = {
+          draw = {
+            treesitter = { "lsp" },
+          },
+        },
         documentation = { auto_show = true },
         list = {
           selection = {
