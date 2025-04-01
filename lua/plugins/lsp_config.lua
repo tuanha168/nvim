@@ -35,6 +35,7 @@ return {
         intelephense = require "lsp.config.intelephense",
         yamlls = {},
         omnisharp = require "lsp.config.omnisharp",
+        cssls = require "lsp.config.cssls",
         html = require "lsp.config.html",
         ts_ls = {
           disable = true
