@@ -15,9 +15,6 @@ return {
 			},
 		},
 		keymaps = require "mappings",
-		commands = {
-			{ "LspInfo", ":checkhealth vim.lsp" }
-		},
 		autocmds = require "autocmds",
 	},
 	-- sqlite is only needed if you want to use frecency sorting

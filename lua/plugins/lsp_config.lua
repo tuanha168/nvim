@@ -43,9 +43,7 @@ return {
         omnisharp = require "lsp.config.omnisharp",
         cssls = require "lsp.config.cssls",
         html = require "lsp.config.html",
-        ts_ls = {
-          disable = true
-        },
+        ts_ls = require "lsp.config.ts_ls",
         stylelint_lsp = require "lsp.config.stylelint_lsp",
       }
 
@@ -55,7 +53,7 @@ return {
         handlers = {
           function(server_name)
             local server = servers[server_name] or {}
-            if server.disable then
+            if server.enabled == false then
               return
             end
             server.capabilities = vim.tbl_deep_extend("force", {}, capabilities, server.capabilities or {})
