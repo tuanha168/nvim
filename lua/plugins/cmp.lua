@@ -27,12 +27,12 @@ return {
               path = "[Path]",
             })[entry.source.name]
 
-            vim_item.dup = ({
-              nvim_lsp = 0,
-              luasnip = 0,
-              buffer = 0,
-              path = 0,
-            })[entry.source.name] or 0
+            -- vim_item.dup = ({
+            --   nvim_lsp = 0,
+            --   luasnip = 0,
+            --   buffer = 0,
+            --   path = 0,
+            -- })[entry.source.name] or 0
 
             return vim_item
           end,
