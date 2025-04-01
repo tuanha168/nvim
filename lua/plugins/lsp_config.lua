@@ -18,8 +18,15 @@ return {
     },
     config = function()
       local capabilities = vim.lsp.protocol.make_client_capabilities()
-      -- capabilities = vim.tbl_deep_extend("force", capabilities, require("cmp_nvim_lsp").default_capabilities())
-      capabilities = require('blink.cmp').get_lsp_capabilities(capabilities)
+      local haveCmp, cmp = pcall(require, "cmp_nvim_lsp")
+      local haveBlink, blink = pcall(require, "blink.cmp")
+
+      if haveCmp then
+        capabilities = vim.tbl_deep_extend("force", capabilities, cmp.default_capabilities())
+      end
+      if haveBlink then
+        capabilities = blink.get_lsp_capabilities(capabilities)
+      end
 
       local servers = {
         lua_ls = {
