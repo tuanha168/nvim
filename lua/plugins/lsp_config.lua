@@ -7,11 +7,14 @@ return {
     },
     dependencies = {
       {
+        "folke/neoconf.nvim",
+        opts = {},
+      },
+      {
         "williamboman/mason.nvim",
         opts = {},
       },
       "williamboman/mason-lspconfig.nvim",
-      -- "hrsh7th/cmp-nvim-lsp",
     },
     config = function()
       local capabilities = vim.lsp.protocol.make_client_capabilities()
