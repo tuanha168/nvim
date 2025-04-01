@@ -147,10 +147,14 @@ return {
       -- (Default) Only show the documentation popup when manually triggered
       completion = {
         documentation = { auto_show = true },
+        list = {
+          selection = {
+            preselect = false,
+          }
+        },
         trigger = {
           show_on_keyword = true,
         },
-        accept = { resolve_timeout_ms = 5000 },
       },
 
       -- Default list of enabled providers defined so that you can extend it
