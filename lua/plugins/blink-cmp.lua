@@ -159,6 +159,7 @@ return {
         },
         trigger = {
           show_on_keyword = true,
+          prefetch_on_insert = false,
         },
       },
       cmdline = {
