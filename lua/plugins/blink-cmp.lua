@@ -133,7 +133,7 @@ return {
         ["<Tab>"] = { "select_next", "fallback_to_mappings" },
         ["<S-Tab>"] = { "select_prev", "fallback_to_mappings" },
 
-        ["<CR>"] = { "accept", "fallback" },
+        ["<CR>"] = { "accept_and_enter", "fallback" },
 
         ["<C-k>"] = { "show_signature", "hide_signature", "fallback" },
       },
