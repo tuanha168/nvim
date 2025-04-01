@@ -156,6 +156,7 @@ return {
           show_on_keyword = true,
         },
       },
+      cmdline = { completion = { ghost_text = { enabled = true } } },
 
       -- Default list of enabled providers defined so that you can extend it
       -- elsewhere in your config, without redefining it, due to `opts_extend`
