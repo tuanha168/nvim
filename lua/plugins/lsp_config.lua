@@ -34,7 +34,8 @@ return {
         jsonls = {},
         intelephense = require "lsp.config.intelephense",
         yamlls = {},
-        omnisharp = {},
+        omnisharp = require "lsp.config.omnisharp",
+        html = require "lsp.config.html",
         ts_ls = {
           disable = true
         },
@@ -50,7 +51,7 @@ return {
               return
             end
             server.capabilities = vim.tbl_deep_extend("force", {}, capabilities, server.capabilities or {})
-            server.on_attach = require "lsp.on_attach"
+            -- server.on_attach = require "lsp.on_attach"
             require("lspconfig")[server_name].setup(server)
           end,
         },
