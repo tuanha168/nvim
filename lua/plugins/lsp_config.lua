@@ -21,6 +21,9 @@ return {
               completion = {
                 callSnippet = "Replace",
               },
+              hint = {
+                enable = true,
+              },
               diagnostics = { disable = { "missing-fields" } },
             },
           },
