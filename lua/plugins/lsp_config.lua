@@ -21,12 +21,8 @@ return {
       local haveCmp, cmp = pcall(require, "cmp_nvim_lsp")
       local haveBlink, blink = pcall(require, "blink.cmp")
 
-      if haveCmp then
-        capabilities = vim.tbl_deep_extend("force", capabilities, cmp.default_capabilities())
-      end
-      if haveBlink then
-        capabilities = blink.get_lsp_capabilities(capabilities)
-      end
+      if haveCmp then capabilities = vim.tbl_deep_extend("force", capabilities, cmp.default_capabilities()) end
+      if haveBlink then capabilities = blink.get_lsp_capabilities(capabilities) end
 
       local servers = {
         lua_ls = {
@@ -61,9 +57,7 @@ return {
         handlers = {
           function(server_name)
             local server = servers[server_name] or {}
-            if server.enabled == false then
-              return
-            end
+            if server.enabled == false then return end
             server.capabilities = vim.tbl_deep_extend("force", {
               workspace = {
                 workspaceFolders = true,
@@ -78,13 +72,13 @@ return {
         },
       }
 
-      vim.diagnostic.config({
+      vim.diagnostic.config {
         virtual_text = true,
         signs = true,
         underline = true,
         update_in_insert = false,
-        show_diagnostic_autocmds = { 'InsertLeave', 'TextChanged' },
-      })
+        show_diagnostic_autocmds = { "InsertLeave", "TextChanged" },
+      }
 
       vim.lsp.inlay_hint.enable(true)
     end,
