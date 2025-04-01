@@ -32,7 +32,7 @@ return {
         eslint = require "lsp.config.eslint",
         tailwindcss = require "lsp.config.tailwindcss",
         jsonls = {},
-        intelephense = {},
+        intelephense = require "lsp.config.intelephense",
         yamlls = {},
         omnisharp = {},
         ts_ls = {
