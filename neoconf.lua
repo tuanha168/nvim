@@ -89,9 +89,9 @@ local config = {
         },
         experimental = {
           classRegex = {
-            "[a-zA-Z]*[cC]lass[a-zA-Z]*\\s*=\\s*'([^']*)'",
-            '[a-zA-Z]*[cC]lass[a-zA-Z]*\\s*=\\s*"([^"]*)"',
-            "[a-zA-Z]*[cC]lass[a-zA-Z]*\\s*=\\s*\\{(['`\"][^\\{\\}'`\"]*['`\"])*\\}",
+            "[a-zA-Z]*[cC]lass(es)?\\s*=\\s*'([^']*)'",
+            '[a-zA-Z]*[cC]lass(es)?\\s*=\\s*"([^"]*)"',
+            "[a-zA-Z]*[cC]lass(es)?\\s*=\\s*\\{(['`\"][^\\{\\}'`\"]*['`\"])*\\}",
           },
         },
         emmetCompletions = "true",
