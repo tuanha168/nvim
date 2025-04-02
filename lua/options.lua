@@ -27,7 +27,6 @@ local options = {
     laststatus = 3,
     splitkeep = "screen",
     scrolloff = 10,
-    foldcolumn = "0",
     mouse = "a",
     number = true,
     preserveindent = true,
@@ -36,6 +35,12 @@ local options = {
     signcolumn = "yes",
     undofile = true,
     jumpoptions = "",
+    foldcolumn = "1",
+    fillchars = {
+      fold = " ",
+      eob = " ",
+      vert = " ",
+    },
   },
   g = {
     mapleader = " ",
@@ -57,8 +62,6 @@ local options = {
 vim.cmd "set verbosefile=$HOME/.dotfile/logs/nvim.log"
 
 vim.opt.iskeyword:append "-"
-
-vim.opt.fillchars:append { fold = " " }
 
 if vim.g.neovide then
   local opts = {
