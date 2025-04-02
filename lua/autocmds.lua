@@ -15,7 +15,15 @@ local excludeDir = { "scratch/src" }
 return {
   {
     "LspAttach",
-    function(e) require("lsp.mappings").setup(e.buf) end,
+    function(e)
+      require("lsp.mappings").setup(e.buf)
+
+      local client = vim.lsp.get_client_by_id(e.data.client_id)
+      if client and client:supports_method "textDocument/foldingRange" then
+        local win = vim.api.nvim_get_current_win()
+        vim.wo[win][0].foldexpr = "v:lua.vim.lsp.foldexpr()"
+      end
+    end,
   },
   {
     { "BufEnter" },
@@ -89,7 +97,7 @@ return {
     end,
   },
 
-	-- lazygit with snacks_terminal
+  -- lazygit with snacks_terminal
   {
     { "BufRead", "BufEnter" },
     function(event)
