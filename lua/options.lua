@@ -15,12 +15,6 @@ local options = {
     confirm = true,
     encoding = "utf-8",
     -- termencoding = "utf-8",
-    foldenable = true,
-    foldlevel = 99,
-    foldlevelstart = 99,
-    foldcolumn = "1",
-    foldmethod = "expr",
-    foldexpr = "nvim_treesitter#foldexpr()",
     ignorecase = true,
     infercase = true,
     swapfile = false,
@@ -33,10 +27,7 @@ local options = {
     laststatus = 3,
     splitkeep = "screen",
     scrolloff = 10,
-    fillchars = {
-      eob = " ",
-      vert = " ",
-    },
+    foldcolumn = "0",
     mouse = "a",
     number = true,
     preserveindent = true,
@@ -55,12 +46,19 @@ local options = {
   },
   o = {
     background = "dark",
+    foldenable = true,
+    foldlevel = 99,
+    foldmethod = "expr",
+    foldexpr = "v:lua.vim.treesitter.foldexpr()",
+    foldtext = "",
   },
 }
 
 vim.cmd "set verbosefile=$HOME/.dotfile/logs/nvim.log"
 
 vim.opt.iskeyword:append "-"
+
+vim.opt.fillchars:append { fold = " " }
 
 if vim.g.neovide then
   local opts = {
