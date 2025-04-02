@@ -36,7 +36,13 @@ local options = {
     undofile = true,
     jumpoptions = "",
     foldcolumn = "1",
-    fillchars = [[eob: ,fold: ,foldopen:,foldsep: ,foldclose:]],
+    fillchars = {
+      eob = " ",
+      fold = " ",
+      foldopen = "",
+      foldsep = " ",
+      foldclose = "",
+    },
   },
   g = {
     mapleader = " ",
