@@ -49,7 +49,7 @@ local options = {
     foldenable = true,
     foldlevel = 99,
     foldmethod = "expr",
-    foldexpr = "v:lua.vim.treesitter.foldexpr()",
+    foldexpr = "v:lua.vim.lsp.foldexpr()",
     foldtext = "",
   },
 }
