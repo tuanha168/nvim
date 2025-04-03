@@ -2,6 +2,7 @@ return {
   {
     "rebelot/heirline.nvim",
     dependencies = {
+      { "echasnovski/mini.bufremove", version = "*" },
       "zeioth/heirline-components.nvim",
       "nvim-tree/nvim-web-devicons",
       { "stevearc/aerial.nvim", opts = {} },
