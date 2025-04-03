@@ -19,7 +19,7 @@ return {
       scope = { enabled = true },
       scroll = { enabled = false },
       statuscolumn = {
-        enabled = true,
+        enabled = false,
         folds = {
           open = true,
         },
