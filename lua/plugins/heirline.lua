@@ -224,9 +224,7 @@ return {
   {
     "rebelot/heirline.nvim",
     dependencies = {
-      {
-        "zeioth/heirline-components.nvim",
-      },
+      "zeioth/heirline-components.nvim",
     },
     event = "User BaseDefered",
     opts = function()
