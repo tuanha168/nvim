@@ -4,6 +4,7 @@ return {
     dependencies = {
       "zeioth/heirline-components.nvim",
       "nvim-tree/nvim-web-devicons",
+      { "stevearc/aerial.nvim", opts = {} },
     },
     event = "VeryLazy",
     opts = function()
