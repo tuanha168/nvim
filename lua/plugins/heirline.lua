@@ -15,7 +15,7 @@ return {
             local is_disabled = not require("heirline-components.buffer").is_valid(args.buf)
               or lib.condition.buffer_matches({
                 buftype = { "terminal", "prompt", "nofile", "help", "quickfix" },
-                filetype = { "NvimTree", "neo%-tree", "dashboard", "Outline", "aerial" },
+                filetype = { "alpha", "NvimTree", "neo%-tree", "dashboard", "Outline", "aerial" },
               }, args.buf)
             return is_disabled
           end,
