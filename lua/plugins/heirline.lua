@@ -28,19 +28,19 @@ return {
         },
         winbar = { -- UI breadcrumbs bar
           init = function(self) self.bufnr = vim.api.nvim_get_current_buf() end,
-          -- fallthrough = false,
+          fallthrough = false,
           -- Winbar for terminal, neotree, and aerial.
-          -- {
-          --   condition = function() return not lib.condition.is_active() end,
-          --   {
-          --     lib.component.neotree(),
-          --     lib.component.compiler_play(),
-          --     lib.component.fill(),
-          --     lib.component.compiler_build_type(),
-          --     lib.component.compiler_redo(),
-          --     lib.component.aerial(),
-          --   },
-          -- },
+          {
+            condition = function() return not lib.condition.is_active() end,
+            {
+              lib.component.neotree(),
+              lib.component.compiler_play(),
+              lib.component.fill(),
+              lib.component.compiler_build_type(),
+              lib.component.compiler_redo(),
+              lib.component.aerial(),
+            },
+          },
           -- Regular winbar
           {
             -- lib.component.neotree(),
