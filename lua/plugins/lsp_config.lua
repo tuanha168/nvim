@@ -65,6 +65,12 @@ return {
                   dynamicRegistration = true,
                 },
               },
+              textDocument = {
+                foldingRange = {
+                  dynamicRegistration = false,
+                  lineFoldingOnly = true,
+                },
+              },
             }, capabilities, server.capabilities or {})
             -- server.on_attach = require "lsp.on_attach"
             require("lspconfig")[server_name].setup(server)
