@@ -59,7 +59,6 @@ local options = {
     foldmethod = "expr",
     foldexpr = "v:lua.vim.treesitter.foldexpr()",
     foldtext = "",
-    statuscolumn = '%s%=%{v:wrap ? "" : v:lnum} %#FoldColumn#%@v:lua.StatusColumn.handler.fold@%{v:lua.StatusColumn.display.fold()}%#StatusColumnBorder#▐%#StatusColumnBuffer#',
   },
 }
 
