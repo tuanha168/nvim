@@ -226,7 +226,7 @@ return {
     dependencies = {
       "zeioth/heirline-components.nvim",
     },
-    event = "User BaseDefered",
+    event = "VeryLazy",
     opts = function()
       local lib = require "heirline-components.all"
       return {
