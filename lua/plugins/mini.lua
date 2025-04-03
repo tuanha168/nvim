@@ -15,9 +15,6 @@ return {
 
   {
     "echasnovski/mini.files",
-    dependencies = {
-      { "nvim-neo-tree/neo-tree.nvim", enabled = false },
-    },
     keys = {
       {
         "<c-n>",

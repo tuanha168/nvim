@@ -1,7 +1,5 @@
 return {
   "vuki656/package-info.nvim",
-  enabled = false,
-  lazy = false,
   dependency = "MunifTanjim/nui.nvim",
   config = function()
     require("package-info").setup {
