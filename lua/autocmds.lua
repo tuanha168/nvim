@@ -101,11 +101,11 @@ return {
   {
     { "BufRead", "BufEnter" },
     function(event)
-      if not Snacks then return end
-
-      if vim.api.nvim_get_option_value("filetype", { buf = event.buf }) ~= "snacks_terminal" then
-        local instance = Snacks.terminal.get({ "lazygit" }, { create = false })
-        if instance then instance.hide(instance) end
+      if Snacks then
+        if vim.api.nvim_get_option_value("filetype", { buf = event.buf }) ~= "snacks_terminal" then
+          local instance = Snacks.terminal.get({ "lazygit" }, { create = false })
+          if instance then instance.hide(instance) end
+        end
       end
     end,
   },
