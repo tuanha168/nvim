@@ -149,7 +149,7 @@ return {
     end,
   },
 
-  { "wellle/targets.vim", event = "BufEnter" },
+  { "wellle/targets.vim", event = "BufRead" },
 
   {
     "jwalton512/vim-blade",
