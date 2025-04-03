@@ -305,6 +305,9 @@ return {
       heirline_components.init.subscribe_to_events()
       heirline.load_colors(heirline_components.hl.get_colors())
       heirline.setup(opts)
+
+      vim.o.showtabline = 2
+      vim.cmd [[au FileType * if index(['wipe', 'delete'], &bufhidden) >= 0 | set nobuflisted | endif]]
     end,
   },
 }
