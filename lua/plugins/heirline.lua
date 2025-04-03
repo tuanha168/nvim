@@ -28,7 +28,7 @@ return {
         },
         winbar = { -- UI breadcrumbs bar
           init = function(self) self.bufnr = vim.api.nvim_get_current_buf() end,
-          fallthrough = false,
+          -- fallthrough = false,
           -- Winbar for terminal, neotree, and aerial.
           -- {
           --   condition = function() return not lib.condition.is_active() end,
