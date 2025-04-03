@@ -53,6 +53,8 @@ local function get_unique_path(bufnr)
     end
   end
 
+  if not file_map[filename] then return "" end
+
   -- If the filename is unique, return it directly
   if #file_map[filename] == 1 then return filename end
 
