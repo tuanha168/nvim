@@ -44,12 +44,12 @@ return {
           },
           -- Regular winbar
           {
-            lib.component.neotree(),
-            lib.component.compiler_play(),
-            lib.component.fill(),
+            -- lib.component.neotree(),
+            -- lib.component.compiler_play(),
+            -- lib.component.fill(),
             lib.component.breadcrumbs(),
             lib.component.fill(),
-            lib.component.compiler_redo(),
+            -- lib.component.compiler_redo(),
             lib.component.aerial(),
           },
         },
