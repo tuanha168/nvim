@@ -1,1 +1,1 @@
-return { "Aasim-A/scrollEOF.nvim", opts = {}, event = "BufEnter" }
+return { "Aasim-A/scrollEOF.nvim", opts = {}, event = "BufRead" }
