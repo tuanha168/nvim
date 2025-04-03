@@ -25,19 +25,7 @@ return {
       if haveBlink then capabilities = blink.get_lsp_capabilities(capabilities) end
 
       local servers = {
-        lua_ls = {
-          settings = {
-            Lua = {
-              completion = {
-                callSnippet = "Replace",
-              },
-              hint = {
-                enable = true,
-              },
-              diagnostics = { disable = { "missing-fields" } },
-            },
-          },
-        },
+        lua_ls = require "lsp.config.lua_ls",
         volar = require "lsp.config.volar",
         eslint = require "lsp.config.eslint",
         tailwindcss = require "lsp.config.tailwindcss",
