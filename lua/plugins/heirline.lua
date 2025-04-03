@@ -46,7 +46,7 @@ return {
           {
             -- lib.component.neotree(),
             -- lib.component.compiler_play(),
-            -- lib.component.fill(),
+            lib.component.fill(),
             lib.component.breadcrumbs(),
             lib.component.fill(),
             -- lib.component.compiler_redo(),
