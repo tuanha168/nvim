@@ -46,7 +46,7 @@ return {
 
       {
         "<Leader>k",
-        function() vim.lsp.buf.hover() end,
+        function() vim.lsp.buf.hover { border = "rounded" } end,
         description = "Hover symbol details",
         opts = { buffer = bufnr },
       },
