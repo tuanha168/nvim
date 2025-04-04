@@ -32,7 +32,7 @@ return {
         jsonls = {},
         intelephense = require "lsp.config.intelephense",
         yamlls = {},
-        omnisharp = require "lsp.config.omnisharp",
+        -- omnisharp = require "lsp.config.omnisharp",
         cssls = require "lsp.config.cssls",
         html = require "lsp.config.html",
         ts_ls = require "lsp.config.ts_ls",
@@ -92,4 +92,26 @@ return {
   --     }
   --   }
   -- },
+
+  -- C#
+  {
+    "seblyng/roslyn.nvim",
+    ft = "cs",
+    ---@module 'roslyn.config'
+    ---@type RoslynNvimConfig
+    dependencies = {
+      {
+        "williamboman/mason.nvim",
+        opts = {
+          registries = {
+            "github:Crashdummyy/mason-registry",
+            "github:mason-org/mason-registry",
+          },
+        },
+      },
+    },
+    opts = {
+      -- your configuration comes here; leave empty for default settings
+    },
+  },
 }
