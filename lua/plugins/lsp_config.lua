@@ -132,7 +132,10 @@ return {
           },
         },
       },
-      exe = "Microsoft.CodeAnalysis.LanguageServer",
+      exe = {
+        "dotnet",
+        vim.fs.joinpath(vim.fn.stdpath "data", "roslyn", "Microsoft.CodeAnalysis.LanguageServer.dll"),
+      },
       args = {
         "--logLevel=Information",
         "--extensionLogDirectory=" .. vim.fs.dirname(vim.lsp.get_log_path()),
