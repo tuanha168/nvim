@@ -2,7 +2,34 @@
 return {
   {
     "mfussenegger/nvim-dap",
-    lazy = true,
+    keys = {
+      {
+        "<Leader>dc",
+        function() require("dap").continue() end,
+        desc = "Dap Continue",
+      },
+      {
+        "<Leader>db",
+        function() require("dap").toggle_breakpoint() end,
+        desc = "Dap Toggle Breakpoint",
+      },
+      {
+        "<Leader>di",
+        function() require("dap").step_into() end,
+        desc = "Dap Step Into",
+      },
+      {
+        "<Leader>dn",
+        function() require("dap").step_over() end,
+        desc = "Dap Step Over",
+      },
+      {
+        "<Leader>do",
+        function() require("dap").step_out() end,
+        desc = "Dap Step Out",
+      },
+      }
+    },
     config = function()
       require("dap.ext.vscode").load_launchjs(nil, {
         ["python"] = {
