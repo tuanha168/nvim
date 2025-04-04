@@ -44,6 +44,7 @@ return {
   },
   {
     "igorlfs/nvim-dap-view",
+    cmd = { "DapViewOpen", "DapViewClose", "DapViewToggle" },
     keys = {
       {
         "<Leader>dk",
