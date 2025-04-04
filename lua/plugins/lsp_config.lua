@@ -133,7 +133,7 @@ return {
         },
       },
       args = {
-        "--logLevel=Warning",
+        "--logLevel=Information",
         "--extensionLogDirectory=" .. vim.fs.dirname(vim.lsp.get_log_path()),
       },
     },
