@@ -115,6 +115,8 @@ return {
 
       local roslynPath = registry.get_package("roslyn"):get_install_path()
 
+      Print(vim.fs.joinpath(roslynPath, "libexec", "Microsoft.CodeAnalysis.LanguageServer.dll"))
+
       return {
         config = {
           settings = {
