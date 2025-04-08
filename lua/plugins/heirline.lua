@@ -65,6 +65,18 @@ return {
       { "stevearc/aerial.nvim", opts = {} },
     },
     event = "VeryLazy",
+    keys = {
+      {
+        "<Tab>",
+        function() require("heirline-components.buffer").nav(1) end,
+        desc = "Move to next buffer",
+      },
+      {
+        "<S-Tab>",
+        function() require("heirline-components.buffer").nav(-1) end,
+        desc = "Move to previous buffer",
+      },
+    },
     opts = function()
       -- local utils = require "heirline.utils"
 
