@@ -35,8 +35,7 @@ return {
   -- copilot
   {
     "zbirenbaum/copilot.lua",
-    event = "BufRead",
-    enabled = false,
+    event = "InsertEnter",
     opts = {
       panel = {
         enabled = false,
