@@ -101,8 +101,7 @@ return {
   {
     "saghen/blink.cmp",
     event = "InsertEnter",
-    -- use a release tag to download pre-built binaries
-    version = "*",
+    build = "cargo build --release", -- for delimiters
 
     ---@module 'blink.cmp'
     ---@type blink.cmp.Config
