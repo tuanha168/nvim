@@ -32,7 +32,7 @@ return {
         -- Conform will run the first available formatter
         javascript = { "eslint", "prettierd", "prettier" },
         typescript = { "eslint", "prettierd", "prettier" },
-        vue = { "eslint", "prettierd", "prettier", stop_after_first = false },
+        vue = { "eslint", "prettierd", "prettier" },
         html = { "prettierd", "prettier" },
         json = { "prettierd", "prettier" },
         php = { "pint" },
