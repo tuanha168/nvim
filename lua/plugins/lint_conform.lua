@@ -30,10 +30,10 @@ return {
         -- You can customize some of the format options for the filetype (:help conform.format)
         rust = { "rustfmt" },
         -- Conform will run the first available formatter
-        javascript = { "eslint", "prettierd", "prettier", "volar" },
-        typescript = { "eslint", "prettierd", "prettier", "volar" },
-        vue = {"volar", stop_after_first = false },
-        html = { "prettierd", "prettier", "volar" },
+        javascript = { "eslint", "prettierd", "prettier" },
+        typescript = { "eslint", "prettierd", "prettier" },
+        vue = { "eslint", "prettierd", "prettier", stop_after_first = false },
+        html = { "prettierd", "prettier" },
         json = { "prettierd", "prettier" },
         php = { "pint" },
       },
