@@ -7,4 +7,4 @@ function Chiruno.func.format_lsp()
   }
 end
 
-return Chiruno.func.format_lsp()
+return Chiruno.func.format_lsp

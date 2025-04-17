@@ -17,12 +17,12 @@ return {
           local ok, conform = pcall(require, "conform")
           if ok and not vim.b[bufnr].haveEslint then
             conform.format({}, function(err, did_edit)
-              if err and not did_edit then Chiruno.func. end
+              if err and not did_edit then Chiruno.func.format_lsp() end
             end)
             return
           end
 
-          vim.lsp.buf.format()
+          Chiruno.func.format_lsp()
         end,
         description = "Format code",
         opts = { buffer = bufnr },
