@@ -60,7 +60,7 @@ return {
                 },
               },
             }, capabilities, server.capabilities or {})
-            -- server.on_attach = require "lsp.on_attach"
+            server.on_attach = require "lsp.on_attach"
             require("lspconfig")[server_name].setup(server)
           end,
         },
