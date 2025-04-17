@@ -24,18 +24,18 @@ return {
     event = "BufRead",
     opts = {
       formatters_by_ft = {
-        lua = { "stylua", "lua_ls", stop_after_first = true },
+        lua = { "stylua", "lua_ls" },
         -- Conform will run multiple formatters sequentially
-        python = { "isort", "black", stop_after_first = true },
+        python = { "isort", "black" },
         -- You can customize some of the format options for the filetype (:help conform.format)
-        rust = { "rustfmt", stop_after_first = true },
+        rust = { "rustfmt" },
         -- Conform will run the first available formatter
-        javascript = { "eslint", "prettierd", "prettier", "volar", stop_after_first = true },
-        typescript = { "eslint", "prettierd", "prettier", "volar", stop_after_first = true },
-        vue = { "eslint", "prettierd", "prettier", "volar", stop_after_first = true },
-        html = { "prettierd", "prettier", "volar", stop_after_first = true },
-        json = { "prettierd", "prettier", stop_after_first = true },
-        php = { "pint", stop_after_first = true },
+        javascript = { "eslint", "prettierd", "prettier", "volar" },
+        typescript = { "eslint", "prettierd", "prettier", "volar" },
+        vue = {"volar", stop_after_first = false },
+        html = { "prettierd", "prettier", "volar" },
+        json = { "prettierd", "prettier" },
+        php = { "pint" },
       },
     },
   },
