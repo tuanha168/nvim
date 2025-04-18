@@ -64,13 +64,13 @@ return {
       {
         "<A-i>",
         function() require("nes").get_suggestion() end,
-        mode = "n",
+        mode = { "n", "i" },
         desc = "*Nes* get suggestion",
       },
       {
         "<A-n>",
         function() require("nes").apply_suggestion(0, { jump = true, trigger = true }) end,
-        mode = "n",
+        mode = { "n", "i" },
         desc = "[Nes] apply suggestion",
       },
     },
