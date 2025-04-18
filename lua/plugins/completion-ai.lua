@@ -52,29 +52,29 @@ return {
     },
   },
 
-  {
-    "Xuyuanp/nes.nvim",
-    event = "InsertEnter",
-    dependencies = {
-      "nvim-lua/plenary.nvim",
-      "zbirenbaum/copilot.lua",
-    },
-    opts = {},
-    keys = {
-      {
-        "<A-i>",
-        function() require("nes").get_suggestion() end,
-        mode = { "n", "i" },
-        desc = "*Nes* get suggestion",
-      },
-      {
-        "<A-n>",
-        function() require("nes").apply_suggestion(0, { jump = true, trigger = true }) end,
-        mode = { "n", "i" },
-        desc = "[Nes] apply suggestion",
-      },
-    },
-  },
+  -- {
+  --   "Xuyuanp/nes.nvim",
+  --   event = "InsertEnter",
+  --   dependencies = {
+  --     "nvim-lua/plenary.nvim",
+  --     "zbirenbaum/copilot.lua",
+  --   },
+  --   opts = {},
+  --   keys = {
+  --     {
+  --       "<A-i>",
+  --       function() require("nes").get_suggestion() end,
+  --       mode = { "n", "i" },
+  --       desc = "*Nes* get suggestion",
+  --     },
+  --     {
+  --       "<A-n>",
+  --       function() require("nes").apply_suggestion(0, { jump = true, trigger = true }) end,
+  --       mode = { "n", "i" },
+  --       desc = "[Nes] apply suggestion",
+  --     },
+  --   },
+  -- },
 
   -- codeium
   -- {
