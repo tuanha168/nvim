@@ -52,6 +52,16 @@ return {
     },
   },
 
+  {
+    "Xuyuanp/nes.nvim",
+    event = "InsertEnter",
+    dependencies = {
+      "nvim-lua/plenary.nvim",
+      "zbirenbaum/copilot.lua",
+    },
+    opts = {},
+  },
+
   -- codeium
   -- {
   --   "jcdickinson/codeium.nvim",
