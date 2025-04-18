@@ -62,13 +62,13 @@ return {
     opts = {},
     keys = {
       {
-        "<C-l>",
+        "<A-i>",
         function() require("nes").get_suggestion() end,
         mode = "i",
         desc = "[Nes] get suggestion",
       },
       {
-        "<C-n>",
+        "<A-n>",
         function() require("nes").apply_suggestion(0, { jump = true, trigger = true }) end,
         mode = "i",
         desc = "[Nes] apply suggestion",
