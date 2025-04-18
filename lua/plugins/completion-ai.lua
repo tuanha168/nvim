@@ -64,7 +64,7 @@ return {
       {
         "<A-i>",
         function() require("nes").get_suggestion() end,
-        mode = "i",
+        mode = "n",
         desc = "[Nes] get suggestion",
       },
       {
