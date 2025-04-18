@@ -60,6 +60,20 @@ return {
       "zbirenbaum/copilot.lua",
     },
     opts = {},
+    keys = {
+      {
+        "<C-l>",
+        function() require("nes").get_suggestion() end,
+        mode = "i",
+        desc = "[Nes] get suggestion",
+      },
+      {
+        "<C-n>",
+        function() require("nes").apply_suggestion(0, { jump = true, trigger = true }) end,
+        mode = "i",
+        desc = "[Nes] apply suggestion",
+      },
+    },
   },
 
   -- codeium
