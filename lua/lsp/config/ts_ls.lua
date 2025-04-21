@@ -1,5 +1,4 @@
 return {
-  enabled = false,
   filetypes = {
     "javascript",
     "javascript.jsx",
