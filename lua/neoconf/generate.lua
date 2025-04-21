@@ -32,39 +32,39 @@ return {
               tsserver = {
                 web = {
                   projectWideIntellisense = {
-                    enabled = true,
+                    enabled = "true",
                   },
                 },
               },
               inlayHints = {
-                enumMemberValues = { enabled = true },
-                propertyDeclarationTypes = { enabled = true },
+                enumMemberValues = { enabled = "true" },
+                propertyDeclarationTypes = { enabled = "true" },
                 parameterNames = {
                   enabled = "all",
-                  suppressWhenArgumentMatchesName = true,
+                  suppressWhenArgumentMatchesName = "true",
                 },
                 -- functionLikeReturnTypes = { enabled = "true" },
                 -- variableTypes = {
                 --   enabled = "true",
                 --   suppressWhenTypeMatchesName = "true",
                 -- },
-                parameterTypes = { enabled = true },
+                parameterTypes = { enabled = "true" },
               },
             },
             javascript = {
               inlayHints = {
-                enumMemberValues = { enabled = true },
-                propertyDeclarationTypes = { enabled = true },
+                enumMemberValues = { enabled = "true" },
+                propertyDeclarationTypes = { enabled = "true" },
                 parameterNames = {
                   enabled = "all",
-                  suppressWhenArgumentMatchesName = true,
+                  suppressWhenArgumentMatchesName = "true",
                 },
                 -- functionLikeReturnTypes = { enabled = "true" },
                 -- variableTypes = {
                 --   enabled = "true",
                 --   suppressWhenTypeMatchesName = "true",
                 -- },
-                parameterTypes = { enabled = true },
+                parameterTypes = { enabled = "true" },
               },
             },
           },
