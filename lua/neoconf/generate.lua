@@ -25,8 +25,6 @@ return {
         },
       },
       lspconfig = {
-        volar = {
-        },
         rust_analyzer = {
           ["rust-analyzer"] = {
             lens = {

@@ -1,6 +1,7 @@
 local util = require "lspconfig.util"
 local home = os.getenv "HOME"
 
+---@type lspconfig.options.volar
 return {
   root_dir = util.root_pattern("tsconfig.json", "tsconfig.ts", "tsconfig.js", "package.json"),
   filetypes = {
