@@ -18,8 +18,7 @@ end
 -- Generate neoconf
 local neoconf = os.getenv "HOME" .. "/.config/nvim/neoconf"
 if not Chiruno.func.file_exist(neoconf .. ".json") then
-  Print("Generate neoconf:", neoconf .. ".json")
-  vim.schedule(require("neoconf").generateJson)
+  vim.schedule(require("neoconf.generate").generate)
 end
 
 -- Add filetype
