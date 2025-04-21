@@ -26,27 +26,47 @@ return {
       },
       ---@type lspconfig.options
       lspconfig = {
-        typescript = {
-          tsserver = {
-            web = {
-              projectWideIntellisense = {
-                enabled = "true",
+        ts_ls = {
+          settings = {
+            typescript = {
+              tsserver = {
+                web = {
+                  projectWideIntellisense = {
+                    enabled = true,
+                  },
+                },
+              },
+              inlayHints = {
+                enumMemberValues = { enabled = true },
+                propertyDeclarationTypes = { enabled = true },
+                parameterNames = {
+                  enabled = "all",
+                  suppressWhenArgumentMatchesName = true,
+                },
+                -- functionLikeReturnTypes = { enabled = "true" },
+                -- variableTypes = {
+                --   enabled = "true",
+                --   suppressWhenTypeMatchesName = "true",
+                -- },
+                parameterTypes = { enabled = true },
               },
             },
-          },
-          inlayHints = {
-            enumMemberValues = { enabled = "true" },
-            propertyDeclarationTypes = { enabled = "true" },
-            parameterNames = {
-              enabled = "all",
-              suppressWhenArgumentMatchesName = "true",
+            javascript = {
+              inlayHints = {
+                enumMemberValues = { enabled = true },
+                propertyDeclarationTypes = { enabled = true },
+                parameterNames = {
+                  enabled = "all",
+                  suppressWhenArgumentMatchesName = true,
+                },
+                -- functionLikeReturnTypes = { enabled = "true" },
+                -- variableTypes = {
+                --   enabled = "true",
+                --   suppressWhenTypeMatchesName = "true",
+                -- },
+                parameterTypes = { enabled = true },
+              },
             },
-            -- functionLikeReturnTypes = { enabled = "true" },
-            -- variableTypes = {
-            --   enabled = "true",
-            --   suppressWhenTypeMatchesName = "true",
-            -- },
-            parameterTypes = { enabled = "true" },
           },
         },
         volar = {
