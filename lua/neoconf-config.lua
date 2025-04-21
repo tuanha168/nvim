@@ -1,6 +1,6 @@
 return {
   setup = function()
-    local haveJson, json = pcall(require, "json/json")
+    local haveJson, json = pcall(require, "json.lua/json")
     Print(haveJson, json)
     if not haveJson then
       print "Install json lib: luarocks install json.lua"
