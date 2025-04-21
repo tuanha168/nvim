@@ -40,6 +40,7 @@ return {
       italic_comment = true, -- default false
       -- overrides the default highlights see `:h synIDattr`
       overrides = {
+        LspInlayHint = { fg = "#8896c2" },
         -- Examples
         -- NonText = { fg = dracula.colors().white }, -- set NonText fg to white
         -- NvimTreeIndentMarker = { link = "NonText" }, -- link to NonText highlight
