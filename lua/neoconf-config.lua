@@ -1,6 +1,6 @@
 return {
   setup = function()
-    local jso1 = require("json.lua.json")
+    local jso1 = require("json")
     Print(jso1)
     local haveJson, json = pcall(require, "json.lua.json")
     Print(haveJson, json)
