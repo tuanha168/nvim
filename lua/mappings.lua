@@ -120,4 +120,7 @@ return {
 
   { "/", "<Esc>/\\%V", desc = "Search in visual mode", mode = { "x" } },
   { "?", "<Esc>?\\%V", desc = "Search in visual mode", mode = { "x" } },
+
+  -- Joinlines
+  {"gJ", "mzJ`z:delmarks z<CR>", desc = "Join lines", mode = { "n" } },
 }
