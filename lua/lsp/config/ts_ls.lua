@@ -1,6 +1,5 @@
 local volarPath = require("mason-registry").get_package("vue-language-server"):get_install_path()
 
----@type lspconfig.options.ts_ls
 return {
   filetypes = {
     "javascript",
@@ -33,23 +32,5 @@ return {
     --   includeInlayVariableTypeHints = true,
     --   includeInlayFunctionLikeReturnTypeHints = true,
     -- },
-  },
-  settings = {
-    typescript = {
-      inlayHints = {
-        enumMemberValues = { enabled = true },
-        propertyDeclarationTypes = { enabled = true },
-        parameterNames = {
-          enabled = "all",
-          suppressWhenArgumentMatchesName = true,
-        },
-        -- functionLikeReturnTypes = { enabled = "true" },
-        -- variableTypes = {
-        --   enabled = "true",
-        --   suppressWhenTypeMatchesName = "true",
-        -- },
-        parameterTypes = { enabled = true },
-      },
-    },
   },
 }
