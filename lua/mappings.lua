@@ -9,23 +9,23 @@ local mappings = {
   { "<Leader>pp", "<cmd>Gitsigns preview_hunk<CR>" },
 
   -- Move cursor wrapped line
-  { "k", "gk", opts = { silent = true } },
-  { "j", "gj", opts = { silent = true } },
+  { "k", "gk", silent = true },
+  { "j", "gj", silent = true },
 
   -- Moving
-  { "K", ":m .-2<CR>==", opts = { silent = true } },
-  { "J", ":m .+1<CR>==", opts = { silent = true } },
+  { "K", ":m .-2<CR>==", silent = true },
+  { "J", ":m .+1<CR>==", silent = true },
   { "}", "<C-d>zz" },
   { "{", "<C-u>zz" },
   -- Close Preview
-  { "<CR>", "<CR>zz", opts = { silent = true } },
+  { "<CR>", "<CR>zz", silent = true },
   -- ["q"] = { "<ESC>:ccl<CR>q", silent = true },
   -- Yank
-  { "<c-c>", '"+yiw', desc = "Yank", opts = { noremap = true } },
-  { "<Leader>y", '"+y', desc = "Yank system clipboard", opts = { noremap = true } },
-  { "<Leader>Y", '"+y$', desc = "Yank system clipboard", opts = { noremap = true } },
-  { "<Leader>p", '"+p', desc = "Paste system clipboard", opts = { noremap = true } },
-  { "<Leader>P", '"+P', desc = "Paste system clipboard", opts = { noremap = true } },
+  { "<c-c>", '"+yiw', desc = "Yank", noremap = true },
+  { "<Leader>y", '"+y', desc = "Yank system clipboard", noremap = true },
+  { "<Leader>Y", '"+y$', desc = "Yank system clipboard", noremap = true },
+  { "<Leader>p", '"+p', desc = "Paste system clipboard", noremap = true },
+  { "<Leader>P", '"+P', desc = "Paste system clipboard", noremap = true },
   {
     "<Leader>O",
     function()
@@ -43,8 +43,8 @@ local mappings = {
   -- Illuminate
   { "(", function() require("illuminate").goto_next_reference() end },
   { ")", function() require("illuminate").goto_prev_reference() end },
-  { "+", "<C-a>", opts = { noremap = true } },
-  { "-", "<C-x>", opts = { noremap = true } },
+  { "+", "<C-a>", noremap = true },
+  { "-", "<C-x>", noremap = true },
   { "<C-z>i", "<C-i>" },
   {
     "dd",
@@ -56,9 +56,9 @@ local mappings = {
       end
     end,
   },
-  { "<Leader>fd", function() Chiruno.func.run_make() end, desc = "Run make", opts = { noremap = true } },
-  { "]c", "<cmd>cn<CR>", desc = "Next error", opts = { noremap = true } },
-  { "[c", "<cmd>cp<CR>", desc = "Previous error", opts = { noremap = true } },
+  { "<Leader>fd", function() Chiruno.func.run_make() end, desc = "Run make", noremap = true },
+  { "]c", "<cmd>cn<CR>", desc = "Next error", noremap = true },
+  { "[c", "<cmd>cp<CR>", desc = "Previous error", noremap = true },
   -- {
   --   "<Leader>du",
   --   function()
@@ -73,7 +73,7 @@ local mappings = {
   -- ["*"] = { function() Chiruno.func.operatorfunc_lua "search" end },
   { "<Leader>r", function() Chiruno.func.operatorfunc_lua "replace_motion" end, mode = { "v" } },
   -- Yank
-  { "<c-c>", '"+y', desc = "Yank", opts = { noremap = true }, mode = { "v" } },
+  { "<c-c>", '"+y', desc = "Yank", noremap = true, mode = { "v" } },
   -- Gitsigns
   { "<c-u>", ":Gitsigns undo_stage_hunk<CR>", silent = true },
   { "<c-s>", ":Gitsigns stage_hunk<CR>", silent = true, mode = { "v" } },
@@ -88,12 +88,12 @@ local mappings = {
   -- Disable Yank
   { "c", '"_c', mode = { "v" } },
   { "C", '"_C', mode = { "v" } },
-  { "+", "<C-a>", opts = { noremap = true }, mode = { "v" } },
-  { "-", "<C-x>", opts = { noremap = true }, mode = { "v" } },
-  { "g+", "g<C-a>", opts = { noremap = true }, mode = { "v" } },
-  { "g-", "g<C-x>", opts = { noremap = true }, mode = { "v" } },
+  { "+", "<C-a>", noremap = true, mode = { "v" } },
+  { "-", "<C-x>", noremap = true, mode = { "v" } },
+  { "g+", "g<C-a>", noremap = true, mode = { "v" } },
+  { "g-", "g<C-x>", noremap = true, mode = { "v" } },
 
-  { "<M-BS>", "<C-w>", opts = { noremap = true }, mode = { "i" } },
+  { "<M-BS>", "<C-w>", noremap = true, mode = { "i" } },
 
   -- swap p
   { "p", "P", mode = { "x" } },

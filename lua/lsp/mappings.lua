@@ -3,12 +3,12 @@ return {
   setup = function(bufnr)
     if not bufnr then return end
 
-    require("legendary").keymaps {
+    require("which-key").add {
       {
         "<Leader>l",
         function() vim.diagnostic.open_float() end,
-        description = "Hover diagnostics",
-        opts = { buffer = bufnr },
+        desc = "Hover diagnostics",
+        bufnr = bufnr,
       },
 
       {
@@ -24,8 +24,8 @@ return {
 
           Chiruno.func.format_lsp()
         end,
-        description = "Format code",
-        opts = { buffer = bufnr },
+        desc = "Format code",
+        bufnr = bufnr,
       },
 
       {
@@ -38,32 +38,32 @@ return {
             vim.lsp.buf.code_action()
           end
         end,
-        description = "LSP code action",
-        opts = { buffer = bufnr },
+        desc = "LSP code action",
+        bufnr = bufnr,
       },
 
-      { "<Leader>E", function() vim.lsp.codelens.run() end, description = "Run code lens", opts = { buffer = bufnr } },
+      { "<Leader>E", function() vim.lsp.codelens.run() end, desc = "Run code lens", bufnr = bufnr },
 
       {
         "<Leader>k",
         function() vim.lsp.buf.hover { border = "rounded" } end,
-        description = "Hover symbol details",
-        opts = { buffer = bufnr },
+        desc = "Hover symbol details",
+        bufnr = bufnr,
       },
 
       {
         "gR",
         function() vim.lsp.buf.rename() end,
-        description = "Rename current symbol",
-        opts = { buffer = bufnr },
+        desc = "Rename current symbol",
+        bufnr = bufnr,
       },
 
       {
         "<C-z>i",
         vim.lsp.buf.signature_help,
-        description = "Signature help",
+        desc = "Signature help",
         mode = { "i" },
-        opts = { buffer = bufnr },
+        bufnr = bufnr,
       },
 
       {
@@ -80,9 +80,9 @@ return {
           Chiruno.func.operatorfunc_lua "format_motion"
         end,
         -- "<cmd>Prettier<CR>",
-        description = "Format code",
+        desc = "Format code",
         mode = { "v" },
-        opts = { buffer = bufnr },
+        bufnr = bufnr,
       },
     }
   end,

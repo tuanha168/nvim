@@ -56,3 +56,13 @@ vim.lsp.handlers[methods.textDocument_inlayHint] = function(err, result, ctx, co
 
   inlay_hint_handler(err, result, ctx, config)
 end
+
+local autocmds = require "autocmds"
+for _, autocmd in pairs(autocmds) do
+  vim.api.nvim_create_autocmd(
+    autocmd[1],
+    vim.tbl_deep_extend("force", autocmd.opts or {}, {
+      callback = autocmd[2],
+    })
+  )
+end
