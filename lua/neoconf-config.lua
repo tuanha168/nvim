@@ -6,6 +6,7 @@ end
 
 local home = os.getenv "HOME"
 local file = io.open(home .. "/.config/nvim/neoconf.json", "w")
+Print(file)
 if not file then return end
 
 local config = {
