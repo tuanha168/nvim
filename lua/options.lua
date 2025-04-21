@@ -41,6 +41,16 @@ local options = {
       foldopen = "",
       foldsep = " ",
       foldclose = "",
+      diff = "╱",
+    },
+    diffopt = {
+      "internal",
+      "filler",
+      "closeoff",
+      "context:12",
+      "algorithm:histogram",
+      "linematch:200",
+      "indent-heuristic",
     },
   },
   g = {
