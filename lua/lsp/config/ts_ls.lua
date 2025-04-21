@@ -4,10 +4,11 @@ local inlayHints = {
   includeInlayParameterNameHints = "all",
   includeInlayParameterNameHintsWhenArgumentMatchesName = false,
   includeInlayFunctionParameterTypeHints = true,
+  includeInlayVariableTypeHintsWhenTypeMatchesName = false,
   includeInlayPropertyDeclarationTypeHints = true,
   includeInlayEnumMemberValueHints = true,
-  -- includeInlayVariableTypeHints = true,
-  -- includeInlayFunctionLikeReturnTypeHints = true,
+  includeInlayVariableTypeHints = true,
+  includeInlayFunctionLikeReturnTypeHints = true,
 
   importModuleSpecifierPreference = "non-relative",
 }
