@@ -18,13 +18,6 @@ return {
           },
         },
       }
-
-      vim.api.nvim_create_autocmd("FileType", {
-        pattern = { "rest_nvim_result" },
-        callback = function()
-          vim.cmd.wincmd("L")
-        end,
-      })
     end,
   },
 }

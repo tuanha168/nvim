@@ -59,6 +59,7 @@ local options = {
     foldmethod = "expr",
     foldexpr = "v:lua.vim.treesitter.foldexpr()",
     foldtext = "",
+    splitright = true,
   },
 }
 
