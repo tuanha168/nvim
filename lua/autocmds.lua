@@ -73,7 +73,7 @@ return {
             Chiruno.func.auto_push(dir:gsub("%%", ""))
             if string.match(event.match, "nvim/lua/neoconf.lua") then
               Print("Generate neoconf:", event.match)
-              vim.schedule(require("neoconf").generateJson)
+              vim.schedule(require("neoconf.generate").generate)
             end
             isBreak = true
             break
