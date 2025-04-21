@@ -9,8 +9,18 @@ return {
     },
     config = function()
       ---@type rest.Opts
-      -- vim.g.rest_nvim = {
-      -- }
+      vim.g.rest_nvim = {
+        response = {
+          ---Default response hooks
+          ---@class rest.Config.Response.Hooks
+          hooks = {
+            ---@type boolean Decode the request URL segments on response UI to improve readability
+            decode_url = true,
+            ---@type boolean Format the response body using `gq` command
+            format = false,
+          },
+        },
+      }
     end,
   },
 }
