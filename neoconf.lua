@@ -1,6 +1,6 @@
 local haveJson, json = pcall(require, "json")
 if not haveJson then
-  print("Install json lib: luarocks install json.lua")
+  print "Install json lib: luarocks install json.lua"
   return
 end
 
@@ -23,6 +23,29 @@ local config = {
     },
   },
   lspconfig = {
+    typescript = {
+      tsserver = {
+        web = {
+          projectWideIntellisense = {
+            enabled = "true",
+          },
+        },
+      },
+      inlayHints = {
+        enumMemberValues = { enabled = "true" },
+        propertyDeclarationTypes = { enabled = "true" },
+        parameterNames = {
+          enabled = "all",
+          suppressWhenArgumentMatchesName = "true",
+        },
+        -- functionLikeReturnTypes = { enabled = "true" },
+        -- variableTypes = {
+        --   enabled = "true",
+        --   suppressWhenTypeMatchesName = "true",
+        -- },
+        parameterTypes = { enabled = "true" },
+      },
+    },
     volar = {
       vue = {
         inlayHints = {
