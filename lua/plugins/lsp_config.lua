@@ -17,7 +17,9 @@ return {
             },
           },
         },
-        opts = {},
+        opts = {
+          global_settings = "neoconf.lua",
+        },
       },
       {
         "williamboman/mason.nvim",
