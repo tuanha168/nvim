@@ -24,6 +24,7 @@ return {
           },
         },
       },
+      ---@type lspconfig.options
       lspconfig = {
         typescript = {
           tsserver = {
