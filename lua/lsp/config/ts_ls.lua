@@ -1,7 +1,6 @@
 local volarPath = require("mason-registry").get_package("vue-language-server"):get_install_path()
 
 return {
-  -- enabled = false,
   filetypes = {
     "javascript",
     "javascript.jsx",
@@ -18,7 +17,7 @@ return {
     plugins = {
       {
         name = "@vue/typescript-plugin",
-        location = volarPath .. "/node_modules/@vue/typescript-plugin",
+        location = volarPath .. "/node_modules/@vue/language-server/node_modules/@vue/typescript-plugin",
         languages = { "javascript", "typescript", "vue" },
       },
     },
