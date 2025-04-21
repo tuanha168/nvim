@@ -71,7 +71,7 @@ return {
         for _, exclude in ipairs(excludeDir) do
           if string.match(event.match, dir) and not string.match(event.match, exclude) then
             Chiruno.func.auto_push(dir:gsub("%%", ""))
-            if string.match(event.match, "nvim/lua/neoconf.lua") then
+            if string.match(event.match, "nvim/lua/neoconf/generate.lua") then
               Print("Generate neoconf:", event.match)
               vim.schedule(require("neoconf.generate").generate)
             end
