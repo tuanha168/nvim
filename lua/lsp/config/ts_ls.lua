@@ -1,8 +1,20 @@
 local volarPath = require("mason-registry").get_package("vue-language-server"):get_install_path()
 
+local inlayHints = {
+  includeInlayParameterNameHints = "all",
+  includeInlayParameterNameHintsWhenArgumentMatchesName = false,
+  includeInlayFunctionParameterTypeHints = true,
+  includeInlayPropertyDeclarationTypeHints = true,
+  includeInlayEnumMemberValueHints = true,
+  includeInlayVariableTypeHints = true,
+  includeInlayFunctionLikeReturnTypeHints = true,
+
+  importModuleSpecifierPreference = "non-relative",
+}
+
 ---@type lspconfig.options.ts_ls
 return {
-  enabled = false,
+  -- enabled = false,
   filetypes = {
     "javascript",
     "javascript.jsx",
@@ -44,36 +56,10 @@ return {
           },
         },
       },
-      inlayHints = {
-        enumMemberValues = { enabled = true },
-        propertyDeclarationTypes = { enabled = true },
-        parameterNames = {
-          enabled = "all",
-          suppressWhenArgumentMatchesName = true,
-        },
-        -- functionLikeReturnTypes = { enabled = "true" },
-        -- variableTypes = {
-        --   enabled = "true",
-        --   suppressWhenTypeMatchesName = "true",
-        -- },
-        parameterTypes = { enabled = true },
-      },
+      inlayHints = inlayHints,
     },
     javascript = {
-      inlayHints = {
-        enumMemberValues = { enabled = true },
-        propertyDeclarationTypes = { enabled = true },
-        parameterNames = {
-          enabled = "all",
-          suppressWhenArgumentMatchesName = true,
-        },
-        -- functionLikeReturnTypes = { enabled = "true" },
-        -- variableTypes = {
-        --   enabled = "true",
-        --   suppressWhenTypeMatchesName = "true",
-        -- },
-        parameterTypes = { enabled = true },
-      },
+      inlayHints = inlayHints,
     },
   },
 }
