@@ -125,6 +125,24 @@ return {
           },
         },
         cssls = {
+          less = {
+            validate = "true",
+            lint = {
+              unknownAtRules = "ignore",
+            },
+          },
+          css = {
+            validate = "true",
+            lint = {
+              unknownAtRules = "ignore",
+            },
+          },
+          scss = {
+            validate = "true",
+            lint = {
+              unknownAtRules = "ignore",
+            },
+          },
         },
       },
     }
