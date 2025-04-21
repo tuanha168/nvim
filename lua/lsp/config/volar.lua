@@ -5,5 +5,5 @@ return {
   filetypes = {
     "vue",
   },
-  init_options = { vue = { hybridMode = true } },
+  -- init_options = { vue = { hybridMode = false } },
 }
