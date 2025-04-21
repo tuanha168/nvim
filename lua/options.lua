@@ -41,18 +41,7 @@ local options = {
       foldopen = "",
       foldsep = " ",
       foldclose = "",
-      -- diff = "╱",
     },
-    -- diffopt = {
-    --   "internal",
-    --   "filler",
-    --   "closeoff",
-    --   "context:100",
-    --   "algorithm:histogram",
-    --   "linematch:100",
-    --   "indent-heuristic",
-    --   "vertical",
-    -- },
   },
   g = {
     mapleader = " ",
