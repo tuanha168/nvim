@@ -111,8 +111,8 @@ return {
   { "<C-k>", require("smart-splits").move_cursor_up },
   { "<C-l>", require("smart-splits").move_cursor_right },
 
-  { "<C-H>", require("smart-splits").resize_left },
-  { "<C-J>", require("smart-splits").resize_down },
-  { "<C-K>", require("smart-splits").resize_up },
-  { "<C-L>", require("smart-splits").resize_right },
+  { "<A-h>", require("smart-splits").resize_left },
+  { "<A-j>", require("smart-splits").resize_down },
+  { "<A-k>", require("smart-splits").resize_up },
+  { "<A-l>", require("smart-splits").resize_right },
 }
