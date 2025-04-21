@@ -1,5 +1,5 @@
 return {
-  generateJson = function()
+  generate = function()
     local haveJson, json = pcall(require, "json")
     if not haveJson then
       print "Install json lib: luarocks install json.lua"
