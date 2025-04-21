@@ -8,7 +8,15 @@ return {
     dependencies = {
       {
         "folke/neoconf.nvim",
-        dependencies = { "rxi/json.lua" },
+        dependencies = {
+          {
+            "vhyrro/luarocks.nvim",
+            priority = 1000, -- Very high priority is required, luarocks.nvim should run as the first plugin in your config.
+            opts = {
+              rocks = { "json.lua" }, -- specifies a list of rocks to install
+            },
+          },
+        },
         opts = {},
       },
       {
