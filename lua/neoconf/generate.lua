@@ -81,37 +81,6 @@ return {
           },
         },
         tailwindcss = {
-          tailwindCSS = {
-            classAttributes = {
-              "class",
-              "className",
-              "ngClass",
-              ".*[cC]lass.*",
-              ".*[cC]lasses.*",
-            },
-            experimental = {
-              classRegex = {
-                "[a-zA-Z]*[cC]lass(es)?\\s*=\\s*'([^']*)'",
-                '[a-zA-Z]*[cC]lass(es)?\\s*=\\s*"([^"]*)"',
-                "[a-zA-Z]*[cC]lass(es)?\\s*=\\s*\\{(['`\"][^\\{\\}'`\"]*['`\"])*\\}",
-              },
-            },
-            emmetCompletions = "true",
-          },
-        },
-        intelephense = {
-          intelephense = {
-            format = { braces = "k&r" },
-            diagnostics = {
-              undefinedFunctions = "false",
-              undefinedConstants = "false",
-              undefinedClassConstants = "false",
-              undefinedMethods = "false",
-              undefinedProperties = "false",
-              undefinedVariables = "false",
-              undefinedTypes = "false",
-            },
-          },
         },
         rust_analyzer = {
           ["rust-analyzer"] = {
