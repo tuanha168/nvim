@@ -9,8 +9,15 @@ return {
     },
     config = function()
       ---@type rest.Opts
-      -- vim.g.rest_nvim = {
-      -- }
+      vim.g.rest_nvim = {
+        clients = {
+          curl = {
+            opts = {
+              set_compressed = true,
+            }
+          }
+        }
+      }
     end,
   },
 }
