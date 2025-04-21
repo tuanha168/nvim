@@ -7,8 +7,8 @@ local inlayHints = {
   includeInlayVariableTypeHintsWhenTypeMatchesName = false,
   includeInlayPropertyDeclarationTypeHints = true,
   includeInlayEnumMemberValueHints = true,
-  includeInlayVariableTypeHints = true,
-  includeInlayFunctionLikeReturnTypeHints = true,
+  -- includeInlayVariableTypeHints = true,
+  -- includeInlayFunctionLikeReturnTypeHints = true,
 
   importModuleSpecifierPreference = "non-relative",
 }
