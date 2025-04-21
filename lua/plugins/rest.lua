@@ -6,7 +6,7 @@ return {
     build = "yarn global add curlconverter",
     ft = { "http" },
     keys = {
-      { "<leader>er", "<Plug>RestNvim", desc = "Run" },
+      { "<leader>er", "<cmd>Rest run<CR>", desc = "Run" },
     },
     config = function()
       ---@type rest.Opts
