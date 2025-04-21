@@ -6,8 +6,8 @@ local inlayHints = {
   includeInlayFunctionParameterTypeHints = true,
   includeInlayPropertyDeclarationTypeHints = true,
   includeInlayEnumMemberValueHints = true,
-  includeInlayVariableTypeHints = true,
-  includeInlayFunctionLikeReturnTypeHints = true,
+  -- includeInlayVariableTypeHints = true,
+  -- includeInlayFunctionLikeReturnTypeHints = true,
 
   importModuleSpecifierPreference = "non-relative",
 }
