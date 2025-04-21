@@ -24,6 +24,7 @@ return {
           },
         },
       },
+      ---@type lspconfig.options
       lspconfig = {
         volar = {
           vue = {
@@ -151,6 +152,19 @@ return {
               useFlatConfig = true,
             },
           },
+        },
+        lua_ls = {
+          settings = {
+            Lua = {
+              completion = {
+                callSnippet = "Replace",
+              },
+              hint = {
+                enable = true,
+              },
+              diagnostics = { disable = { "missing-fields" } },
+            },
+          }
         },
       },
     }
