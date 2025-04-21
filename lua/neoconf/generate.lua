@@ -125,43 +125,6 @@ return {
           },
         },
         cssls = {
-          less = {
-            validate = "true",
-            lint = {
-              unknownAtRules = "ignore",
-            },
-          },
-          css = {
-            validate = "true",
-            lint = {
-              unknownAtRules = "ignore",
-            },
-          },
-          scss = {
-            validate = "true",
-            lint = {
-              unknownAtRules = "ignore",
-            },
-          },
-        },
-        eslint = {
-          eslint = {
-            experimental = {
-              -- allows to use flat config format
-              useFlatConfig = true,
-            },
-          },
-        },
-        lua_ls = {
-          Lua = {
-            completion = {
-              callSnippet = "Replace",
-            },
-            hint = {
-              enable = true,
-            },
-            diagnostics = { disable = { "missing-fields" } },
-          },
         },
       },
     }
