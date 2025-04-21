@@ -12,18 +12,14 @@ end
 -- Create commands
 local commands = require "commands"
 for _, command in pairs(commands) do
-  vim.api.nvim_create_user_command(
-    command[1],
-    command[2],
-    vim.tbl_deep_extend("force", command.opts or {}, {})
-  )
+  vim.api.nvim_create_user_command(command[1], command[2], vim.tbl_deep_extend("force", command.opts or {}, {}))
 end
 
 -- Generate neoconf
 local neoconf = os.getenv "HOME" .. "/.config/nvim/neoconf"
 if not Chiruno.func.file_exist(neoconf .. ".json") then
   Print("Generate neoconf:", neoconf .. ".json")
-  vim.schedule(function() vim.cmd("silent !lua " .. neoconf .. ".lua") end)
+  vim.schedule(require("neoconf").generateJson)
 end
 
 -- Add filetype
