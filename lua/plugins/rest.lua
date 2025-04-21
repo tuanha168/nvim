@@ -3,6 +3,7 @@ return {
   {
     "rest-nvim/rest.nvim",
     dependencies = { { "nvim-lua/plenary.nvim" } },
+    build = "yarn global add curlconverter",
     ft = { "http" },
     keys = {
       { "<leader>er", "<Plug>RestNvim", desc = "Run" },
