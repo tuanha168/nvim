@@ -8,7 +8,7 @@ return {
         "<Leader>l",
         function() vim.diagnostic.open_float() end,
         desc = "Hover diagnostics",
-        bufnr = bufnr,
+        buffer = bufnr,
       },
 
       {
@@ -25,7 +25,7 @@ return {
           Chiruno.func.format_lsp()
         end,
         desc = "Format code",
-        bufnr = bufnr,
+        buffer = bufnr,
       },
 
       {
@@ -39,23 +39,23 @@ return {
           end
         end,
         desc = "LSP code action",
-        bufnr = bufnr,
+        buffer = bufnr,
       },
 
-      { "<Leader>E", function() vim.lsp.codelens.run() end, desc = "Run code lens", bufnr = bufnr },
+      { "<Leader>E", function() vim.lsp.codelens.run() end, desc = "Run code lens", buffer = bufnr },
 
       {
         "<Leader>k",
         function() vim.lsp.buf.hover { border = "rounded" } end,
         desc = "Hover symbol details",
-        bufnr = bufnr,
+        buffer = bufnr,
       },
 
       {
         "gR",
         function() vim.lsp.buf.rename() end,
         desc = "Rename current symbol",
-        bufnr = bufnr,
+        buffer = bufnr,
       },
 
       {
@@ -63,7 +63,7 @@ return {
         vim.lsp.buf.signature_help,
         desc = "Signature help",
         mode = { "i" },
-        bufnr = bufnr,
+        buffer = bufnr,
       },
 
       {
@@ -82,7 +82,7 @@ return {
         -- "<cmd>Prettier<CR>",
         desc = "Format code",
         mode = { "v" },
-        bufnr = bufnr,
+        buffer = bufnr,
       },
     }
   end,
