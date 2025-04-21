@@ -1,4 +1,5 @@
 return {
+  -- enabled = false,
   filetypes = {
     "javascript",
     "javascript.jsx",
@@ -6,7 +7,6 @@ return {
     "typescript",
     "typescript.tsx",
     "typescriptreact",
-    "vue",
   },
   compilerOptions = {
     noErrorTruncate = true,
