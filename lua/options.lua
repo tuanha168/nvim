@@ -47,10 +47,11 @@ local options = {
       "internal",
       "filler",
       "closeoff",
-      "context:12",
+      "context:100",
       "algorithm:histogram",
-      "linematch:200",
+      "linematch:100",
       "indent-heuristic",
+      "vertical",
     },
   },
   g = {
