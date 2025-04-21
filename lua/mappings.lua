@@ -118,6 +118,6 @@ return {
   { "<A-k>", require("smart-splits").resize_up },
   { "<A-l>", require("smart-splits").resize_right },
 
-  { "/", "<Esc>/\\%V", desc = "Search in visual mode" },
-  { "?", "<Esc>?\\%V", desc = "Search in visual mode" },
+  { "/", "<Esc>/\\%V", desc = "Search in visual mode", mode = { "x" } },
+  { "?", "<Esc>?\\%V", desc = "Search in visual mode", mode = { "x" } },
 }
