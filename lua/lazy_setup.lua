@@ -8,6 +8,7 @@ require("lazy").setup {
 			opts = {
 				library = {
 					"~/.local/share/nvim/lazy/",
+					"~/.local/share/nvim/lazy/json.lua/json.lua",
 				},
 			},
 		},
