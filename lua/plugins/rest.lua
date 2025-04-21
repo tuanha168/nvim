@@ -14,9 +14,9 @@ return {
           curl = {
             opts = {
               set_compressed = true,
-            }
-          }
-        }
+            },
+          },
+        },
       }
     end,
   },
