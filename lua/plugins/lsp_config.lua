@@ -46,6 +46,7 @@ return {
         html = require "lsp.config.html",
         ts_ls = require "lsp.config.ts_ls",
         stylelint_lsp = require "lsp.config.stylelint_lsp",
+        copilot = {}
       }
 
       require("mason-lspconfig").setup {
