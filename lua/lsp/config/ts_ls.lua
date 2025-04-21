@@ -1,5 +1,4 @@
 local volarPath = require("mason-registry").get_package("vue-language-server"):get_install_path()
-Print(volarPath)
 
 return {
   -- enabled = false,
@@ -10,6 +9,7 @@ return {
     "typescript",
     "typescript.tsx",
     "typescriptreact",
+    "vue",
   },
   compilerOptions = {
     noErrorTruncate = true,
