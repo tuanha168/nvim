@@ -19,6 +19,7 @@ return {
         },
       }
 
+      Print("Rest.nvim loaded")
       vim.api.nvim_create_autocmd("FileType", {
         pattern = { "rest_nvim_result" },
         command = "wincmd L",
