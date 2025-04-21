@@ -1,13 +1,13 @@
 return {
-  settings = {
-    Lua = {
-      completion = {
-        callSnippet = "Replace",
-      },
-      hint = {
-        enable = true,
-      },
-      diagnostics = { disable = { "missing-fields" } },
-    },
-  },
+  -- settings = {
+  --   Lua = {
+  --     completion = {
+  --       callSnippet = "Replace",
+  --     },
+  --     hint = {
+  --       enable = true,
+  --     },
+  --     diagnostics = { disable = { "missing-fields" } },
+  --   },
+  -- },
 }
