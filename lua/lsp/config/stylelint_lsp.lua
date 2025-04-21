@@ -1,3 +1,4 @@
+---@type lspconfig.options.stylelint_lsp
 return {
   enabled = false,
   filetypes = {
