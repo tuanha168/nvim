@@ -8,6 +8,7 @@ return {
     dependencies = {
       {
         "folke/neoconf.nvim",
+        dependencies = { "rxi/json.lua" },
         opts = {},
       },
       {
