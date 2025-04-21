@@ -7,6 +7,11 @@ local mappings = {
   -- ["H"] = { "^" },
   -- ["L"] = { "$" },
   { "<Leader>pp", "<cmd>Gitsigns preview_hunk<CR>" },
+
+  -- Move cursor wrapped line
+  { "k", "gk", opts = { silent = true } },
+  { "j", "gj", opts = { silent = true } },
+
   -- Moving
   { "K", ":m .-2<CR>==", opts = { silent = true } },
   { "J", ":m .+1<CR>==", opts = { silent = true } },
