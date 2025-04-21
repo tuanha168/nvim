@@ -150,19 +150,6 @@ return {
   --   cmd = { "MurenFresh" },
   -- },
 
-  {
-    "ziontee113/icon-picker.nvim",
-    opts = function()
-      vim.keymap.set(
-        "n",
-        "<leader>ip",
-        "<cmd>IconPickerNormal<CR>",
-        { noremap = true, silent = true, desc = "Icon Picker" }
-      )
-    end,
-    keys = { { "<leader>ip", mode = { "n" } } },
-    cmd = "IconPickerNormal",
-  },
 
   -- {
   --   "samodostal/image.nvim",
