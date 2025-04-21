@@ -1,3 +1,24 @@
+-- Create autocmds
+local autocmds = require "autocmds"
+for _, autocmd in pairs(autocmds) do
+  vim.api.nvim_create_autocmd(
+    autocmd[1],
+    vim.tbl_deep_extend("force", autocmd.opts or {}, {
+      callback = autocmd[2],
+    })
+  )
+end
+
+-- Create commands
+local commands = require "commands"
+for _, command in pairs(commands) do
+  vim.api.nvim_create_user_command(
+    command[1],
+    command[2],
+    vim.tbl_deep_extend("force", command.opts or {}, {})
+  )
+end
+
 -- Generate neoconf
 local neoconf = os.getenv "HOME" .. "/.config/nvim/neoconf"
 if not Chiruno.func.file_exist(neoconf .. ".json") then
@@ -55,14 +76,4 @@ vim.lsp.handlers[methods.textDocument_inlayHint] = function(err, result, ctx, co
   end
 
   inlay_hint_handler(err, result, ctx, config)
-end
-
-local autocmds = require "autocmds"
-for _, autocmd in pairs(autocmds) do
-  vim.api.nvim_create_autocmd(
-    autocmd[1],
-    vim.tbl_deep_extend("force", autocmd.opts or {}, {
-      callback = autocmd[2],
-    })
-  )
 end
