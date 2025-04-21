@@ -2,6 +2,7 @@ local volarPath = require("mason-registry").get_package("vue-language-server"):g
 
 ---@type lspconfig.options.ts_ls
 return {
+  enabled = false,
   filetypes = {
     "javascript",
     "javascript.jsx",
