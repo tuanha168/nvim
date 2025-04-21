@@ -1,9 +1,9 @@
-local mappings = {
+return {
   -- ["*"] = { '"ayiwh/<c-r>a<CR>' },
   { "<Leader>r", function() Chiruno.func.operatorfunc_lua "replace_motion" end },
   -- Gitsigns
-  {"[g", function() require("gitsigns").nav_hunk('prev') end, desc = "Previous Git hunk" },
-  {"]g", function() require("gitsigns").nav_hunk('next') end, desc = "Next Git hunk" },
+  { "[g", function() require("gitsigns").nav_hunk "prev" end, desc = "Previous Git hunk" },
+  { "]g", function() require("gitsigns").nav_hunk "next" end, desc = "Next Git hunk" },
   -- ["H"] = { "^" },
   -- ["L"] = { "$" },
   { "<Leader>pp", "<cmd>Gitsigns preview_hunk<CR>" },
@@ -105,6 +105,14 @@ local mappings = {
   { "<S-Tab>", "<cmd>bp<CR>", desc = "Move to previous buffer" },
 
   { "<ESC>", "<cmd>noh<CR>", desc = "No Highlight" },
-}
 
-return mappings
+  { "<C-h>", require("smart-splits").move_cursor_left },
+  { "<C-j>", require("smart-splits").move_cursor_down },
+  { "<C-k>", require("smart-splits").move_cursor_up },
+  { "<C-l>", require("smart-splits").move_cursor_right },
+
+  { "<C-H>", require("smart-splits").resize_left },
+  { "<C-J>", require("smart-splits").resize_down },
+  { "<C-K>", require("smart-splits").resize_up },
+  { "<C-L>", require("smart-splits").resize_right },
+}
