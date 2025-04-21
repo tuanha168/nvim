@@ -1,4 +1,4 @@
-local volarPath = require("mason-registry").get_package("volar"):get_install_path()
+local volarPath = require("mason-registry").get_package("vue-language-server"):get_install_path()
 Print(volarPath)
 
 return {
