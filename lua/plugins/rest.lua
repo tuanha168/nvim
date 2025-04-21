@@ -9,13 +9,8 @@ return {
     },
     config = function()
       ---@type rest.Opts
-      vim.g.rest_nvim = {
-        ui = {
-          keybinds = {
-            quit = "q",
-          }
-        }
-      }
+      -- vim.g.rest_nvim = {
+      -- }
     end,
   },
 }
