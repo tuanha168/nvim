@@ -8,9 +8,11 @@ return {
   -- ["L"] = { "$" },
   { "<Leader>pp", "<cmd>Gitsigns preview_hunk<CR>" },
 
-  -- Move cursor wrapped line
+  -- swap gj gk
   { "k", "gk", silent = true },
   { "j", "gj", silent = true },
+  { "gk", "k", silent = true },
+  { "gj", "j", silent = true },
 
   -- Moving
   { "K", ":m .-2<CR>==", silent = true },
@@ -115,4 +117,7 @@ return {
   { "<A-j>", require("smart-splits").resize_down },
   { "<A-k>", require("smart-splits").resize_up },
   { "<A-l>", require("smart-splits").resize_right },
+
+  { "/", "<Esc>/\\%V", desc = "Search in visual mode" },
+  { "?", "<Esc>?\\%V", desc = "Search in visual mode" },
 }
