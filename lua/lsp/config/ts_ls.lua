@@ -1,6 +1,5 @@
 local volarPath = require("mason-registry").get_package("vue-language-server"):get_install_path()
 
----@type lspconfig.options.ts_ls
 return {
   filetypes = {
     "javascript",
