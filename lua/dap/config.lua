@@ -77,21 +77,26 @@ return {
       javascriptreact = js_debuggers,
       typescriptreact = js_debuggers,
       vue = js_debuggers,
-      -- rust = {
-      --   {
-      --     type = "codelldb",
-      --     request = "launch",
-      --     program = function()
-      --       -- get directory name from getcwd
-      --       local dir = vim.fn.getcwd() .. "/" .. vim.fn.glob "target/debug/"
-      --       os.execute "cargo build >> /dev/null"
-      --       return vim.fn.input("Path to executable: ", dir, "file")
-      --     end,
-      --     cwd = "${workspaceFolder}",
-      --     terminal = "integrated",
-      --     sourceLanguages = { "rust" },
-      --   },
-      -- },
+      rust = {
+        {
+          name = "Launch Rust executable",
+          type = "codelldb",
+          request = "launch",
+          program = function()
+            -- automatically build and get target binary
+            local cwd = vim.fn.getcwd()
+            local output = vim.fn.system("cargo build --bin my_binary_name --message-format=json")
+            local json = vim.fn.json_decode(output)
+            for _, msg in ipairs(json) do
+              if msg.executable then return msg.executable end
+            end
+            return cwd .. "/target/debug/my_binary_name" -- fallback
+          end,
+          cwd = '${workspaceFolder}',
+          stopOnEntry = false,
+          args = {},
+        },
+      },
       cs = {
         {
           type = "coreclr",

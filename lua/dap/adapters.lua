@@ -6,8 +6,12 @@ return {
       args = { "--interpreter=vscode" },
     }
     dap.adapters.codelldb = {
-      type = "executable",
-      command = "codelldb",
+      type = "server",
+      port = "${port}",
+      executable = {
+        command = "/path/to/codelldb/extension/adapter/codelldb", -- <- path to your codelldb binary
+        args = { "--port", "${port}" },
+      },
     }
     dap.adapters["pwa-node"] = {
       type = "server",
