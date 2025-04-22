@@ -79,26 +79,12 @@ return {
       vue = js_debuggers,
       rust = {
         {
-          name = "Launch",
-          type = "lldb",
+          type = "codelldb",
           request = "launch",
-          program = "${workspaceFolder}/<executable file>",
-          args = { "-arg1", "-arg2" },
-        },
-        {
-          type = "lldb",
-          request = "launch2k",
-          cargo = {
-            args = { "test", "--no-run", "--lib" },
-            env = { RUSTFLAGS = "-Clinker=ld.mold" },
-            cwd = "${workspaceFolder}",
-            problemMatcher = "$rustc",
-            filter = {
-              name = "mylib",
-              kind = "lib",
-            },
-          },
-          args = { "mod::fn_name" },
+          program = function() return vim.fn.input("Path to executable: ", vim.fn.getcwd() .. "/", "file") end,
+          cwd = "${workspaceFolder}",
+          terminal = "integrated",
+          sourceLanguages = { "rust" },
         },
       },
       cs = {
