@@ -34,7 +34,7 @@ return {
       {
         name = "@vue/typescript-plugin",
         location = volarPath .. "/node_modules/@vue/language-server/node_modules/@vue/typescript-plugin",
-        languages = { "javascript", "typescript", "vue" },
+        languages = { "vue" },
       },
     },
   },
@@ -49,8 +49,8 @@ return {
       },
       inlayHints = inlayHints,
     },
-    javascript = {
-      inlayHints = inlayHints,
-    },
+    -- javascript = {
+    --   inlayHints = inlayHints,
+    -- },
   },
 }
