@@ -31,11 +31,11 @@ return {
         -- You can customize some of the format options for the filetype (:help conform.format)
         rust = { "rustfmt" },
         -- Conform will run the first available formatter
-        javascript = { "prettierd", "prettier" },
-        typescript = { "prettierd", "prettier" },
-        vue = { "prettierd", "prettier" },
-        html = { "prettierd", "prettier" },
-        json = { "prettierd", "prettier" },
+        javascript = { "prettier", "prettierd" },
+        typescript = { "prettier", "prettierd" },
+        vue = { "prettier", "prettierd" },
+        html = { "prettier", "prettierd" },
+        json = { "prettier", "prettierd" },
         php = { "pint" },
       },
     },
