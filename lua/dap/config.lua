@@ -84,7 +84,7 @@ return {
           program = function()
             -- get directory name from getcwd
             local dir = vim.fn.getcwd() .. "/" .. vim.fn.glob "target/debug/"
-            os.execute "cargo build"
+            os.execute "cargo build >> /dev/null"
             return vim.fn.input("Path to executable: ", dir, "file")
           end,
           cwd = "${workspaceFolder}",
