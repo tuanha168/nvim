@@ -37,7 +37,8 @@ return {
         html = require "lsp.config.html",
         ts_ls = require "lsp.config.ts_ls",
         stylelint_lsp = require "lsp.config.stylelint_lsp",
-        ---@referent lua/plugins/rustaceanvim.lua
+
+        ---@reference lua/plugins/rustaceanvim.lua
         -- rust_analyzer = require "lsp.config.rust_analyzer",
       }
 
