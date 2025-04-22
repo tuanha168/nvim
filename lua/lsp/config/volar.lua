@@ -1,19 +1,17 @@
 local util = require "lspconfig.util"
 local home = os.getenv "HOME"
 
-local filetypes = vim.g.vue_hybrid
-    and {
-      "javascript",
-      "javascript.jsx",
-      "javascriptreact",
-      "typescript",
-      "typescript.tsx",
-      "typescriptreact",
-      "vue",
-    }
-  or {
-    "vue",
-  }
+local filetypes = vim.g.vue_hybrid and {
+  "vue",
+} or {
+  "javascript",
+  "javascript.jsx",
+  "javascriptreact",
+  "typescript",
+  "typescript.tsx",
+  "typescriptreact",
+  "vue",
+}
 
 ---@type lspconfig.options.volar
 return {
