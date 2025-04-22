@@ -77,21 +77,21 @@ return {
       javascriptreact = js_debuggers,
       typescriptreact = js_debuggers,
       vue = js_debuggers,
-      rust = {
-        {
-          type = "codelldb",
-          request = "launch",
-          program = function()
-            -- get directory name from getcwd
-            local dir = vim.fn.getcwd() .. "/" .. vim.fn.glob "target/debug/"
-            os.execute "cargo build >> /dev/null"
-            return vim.fn.input("Path to executable: ", dir, "file")
-          end,
-          cwd = "${workspaceFolder}",
-          terminal = "integrated",
-          sourceLanguages = { "rust" },
-        },
-      },
+      -- rust = {
+      --   {
+      --     type = "codelldb",
+      --     request = "launch",
+      --     program = function()
+      --       -- get directory name from getcwd
+      --       local dir = vim.fn.getcwd() .. "/" .. vim.fn.glob "target/debug/"
+      --       os.execute "cargo build >> /dev/null"
+      --       return vim.fn.input("Path to executable: ", dir, "file")
+      --     end,
+      --     cwd = "${workspaceFolder}",
+      --     terminal = "integrated",
+      --     sourceLanguages = { "rust" },
+      --   },
+      -- },
       cs = {
         {
           type = "coreclr",
