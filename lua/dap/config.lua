@@ -82,8 +82,10 @@ return {
           type = "codelldb",
           request = "launch",
           program = function()
+            -- get directory name from getcwd
+            local dir = vim.fn.getcwd() .. "/" .. vim.fn.glob "target/debug/"
             os.execute "cargo build"
-            return vim.fn.input("Path to executable: ", vim.fn.getcwd() .. "/target/debug/", "file")
+            return vim.fn.input("Path to executable: ", dir, "file")
           end,
           cwd = "${workspaceFolder}",
           terminal = "integrated",
@@ -103,7 +105,7 @@ return {
             "--environment=Development",
           },
           program = function()
-            local dir = vim.loop.cwd() .. "/" .. vim.fn.glob "bin/Debug/net*/"
+            local dir = vim.fn.getcwd() .. "/" .. vim.fn.glob "bin/Debug/net*/"
             local name = dir .. vim.fn.glob("*.csproj"):gsub("%.csproj$", ".dll")
             if not Chiruno.func.file_exist(name) then os.execute "dotnet build" end
             return name
