@@ -83,6 +83,14 @@ return {
           type = "codelldb",
           request = "launch",
           program = function()
+            -- Build the project
+            Print "Building project..."
+            local build_output = vim.fn.system "cargo build"
+            if vim.v.shell_error ~= 0 then
+              Print(build_output)
+              error "Cargo build failed"
+            end
+
             -- Get metadata from cargo
             local metadata_json = vim.fn.system "cargo metadata --format-version 1 --no-deps"
             if vim.v.shell_error ~= 0 then error "Failed to run `cargo metadata`" end
