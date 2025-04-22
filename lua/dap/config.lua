@@ -79,7 +79,7 @@ return {
       vue = js_debuggers,
       rust = {
         {
-          type = "lldb",
+          type = "codelldb",
           request = "launch",
           cargo = {
             args = { "test", "--no-run", "--lib" },

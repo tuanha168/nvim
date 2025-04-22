@@ -5,6 +5,10 @@ return {
       command = "netcoredbg",
       args = { "--interpreter=vscode" },
     }
+    dap.adapters.codelldb = {
+      type = "executable",
+      command = "codelldb",
+    }
     dap.adapters["pwa-node"] = {
       type = "server",
       host = "localhost",
