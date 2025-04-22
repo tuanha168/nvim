@@ -24,19 +24,6 @@ return {
           },
         },
       },
-      lspconfig = {
-        rust_analyzer = {
-          ["rust-analyzer"] = {
-            lens = {
-              enable = "true",
-            },
-            checkOnSave = {
-              command = "clippy",
-              enable = "true",
-            },
-          },
-        },
-      },
     }
 
     file:write(json.encode(config))
