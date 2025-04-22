@@ -99,13 +99,38 @@ return {
             local target_dir = metadata["target_directory"]
             local packages = metadata["packages"]
 
+            -- Try to find a binary by the current file name first
+            local current_file_name = vim.fn.expand "%:t:r" -- Get the current file name without extension
+            local found_binary = false
+
             for _, pkg in ipairs(packages) do
               if pkg["manifest_path"]:find(vim.fn.getcwd(), 1, true) == 1 then
                 local targets = pkg["targets"]
                 for _, target in ipairs(targets) do
                   if vim.tbl_contains(target["kind"], "bin") then
                     local binary_name = target["name"]
-                    return target_dir .. "/debug/" .. binary_name
+                    -- Check if the binary name matches the current file name
+                    if binary_name == current_file_name then
+                      found_binary = true
+                      return target_dir .. "/debug/" .. binary_name
+                    end
+                  end
+                end
+              end
+            end
+
+            -- If no matching binary is found, check all binaries in the project
+            if not found_binary then
+              Print "No binary matching the current file name. Trying all binaries..."
+              for _, pkg in ipairs(packages) do
+                if pkg["manifest_path"]:find(vim.fn.getcwd(), 1, true) == 1 then
+                  local targets = pkg["targets"]
+                  for _, target in ipairs(targets) do
+                    if vim.tbl_contains(target["kind"], "bin") then
+                      local binary_name = target["name"]
+                      -- If multiple binaries exist, return the first one (you can modify this logic if needed)
+                      return target_dir .. "/debug/" .. binary_name
+                    end
                   end
                 end
               end
