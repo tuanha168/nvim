@@ -5,7 +5,7 @@ return {
       command = "netcoredbg",
       args = { "--interpreter=vscode" },
     }
-    dap.adapters.lldb = {
+    dap.adapters.codelldb = {
       type = "executable",
       command = "codelldb",
     }
