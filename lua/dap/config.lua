@@ -87,7 +87,7 @@ return {
         },
         {
           type = "lldb",
-          request = "launch",
+          request = "launch2k",
           cargo = {
             args = { "test", "--no-run", "--lib" },
             env = { RUSTFLAGS = "-Clinker=ld.mold" },
