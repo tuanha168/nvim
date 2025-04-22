@@ -82,6 +82,7 @@ return {
           type = "codelldb",
           request = "launch",
           program = function()
+            os.execute "cargo build"
             return vim.fn.input("Path to executable: ", vim.fn.getcwd() .. "/target/debug/", "file")
           end,
           cwd = "${workspaceFolder}",
