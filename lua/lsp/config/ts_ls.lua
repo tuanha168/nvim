@@ -2,7 +2,7 @@ local volarPath = require("mason-registry").get_package("vue-language-server"):g
 
 ---@type _.lspconfig.settings.ts_ls.InlayHints
 local inlayHints = {
-  -- includeInlayParameterNameHints = "all",
+  includeInlayParameterNameHints = "all",
   includeInlayParameterNameHintsWhenArgumentMatchesName = false,
   includeInlayFunctionParameterTypeHints = true,
   includeInlayVariableTypeHintsWhenTypeMatchesName = false,
