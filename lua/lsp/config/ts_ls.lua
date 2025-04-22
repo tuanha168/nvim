@@ -49,8 +49,8 @@ return {
       },
       inlayHints = inlayHints,
     },
-    -- javascript = {
-    --   inlayHints = inlayHints,
-    -- },
+    javascript = {
+      inlayHints = inlayHints,
+    },
   },
 }
