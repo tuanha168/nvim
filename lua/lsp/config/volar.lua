@@ -7,7 +7,7 @@ return {
   filetypes = {
     "vue",
   },
-  init_options = { vue = { hybridMode = vim.g.vue_takeover_mode } },
+  init_options = { vue = { hybridMode = vim.g.vue_hybrid } },
   settings = {
     vue = {
       inlayHints = {
