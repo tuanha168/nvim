@@ -85,12 +85,12 @@ return {
           program = function()
             -- automatically build and get target binary
             local cwd = vim.fn.getcwd()
-            local output = vim.fn.system("cargo build --bin my_binary_name --message-format=json")
+            local output = vim.fn.system("cargo build --bin rust_binary_debug --message-format=json")
             local json = vim.fn.json_decode(output)
             for _, msg in ipairs(json) do
               if msg.executable then return msg.executable end
             end
-            return cwd .. "/target/debug/my_binary_name" -- fallback
+            return cwd .. "/target/debug/rust_binary_debug" -- fallback
           end,
           cwd = '${workspaceFolder}',
           stopOnEntry = false,
