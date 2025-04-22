@@ -79,7 +79,14 @@ return {
       vue = js_debuggers,
       rust = {
         {
-          type = "codelldb",
+          name = "Launch",
+          type = "lldb",
+          request = "launch",
+          program = "${workspaceFolder}/<executable file>",
+          args = { "-arg1", "-arg2" },
+        },
+        {
+          type = "lldb",
           request = "launch",
           cargo = {
             args = { "test", "--no-run", "--lib" },
