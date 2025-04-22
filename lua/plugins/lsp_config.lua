@@ -46,7 +46,7 @@ return {
         html = require "lsp.config.html",
         ts_ls = require "lsp.config.ts_ls",
         stylelint_lsp = require "lsp.config.stylelint_lsp",
-        rust_analyzer = {},
+        rust_analyzer = require "lsp.config.rust_analyzer",
       }
 
       require("mason-lspconfig").setup {
