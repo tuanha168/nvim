@@ -9,7 +9,7 @@ return {
       type = "server",
       port = "${port}",
       executable = {
-        command = "/path/to/codelldb/extension/adapter/codelldb", -- <- path to your codelldb binary
+        command = "codelldb",
         args = { "--port", "${port}" },
       },
     }

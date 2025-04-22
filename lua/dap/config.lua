@@ -83,18 +83,31 @@ return {
           type = "codelldb",
           request = "launch",
           program = function()
-            -- automatically build and get target binary
-            local cwd = vim.fn.getcwd()
-            local output = vim.fn.system("cargo build --bin rust_binary_debug --message-format=json")
-            local json = vim.fn.json_decode(output)
-            for _, msg in ipairs(json) do
-              if msg.executable then return msg.executable end
+            -- Get metadata from cargo
+            local metadata_json = vim.fn.system "cargo metadata --format-version 1 --no-deps"
+            if vim.v.shell_error ~= 0 then error "Failed to run `cargo metadata`" end
+
+            local metadata = vim.fn.json_decode(metadata_json)
+            local target_dir = metadata["target_directory"]
+            local packages = metadata["packages"]
+
+            for _, pkg in ipairs(packages) do
+              if pkg["manifest_path"]:find(vim.fn.getcwd(), 1, true) == 1 then
+                local targets = pkg["targets"]
+                for _, target in ipairs(targets) do
+                  if vim.tbl_contains(target["kind"], "bin") then
+                    local binary_name = target["name"]
+                    return target_dir .. "/debug/" .. binary_name
+                  end
+                end
+              end
             end
-            return cwd .. "/target/debug/rust_binary_debug" -- fallback
+
+            error "No binary target found in Cargo project."
           end,
-          cwd = '${workspaceFolder}',
+          cwd = "${workspaceFolder}",
           stopOnEntry = false,
-          args = {},
+          args = {}, -- You can also make this dynamic
         },
       },
       cs = {
