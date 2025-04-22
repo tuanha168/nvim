@@ -46,6 +46,7 @@ return {
         ensure_installed = vim.tbl_keys(servers),
         automatic_installation = true,
         handlers = {
+          rust_analyzer = function() end
           function(server_name)
             local server = servers[server_name] or {}
             if server.enabled == false then return end
