@@ -15,12 +15,6 @@ for _, command in pairs(commands) do
   vim.api.nvim_create_user_command(command[1], command[2], vim.tbl_deep_extend("force", command.opts or {}, {}))
 end
 
--- Generate neoconf
-local neoconf = os.getenv "HOME" .. "/.config/nvim/neoconf"
-if not Chiruno.func.file_exist(neoconf .. ".json") then
-  vim.schedule(require("neoconf.generate").generate)
-end
-
 -- Add filetype
 vim.filetype.add {
   pattern = { [".*/hypr/.*%.conf"] = "hyprlang" },

@@ -58,7 +58,6 @@ return {
   },
   {
     { "BufWritePre" },
-    ---@param event vim.api.keyset.create_autocmd.callback_args
     function(event)
       local ok, userConfig = pcall(require, "config")
       if ok and not userConfig.auto_push_config then return end
@@ -71,10 +70,6 @@ return {
         for _, exclude in ipairs(excludeDir) do
           if string.match(event.match, dir) and not string.match(event.match, exclude) then
             Chiruno.func.auto_push(dir:gsub("%%", ""))
-            if string.match(event.match, "nvim/lua/neoconf/generate.lua") then
-              Print("Generate neoconf:", event.match)
-              vim.schedule(require("neoconf.generate").generate)
-            end
             isBreak = true
             break
           end
