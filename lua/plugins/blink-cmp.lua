@@ -101,7 +101,7 @@ return {
   {
     "saghen/blink.cmp",
     event = "InsertEnter",
-    build = "cargo build --release", -- for delimiters
+    build = "cargo +nightly build --release", -- for delimiters
 
     ---@module 'blink.cmp'
     ---@type blink.cmp.Config
