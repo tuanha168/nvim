@@ -12,6 +12,7 @@ function Chiruno.func.auto_push(path)
     local cmd = string.format("git-auto-push %s >> %s &", path, log_file)
 
     -- Start the job asynchronously
+    Print("Auto Pushing", path)
     vim.fn.jobstart(cmd, { detach = true })
   end
 end
