@@ -4,6 +4,8 @@ return {
     "zbirenbaum/copilot.lua",
     keys = {
       { "<C-f>", mode = "i" },
+      { "<C-j>", mode = "i" },
+      { "<C-k>", mode = "i" },
     },
     opts = {
       panel = {
@@ -11,7 +13,7 @@ return {
       },
       suggestion = {
         enabled = true,
-        auto_trigger = false,
+        auto_trigger = true,
         keymap = {
           accept = "<C-f>",
           next = "<C-j>",
