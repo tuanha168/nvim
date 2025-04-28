@@ -36,9 +36,10 @@ return {
         tabline = { -- UI upper bar
           lib.component.tabline_conditional_padding(),
           lib.component.tabline_buffers {
-            filename = {
-              "quickfix",
-            },
+            condition = function(buf)
+              Print(buf)
+              return false
+            end,
           },
           lib.component.fill { hl = { bg = "tabline_bg" } },
           lib.component.tabline_tabpages(),
