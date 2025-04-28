@@ -38,7 +38,7 @@ return {
           lib.component.tabline_buffers {
             condition = function(buf)
               return not lib.condition.buffer_matches({
-                buftype = { "quickfix" },
+                buftype = { "terminal", "prompt", "nofile", "help", "quickfix" },
                 filetype = { "NvimTree", "neo%-tree", "dashboard", "Outline", "aerial" },
               }, buf.bufnr)
             end,
