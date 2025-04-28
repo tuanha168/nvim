@@ -21,11 +21,12 @@ return {
     },
     opts = function()
       local lib = require "heirline-components.all"
+      local buf_fns = require "heirline-components.buffer"
 
       return {
         opts = {
           disable_winbar_cb = function(args) -- We do this to avoid showing it on the greeter.
-            local is_disabled = not require("heirline-components.buffer").is_valid(args.buf)
+            local is_disabled = not buf_fns.is_valid(args.buf)
               or lib.condition.buffer_matches({
                 buftype = { "terminal", "prompt", "nofile", "help", "quickfix" },
                 filetype = { "NvimTree", "neo%-tree", "dashboard", "Outline", "aerial" },
@@ -38,10 +39,10 @@ return {
           lib.component.tabline_buffers {
             file_modified = {
               condition = function(bufnr)
-                Print(lib.condition.buffer_matches({
+                Print(buf_fns.is_valid(bufnr.bufnr) and lib.condition.buffer_matches({
                   buftype = { "terminal", "prompt", "nofile", "help", "quickfix" },
                   filetype = { "NvimTree", "neo%-tree", "dashboard", "Outline", "aerial" },
-                }, bufnr))
+                }, bufnr.bufnr))
                 return lib.condition.is_file(bufnr)
                 -- and not lib.condition.buffer_matches({
                 --   buftype = { "terminal", "prompt", "nofile", "help", "quickfix" },
