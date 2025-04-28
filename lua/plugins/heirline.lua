@@ -37,8 +37,10 @@ return {
           lib.component.tabline_conditional_padding(),
           lib.component.tabline_buffers {
             condition = function(buf)
-              Print(buf)
-              return false
+              return not lib.condition.buffer_matches({
+                buftype = { "quickfix" },
+                filetype = { "NvimTree", "neo%-tree", "dashboard", "Outline", "aerial" },
+              }, buf.bufnr)
             end,
           },
           lib.component.fill { hl = { bg = "tabline_bg" } },
