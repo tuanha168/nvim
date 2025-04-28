@@ -36,15 +36,8 @@ return {
         tabline = { -- UI upper bar
           lib.component.tabline_conditional_padding(),
           lib.component.tabline_buffers {
-            file_modified = {
-              condition = function(buf)
-                return false
-                -- return lib.condition.is_file(buf)
-                --   and not lib.condition.buffer_matches({
-                --     buftype = { "terminal", "prompt", "nofile", "help", "quickfix" },
-                --     filetype = { "NvimTree", "neo%-tree", "dashboard", "Outline", "aerial" },
-                --   }, buf.bufnr)
-              end,
+            filename = {
+              "quickfix",
             },
           },
           lib.component.fill { hl = { bg = "tabline_bg" } },
