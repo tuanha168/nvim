@@ -39,7 +39,7 @@ return {
             condition = function(buf)
               return not lib.condition.buffer_matches({
                 buftype = { "terminal", "prompt", "nofile", "help", "quickfix" },
-                filetype = { "NvimTree", "neo%-tree", "dashboard", "Outline", "aerial", "alpha" },
+                filetype = { "NvimTree", "neo%-tree", "dashboard", "Outline", "aerial" },
               }, buf.bufnr)
             end,
           },
