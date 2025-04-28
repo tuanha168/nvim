@@ -21,6 +21,7 @@ return {
     },
     opts = function()
       local lib = require "heirline-components.all"
+      local condition = require "heirline-components.core.condition"
 
       return {
         opts = {
@@ -37,7 +38,7 @@ return {
           lib.component.tabline_conditional_padding(),
           lib.component.tabline_buffers {
             file_modified = {
-              condition
+              condition = function(bufnr) condition.is_file(bufnr) end,
             },
           },
           lib.component.fill { hl = { bg = "tabline_bg" } },
