@@ -15,7 +15,13 @@ local filetypes = vim.g.vue_hybrid and {
 
 ---@type lspconfig.options.volar
 return {
-  root_dir = util.root_pattern(".git"),
+  root_dir = util.root_pattern(
+    ".git"
+  -- "tsconfig.json",
+  -- "tsconfig.ts",
+  -- "tsconfig.js",
+  -- "package.json"
+  ),
   filetypes = filetypes,
   init_options = { vue = { hybridMode = vim.g.vue_hybrid } },
   settings = {
