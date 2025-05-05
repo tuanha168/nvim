@@ -74,7 +74,7 @@ return {
         desc = "Find Config File",
       },
       { "<leader>ff", function() Snacks.picker.files() end, desc = "Find Files" },
-      { "<leader>fa", function() Snacks.picker.files {  ignored = true } end, desc = "Find All Files" },
+      { "<leader>fa", function() Snacks.picker.files { hidden = true, ignored = true } end, desc = "Find All Files" },
       { "<leader>fg", function() Snacks.picker.git_files() end, desc = "Find Git Files" },
       { "<leader>fp", function() Snacks.picker.projects() end, desc = "Projects" },
       { "<leader>fo", function() Snacks.picker.recent() end, desc = "Recent" },
