@@ -26,7 +26,7 @@ return {
     ---@type conform.setupOpts
     opts = {
       default_format_opts = {
-        lsp_format = "never",
+        lsp_format = "fallback",
       },
       formatters_by_ft = {
         lua = { "stylua", "lua_ls" },
