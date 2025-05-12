@@ -22,8 +22,12 @@ return {
   {
     "stevearc/conform.nvim",
     event = "BufRead",
+    ---@module "conform"
+    ---@type conform.setupOpts
     opts = {
-      lsp_format = "fallback",
+      default_format_opts = {
+        lsp_format = "fallback",
+      },
       formatters_by_ft = {
         lua = { "stylua", "lua_ls" },
         -- Conform will run multiple formatters sequentially
