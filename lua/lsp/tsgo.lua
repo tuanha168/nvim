@@ -1,5 +1,7 @@
+local home = os.getenv "HOME"
+
 return {
-  cmd = { "sonarlint-language-server", "-stdio" },
+  cmd = { home .. "/typescript-go/built/local/tsgo", "lsp", "-stdio" },
   filetypes = {
     "javascript",
     "javascriptreact",
