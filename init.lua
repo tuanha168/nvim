@@ -22,3 +22,5 @@ require "Chiruno"
 require "options"
 require "lazy_setup"
 require "polish"
+
+vim.lsp.enable("sonarlint")
