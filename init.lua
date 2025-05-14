@@ -18,10 +18,11 @@ if not pcall(require, "lazy") then
   vim.cmd.quit()
 end
 
+vim.lsp.config("tsgo", require("lsp.tsgo"))
+
 require "Chiruno"
 require "options"
 require "lazy_setup"
 require "polish"
 
-vim.lsp.config("tsgo", require("lsp.tsgo"))
 vim.lsp.enable("tsgo")
