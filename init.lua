@@ -23,5 +23,5 @@ require "options"
 require "lazy_setup"
 require "polish"
 
-vim.lsp.config("sonarlint")
+vim.lsp.config("sonarlint", require("lsp.sonarlint"))
 vim.lsp.enable("sonarlint")
