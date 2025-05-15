@@ -13,6 +13,8 @@ return {
       global_keymaps = false,
       additional_curl_options = {
         "--location",
+        "--location-trusted",
+        "--compressed",
       },
     },
   },
