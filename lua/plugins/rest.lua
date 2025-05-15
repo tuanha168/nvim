@@ -2,6 +2,7 @@
 return {
   {
     "rest-nvim/rest.nvim",
+    enabled = false,
     dependencies = { { "nvim-lua/plenary.nvim" } },
     ft = { "http" },
     keys = {
