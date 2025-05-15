@@ -4,6 +4,7 @@ function Chiruno.func.format_lsp()
   vim.lsp.buf.format {
     filter = function(client) return not vim.tbl_contains(ignoreLsp, client.name) end,
     async = true,
+    timeout_ms = 500,
   }
 end
 
