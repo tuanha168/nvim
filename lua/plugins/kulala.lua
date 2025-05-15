@@ -11,6 +11,9 @@ return {
     opts = {
       -- your configuration comes here
       global_keymaps = false,
+      additional_curl_options = {
+        "--location",
+      },
     },
   },
 }
