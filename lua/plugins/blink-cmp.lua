@@ -136,6 +136,7 @@ return {
 
         ["<C-j>"] = { "hide" },
         ["<C-k>"] = { "hide" },
+        ["<C-u>"] = { "show_signature", "hide_signature", "fallback" },
       },
 
       appearance = {
