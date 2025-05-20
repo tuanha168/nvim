@@ -134,7 +134,8 @@ return {
 
         ["<CR>"] = { "accept", "fallback" },
 
-        ["<C-k>"] = { "show_signature", "hide_signature", "fallback" },
+        ["<C-j>"] = { "hide" },
+        ["<C-k>"] = { "hide" },
       },
 
       appearance = {
