@@ -36,7 +36,8 @@ return {
         -- omnisharp = require "lsp.config.omnisharp",
         cssls = require "lsp.config.cssls",
         html = require "lsp.config.html",
-        ts_ls = require "lsp.config.ts_ls",
+        -- ts_ls = require "lsp.config.ts_ls",
+        vtsls = require "lsp.config.ts_ls",
         stylelint_lsp = require "lsp.config.stylelint_lsp",
 
         ---@reference lua/plugins/rustaceanvim.lua
