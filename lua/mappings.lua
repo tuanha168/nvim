@@ -77,8 +77,8 @@ return {
   -- Yank
   { "<c-c>", '"+y', desc = "Yank", noremap = true, mode = { "v" } },
   -- Gitsigns
-  { "<c-u>", ":Gitsigns undo_stage_hunk<CR>", silent = true },
-  { "<c-s>", ":Gitsigns stage_hunk<CR>", silent = true, mode = { "v" } },
+  { "<c-u>", ":Gitsigns undo_stage_hunk<CR>", silent = true, { "n", "v" } },
+  { "<c-s>", ":Gitsigns stage_hunk<CR>", silent = true, mode = { "n", "v" } },
   { "u", ":Gitsigns reset_hunk<CR>", silent = true, mode = { "v" } },
   -- Moving
   { "K", ":m '<-2<CR><CR>gv=gv", silent = true, mode = { "v" } },
@@ -122,5 +122,5 @@ return {
   { "?", "<Esc>?\\%V", desc = "Search in visual mode", mode = { "x" } },
 
   -- Joinlines
-  {"gJ", "mzJ`z:delmarks z<CR>", desc = "Join lines", mode = { "n" } },
+  { "gJ", "mzJ`z:delmarks z<CR>", desc = "Join lines", mode = { "n" } },
 }
