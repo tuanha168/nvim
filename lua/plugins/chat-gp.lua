@@ -41,10 +41,6 @@ return {
       { "<C-g>gv", ":<C-u>'<,'>GpVnew<cr>", mode = "v", desc = "Visual GpVnew" },
       { "<C-g>gt", ":<C-u>'<,'>GpTabnew<cr>", mode = "v", desc = "Visual GpTabnew" },
 
-      -- Context commands
-      { "<C-g>x", "<cmd>GpContext<cr>", mode = { "n", "i" }, desc = "Toggle Context" },
-      { "<C-g>x", ":<C-u>'<,'>GpContext<cr>", mode = "v", desc = "Visual Toggle Context" },
-
       -- Stop and agent selection commands
       { "<C-g>s", "<cmd>GpStop<cr>", mode = { "n", "i", "v", "x" }, desc = "Stop" },
       { "<C-g>n", "<cmd>GpNextAgent<cr>", mode = { "n", "i", "v", "x" }, desc = "Next Agent" },
