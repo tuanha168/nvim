@@ -29,7 +29,7 @@ return {
               .. '  - a "diff" code block that shows the code changes in a diff format.\n\n'
             local agent = gp.get_chat_agent()
             local input_prompt = "🤖 " .. agent.name .. " ~"
-            gp.Prompt(params, gp.Target.popup, agent, template, input_prompt)
+            gp.Prompt(params, gp.Target.vsplit, agent, template, input_prompt)
           end,
         },
       }
