@@ -2,6 +2,10 @@
 return {
   {
     "robitx/gp.nvim",
+    cmd = {
+      "GpRewriteToDiff",
+      "GpCodeReview",
+    },
     config = function()
       require("gp").setup {
         default_command_agent = "copilot",
