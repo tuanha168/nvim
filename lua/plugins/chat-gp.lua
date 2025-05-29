@@ -35,18 +35,18 @@ return {
       },
 
       -- New Chat
-      { "<C-g>C", "<cmd>GpChatNew<cr>", mode = { "n", "i", "x" }, desc = "GPT prompt New Chat without context" },
-      { "<C-g>S", "<cmd>GpChatNew split<cr>", mode = { "n", "i", "x" }, desc = "GPT prompt New Chat split without context" },
+      { "<C-g>c", "<cmd>GpChatNew<cr>", mode = { "v" }, desc = "GPT prompt New Chat without context" },
+      { "<C-g><C-x>", "<cmd>GpChatNew split<cr>", mode = { "v" }, desc = "GPT prompt New Chat split without context" },
       {
-        "<C-g>V",
+        "<C-g><C-v>",
         "<cmd>GpChatNew vsplit<cr>",
-        mode = { "n", "i", "x" },
+        mode = { "v" },
         desc = "GPT prompt New Chat vsplit without context",
       },
       {
-        "<C-g>T",
+        "<C-g><C-t>",
         "<cmd>GpChatNew tabnew<cr>",
-        mode = { "n", "i", "x" },
+        mode = { "v" },
         desc = "GPT prompt New Chat tabnew without context",
       },
 
