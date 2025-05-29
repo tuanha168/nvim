@@ -4,7 +4,6 @@ return {
     "robitx/gp.nvim",
     keys = {
       -- Chat commands
-      { "<C-g>c", "<cmd>GpChatNew<cr>", mode = { "n", "i" }, desc = "GPT prompt New Chat" },
       { "<C-g>t", "<cmd>GpChatToggle<cr>", mode = { "n", "i" }, desc = "GPT prompt Toggle Chat" },
       { "<C-g>f", "<cmd>GpChatFinder<cr>", mode = { "n", "i" }, desc = "GPT prompt Chat Finder" },
       { "<C-g>c", ":<C-u>'<,'>GpChatNew<cr>", mode = "v", desc = "GPT prompt Visual Chat New" },
@@ -13,24 +12,42 @@ return {
       { "<C-g><C-x>", "<cmd>GpChatNew split<cr>", mode = { "n", "i" }, desc = "GPT prompt New Chat split" },
       { "<C-g><C-v>", "<cmd>GpChatNew vsplit<cr>", mode = { "n", "i" }, desc = "GPT prompt New Chat vsplit" },
       { "<C-g><C-t>", "<cmd>GpChatNew tabnew<cr>", mode = { "n", "i" }, desc = "GPT prompt New Chat tabnew" },
-      { "<C-g><C-x>", ":<C-u>'<,'>GpChatNew split<cr>", mode = "v", desc = "GPT prompt Visual Chat New split" },
-      { "<C-g><C-v>", ":<C-u>'<,'>GpChatNew vsplit<cr>", mode = "v", desc = "GPT prompt Visual Chat New vsplit" },
-      { "<C-g><C-t>", ":<C-u>'<,'>GpChatNew tabnew<cr>", mode = "v", desc = "GPT prompt Visual Chat New tabnew" },
 
-      -- Current file as context
-      { "<C-g>C", "<cmd>%GpChatNew<cr>", mode = { "n", "i" }, desc = "GPT prompt New Chat with full file" },
-      { "<C-g>S", "<cmd>%GpChatNew split<cr>", mode = { "n", "i" }, desc = "GPT prompt New Chat with full file split" },
+      -- New Chat with current file as context
+      { "<C-g>c", "<cmd>%GpChatNew<cr>", mode = { "n", "i" }, desc = "GPT prompt New Chat with full file" },
       {
-        "<C-g>V",
+        "<C-g><C-x>",
+        "<cmd>%GpChatNew split<cr>",
+        mode = { "n", "i" },
+        desc = "GPT prompt New Chat with full file split",
+      },
+      {
+        "<C-g><C-v>",
         "<cmd>%GpChatNew vsplit<cr>",
         mode = { "n", "i" },
         desc = "GPT prompt New Chat with full file vsplit",
       },
       {
-        "<C-g>T",
+        "<C-g><C-t>",
         "<cmd>%GpChatNew tabnew<cr>",
         mode = { "n", "i" },
         desc = "GPT prompt New Chat with full file tabnew",
+      },
+
+      -- New Chat
+      { "<C-g>C", "<cmd>GpChatNew<cr>", mode = { "n", "i" }, desc = "GPT prompt New Chat without context" },
+      { "<C-g>S", "<cmd>GpChatNew split<cr>", mode = { "n", "i" }, desc = "GPT prompt New Chat split without context" },
+      {
+        "<C-g>V",
+        "<cmd>GpChatNew vsplit<cr>",
+        mode = { "n", "i" },
+        desc = "GPT prompt New Chat vsplit without context",
+      },
+      {
+        "<C-g>T",
+        "<cmd>GpChatNew tabnew<cr>",
+        mode = { "n", "i" },
+        desc = "GPT prompt New Chat tabnew without context",
       },
 
       -- Prompt commands
