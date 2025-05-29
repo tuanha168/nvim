@@ -28,12 +28,8 @@ return {
         agents = {
           {
             provider = "googleai",
-            name = "ChatGemini",
-            chat = true,
-            command = false,
-            -- string with model name or table with model name and parameters
+            name = "ChatGemini 2.0",
             model = { model = "gemini-2.0-flash", temperature = 1.1, top_p = 1 },
-            -- system prompt (use this to specify the persona/role of the AI)
             system_prompt = require("gp.defaults").chat_system_prompt,
           },
         },
