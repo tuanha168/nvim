@@ -43,7 +43,7 @@ return {
               .. 'Then show me a "diff" code block that shows all the code changes in a diff format.\n\n'
 
             local agent = gp.get_chat_agent()
-            gp.Prompt(params, gp.Target.enew "markdown", agent, template)
+            gp.Prompt(params, gp.Target.vnew "markdown", agent, template)
           end,
         },
       }
@@ -73,6 +73,13 @@ return {
         desc = "GPT prompt New Chat with full file vsplit",
       },
       {
+        "<C-g><C-d>",
+        "<cmd>%GpRewriteToDiff<cr>",
+        mode = { "n", "i" },
+        desc = "GPT prompt New Chat with full file vsplit",
+      },
+
+      {
         "<C-g><C-x>",
         ":<C-u>'<,'>GpChatNew split<cr>",
         mode = { "v" },
@@ -83,6 +90,12 @@ return {
         ":<C-u>'<,'>GpChatNew vsplit<cr>",
         mode = { "v" },
         desc = "GPT prompt New Chat vsplit in visual mode",
+      },
+      {
+        "<C-g><C-d>",
+        ":<C-u>'<,'>GpRewriteToDiff<cr>",
+        mode = { "v" },
+        desc = "GPT Rewrite to Diff in visual mode",
       },
 
       -- New Chat
