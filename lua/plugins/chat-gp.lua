@@ -35,7 +35,9 @@ return {
           CodeReview = function(gp, params)
             local template = "I have the following code from {{filename}}:\n\n"
               .. "```{{filetype}}\n{{selection}}\n```\n\n"
-              .. "Please analyze for code smells and suggest improvements."
+              .. "Please analyze for code smells and suggest improvements.\n\n"
+              .. 'Then show me a "diff" code block that shows all the code changes in a diff format.\n\n'
+
             local agent = gp.get_chat_agent()
             gp.Prompt(params, gp.Target.enew "markdown", agent, template)
           end,
