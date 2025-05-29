@@ -29,26 +29,6 @@ return {
       { "<C-g>b", ":<C-u>'<,'>GpPrepend<cr>", mode = "v", desc = "GPT prompt Visual Prepend (before)" },
       { "<C-g>i", ":<C-u>'<,'>GpImplement<cr>", mode = "v", desc = " GPT prompt Implement selection" },
 
-      -- Optional Whisper commands with prefix <C-g>w
-      { "<C-g>ww", "<cmd>GpWhisper<cr>", mode = { "n", "i" }, desc = "Whisper" },
-      { "<C-g>ww", ":<C-u>'<,'>GpWhisper<cr>", mode = "v", desc = "Visual Whisper" },
-      { "<C-g>wr", "<cmd>GpWhisperRewrite<cr>", mode = { "n", "i" }, desc = "Whisper Inline Rewrite" },
-      { "<C-g>wa", "<cmd>GpWhisperAppend<cr>", mode = { "n", "i" }, desc = "Whisper Append (after)" },
-      { "<C-g>wb", "<cmd>GpWhisperPrepend<cr>", mode = { "n", "i" }, desc = "Whisper Prepend (before)" },
-      { "<C-g>wr", ":<C-u>'<,'>GpWhisperRewrite<cr>", mode = "v", desc = "Visual Whisper Rewrite" },
-      { "<C-g>wa", ":<C-u>'<,'>GpWhisperAppend<cr>", mode = "v", desc = "Visual Whisper Append (after)" },
-      { "<C-g>wb", ":<C-u>'<,'>GpWhisperPrepend<cr>", mode = "v", desc = "Visual Whisper Prepend (before)" },
-      { "<C-g>wp", "<cmd>GpWhisperPopup<cr>", mode = { "n", "i" }, desc = "Whisper Popup" },
-      { "<C-g>we", "<cmd>GpWhisperEnew<cr>", mode = { "n", "i" }, desc = "Whisper Enew" },
-      { "<C-g>wn", "<cmd>GpWhisperNew<cr>", mode = { "n", "i" }, desc = "Whisper New" },
-      { "<C-g>wv", "<cmd>GpWhisperVnew<cr>", mode = { "n", "i" }, desc = "Whisper Vnew" },
-      { "<C-g>wt", "<cmd>GpWhisperTabnew<cr>", mode = { "n", "i" }, desc = "Whisper Tabnew" },
-      { "<C-g>wp", ":<C-u>'<,'>GpWhisperPopup<cr>", mode = "v", desc = "Visual Whisper Popup" },
-      { "<C-g>we", ":<C-u>'<,'>GpWhisperEnew<cr>", mode = "v", desc = "Visual Whisper Enew" },
-      { "<C-g>wn", ":<C-u>'<,'>GpWhisperNew<cr>", mode = "v", desc = "Visual Whisper New" },
-      { "<C-g>wv", ":<C-u>'<,'>GpWhisperVnew<cr>", mode = "v", desc = "Visual Whisper Vnew" },
-      { "<C-g>wt", ":<C-u>'<,'>GpWhisperTabnew<cr>", mode = "v", desc = "Visual Whisper Tabnew" },
-
       -- Miscellaneous commands
       { "<C-g>gp", "<cmd>GpPopup<cr>", mode = { "n", "i" }, desc = "Popup" },
       { "<C-g>ge", "<cmd>GpEnew<cr>", mode = { "n", "i" }, desc = "GpEnew" },
