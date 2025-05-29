@@ -8,12 +8,24 @@ return {
     },
     config = function()
       require("gp").setup {
-        default_command_agent = "copilot",
-        default_chat_agent = "copilot",
+        default_command_agent = "googleai",
+        default_chat_agent = "googleai",
         chat_confirm_delete = false,
         chat_free_cursor = true,
         chat_template = require("gp.defaults").short_chat_template,
         providers = {
+          openai = {
+            disable = true,
+          },
+          pplx = {
+            disable = true,
+          },
+          ollama = {
+            disable = true,
+          },
+          anthropic = {
+            disable = true,
+          },
           copilot = {
             secret = {
               "bash",
