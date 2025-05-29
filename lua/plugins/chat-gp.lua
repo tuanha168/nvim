@@ -7,6 +7,8 @@ return {
     },
     config = function()
       require("gp").setup {
+        default_command_agent = "copilot",
+        default_chat_agent = "copilot",
         providers = {
           copilot = {
             disabled = false,
