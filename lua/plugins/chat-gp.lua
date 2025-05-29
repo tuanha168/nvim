@@ -3,7 +3,7 @@ return {
   {
     "robitx/gp.nvim",
     cmd = {
-      "GpChatToggle",
+      "GpContext",
     },
     config = function()
       require("gp").setup {
