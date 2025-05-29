@@ -8,8 +8,8 @@ return {
     },
     config = function()
       require("gp").setup {
-        default_command_agent = "googleai",
-        default_chat_agent = "googleai",
+        default_command_agent = "ChatGemini 2.0",
+        default_chat_agent = "ChatGemini 2.0",
         chat_confirm_delete = false,
         chat_free_cursor = true,
         chat_template = require("gp.defaults").short_chat_template,
