@@ -3,7 +3,7 @@ return {
   {
     "robitx/gp.nvim",
     cmd = {
-      "GpContext",
+      "GpChatToggle",
     },
     config = function()
       require("gp").setup {
@@ -11,7 +11,6 @@ return {
         default_chat_agent = "copilot",
         providers = {
           copilot = {
-            disabled = false,
             secret = {
               "bash",
               "-c",
