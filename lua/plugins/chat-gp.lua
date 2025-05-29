@@ -7,7 +7,7 @@ return {
     },
     config = function()
       require("gp").setup {
-        provider = {
+        providers = {
           copilot = {
             endpoint = "https://api.githubcopilot.com/chat/completions",
             secret = {
