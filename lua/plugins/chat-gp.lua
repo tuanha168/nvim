@@ -21,6 +21,9 @@ return {
               "cat ~/.config/github-copilot/apps.json | sed -e 's/.*oauth_token...//;s/\".*//'",
             },
           },
+          googleai = {
+            disable = false,
+          },
         },
         hooks = {
           RewriteToDiff = function(gp, params)
