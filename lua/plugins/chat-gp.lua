@@ -4,14 +4,14 @@ return {
     "robitx/gp.nvim",
     keys = {
       -- toggle
-      { "<C-g><C-t>", "<cmd>GpChatToggle<cr>", mode = { "n", "i" }, desc = "GPT prompt Toggle Chat" },
-      { "<C-g><C-t>", ":<C-u>'<,'>GpChatToggle<cr>", mode = "v", desc = "GPT prompt Visual Toggle Chat" },
+      { "<C-g>t", "<cmd>GpChatToggle<cr>", mode = { "n", "i" }, desc = "GPT prompt Toggle Chat" },
+      { "<C-g>t", ":<C-u>'<,'>GpChatToggle<cr>", mode = "v", desc = "GPT prompt Visual Toggle Chat" },
 
       -- finder
       { "<C-g><C-f>", "<cmd>GpChatFinder<cr>", mode = { "n", "i" }, desc = "GPT prompt Chat Finder" },
 
       -- paste
-      { "<C-g><C-p>", ":<C-u>'<,'>GpChatPaste<cr>", mode = "v", desc = "GPT prompt Visual Chat Paste" },
+      { "<C-g>p", ":<C-u>'<,'>GpChatPaste<cr>", mode = "v", desc = "GPT prompt Visual Chat Paste" },
 
       -- New Chat with current file as context
       {
