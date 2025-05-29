@@ -74,7 +74,7 @@ return {
       },
       {
         "<C-g><C-x>",
-        ":<C-u>'<,'>GpRewriteToDiff<cr>",
+        ":<C-u>'<,'>GpChatNew split<cr>",
         mode = { "v" },
         desc = "GPT prompt New Chat split in visual mode",
       },
