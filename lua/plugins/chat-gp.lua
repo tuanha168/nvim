@@ -33,24 +33,24 @@ return {
         mode = { "n", "i" },
         desc = "GPT prompt New Chat with full file tabnew",
       },
-      { "<C-g>c", ":<C-u>'<,'>GpChatNew<cr>", mode = { "v" }, desc = "GPT prompt New Chat without context" },
+      { "<C-g>c", ":<C-u>'<,'>GpChatNew<cr>", mode = { "v" }, desc = "GPT prompt New Chat in visual mode" },
       {
         "<C-g><C-x>",
         ":<C-u>'<,'>GpChatNew split<cr>",
         mode = { "v" },
-        desc = "GPT prompt New Chat split without context",
+        desc = "GPT prompt New Chat split in visual mode",
       },
       {
         "<C-g><C-v>",
         ":<C-u>'<,'>GpChatNew vsplit<cr>",
         mode = { "v" },
-        desc = "GPT prompt New Chat vsplit without context",
+        desc = "GPT prompt New Chat vsplit in visual mode",
       },
       {
         "<C-g><C-t>",
         ":<C-u>'<,'>GpChatNew tabnew<cr>",
         mode = { "v" },
-        desc = "GPT prompt New Chat tabnew without context",
+        desc = "GPT prompt New Chat tabnew in visual mode",
       },
 
       -- New Chat
