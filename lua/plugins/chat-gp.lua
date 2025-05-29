@@ -23,13 +23,21 @@ return {
             local template = "I have the following from {{filename}}:\n\n"
               .. "```{{filetype}}\n{{selection}}\n```\n\n"
               .. "Rewrite it based on these instructions: {{command}}\n\n"
-              .. "Respond with the following:\n\n"
+              .. "Response with the following:\n\n"
               .. "  - a code block containing the rewritten code\n\n"
               .. "  - a brief explanation of the changes that were made along with the reasons for doing so\n\n"
               .. '  - a "diff" code block that shows the code changes in a diff format.\n\n'
             local agent = gp.get_chat_agent()
             local input_prompt = "🤖 " .. agent.name .. " ~"
-            gp.Prompt(params, gp.Target.vnew, agent, template, input_prompt)
+            gp.Prompt(params, gp.Target.vnew "markdown", agent, template, input_prompt)
+          end,
+
+          CodeReview = function(gp, params)
+            local template = "I have the following code from {{filename}}:\n\n"
+              .. "```{{filetype}}\n{{selection}}\n```\n\n"
+              .. "Please analyze for code smells and suggest improvements."
+            local agent = gp.get_chat_agent()
+            gp.Prompt(params, gp.Target.enew "markdown", agent, template)
           end,
         },
       }
