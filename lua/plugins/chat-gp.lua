@@ -2,9 +2,6 @@
 return {
   {
     "robitx/gp.nvim",
-    cmd = {
-      "GpChatToggle",
-    },
     keys = {
       -- Chat commands
       { "<C-g>c", "<cmd>GpChatNew<cr>", mode = { "n", "i" }, desc = "GPT prompt New Chat" },
@@ -28,18 +25,6 @@ return {
       { "<C-g>a", ":<C-u>'<,'>GpAppend<cr>", mode = "v", desc = "GPT prompt Visual Append (after)" },
       { "<C-g>b", ":<C-u>'<,'>GpPrepend<cr>", mode = "v", desc = "GPT prompt Visual Prepend (before)" },
       { "<C-g>i", ":<C-u>'<,'>GpImplement<cr>", mode = "v", desc = " GPT prompt Implement selection" },
-
-      -- Miscellaneous commands
-      { "<C-g>gp", "<cmd>GpPopup<cr>", mode = { "n", "i" }, desc = "Popup" },
-      { "<C-g>ge", "<cmd>GpEnew<cr>", mode = { "n", "i" }, desc = "GpEnew" },
-      { "<C-g>gn", "<cmd>GpNew<cr>", mode = { "n", "i" }, desc = "GpNew" },
-      { "<C-g>gv", "<cmd>GpVnew<cr>", mode = { "n", "i" }, desc = "GpVnew" },
-      { "<C-g>gt", "<cmd>GpTabnew<cr>", mode = { "n", "i" }, desc = "GpTabnew" },
-      { "<C-g>gp", ":<C-u>'<,'>GpPopup<cr>", mode = "v", desc = "Visual Popup" },
-      { "<C-g>ge", ":<C-u>'<,'>GpEnew<cr>", mode = "v", desc = "Visual GpEnew" },
-      { "<C-g>gn", ":<C-u>'<,'>GpNew<cr>", mode = "v", desc = "Visual GpNew" },
-      { "<C-g>gv", ":<C-u>'<,'>GpVnew<cr>", mode = "v", desc = "Visual GpVnew" },
-      { "<C-g>gt", ":<C-u>'<,'>GpTabnew<cr>", mode = "v", desc = "Visual GpTabnew" },
 
       -- Stop and agent selection commands
       { "<C-g>s", "<cmd>GpStop<cr>", mode = { "n", "i", "v", "x" }, desc = "Stop" },
