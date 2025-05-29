@@ -50,7 +50,9 @@ return {
       require("gp").setup {
         default_command_agent = "copilot",
         default_chat_agent = "copilot",
-        chat_confirm_delete = true,
+        chat_confirm_delete = false,
+        chat_free_cursor = true,
+        chat_template = require("gp.defaults").short_chat_template,
         providers = {
           copilot = {
             secret = {
