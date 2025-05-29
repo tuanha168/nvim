@@ -3,14 +3,15 @@ return {
   {
     "robitx/gp.nvim",
     keys = {
-      -- Chat commands
+      -- toggle
       { "<C-g><C-t>", "<cmd>GpChatToggle<cr>", mode = { "n", "i" }, desc = "GPT prompt Toggle Chat" },
-      { "<C-g><C-f>", "<cmd>GpChatFinder<cr>", mode = { "n", "i" }, desc = "GPT prompt Chat Finder" },
-      { "<C-g>p", ":<C-u>'<,'>GpChatPaste<cr>", mode = "v", desc = "GPT prompt Visual Chat Paste" },
       { "<C-g><C-t>", ":<C-u>'<,'>GpChatToggle<cr>", mode = "v", desc = "GPT prompt Visual Toggle Chat" },
-      { "<C-g><C-x>", "<cmd>GpChatNew split<cr>", mode = { "n", "i" }, desc = "GPT prompt New Chat split" },
-      { "<C-g><C-v>", "<cmd>GpChatNew vsplit<cr>", mode = { "n", "i" }, desc = "GPT prompt New Chat vsplit" },
-      { "<C-g><C-t>", "<cmd>GpChatNew tabnew<cr>", mode = { "n", "i" }, desc = "GPT prompt New Chat tabnew" },
+
+      -- finder
+      { "<C-g><C-f>", "<cmd>GpChatFinder<cr>", mode = { "n", "i" }, desc = "GPT prompt Chat Finder" },
+
+      -- paste
+      { "<C-g><C-p>", ":<C-u>'<,'>GpChatPaste<cr>", mode = "v", desc = "GPT prompt Visual Chat Paste" },
 
       -- New Chat with current file as context
       {
@@ -39,19 +40,12 @@ return {
       },
 
       -- New Chat
-      { "<C-g>C", "<cmd>GpChatNew<cr>", mode = { "n", "i" }, desc = "GPT prompt New Chat without context" },
       { "<C-g>S", "<cmd>GpChatNew split<cr>", mode = { "n", "i" }, desc = "GPT prompt New Chat split without context" },
       {
         "<C-g>V",
         "<cmd>GpChatNew vsplit<cr>",
         mode = { "n", "i" },
         desc = "GPT prompt New Chat vsplit without context",
-      },
-      {
-        "<C-g>T",
-        "<cmd>GpChatNew tabnew<cr>",
-        mode = { "n", "i" },
-        desc = "GPT prompt New Chat tabnew without context",
       },
 
       -- Prompt commands
