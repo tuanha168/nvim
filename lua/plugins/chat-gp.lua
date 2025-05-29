@@ -4,17 +4,15 @@ return {
     "robitx/gp.nvim",
     keys = {
       -- Chat commands
-      { "<C-g>t", "<cmd>GpChatToggle<cr>", mode = { "n", "i" }, desc = "GPT prompt Toggle Chat" },
-      { "<C-g>f", "<cmd>GpChatFinder<cr>", mode = { "n", "i" }, desc = "GPT prompt Chat Finder" },
-      { "<C-g>c", ":<C-u>'<,'>GpChatNew<cr>", mode = "v", desc = "GPT prompt Visual Chat New" },
+      { "<C-g><C-t>", "<cmd>GpChatToggle<cr>", mode = { "n", "i" }, desc = "GPT prompt Toggle Chat" },
+      { "<C-g><C-f>", "<cmd>GpChatFinder<cr>", mode = { "n", "i" }, desc = "GPT prompt Chat Finder" },
       { "<C-g>p", ":<C-u>'<,'>GpChatPaste<cr>", mode = "v", desc = "GPT prompt Visual Chat Paste" },
-      { "<C-g>t", ":<C-u>'<,'>GpChatToggle<cr>", mode = "v", desc = "GPT prompt Visual Toggle Chat" },
+      { "<C-g><C-t>", ":<C-u>'<,'>GpChatToggle<cr>", mode = "v", desc = "GPT prompt Visual Toggle Chat" },
       { "<C-g><C-x>", "<cmd>GpChatNew split<cr>", mode = { "n", "i" }, desc = "GPT prompt New Chat split" },
       { "<C-g><C-v>", "<cmd>GpChatNew vsplit<cr>", mode = { "n", "i" }, desc = "GPT prompt New Chat vsplit" },
       { "<C-g><C-t>", "<cmd>GpChatNew tabnew<cr>", mode = { "n", "i" }, desc = "GPT prompt New Chat tabnew" },
 
       -- New Chat with current file as context
-      { "<C-g>c", "<cmd>%GpChatNew<cr>", mode = { "n", "i" }, desc = "GPT prompt New Chat with full file" },
       {
         "<C-g><C-x>",
         "<cmd>%GpChatNew split<cr>",
@@ -28,13 +26,6 @@ return {
         desc = "GPT prompt New Chat with full file vsplit",
       },
       {
-        "<C-g><C-t>",
-        "<cmd>%GpChatNew tabnew<cr>",
-        mode = { "n", "i" },
-        desc = "GPT prompt New Chat with full file tabnew",
-      },
-      { "<C-g>c", ":<C-u>'<,'>GpChatNew<cr>", mode = { "v" }, desc = "GPT prompt New Chat in visual mode" },
-      {
         "<C-g><C-x>",
         ":<C-u>'<,'>GpChatNew split<cr>",
         mode = { "v" },
@@ -45,12 +36,6 @@ return {
         ":<C-u>'<,'>GpChatNew vsplit<cr>",
         mode = { "v" },
         desc = "GPT prompt New Chat vsplit in visual mode",
-      },
-      {
-        "<C-g><C-t>",
-        ":<C-u>'<,'>GpChatNew tabnew<cr>",
-        mode = { "v" },
-        desc = "GPT prompt New Chat tabnew in visual mode",
       },
 
       -- New Chat
