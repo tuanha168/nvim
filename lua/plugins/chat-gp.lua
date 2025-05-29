@@ -17,6 +17,22 @@ return {
       { "<C-g><C-v>", ":<C-u>'<,'>GpChatNew vsplit<cr>", mode = "v", desc = "GPT prompt Visual Chat New vsplit" },
       { "<C-g><C-t>", ":<C-u>'<,'>GpChatNew tabnew<cr>", mode = "v", desc = "GPT prompt Visual Chat New tabnew" },
 
+      -- Current file as context
+      { "<C-g>C", "<cmd>%GpChatNew<cr>", mode = { "n", "i" }, desc = "GPT prompt New Chat with full file" },
+      { "<C-g>S", "<cmd>%GpChatNew split<cr>", mode = { "n", "i" }, desc = "GPT prompt New Chat with full file split" },
+      {
+        "<C-g>V",
+        "<cmd>%GpChatNew vsplit<cr>",
+        mode = { "n", "i" },
+        desc = "GPT prompt New Chat with full file vsplit",
+      },
+      {
+        "<C-g>T",
+        "<cmd>%GpChatNew tabnew<cr>",
+        mode = { "n", "i" },
+        desc = "GPT prompt New Chat with full file tabnew",
+      },
+
       -- Prompt commands
       { "<C-g>r", "<cmd>GpRewrite<cr>", mode = { "n", "i" }, desc = "GPT prompt Inline Rewrite" },
       { "<C-g>a", "<cmd>GpAppend<cr>", mode = { "n", "i" }, desc = "GPT prompt Append (after)" },
@@ -34,6 +50,7 @@ return {
       require("gp").setup {
         default_command_agent = "copilot",
         default_chat_agent = "copilot",
+        chat_confirm_delete = true,
         providers = {
           copilot = {
             secret = {
