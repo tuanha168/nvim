@@ -11,7 +11,7 @@ return {
       { "<C-g><C-f>", "<cmd>GpChatFinder<cr>", mode = { "n", "i" }, desc = "GPT prompt Chat Finder" },
 
       -- paste
-      { "<C-g>p", ":<C-u>'<,'>GpChatPaste<cr>", mode = "v", desc = "GPT prompt Visual Chat Paste" },
+      { "<C-g>p", ":<C-u>'<,'>GpChatPaste vsplit<cr>", mode = "v", desc = "GPT prompt Visual Chat Paste" },
 
       -- New Chat with current file as context
       {
