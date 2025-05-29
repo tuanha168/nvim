@@ -2,36 +2,38 @@
 return {
   {
     "robitx/gp.nvim",
-    opts = {
-      default_command_agent = "copilot",
-      default_chat_agent = "copilot",
-      chat_confirm_delete = false,
-      chat_free_cursor = true,
-      chat_template = require("gp.defaults").short_chat_template,
-      providers = {
-        copilot = {
-          secret = {
-            "bash",
-            "-c",
-            "cat ~/.config/github-copilot/apps.json | sed -e 's/.*oauth_token...//;s/\".*//'",
+    config = function()
+      require("gp").setup {
+        default_command_agent = "copilot",
+        default_chat_agent = "copilot",
+        chat_confirm_delete = false,
+        chat_free_cursor = true,
+        chat_template = require("gp.defaults").short_chat_template,
+        providers = {
+          copilot = {
+            secret = {
+              "bash",
+              "-c",
+              "cat ~/.config/github-copilot/apps.json | sed -e 's/.*oauth_token...//;s/\".*//'",
+            },
           },
         },
-      },
-      hooks = {
-        RewriteToDiff = function(gp, params)
-          local template = "I have the following from {{filename}}:\n\n"
-            .. "```{{filetype}}\n{{selection}}\n```\n\n"
-            .. "Rewrite it based on these instructions: {{command}}\n\n"
-            .. "Respond with the following:\n\n"
-            .. "  - a code block containing the rewritten code\n\n"
-            .. "  - a brief explanation of the changes that were made along with the reasons for doing so\n\n"
-            .. '  - a "diff" code block that shows the code changes in a diff format.\n\n'
-          local agent = gp.get_chat_agent()
-          local input_prompt = "🤖 " .. agent.name .. " ~"
-          gp.Prompt(params, gp.Target.popup, agent, template, input_prompt)
-        end,
-      },
-    },
+        hooks = {
+          RewriteToDiff = function(gp, params)
+            local template = "I have the following from {{filename}}:\n\n"
+              .. "```{{filetype}}\n{{selection}}\n```\n\n"
+              .. "Rewrite it based on these instructions: {{command}}\n\n"
+              .. "Respond with the following:\n\n"
+              .. "  - a code block containing the rewritten code\n\n"
+              .. "  - a brief explanation of the changes that were made along with the reasons for doing so\n\n"
+              .. '  - a "diff" code block that shows the code changes in a diff format.\n\n'
+            local agent = gp.get_chat_agent()
+            local input_prompt = "🤖 " .. agent.name .. " ~"
+            gp.Prompt(params, gp.Target.popup, agent, template, input_prompt)
+          end,
+        },
+      }
+    end,
     keys = {
       -- toggle
       { "<C-g>t", "<cmd>GpChatToggle<cr>", mode = { "n", "i" }, desc = "GPT prompt Toggle Chat" },
