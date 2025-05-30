@@ -44,6 +44,11 @@ return {
             system_prompt = require("gp.defaults").chat_system_prompt,
           },
         },
+        <<<<
+        test
+          ===
+          ok
+          <<<<
         hooks = {
           RewriteToDiff = function(gp, params)
             local template = "I have the following from {{filename}}:\n\n"
@@ -51,7 +56,7 @@ return {
               .. "Rewrite it based on these instructions: {{command}}\n\n"
               .. 'Respond exclusively with a "diff" snippet that shows the code changes in a same format that git use when have conflict that should replace the selection above.'
               .. 'Format like this:\n\n'
-              .. '<<<< before\n{{selection}}\n==== after\n{{response}}\n>>>>\n\n'
+              .. '<<<<< HEAD\n{{selection}}\n==== {{response}}\n<<<<<\n\n'
               .. "No explanations, agreements response or anything else, exclusively just code block.\n\n"
             local agent = gp.get_command_agent()
             local input_prompt = "🤖 " .. agent.name .. " ~"
