@@ -47,14 +47,15 @@ return {
         hooks = {
           RewriteToDiff = function(gp, params)
             local file_content = vim.api.nvim_buf_get_lines(0, 0, -1, false)
+            local file_content_str = table.concat(file_content, "\n")
             local template = "I have the following from {{filename}}:\n\n"
               .. "```{{filetype}}\n"
-              .. file_content
+              .. file_content_str
               .. "\n```\n\n"
               .. " I want to update the following code block\n\n"
               .. "```{{filetype}}\n{{selection}}\n```\n\n"
               .. "Rewrite it based on these instructions: {{command}}\n\n"
-              .. 'Respond exclusively with a code block that have full file content, with the code that changes is in a "diff" snippet format so i can use diffthis to apply quickly in neovim.\n\n'
+              .. 'Respond exclusively with a code block that have the code that changes is in a "diff" snippet format so i can use diffthis to apply quickly in neovim.\n\n'
             -- local agent = gp.get_command_agent()
             local agent = gp.get_chat_agent()
             local input_prompt = "🤖 " .. agent.name .. " ~"
