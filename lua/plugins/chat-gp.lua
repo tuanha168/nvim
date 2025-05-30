@@ -8,8 +8,8 @@ return {
     },
     config = function()
       require("gp").setup {
-        default_command_agent = "ChatGemini 2.0",
-        default_chat_agent = "ChatGemini 2.0",
+        default_command_agent = "copilot",
+        default_chat_agent = "copilot",
         chat_confirm_delete = false,
         chat_free_cursor = true,
         providers = {
@@ -51,7 +51,7 @@ return {
               .. " I want to update the following code block\n\n"
               .. "```{{filetype}}\n{{selection}}\n```\n\n"
               .. "Rewrite it based on these instructions: {{command}}\n\n"
-              .. 'Respond with no explanations, agreements response or anything else, just exclusively full file content, with the code changes in a "diff" snippet format.\n\n'
+              .. 'Respond exclusively with full file content, and the code that changes is in a "diff" snippet format.\n\n'
             -- local agent = gp.get_command_agent()
             local agent = gp.get_chat_agent()
             local input_prompt = "🤖 " .. agent.name .. " ~"
