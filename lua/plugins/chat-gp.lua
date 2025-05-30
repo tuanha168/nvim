@@ -70,7 +70,7 @@ return {
         },
       }
 
-      vim.keymap.set({ "x" }, "<space>cd", ":GpDiff ", { remap = true, desc = "[C]opilot rewrite to [D]iff" })
+      vim.keymap.set({ "x", "v" }, "<Leader>cd", ":GpDiff", { remap = true, desc = "[C]opilot rewrite to [D]iff" })
 
       function _G.gp_diff(args, line1, line2)
         local contents = vim.api.nvim_buf_get_lines(vim.api.nvim_get_current_buf(), 0, -1, false)
