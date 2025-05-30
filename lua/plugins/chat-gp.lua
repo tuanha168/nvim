@@ -37,19 +37,23 @@ return {
           },
         },
         agents = {
-          {
-            provider = "googleai",
-            name = "ChatGemini 2.0",
-            model = { model = "gemini-2.0-flash", temperature = 1.1, top_p = 1 },
-            system_prompt = require("gp.defaults").chat_system_prompt,
-          },
+          --- a/nvim/lua/plugins/chat-gp.lua
+          +++ b/nvim/lua/plugins/chat-gp.lua
+          @@ -1,5 +1,5 @@
+           {
+             provider = "googleai",
+          -  name = "ChatGemini 2.0",
+          +  name = "Google API",
+             model = { model = "gemini-2.0-flash", temperature = 1.1, top_p = 1 },
+             system_prompt = require("gp.defaults").chat_system_prompt,
+           },
         },
         hooks = {
           RewriteToDiff = function(gp, params)
             local template = "I have the following from {{filename}}:\n\n"
               .. "```{{filetype}}\n{{selection}}\n```\n\n"
               .. "Rewrite it based on these instructions: {{command}}\n\n"
-              .. 'Respond exclusively with a "diff" snippet that shows the code changes in a diff format should replace the selection above, no explanation or anything else, just code block.\n\n'
+              .. 'Respond exclusively with a "diff" snippet that shows the code changes in a diff format should replace the selection above, no explanations, agreements text or anything else, just code block.\n\n'
             local agent = gp.get_command_agent()
             local input_prompt = "🤖 " .. agent.name .. " ~"
             gp.Prompt(params, gp.Target.rewrite, agent, template, input_prompt)
