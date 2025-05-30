@@ -51,8 +51,7 @@ return {
               .. " I want to update the following code block\n\n"
               .. "```{{filetype}}\n{{selection}}\n```\n\n"
               .. "Rewrite it based on these instructions: {{command}}\n\n"
-              .. 'Respond exclusively with full file content, with the code changes in a "diff" snippet format.\n\n'
-              .. "No explanations, agreements response or anything else, exclusively just code block.\n\n"
+              .. 'Respond with no explanations, agreements response or anything else, just exclusively full file content, with the code changes in a "diff" snippet format.\n\n'
             -- local agent = gp.get_command_agent()
             local agent = gp.get_chat_agent()
             local input_prompt = "🤖 " .. agent.name .. " ~"
