@@ -47,6 +47,8 @@ return {
         hooks = {
           RewriteToDiff = function(gp, params)
             local template = "I have the following from {{filename}}:\n\n"
+              .. "```{{filetype}}\n{{file_content}}\n```\n\n"
+              .. " I want to update the following code block\n\n"
               .. "```{{filetype}}\n{{selection}}\n```\n\n"
               .. "Rewrite it based on these instructions: {{command}}\n\n"
               .. 'Respond exclusively with a "diff" snippet that shows the code changes in a same format that git use that should replace the selection above.'
