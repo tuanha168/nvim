@@ -46,8 +46,11 @@ return {
         },
         hooks = {
           RewriteToDiff = function(gp, params)
+            local file_content = vim.api.nvim_buf_get_lines(0, 0, -1, false)
             local template = "I have the following from {{filename}}:\n\n"
-              .. "```{{filetype}}\n{{file_content}}\n```\n\n"
+              .. "```{{filetype}}\n"
+              .. file_content
+              .. "\n```\n\n"
               .. " I want to update the following code block\n\n"
               .. "```{{filetype}}\n{{selection}}\n```\n\n"
               .. "Rewrite it based on these instructions: {{command}}\n\n"
