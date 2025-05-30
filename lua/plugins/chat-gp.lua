@@ -51,7 +51,7 @@ return {
               .. " I want to update the following code block\n\n"
               .. "```{{filetype}}\n{{selection}}\n```\n\n"
               .. "Rewrite it based on these instructions: {{command}}\n\n"
-              .. 'Respond exclusively with full file content, and the code that changes is in a "diff" snippet format.\n\n'
+              .. 'Respond exclusively with full file content, with the code that changes is in a "diff" snippet format so i can use diffthis to apply quickly in neovim.\n\n'
             -- local agent = gp.get_command_agent()
             local agent = gp.get_chat_agent()
             local input_prompt = "🤖 " .. agent.name .. " ~"
