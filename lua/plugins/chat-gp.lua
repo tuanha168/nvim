@@ -70,6 +70,8 @@ return {
           end,
         },
       }
+
+      Chiruno.func.setup_diff()
     end,
     keys = {
       -- toggle

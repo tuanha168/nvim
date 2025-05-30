@@ -61,15 +61,9 @@ function Chiruno.func.setup_diff()
     -- Validate that the current buffer is of type 'diff'
     local filetype = vim.bo.filetype
     if filetype == "diff" then
-      vim.api.nvim_buf_set_keymap(0, "n", "ci", ':lua apply_diff_changes("ci")<CR>', { noremap = true, silent = true })
-      vim.api.nvim_buf_set_keymap(0, "n", "ca", ':lua apply_diff_changes("ca")<CR>', { noremap = true, silent = true })
-      vim.api.nvim_buf_set_keymap(
-        0,
-        "n",
-        "<CR>",
-        ':lua apply_diff_changes("<CR>")<CR>',
-        { noremap = true, silent = true }
-      )
+      vim.keymap.set("n", "ci", function() apply_diff_changes "ci" end, { noremap = true, silent = true, buffer = 0 })
+      vim.keymap.set("n", "ca", function() apply_diff_changes "ca" end, { noremap = true, silent = true, buffer = 0 })
+      vim.keymap.set("n", "<CR>", function() apply_diff_changes "<CR>" end, { noremap = true, silent = true, buffer = 0 })
       print "Keymaps set for diff buffer!"
     end
   end
