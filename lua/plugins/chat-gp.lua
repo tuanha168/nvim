@@ -49,13 +49,10 @@ return {
             local template = "I have the following from {{filename}}:\n\n"
               .. "```{{filetype}}\n{{selection}}\n```\n\n"
               .. "Rewrite it based on these instructions: {{command}}\n\n"
-              .. "Response with the following:\n\n"
-              .. "  - a code block containing the rewritten code\n\n"
-              .. "  - a brief explanation of the changes that were made along with the reasons for doing so\n\n"
-              .. '  - a "diff" code block that shows the code changes in a diff format.\n\n'
-            local agent = gp.get_chat_agent()
+              .. 'Respond exclusively with a "diff" snippet that shows the code changes in a diff format should replace the selection above.\n\n'
+            local agent = gp.get_command_agent()
             local input_prompt = "🤖 " .. agent.name .. " ~"
-            gp.Prompt(params, gp.Target.vnew "markdown", agent, template, input_prompt)
+            gp.Prompt(params, gp.Target.rewrite, agent, template, input_prompt)
           end,
 
           CodeReview = function(gp, params)
@@ -69,29 +66,6 @@ return {
           end,
         },
       }
-
-      vim.keymap.set({ "x", "v" }, "<Leader>cd", ":GpDiff", { remap = true, desc = "[C]opilot rewrite to [D]iff" })
-
-      function _G.gp_diff(args, line1, line2)
-        local contents = vim.api.nvim_buf_get_lines(vim.api.nvim_get_current_buf(), 0, -1, false)
-
-        vim.cmd "vnew"
-        local scratch_buf = vim.api.nvim_get_current_buf()
-        vim.bo[scratch_buf].buftype = "nofile"
-        vim.bo[scratch_buf].bufhidden = "wipe"
-
-        vim.api.nvim_buf_set_lines(scratch_buf, 0, -1, false, contents)
-
-        vim.cmd(line1 .. "," .. line2 .. "GpRewrite " .. args)
-
-        vim.defer_fn(function()
-          vim.cmd "diffthis"
-          vim.cmd "wincmd p"
-          vim.cmd "diffthis"
-        end, 1000)
-      end
-
-      vim.cmd "command! -range -nargs=+ GpDiff lua gp_diff(<q-args>, <line1>, <line2>)"
     end,
     keys = {
       -- toggle
