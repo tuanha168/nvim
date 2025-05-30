@@ -28,15 +28,24 @@ function Chiruno.func.setup_diff()
     end
 
     -- Switch to the Lua file buffer (assume it is the alternate buffer)
-    local lua_buf = vim.fn.bufnr "#" -- Get buffer number of the alternate (previous) buffer
+    local lua_buf = vim.fn.bufnr "#" -- Get buffer number of the alternate (previous buffer)
+    if not lua_buf or lua_buf == 0 then
+      Print "Error: Unable to find Lua file buffer! Make sure to open the Lua file alongside the diff buffer."
+      return
+    end
 
     if not vim.api.nvim_buf_is_valid(lua_buf) then
-      Print "Lua file buffer not found or is invalid!"
+      Print "Error: Lua file buffer is invalid!"
       return
     end
 
     -- Retrieve all lines from Lua buffer
     local lua_lines = vim.api.nvim_buf_get_lines(lua_buf, 0, -1, true)
+    if not lua_lines or #lua_lines == 0 then
+      Print "Error: Lua buffer is empty or not a valid file!"
+      return
+    end
+
     local modified_lines = {} -- Stores the modified lines
     local modified_line_index = nil -- Stores the index of the line that was changed
 
@@ -61,11 +70,18 @@ function Chiruno.func.setup_diff()
     -- Replace lines in Lua buffer
     vim.api.nvim_buf_set_lines(lua_buf, 0, -1, true, modified_lines)
 
+    -- Debugging information for partial validation
+    Print("Modified_lines length: " .. tostring(#modified_lines))
+    if modified_line_index then Print("Modified line index: " .. tostring(modified_line_index)) end
+
     -- Focus the changed line in the Lua buffer
     if modified_line_index then
       local lua_win = vim.fn.bufwinid(lua_buf) -- Get window ID for the Lua buffer
       if lua_win ~= -1 then
-        vim.api.nvim_win_set_cursor(lua_win, { modified_line_index, 0 }) -- Move cursor to changed line
+        vim.api.nvim_win_set_cursor(lua_win, { modified_line_index, 0 }) -- Move cursor to the changed line
+        Print("Moved cursor to changed line: " .. tostring(modified_line_index))
+      else
+        Print "Warning: Lua buffer window not found!"
       end
     end
 
