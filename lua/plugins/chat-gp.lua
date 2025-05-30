@@ -49,15 +49,13 @@ return {
             local template = "I have the following from {{filename}}:\n\n"
               .. "```{{filetype}}\n{{selection}}\n```\n\n"
               .. "Rewrite it based on these instructions: {{command}}\n\n"
-              .. 'Respond exclusively with a "diff" snippet that shows the code changes in a same format that git use when have conflict that should replace the selection above.'
-              -- .. 'Format like this:\n\n'
-              -- .. '<<<<< HEAD\n{{selection}}\n==== {{response}}\n<<<<<\n\n'
+              .. 'Respond exclusively with a "diff" snippet that shows the code changes in a same format that git use that should replace the selection above.'
               .. "No explanations, agreements response or anything else, exclusively just code block.\n\n"
             -- local agent = gp.get_command_agent()
             local agent = gp.get_chat_agent()
             local input_prompt = "🤖 " .. agent.name .. " ~"
             -- gp.Prompt(params, gp.Target.rewrite, agent, template, input_prompt)
-            gp.Prompt(params, gp.Target.vnew "markdown", agent, template, input_prompt)
+            gp.Prompt(params, gp.Target.vnew "diff", agent, template, input_prompt)
           end,
 
           CodeReview = function(gp, params)
