@@ -49,7 +49,7 @@ return {
             local template = "I have the following from {{filename}}:\n\n"
               .. "```{{filetype}}\n{{selection}}\n```\n\n"
               .. "Rewrite it based on these instructions: {{command}}\n\n"
-              .. 'Respond exclusively with a "diff" snippet that shows the code changes in a diff format should replace the selection above.\n\n'
+              .. 'Respond exclusively with a "diff" snippet that shows the code changes in a diff format should replace the selection above, no explanation or anything else, just code block.\n\n'
             local agent = gp.get_command_agent()
             local input_prompt = "🤖 " .. agent.name .. " ~"
             gp.Prompt(params, gp.Target.rewrite, agent, template, input_prompt)
