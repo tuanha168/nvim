@@ -3,7 +3,7 @@ function Chiruno.func.setup_diff()
     -- Validate the current buffer is a diff buffer
     local filetype = vim.bo.filetype
     if filetype ~= "diff" then
-      print "This function can only be used in a diff buffer!"
+      Print "This function can only be used in a diff buffer!"
       return
     end
 
@@ -14,24 +14,24 @@ function Chiruno.func.setup_diff()
     -- Read the current and adjacent lines from the diff buffer
     local lines = vim.api.nvim_buf_get_lines(diff_buf, diff_cursor_line - 1, diff_cursor_line + 1, false)
     if #lines < 2 then
-      print "Not inside a proper diff block!"
+      Print "Not inside a proper diff block!"
       return
     end
 
     -- Parse diff lines
-    local old_text = string.match(lines[1], "^%- (.+)$") -- Extract '- old'
-    local new_text = string.match(lines[2], "^%+ (.+)$") -- Extract '+ new'
+    local old_text = string.match(lines[1], "^%- (.+)$") -- Extract "- old"
+    local new_text = string.match(lines[2], "^%+ (.+)$") -- Extract "+ new"
 
     if not old_text or not new_text then
-      print "Failed to parse diff block!"
+      Print "Failed to parse diff block!"
       return
     end
 
-    -- Switch to the Lua file buffer (assume the alternate buffer is the target)
+    -- Switch to the Lua file buffer (assume it is the alternate buffer)
     local lua_buf = vim.fn.bufnr "#" -- Get buffer number of the alternate (previous) buffer
 
     if not vim.api.nvim_buf_is_valid(lua_buf) then
-      print "Lua file buffer not found or valid!"
+      Print "Lua file buffer not found or is invalid!"
       return
     end
 
@@ -69,7 +69,7 @@ function Chiruno.func.setup_diff()
       end
     end
 
-    print("Applied diff block changes (" .. mode .. ")!")
+    Print("Applied diff block changes (" .. mode .. ")!")
   end
 
   -- Function to set local key bindings only for diff buffers
