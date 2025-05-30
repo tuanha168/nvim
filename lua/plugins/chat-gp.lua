@@ -51,7 +51,7 @@ return {
               .. " I want to update the following code block\n\n"
               .. "```{{filetype}}\n{{selection}}\n```\n\n"
               .. "Rewrite it based on these instructions: {{command}}\n\n"
-              .. 'Respond exclusively with a "diff" snippet that shows the code changes in a same format that git use that should replace the selection above.'
+              .. 'Respond exclusively with a "diff" snippet that shows the code changes in a same format that git use'
               .. "No explanations, agreements response or anything else, exclusively just code block.\n\n"
             -- local agent = gp.get_command_agent()
             local agent = gp.get_chat_agent()
