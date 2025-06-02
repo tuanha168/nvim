@@ -7,7 +7,7 @@ return {
     keys = {
       "<leader>aa",
       "<leader>an",
-      "<leader>ae",
+      "<leader>ar",
     },
     opts = {
       provider = "copilot",
@@ -21,6 +21,8 @@ return {
         -- auto_suggestions = true,
       },
       mappings = {
+        edit = "<leader>ar",
+        refresh = "<leader>ae",
         suggestion = {
           accept = "<C-f>",
           next = "<C-j>",
