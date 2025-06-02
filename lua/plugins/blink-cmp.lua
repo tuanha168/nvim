@@ -179,15 +179,6 @@ return {
       -- elsewhere in your config, without redefining it, due to `opts_extend`
       sources = {
         default = { "avante", "lsp", "path", "snippets", "buffer" },
-        providers = {
-          avante = {
-            module = "blink-cmp-avante",
-            name = "Avante",
-            opts = {
-              -- options for blink-cmp-avante
-            },
-          },
-        },
       },
 
       -- (Default) Rust fuzzy matcher for typo resistance and significantly better performance
