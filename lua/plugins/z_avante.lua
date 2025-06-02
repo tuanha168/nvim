@@ -58,6 +58,9 @@ return {
         },
         opts = function(_, opts)
           opts.sources = vim.list_extend(opts.sources or {}, {
+            default = vim.tbl_deep_extend("force", {
+              "avante",
+            }, opts.sources or {}),
             providers = {
               avante = {
                 module = "blink-cmp-avante",
