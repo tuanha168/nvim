@@ -12,19 +12,19 @@ return {
       },
       {
         "<leader>uf",
-        function() require("avante.api").select_history() end,
+        "<cmd>AvanteHistory<cr>",
         desc = "avante: history",
         mode = { "n" },
       },
       {
         "<leader>ur",
-        function() require("avante.api").refresh() end,
+        "<cmd>AvanteRefresh<cr>",
         desc = "avante: refresh",
         mode = "v",
       },
       {
         "<leader>ue",
-        function() require("avante.api").edit() end,
+        "<cmd>AvanteEdit<cr>",
         desc = "avante: edit",
         mode = { "n", "v" },
       },
