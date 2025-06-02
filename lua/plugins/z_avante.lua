@@ -11,6 +11,12 @@ return {
         mode = { "n", "v" },
       },
       {
+        "<leader>uf",
+        function() require("avante.api").select_history() end,
+        desc = "avante: history",
+        mode = { "n" },
+      },
+      {
         "<leader>ur",
         function() require("avante.api").refresh() end,
         desc = "avante: refresh",
@@ -25,7 +31,7 @@ return {
     },
     opts = {
       provider = "copilot",
-      file_selector = {
+      files_selector = {
         provider = "snacks",
       },
     },
