@@ -1,9 +1,6 @@
 Chiruno = {
-  autocmd = {},
   func = {},
   motions = {},
-  textobjs = {},
-  lsp = {},
 }
 
 local paths = vim.split(vim.fn.glob(string.gsub(debug.getinfo(1).source, "^@(.*)init.lua$", "%1") .. "**/*.lua"), "\n")
