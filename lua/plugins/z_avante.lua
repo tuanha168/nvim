@@ -34,6 +34,7 @@ return {
               },
             },
           })
+          Print(opts.sources)
           return opts
         end,
       }, -- for file_selector provider mini.pick

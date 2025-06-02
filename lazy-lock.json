@@ -3,6 +3,7 @@
   "aerial.nvim": { "branch": "master", "commit": "2e00d1d4248f08dddfceacb8d2996e51e13e00f6" },
   "alpha-nvim": { "branch": "main", "commit": "de72250e054e5e691b9736ee30db72c65d560771" },
   "attempt.nvim": { "branch": "main", "commit": "ab5137f6a511ee7d4d932cf9e16619656233997e" },
+  "avante.nvim": { "branch": "main", "commit": "bc403ddcbf98c4181ee2a7efd35cd1e18a2fdc5c" },
   "better-escape.nvim": { "branch": "master", "commit": "7e86edafb8c7e73699e0320f225464a298b96d12" },
   "blink-cmp-avante": { "branch": "master", "commit": "ddefb8de3cb1286ab39e0ccec0f32a45d03391f2" },
   "blink.cmp": { "branch": "main", "commit": "07a09acac1775b95f6fa9e624c9799e1b3bdfdca" },
