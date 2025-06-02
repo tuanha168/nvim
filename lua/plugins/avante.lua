@@ -16,6 +16,27 @@ return {
       "nvim-lua/plenary.nvim",
       "MunifTanjim/nui.nvim",
       --- The below dependencies are optional,
+      {
+        "saghen/blink.cmp",
+        dependencies = {
+          "Kaiser-Yang/blink-cmp-avante",
+        },
+        opts = function(_, opts)
+          opts.sources = vim.list_extend(opts.sources, {
+            default = { "avante", "lsp", "path", "snippets", "buffer" },
+            providers = {
+              avante = {
+                module = "blink-cmp-avante",
+                name = "Avante",
+                opts = {
+                  -- options for blink-cmp-avante
+                },
+              },
+            },
+          })
+          return opts
+        end,
+      }, -- for file_selector provider mini.pick
       "nvim-tree/nvim-web-devicons", -- or echasnovski/mini.icons
       "zbirenbaum/copilot.lua", -- for providers='copilot'
       {
