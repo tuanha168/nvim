@@ -100,6 +100,14 @@ for key, value in pairs(options.o) do
   vim.o[key] = value
 end
 
+vim.cmd [[
+augroup VisualEvent
+autocmd!
+autocmd ModeChanged *:[vV\x16]* :echom 'VisualEnter'
+autocmd Modechanged [vV\x16]*:* :echom 'VisualLeave'
+augroup END
+]]
+
 return options
 
 -- return function(local_vim)
