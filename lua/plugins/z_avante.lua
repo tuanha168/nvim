@@ -15,10 +15,10 @@ return {
       },
       mappings = {
         suggestion = {
-          accept = "<M-l>",
-          next = "<M-]>",
-          prev = "<M-[>",
-          dismiss = "<C-]>",
+          accept = "<C-f>",
+          next = "<C-j>",
+          prev = "<C-k>",
+          dismiss = "<ESC>",
         },
       },
     },
