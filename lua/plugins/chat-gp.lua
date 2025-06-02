@@ -2,6 +2,7 @@
 return {
   {
     "robitx/gp.nvim",
+    enabled = false,
     cmd = {
       "GpRewriteToDiff",
       "GpCodeReview",

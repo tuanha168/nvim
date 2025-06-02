@@ -57,10 +57,9 @@ return {
           "Kaiser-Yang/blink-cmp-avante",
         },
         opts = function(_, opts)
+          table.insert(opts.sources.default, 1, "avante")
+
           opts.sources = vim.tbl_deep_extend("force", opts.sources or {}, {
-            default = vim.tbl_deep_extend("force", {
-              "avante",
-            }, opts.sources.default or {}),
             providers = {
               avante = {
                 module = "blink-cmp-avante",
@@ -71,8 +70,6 @@ return {
               },
             },
           })
-
-          Print(opts.sources)
           return opts
         end,
       },
