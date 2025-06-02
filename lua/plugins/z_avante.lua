@@ -13,6 +13,14 @@ return {
         use_cwd_as_project_root = true,
         auto_suggestions = true,
       },
+      mappings = {
+        suggestion = {
+          accept = "<M-l>",
+          next = "<M-]>",
+          prev = "<M-[>",
+          dismiss = "<C-]>",
+        },
+      },
     },
     -- if you want to build from source then do `make BUILD_FROM_SOURCE=true`
     build = "make",
