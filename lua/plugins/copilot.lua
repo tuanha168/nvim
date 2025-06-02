@@ -2,7 +2,6 @@
 return {
   {
     "zbirenbaum/copilot.lua",
-    enabled = false,
     event = { "InsertEnter" },
     keys = {
       { "<C-f>", mode = "i" },
@@ -14,7 +13,7 @@ return {
         enabled = false,
       },
       suggestion = {
-        enabled = false,
+        enabled = true,
         auto_trigger = true,
         keymap = {
           accept = "<C-f>",

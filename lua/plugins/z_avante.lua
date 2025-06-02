@@ -6,7 +6,7 @@ return {
     event = "VeryLazy",
     opts = {
       provider = "copilot",
-      ---@issue: https://github.com/yetone/avante.nvim/issues/1048
+      ---@bug: https://github.com/yetone/avante.nvim/issues/1048
       -- auto_suggestions_provider = "copilot",
       selector = {
         provider = "snacks",
