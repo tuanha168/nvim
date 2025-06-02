@@ -6,7 +6,7 @@ return {
     keys = {
       {
         "<leader>ua",
-        function() require("avante.api").ask { new_chat = true } end,
+        "<cmd>AvanteChatNew<cr>",
         desc = "avante: ask",
         mode = { "n", "v" },
       },
@@ -33,6 +33,9 @@ return {
       provider = "copilot",
       selector = {
         provider = "snacks",
+      },
+      behaviour = {
+        use_cwd_as_project_root = true,
       },
     },
     -- if you want to build from source then do `make BUILD_FROM_SOURCE=true`
