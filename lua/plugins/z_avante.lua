@@ -3,7 +3,11 @@ return {
   {
     "yetone/avante.nvim",
     version = false, -- Never set this value to "*"! Never!
-    event = "VeryLazy",
+    event = "Visual",
+    keys = {
+      "<leader>aa",
+      "<leader>an",
+    },
     opts = {
       provider = "copilot",
       ---@bug: https://github.com/yetone/avante.nvim/issues/1048
@@ -80,6 +84,7 @@ return {
         opts = {
           file_types = { "markdown", "Avante" },
         },
+        event = "VeryLazy",
         ft = { "markdown", "Avante" },
       },
     },
