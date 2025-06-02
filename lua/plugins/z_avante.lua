@@ -6,12 +6,14 @@ return {
     event = "VeryLazy",
     opts = {
       provider = "copilot",
+      ---@issue: https://github.com/yetone/avante.nvim/issues/1048
+      -- auto_suggestions_provider = "copilot",
       selector = {
         provider = "snacks",
       },
       behaviour = {
         use_cwd_as_project_root = true,
-        auto_suggestions = true,
+        -- auto_suggestions = true,
       },
       mappings = {
         suggestion = {
