@@ -7,13 +7,16 @@ local autoPushDir = {
 }
 local excludeDir = { "scratch/src" }
 
-vim.cmd [[
-augroup VisualEvent
-autocmd!
-autocmd ModeChanged *:[vV\x16]* :echom 'VisualEnter'
-autocmd Modechanged [vV\x16]*:* :echom 'VisualLeave'
-augroup END
-]]
+{
+  { "ModeChanged" },
+  function(event)
+    if event.match:find("*:[vV\\x16]*") then
+      vim.cmd("echom 'VisualEnter'")
+    elseif event.match:find("[vV\\x16]*:*") then
+      vim.cmd("echom 'VisualLeave'")
+    end
+  end,
+},
 
 ---@class LegendaryAutoCmd
 ---@field [1] any (string|array)
