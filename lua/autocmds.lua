@@ -7,17 +7,6 @@ local autoPushDir = {
 }
 local excludeDir = { "scratch/src" }
 
-{
-  { "ModeChanged" },
-  function(event)
-    if event.match:find("*:[vV\\x16]*") then
-      vim.cmd("echom 'VisualEnter'")
-    elseif event.match:find("[vV\\x16]*:*") then
-      vim.cmd("echom 'VisualLeave'")
-    end
-  end,
-},
-
 ---@class LegendaryAutoCmd
 ---@field [1] any (string|array)
 ---@field [2] string|(fun(args: vim.api.keyset.create_autocmd.callback_args): boolean?)
@@ -123,5 +112,16 @@ return {
     opts = {
       pattern = { "json" },
     },
+  },
+
+  {
+    { "ModeChanged" },
+    function(event)
+      if event.match:find "*:[vV\\x16]*" then
+        vim.cmd "echom 'VisualEnter'"
+      elseif event.match:find "[vV\\x16]*:*" then
+        vim.cmd "echom 'VisualLeave'"
+      end
+    end,
   },
 }
