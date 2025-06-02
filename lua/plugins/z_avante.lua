@@ -21,22 +21,6 @@ return {
         dependencies = {
           "Kaiser-Yang/blink-cmp-avante",
         },
-        opts = function(_, opts)
-          opts.sources = vim.list_extend(opts.sources, {
-            default = vim.tbl_extend("force", {}, { "avante" }, opts.sources.default or {}),
-            providers = {
-              avante = {
-                module = "blink-cmp-avante",
-                name = "Avante",
-                opts = {
-                  -- options for blink-cmp-avante
-                },
-              },
-            },
-          })
-          Print(opts.sources)
-          return opts
-        end,
       }, -- for file_selector provider mini.pick
       "nvim-tree/nvim-web-devicons", -- or echasnovski/mini.icons
       "zbirenbaum/copilot.lua", -- for providers='copilot'
