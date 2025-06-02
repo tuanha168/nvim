@@ -6,6 +6,7 @@ return {
     version = false, -- Never set this value to "*"! Never!
     opts = {
       provider = "copilot",
+      file_selector = "snacks",
     },
     -- if you want to build from source then do `make BUILD_FROM_SOURCE=true`
     build = "make",
