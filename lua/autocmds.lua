@@ -116,13 +116,10 @@ return {
 
   {
     { "ModeChanged" },
-    function(event)
-      if event.match:find "*:[vV\\x16]*" then
-        vim.cmd "echom 'VisualEnter'"
-      elseif event.match:find "[vV\\x16]*:*" then
-        vim.cmd "echom 'VisualLeave'"
-      end
-    end,
+    function(event) Print "VisualEnter" end,
+    opts = {
+      pattern = { "*:[vV\x16]*" },
+    },
   },
   {
     { "VisualEnter" },
