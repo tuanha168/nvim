@@ -3,6 +3,7 @@ return {
   {
     "yetone/avante.nvim",
     version = false, -- Never set this value to "*"! Never!
+    event = "VeryLazy",
     keys = {
       {
         "<leader>ua",
