@@ -124,4 +124,8 @@ return {
       end
     end,
   },
+  {
+    { "VisualEnter" },
+    function(event) Print(event) end,
+  },
 }
