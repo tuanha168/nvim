@@ -7,6 +7,14 @@ local autoPushDir = {
 }
 local excludeDir = { "scratch/src" }
 
+vim.cmd [[
+augroup VisualEvent
+autocmd!
+autocmd ModeChanged *:[vV\x16]* :echom 'VisualEnter'
+autocmd Modechanged [vV\x16]*:* :echom 'VisualLeave'
+augroup END
+]]
+
 ---@class LegendaryAutoCmd
 ---@field [1] any (string|array)
 ---@field [2] string|(fun(args: vim.api.keyset.create_autocmd.callback_args): boolean?)
