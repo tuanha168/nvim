@@ -102,6 +102,9 @@ return {
     "saghen/blink.cmp",
     event = "InsertEnter",
     build = "cargo build --release", -- for delimiters
+    dependencies = {
+      "Kaiser-Yang/blink-cmp-avante",
+    },
     -- version = "1.*",
     ---@module 'blink.cmp'
     ---@type blink.cmp.Config

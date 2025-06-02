@@ -18,9 +18,6 @@ return {
       --- The below dependencies are optional,
       {
         "saghen/blink.cmp",
-        dependencies = {
-          "Kaiser-Yang/blink-cmp-avante",
-        },
       }, -- for file_selector provider mini.pick
       "nvim-tree/nvim-web-devicons", -- or echasnovski/mini.icons
       "zbirenbaum/copilot.lua", -- for providers='copilot'
