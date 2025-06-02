@@ -33,7 +33,9 @@ return {
     end,
     opts = {
       provider = "copilot",
-      file_selector = "snacks",
+      file_selector = {
+        provider = "snacks",
+      },
       mappings = {
         ask = "<leader>ua", -- ask
         edit = "<leader>ue", -- edit
@@ -49,7 +51,12 @@ return {
       "nvim-lua/plenary.nvim",
       "MunifTanjim/nui.nvim",
       --- The below dependencies are optional,
-      "saghen/blink.cmp",
+      {
+        "saghen/blink.cmp",
+        dependencies = {
+          "Kaiser-Yang/blink-cmp-avante",
+        },
+      },
       "nvim-tree/nvim-web-devicons", -- or echasnovski/mini.icons
       "zbirenbaum/copilot.lua", -- for providers='copilot'
       {
