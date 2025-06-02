@@ -16,9 +16,7 @@ return {
       "nvim-lua/plenary.nvim",
       "MunifTanjim/nui.nvim",
       --- The below dependencies are optional,
-      {
-        "saghen/blink.cmp",
-      }, -- for file_selector provider mini.pick
+      "saghen/blink.cmp",
       "nvim-tree/nvim-web-devicons", -- or echasnovski/mini.icons
       "zbirenbaum/copilot.lua", -- for providers='copilot'
       {
