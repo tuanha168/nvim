@@ -10,19 +10,19 @@ return {
 
       local mappings = {
         {
-          opts.mappings.ask,
+          "<leader>ua",
           function() require("avante.api").ask() end,
           desc = "avante: ask",
           mode = { "n", "v" },
         },
         {
-          opts.mappings.refresh,
+          "<leader>ur",
           function() require("avante.api").refresh() end,
           desc = "avante: refresh",
           mode = "v",
         },
         {
-          opts.mappings.edit,
+          "<leader>ue",
           function() require("avante.api").edit() end,
           desc = "avante: edit",
           mode = { "n", "v" },
@@ -35,11 +35,6 @@ return {
       provider = "copilot",
       file_selector = {
         provider = "snacks",
-      },
-      mappings = {
-        ask = "<leader>ua", -- ask
-        edit = "<leader>ue", -- edit
-        refresh = "<leader>ur", -- refresh
       },
     },
     -- if you want to build from source then do `make BUILD_FROM_SOURCE=true`
