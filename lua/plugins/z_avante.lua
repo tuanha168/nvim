@@ -3,7 +3,7 @@ return {
   {
     "yetone/avante.nvim",
     version = false, -- Never set this value to "*"! Never!
-    event = { "User", { pattern = "VisualEnter" } },
+    event = { pattern = "VisualEnter" },
     keys = {
       "<leader>aa",
       "<leader>an",
