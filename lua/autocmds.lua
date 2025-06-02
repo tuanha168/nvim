@@ -116,14 +116,14 @@ return {
 
   {
     { "ModeChanged" },
-    function() vim.api.nvim_exec_autocmds("User", { pattern = "VisualEnter" }) end,
+    function(event) vim.api.nvim_exec_autocmds("VisualEnter", event) end,
     opts = {
       pattern = { "*:[vV\x16]*" },
     },
   },
   {
     { "ModeChanged" },
-    function() vim.api.nvim_exec_autocmds("User", { pattern = "VisualLeave" }) end,
+    function(event) vim.api.nvim_exec_autocmds("VisualLeave", event) end,
     opts = {
       pattern = { "[vV\x16]*:*" },
     },
