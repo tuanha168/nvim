@@ -128,8 +128,4 @@ return {
       pattern = { "[vV\x16]*:*" },
     },
   },
-  {
-    { "VisualEnter" },
-    function(event) Print(event) end,
-  },
 }
