@@ -31,7 +31,7 @@ return {
     },
     opts = {
       provider = "copilot",
-      file_selector = {
+      selector = {
         provider = "snacks",
       },
     },
