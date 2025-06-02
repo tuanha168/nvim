@@ -4,32 +4,6 @@ return {
     "yetone/avante.nvim",
     version = false, -- Never set this value to "*"! Never!
     event = "VeryLazy",
-    keys = {
-      {
-        "<leader>ua",
-        "<cmd>AvanteChatNew<cr>",
-        desc = "avante: ask",
-        mode = { "n", "v" },
-      },
-      {
-        "<leader>uf",
-        "<cmd>AvanteHistory<cr>",
-        desc = "avante: history",
-        mode = { "n" },
-      },
-      {
-        "<leader>ur",
-        "<cmd>AvanteRefresh<cr>",
-        desc = "avante: refresh",
-        mode = "v",
-      },
-      {
-        "<leader>ue",
-        "<cmd>AvanteEdit<cr>",
-        desc = "avante: edit",
-        mode = { "n", "v" },
-      },
-    },
     opts = {
       provider = "copilot",
       selector = {
