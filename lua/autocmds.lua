@@ -116,9 +116,16 @@ return {
 
   {
     { "ModeChanged" },
-    function(event) Print "VisualEnter" end,
+    function() Print "VisualEnter" end,
     opts = {
       pattern = { "*:[vV\x16]*" },
+    },
+  },
+  {
+    { "ModeChanged" },
+    function() Print "VisualLeave" end,
+    opts = {
+      pattern = { "[vV\x16]*:*" },
     },
   },
   {
