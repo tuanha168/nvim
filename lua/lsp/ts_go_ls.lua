@@ -1,7 +1,7 @@
 local volarPath = require("mason-registry").get_package("vue-language-server"):get_install_path()
 local home = os.getenv "HOME"
 
-return {
+vim.lsp.config("ts_go_ls", {
   cmd = { home .. "/typescript-go/built/local/tsgo", "--lsp", "--stdio" },
   filetypes = {
     "javascript",
@@ -22,4 +22,4 @@ return {
       },
     },
   },
-}
+})
