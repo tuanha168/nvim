@@ -39,7 +39,7 @@ return {
     event = "VeryLazy",
     opts = {
       nes = {
-        move_count_threshold = 3, -- Clear after 3 cursor movements
+        move_count_threshold = 5, -- Clear after 5 cursor movements
       },
     },
     init = function()
