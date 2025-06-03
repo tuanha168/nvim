@@ -1,5 +1,6 @@
+local home = os.getenv "HOME"
 vim.lsp.config("ts_go_ls", {
-  cmd = { vim.loop.os_homedir() .. "/typescript-go/built/local/tsgo", "lsp", "-stdio" },
+  cmd = { home .. "/typescript-go/built/local/tsgo", "lsp", "-stdio" },
   filetypes = {
     "javascript",
     "javascriptreact",
@@ -11,5 +12,3 @@ vim.lsp.config("ts_go_ls", {
   root_markers = { "tsconfig.json", "jsconfig.json", "package.json", ".git" },
 })
 vim.lsp.enable "ts_go_ls"
-
-Print "ts"
