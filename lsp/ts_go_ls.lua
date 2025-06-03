@@ -13,7 +13,7 @@ vim.lsp.config("ts_go_ls", {
     "vue",
   },
   root_markers = { "tsconfig.json", "jsconfig.json", "package.json", ".git" },
-  init_options = {
+  settings = {
     plugins = {
       {
         name = "@vue/typescript-plugin",
