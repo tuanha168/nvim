@@ -16,7 +16,7 @@ local inlayHints = {
 
 ---@type lspconfig.options.vtsls
 return {
-  enabled = vim.g.vue_hybrid,
+  enabled = false,
   filetypes = {
     "javascript",
     "javascript.jsx",
