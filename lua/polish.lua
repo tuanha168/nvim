@@ -30,6 +30,7 @@ local inlay_hint_handler = vim.lsp.handlers[methods.textDocument_inlayHint]
 local lsp_inlay_hint_key = {
   "volar",
   "ts_ls",
+  "vtsls",
 }
 
 vim.lsp.handlers[methods.textDocument_inlayHint] = function(err, result, ctx, config)
