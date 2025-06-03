@@ -1,17 +1,18 @@
 local volarPath = require("mason-registry").get_package("vue-language-server"):get_install_path()
 
----@type _.lspconfig.settings.vtsls.InlayHints
 local inlayHints = {
-  includeInlayParameterNameHints = "all",
-  includeInlayParameterNameHintsWhenArgumentMatchesName = false,
-  includeInlayFunctionParameterTypeHints = true,
-  includeInlayVariableTypeHintsWhenTypeMatchesName = false,
-  includeInlayPropertyDeclarationTypeHints = true,
-  includeInlayEnumMemberValueHints = true,
-  -- includeInlayVariableTypeHints = true,
-  -- includeInlayFunctionLikeReturnTypeHints = true,
-
-  importModuleSpecifierPreference = "non-relative",
+  enumMemberValues = { enabled = "true" },
+  propertyDeclarationTypes = { enabled = "true" },
+  parameterNames = {
+    enabled = "all",
+    suppressWhenArgumentMatchesName = "true",
+  },
+  -- functionLikeReturnTypes = { enabled = "true" },
+  -- variableTypes = {
+  --   enabled = "true",
+  --   suppressWhenTypeMatchesName = "true",
+  -- },
+  parameterTypes = { enabled = "true" },
 }
 
 ---@type lspconfig.options.vtsls
