@@ -42,20 +42,20 @@ return {
             enableForWorkspaceTypeScriptVersions = true,
           },
         },
-        typescript = {
-          tsserver = {
-            web = {
-              projectWideIntellisense = {
-                enabled = true,
-              },
-            },
+      },
+    },
+    typescript = {
+      tsserver = {
+        web = {
+          projectWideIntellisense = {
+            enabled = true,
           },
-          inlayHints = inlayHints,
-        },
-        javascript = {
-          inlayHints = inlayHints,
         },
       },
+      inlayHints = inlayHints,
+    },
+    javascript = {
+      inlayHints = inlayHints,
     },
   },
 }
