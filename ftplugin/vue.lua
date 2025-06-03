@@ -19,3 +19,5 @@ vim.keymap.set("i", "=", function()
 
   return '=""<left>'
 end, { expr = true, buffer = true })
+
+vim.lsp.enable "ts_go_ls"
