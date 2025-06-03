@@ -36,6 +36,12 @@ return {
         mode = { "n", "i" },
       },
     },
+    event = "VeryLazy",
+    opts = {
+      nes = {
+        move_count_threshold = 3, -- Clear after 3 cursor movements
+      },
+    },
     init = function()
       vim.g.copilot_nes_debounce = 500
       vim.lsp.enable "copilot_ls"
