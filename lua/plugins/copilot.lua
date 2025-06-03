@@ -1,44 +1,44 @@
 ---@type LazySpec
 return {
-  {
-    "zbirenbaum/copilot.lua",
-    event = { "InsertEnter" },
-    keys = {
-      { "<C-f>", mode = "i" },
-      { "<C-j>", mode = "i" },
-      { "<C-k>", mode = "i" },
-    },
-    opts = {
-      panel = {
-        enabled = false,
-      },
-      suggestion = {
-        enabled = true,
-        auto_trigger = true,
-        keymap = {
-          accept = "<C-f>",
-          next = "<C-j>",
-          prev = "<C-k>",
-        },
-      },
-    },
-  },
-
   -- {
-  --   "copilotlsp-nvim/copilot-lsp",
-  --   init = function()
-  --     vim.g.copilot_nes_debounce = 10
-  --     vim.lsp.enable "copilot_ls"
-  --     vim.keymap.set(
-  --       { "n", "i" },
-  --       "<C-f>",
-  --       function()
-  --         local _ = require("copilot-lsp.nes").walk_cursor_start_edit()
-  --           or (require("copilot-lsp.nes").apply_pending_nes() and require("copilot-lsp.nes").walk_cursor_end_edit())
-  --       end
-  --     )
-  --   end,
+  --   "zbirenbaum/copilot.lua",
+  --   event = { "InsertEnter" },
+  --   keys = {
+  --     { "<C-f>", mode = "i" },
+  --     { "<C-j>", mode = "i" },
+  --     { "<C-k>", mode = "i" },
+  --   },
+  --   opts = {
+  --     panel = {
+  --       enabled = false,
+  --     },
+  --     suggestion = {
+  --       enabled = true,
+  --       auto_trigger = true,
+  --       keymap = {
+  --         accept = "<C-f>",
+  --         next = "<C-j>",
+  --         prev = "<C-k>",
+  --       },
+  --     },
+  --   },
   -- },
+
+  {
+    "copilotlsp-nvim/copilot-lsp",
+    init = function()
+      vim.g.copilot_nes_debounce = 500
+      vim.lsp.enable "copilot_ls"
+      vim.keymap.set(
+        { "n", "i" },
+        "<C-f>",
+        function()
+          local _ = require("copilot-lsp.nes").walk_cursor_start_edit()
+            or (require("copilot-lsp.nes").apply_pending_nes() and require("copilot-lsp.nes").walk_cursor_end_edit())
+        end
+      )
+    end,
+  },
 
   -- {
   --   "CopilotC-Nvim/CopilotChat.nvim",
