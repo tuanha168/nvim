@@ -1,1 +1,1 @@
-vim.lsp.enable "ts_go_ls"
+-- vim.lsp.enable "ts_go_ls"
