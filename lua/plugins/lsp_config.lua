@@ -1,6 +1,6 @@
 local servers = {
-  lua_ls = require "../../lsp/lua_ls",
-  vue_ls = require "../../lsp/volar",
+  lua_ls = require "../../lsp.lua_ls",
+  vue_ls = require "../../lsp/vue_ls",
   eslint = require "../../lsp/eslint",
   tailwindcss = require "../../lsp/tailwindcss",
   jsonls = {},
