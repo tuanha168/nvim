@@ -1,22 +1,3 @@
-local servers = {
-  lua_ls = require "lsp/lua_ls",
-  vue_ls = require "lsp/vue_ls",
-  eslint = require "lsp/eslint",
-  tailwindcss = require "lsp/tailwindcss",
-  jsonls = {},
-  intelephense = require "lsp/intelephense",
-  yamlls = {},
-  -- omnisharp = require "lsp.omnisharp",
-  cssls = require "lsp.cssls",
-  html = require "lsp.html",
-  -- ts_ls = require "lsp.ts_ls",
-  vtsls = require "lsp.vtsls",
-  stylelint_lsp = require "lsp.stylelint_lsp",
-
-  ---@reference lua/plugins/rustaceanvim.lua
-  -- rust_analyzer = require "lsp.rust_analyzer",
-}
-
 return {
   {
     "neovim/nvim-lspconfig",

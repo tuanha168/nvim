@@ -1,6 +1,26 @@
 require "Chiruno"
 require "options"
 
+Chiruno.servers = {
+  lua_ls = require "lsp.lua_ls",
+  vue_ls = require "lsp.vue_ls",
+  eslint = require "lsp.eslint",
+  tailwindcss = require "lsp.tailwindcss",
+  jsonls = {},
+  intelephense = require "lsp.intelephense",
+  yamlls = {},
+  -- omnisharp = require "lsp.omnisharp",
+  cssls = require "lsp.cssls",
+  html = require "lsp.html",
+  -- ts_ls = require "lsp.ts_ls",
+  vtsls = require "lsp.vtsls",
+  stylelint_lsp = require "lsp.stylelint_lsp",
+
+  ---@reference lua/plugins/rustaceanvim.lua
+  -- rust_analyzer = require "lsp.rust_analyzer",
+}
+
+
 -- This file simply bootstraps the installation of Lazy.nvim and then calls other files for execution
 -- This file doesn't necessarily need to be touched, BE CAUTIOUS editing this file and proceed at your own risk.
 local lazypath = vim.env.LAZY or vim.fn.stdpath "data" .. "/lazy/lazy.nvim"
