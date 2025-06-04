@@ -1,4 +1,3 @@
--- local util = require "lspconfig.util"
 local home = os.getenv "HOME"
 
 local filetypes = vim.g.vue_hybrid and {
@@ -14,7 +13,6 @@ local filetypes = vim.g.vue_hybrid and {
 }
 
 return {
-  -- root_dir = util.root_pattern(".git", "tsconfig.json", "tsconfig.ts", "tsconfig.js", "package.json"),
   root_markers = {".git", "tsconfig.json", "tsconfig.ts", "tsconfig.js", "package.json"},
   filetypes = filetypes,
   init_options = { vue = { hybridMode = vim.g.vue_hybrid } },
