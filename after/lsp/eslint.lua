@@ -19,7 +19,7 @@ return {
       },
     },
   },
-  on_init = function(client, buf)
+  on_init = function(client, _, buf)
     Print(client)
     Print(buf)
     if client.name == "eslint" or client.name == "eslintd" then vim.b[e.buf].haveEslint = true end
