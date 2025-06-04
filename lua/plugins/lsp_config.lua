@@ -1,20 +1,20 @@
 local servers = {
-  "lua_ls",
+  lua_ls = true,
   vue_ls = false,
-  "eslint",
-  "tailwindcss",
-  "jsonls",
-  "intelephense",
-  "yamlls",
-  -- "omnisharp",
-  -- "cssls",
-  -- "html",
-  -- "ts_ls",
-  "vtsls",
-  -- "stylelint_lsp",
+  eslint = true,
+  tailwindcss = true,
+  jsonls = true,
+  intelephense = true,
+  yamlls = true,
+  -- omnisharp = false,
+  -- cssls = false,
+  -- html = false,
+  -- ts_ls = false,
+  vtsls = true,
+  stylelint_lsp = false,
 
   ---@reference lua/plugins/rustaceanvim.lua
-  -- "rust_analyzer",
+  -- rust_analyzer = false,
 }
 
 return {
