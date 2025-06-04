@@ -13,7 +13,6 @@ local inlayHints = {
   parameterTypes = { enabled = "true" },
 }
 
----@type lspconfig.options.vtsls
 return {
   enabled = vim.g.vue_hybrid,
   filetypes = {

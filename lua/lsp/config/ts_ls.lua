@@ -1,6 +1,5 @@
 local volarPath = require("mason-registry").get_package("vue-language-server"):get_install_path()
 
----@type _.lspconfig.settings.ts_ls.InlayHints
 local inlayHints = {
   includeInlayParameterNameHints = "all",
   includeInlayParameterNameHintsWhenArgumentMatchesName = false,
@@ -14,7 +13,6 @@ local inlayHints = {
   importModuleSpecifierPreference = "non-relative",
 }
 
----@type lspconfig.options.ts_ls
 return {
   enabled = vim.g.vue_hybrid,
   filetypes = {
@@ -33,7 +31,7 @@ return {
     plugins = {
       {
         name = "@vue/typescript-plugin",
-        location = volarPath .. "/node_modules/@vue/language-server/node_modules/@vue/typescript-plugin",
+        location = "$MASON/packages/vue-language-server/node_modules/@vue/language-server/node_modules/@vue/typescript-plugin",
         languages = { "vue" },
       },
     },

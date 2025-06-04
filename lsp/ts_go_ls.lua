@@ -1,4 +1,3 @@
-local volarPath = require("mason-registry").get_package("vue-language-server"):get_install_path()
 local home = os.getenv "HOME"
 
 vim.lsp.config("ts_go_ls", {
@@ -17,7 +16,7 @@ vim.lsp.config("ts_go_ls", {
     plugins = {
       {
         name = "@vue/typescript-plugin",
-        location = volarPath .. "/node_modules/@vue/language-server/node_modules/@vue/typescript-plugin",
+        location = "$MASON/packages/vue-language-server/node_modules/@vue/language-server/node_modules/@vue/typescript-plugin",
         languages = { "vue" },
       },
     },
