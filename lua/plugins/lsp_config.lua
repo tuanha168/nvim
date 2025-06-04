@@ -1,3 +1,22 @@
+local servers = {
+  lua_ls = require "lsp.config.lua_ls",
+  vue_ls = require "lsp.config.volar",
+  eslint = require "lsp.config.eslint",
+  tailwindcss = require "lsp.config.tailwindcss",
+  jsonls = {},
+  intelephense = require "lsp.config.intelephense",
+  yamlls = {},
+  -- omnisharp = require "lsp.config.omnisharp",
+  cssls = require "lsp.config.cssls",
+  html = require "lsp.config.html",
+  -- ts_ls = require "lsp.config.ts_ls",
+  vtsls = require "lsp.config.vtsls",
+  stylelint_lsp = require "lsp.config.stylelint_lsp",
+
+  ---@reference lua/plugins/rustaceanvim.lua
+  -- rust_analyzer = require "lsp.config.rust_analyzer",
+}
+
 return {
   {
     "neovim/nvim-lspconfig",
@@ -15,7 +34,15 @@ return {
         opts = {},
         cmd = "Mason",
       },
-      "williamboman/mason-lspconfig.nvim",
+      {
+        "williamboman/mason-lspconfig.nvim",
+        opts = {
+          ensure_installed = vim.tbl_keys(servers),
+          automatic_enable = {
+            exclude = {},
+          },
+        },
+      },
     },
     config = function()
       local capabilities = vim.lsp.protocol.make_client_capabilities()
@@ -24,53 +51,6 @@ return {
 
       if haveCmp then capabilities = vim.tbl_deep_extend("force", capabilities, cmp.default_capabilities()) end
       if haveBlink then capabilities = blink.get_lsp_capabilities(capabilities) end
-
-      local servers = {
-        lua_ls = require "lsp.config.lua_ls",
-        vue_ls = require "lsp.config.volar",
-        eslint = require "lsp.config.eslint",
-        tailwindcss = require "lsp.config.tailwindcss",
-        jsonls = {},
-        intelephense = require "lsp.config.intelephense",
-        yamlls = {},
-        -- omnisharp = require "lsp.config.omnisharp",
-        cssls = require "lsp.config.cssls",
-        html = require "lsp.config.html",
-        -- ts_ls = require "lsp.config.ts_ls",
-        vtsls = require "lsp.config.vtsls",
-        stylelint_lsp = require "lsp.config.stylelint_lsp",
-
-        ---@reference lua/plugins/rustaceanvim.lua
-        -- rust_analyzer = require "lsp.config.rust_analyzer",
-      }
-
-      require("mason-lspconfig").setup {
-        ensure_installed = vim.tbl_keys(servers),
-        automatic_enable = true,
-        automatic_installation = true,
-        handlers = {
-          function(server_name)
-            local serverConfig = servers[server_name] or {}
-            if serverConfig.enabled == false then return end
-            serverConfig.capabilities = vim.tbl_deep_extend("force", {
-              workspace = {
-                workspaceFolders = true,
-                didChangeWatchedFiles = {
-                  dynamicRegistration = true,
-                },
-              },
-              textDocument = {
-                foldingRange = {
-                  dynamicRegistration = false,
-                  lineFoldingOnly = true,
-                },
-              },
-            }, capabilities, serverConfig.capabilities or {})
-            serverConfig.on_attach = require "lsp.on_attach"
-            vim.lsp.config(server_name, serverConfig)
-          end,
-        },
-      }
 
       vim.diagnostic.config {
         virtual_text = true,
