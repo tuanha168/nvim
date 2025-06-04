@@ -1,5 +1,3 @@
-local volarPath = require("mason-registry").get_package("vue-language-server"):get_install_path()
-
 local inlayHints = {
   includeInlayParameterNameHints = "all",
   includeInlayParameterNameHintsWhenArgumentMatchesName = false,
