@@ -1,4 +1,4 @@
-local volarPath = require("mason-registry").get_package("vue-language-server"):get_install_path()
+local volarPath = require("mason-registry").get_package("vue_ls"):get_install_path()
 
 local inlayHints = {
   enumMemberValues = { enabled = "true" },

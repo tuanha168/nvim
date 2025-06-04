@@ -27,7 +27,7 @@ return {
 
       local servers = {
         lua_ls = require "lsp.config.lua_ls",
-        volar = require "lsp.config.volar",
+        vue_ls = require "lsp.config.volar",
         eslint = require "lsp.config.eslint",
         tailwindcss = require "lsp.config.tailwindcss",
         jsonls = {},
