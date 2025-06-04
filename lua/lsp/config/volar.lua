@@ -13,7 +13,6 @@ local filetypes = vim.g.vue_hybrid and {
   "vue",
 }
 
----@type lspconfig.options.volar
 return {
   root_dir = util.root_pattern(".git", "tsconfig.json", "tsconfig.ts", "tsconfig.js", "package.json"),
   filetypes = filetypes,
