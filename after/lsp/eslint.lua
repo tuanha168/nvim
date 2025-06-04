@@ -12,14 +12,12 @@ return {
     "eslint.config.ts",
   },
   settings = {
-    eslint = {
-      experimental = {
-        -- allows to use flat config format
-        useFlatConfig = true,
-      },
+    experimental = {
+      -- allows to use flat config format
+      useFlatConfig = true,
     },
   },
   on_init = function(client)
-    client.on_attach = function(_, buf) vim.b[buf].formatByLsp = true end
+    -- client.on_attach = function(_, buf) vim.b[buf].formatByLsp = true end
   end,
 }
