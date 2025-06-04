@@ -1,14 +1,14 @@
 local servers = {
   "lua_ls",
-  -- "vue_ls",
+  vue_ls = false,
   "eslint",
   "tailwindcss",
   "jsonls",
   "intelephense",
   "yamlls",
   -- "omnisharp",
-  "cssls",
-  "html",
+  -- "cssls",
+  -- "html",
   -- "ts_ls",
   "vtsls",
   -- "stylelint_lsp",
@@ -35,7 +35,10 @@ return {
         "williamboman/mason-lspconfig.nvim",
         opts = {
           ensure_installed = servers,
-          automatic_enable = servers,
+          automatic_enable = vim.tbl_filter(function(server)
+            Print(server)
+            return server
+          end, servers),
         },
       },
     },
