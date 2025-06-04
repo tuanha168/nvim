@@ -18,11 +18,11 @@ return {
       {
         "williamboman/mason-lspconfig.nvim",
         opts = {
-          ensure_installed = vim.tbl_keys(servers),
+          ensure_installed = vim.tbl_keys(Chiruno.servers),
           automatic_enable = {
             exclude = vim.tbl_filter(
-              function(server) return servers[server].enabled == false end,
-              vim.tbl_keys(servers)
+              function(server) return server.enabled == false end,
+              Chiruno.servers
             ),
           },
         },
