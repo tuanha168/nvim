@@ -46,16 +46,13 @@ return {
 
       require("mason-lspconfig").setup {
         ensure_installed = vim.tbl_keys(servers),
-        automatic_enable = {
-          exclude = {},
-        },
+        automatic_enable = {},
         automatic_installation = true,
         handlers = {
-          rust_analyzer = function() end,
           function(server_name)
-            local server = servers[server_name] or {}
-            if server.enabled == false then return end
-            server.capabilities = vim.tbl_deep_extend("force", {
+            local serverConfig = servers[server_name] or {}
+            if serverConfig.enabled == false then return end
+            serverConfig.capabilities = vim.tbl_deep_extend("force", {
               workspace = {
                 workspaceFolders = true,
                 didChangeWatchedFiles = {
@@ -68,9 +65,9 @@ return {
                   lineFoldingOnly = true,
                 },
               },
-            }, capabilities, server.capabilities or {})
-            server.on_attach = require "lsp.on_attach"
-            require("lspconfig")[server_name].setup(server)
+            }, capabilities, serverConfig.capabilities or {})
+            serverConfig.on_attach = require "lsp.on_attach"
+            vim.lsp.config(server_name, serverConfig)
           end,
         },
       }
