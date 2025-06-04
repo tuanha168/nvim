@@ -21,4 +21,5 @@ end
 require "Chiruno"
 require "options"
 require "lazy_setup"
+require "lsp.config"
 require "polish"

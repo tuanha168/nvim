@@ -21,9 +21,6 @@ return {
   {
     "neovim/nvim-lspconfig",
     event = { "BufReadPre", "BufNewFile" },
-    -- opts = {
-    --   inlay_hints = { enabled = true },
-    -- },
     dependencies = {
       {
         "folke/neoconf.nvim",
@@ -42,8 +39,6 @@ return {
         },
       },
     },
-    config = function()
-    end,
   },
 
   -- {
