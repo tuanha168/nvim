@@ -1,57 +1,52 @@
 ---@type LazySpec
 return {
-  -- {
-  --   "zbirenbaum/copilot.lua",
-  --   event = { "InsertEnter" },
-  --   keys = {
-  --     { "<C-f>", mode = "i" },
-  --     { "<C-j>", mode = "i" },
-  --     { "<C-k>", mode = "i" },
-  --   },
-  --   opts = {
-  --     panel = {
-  --       enabled = false,
-  --     },
-  --     suggestion = {
-  --       enabled = true,
-  --       auto_trigger = true,
-  --       keymap = {
-  --         accept = "<C-f>",
-  --         next = "<C-j>",
-  --         prev = "<C-k>",
-  --       },
-  --     },
-  --   },
-  -- },
-
   {
-    "copilotlsp-nvim/copilot-lsp",
+    "zbirenbaum/copilot.lua",
+    event = { "InsertEnter" },
     keys = {
-      {
-        "<C-f>",
-        function()
-          local _ = require("copilot-lsp.nes").walk_cursor_start_edit()
-            or (require("copilot-lsp.nes").apply_pending_nes() and require("copilot-lsp.nes").walk_cursor_end_edit())
-        end,
-        mode = { "n", "i" },
-      },
+      { "<C-f>", mode = "i" },
+      { "<C-j>", mode = "i" },
+      { "<C-k>", mode = "i" },
     },
-    event = "VeryLazy",
     opts = {
-      nes = {
-        move_count_threshold = 3, -- Clear after 3 cursor movements
+      panel = {
+        enabled = false,
+      },
+      suggestion = {
+        enabled = true,
+        auto_trigger = true,
+        keymap = {
+          accept = "<C-f>",
+          next = "<C-j>",
+          prev = "<C-k>",
+        },
       },
     },
-    init = function()
-      vim.g.copilot_nes_debounce = 500
-      vim.lsp.config("copilot_ls", {
-        on_init = function(client)
-          vim.keymap.set("n", "<C-g>", function() require("copilot-lsp.nes").request_nes(client) end)
-        end,
-      })
-      vim.lsp.enable "copilot_ls"
-    end,
   },
+
+  -- {
+  --   "copilotlsp-nvim/copilot-lsp",
+  --   keys = {
+  --     {
+  --       "<C-f>",
+  --       function()
+  --         local _ = require("copilot-lsp.nes").walk_cursor_start_edit()
+  --           or (require("copilot-lsp.nes").apply_pending_nes() and require("copilot-lsp.nes").walk_cursor_end_edit())
+  --       end,
+  --       mode = { "n", "i" },
+  --     },
+  --   },
+  --   event = "VeryLazy",
+  --   opts = {
+  --     nes = {
+  --       move_count_threshold = 3, -- Clear after 3 cursor movements
+  --     },
+  --   },
+  --   init = function()
+  --     vim.g.copilot_nes_debounce = 500
+  --     vim.lsp.enable "copilot_ls"
+  --   end,
+  -- },
 
   -- {
   --   "CopilotC-Nvim/CopilotChat.nvim",
