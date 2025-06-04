@@ -20,6 +20,6 @@ return {
     },
   },
   on_init = function(client)
-    client.on_attach = function(_, buf) vim.b[buf].haveEslint = true end
+    client.on_attach = function(_, buf) vim.b[buf].formatByLsp = true end
   end,
 }
