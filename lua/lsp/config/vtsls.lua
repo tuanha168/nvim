@@ -29,16 +29,13 @@ return {
   },
   settings = {
     vtsls = {
-      -- autoUseWorkspaceTsdk = true,
-      tsserver = {
-        plugins = {
-          {
-            name = "@vue/typescript-plugin",
-            location = vim.fn.expand "$MASON/packages/vue-language-server/node_modules/@vue/language-server/node_modules/@vue/typescript-plugin",
-            languages = { "vue" },
-            configNamespace = "typescript",
-            enableForWorkspaceTypeScriptVersions = true,
-          },
+      plugins = {
+        {
+          name = "@vue/typescript-plugin",
+          location = vim.fn.expand "$MASON/packages/vue-language-server/node_modules/@vue/language-server/node_modules/@vue/typescript-plugin",
+          languages = { "vue" },
+          configNamespace = "typescript",
+          enableForWorkspaceTypeScriptVersions = true,
         },
       },
     },
