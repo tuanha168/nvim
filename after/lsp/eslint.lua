@@ -19,8 +19,7 @@ return {
       },
     },
   },
-  on_init = function(client, _, buf)
-    Print(client, buf)
-    if client.name == "eslint" or client.name == "eslintd" then vim.b[e.buf].haveEslint = true end
+  on_init = function(client)
+    client.on_attach = function(_, buf) vim.b[buf].haveEslint = true end
   end,
 }
