@@ -1,6 +1,6 @@
 local servers = {
   "lua_ls",
-  "vue_ls",
+  -- "vue_ls",
   "eslint",
   "tailwindcss",
   "jsonls",
