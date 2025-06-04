@@ -1,8 +1,6 @@
-local util = require "lspconfig.util"
-
 ---@type lspconfig.options.tailwindcss
 return {
-  root_dir = util.root_pattern("tailwind.config.ts", "tailwind.config.js"),
+  root_markers = {"tailwind.config.ts", "tailwind.config.js"}
   settings = {
     tailwindCSS = {
       classAttributes = {
