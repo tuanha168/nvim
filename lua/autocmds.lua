@@ -18,11 +18,13 @@ return {
     function(e)
       require("lsp.mappings").setup(e.buf)
 
-      local client = vim.lsp.get_client_by_id(e.data.client_id)
-      if client and client:supports_method "textDocument/foldingRange" then
+      local client = assert(vim.lsp.get_client_by_id(e.data.client_id))
+      if client:supports_method "textDocument/foldingRange" then
         local win = vim.api.nvim_get_current_win()
         vim.wo[win][0].foldexpr = "v:lua.vim.lsp.foldexpr()"
       end
+
+      if client.name == "eslint" or client.name == "eslintd" then vim.b[e.buf].haveEslint = true end
     end,
   },
   {
