@@ -24,6 +24,7 @@ return {
         vim.wo[win][0].foldexpr = "v:lua.vim.lsp.foldexpr()"
       end
 
+      Print(client.name)
       if client.name == "eslint" or client.name == "eslintd" then vim.b[e.buf].haveEslint = true end
     end,
   },
