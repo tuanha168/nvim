@@ -17,7 +17,7 @@ return {
       useFlatConfig = false,
     },
   },
-  on_init = function(client)
-    client.on_attach = function(_, buf) vim.b[buf].formatByLsp = true end
-  end,
+  -- on_init = function(client)
+  --   client.on_attach = function(_, buf) vim.b[buf].formatByLsp = true end
+  -- end,
 }
