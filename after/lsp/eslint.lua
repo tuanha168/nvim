@@ -12,9 +12,11 @@ return {
     "eslint.config.ts",
   },
   settings = {
-    experimental = {
-      -- allows to use flat config format
-      useFlatConfig = false,
+    eslint = {
+      experimental = {
+        -- allows to use flat config format
+        useFlatConfig = true,
+      },
     },
   },
   on_init = function(client)
