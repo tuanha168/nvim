@@ -15,6 +15,7 @@ return {
         "<Leader>fm",
         function()
           local ok, conform = pcall(require, "conform")
+          Print(vim.b[bufnr].haveEslint)
           if ok and not vim.b[bufnr].haveEslint then
             conform.format({}, function(err, did_edit)
               if err and not did_edit then Chiruno.func.format_lsp() end
