@@ -21,3 +21,4 @@ vim.keymap.set("i", "=", function()
 end, { expr = true, buffer = true })
 
 -- vim.lsp.enable "ts_go_ls"
+vim.lsp.enable "vtsls"

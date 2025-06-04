@@ -1,3 +1,22 @@
+local servers = {
+  "lua_ls",
+  "vue_ls",
+  "eslint",
+  "tailwindcss",
+  "jsonls",
+  "intelephense",
+  "yamlls",
+  -- "omnisharp",
+  "cssls",
+  "html",
+  -- "ts_ls",
+  "vtsls",
+  -- "stylelint_lsp",
+
+  ---@reference lua/plugins/rustaceanvim.lua
+  -- "rust_analyzer",
+}
+
 return {
   {
     "neovim/nvim-lspconfig",
@@ -18,13 +37,8 @@ return {
       {
         "williamboman/mason-lspconfig.nvim",
         opts = {
-          ensure_installed = vim.tbl_keys(Chiruno.servers),
-          automatic_enable = {
-            exclude = vim.tbl_filter(
-              function(server) return server.enabled == false end,
-              Chiruno.servers
-            ),
-          },
+          ensure_installed = servers,
+          automatic_enable = vim.tbl_filter(function(server) return server end, servers),
         },
       },
     },
