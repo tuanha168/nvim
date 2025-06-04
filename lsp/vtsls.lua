@@ -31,7 +31,7 @@ return {
     vtsls = {
       -- autoUseWorkspaceTsdk = true,
       tsserver = {
-        globalPlugins = {
+        plugins = {
           {
             name = "@vue/typescript-plugin",
             location = vim.fn.expand "$MASON/packages/vue-language-server/node_modules/@vue/language-server/node_modules/@vue/typescript-plugin",
