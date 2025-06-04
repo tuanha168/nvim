@@ -11,14 +11,6 @@ return {
     "eslint.config.mjs",
     "eslint.config.ts",
   },
-  settings = {
-    eslint = {
-      experimental = {
-        -- allows to use flat config format
-        useFlatConfig = true,
-      },
-    },
-  },
   on_init = function(client)
     local old_on_attach = client.on_attach
     client.on_attach = function(_, buf)
