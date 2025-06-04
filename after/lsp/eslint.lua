@@ -18,9 +18,10 @@ return {
     },
   },
   on_init = function(client)
+    local old_on_attach = client.on_attach
     client.on_attach = function(_, buf)
+      old_on_attach(_, buf)
       vim.b[buf].formatByLsp = true
-      client.on_attach(_, buf)
     end
   end,
 }
