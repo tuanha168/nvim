@@ -39,7 +39,10 @@ return {
         opts = {
           ensure_installed = vim.tbl_keys(servers),
           automatic_enable = {
-            exclude = {},
+            exclude = vim.tbl_filter(function(server)
+              Print(server)
+              return not server.enabled
+            end, vim.tbl_keys(servers)),
           },
         },
       },
