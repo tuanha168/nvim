@@ -17,7 +17,9 @@ local servers = {
   -- rust_analyzer = false,
 }
 
-Print(vim.tbl_filter(function(server) return server end, vim.tbl_keys(servers)))
+Print(vim.tbl_filter(function(server)
+  return servers[server]
+end, vim.tbl_keys(servers)))
 
 return {
   {
