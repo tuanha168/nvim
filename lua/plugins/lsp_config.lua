@@ -43,22 +43,6 @@ return {
       },
     },
     config = function()
-      local capabilities = vim.lsp.protocol.make_client_capabilities()
-      local haveCmp, cmp = pcall(require, "cmp_nvim_lsp")
-      local haveBlink, blink = pcall(require, "blink.cmp")
-
-      if haveCmp then capabilities = vim.tbl_deep_extend("force", capabilities, cmp.default_capabilities()) end
-      if haveBlink then capabilities = blink.get_lsp_capabilities(capabilities) end
-
-      vim.diagnostic.config {
-        virtual_text = true,
-        signs = true,
-        underline = true,
-        update_in_insert = false,
-        show_diagnostic_autocmds = { "InsertLeave", "TextChanged" },
-      }
-
-      vim.lsp.inlay_hint.enable(true)
     end,
   },
 
