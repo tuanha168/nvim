@@ -28,7 +28,7 @@ local ellipsis = "..."
 local methods = vim.lsp.protocol.Methods
 local inlay_hint_handler = vim.lsp.handlers[methods.textDocument_inlayHint]
 local lsp_inlay_hint_key = {
-  "volar",
+  "vue_ls",
   "ts_ls",
   "vtsls",
 }
