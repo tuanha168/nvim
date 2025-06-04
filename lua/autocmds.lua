@@ -23,8 +23,6 @@ return {
         local win = vim.api.nvim_get_current_win()
         vim.wo[win][0].foldexpr = "v:lua.vim.lsp.foldexpr()"
       end
-
-      if client.name == "eslint" or client.name == "eslintd" then vim.b[e.buf].haveEslint = true end
     end,
   },
   {
