@@ -1,6 +1,5 @@
----@type lspconfig.options.intelephense
 return {
-  root_markers = {"docker-compose.yml", "composer.json", ".git"}
+  root_markers = { "docker-compose.yml", "composer.json", ".git" },
   settings = {
     intelephense = {
       format = { braces = "k&r" },

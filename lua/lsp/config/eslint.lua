@@ -1,4 +1,3 @@
----@type lspconfig.options.eslint
 return {
   -- filetypes = { "javascript", "javascriptreact", "typescript", "typescriptreact", "vue", "json", "svg" },
   root_markers = {
@@ -10,7 +9,7 @@ return {
     ".eslintrc.yml",
     "eslint.config.js",
     "eslint.config.mjs",
-    "eslint.config.ts"
+    "eslint.config.ts",
   },
   settings = {
     eslint = {

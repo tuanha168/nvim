@@ -1,4 +1,3 @@
----@type lspconfig.options.lua_ls
 return {
   settings = {
     Lua = {

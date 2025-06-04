@@ -1,6 +1,5 @@
----@type lspconfig.options.tailwindcss
 return {
-  root_markers = {"tailwind.config.ts", "tailwind.config.js"}
+  root_markers = { "tailwind.config.ts", "tailwind.config.js" },
   settings = {
     tailwindCSS = {
       classAttributes = {

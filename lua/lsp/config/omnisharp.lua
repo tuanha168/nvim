@@ -1,4 +1,3 @@
----@type lspconfig.options.omnisharp
 return {
   enable_editorconfig_support = true,
   enable_ms_build_load_projects_on_demand = false,
