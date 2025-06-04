@@ -1,6 +1,6 @@
 local servers = {
   lua_ls = true,
-  vue_ls = false,
+  vue_ls = true,
   eslint = true,
   tailwindcss = true,
   jsonls = true,
@@ -11,7 +11,7 @@ local servers = {
   -- html = false,
   -- ts_ls = false,
   vtsls = true,
-  stylelint_lsp = false,
+  -- stylelint_lsp = false,
 
   ---@reference lua/plugins/rustaceanvim.lua
   -- rust_analyzer = false,
