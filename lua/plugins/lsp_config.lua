@@ -17,10 +17,6 @@ local servers = {
   -- rust_analyzer = false,
 }
 
-Print(vim.tbl_filter(function(server)
-  return servers[server]
-end, vim.tbl_keys(servers)))
-
 return {
   {
     "neovim/nvim-lspconfig",
@@ -39,7 +35,7 @@ return {
         "williamboman/mason-lspconfig.nvim",
         opts = {
           ensure_installed = vim.tbl_keys(servers),
-          automatic_enable = vim.tbl_filter(function(server) return server end, vim.tbl_keys(servers)),
+          automatic_enable = vim.tbl_filter(function(server) return servers[server] end, vim.tbl_keys(servers)),
         },
       },
     },
