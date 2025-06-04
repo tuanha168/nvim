@@ -11,10 +11,10 @@ return {
     "eslint.config.mjs",
     "eslint.config.ts",
   },
-  on_init = function(client)
-    local old_on_attach = client.on_attach
-    client.on_attach = function(_, buf)
-      old_on_attach(_, buf)
+  on_init = function(_client)
+    local old_on_attach = _client.on_attach
+    _client.on_attach = function(client, buf)
+      old_on_attach(client, buf)
       vim.b[buf].formatByLsp = true
     end
   end,
