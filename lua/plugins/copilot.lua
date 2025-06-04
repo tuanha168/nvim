@@ -44,7 +44,7 @@ return {
     },
     init = function()
       vim.g.copilot_nes_debounce = 500
-      vim.lsp.config("copilot", {
+      vim.lsp.config("copilot_ls", {
         on_init = function(client)
           vim.api.nvim_set_hl(0, "NesAdd", { link = "DiffAdd", default = true })
           vim.api.nvim_set_hl(0, "NesDelete", { link = "DiffDelete", default = true })
