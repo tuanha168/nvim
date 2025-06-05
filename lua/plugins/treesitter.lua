@@ -24,7 +24,6 @@ return {
     },
     opts = {
       ensure_installed = {
-        "lua",
         "javascript",
         "typescript",
         "vue",
@@ -39,11 +38,7 @@ return {
         "html",
         "python",
         "rust",
-        "markdown",
-        "markdown_inline",
-        "query",
         "norg",
-        "vim",
         "kdl",
         "bash",
         "dockerfile",
