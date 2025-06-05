@@ -28,7 +28,6 @@ return {
         "typescript",
         "vue",
         "scss",
-        "regex",
         "php",
         "pug",
         "json",
