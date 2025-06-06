@@ -24,7 +24,7 @@ return {
         enable_claude_text_editor_tool_mode = false,
       },
       suggestion = {
-        debounce = 300,
+        debounce = 1000,
         throttle = 1000,
       },
       mappings = {
