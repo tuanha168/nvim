@@ -10,9 +10,9 @@ return {
       "<leader>ar",
     },
     opts = {
-      provider = "gemini",
+      provider = "openai",
       ---@bug: https://github.com/yetone/avante.nvim/issues/1048
-      auto_suggestions_provider = "gemini",
+      auto_suggestions_provider = "openai",
       selector = {
         provider = "snacks",
       },
