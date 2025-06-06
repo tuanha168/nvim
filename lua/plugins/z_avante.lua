@@ -33,7 +33,7 @@ return {
       providers = {
         gemini = {
           -- @see https://ai.google.dev/gemini-api/docs/models/gemini
-          model = "gemini-2.0-flash", -- your desired model (or use gpt-4o, etc.)
+          model = "gpt-4o", -- your desired model (or use gpt-4o, etc.)
           timeout = 30000, -- timeout in milliseconds
           temperature = 0, -- adjust if needed
           max_tokens = 4096,
