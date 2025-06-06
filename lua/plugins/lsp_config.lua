@@ -10,7 +10,7 @@ local servers = {
   -- cssls = false,
   -- html = false,
   -- ts_ls = false,
-  vtsls = true,
+  vtsls = false,
   -- stylelint_lsp = false,
 
   ---@reference lua/plugins/rustaceanvim.lua
