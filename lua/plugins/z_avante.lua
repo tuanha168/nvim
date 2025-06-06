@@ -5,10 +5,8 @@ return {
     version = false, -- Never set this value to "*"! Never!
     event = "User VisualEnter",
     keys = {
-      "<leader>as",
       "<leader>aa",
       "<leader>an",
-      "<leader>ar",
     },
     opts = {
       provider = "gemini",
@@ -19,7 +17,7 @@ return {
       },
       behaviour = {
         use_cwd_as_project_root = true,
-        -- auto_suggestions = true,
+        auto_suggestions = true,
         enable_cursor_planning_mode = true,
       },
       mappings = {
