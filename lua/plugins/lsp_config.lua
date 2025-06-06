@@ -38,7 +38,7 @@ return {
         "williamboman/mason-lspconfig.nvim",
         opts = {
           ensure_installed = vim.tbl_keys(servers),
-          automatic_enable = vim.tbl_filter(function(server) return not servers[server] end, vim.tbl_keys(servers)),
+          automatic_enable = vim.tbl_filter(function(server) return servers[server] end, vim.tbl_keys(servers)),
         },
       },
     },
