@@ -28,10 +28,13 @@ return {
           accept = "<C-f>",
           next = "<C-j>",
           prev = "<C-k>",
-          dismiss = "<ESC>",
+          -- dismiss = "<ESC>",
         },
       },
       providers = {
+        openai = {
+          model = "gpt-4o",
+        },
         gemini = {
           -- @see https://ai.google.dev/gemini-api/docs/models/gemini
           model = "gemini-2.0-flash",
