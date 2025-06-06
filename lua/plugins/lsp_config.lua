@@ -11,10 +11,10 @@ local servers = {
   -- html = false,
   -- ts_ls = vim.g.vue_hybrid,
 
-  vtsls = false,
-  -- vtsls = vim.g.vue_hybrid,
+  vtsls = vim.g.vue_hybrid,
 
-  ts_go_ls = true,
+  -- ts_go_ls = true,
+
   -- stylelint_lsp = false,
 
   ---@reference lua/plugins/rustaceanvim.lua
