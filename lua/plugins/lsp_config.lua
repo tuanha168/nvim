@@ -1,6 +1,6 @@
 local servers = {
   lua_ls = true,
-  vue_ls = true,
+  vue_ls = vim.g.vue_hybrid,
   eslint = true,
   tailwindcss = true,
   jsonls = true,
@@ -10,7 +10,7 @@ local servers = {
   -- cssls = false,
   -- html = false,
   -- ts_ls = false,
-  vtsls = false,
+  vtsls = vim.g.vue_hybrid,
   -- stylelint_lsp = false,
 
   ---@reference lua/plugins/rustaceanvim.lua
