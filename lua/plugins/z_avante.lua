@@ -35,14 +35,6 @@ return {
         openai = {
           model = "gpt-4o",
         },
-        gemini = {
-          -- @see https://ai.google.dev/gemini-api/docs/models/gemini
-          model = "gemini-2.0-flash",
-          timeout = 30000,
-          temperature = 0,
-          max_tokens = 4096,
-          api_key_name = "GOOGLEAI_API_KEY",
-        },
       },
     },
     -- if you want to build from source then do `make BUILD_FROM_SOURCE=true`
