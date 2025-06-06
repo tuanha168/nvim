@@ -30,6 +30,13 @@ return {
           dismiss = "<ESC>",
         },
       },
+      gemini = {
+        -- @see https://ai.google.dev/gemini-api/docs/models/gemini
+        model = "gemini-2.0-flash", -- your desired model (or use gpt-4o, etc.)
+        timeout = 30000, -- timeout in milliseconds
+        temperature = 0, -- adjust if needed
+        max_tokens = 4096,
+      },
     },
     -- if you want to build from source then do `make BUILD_FROM_SOURCE=true`
     build = "make",
