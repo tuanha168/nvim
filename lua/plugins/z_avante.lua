@@ -30,13 +30,15 @@ return {
           dismiss = "<ESC>",
         },
       },
-      gemini = {
-        -- @see https://ai.google.dev/gemini-api/docs/models/gemini
-        model = "gemini-2.0-flash", -- your desired model (or use gpt-4o, etc.)
-        timeout = 30000, -- timeout in milliseconds
-        temperature = 0, -- adjust if needed
-        max_tokens = 4096,
-      },
+      providers = {
+        gemini = {
+          -- @see https://ai.google.dev/gemini-api/docs/models/gemini
+          model = "gemini-2.0-flash", -- your desired model (or use gpt-4o, etc.)
+          timeout = 30000, -- timeout in milliseconds
+          temperature = 0, -- adjust if needed
+          max_tokens = 4096,
+        },
+      }
     },
     -- if you want to build from source then do `make BUILD_FROM_SOURCE=true`
     build = "make",
@@ -71,7 +73,7 @@ return {
         end,
       },
       "nvim-tree/nvim-web-devicons", -- or echasnovski/mini.icons
-      "zbirenbaum/copilot.lua", -- for providers='copilot'
+      -- "zbirenbaum/copilot.lua", -- for providers='copilot'
       -- {
       --   -- support for image pasting
       --   "HakonHarnes/img-clip.nvim",
