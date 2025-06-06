@@ -14,6 +14,7 @@ local servers = {
   vtsls = false,
   -- vtsls = vim.g.vue_hybrid,
 
+  ts_go_ls = true,
   -- stylelint_lsp = false,
 
   ---@reference lua/plugins/rustaceanvim.lua
