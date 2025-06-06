@@ -20,6 +20,12 @@ return {
         use_cwd_as_project_root = true,
         auto_suggestions = true,
         enable_cursor_planning_mode = true,
+        auto_suggestions_respect_ignore = true,
+        enable_claude_text_editor_tool_mode = false,
+      },
+      suggestion = {
+        debounce = 300,
+        throttle = 1000,
       },
       mappings = {
         edit = "<leader>ar",
