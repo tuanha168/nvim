@@ -1,6 +1,6 @@
 local home = os.getenv "HOME"
 
-vim.lsp.config("ts_go_ls", {
+return {
   cmd = { home .. "/typescript-go/built/local/tsgo", "--lsp", "--stdio" },
   filetypes = {
     "javascript",
@@ -21,4 +21,4 @@ vim.lsp.config("ts_go_ls", {
       },
     },
   },
-})
+}
