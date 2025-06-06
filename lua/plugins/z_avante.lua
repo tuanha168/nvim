@@ -3,10 +3,11 @@ return {
   {
     "yetone/avante.nvim",
     version = false, -- Never set this value to "*"! Never!
-    event = "User VisualEnter",
+    event = { "User VisualEnter", "InsertEnter" },
     keys = {
       "<leader>aa",
       "<leader>an",
+      "<leader>ar",
     },
     opts = {
       provider = "gemini",
