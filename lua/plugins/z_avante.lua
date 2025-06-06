@@ -19,6 +19,7 @@ return {
       behaviour = {
         use_cwd_as_project_root = true,
         -- auto_suggestions = true,
+        enable_cursor_planning_mode = true,
       },
       mappings = {
         edit = "<leader>ar",
@@ -37,9 +38,9 @@ return {
           timeout = 30000, -- timeout in milliseconds
           temperature = 0, -- adjust if needed
           max_tokens = 4096,
-          api_key_name = 'GOOGLEAI_API_KEY',
+          api_key_name = "GOOGLEAI_API_KEY",
         },
-      }
+      },
     },
     -- if you want to build from source then do `make BUILD_FROM_SOURCE=true`
     build = "make",
