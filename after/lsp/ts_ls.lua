@@ -12,7 +12,6 @@ local inlayHints = {
 }
 
 return {
-  enabled = vim.g.vue_hybrid,
   filetypes = {
     "javascript",
     "javascript.jsx",

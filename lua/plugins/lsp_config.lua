@@ -1,6 +1,6 @@
 local servers = {
   lua_ls = true,
-  vue_ls = vim.g.vue_hybrid,
+  vue_ls = true,
   eslint = true,
   tailwindcss = true,
   jsonls = true,
