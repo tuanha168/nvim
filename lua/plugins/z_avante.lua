@@ -33,7 +33,7 @@ return {
       },
       providers = {
         openai = {
-          model = "gpt-3.5-turbo",
+          model = "gpt-4o",
         },
         gemini = {
           -- @see https://ai.google.dev/gemini-api/docs/models/gemini
