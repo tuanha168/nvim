@@ -9,8 +9,11 @@ local servers = {
   -- omnisharp = false,
   -- cssls = false,
   -- html = false,
-  -- ts_ls = false,
-  vtsls = vim.g.vue_hybrid,
+  -- ts_ls = vim.g.vue_hybrid,
+
+  vtsls = false,
+  -- vtsls = vim.g.vue_hybrid,
+
   -- stylelint_lsp = false,
 
   ---@reference lua/plugins/rustaceanvim.lua
@@ -35,7 +38,7 @@ return {
         "williamboman/mason-lspconfig.nvim",
         opts = {
           ensure_installed = vim.tbl_keys(servers),
-          automatic_enable = vim.tbl_filter(function(server) return servers[server] end, vim.tbl_keys(servers)),
+          automatic_enable = vim.tbl_filter(function(server) return not servers[server] end, vim.tbl_keys(servers)),
         },
       },
     },
