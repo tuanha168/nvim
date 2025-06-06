@@ -5,6 +5,7 @@ return {
     version = false, -- Never set this value to "*"! Never!
     event = "User VisualEnter",
     keys = {
+      "<leader>as",
       "<leader>aa",
       "<leader>an",
       "<leader>ar",
@@ -12,7 +13,7 @@ return {
     opts = {
       provider = "gemini",
       ---@bug: https://github.com/yetone/avante.nvim/issues/1048
-      -- auto_suggestions_provider = "copilot",
+      auto_suggestions_provider = "gemini",
       selector = {
         provider = "snacks",
       },
