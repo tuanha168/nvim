@@ -24,8 +24,8 @@ return {
         enable_claude_text_editor_tool_mode = false,
       },
       suggestion = {
-        debounce = 1000,
-        throttle = 1000,
+        debounce = 3000,
+        throttle = 3000,
       },
       mappings = {
         edit = "<leader>ar",
