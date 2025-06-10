@@ -10,22 +10,22 @@ return {
       "<leader>ar",
     },
     opts = {
-      provider = "openai",
+      provider = "copilot",
       ---@bug: https://github.com/yetone/avante.nvim/issues/1048
-      auto_suggestions_provider = "openai",
+      -- auto_suggestions_provider = "openai",
       selector = {
         provider = "snacks",
       },
       behaviour = {
         use_cwd_as_project_root = true,
-        auto_suggestions = true,
+        -- auto_suggestions = true,
         enable_cursor_planning_mode = true,
         auto_suggestions_respect_ignore = true,
         enable_claude_text_editor_tool_mode = false,
       },
       suggestion = {
-        debounce = 3000,
-        throttle = 3000,
+        debounce = 600,
+        throttle = 1000,
       },
       mappings = {
         edit = "<leader>ar",
