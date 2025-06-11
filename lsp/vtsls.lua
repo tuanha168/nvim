@@ -40,6 +40,7 @@ return {
           },
         },
       },
+      experimental = { maxInlayHintLength = 20 },
     },
     typescript = {
       tsserver = {
