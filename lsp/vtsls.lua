@@ -1,6 +1,6 @@
 local inlayHints = {
   enumMemberValues = { enabled = "true" },
-  propertyDeclarationTypes = { enabled = "true" },
+  -- propertyDeclarationTypes = { enabled = "true" },
   -- parameterNames = {
   --   enabled = "all",
   --   suppressWhenArgumentMatchesName = "true",
