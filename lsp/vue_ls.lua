@@ -17,15 +17,15 @@ return {
   filetypes = filetypes,
   init_options = { vue = { hybridMode = vim.g.vue_hybrid } },
   settings = {
-    vue = {
-      inlayHints = {
-        missingProps = true,
-        optionsWrapper = true,
-        vBindShorthand = true,
-        destructuredProps = true,
-        inlineHandlerLeading = true,
-      },
-    },
+    -- vue = {
+    --   inlayHints = {
+    --     missingProps = true,
+    --     optionsWrapper = true,
+    --     vBindShorthand = true,
+    --     destructuredProps = true,
+    --     inlineHandlerLeading = true,
+    --   },
+    -- },
     typescript = {
       tsserver = {
         web = {
