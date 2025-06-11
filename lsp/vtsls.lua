@@ -6,10 +6,10 @@ local inlayHints = {
   --   suppressWhenArgumentMatchesName = "true",
   -- },
   -- functionLikeReturnTypes = { enabled = "true" },
-  variableTypes = {
-    enabled = "true",
-    suppressWhenTypeMatchesName = "true",
-  },
+  -- variableTypes = {
+  --   enabled = "true",
+  --   suppressWhenTypeMatchesName = "true",
+  -- },
   parameterTypes = { enabled = "true" },
 }
 
