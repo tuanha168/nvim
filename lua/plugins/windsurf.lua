@@ -33,7 +33,7 @@ return {
           -- Key bindings for managing completions in virtual text mode.
           key_bindings = {
             -- Accept the current completion.
-            accept = "<Tab>",
+            accept = "<C-f>",
             -- Accept the next word.
             accept_word = false,
             -- Accept the next line.
@@ -41,9 +41,9 @@ return {
             -- Clear the virtual text.
             clear = false,
             -- Cycle to the next completion.
-            next = "<M-]>",
+            next = "<C-j>",
             -- Cycle to the previous completion.
-            prev = "<M-[>",
+            prev = "<C-k>",
           },
         },
       }
