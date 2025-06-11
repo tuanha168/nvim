@@ -41,7 +41,7 @@ return {
           enabled = "all",
           suppressWhenArgumentMatchesName = "true",
         },
-        -- functionLikeReturnTypes = { enabled = "true" },
+        functionLikeReturnTypes = { enabled = "true" },
         -- variableTypes = {
         --   enabled = "true",
         --   suppressWhenTypeMatchesName = "true",
@@ -57,7 +57,7 @@ return {
           enabled = "all",
           suppressWhenArgumentMatchesName = "true",
         },
-        -- functionLikeReturnTypes = { enabled = "true" },
+        functionLikeReturnTypes = { enabled = "true" },
         -- variableTypes = {
         --   enabled = "true",
         --   suppressWhenTypeMatchesName = "true",
