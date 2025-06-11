@@ -49,7 +49,7 @@ return {
           },
         },
       },
-      inlayHints = inlayHints,
+      -- inlayHints = inlayHints,
     },
     javascript = {
       inlayHints = inlayHints,
