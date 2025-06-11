@@ -10,7 +10,7 @@ local inlayHints = {
   --   enabled = "true",
   --   suppressWhenTypeMatchesName = "true",
   -- },
-  parameterTypes = { enabled = "true" },
+  -- parameterTypes = { enabled = "true" },
 }
 
 return {
