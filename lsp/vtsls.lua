@@ -1,15 +1,15 @@
 local inlayHints = {
   enumMemberValues = { enabled = "true" },
   propertyDeclarationTypes = { enabled = "true" },
-  parameterNames = {
-    enabled = "all",
-    suppressWhenArgumentMatchesName = "true",
-  },
-  -- functionLikeReturnTypes = { enabled = "true" },
-  -- variableTypes = {
-  --   enabled = "true",
-  --   suppressWhenTypeMatchesName = "true",
+  -- parameterNames = {
+  --   enabled = "all",
+  --   suppressWhenArgumentMatchesName = "true",
   -- },
+  -- functionLikeReturnTypes = { enabled = "true" },
+  variableTypes = {
+    enabled = "true",
+    suppressWhenTypeMatchesName = "true",
+  },
   parameterTypes = { enabled = "true" },
 }
 
