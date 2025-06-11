@@ -1,6 +1,6 @@
 local inlayHints = {
-  enumMemberValues = { enabled = "true" },
-  propertyDeclarationTypes = { enabled = "true" },
+  -- enumMemberValues = { enabled = "true" },
+  -- propertyDeclarationTypes = { enabled = "true" },
   parameterNames = {
     enabled = "all",
     suppressWhenArgumentMatchesName = "true",
@@ -10,7 +10,7 @@ local inlayHints = {
   --   enabled = "true",
   --   suppressWhenTypeMatchesName = "true",
   -- },
-  parameterTypes = { enabled = "true" },
+  -- parameterTypes = { enabled = "true" },
 }
 
 return {
