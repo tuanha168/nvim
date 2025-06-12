@@ -39,7 +39,7 @@ return {
       },
       providers = {
         openai = {
-          model = "o4",
+          model = "o4-mini",
         },
       },
     },
