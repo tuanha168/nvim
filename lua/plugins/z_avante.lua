@@ -12,13 +12,13 @@ return {
     opts = {
       provider = "openai",
       ---@bug: https://github.com/yetone/avante.nvim/issues/1048
-      auto_suggestions_provider = "openai",
+      -- auto_suggestions_provider = "openai",
       selector = {
         provider = "snacks",
       },
       behaviour = {
-        auto_suggestions = true,
-        auto_suggestions_respect_ignore = true,
+        -- auto_suggestions = true,
+        -- auto_suggestions_respect_ignore = true,
         use_cwd_as_project_root = true,
         enable_cursor_planning_mode = true,
         enable_claude_text_editor_tool_mode = false,
@@ -39,7 +39,7 @@ return {
       },
       providers = {
         openai = {
-          model = "o4-mini",
+          model = "o4",
         },
       },
     },
