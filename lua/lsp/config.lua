@@ -6,4 +6,4 @@ vim.diagnostic.config {
   show_diagnostic_autocmds = { "InsertLeave", "TextChanged" },
 }
 
-vim.lsp.inlay_hint.enable(true)
+-- vim.lsp.inlay_hint.enable(true)
