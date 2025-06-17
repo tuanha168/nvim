@@ -125,5 +125,5 @@ return {
   { "gJ", "mzJ`z:delmarks z<CR>", desc = "Join lines", mode = { "n" } },
 
   -- snippet
-  { "<leader>clg", function() Chiruno.func.operatorfunc_lua "console_log" end, mode = { "n", "x" } },
+  { "<leader>cl", function() Chiruno.func.operatorfunc_lua "console_log" end, mode = { "n", "x" } },
 }
