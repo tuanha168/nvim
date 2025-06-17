@@ -123,4 +123,7 @@ return {
 
   -- Joinlines
   { "gJ", "mzJ`z:delmarks z<CR>", desc = "Join lines", mode = { "n" } },
+
+  -- snippet
+  { "clg", function() Chiruno.func.operatorfunc_lua "console_log" end },
 }
