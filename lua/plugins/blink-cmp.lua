@@ -187,6 +187,9 @@ return {
       --
       -- See the fuzzy documentation for more information
       fuzzy = { implementation = "prefer_rust_with_warning" },
+      prebuilt_binaries = {
+        download = true,
+      },
     },
     opts_extend = { "sources.default" },
   },
