@@ -30,15 +30,6 @@ return {
           -- wo = { wrap = true } -- Wrap notifications
         },
       },
-      lazygit = {
-        configure = true,
-        config = {
-          os = {
-            editPreset = "nvim-remote",
-            open = 'nvr -c "\"tab drop $argv | set bufhidden=delete\""',
-          },
-        },
-      },
       gitbrowse = {
         remote_patterns = {
           { "^git@yopaz:(.+)$", "https://github.com/%1" },
