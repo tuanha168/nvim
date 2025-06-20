@@ -51,6 +51,7 @@ return {
           opts.completion.ghost_text = vim.tbl_deep_extend("force", opts.completion.ghost_text or {}, {
             enabled = true,
           })
+          vim.api.nvim_set_hl(0, "BlinkCmpGhostText", { link = "Comment" })
           opts.completion.list = vim.tbl_deep_extend("force", opts.completion.list or {}, {
             selection = {
               preselect = true,
