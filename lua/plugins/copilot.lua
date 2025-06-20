@@ -47,6 +47,7 @@ return {
               },
             },
           })
+          opts.completion = opts.completion or {}
           opts.completion.ghost_text = vim.tbl_deep_extend("force", opts.completion.ghost_text or {}, {
             enabled = true,
           })
