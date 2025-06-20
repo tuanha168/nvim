@@ -57,9 +57,6 @@ return {
               auto_insert = false,
             },
           })
-          opts.completion.menu = vim.tbl_deep_extend("force", opts.completion.menu or {}, {
-            auto_show = false,
-          })
           return opts
         end,
       },
