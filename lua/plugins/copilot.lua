@@ -1,8 +1,10 @@
+local NES = false
+
 ---@type LazySpec
 return {
   {
     "zbirenbaum/copilot.lua",
-    enabled = false,
+    enabled = not NES,
     event = { "InsertEnter" },
     keys = {
       { "<C-f>", mode = "i" },
@@ -27,6 +29,7 @@ return {
 
   {
     "copilotlsp-nvim/copilot-lsp",
+    enabled = NES,
     keys = {
       {
         "<C-f>",
