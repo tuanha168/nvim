@@ -132,13 +132,6 @@ return {
         -- ["<Tab>"] = { "select_next", "fallback_to_mappings" },
         ["<Tab>"] = {
           function(cmp)
-            if vim.b[vim.api.nvim_get_current_buf()].nes_state then
-              cmp.hide()
-              return (
-                require("copilot-lsp.nes").apply_pending_nes()
-                and require("copilot-lsp.nes").walk_cursor_end_edit()
-              )
-            end
             if cmp.snippet_active() then
               return cmp.accept()
             else
@@ -152,8 +145,8 @@ return {
 
         ["<CR>"] = { "accept", "fallback" },
 
-        ["<C-j>"] = { "hide" },
-        ["<C-k>"] = { "hide" },
+        ["<C-k>"] = { "select_prev", "fallback" },
+        ["<C-j>"] = { "select_next", "fallback" },
       },
 
       appearance = {
