@@ -47,6 +47,9 @@ return {
               },
             },
           })
+          opts.completion.ghost_text = vim.tbl_deep_extend("force", opts.completion.ghost_text or {}, {
+            enabled = true,
+          })
           return opts
         end,
       },
@@ -58,7 +61,7 @@ return {
           local _ = require("copilot-lsp.nes").walk_cursor_start_edit()
             or (require("copilot-lsp.nes").apply_pending_nes() and require("copilot-lsp.nes").walk_cursor_end_edit())
         end,
-        mode = { "n", "i" },
+        mode = { "n" },
       },
     },
     event = "VeryLazy",
