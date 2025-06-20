@@ -51,6 +51,11 @@ return {
           opts.completion.ghost_text = vim.tbl_deep_extend("force", opts.completion.ghost_text or {}, {
             enabled = true,
           })
+          opts.completion.list = vim.tbl_deep_extend("force", opts.completion.list or {}, {
+            preselect = true,
+            auto_insert = false,
+          })
+          Print(opts)
           return opts
         end,
       },
