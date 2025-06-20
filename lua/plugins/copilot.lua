@@ -52,10 +52,11 @@ return {
             enabled = true,
           })
           opts.completion.list = vim.tbl_deep_extend("force", opts.completion.list or {}, {
-            preselect = true,
-            auto_insert = false,
+            selection = {
+              preselect = true,
+              auto_insert = false,
+            },
           })
-          Print(opts)
           return opts
         end,
       },
