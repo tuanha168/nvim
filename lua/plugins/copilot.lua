@@ -1,10 +1,11 @@
+local enableCopilot = false
 local NES = true
 
 ---@type LazySpec
 return {
   {
     "zbirenbaum/copilot.lua",
-    enabled = not NES,
+    enabled = enableCopilot and not NES,
     event = { "InsertEnter" },
     keys = {
       { "<C-f>", mode = "i" },
@@ -29,7 +30,7 @@ return {
 
   {
     "copilotlsp-nvim/copilot-lsp",
-    enabled = NES,
+    enabled = enableCopilot and NES,
     dependencies = {
       {
         "saghen/blink.cmp",
