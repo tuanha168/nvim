@@ -170,7 +170,7 @@ return {
           },
         },
         ghost_text = {
-          enabled = true,
+          enabled = false,
           hl_group = "Comment",
         },
       },
