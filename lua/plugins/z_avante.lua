@@ -3,7 +3,6 @@ return {
   {
     "yetone/avante.nvim",
     version = false, -- Never set this value to "*"! Never!
-    enabled = false,
     event = { "User VisualEnter", "InsertEnter" },
     keys = {
       "<leader>aa",
@@ -40,7 +39,7 @@ return {
       },
       providers = {
         copilot = {
-          model = "claude-3-7-sonnet",
+          model = "claude-sonnet-4",
         },
       },
     },
