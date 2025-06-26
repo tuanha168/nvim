@@ -39,7 +39,7 @@ return {
       },
       providers = {
         copilot = {
-          model = "claude-3-7-sonnet-20250219",
+          model = "claude-3-7-sonnet",
         },
       },
     },
