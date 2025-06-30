@@ -132,10 +132,6 @@ return {
         -- ["<Tab>"] = { "select_next", "fallback_to_mappings" },
         ["<Tab>"] = {
           function(cmp)
-            local ok, copilot = pcall(require, "copilot.suggestion")
-
-            if ok and copilot.is_visible() then return cmp.hide() end
-
             if cmp.snippet_active() then return cmp.accept() end
 
             return cmp.select_and_accept()
