@@ -12,22 +12,22 @@ return {
     opts = {
       provider = "copilot",
       ---@bug: https://github.com/yetone/avante.nvim/issues/1048
-      auto_suggestions_provider = "copilot",
+      -- auto_suggestions_provider = "copilot",
       selector = {
         provider = "snacks",
       },
       behaviour = {
-        auto_suggestions = true,
-        auto_suggestions_respect_ignore = true,
+        -- auto_suggestions = true,
+        -- auto_suggestions_respect_ignore = true,
         use_cwd_as_project_root = true,
         enable_cursor_planning_mode = true,
         enable_claude_text_editor_tool_mode = false,
         minimize_diff = true,
       },
-      -- suggestion = {
-      --   debounce = 3000,
-      --   throttle = 3000,
-      -- },
+      suggestion = {
+        debounce = 3000,
+        throttle = 3000,
+      },
       mappings = {
         edit = "<leader>ar",
         refresh = "<leader>ae",

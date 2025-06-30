@@ -1,4 +1,4 @@
-local NES = false
+local NES = true
 
 ---@type LazySpec
 return {
