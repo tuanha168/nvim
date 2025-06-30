@@ -24,10 +24,10 @@ return {
         enable_claude_text_editor_tool_mode = false,
         minimize_diff = true,
       },
-      suggestion = {
-        debounce = 3000,
-        throttle = 3000,
-      },
+      -- suggestion = {
+      --   debounce = 3000,
+      --   throttle = 3000,
+      -- },
       mappings = {
         edit = "<leader>ar",
         refresh = "<leader>ae",
