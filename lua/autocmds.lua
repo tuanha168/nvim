@@ -6,7 +6,7 @@ local autoPushDir = {
   home .. "/.dotfile",
 }
 local excludeDir = { "scratch/src" }
-local uv = vim.loop or vim.uv
+local uv = vim.uv or vim.loop
 
 ---@class LegendaryAutoCmd
 ---@field [1] any (string|array)
