@@ -4,7 +4,7 @@ local NES = true
 return {
   {
     "zbirenbaum/copilot.lua",
-    enabled = not NES,
+    -- enabled = not NES,
     event = { "InsertEnter" },
     keys = {
       { "<C-f>", mode = "i" },
@@ -19,7 +19,7 @@ return {
         enabled = true,
         auto_trigger = true,
         keymap = {
-          accept = "<C-f>",
+          accept = "<Tab>",
           next = "<C-j>",
           prev = "<C-k>",
         },
@@ -29,7 +29,7 @@ return {
 
   {
     "copilotlsp-nvim/copilot-lsp",
-    enabled = NES,
+    -- enabled = NES,
     dependencies = {
       {
         "saghen/blink.cmp",
