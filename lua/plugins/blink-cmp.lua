@@ -144,6 +144,9 @@ return {
         ["<S-Tab>"] = { "select_prev", "fallback_to_mappings" },
 
         ["<CR>"] = { "accept", "fallback" },
+
+        ["<C-j>"] = { "hide", "fallback" },
+        ["<C-k>"] = { "hide", "fallback" },
       },
 
       appearance = {
