@@ -30,27 +30,27 @@ return {
   {
     "copilotlsp-nvim/copilot-lsp",
     -- enabled = NES,
-    dependencies = {
-      {
-        "saghen/blink.cmp",
-        dependencies = { "fang2hou/blink-copilot" },
-        opts = function(_, opts)
-          table.insert(opts.sources.default, 1, "copilot")
+    -- dependencies = {
+    --   {
+    --     "saghen/blink.cmp",
+    --     dependencies = { "fang2hou/blink-copilot" },
+    --     opts = function(_, opts)
+    --       table.insert(opts.sources.default, 1, "copilot")
 
-          opts.sources = vim.tbl_deep_extend("force", opts.sources or {}, {
-            providers = {
-              copilot = {
-                name = "copilot",
-                module = "blink-copilot",
-                score_offset = 100,
-                async = true,
-              },
-            },
-          })
-          return opts
-        end,
-      },
-    },
+    --       opts.sources = vim.tbl_deep_extend("force", opts.sources or {}, {
+    --         providers = {
+    --           copilot = {
+    --             name = "copilot",
+    --             module = "blink-copilot",
+    --             score_offset = 100,
+    --             async = true,
+    --           },
+    --         },
+    --       })
+    --       return opts
+    --     end,
+    --   },
+    -- },
     keys = {
       {
         "<C-f>",
