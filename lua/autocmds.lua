@@ -6,6 +6,7 @@ local autoPushDir = {
   home .. "/.dotfile",
 }
 local excludeDir = { "scratch/src" }
+local uv = vim.loop or vim.uv
 
 ---@class LegendaryAutoCmd
 ---@field [1] any (string|array)
@@ -13,6 +14,15 @@ local excludeDir = { "scratch/src" }
 
 ---@type (LegendaryAutoCmd)[]
 return {
+  {
+    { "VimEnter", "VimLeave" },
+    function()
+      if vim.env.TMUX_PLUGIN_MANAGER_PATH then
+        Print(vim.env.TMUX_PLUGIN_MANAGER_PATH .. "/tmux-window-name/scripts/rename_session_windows.py")
+        uv.spawn(vim.env.TMUX_PLUGIN_MANAGER_PATH .. "/tmux-window-name/scripts/rename_session_windows.py", {})
+      end
+    end,
+  },
   {
     "LspAttach",
     function(e)
