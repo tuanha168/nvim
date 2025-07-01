@@ -69,4 +69,4 @@ vim.lsp.handlers[methods.textDocument_inlayHint] = function(err, result, ctx, co
 end
 
 -- highlights
-vim.api.nvim_set_hl(0, "Visual", { bg = "#a15d15" })
+vim.api.nvim_set_hl(0, "Visual", { bg = "#615f1f" })
