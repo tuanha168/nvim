@@ -67,3 +67,6 @@ vim.lsp.handlers[methods.textDocument_inlayHint] = function(err, result, ctx, co
 
   inlay_hint_handler(err, result, ctx, config)
 end
+
+-- highlights
+vim.api.nvim_set_hl(0, "Visual", { fg = "#FF0000" })
