@@ -60,6 +60,7 @@ return {
           "Kaiser-Yang/blink-cmp-avante",
         },
         opts = function(_, opts)
+          Print(opts)
           table.insert(opts.sources.default, 1, "avante")
 
           opts.sources = vim.tbl_deep_extend("force", opts.sources or {}, {
