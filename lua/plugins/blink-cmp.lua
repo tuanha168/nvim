@@ -172,22 +172,22 @@ return {
           hl_group = "Comment",
         },
       },
-      cmdline = {
-        completion = {
-          menu = {
-            auto_show = true,
-          },
-          list = {
-            selection = {
-              preselect = false,
-            },
-          },
-          ghost_text = { enabled = true },
-        },
-        keymap = {
-          ["<CR>"] = { "accept_and_enter", "fallback" },
-        },
-      },
+      -- cmdline = {
+      --   completion = {
+      --     menu = {
+      --       auto_show = true,
+      --     },
+      --     list = {
+      --       selection = {
+      --         preselect = false,
+      --       },
+      --     },
+      --     ghost_text = { enabled = true },
+      --   },
+      --   keymap = {
+      --     ["<CR>"] = { "accept_and_enter", "fallback" },
+      --   },
+      -- },
 
       -- Default list of enabled providers defined so that you can extend it
       -- elsewhere in your config, without redefining it, due to `opts_extend`
@@ -200,10 +200,10 @@ return {
       -- when the Rust fuzzy matcher is not available, by using `implementation = "prefer_rust"`
       --
       -- See the fuzzy documentation for more information
-      -- fuzzy = { implementation = "prefer_rust_with_warning" },
-      -- prebuilt_binaries = {
-      --   download = true,
-      -- },
+      fuzzy = { implementation = "prefer_rust_with_warning" },
+      prebuilt_binaries = {
+        download = true,
+      },
     },
     opts_extend = { "sources.default" },
   },
