@@ -118,76 +118,76 @@ return {
       -- C-k: Toggle signature help (if signature.enabled = true)
       --
       -- See :h blink-cmp-config-keymap for defining your own keymap
-      keymap = {
-        preset = "none",
-        ["<C-space>"] = { function(cmp) cmp.show { providers = { "lsp", "snippets" } } end },
-        ["<C-e>"] = { "hide", "fallback" },
-        ["<C-y>"] = { "select_and_accept" },
+      -- keymap = {
+      --   preset = "none",
+      --   ["<C-space>"] = { function(cmp) cmp.show { providers = { "lsp", "snippets" } } end },
+      --   ["<C-e>"] = { "hide", "fallback" },
+      --   ["<C-y>"] = { "select_and_accept" },
 
-        ["<Up>"] = { "select_prev", "fallback" },
-        ["<Down>"] = { "select_next", "fallback" },
-        ["<C-p>"] = { "select_prev", "fallback_to_mappings" },
-        ["<C-n>"] = { "select_next", "fallback_to_mappings" },
+      --   ["<Up>"] = { "select_prev", "fallback" },
+      --   ["<Down>"] = { "select_next", "fallback" },
+      --   ["<C-p>"] = { "select_prev", "fallback_to_mappings" },
+      --   ["<C-n>"] = { "select_next", "fallback_to_mappings" },
 
-        -- ["<Tab>"] = { "select_next", "fallback_to_mappings" },
-        ["<Tab>"] = {
-          function(cmp)
-            if cmp.snippet_active() then return cmp.accept() end
+      --   -- ["<Tab>"] = { "select_next", "fallback_to_mappings" },
+      --   ["<Tab>"] = {
+      --     function(cmp)
+      --       if cmp.snippet_active() then return cmp.accept() end
 
-            return cmp.select_and_accept()
-          end,
-          "snippet_forward",
-          "fallback",
-        },
-        ["<S-Tab>"] = { "select_prev", "fallback_to_mappings" },
+      --       return cmp.select_and_accept()
+      --     end,
+      --     "snippet_forward",
+      --     "fallback",
+      --   },
+      --   ["<S-Tab>"] = { "select_prev", "fallback_to_mappings" },
 
-        ["<CR>"] = { "accept", "fallback" },
+      --   ["<CR>"] = { "accept", "fallback" },
 
-        ["<C-j>"] = { "hide", "fallback" },
-        ["<C-k>"] = { "hide", "fallback" },
-      },
+      --   ["<C-j>"] = { "hide", "fallback" },
+      --   ["<C-k>"] = { "hide", "fallback" },
+      -- },
 
-      appearance = {
-        -- 'mono' (default) for 'Nerd Font Mono' or 'normal' for 'Nerd Font'
-        -- Adjusts spacing to ensure icons are aligned
-        nerd_font_variant = "mono",
-      },
+      -- appearance = {
+      --   -- 'mono' (default) for 'Nerd Font Mono' or 'normal' for 'Nerd Font'
+      --   -- Adjusts spacing to ensure icons are aligned
+      --   nerd_font_variant = "mono",
+      -- },
 
-      completion = {
-        menu = {
-          auto_show = true,
-          draw = {
-            treesitter = { "lsp" },
-          },
-        },
-        documentation = { auto_show = true },
-        list = {
-          selection = {
-            preselect = true,
-            auto_insert = true,
-          },
-        },
-        ghost_text = {
-          enabled = false,
-          hl_group = "Comment",
-        },
-      },
-      cmdline = {
-        completion = {
-          menu = {
-            auto_show = true,
-          },
-          list = {
-            selection = {
-              preselect = false,
-            },
-          },
-          ghost_text = { enabled = true },
-        },
-        keymap = {
-          ["<CR>"] = { "accept_and_enter", "fallback" },
-        },
-      },
+      -- completion = {
+      --   menu = {
+      --     auto_show = true,
+      --     draw = {
+      --       treesitter = { "lsp" },
+      --     },
+      --   },
+      --   documentation = { auto_show = true },
+      --   list = {
+      --     selection = {
+      --       preselect = true,
+      --       auto_insert = true,
+      --     },
+      --   },
+      --   ghost_text = {
+      --     enabled = false,
+      --     hl_group = "Comment",
+      --   },
+      -- },
+      -- cmdline = {
+      --   completion = {
+      --     menu = {
+      --       auto_show = true,
+      --     },
+      --     list = {
+      --       selection = {
+      --         preselect = false,
+      --       },
+      --     },
+      --     ghost_text = { enabled = true },
+      --   },
+      --   keymap = {
+      --     ["<CR>"] = { "accept_and_enter", "fallback" },
+      --   },
+      -- },
 
       -- Default list of enabled providers defined so that you can extend it
       -- elsewhere in your config, without redefining it, due to `opts_extend`
