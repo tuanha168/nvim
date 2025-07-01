@@ -61,19 +61,19 @@ return {
         },
         opts = function(_, opts)
           Print(opts)
-          table.insert(opts.sources.default, 1, "avante")
+          -- table.insert(opts.sources.default, 1, "avante")
 
-          opts.sources = vim.tbl_deep_extend("force", opts.sources or {}, {
-            providers = {
-              avante = {
-                module = "blink-cmp-avante",
-                name = "Avante",
-                opts = {
-                  -- options for blink-cmp-avante
-                },
-              },
-            },
-          })
+          -- opts.sources = vim.tbl_deep_extend("force", opts.sources or {}, {
+          --   providers = {
+          --     avante = {
+          --       module = "blink-cmp-avante",
+          --       name = "Avante",
+          --       opts = {
+          --         -- options for blink-cmp-avante
+          --       },
+          --     },
+          --   },
+          -- })
           return opts
         end,
       },
