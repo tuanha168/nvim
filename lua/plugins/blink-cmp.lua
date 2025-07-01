@@ -118,34 +118,34 @@ return {
       -- C-k: Toggle signature help (if signature.enabled = true)
       --
       -- See :h blink-cmp-config-keymap for defining your own keymap
-      -- keymap = {
-      --   preset = "none",
-      --   ["<C-space>"] = { function(cmp) cmp.show { providers = { "lsp", "snippets" } } end },
-      --   ["<C-e>"] = { "hide", "fallback" },
-      --   ["<C-y>"] = { "select_and_accept" },
+      keymap = {
+        preset = "none",
+        ["<C-space>"] = { function(cmp) cmp.show { providers = { "lsp", "snippets" } } end },
+        ["<C-e>"] = { "hide", "fallback" },
+        ["<C-y>"] = { "select_and_accept" },
 
-      --   ["<Up>"] = { "select_prev", "fallback" },
-      --   ["<Down>"] = { "select_next", "fallback" },
-      --   ["<C-p>"] = { "select_prev", "fallback_to_mappings" },
-      --   ["<C-n>"] = { "select_next", "fallback_to_mappings" },
+        ["<Up>"] = { "select_prev", "fallback" },
+        ["<Down>"] = { "select_next", "fallback" },
+        ["<C-p>"] = { "select_prev", "fallback_to_mappings" },
+        ["<C-n>"] = { "select_next", "fallback_to_mappings" },
 
-      --   -- ["<Tab>"] = { "select_next", "fallback_to_mappings" },
-      --   ["<Tab>"] = {
-      --     function(cmp)
-      --       if cmp.snippet_active() then return cmp.accept() end
+        -- ["<Tab>"] = { "select_next", "fallback_to_mappings" },
+        ["<Tab>"] = {
+          function(cmp)
+            if cmp.snippet_active() then return cmp.accept() end
 
-      --       return cmp.select_and_accept()
-      --     end,
-      --     "snippet_forward",
-      --     "fallback",
-      --   },
-      --   ["<S-Tab>"] = { "select_prev", "fallback_to_mappings" },
+            return cmp.select_and_accept()
+          end,
+          "snippet_forward",
+          "fallback",
+        },
+        ["<S-Tab>"] = { "select_prev", "fallback_to_mappings" },
 
-      --   ["<CR>"] = { "accept", "fallback" },
+        ["<CR>"] = { "accept", "fallback" },
 
-      --   ["<C-j>"] = { "hide", "fallback" },
-      --   ["<C-k>"] = { "hide", "fallback" },
-      -- },
+        ["<C-j>"] = { "hide", "fallback" },
+        ["<C-k>"] = { "hide", "fallback" },
+      },
 
       appearance = {
         -- 'mono' (default) for 'Nerd Font Mono' or 'normal' for 'Nerd Font'
