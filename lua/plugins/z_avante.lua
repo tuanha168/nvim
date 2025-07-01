@@ -54,28 +54,28 @@ return {
       "MunifTanjim/nui.nvim",
       --- The below dependencies are optional,
       "folke/snacks.nvim",
-      {
-        "saghen/blink.cmp",
-        dependencies = {
-          "Kaiser-Yang/blink-cmp-avante",
-        },
-        opts = function(_, opts)
-          table.insert(opts.sources.default, 1, "avante")
+      -- {
+      --   "saghen/blink.cmp",
+      --   dependencies = {
+      --     "Kaiser-Yang/blink-cmp-avante",
+      --   },
+      --   opts = function(_, opts)
+      --     table.insert(opts.sources.default, 1, "avante")
 
-          opts.sources = vim.tbl_deep_extend("force", opts.sources or {}, {
-            providers = {
-              avante = {
-                module = "blink-cmp-avante",
-                name = "Avante",
-                opts = {
-                  -- options for blink-cmp-avante
-                },
-              },
-            },
-          })
-          return opts
-        end,
-      },
+      --     opts.sources = vim.tbl_deep_extend("force", opts.sources or {}, {
+      --       providers = {
+      --         avante = {
+      --           module = "blink-cmp-avante",
+      --           name = "Avante",
+      --           opts = {
+      --             -- options for blink-cmp-avante
+      --           },
+      --         },
+      --       },
+      --     })
+      --     return opts
+      --   end,
+      -- },
       "nvim-tree/nvim-web-devicons", -- or echasnovski/mini.icons
       -- "zbirenbaum/copilot.lua", -- for providers='copilot'
       -- {
