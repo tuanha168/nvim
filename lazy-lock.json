@@ -4,7 +4,7 @@
   "aerial.nvim": { "branch": "master", "commit": "5c0df1679bf7c814c924dc6646cc5291daca8363" },
   "alpha-nvim": { "branch": "main", "commit": "a35468cd72645dbd52c0624ceead5f301c566dff" },
   "attempt.nvim": { "branch": "main", "commit": "ab5137f6a511ee7d4d932cf9e16619656233997e" },
-  "avante.nvim": { "branch": "main", "commit": "508cc4c22c78d565d270df8dec5449db07800296" },
+  "avante.nvim": { "branch": "main", "commit": "4329ed79f404f4f4c24e2dac3d33d263e970a9c1" },
   "better-escape.nvim": { "branch": "master", "commit": "7e86edafb8c7e73699e0320f225464a298b96d12" },
   "blink-cmp-avante": { "branch": "master", "commit": "ddefb8de3cb1286ab39e0ccec0f32a45d03391f2" },
   "blink.cmp": { "branch": "main", "commit": "5b1e2ef94d7bc121a90633c0d0aa19a883782c83" },

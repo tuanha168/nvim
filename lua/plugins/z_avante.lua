@@ -2,6 +2,7 @@
 return {
   {
     "yetone/avante.nvim",
+    enabled = false,
     version = false, -- Never set this value to "*"! Never!
     event = { "User VisualEnter", "InsertEnter" },
     keys = {
