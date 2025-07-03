@@ -12,7 +12,7 @@ return {
       panel = {
         enabled = false,
       },
-      copilot_model = "claude-3.7-sonnet-thought",
+      copilot_model = "claude-sonnet-4",
       suggestion = {
         enabled = true,
         auto_trigger = true,
@@ -64,7 +64,7 @@ return {
     },
     build = "make tiktoken", -- Only on MacOS or Linux
     opts = {
-      model = "claude-3.7-sonnet-thought",
+      model = "claude-sonnet-4",
       mappings = {
         show_diff = {
           full_diff = true,
