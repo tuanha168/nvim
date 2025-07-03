@@ -2,7 +2,6 @@
 return {
   {
     "zbirenbaum/copilot.lua",
-    -- enabled = not NES,
     event = { "InsertEnter" },
     keys = {
       { "<C-f>", mode = "i" },
@@ -13,6 +12,7 @@ return {
       panel = {
         enabled = false,
       },
+      copilot_model = "claude-3.7-sonnet-thought",
       suggestion = {
         enabled = true,
         auto_trigger = true,
