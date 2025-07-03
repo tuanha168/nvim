@@ -1,5 +1,3 @@
-local NES = true
-
 ---@type LazySpec
 return {
   {
@@ -88,7 +86,7 @@ return {
     },
     build = "make tiktoken", -- Only on MacOS or Linux
     opts = {
-      model = "claude-sonnet-4",
+      model = "claude-3.7-sonnet-thought",
       mappings = {
         show_diff = {
           full_diff = true,
