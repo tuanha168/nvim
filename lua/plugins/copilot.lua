@@ -69,6 +69,10 @@ return {
         show_diff = {
           full_diff = true,
         },
+        reset = {
+          normal = "<C-l>",
+          insert = "",
+        },
       },
       -- See Configuration section for options
     },
