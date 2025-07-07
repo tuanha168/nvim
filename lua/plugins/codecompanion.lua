@@ -2,13 +2,16 @@ return {
   {
     "olimorris/codecompanion.nvim",
     opts = {
-      strategies = {
-        chat = {
-          adapter = {
-            name = "copilot",
-            model = "claude-sonnet-4",
-          },
-        },
+      adapters = {
+        copilot = function()
+          return require("codecompanion.adapters").extend("copilot", {
+            schema = {
+              model = {
+                default = "claude-sonnet-4",
+              },
+            },
+          })
+        end,
       },
     },
     dependencies = {
