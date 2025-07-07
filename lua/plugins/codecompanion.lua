@@ -127,7 +127,7 @@ return {
         },
         build = "npm install -g mcp-hub@latest", -- Installs `mcp-hub` node binary globally
         opts = {
-          config = vim.fn.expand "~/.config/mcphub/servers.json",
+          config = vim.fn.stdpath "config" .. "/mcphub.servers.json",
         },
       },
     },
