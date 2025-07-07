@@ -1,7 +1,13 @@
 return {
   {
     "olimorris/codecompanion.nvim",
-    cmd = { "CodeCompanion", "CodeCompanionChat", "CodeCompanionActions", "CodeCompanionCmd" },
+    cmd = { "CodeCompanion", "CodeCompanionChat", "CodeCompanionActions", "CodeCompanionCmd", "CodeCompanionHistory" },
+    keys = {
+      { "<Leader>cc", "<Cmd>CodeCompanionChat<CR>", desc = "Code Companion Chat" },
+      { "<Leader>ch", "<Cmd>CodeCompanionHistory<CR>", desc = "Code Companion Chat" },
+      { "<Leader>ca", "<Cmd>CodeCompanionActions<CR>", desc = "Code Companion Actions" },
+      { "<Leader>cm", "<Cmd>CodeCompanionCmd<CR>", desc = "Code Companion Commands" },
+    },
     opts = {
       adapters = {
         copilot = function()
