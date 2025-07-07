@@ -1,0 +1,44 @@
+{
+  "mcpServers": {
+    "terraform": {
+      "command": "docker",
+      "args": [
+        "run",
+        "-i",
+        "--rm",
+        "hashicorp/terraform-mcp-server"
+      ],
+      "autoApprove": [
+        "getProviderDocs",
+        "moduleDetails",
+        "policyDetails",
+        "resolveProviderDocID",
+        "searchModules",
+        "searchPolicies"
+      ]
+    },
+    "git": {
+      "disabled": false,
+      "command": "uvx",
+      "args": [
+        "mcp-server-git"
+      ],
+      "autoApprove": [
+        "git_branch",
+        "git_checkout",
+        "git_create_branch",
+        "git_diff",
+        "git_diff_staged",
+        "git_diff_unstaged",
+        "git_log",
+        "git_show",
+        "git_status"
+      ]
+    }
+  },
+  "nativeMCPServers": {
+    "neovim": {
+      "disabled": false
+    }
+  }
+}

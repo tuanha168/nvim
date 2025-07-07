@@ -126,7 +126,9 @@ return {
           "nvim-lua/plenary.nvim",
         },
         build = "npm install -g mcp-hub@latest", -- Installs `mcp-hub` node binary globally
-        opts = {},
+        opts = {
+          config = vim.fn.expand "~/.config/mcphub/servers.json",
+        },
       },
     },
   },
