@@ -1,6 +1,7 @@
 return {
   {
     "olimorris/codecompanion.nvim",
+    cmd = { "CodeCompanion", "CodeCompanionChat", "CodeCompanionActions", "CodeCompanionCmd" },
     opts = {
       adapters = {
         copilot = function()
