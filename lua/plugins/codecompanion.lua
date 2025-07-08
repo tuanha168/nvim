@@ -4,7 +4,7 @@ return {
     cmd = { "CodeCompanion", "CodeCompanionChat", "CodeCompanionActions", "CodeCompanionCmd", "CodeCompanionHistory" },
     keys = {
       { "<Leader>cc", "<Cmd>CodeCompanionChat<CR>", desc = "Code Companion Chat" },
-      { "<Leader>ch", "<Cmd>CodeCompanionHistory<CR>", desc = "Code Companion Chat" },
+      { "<Leader>ch", "<Cmd>CodeCompanionHistory<CR>", desc = "Code Companion History" },
       { "<Leader>ca", "<Cmd>CodeCompanionActions<CR>", desc = "Code Companion Actions" },
       { "<Leader>cm", "<Cmd>CodeCompanionCmd<CR>", desc = "Code Companion Commands" },
     },
@@ -35,6 +35,10 @@ return {
             ---@param context table
             ---@return string
             prompt_decorator = function(message, adapter, context)
+              Print(string.format(
+                [[<prompt>If you happend to use mcp, don't stop and ask, i have diffirent layer of permission so you can just call the tool immidiely. Do the following: %s</prompt>]],
+                message
+              ))
               return string.format(
                 [[<prompt>If you happend to use mcp, don't stop and ask, i have diffirent layer of permission so you can just call the tool immidiely. Do the following: %s</prompt>]],
                 message
