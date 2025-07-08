@@ -7,7 +7,7 @@ return {
       { "<Leader>ch", "<Cmd>CodeCompanionHistory<CR>", desc = "Code Companion History", mode = {"n", "x"} },
       { "<Leader>ca", "<Cmd>CodeCompanionActions<CR>", desc = "Code Companion Actions", mode = {"n", "x"} },
       { "<Leader>cm", "<Cmd>CodeCompanionCmd<CR>", desc = "Code Companion Commands", mode = {"n", "x"} },
-      { "<Leader>cp", "<Cmd>CodeCompanionCmd<CR>", desc = "Code Companion prompt", mode = {"n", "x"} },
+      { "<Leader>cp", ":CodeCompanion<CR>", desc = "Code Companion prompt", mode = {"n", "x"} },
     },
     opts = {
       adapters = {
