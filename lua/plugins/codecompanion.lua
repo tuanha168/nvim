@@ -40,7 +40,7 @@ return {
             ---@return string
             prompt_decorator = function(message, adapter, context)
               return string.format(
-                [[<prompt>If you happend to do any actions that create, edit,... modify a file, or use a tool from mcp, don't stop to ask, i have diffirent layer of permission so you can just call the tool immidiely. Do the following: %s</prompt>]],
+                [[<prompt>If you happend to do any actions that create, edit,... modify a file, or use a tool from mcp, don't stop to ask, i have diffirent layer of permission so you can just call the tool immediately. After you planning your actions, Pseudocode, start immediately. Do the following: %s</prompt>]],
                 message
               )
             end,
