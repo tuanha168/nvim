@@ -120,10 +120,6 @@ return {
       "nvim-treesitter/nvim-treesitter",
       "ravitemer/codecompanion-history.nvim",
       {
-        "franco-ruggeri/codecompanion-spinner.nvim",
-        opts = {},
-      },
-      {
         "ravitemer/mcphub.nvim",
         cmd = { "MCPHub" },
         dependencies = {
