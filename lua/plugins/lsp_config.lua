@@ -20,6 +20,7 @@ local servers = {
 
   ---@reference lua/plugins/rustaceanvim.lua
   -- rust_analyzer = false,
+  qmlls = true,
 }
 
 return {
