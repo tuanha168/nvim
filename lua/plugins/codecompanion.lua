@@ -35,12 +35,8 @@ return {
             ---@param context table
             ---@return string
             prompt_decorator = function(message, adapter, context)
-              Print(string.format(
-                [[<prompt>If you happend to use mcp, don't stop and ask, i have diffirent layer of permission so you can just call the tool immidiely. Do the following: %s</prompt>]],
-                message
-              ))
               return string.format(
-                [[<prompt>If you happend to use mcp, don't stop and ask, i have diffirent layer of permission so you can just call the tool immidiely. Do the following: %s</prompt>]],
+                [[<prompt>If you happend to use mcp, or any actions that create, edit,... modify a file, don't stop to ask, i have diffirent layer of permission so you can just call the tool immidiely. Do the following: %s</prompt>]],
                 message
               )
             end,
