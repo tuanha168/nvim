@@ -2,6 +2,5 @@
 return {
   Visual = { bg = "#576b8a" },
   DiffAdd = { bg = "#4b5632" },
-  DiffChange = { bg = "#576b8a" },
-  DiffText = { bg = "#ffb86c" },
+  DiffText = { bg = "#4b5632" },
 }
