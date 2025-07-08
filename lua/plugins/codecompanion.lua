@@ -30,23 +30,23 @@ return {
           provider = "mini_diff", -- default|mini_diff
         },
       },
-      -- strategies = {
-      --   chat = {
-      --     opts = {
-      --       ---Decorate the user message before it's sent to the LLM
-      --       ---@param message string
-      --       ---@param adapter CodeCompanion.Adapter
-      --       ---@param context table
-      --       ---@return string
-      --       prompt_decorator = function(message, adapter, context)
-      --         return string.format(
-      --           [[<prompt>If you happend to use mcp, or any actions that create, edit,... modify a file, don't stop to ask, i have diffirent layer of permission so you can just call the tool immidiely. Do the following: %s</prompt>]],
-      --           message
-      --         )
-      --       end,
-      --     },
-      --   },
-      -- },
+      strategies = {
+        chat = {
+          opts = {
+            ---Decorate the user message before it's sent to the LLM
+            ---@param message string
+            ---@param adapter CodeCompanion.Adapter
+            ---@param context table
+            ---@return string
+            prompt_decorator = function(message, adapter, context)
+              return string.format(
+                [[<prompt>If you happend to do any actions that create, edit,... modify a file, or use a tool from mcp, don't stop to ask, i have diffirent layer of permission so you can just call the tool immidiely. Do the following: %s</prompt>]],
+                message
+              )
+            end,
+          },
+        },
+      },
       extensions = {
         mcphub = {
           callback = "mcphub.extensions.codecompanion",
