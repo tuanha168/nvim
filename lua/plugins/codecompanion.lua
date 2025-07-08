@@ -119,17 +119,7 @@ return {
       "nvim-lua/plenary.nvim",
       "nvim-treesitter/nvim-treesitter",
       "ravitemer/codecompanion-history.nvim",
-      {
-        "ravitemer/mcphub.nvim",
-        cmd = { "MCPHub" },
-        dependencies = {
-          "nvim-lua/plenary.nvim",
-        },
-        build = "npm install -g mcp-hub@latest", -- Installs `mcp-hub` node binary globally
-        opts = {
-          config = vim.fn.stdpath "config" .. "/mcphub.servers.json",
-        },
-      },
+      "ravitemer/mcphub.nvim",
     },
   },
 }
