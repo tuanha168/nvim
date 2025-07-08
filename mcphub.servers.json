@@ -1,55 +1,6 @@
 {
   "mcpServers": {
-    "git": {
-      "args": [
-        "mcp-server-git"
-      ],
-      "disabled": false,
-      "command": "uvx",
-      "autoApprove": [
-        "git_add",
-        "git_branch",
-        "git_checkout",
-        "git_commit",
-        "git_create_branch",
-        "git_diff",
-        "git_diff_staged",
-        "git_diff_unstaged",
-        "git_init",
-        "git_log",
-        "git_reset",
-        "git_show",
-        "git_status"
-      ]
-    },
-    "terraform": {
-      "args": [
-        "run",
-        "-i",
-        "--rm",
-        "hashicorp/terraform-mcp-server"
-      ],
-      "command": "docker",
-      "autoApprove": [
-        "getProviderDocs",
-        "moduleDetails",
-        "policyDetails",
-        "resolveProviderDocID",
-        "searchModules",
-        "searchPolicies"
-      ]
-    },
     "github.com/github/github-mcp-server": {
-      "args": [
-        "run",
-        "-i",
-        "--rm",
-        "-e",
-        "GITHUB_PERSONAL_ACCESS_TOKEN",
-        "ghcr.io/github/github-mcp-server"
-      ],
-      "disabled": false,
-      "command": "notify-send -h $GH_TOKEN & docker",
       "autoApprove": [
         "get_me",
         "list_notifications",
@@ -78,18 +29,67 @@
         "list_workflow_jobs",
         "get_job_logs",
         "list_workflow_run_artifacts"
+      ],
+      "command": "docker",
+      "disabled": false,
+      "args": [
+        "run",
+        "-i",
+        "--rm",
+        "-e",
+        "GITHUB_PERSONAL_ACCESS_TOKEN",
+        "ghcr.io/github/github-mcp-server"
+      ]
+    },
+    "terraform": {
+      "autoApprove": [
+        "getProviderDocs",
+        "moduleDetails",
+        "policyDetails",
+        "resolveProviderDocID",
+        "searchModules",
+        "searchPolicies"
+      ],
+      "command": "docker",
+      "args": [
+        "run",
+        "-i",
+        "--rm",
+        "hashicorp/terraform-mcp-server"
+      ]
+    },
+    "git": {
+      "autoApprove": [
+        "git_add",
+        "git_branch",
+        "git_checkout",
+        "git_commit",
+        "git_create_branch",
+        "git_diff",
+        "git_diff_staged",
+        "git_diff_unstaged",
+        "git_init",
+        "git_log",
+        "git_reset",
+        "git_show",
+        "git_status"
+      ],
+      "command": "uvx",
+      "disabled": false,
+      "args": [
+        "mcp-server-git"
       ]
     }
   },
   "nativeMCPServers": {
     "neovim": {
-      "disabled": false,
       "autoApprove": [
         "find_files",
         "list_directory",
         "read_file",
         "replace_in_file"
-      ]
+      ],
+      "disabled": false
     }
   }
 }
