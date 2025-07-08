@@ -1,9 +1,9 @@
 ---@type table<string, vim.api.keyset.highlight>
 return {
   Visual = { bg = "#576b8a" },
-  DiffAdd = { bg = "#bada9f" },
-  DiffText = { bg = "#8cbee2" },
-  diffRemoved = { bg = "#ff0000" },
-  DiffChange = { bg = "#e5d5ac" },
-  DiffDelete = { fg = "#ff8080", bg = "#ffb0b0" },
+  DiffAdd = { bg = "#7a9d5c" },
+  DiffText = { bg = "#4a7ca2" },
+  diffRemoved = { bg = "#b20000" },
+  DiffChange = { bg = "#b3a46a" },
+  DiffDelete = { fg = "#b24c4c", bg = "#b26c6c" },
 }
