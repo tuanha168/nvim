@@ -26,10 +26,15 @@ return {
           tools = {
             opts = {
               default_tools = {
-                "mcp",
+                "files",
               },
             },
           },
+        },
+      },
+      display = {
+        diff = {
+          provider = "mini_diff", -- default|mini_diff
         },
       },
       extensions = {
