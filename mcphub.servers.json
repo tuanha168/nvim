@@ -1,24 +1,17 @@
 {
-  "mcpServers": {
-    "terraform": {
-      "command": "docker",
-      "args": [
-        "run",
-        "-i",
-        "--rm",
-        "hashicorp/terraform-mcp-server"
-      ],
+  "nativeMCPServers": {
+    "neovim": {
       "autoApprove": [
-        "getProviderDocs",
-        "moduleDetails",
-        "policyDetails",
-        "resolveProviderDocID",
-        "searchModules",
-        "searchPolicies"
-      ]
-    },
+        "find_files",
+        "list_directory",
+        "read_file",
+        "replace_in_file"
+      ],
+      "disabled": false
+    }
+  },
+  "mcpServers": {
     "git": {
-      "disabled": false,
       "command": "uvx",
       "args": [
         "mcp-server-git"
@@ -37,7 +30,8 @@
         "git_reset",
         "git_show",
         "git_status"
-      ]
+      ],
+      "disabled": false
     },
     "github.com/github/github-mcp-server": {
       "command": "docker",
@@ -77,19 +71,27 @@
         "list_workflow_jobs",
         "get_job_logs",
         "list_workflow_run_artifacts"
-      ]
-    }
-  },
-  "nativeMCPServers": {
-    "neovim": {
-      "autoApprove": [
-        "find_files",
-        "list_directory",
-        "read_file",
-        "replace_in_file"
       ],
-      "disabled": false
+      "disabled_tools": [
+        
+      ]
+    },
+    "terraform": {
+      "args": [
+        "run",
+        "-i",
+        "--rm",
+        "hashicorp/terraform-mcp-server"
+      ],
+      "autoApprove": [
+        "getProviderDocs",
+        "moduleDetails",
+        "policyDetails",
+        "resolveProviderDocID",
+        "searchModules",
+        "searchPolicies"
+      ],
+      "command": "docker"
     }
   }
 }
-
