@@ -1,26 +1,11 @@
 {
   "mcpServers": {
-    "terraform": {
-      "args": [
-        "run",
-        "-i",
-        "--rm",
-        "hashicorp/terraform-mcp-server"
-      ],
-      "autoApprove": [
-        "getProviderDocs",
-        "moduleDetails",
-        "policyDetails",
-        "resolveProviderDocID",
-        "searchModules",
-        "searchPolicies"
-      ],
-      "command": "docker"
-    },
     "git": {
       "args": [
         "mcp-server-git"
       ],
+      "disabled": false,
+      "command": "uvx",
       "autoApprove": [
         "git_add",
         "git_branch",
@@ -35,9 +20,24 @@
         "git_reset",
         "git_show",
         "git_status"
+      ]
+    },
+    "terraform": {
+      "args": [
+        "run",
+        "-i",
+        "--rm",
+        "hashicorp/terraform-mcp-server"
       ],
-      "disabled": false,
-      "command": "uvx"
+      "command": "docker",
+      "autoApprove": [
+        "getProviderDocs",
+        "moduleDetails",
+        "policyDetails",
+        "resolveProviderDocID",
+        "searchModules",
+        "searchPolicies"
+      ]
     },
     "github.com/github/github-mcp-server": {
       "args": [
@@ -48,6 +48,8 @@
         "GITHUB_PERSONAL_ACCESS_TOKEN",
         "ghcr.io/github/github-mcp-server"
       ],
+      "disabled": false,
+      "command": "notify-send -h $GH_TOKEN & docker",
       "autoApprove": [
         "get_me",
         "list_notifications",
@@ -76,9 +78,7 @@
         "list_workflow_jobs",
         "get_job_logs",
         "list_workflow_run_artifacts"
-      ],
-      "disabled": true,
-      "command": "notify-send -h $GH_TOKEN & docker"
+      ]
     }
   },
   "nativeMCPServers": {
