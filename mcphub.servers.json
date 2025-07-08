@@ -33,50 +33,6 @@
         "git_status"
       ]
     },
-    "github.com/github/github-mcp-server": {
-      "command": "docker",
-      "disabled": false,
-      "args": [
-        "run",
-        "-i",
-        "--rm",
-        "-e",
-        "GITHUB_PERSONAL_ACCESS_TOKEN",
-        "ghcr.io/github/github-mcp-server"
-      ],
-      "env": {
-        "GITHUB_PERSONAL_ACCESS_TOKEN": "${GH_TOKEN}"
-      },
-      "autoApprove": [
-        "get_me",
-        "list_notifications",
-        "get_notification_details",
-        "search_repositories",
-        "get_file_contents",
-        "list_commits",
-        "get_commit",
-        "list_branches",
-        "list_tags",
-        "search_code",
-        "list_issues",
-        "get_issue",
-        "get_issue_comments",
-        "search_issues",
-        "list_pull_requests",
-        "get_pull_request",
-        "get_pull_request_files",
-        "get_pull_request_diff",
-        "get_pull_request_comments",
-        "get_pull_request_reviews",
-        "search_pull_requests",
-        "list_workflows",
-        "list_workflow_runs",
-        "get_workflow_run",
-        "list_workflow_jobs",
-        "get_job_logs",
-        "list_workflow_run_artifacts"
-      ]
-    },
     "terraform": {
       "command": "docker",
       "disabled": false,
