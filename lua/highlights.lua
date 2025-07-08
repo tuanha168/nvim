@@ -5,5 +5,5 @@ return {
   DiffText = { bg = "#8cbee2" },
   diffRemoved = { bg = "#ff0000" },
   DiffChange = { bg = "#e5d5ac" },
-  DiffDelete = { bg = "#ffb0b0" },
+  DiffDelete = { fg = "#ff8080", bg = "#ffb0b0" },
 }
