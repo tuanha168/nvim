@@ -21,23 +21,11 @@ return {
           })
         end,
       },
-      strategies = {
-        chat = {
-          adapter = "copilot",
-          tools = {
-            opts = {
-              default_tools = {
-                "mcp",
-              },
-            },
-          },
-        },
-      },
-      display = {
-        diff = {
-          provider = "mini_diff", -- default|mini_diff
-        },
-      },
+      -- display = {
+      --   diff = {
+      --     provider = "mini_diff", -- default|mini_diff
+      --   },
+      -- },
       extensions = {
         mcphub = {
           callback = "mcphub.extensions.codecompanion",
