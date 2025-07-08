@@ -14,7 +14,7 @@ return {
           return require("codecompanion.adapters").extend("copilot", {
             schema = {
               model = {
-                default = "claude-sonnet-4",
+                default = "gpt-4o",
               },
             },
           })
@@ -142,9 +142,17 @@ return {
       "nvim-treesitter/nvim-treesitter",
       "ravitemer/codecompanion-history.nvim",
       "ravitemer/mcphub.nvim",
-      { "echasnovski/mini.diff", version = "*", opts = {} },
+      {
+        "echasnovski/mini.diff",
+        version = "*",
+        config = function()
+          local diff = require "mini.diff"
+          diff.setup {
+            -- Disabled by default
+            source = diff.gen_source.none(),
+          }
+        end,
+      },
     },
   },
 }
-
-
