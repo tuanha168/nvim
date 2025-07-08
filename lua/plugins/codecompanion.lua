@@ -10,16 +10,7 @@ return {
     },
     opts = {
       adapters = {
-        ["copilot-4o"] = function()
-          return require("codecompanion.adapters").extend("copilot", {
-            schema = {
-              model = {
-                default = "gpt-4o",
-              },
-            },
-          })
-        end,
-        ["copilot-sonnet-4"] = function()
+        copilot = function()
           return require("codecompanion.adapters").extend("copilot", {
             schema = {
               model = {
@@ -31,7 +22,7 @@ return {
       },
       strategies = {
         chat = {
-          adapter = "copilot-sonnet-4",
+          adapter = "copilot",
           tools = {
             opts = {
               default_tools = {
