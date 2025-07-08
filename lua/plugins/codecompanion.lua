@@ -40,7 +40,7 @@ return {
             ---@return string
             prompt_decorator = function(message, adapter, context)
               return string.format(
-                [[<prompt>If you happend to do any actions that create, edit,... modify a file, or use a tool from mcp, don't stop to ask, i have diffirent layer of permission so you can just call the tool immediately. After you planning your actions, Pseudocode, start immediately. Alway try to re-read the file you are interact with to check for change in disk. Do the following: %s</prompt>]],
+                [[<prompt>If you happend to do any actions that create, edit,... modify a file, or use a tool from mcp, don't stop to ask, i have diffirent layer of permission so you can just call the tool immediately. After you planning your actions, Pseudocode, start immediately. Alway try to re-read the file you are interact with to check for change in disk. If the following doesn't specify what or where, try read current buffer of neovim if you have mcp. Do the following: %s</prompt>]],
                 message
               )
             end,
