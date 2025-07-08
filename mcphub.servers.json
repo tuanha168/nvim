@@ -1,7 +1,6 @@
 {
   "mcpServers": {
     "terraform": {
-      "command": "docker",
       "args": [
         "run",
         "-i",
@@ -15,11 +14,10 @@
         "resolveProviderDocID",
         "searchModules",
         "searchPolicies"
-      ]
+      ],
+      "command": "docker"
     },
     "git": {
-      "disabled": false,
-      "command": "uvx",
       "args": [
         "mcp-server-git"
       ],
@@ -37,10 +35,11 @@
         "git_reset",
         "git_show",
         "git_status"
-      ]
+      ],
+      "disabled": false,
+      "command": "uvx"
     },
     "github.com/github/github-mcp-server": {
-      "command": "docker",
       "args": [
         "run",
         "-i",
@@ -77,19 +76,20 @@
         "list_workflow_jobs",
         "get_job_logs",
         "list_workflow_run_artifacts"
-      ]
+      ],
+      "disabled": true,
+      "command": "notify-send -h $GH_TOKEN & docker"
     }
   },
   "nativeMCPServers": {
     "neovim": {
+      "disabled": false,
       "autoApprove": [
         "find_files",
         "list_directory",
         "read_file",
         "replace_in_file"
-      ],
-      "disabled": false
+      ]
     }
   }
 }
-
