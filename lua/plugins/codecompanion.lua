@@ -31,6 +31,7 @@ return {
       },
       strategies = {
         chat = {
+          adapter = "copilot-sonnet-4",
           tools = {
             opts = {
               default_tools = {
