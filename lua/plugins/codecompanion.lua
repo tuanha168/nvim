@@ -3,10 +3,10 @@ return {
     "olimorris/codecompanion.nvim",
     cmd = { "CodeCompanion", "CodeCompanionChat", "CodeCompanionActions", "CodeCompanionCmd", "CodeCompanionHistory" },
     keys = {
-      { "<Leader>cc", "<Cmd>CodeCompanionChat<CR>",    desc = "Code Companion Chat" },
+      { "<Leader>cc", "<Cmd>CodeCompanionChat<CR>", desc = "Code Companion Chat" },
       { "<Leader>ch", "<Cmd>CodeCompanionHistory<CR>", desc = "Code Companion Chat" },
       { "<Leader>ca", "<Cmd>CodeCompanionActions<CR>", desc = "Code Companion Actions" },
-      { "<Leader>cm", "<Cmd>CodeCompanionCmd<CR>",     desc = "Code Companion Commands" },
+      { "<Leader>cm", "<Cmd>CodeCompanionCmd<CR>", desc = "Code Companion Commands" },
     },
     opts = {
       adapters = {
@@ -25,18 +25,18 @@ return {
           tools = {
             opts = {
               default_tools = {
-                "mcp"
-              }
+                "mcp",
+              },
             },
-          }
-        }
+          },
+        },
       },
       extensions = {
         mcphub = {
           callback = "mcphub.extensions.codecompanion",
           opts = {
             show_result_in_chat = true, -- Show mcp tool results in chat
-            make_vars = true,           -- Convert resources to #variables
+            make_vars = true, -- Convert resources to #variables
             make_slash_commands = true, -- Add prompts as /slash commands
           },
         },
@@ -65,9 +65,9 @@ return {
             auto_generate_title = true,
             title_generation_opts = {
               ---Adapter for generating titles (defaults to current chat adapter)
-              adapter = nil,               -- "copilot"
+              adapter = nil, -- "copilot"
               ---Model for generating titles (defaults to current chat model)
-              model = nil,                 -- "gpt-4o"
+              model = nil, -- "gpt-4o"
               ---Number of user prompts after which to refresh the title (0 to disable)
               refresh_every_n_prompts = 0, -- e.g., 3 to refresh after every 3rd user prompt
               ---Maximum number of times to refresh the title (default: 3)
@@ -95,13 +95,13 @@ return {
               browse_summaries_keymap = "gbs",
 
               generation_opts = {
-                adapter = nil,               -- defaults to current chat adapter
-                model = nil,                 -- defaults to current chat model
-                context_size = 90000,        -- max tokens that the model supports
-                include_references = true,   -- include slash command content
+                adapter = nil, -- defaults to current chat adapter
+                model = nil, -- defaults to current chat model
+                context_size = 90000, -- max tokens that the model supports
+                include_references = true, -- include slash command content
                 include_tool_outputs = true, -- include tool execution results
-                system_prompt = nil,         -- custom system prompt (string or function)
-                format_summary = nil,        -- custom function to format generated summary e.g to remove <think/> tags from summary
+                system_prompt = nil, -- custom system prompt (string or function)
+                format_summary = nil, -- custom function to format generated summary e.g to remove <think/> tags from summary
               },
             },
 
@@ -131,6 +131,7 @@ return {
       "nvim-treesitter/nvim-treesitter",
       "ravitemer/codecompanion-history.nvim",
       "ravitemer/mcphub.nvim",
+      { "echasnovski/mini.diff", version = "*", opts = {} },
     },
   },
 }
