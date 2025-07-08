@@ -15,17 +15,17 @@ return {
             schema = {
               model = {
                 -- default = "claude-sonnet-4",
-                default = "gpt-4o",
+                default = "gpt-4.1",
               },
             },
           })
         end,
       },
-      -- display = {
-      --   diff = {
-      --     provider = "mini_diff", -- default|mini_diff
-      --   },
-      -- },
+      display = {
+        diff = {
+          provider = "mini_diff", -- default|mini_diff
+        },
+      },
       extensions = {
         mcphub = {
           callback = "mcphub.extensions.codecompanion",
