@@ -24,13 +24,17 @@
         "mcp-server-git"
       ],
       "autoApprove": [
+        "git_add",
         "git_branch",
         "git_checkout",
+        "git_commit",
         "git_create_branch",
         "git_diff",
         "git_diff_staged",
         "git_diff_unstaged",
+        "git_init",
         "git_log",
+        "git_reset",
         "git_show",
         "git_status"
       ]
@@ -38,6 +42,12 @@
   },
   "nativeMCPServers": {
     "neovim": {
+      "autoApprove": [
+        "find_files",
+        "list_directory",
+        "read_file",
+        "replace_in_file"
+      ],
       "disabled": false
     }
   }
