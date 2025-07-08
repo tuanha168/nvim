@@ -14,17 +14,17 @@ return {
           return require("codecompanion.adapters").extend("copilot", {
             schema = {
               model = {
-                default = "gpt-4o",
+                default = "gpt-4.1",
               },
             },
           })
         end,
       },
-      display = {
-        diff = {
-          provider = "mini_diff", -- default|mini_diff
-        },
-      },
+      -- display = {
+      --   diff = {
+      --     provider = "mini_diff", -- default|mini_diff
+      --   },
+      -- },
       strategies = {
         chat = {
           opts = {
