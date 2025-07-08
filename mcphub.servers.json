@@ -46,12 +46,9 @@
         "-i",
         "--rm",
         "-e",
-        "GITHUB_PERSONAL_ACCESS_TOKEN",
+        "GH_TOKEN",
         "ghcr.io/github/github-mcp-server"
       ],
-      "env": {
-        "GITHUB_PERSONAL_ACCESS_TOKEN": "$GH_TOKEN"
-      },
       "autoApprove": [
         "get_me",
         "list_notifications",
