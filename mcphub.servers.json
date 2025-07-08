@@ -6,7 +6,8 @@
         "find_files",
         "list_directory",
         "read_file",
-        "replace_in_file"
+        "replace_in_file",
+        "neovim://buffer"
       ]
     }
   },
@@ -14,9 +15,7 @@
     "git": {
       "command": "uvx",
       "disabled": false,
-      "args": [
-        "mcp-server-git"
-      ],
+      "args": ["mcp-server-git"],
       "autoApprove": [
         "git_add",
         "git_branch",
@@ -36,12 +35,7 @@
     "terraform": {
       "command": "docker",
       "disabled": false,
-      "args": [
-        "run",
-        "-i",
-        "--rm",
-        "hashicorp/terraform-mcp-server"
-      ],
+      "args": ["run", "-i", "--rm", "hashicorp/terraform-mcp-server"],
       "autoApprove": [
         "getProviderDocs",
         "moduleDetails",
