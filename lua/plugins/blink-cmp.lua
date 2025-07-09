@@ -129,16 +129,16 @@ return {
         ["<C-p>"] = { "select_prev", "fallback_to_mappings" },
         ["<C-n>"] = { "select_next", "fallback_to_mappings" },
 
-        ["<Tab>"] = { "select_next", "fallback_to_mappings" },
-        -- ["<Tab>"] = {
-        --   function(cmp)
-        --     if cmp.snippet_active() then return cmp.accept() end
+        -- ["<Tab>"] = { "select_next", "fallback_to_mappings" },
+        ["<Tab>"] = {
+          function(cmp)
+            if cmp.snippet_active() then return cmp.accept() end
 
-        --     return cmp.select_and_accept()
-        --   end,
-        --   "snippet_forward",
-        --   "fallback",
-        -- },
+            return cmp.select_and_accept()
+          end,
+          "snippet_forward",
+          "fallback",
+        },
         ["<S-Tab>"] = { "select_prev", "fallback_to_mappings" },
 
         ["<CR>"] = { "accept", "fallback" },
