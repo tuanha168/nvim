@@ -37,7 +37,7 @@ return {
             ---@return string
             prompt_decorator = function(message, adapter, context)
               return string.format(
-                [[<prompt>Don't need to review or ask for permission for anything, start do it immediately if you can. After you planning your actions, Pseudocode, etc,... you don't need to specify that to the response, just start do it immediately. Alway try to re-read the file you are interact with to check for change in disk. If the following doesn't specify what or where, try read current buffer of neovim if you have mcp. Do the following: %s</prompt>]],
+                [[<prompt>Don't need to review or ask for permission for anything, start do it immediately if you can. After you planning your actions, Pseudocode, etc,... you don't need to specify that to the response, just start do it immediately. Alway try to re-read the file you need interact with (if have any) to check for change in disk. Do the following: %s</prompt>]],
                 message
               )
             end,
