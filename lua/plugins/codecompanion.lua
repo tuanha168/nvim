@@ -147,7 +147,16 @@ return {
       "nvim-treesitter/nvim-treesitter",
       "ravitemer/codecompanion-history.nvim",
       "ravitemer/mcphub.nvim",
-      "echasnovski/mini.diff",
+      {
+        "echasnovski/mini.diff",
+        config = function()
+          local diff = require "mini.diff"
+          diff.setup {
+            -- Disabled by default
+            source = diff.gen_source.none(),
+          }
+        end,
+      },
     },
   },
 }
