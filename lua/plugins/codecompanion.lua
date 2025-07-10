@@ -2,7 +2,14 @@
 return {
   {
     "olimorris/codecompanion.nvim",
-    cmd = { "CodeCompanion", "CodeCompanionChat", "CodeCompanionActions", "CodeCompanionCmd", "CodeCompanionHistory" },
+    cmd = {
+      "CodeCompanion",
+      "CodeCompanionChat",
+      "CodeCompanionActions",
+      "CodeCompanionCmd",
+      "CodeCompanionHistory",
+      "CodeCompanionCheckQuota",
+    },
     keys = {
       { "<Leader>cc", "<Cmd>CodeCompanionChat<CR>", desc = "Code Companion Chat", mode = { "n", "x" } },
       { "<Leader>ch", "<Cmd>CodeCompanionHistory<CR>", desc = "Code Companion History", mode = { "n", "x" } },
@@ -144,7 +151,8 @@ return {
       "folke/noice.nvim",
     },
     config = function(_, opts)
-      Print(opts)
+      require("codecompanion").setup(opts)
+
       require("plugins.codecompanion.fidget-spinner").init()
       require("plugins.codecompanion.quota-handler").init()
     end,
