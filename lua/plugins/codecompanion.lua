@@ -143,7 +143,7 @@ return {
       "echasnovski/mini.diff",
       "folke/noice.nvim",
     },
-    config = function(opts)
+    config = function(_, opts)
       Print(opts)
       require("plugins.codecompanion.fidget-spinner").init()
       require("plugins.codecompanion.quota-handler").init()
