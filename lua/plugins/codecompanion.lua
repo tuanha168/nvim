@@ -12,49 +12,9 @@ return {
     opts = {
       adapters = {
         copilot = function()
-          return require("codecompanion.adapters").extend("copilot", {
-            handlers = {
-              on_exit = function(self, data)
-                -- Handle premium quota exhaustion
-                if data and data.status >= 400 then
-                  local body = data.body or ""
-
-                  -- Check for premium quota related errors
-                  if body:match "premium" or body:match "quota" or body:match "limit" or body:match "exceeded" then
-                    vim.notify("Premium quota exceeded. Switching to GPT-4.1 model.", vim.log.levels.WARN)
-
-                    -- Get current chat buffer and switch model
-                    local current_buf = vim.api.nvim_get_current_buf()
-                    local bufname = vim.api.nvim_buf_get_name(current_buf)
-
-                    -- Check if we're in a codecompanion chat buffer
-                    if bufname:match "codecompanion" then
-                      -- Use vim.schedule to avoid potential race conditions
-                      vim.schedule(function()
-                        -- Switch the model for the current chat session
-                        vim.cmd "lua require('codecompanion.strategies.chat').change_model('gpt-4.1')"
-                      end)
-                    else
-                      -- If not in chat buffer, set default model for next chat
-                      vim.g.codecompanion_fallback_model = "gpt-4.1"
-                    end
-                  else
-                    -- Log other errors
-                    vim.notify("Copilot error: " .. body, vim.log.levels.ERROR)
-                  end
-                end
-              end,
-            },
-            schema = {
-              model = {
-                default = function()
-                  -- Check if we should use fallback model
-                  if vim.g.codecompanion_fallback_model then return vim.g.codecompanion_fallback_model end
-                  return "claude-sonnet-4"
-                end,
-              },
-            },
-          })
+          return require("codecompanion.adapters").extend("copilot", 
+            require("plugins.codecompanion.quota-handler").get_copilot_adapter_config()
+          )
         end,
       },
       display = {
@@ -182,6 +142,11 @@ return {
       "echasnovski/mini.diff",
       "folke/noice.nvim",
     },
-    init = function() require("plugins.codecompanion.fidget-spinner").init() end,
+    init = function() 
+      require("plugins.codecompanion.fidget-spinner").init() 
+      require("plugins.codecompanion.quota-handler").init()
+    end,
   },
 }
+
+
