@@ -15,7 +15,9 @@ return {
           return require("codecompanion.adapters").extend("copilot", {
             handlers = {
               on_exit = function(self, data)
-                if data.status >= 200 then Print("Error: %s", data.body) end
+                if data.status >= 200 then
+                  -- Print("Error: %s", data.body)
+                end
               end,
             },
             schema = {
