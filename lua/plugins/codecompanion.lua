@@ -149,10 +149,8 @@ return {
       "nvim-treesitter/nvim-treesitter",
       "ravitemer/codecompanion-history.nvim",
       "ravitemer/mcphub.nvim",
-      "j-hui/fidget.nvim",
       "echasnovski/mini.diff",
     },
-    init = function() require("plugins.codecompanion.fidget-spinner"):init() end,
   },
 }
 

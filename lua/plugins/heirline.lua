@@ -21,6 +21,28 @@ return {
     },
     opts = function()
       local lib = require "heirline-components.all"
+      local CodeCompanion = {
+        static = {
+          processing = false,
+        },
+        update = {
+          "User",
+          pattern = "CodeCompanionRequest*",
+          callback = function(self, args)
+            if args.match == "CodeCompanionRequestStarted" then
+              self.processing = true
+            elseif args.match == "CodeCompanionRequestFinished" then
+              self.processing = false
+            end
+            vim.cmd "redrawstatus"
+          end,
+        },
+        {
+          condition = function(self) return self.processing end,
+          provider = " ",
+          hl = { fg = "yellow" },
+        },
+      }
 
       return {
         opts = {
@@ -62,6 +84,7 @@ return {
           lib.component.fill(),
           lib.component.cmd_info(),
           lib.component.fill(),
+          CodeCompanion,
           lib.component.lsp(),
           lib.component.compiler_state(),
           lib.component.virtual_env(),
