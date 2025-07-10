@@ -150,16 +150,7 @@ return {
       "ravitemer/codecompanion-history.nvim",
       "ravitemer/mcphub.nvim",
       "j-hui/fidget.nvim",
-      {
-        "echasnovski/mini.diff",
-        config = function()
-          local diff = require "mini.diff"
-          diff.setup {
-            -- Disabled by default
-            source = diff.gen_source.none(),
-          }
-        end,
-      },
+      "echasnovski/mini.diff",
     },
     init = function() require("plugins.codecompanion.fidget-spinner"):init() end,
   },
