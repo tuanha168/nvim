@@ -150,7 +150,6 @@ return {
       "ravitemer/mcphub.nvim",
       "echasnovski/mini.diff",
     },
+    init = function() require("plugins.codecompanion.fidget-spinner"):init() end,
   },
 }
-
-
