@@ -19,6 +19,23 @@ function M.init()
       end
     end,
   })
+  
+  -- Create user commands for manual control
+  vim.api.nvim_create_user_command("CodeCompanionResetModel", function()
+    vim.g.codecompanion_fallback_model = nil
+    vim.notify("Fallback model reset. Next chat will use Claude Sonnet 4.", vim.log.levels.INFO)
+  end, { desc = "Reset CodeCompanion fallback model to default" })
+  
+  vim.api.nvim_create_user_command("CodeCompanionCheckQuota", function()
+    local current_model = vim.g.codecompanion_fallback_model or "claude-sonnet-4"
+    vim.notify("Current default model: " .. current_model, vim.log.levels.INFO)
+    
+    -- Try to get copilot stats if available
+    local ok, copilot_adapter = pcall(require, "codecompanion.adapters.copilot")
+    if ok and copilot_adapter.show_copilot_stats then
+      copilot_adapter.show_copilot_stats()
+    end
+  end, { desc = "Check current CodeCompanion model and quota status" })
 end
 
 ---Handle premium quota exhaustion and switch to GPT-4.1
@@ -89,5 +106,6 @@ function M.get_copilot_adapter_config()
 end
 
 return M
+
 
 
