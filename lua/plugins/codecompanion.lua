@@ -13,10 +13,15 @@ return {
       adapters = {
         copilot = function()
           return require("codecompanion.adapters").extend("copilot", {
+            handlers = {
+              on_exit = function(self, data)
+                if data.status >= 200 then Print("Error: %s", data.body) end
+              end,
+            },
             schema = {
               model = {
-                -- default = "gpt-4.1",
-                default = "claude-sonnet-4",
+                default = "gpt-4.1",
+                -- default = "claude-sonnet-4",
               },
             },
           })
@@ -25,9 +30,6 @@ return {
       display = {
         diff = {
           provider = "mini_diff", -- default|mini_diff
-        },
-        chat = {
-          show_settings = true,
         },
       },
       strategies = {
