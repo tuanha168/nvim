@@ -152,7 +152,7 @@ return {
       "j-hui/fidget.nvim",
       "echasnovski/mini.diff",
     },
-    -- init = function() require("plugins.codecompanion.fidget-spinner"):init() end,
+    init = function() require("plugins.codecompanion.fidget-spinner"):init() end,
   },
 }
 
