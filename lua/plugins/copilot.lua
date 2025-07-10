@@ -25,29 +25,29 @@ return {
     },
   },
 
-  {
-    "copilotlsp-nvim/copilot-lsp",
-    keys = {
-      {
-        "<C-f>",
-        function()
-          local _ = require("copilot-lsp.nes").walk_cursor_start_edit()
-            or (require("copilot-lsp.nes").apply_pending_nes() and require("copilot-lsp.nes").walk_cursor_end_edit())
-        end,
-        mode = { "n" },
-      },
-    },
-    event = "VeryLazy",
-    opts = {
-      nes = {
-        move_count_threshold = 3, -- Clear after 3 cursor movements
-      },
-    },
-    init = function()
-      vim.g.copilot_nes_debounce = 500
-      vim.lsp.enable "copilot_ls"
-    end,
-  },
+  -- {
+  --   "copilotlsp-nvim/copilot-lsp",
+  --   keys = {
+  --     {
+  --       "<C-f>",
+  --       function()
+  --         local _ = require("copilot-lsp.nes").walk_cursor_start_edit()
+  --           or (require("copilot-lsp.nes").apply_pending_nes() and require("copilot-lsp.nes").walk_cursor_end_edit())
+  --       end,
+  --       mode = { "n" },
+  --     },
+  --   },
+  --   event = "VeryLazy",
+  --   opts = {
+  --     nes = {
+  --       move_count_threshold = 3, -- Clear after 3 cursor movements
+  --     },
+  --   },
+  --   init = function()
+  --     vim.g.copilot_nes_debounce = 500
+  --     vim.lsp.enable "copilot_ls"
+  --   end,
+  -- },
 
   -- {
   --   "CopilotC-Nvim/CopilotChat.nvim",
