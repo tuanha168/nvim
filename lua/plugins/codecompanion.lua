@@ -4,11 +4,11 @@ return {
     "olimorris/codecompanion.nvim",
     cmd = { "CodeCompanion", "CodeCompanionChat", "CodeCompanionActions", "CodeCompanionCmd", "CodeCompanionHistory" },
     keys = {
-      { "<Leader>cc", "<Cmd>CodeCompanionChat<CR>",    desc = "Code Companion Chat",     mode = { "n", "x" } },
-      { "<Leader>ch", "<Cmd>CodeCompanionHistory<CR>", desc = "Code Companion History",  mode = { "n", "x" } },
-      { "<Leader>ca", "<Cmd>CodeCompanionActions<CR>", desc = "Code Companion Actions",  mode = { "n", "x" } },
-      { "<Leader>cm", "<Cmd>CodeCompanionCmd<CR>",     desc = "Code Companion Commands", mode = { "n", "x" } },
-      { "<Leader>cp", ":CodeCompanion<CR>",            desc = "Code Companion prompt",   mode = { "n", "x" } },
+      { "<Leader>cc", "<Cmd>CodeCompanionChat<CR>", desc = "Code Companion Chat", mode = { "n", "x" } },
+      { "<Leader>ch", "<Cmd>CodeCompanionHistory<CR>", desc = "Code Companion History", mode = { "n", "x" } },
+      { "<Leader>ca", "<Cmd>CodeCompanionActions<CR>", desc = "Code Companion Actions", mode = { "n", "x" } },
+      { "<Leader>cm", "<Cmd>CodeCompanionCmd<CR>", desc = "Code Companion Commands", mode = { "n", "x" } },
+      { "<Leader>cp", ":CodeCompanion<CR>", desc = "Code Companion prompt", mode = { "n", "x" } },
     },
     opts = {
       adapters = {
@@ -53,7 +53,7 @@ return {
           callback = "mcphub.extensions.codecompanion",
           opts = {
             show_result_in_chat = true, -- Show mcp tool results in chat
-            make_vars = true,           -- Convert resources to #variables
+            make_vars = true, -- Convert resources to #variables
             make_slash_commands = true, -- Add prompts as /slash commands
           },
         },
@@ -82,9 +82,9 @@ return {
             auto_generate_title = true,
             title_generation_opts = {
               ---Adapter for generating titles (defaults to current chat adapter)
-              adapter = nil,               -- "copilot"
+              adapter = nil, -- "copilot"
               ---Model for generating titles (defaults to current chat model)
-              model = nil,                 -- "gpt-4o"
+              model = nil, -- "gpt-4o"
               ---Number of user prompts after which to refresh the title (0 to disable)
               refresh_every_n_prompts = 0, -- e.g., 3 to refresh after every 3rd user prompt
               ---Maximum number of times to refresh the title (default: 3)
@@ -112,13 +112,13 @@ return {
               browse_summaries_keymap = "gbs",
 
               generation_opts = {
-                adapter = nil,               -- defaults to current chat adapter
-                model = nil,                 -- defaults to current chat model
-                context_size = 90000,        -- max tokens that the model supports
-                include_references = true,   -- include slash command content
+                adapter = nil, -- defaults to current chat adapter
+                model = nil, -- defaults to current chat model
+                context_size = 90000, -- max tokens that the model supports
+                include_references = true, -- include slash command content
                 include_tool_outputs = true, -- include tool execution results
-                system_prompt = nil,         -- custom system prompt (string or function)
-                format_summary = nil,        -- custom function to format generated summary e.g to remove <think/> tags from summary
+                system_prompt = nil, -- custom system prompt (string or function)
+                format_summary = nil, -- custom function to format generated summary e.g to remove <think/> tags from summary
               },
             },
 
@@ -159,5 +159,40 @@ return {
         end,
       },
     },
+    init = function()
+      local spinner = { "⠋", "⠙", "⠹", "⠸", "⠼", "⠴", "⠦", "⠧", "⠇", "⠏" }
+      local group = vim.api.nvim_create_augroup("CodeCompanionFidgetHooks", { clear = true })
+      vim.api.nvim_create_autocmd({ "User" }, {
+        pattern = "CodeCompanion*",
+        group = group,
+        callback = function(request)
+          if request.match == "CodeCompanionChatSubmitted" then return end
+
+          local msg
+
+          msg = "[CodeCompanion] " .. request.match:gsub("CodeCompanion", "")
+
+          vim.notify(msg, "info", {
+            timeout = 1000,
+            keep = function()
+              return not vim
+                .iter({ "Finished", "Opened", "Hidden", "Closed", "Cleared", "Created" })
+                :fold(false, function(acc, cond) return acc or vim.endswith(request.match, cond) end)
+            end,
+            id = "code_companion_status",
+            title = "Code Companion Status",
+            opts = function(notif)
+              notif.icon = ""
+              if vim.endswith(request.match, "Started") then
+                ---@diagnostic disable-next-line: undefined-field
+                notif.icon = spinner[math.floor(vim.uv.hrtime() / (1e6 * 80)) % #spinner + 1]
+              elseif vim.endswith(request.match, "Finished") then
+                notif.icon = " "
+              end
+            end,
+          })
+        end,
+      })
+    end,
   },
 }
