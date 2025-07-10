@@ -149,6 +149,7 @@ return {
       "ravitemer/codecompanion-history.nvim",
       "ravitemer/mcphub.nvim",
       "echasnovski/mini.diff",
+      "folke/noice.nvim",
     },
     init = function() require("plugins.codecompanion.fidget-spinner").init() end,
   },
