@@ -1,9 +1,9 @@
 -- plugins/ai/extensions/companion-notification.lua
 
-local Format = require("noice.text.format")
-local Message = require("noice.message")
-local Manager = require("noice.message.manager")
-local Router = require("noice.message.router")
+local Format = require "noice.text.format"
+local Message = require "noice.message"
+local Manager = require "noice.message.manager"
+local Router = require "noice.message.router"
 
 local ThrottleTime = 200
 local M = {}
@@ -35,9 +35,7 @@ function M.init()
   })
 end
 
-function M.store_progress_handle(id, handle)
-  M.handles[id] = handle
-end
+function M.store_progress_handle(id, handle) M.handles[id] = handle end
 
 function M.pop_progress_message(id)
   local handle = M.handles[id]
@@ -60,9 +58,7 @@ end
 function M.update(message)
   if M.handles[message.opts.progress.id] then
     Manager.add(Format.format(message, "lsp_progress"))
-    vim.defer_fn(function()
-      M.update(message)
-    end, ThrottleTime)
+    vim.defer_fn(function() M.update(message) end, ThrottleTime)
   end
 end
 
@@ -75,9 +71,7 @@ end
 function M.llm_role_title(adapter)
   local parts = {}
   table.insert(parts, adapter.formatted_name)
-  if adapter.model and adapter.model ~= "" then
-    table.insert(parts, "(" .. adapter.model .. ")")
-  end
+  if adapter.model and adapter.model ~= "" then table.insert(parts, "(" .. adapter.model .. ")") end
   return table.concat(parts, " ")
 end
 

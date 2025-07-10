@@ -12,7 +12,8 @@ return {
     opts = {
       adapters = {
         copilot = function()
-          return require("codecompanion.adapters").extend("copilot", 
+          return require("codecompanion.adapters").extend(
+            "copilot",
             require("plugins.codecompanion.quota-handler").get_copilot_adapter_config()
           )
         end,
@@ -142,11 +143,10 @@ return {
       "echasnovski/mini.diff",
       "folke/noice.nvim",
     },
-    init = function() 
-      require("plugins.codecompanion.fidget-spinner").init() 
+    config = function(opts)
+      Print(opts)
+      require("plugins.codecompanion.fidget-spinner").init()
       require("plugins.codecompanion.quota-handler").init()
     end,
   },
 }
-
-
