@@ -39,7 +39,7 @@ return {
         },
         {
           condition = function(self) return self.processing end,
-          provider = " ",
+          provider = "  Requesting...",
           hl = { fg = "yellow" },
         },
       }
