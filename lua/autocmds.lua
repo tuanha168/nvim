@@ -137,4 +137,8 @@ return {
       pattern = { "[vV\x16]*:*" },
     },
   },
+  {
+    "TabNew",
+    function() vim.cmd "tabclose" end,
+  },
 }
