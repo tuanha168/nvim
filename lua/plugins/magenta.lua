@@ -2,7 +2,9 @@
 return {
   {
     "dlants/magenta.nvim",
-    lazy = false, -- you could also bind to <leader>mt
+    keys = {
+      { "<leader>mt", desc = "Magenta: Toggle" },
+    },
     build = "npm install --frozen-lockfile",
     opts = {
       profiles = {
@@ -14,6 +16,7 @@ return {
         },
       },
       picker = "snacks",
+      sidebarPosition = "right",
     },
   },
 }
