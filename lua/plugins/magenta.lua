@@ -13,6 +13,7 @@ return {
           fastModel = "gpt-4.1",
         },
       },
+      picker = "snacks",
     },
   },
 }
