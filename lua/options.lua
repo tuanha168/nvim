@@ -70,7 +70,7 @@ vim.opt.iskeyword:append "-"
 
 if vim.g.neovide then
   local opts = {
-    guifont = "CaskaydiaCove Nerd Font:h15",
+    guifont = "CaskaydiaCove Nerd Font:h12",
   }
   for k, v in pairs(opts) do
     options.opt[k] = v
@@ -78,7 +78,7 @@ if vim.g.neovide then
   local g = {
     -- neovide-fullscreen = true,
     -- neovide_input_use_logo = true,
-    neovide_transparency = 0.8,
+    neovide_opacity = 0.8,
     neovide_remember_window_size = true,
     neovide_input_macos_alt_is_meta = true,
     -- neovide_profiler = true,
