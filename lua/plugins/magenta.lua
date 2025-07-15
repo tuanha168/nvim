@@ -39,6 +39,14 @@ return {
       picker = "snacks",
       sidebarPosition = "right",
       mcpServers = mcpServers,
+      commandAllowlist = {
+        "^ls( [^;&|()<>]*)?$",
+        "^pwd$",
+        "^echo( [^;&|()<>]*)?$",
+        "^ls [^;&()<>]* | grep [^;&|()<>]*$",
+        "^echo [^;&|()<>]* > [a-zA-Z0-9_\\-.]+$",
+        "^grep( -[A-Za-z]*)? [^;&|()<>]*$",
+      },
     },
     dependencies = {
       "ravitemer/mcphub.nvim",
