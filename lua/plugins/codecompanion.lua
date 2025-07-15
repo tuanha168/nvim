@@ -2,7 +2,7 @@
 return {
   {
     "olimorris/codecompanion.nvim",
-    enabled = true,
+    enabled = false,
     cmd = {
       "CodeCompanion",
       "CodeCompanionChat",

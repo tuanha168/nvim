@@ -2,7 +2,7 @@
 return {
   {
     "dlants/magenta.nvim",
-    enabled = false,
+    enabled = true,
     -- keys = {
     --   { "<leader>mt", desc = "Magenta: Toggle" },
     -- },
