@@ -18,7 +18,7 @@ local mcpServers = load_mcp_servers()
 return {
   {
     "dlants/magenta.nvim",
-    enabled = true,
+    enabled = false,
     lazy = false, -- you could also bind to <leader>mt
     build = "npm install --frozen-lockfile",
     opts = {
