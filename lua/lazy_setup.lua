@@ -23,6 +23,7 @@ require("lazy").setup {
   },
   dev = {
     path = "~/.local/share/nvim/dev-plugins",
+    patterns = { "tuanha168" },
   },
   -- Configure any other `lazy.nvim` configuration options here
   install = { colorscheme = { "Mofiqul/dracula.nvim" } },
