@@ -1,24 +1,8 @@
-local function load_mcp_servers()
-  local config_root = vim.fn.stdpath "config"
-  local mcp_file = config_root .. "/mcphub.servers.json"
-
-  if vim.fn.filereadable(mcp_file) == 1 then
-    local content = vim.fn.readfile(mcp_file)
-    local json_str = table.concat(content, "\n")
-    local ok, mcp_config = pcall(vim.json.decode, json_str)
-    if ok and mcp_config.mcpServers then return mcp_config.mcpServers end
-  end
-
-  return {}
-end
-
-local mcpServers = load_mcp_servers()
-
 ---@type LazySpec
 return {
   {
     "dlants/magenta.nvim",
-    enabled = false,
+    enabled = true,
     lazy = false, -- you could also bind to <leader>mt
     build = "npm install --frozen-lockfile",
     opts = {
@@ -38,7 +22,11 @@ return {
       },
       picker = "snacks",
       sidebarPosition = "right",
-      mcpServers = mcpServers,
+      mcpServers = {
+        mcphub = {
+          url = "http://localhost:37373/mcp",
+        },
+      },
       commandAllowlist = {
         "^ls( [^;&|()<>]*)?$",
         "^pwd$",
