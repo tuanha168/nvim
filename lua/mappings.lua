@@ -9,10 +9,10 @@ return {
   { "<Leader>pp", "<cmd>Gitsigns preview_hunk<CR>" },
 
   -- swap gj gk
-  { "k", "gk", silent = true },
-  { "j", "gj", silent = true },
-  { "gk", "k", silent = true },
-  { "gj", "j", silent = true },
+  { "k", "gk", silent = true, mode = { "n", "v" } },
+  { "j", "gj", silent = true, mode = { "n", "v" } },
+  { "gk", "k", silent = true, mode = { "n", "v" } },
+  { "gj", "j", silent = true, mode = { "n", "v" } },
 
   -- Moving
   { "K", ":m .-2<CR>==", silent = true },
