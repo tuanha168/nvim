@@ -14,16 +14,13 @@ require("lazy").setup {
     {
       "tuanha168/magenta-history.nvim",
       dev = true,
+      dir = "~/.local/share/nvim/dev-plugins/magenta-history.nvim",
       dependencies = {
         "dlants/magenta.nvim",
         "folke/snacks.nvim",
       },
       opts = {},
     },
-  },
-  dev = {
-    path = "~/.local/share/nvim/dev-plugins",
-    patterns = { "tuanha168" },
   },
   -- Configure any other `lazy.nvim` configuration options here
   install = { colorscheme = { "Mofiqul/dracula.nvim" } },
