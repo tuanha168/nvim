@@ -30,7 +30,7 @@ return {
           n = {
             ["<C-n>"] = "CloseView",
             ["q"] = "CloseView",
-            ["<CR>"] = "Select",
+            ["l"] = "Select",
             ["<C-CR>"] = "SelectRecursive",
           },
         },
