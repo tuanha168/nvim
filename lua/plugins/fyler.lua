@@ -11,8 +11,8 @@ return {
     opts = {
       views = {
         explorer = {
-          width = 0.3,
-          height = 0.3,
+          width = 0.2,
+          height = 0.2,
           kind = "split:left",
           border = "single",
         },
