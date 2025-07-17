@@ -62,7 +62,7 @@ return {
     },
     keys = {
       -- Top Pickers & Explorer
-      { "<C-n>", function() Snacks.explorer() end, desc = "Explorer" },
+      -- { "<C-n>", function() Snacks.explorer() end, desc = "Explorer" },
       { "<leader><space>", function() Snacks.picker.smart() end, desc = "Smart Find Files" },
       { "<leader>fb", function() Snacks.picker.buffers() end, desc = "Buffers" },
       { "<leader>fw", function() Snacks.picker.grep() end, desc = "Grep" },
