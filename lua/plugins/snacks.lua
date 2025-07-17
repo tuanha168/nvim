@@ -7,7 +7,7 @@ return {
     opts = {
       bigfile = { enabled = true },
       dashboard = { enabled = false },
-      explorer = { enabled = false },
+      explorer = { enabled = true },
       indent = { enabled = true },
       input = { enabled = true },
       notifier = {
@@ -62,6 +62,7 @@ return {
     },
     keys = {
       -- Top Pickers & Explorer
+      { "<C-n>", function() Snacks.picker.explorer() end, desc = "Explorer" },
       { "<leader><space>", function() Snacks.picker.smart() end, desc = "Smart Find Files" },
       { "<leader>fb", function() Snacks.picker.buffers() end, desc = "Buffers" },
       { "<leader>fw", function() Snacks.picker.grep() end, desc = "Grep" },
