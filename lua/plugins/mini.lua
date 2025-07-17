@@ -15,9 +15,10 @@ return {
 
   {
     "echasnovski/mini.files",
+    enabled = false,
     keys = {
       {
-        "<c-n>",
+        "<C-n>",
         function()
           local ok, minifiles = pcall(require, "mini.files")
           if not ok then return end
@@ -72,7 +73,7 @@ return {
             }
           end, { buffer = buf_id })
 
-          vim.keymap.set("n", "<c-n>", function() minifiles.close() end, { buffer = buf_id })
+          vim.keymap.set("n", "<C-n>", function() minifiles.close() end, { buffer = buf_id })
 
           vim.keymap.set("n", "<CR>", function()
             local fs_entry = minifiles.get_fs_entry()
