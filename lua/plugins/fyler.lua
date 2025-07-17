@@ -23,6 +23,18 @@ return {
           border = "single",
         },
       },
+      mappings = {
+        -- For `explorer` actions checkout following link:
+        -- https://github.com/A7Lavinraj/fyler.nvim/blob/main/lua/fyler/views/explorer/actions.lua
+        explorer = {
+          n = {
+            ["<C-n>"] = "CloseView",
+            ["q"] = "CloseView",
+            ["<CR>"] = "Select",
+            ["<C-CR>"] = "SelectRecursive",
+          },
+        },
+      },
     },
   },
 }
