@@ -15,7 +15,7 @@ return {
 
   {
     "echasnovski/mini.files",
-    enabled = false,
+    -- enabled = false,
     keys = {
       {
         "<C-n>",

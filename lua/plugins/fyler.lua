@@ -1,7 +1,7 @@
 return {
   {
     "A7Lavinraj/fyler.nvim",
-    -- enabled = false,
+    enabled = false,
     cmd = "Fyler",
     keys = {
       { "<C-n>", "<cmd>Fyler<CR>" },
