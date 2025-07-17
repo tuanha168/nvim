@@ -29,9 +29,7 @@ return {
         explorer = {
           n = {
             ["<C-n>"] = "CloseView",
-            ["q"] = "CloseView",
-            ["l"] = "Select",
-            ["<C-CR>"] = "SelectRecursive",
+            ["<CR>"] = "Select",
           },
         },
       },
