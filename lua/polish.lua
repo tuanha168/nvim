@@ -80,10 +80,13 @@ vim.filetype.add {
     [".*"] = {
       function(path, bufnr)
         -- check for bun filetype or #!/usr/bin/env bun
+        vim.schedule_wrap(function() Print(bufnr, vim.api.nvim_buf_get_lines(0, 0, 1, false)[1]) end)
         local content = vim.api.nvim_buf_get_lines(bufnr, 0, 1, false)[1] or ""
         Print("content: ", content)
-        if vim.regex([[^#!/usr/bin/env bun]]):match_str(content) ~= nil or
-           vim.regex([[^#.*bun&]]):match_str(content) ~= nil then
+        if
+          vim.regex([[^#!/usr/bin/env bun]]):match_str(content) ~= nil
+          or vim.regex([[^#.*bun&]]):match_str(content) ~= nil
+        then
           return "javascript"
         end
       end,
