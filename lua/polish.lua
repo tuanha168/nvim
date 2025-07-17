@@ -73,3 +73,18 @@ local highlights = require "highlights"
 for group, hl in pairs(highlights) do
   vim.api.nvim_set_hl(0, group, hl)
 end
+
+-- other filetypes
+vim.filetype.add {
+  pattern = {
+    [".*"] = {
+      function(path, bufnr)
+        local content = vim.api.nvim_buf_get_lines(bufnr, 0, 1, false)[1] or ""
+        if vim.regex([[^#!.*\\<mine\\>]]):match_str(content) ~= nil then
+          return "mine"
+        end
+      end,
+      { priority = -math.huge },
+    },
+  },
+}
