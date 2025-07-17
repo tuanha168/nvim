@@ -28,8 +28,8 @@ return {
         -- https://github.com/A7Lavinraj/fyler.nvim/blob/main/lua/fyler/views/explorer/actions.lua
         explorer = {
           n = {
+            ["q"] = false,
             ["<C-n>"] = "CloseView",
-            ["<CR>"] = "Select",
           },
         },
       },
