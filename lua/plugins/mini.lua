@@ -190,6 +190,7 @@ return {
           filter = function(entry) return entry.name ~= ".DS_Store" end,
           sort = vim.g.mini_files_ignore and git_ignore_sorter or minifiles.default_sort,
         },
+        use_as_default_explorer = false,
         mappings = {
           close = "q",
           go_in = "L",
