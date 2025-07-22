@@ -5,7 +5,8 @@ return {
     dependencies = {
       "nvim-lua/plenary.nvim",
     },
-    build = "npm install -g mcp-hub@latest", -- Installs `mcp-hub` node binary globally
+    commit = "15d490149502a8fb523a148dd564d597d34c3eb4",
+    build = "npm install -g mcp-hub@3.7.0", -- Installs `mcp-hub` node binary globally
     opts = {
       config = vim.fn.stdpath "config" .. "/mcphub.servers.json",
       log = {
