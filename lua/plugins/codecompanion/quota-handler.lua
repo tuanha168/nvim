@@ -14,6 +14,30 @@ function M.init()
     local ok, copilot_adapter = pcall(require, "codecompanion.adapters.copilot")
     if ok and copilot_adapter.show_copilot_stats then copilot_adapter.show_copilot_stats() end
   end, { desc = "Check current CodeCompanion model and quota status" })
+
+  vim.api.nvim_create_user_command("CodeCompanionChangeModel", function()
+    -- Try to get current chat instance and switch model
+    local current_buf = vim.api.nvim_get_current_buf()
+    local bufname = vim.api.nvim_buf_get_name(current_buf)
+
+    local switch_to = vim.g.codecompanion_fallback_model == "gpt-4.1" and "claude-sonnet-4" or "gpt-4.1"
+
+    -- Check if we're in a codecompanion chat buffer
+    if bufname:match "codecompanion" then
+      local ok, chat_module = pcall(require, "codecompanion.strategies.chat")
+      if ok and chat_module.buf_get_chat then
+        local chat = chat_module.buf_get_chat(current_buf)
+        if chat and chat.apply_model then
+          chat:apply_model(switch_to)
+          chat:apply_settings()
+          vim.notify("Model switched to " .. switch_to and "Claude Sonnet 4" or "GPT-4.1" .. " for current chat.", vim.log.levels.INFO)
+        end
+      end
+    end
+
+    -- Set fallback model for any new chats
+    vim.g.codecompanion_fallback_model = switch_to
+  end, { desc = "Check current CodeCompanion model and quota status" })
 end
 
 ---Handle premium quota exhaustion and switch to GPT-4.1
