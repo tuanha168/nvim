@@ -34,7 +34,7 @@ function M.init()
             "Model switched to "
               .. (switch_to == "claude-sonnet-4" and "Claude Sonnet 4" or "GPT-4.1")
               .. " for current chat.",
-            vim.log.levels.INFO
+            vim.log.levels.WARN
           )
         end
       end
