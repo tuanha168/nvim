@@ -30,7 +30,11 @@ function M.init()
         if chat and chat.apply_model then
           chat:apply_model(switch_to)
           chat:apply_settings()
-          vim.notify("Model switched to " .. switch_to and "Claude Sonnet 4" or "GPT-4.1" .. " for current chat.", vim.log.levels.INFO)
+          vim.notify(
+            "Model switched to " .. switch_to == "claude-sonnet-4" and "Claude Sonnet 4"
+              or "GPT-4.1" .. " for current chat.",
+            vim.log.levels.INFO
+          )
         end
       end
     end
