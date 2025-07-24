@@ -15,7 +15,7 @@ function M.init()
     if ok and copilot_adapter.show_copilot_stats then copilot_adapter.show_copilot_stats() end
   end, { desc = "Check current CodeCompanion model and quota status" })
 
-  vim.api.nvim_create_user_command("ChatChangeModel", function()
+  vim.api.nvim_create_user_command("CodeCompanionChangeModel", function()
     -- Try to get current chat instance and switch model
     local current_buf = vim.api.nvim_get_current_buf()
 
