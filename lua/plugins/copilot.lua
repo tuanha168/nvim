@@ -71,7 +71,7 @@ return {
           full_diff = true,
         },
         reset = {
-          normal = "<C-l>",
+          normal = "",
           insert = "",
         },
       },
