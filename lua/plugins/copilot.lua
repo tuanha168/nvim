@@ -58,6 +58,7 @@ return {
       "CopilotChatModels",
       "CopilotChatAgents",
     },
+    commit = "bdb270dac270a0e27b23bf2ef40482405b3c984d",
     dependencies = {
       { "zbirenbaum/copilot.lua" }, -- or zbirenbaum/copilot.lua
       { "nvim-lua/plenary.nvim", branch = "master" }, -- for curl, log and async functions
