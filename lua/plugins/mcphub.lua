@@ -15,7 +15,7 @@ return {
           enabled = true,
           convert_tools_to_functions = false, -- Convert MCP tools to CopilotChat functions
           convert_resources_to_functions = false, -- Convert MCP resources to CopilotChat functions
-          add_mcp_prefix = true, -- Add "mcp_" prefix to function names
+          add_mcp_prefix = false, -- Add "mcp_" prefix to function names
         },
       },
       log = {
