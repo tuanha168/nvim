@@ -1,7 +1,6 @@
 return {
   {
     "ravitemer/mcphub.nvim",
-    enabled = false,
     cmd = { "MCPHub" },
     dependencies = {
       "nvim-lua/plenary.nvim",
@@ -15,9 +14,9 @@ return {
       extensions = {
         copilotchat = {
           enabled = true,
-          convert_tools_to_functions = false, -- Convert MCP tools to CopilotChat functions
-          convert_resources_to_functions = false, -- Convert MCP resources to CopilotChat functions
-          add_mcp_prefix = false, -- Add "mcp_" prefix to function names
+          convert_tools_to_functions = true, -- Convert MCP tools to CopilotChat functions
+          convert_resources_to_functions = true, -- Convert MCP resources to CopilotChat functions
+          add_mcp_prefix = true, -- Add "mcp_" prefix to function names
         },
       },
       log = {
