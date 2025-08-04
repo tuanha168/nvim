@@ -49,33 +49,33 @@ return {
   --   end,
   -- },
 
-  -- {
-  --   "CopilotC-Nvim/CopilotChat.nvim",
-  --   cmd = {
-  --     "CopilotChat",
-  --     "CopilotChatToggle",
-  --     "CopilotChatPrompts",
-  --     "CopilotChatModels",
-  --     "CopilotChatAgents",
-  --   },
-  --   dependencies = {
-  --     { "zbirenbaum/copilot.lua" }, -- or zbirenbaum/copilot.lua
-  --     { "nvim-lua/plenary.nvim", branch = "master" }, -- for curl, log and async functions
-  --   },
-  --   build = "make tiktoken", -- Only on MacOS or Linux
-  --   opts = {
-  --     model = "claude-sonnet-4",
-  --     mappings = {
-  --       show_diff = {
-  --         full_diff = true,
-  --       },
-  --       reset = {
-  --         normal = "<C-l>",
-  --         insert = "",
-  --       },
-  --     },
-  --     -- See Configuration section for options
-  --   },
-  --   -- See Commands section for default commands if you want to lazy load on them
-  -- },
+  {
+    "CopilotC-Nvim/CopilotChat.nvim",
+    cmd = {
+      "CopilotChat",
+      "CopilotChatToggle",
+      "CopilotChatPrompts",
+      "CopilotChatModels",
+      "CopilotChatAgents",
+    },
+    dependencies = {
+      { "zbirenbaum/copilot.lua" }, -- or zbirenbaum/copilot.lua
+      { "nvim-lua/plenary.nvim", branch = "master" }, -- for curl, log and async functions
+    },
+    build = "make tiktoken", -- Only on MacOS or Linux
+    opts = {
+      model = "claude-sonnet-4",
+      mappings = {
+        show_diff = {
+          full_diff = true,
+        },
+        reset = {
+          normal = "<C-l>",
+          insert = "",
+        },
+      },
+      -- See Configuration section for options
+    },
+    -- See Commands section for default commands if you want to lazy load on them
+  },
 }
