@@ -120,7 +120,7 @@ return {
       -- See :h blink-cmp-config-keymap for defining your own keymap
       keymap = {
         preset = "none",
-        -- ["<C-space>"] = { function(cmp) cmp.show { providers = { "lsp", "snippets" } } end },
+        ["<C-space>"] = { function(cmp) cmp.show { providers = { "lsp", "snippets" } } end },
         ["<C-e>"] = { "hide", "fallback" },
         ["<C-y>"] = { "select_and_accept" },
 
