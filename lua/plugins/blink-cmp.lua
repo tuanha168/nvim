@@ -124,10 +124,8 @@ return {
         ["<C-e>"] = { "hide", "fallback" },
         ["<C-y>"] = { "select_and_accept" },
 
-        ["<Up>"] = { "select_prev", "fallback" },
-        ["<Down>"] = { "select_next", "fallback" },
-        ["<C-Up>"] = { "select_prev", "fallback" },
-        ["<C-Down>"] = { "select_next", "fallback" },
+        ["<Up>"] = { "select_prev" },
+        ["<Down>"] = { "select_next" },
         ["<C-p>"] = { "select_prev", "fallback_to_mappings" },
         ["<C-n>"] = { "select_next", "fallback_to_mappings" },
 
