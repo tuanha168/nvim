@@ -1,6 +1,8 @@
 return {
   {
     "MagicDuck/grug-far.nvim",
-    opts = {},
+    opts = {
+      extraRgArgs = "--multiline",
+    },
   },
 }
