@@ -45,6 +45,7 @@ local options = {
   },
   g = {
     mapleader = " ",
+    maplocalleader = ",",
     editorconfig = false,
     matchup_matchparen_offscreen = { method = "popup" },
     copilot_assume_mapped = true,
@@ -131,4 +132,4 @@ return options
 --
 --   return local_vim
 -- end
--- 
+--
