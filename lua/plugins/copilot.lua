@@ -48,7 +48,7 @@ return {
         mode = { "n" },
       },
     },
-    event = "VeryLazy",
+    event = "BufEnter",
     opts = {
       nes = {
         move_count_threshold = 3, -- Clear after 3 cursor movements
