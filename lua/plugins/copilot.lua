@@ -25,30 +25,29 @@ return {
     },
   },
 
-  {
-    "Xuyuanp/nes.nvim",
-    event = "VeryLazy",
-    branch = "feat/lsp-api",
-    keys = {
-      {
-        "<C-g>",
-        function() require("nes").get_suggestion() end,
-        mode = "n",
-        desc = "[Nes] get suggestion",
-      },
-      {
-        "<C-f>",
-        function() require("nes").apply_suggestion(0, { jump = true, trigger = true }) end,
-        mode = "n",
-        desc = "[Nes] apply suggestion",
-      },
-    },
-    dependencies = {
-      "nvim-lua/plenary.nvim",
-      "zbirenbaum/copilot.lua",
-    },
-    opts = {},
-  },
+  -- {
+  --   "Xuyuanp/nes.nvim",
+  --   event = "VeryLazy",
+  --   keys = {
+  --     {
+  --       "<C-g>",
+  --       function() require("nes").get_suggestion() end,
+  --       mode = "n",
+  --       desc = "[Nes] get suggestion",
+  --     },
+  --     {
+  --       "<C-f>",
+  --       function() require("nes").apply_suggestion(0, { jump = true, trigger = true }) end,
+  --       mode = "n",
+  --       desc = "[Nes] apply suggestion",
+  --     },
+  --   },
+  --   dependencies = {
+  --     "nvim-lua/plenary.nvim",
+  --     "zbirenbaum/copilot.lua",
+  --   },
+  --   opts = {},
+  -- },
 
   -- {
   --   "copilotlsp-nvim/copilot-lsp",
