@@ -1,29 +1,29 @@
 ---@type LazySpec
 return {
-  {
-    "zbirenbaum/copilot.lua",
-    event = { "InsertEnter" },
-    keys = {
-      { "<C-f>", mode = "i" },
-      { "<C-j>", mode = "i" },
-      { "<C-k>", mode = "i" },
-    },
-    opts = {
-      panel = {
-        enabled = false,
-      },
-      copilot_model = "claude-sonnet-4",
-      suggestion = {
-        enabled = true,
-        auto_trigger = true,
-        keymap = {
-          accept = "<C-f>",
-          next = "<C-j>",
-          prev = "<C-k>",
-        },
-      },
-    },
-  },
+  -- {
+  --   "zbirenbaum/copilot.lua",
+  --   event = { "InsertEnter" },
+  --   keys = {
+  --     { "<C-f>", mode = "i" },
+  --     { "<C-j>", mode = "i" },
+  --     { "<C-k>", mode = "i" },
+  --   },
+  --   opts = {
+  --     panel = {
+  --       enabled = false,
+  --     },
+  --     copilot_model = "claude-sonnet-4",
+  --     suggestion = {
+  --       enabled = true,
+  --       auto_trigger = true,
+  --       keymap = {
+  --         accept = "<C-f>",
+  --         next = "<C-j>",
+  --         prev = "<C-k>",
+  --       },
+  --     },
+  --   },
+  -- },
 
   {
     "copilotlsp-nvim/copilot-lsp",
@@ -31,9 +31,20 @@ return {
       {
         "<C-f>",
         function()
-          local _ = require("copilot-lsp.nes").walk_cursor_start_edit()
-            or (require("copilot-lsp.nes").apply_pending_nes() and require("copilot-lsp.nes").walk_cursor_end_edit())
+          local bufnr = vim.api.nvim_get_current_buf()
+          local state = vim.b[bufnr].nes_state
+          if state then
+            -- Try to jump to the start of the suggestion edit.
+            -- If already at the start, then apply the pending suggestion and jump to the end of the edit.
+            local _ = require("copilot-lsp.nes").walk_cursor_start_edit()
+                or (
+                  require("copilot-lsp.nes").apply_pending_nes()
+                  and require("copilot-lsp.nes").walk_cursor_end_edit()
+                )
+          end
         end,
+        desc = "Accept Copilot NES suggestion",
+        expr = true,
         mode = { "n" },
       },
     },
