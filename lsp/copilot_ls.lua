@@ -1,7 +1,9 @@
-vim.lsp.config("copilot_ls", {
-  github = {
-    copilot = {
-      selectedCompletionModel = "claude-sonnet-4",
+return {
+  settings = {
+    github = {
+      copilot = {
+        selectedCompletionModel = "claude-sonnet-4",
+      },
     },
   },
-})
+}
