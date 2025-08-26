@@ -38,7 +38,7 @@
   "mini.files": { "branch": "main", "commit": "49c855977e9f4821d1ed8179ed44fe098b93ea2a" },
   "mini.icons": { "branch": "main", "commit": "397ed3807e96b59709ef3292f0a3e253d5c1dc0a" },
   "neoconf.nvim": { "branch": "main", "commit": "258b76721704efedff8d41d7ee82eef58b613d8f" },
-  "nes.nvim": { "branch": "main", "commit": "9387e0897e4155b70f6f3cee3b8700fc93195e28" },
+  "nes.nvim": { "branch": "feat/lsp-api", "commit": "2af18b753796975e9c1ae0a136c11bced7f483ab" },
   "noice.nvim": { "branch": "main", "commit": "0427460c2d7f673ad60eb02b35f5e9926cf67c59" },
   "nui.nvim": { "branch": "main", "commit": "de740991c12411b663994b2860f1a4fd0937c130" },
   "nvim-dap": { "branch": "master", "commit": "40a8189b8a57664a1850b0823fdcb3ac95b9f635" },

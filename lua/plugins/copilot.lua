@@ -28,6 +28,7 @@ return {
   {
     "Xuyuanp/nes.nvim",
     event = "VeryLazy",
+    branch = "feat/lsp-api",
     keys = {
       {
         "<C-g>",
