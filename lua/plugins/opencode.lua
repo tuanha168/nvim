@@ -28,12 +28,12 @@ return {
       { "<leader>on", function() require("opencode").command "session_new" end, desc = "New session" },
       { "<leader>oy", function() require("opencode").command "messages_copy" end, desc = "Copy last message" },
       {
-        "<C-{>",
+        "<C-m>",
         function() require("opencode").command "messages_half_page_up" end,
         desc = "Scroll messages up",
       },
       {
-        "<C-}>",
+        "<C-,>",
         function() require("opencode").command "messages_half_page_down" end,
         desc = "Scroll messages down",
       },
