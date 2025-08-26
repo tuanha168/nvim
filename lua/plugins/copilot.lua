@@ -56,7 +56,7 @@ return {
     },
     init = function()
       vim.g.copilot_nes_debounce = 500
-      vim.lsp.enable "copilot_ls"
+      vim.lsp.enabled("copilot_ls")
     end,
   },
 
