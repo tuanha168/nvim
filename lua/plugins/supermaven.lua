@@ -18,12 +18,12 @@ return {
     config = function(_, opts)
       require("supermaven-nvim").setup(opts or {})
 
-      vim.keymap.set("i", "<C-F>", function()
+      vim.keymap.set("i", "<C-f>", function()
         local suggestion = require "supermaven-nvim.completion_preview"
         suggestion.on_accept_suggestion()
       end, { noremap = true, silent = true })
 
-      vim.keymap.set("i", "<C-J>", function()
+      vim.keymap.set("i", "<C-j>", function()
         local suggestion = require "supermaven-nvim.completion_preview"
         suggestion.on_accept_suggestion_word()
       end, { noremap = true, silent = true })
