@@ -25,6 +25,29 @@ return {
     },
   },
 
+  {
+    "Xuyuanp/nes.nvim",
+    event = "VeryLazy",
+    keys = {
+      {
+        "<C-g>",
+        function() require("nes").get_suggestion() end,
+        mode = "n",
+        desc = "[Nes] get suggestion",
+      },
+      {
+        "<C-f>",
+        function() require("nes").apply_suggestion(0, { jump = true, trigger = true }) end,
+        mode = "n",
+        desc = "[Nes] apply suggestion",
+      },
+    },
+    dependencies = {
+      "nvim-lua/plenary.nvim",
+    },
+    opts = {},
+  },
+
   -- {
   --   "copilotlsp-nvim/copilot-lsp",
   --   keys = {
