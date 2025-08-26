@@ -28,14 +28,16 @@ return {
       { "<leader>on", function() require("opencode").command "session_new" end, desc = "New session" },
       { "<leader>oy", function() require("opencode").command "messages_copy" end, desc = "Copy last message" },
       {
-        "<C-4>",
+        "C-J",
         function() require("opencode").command "messages_half_page_up" end,
         desc = "Scroll messages up",
+        mode = "n",
       },
       {
-        "<C-5>",
+        "C-K",
         function() require("opencode").command "messages_half_page_down" end,
         desc = "Scroll messages down",
+        mode = "n",
       },
       {
         "<leader>op",
