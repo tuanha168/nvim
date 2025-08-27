@@ -77,7 +77,7 @@ return {
   -- Yank
   { "<c-c>", '"+y', desc = "Yank", noremap = true, mode = { "v" } },
   -- Gitsigns
-  { "<c-f>", ":Gitsigns undo_stage_hunk<CR>", silent = true },
+  { "<c-u>", ":Gitsigns undo_stage_hunk<CR>", silent = true },
   { "<c-s>", ":Gitsigns stage_hunk<CR>", silent = true, mode = { "n", "v" } },
   { "u", ":Gitsigns reset_hunk<CR>", silent = true, mode = { "v" } },
   -- Moving
