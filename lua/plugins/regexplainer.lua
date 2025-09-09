@@ -11,9 +11,22 @@ return {
       -- show_split = 'gP',
       -- show_popup = 'gU',
     },
+    -- filetypes (i.e. extensions) in which to run the autocommand
+    filetypes = {
+      "html",
+      "js",
+      "cjs",
+      "mjs",
+      "ts",
+      "jsx",
+      "tsx",
+      "cjsx",
+      "mjsx",
+    },
   },
   dependencies = {
     "nvim-treesitter/nvim-treesitter",
     "MunifTanjim/nui.nvim",
+    "edluffy/hologram.nvim",
   },
 }
