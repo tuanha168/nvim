@@ -9,7 +9,7 @@ return {
       generation_width = 1200, -- Initial generation width (default: 1200)
       generation_height = 800, -- Initial generation height (default: 800)
     },
-    debug = true,
+    -- debug = true,
     mappings = {
       toggle = "<Leader>gR",
       -- examples, not defaults:
