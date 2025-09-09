@@ -22,6 +22,7 @@
   "heirline-components.nvim": { "branch": "main", "commit": "935f29dabd86f2669e0b3c8dd283b2d3b1cfaee7" },
   "heirline.nvim": { "branch": "master", "commit": "fae936abb5e0345b85c3a03ecf38525b0828b992" },
   "high-str.nvim": { "branch": "main", "commit": "1cb5e030bb16df52c8428b53dc235466a4eb1d01" },
+  "hologram.nvim": { "branch": "main", "commit": "f5194f71ec1578d91b2e3119ff08e574e2eab542" },
   "icon-picker.nvim": { "branch": "master", "commit": "3ee9a0ea9feeef08ae35e40c8be6a2fa2c20f2d3" },
   "kulala.nvim": { "branch": "main", "commit": "b176ecbc9d4286d83bfa9e5b8f6998230ee42f23" },
   "lazy.nvim": { "branch": "main", "commit": "6c3bda4aca61a13a9c63f1c1d1b16b9d3be90d7a" },
