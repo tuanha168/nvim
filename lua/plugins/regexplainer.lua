@@ -2,14 +2,8 @@
 return {
   "bennypowers/nvim-regexplainer",
   opts = {
-    mode = "graphical",
+    debug = true,
     auto = true,
-    graphical = {
-      -- Optional: customize image generation
-      generation_width = 1200, -- Initial generation width (default: 1200)
-      generation_height = 800, -- Initial generation height (default: 800)
-    },
-    -- debug = true,
     mappings = {
       toggle = "<Leader>gR",
       -- examples, not defaults:
@@ -34,6 +28,5 @@ return {
   dependencies = {
     "nvim-treesitter/nvim-treesitter",
     "MunifTanjim/nui.nvim",
-    "edluffy/hologram.nvim",
   },
 }
