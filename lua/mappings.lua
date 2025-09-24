@@ -28,26 +28,6 @@ return {
   { "<Leader>Y", '"+y$', desc = "Yank system clipboard", noremap = true },
   { "<Leader>p", '"+p', desc = "Paste system clipboard", noremap = true },
   { "<Leader>P", '"+P', desc = "Paste system clipboard", noremap = true },
-  {
-    "<Leader>o",
-    function()
-      local ok, aerial = pcall(require, "aerial")
-      if not ok then return end
-
-      aerial.snacks_picker()
-    end,
-    desc = "Symbols outline",
-  },
-  {
-    "<Leader>O",
-    function()
-      local ok, aerial = pcall(require, "aerial")
-      if not ok then return end
-
-      aerial.toggle()
-    end,
-    desc = "Symbols outline",
-  },
 
   -- Disable Yank
   { "c", '"_c' },
