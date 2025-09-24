@@ -56,13 +56,4 @@ return {
       inlayHints = inlayHints,
     },
   },
-
-  on_init = function(_client)
-    local old_on_attach = _client.on_attach
-    _client.on_attach = function(client, buf)
-      Print(client, buf)
-      old_on_attach(client, buf)
-      vim.b[buf].formatByLsp = true
-    end
-  end,
 }
