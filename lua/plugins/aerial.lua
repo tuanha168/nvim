@@ -1,10 +1,11 @@
+---@type LazySpec
 return {
   {
     "stevearc/aerial.nvim",
-    opts = {}
-    keys = {
+    opts = {},
+    key = {
       { "<Leader>o", function() require("aerial").snacks_picker() end, desc = "Symbols outline" },
-      { "<Leader>o", function() require("aerial").toggle() end,        desc = "Symbols outline" },
+      { "<Leader>O", function() require("aerial").toggle() end,        desc = "Symbols outline" },
     }
   },
 }
