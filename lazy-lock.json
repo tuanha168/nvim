@@ -11,6 +11,7 @@
   "codecompanion.nvim": { "branch": "main", "commit": "3527a9c85b58a8db2fee6d7dcde72077ba790a4a" },
   "codi.vim": { "branch": "master", "commit": "83b9859aaf8066d95892e01eb9c01571a4b325dd" },
   "conform.nvim": { "branch": "master", "commit": "8132ec733eed3bf415b97b76797ca41b59f51d7d" },
+  "copilot-lsp": { "branch": "main", "commit": "5030766af6dce2181d48b928537ebe1919ec8d22" },
   "copilot.lua": { "branch": "master", "commit": "304fc5f2dadb5067ed26c60fa69fb7ba8a57eaf3" },
   "csvview.nvim": { "branch": "main", "commit": "6eb9c7293d35c40a71ec1eb9c653d80e8de5a2e9" },
   "dracula.nvim": { "branch": "main", "commit": "96c9d19ce81b26053055ad6f688277d655b3f7d2" },

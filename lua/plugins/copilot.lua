@@ -2,12 +2,10 @@
 return {
   {
     "zbirenbaum/copilot.lua",
-    event = { "InsertEnter" },
-    keys = {
-      { "<C-f>", mode = "i" },
-      { "<C-j>", mode = "i" },
-      { "<C-k>", mode = "i" },
+    dependencies = {
+      "copilotlsp-nvim/copilot-lsp",
     },
+    event = { "BufEnter" },
     opts = {
       panel = {
         enabled = false,
