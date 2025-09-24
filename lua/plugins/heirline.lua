@@ -4,7 +4,7 @@ return {
     dependencies = {
       "zeioth/heirline-components.nvim",
       "nvim-tree/nvim-web-devicons",
-      { "stevearc/aerial.nvim" },
+      "stevearc/aerial.nvim",
     },
     event = "VeryLazy",
     keys = {
