@@ -15,7 +15,7 @@ return {
         enabled = true,
         auto_trigger = true,
         keymap = {
-          accept = "<C-f>",
+          accept = "<Tab>",
           next = "<C-j>",
           prev = "<C-k>",
         },
@@ -23,7 +23,7 @@ return {
       nes = {
         enabled = true,
         keymap = {
-          accept_and_goto = "<C-F>",
+          accept_and_goto = "<C-f>",
           accept = false,
           dismiss = "<Esc>",
         },
