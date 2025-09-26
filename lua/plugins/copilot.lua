@@ -5,7 +5,7 @@ return {
     dependencies = {
       "copilotlsp-nvim/copilot-lsp",
     },
-    event = { "BufEnter" },
+    event = { "InsertEnter" },
     opts = {
       panel = {
         enabled = false,
