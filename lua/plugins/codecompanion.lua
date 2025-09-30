@@ -155,7 +155,7 @@ return {
       require("codecompanion").setup(opts)
 
       require("plugins.codecompanion.fidget-spinner").init()
-      require("plugins.codecompanion.quota-handler").init()
+      -- require("plugins.codecompanion.quota-handler").init()
     end,
   },
 }

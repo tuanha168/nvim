@@ -1,21 +1,9 @@
 {
-  "nativeMCPServers": {
-    "neovim": {
-      "disabled": false,
-      "autoApprove": [
-        "find_files",
-        "list_directory",
-        "read_file",
-        "replace_in_file",
-        "neovim://buffer"
-      ]
-    }
-  },
   "mcpServers": {
     "git": {
-      "command": "uvx",
-      "disabled": false,
-      "args": ["mcp-server-git"],
+      "args": [
+        "mcp-server-git"
+      ],
       "autoApprove": [
         "git_add",
         "git_branch",
@@ -30,20 +18,21 @@
         "git_reset",
         "git_show",
         "git_status"
-      ]
-    },
-    "terraform": {
-      "command": "docker",
-      "disabled": false,
-      "args": ["run", "-i", "--rm", "hashicorp/terraform-mcp-server"],
+      ],
+      "command": "uvx",
+      "disabled": false
+    }
+  },
+  "nativeMCPServers": {
+    "neovim": {
       "autoApprove": [
-        "getProviderDocs",
-        "moduleDetails",
-        "policyDetails",
-        "resolveProviderDocID",
-        "searchModules",
-        "searchPolicies"
-      ]
+        "find_files",
+        "list_directory",
+        "read_file",
+        "replace_in_file",
+        "neovim://buffer"
+      ],
+      "disabled": false
     }
   }
 }
