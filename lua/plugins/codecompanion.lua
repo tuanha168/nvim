@@ -18,14 +18,14 @@ return {
       { "<Leader>cp", ":CodeCompanion<CR>", desc = "Code Companion prompt", mode = { "n", "x" } },
     },
     opts = {
-      adapters = {
-        copilot = function()
-          return require("codecompanion.adapters").extend(
-            "copilot",
-            require("plugins.codecompanion.quota-handler").get_copilot_adapter_config()
-          )
-        end,
-      },
+      -- adapters = {
+      --   copilot = function()
+      --     return require("codecompanion.adapters").extend(
+      --       "copilot",
+      --       require("plugins.codecompanion.quota-handler").get_copilot_adapter_config()
+      --     )
+      --   end,
+      -- },
       display = {
         diff = {
           provider = "mini_diff", -- default|mini_diff
