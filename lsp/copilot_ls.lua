@@ -1,4 +1,5 @@
 return {
+  root_markers = { ".git" },
   settings = {
     github = {
       copilot = {
