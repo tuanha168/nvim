@@ -85,13 +85,13 @@ return {
         buffer = bufnr,
       },
 
+      -- LLM inline completion
       {
         "<C-f>",
         function() vim.lsp.inline_completion.get() end,
         mode = { "i" },
         buffer = bufnr,
       },
-
       {
         "<C-j>",
         function()
@@ -103,11 +103,10 @@ return {
         mode = { "i" },
         buffer = bufnr,
       },
-
       {
         "<C-k>",
         function()
-          vim.lsp.inline_completion.get {
+          vim.lsp.inline_completion.select {
             bufnr = bufnr,
             count = -1,
           }
