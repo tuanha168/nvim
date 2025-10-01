@@ -22,6 +22,7 @@ return {
 
           -- if you are using Neovim's native inline completions
           if vim.lsp.inline_completion.get() then return end
+          Print()
 
           -- any other things (like snippets) you want to do on <tab> go here.
 
