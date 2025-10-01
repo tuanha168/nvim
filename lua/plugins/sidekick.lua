@@ -44,7 +44,9 @@ return {
       },
       {
         "<Leader>ca",
-        function() require("sidekick.cli").toggle { focus = true } end,
+        function()
+          require("sidekick.cli").toggle { focus = true }
+        end,
         desc = "Sidekick Toggle CLI",
         mode = { "n", "v" },
       },
