@@ -1,6 +1,7 @@
 return {
   {
     "folke/sidekick.nvim",
+    event = { "InsertEnter" },
     opts = {
       -- add any options here
       nes = {
@@ -15,17 +16,12 @@ return {
     },
     keys = {
       {
-        "<Tab>",
+        "<C-f>",
         function()
           -- if there is a next edit, jump to it, otherwise apply it if any
-          Print("sidekick")
-          if require("sidekick").nes_jump_or_apply() then
-            Print("Jumped to next edit suggestion")
-            return
+          if not require("sidekick").nes_jump_or_apply() then
+            return "<C-f>"
           end
-
-          local ok, buffer = pcall(require, "heirline-components.buffer")
-          if ok then buffer.nav(1) end
         end,
         expr = true,
         desc = "Goto/Apply Next Edit Suggestion",
