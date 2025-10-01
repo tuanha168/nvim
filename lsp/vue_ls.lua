@@ -16,6 +16,7 @@ return {
   root_markers = { ".git", "tsconfig.json", "tsconfig.ts", "tsconfig.js", "package.json" },
   filetypes = filetypes,
   init_options = { vue = { hybridMode = vim.g.vue_hybrid } },
+  before_init = function() end,
   settings = {
     -- vue = {
     --   inlayHints = {
