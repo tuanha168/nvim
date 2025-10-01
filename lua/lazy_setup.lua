@@ -1,5 +1,15 @@
 require("lazy").setup {
   spec = {
+    {
+      "folke/which-key.nvim",
+      priority = 10000,
+      lazy = false,
+      config = function(_, opts)
+        local wk = require "which-key"
+        wk.setup(opts)
+      end,
+      keys = require "mappings",
+    },
     { import = "plugins" },
     {
       "folke/lazydev.nvim",
