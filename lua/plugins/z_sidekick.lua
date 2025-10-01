@@ -26,8 +26,6 @@ return {
 
           local ok, buffer = pcall(require, "heirline-components.buffer")
           if ok then buffer.nav(1) end
-
-          return "<Tab>"
         end,
         expr = true,
         desc = "Goto/Apply Next Edit Suggestion",
