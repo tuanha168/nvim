@@ -18,7 +18,9 @@ return {
         "<Tab>",
         function()
           -- if there is a next edit, jump to it, otherwise apply it if any
+          Print("sidekick")
           if require("sidekick").nes_jump_or_apply() then
+            Print("Jumped to next edit suggestion")
             return
           end
 
