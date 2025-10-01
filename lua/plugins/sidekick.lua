@@ -27,11 +27,11 @@ return {
             return
           end
           Print "heirline"
-          local ok, heirline = pcall(require, "heirline-components.buffer")
+          local ok, buffer = pcall(require, "heirline-components.buffer")
           Print("ok " .. string(ok) .. " ")
           if not ok then return "<Tab>" end
 
-          heirline.nav(1)
+          buffer.nav(1)
         end,
         expr = true,
         desc = "Goto/Apply Next Edit Suggestion",
