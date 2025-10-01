@@ -43,22 +43,6 @@ return {
         },
       }
 
-      local Sidekick = {
-        {
-          condition = function()
-            local status = require "sidekick.status"
-            return status.get() ~= nil
-          end,
-          provider = " ",
-          hl = function()
-            local status = require("sidekick.status").get()
-            if status then
-              return status.kind == "Error" and "DiagnosticError" or status.busy and "DiagnosticWarn" or "Special"
-            end
-          end,
-        },
-      }
-
       return {
         opts = {
           disable_winbar_cb = function(args) -- We do this to avoid showing it on the greeter.

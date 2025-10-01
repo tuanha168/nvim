@@ -1,6 +1,7 @@
 return {
   {
     "folke/sidekick.nvim",
+    event = { "InsertEnter" },
     opts = {
       -- add any options here
       cli = {
