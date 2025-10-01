@@ -1,9 +1,6 @@
 return {
   {
     "folke/sidekick.nvim",
-    dependencies = {
-      "rebelot/heirline.nvim",
-    },
     opts = {
       -- add any options here
       nes = {
