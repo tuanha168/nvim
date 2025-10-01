@@ -73,6 +73,3 @@ local highlights = require "highlights"
 for group, hl in pairs(highlights) do
   vim.api.nvim_set_hl(0, group, hl)
 end
-
--- Enable LSP
-vim.lsp.enable "copilot_ls"
