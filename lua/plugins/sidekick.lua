@@ -1,7 +1,10 @@
 return {
   {
     "folke/sidekick.nvim",
-    event = { "InsertEnter" },
+    dependencies = {
+      "rebelot/heirline.nvim",
+    },
+    event = "VeryLazy",
     opts = {
       -- add any options here
       nes = {
@@ -18,15 +21,15 @@ return {
       {
         "<Tab>",
         function()
-          Print("sidekick")
+          Print "sidekick"
           -- if there is a next edit, jump to it, otherwise apply it if any
           if require("sidekick").nes_jump_or_apply() then
-            Print("Jumped to next edit suggestion")
+            Print "Jumped to next edit suggestion"
             return
           end
-          Print("heirline")
-          local heirline, ok = require("heirline-components.buffer")
-          Print(ok)
+          Print "heirline"
+          local heirline, ok = require "heirline-components.buffer"
+          Print("ok", ok)
           if not ok then return "<Tab>" end
 
           heirline.nav(1)
