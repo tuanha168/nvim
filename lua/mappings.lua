@@ -95,7 +95,9 @@ return {
 
   { "gG", ":<c-u>normal! ggVG<cr>", desc = "Buffer as text object", mode = { "x", "o" } },
 
-  { "<Tab>", "<cmd>bn<CR>", desc = "Move to next buffer" },
+  { "<Tab>", function()
+    Print("Tab pressed, normal")
+return  "<cmd>bn<CR>" end), desc = "Move to next buffer" },
   { "<S-Tab>", "<cmd>bp<CR>", desc = "Move to previous buffer" },
 
   { "<ESC>", "<cmd>noh<CR>", desc = "No Highlight" },
