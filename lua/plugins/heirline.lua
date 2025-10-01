@@ -9,7 +9,9 @@ return {
     keys = {
       {
         "<Tab>",
-        function() require("heirline-components.buffer").nav(1) end,
+        function()
+          Print("Tab pressed")
+          require("heirline-components.buffer").nav(1) end,
         desc = "Move to next buffer",
       },
       {
