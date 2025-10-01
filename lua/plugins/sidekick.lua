@@ -27,7 +27,7 @@ return {
             return
           end
           Print "heirline"
-          local heirline, ok = pcall(require, "heirline-components.buffer")
+          local ok, heirline = pcall(require, "heirline-components.buffer")
           Print("ok " .. string(ok) .. " ")
           if not ok then return "<Tab>" end
 
