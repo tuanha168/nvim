@@ -2,7 +2,7 @@ require("lazy").setup {
   spec = {
     {
       "folke/which-key.nvim",
-      priority = 10000,
+      priority = 1000,
       lazy = false,
       config = function(_, opts)
         local wk = require "which-key"

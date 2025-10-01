@@ -2,7 +2,7 @@
 return {
   {
     "Mofiqul/dracula.nvim",
-    priority=1000,
+    priority = 1000,
     lazy = false,
     opts = {
       -- customize dracula color palette
