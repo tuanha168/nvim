@@ -17,18 +17,15 @@ return {
       {
         "<Tab>",
         function()
-          Print "sidekick"
           -- if there is a next edit, jump to it, otherwise apply it if any
           if require("sidekick").nes_jump_or_apply() then
-            Print "Jumped to next edit suggestion"
             return
           end
-          Print "heirline"
-          local ok, buffer = pcall(require, "heirline-components.buffer")
-          Print("ok " .. string(ok) .. " ")
-          if not ok then return "<Tab>" end
 
-          buffer.nav(1)
+          local ok, buffer = pcall(require, "heirline-components.buffer")
+          if ok then buffer.nav(1) end
+
+          return "<Tab>"
         end,
         expr = true,
         desc = "Goto/Apply Next Edit Suggestion",
