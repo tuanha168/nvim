@@ -27,10 +27,6 @@ return {
     function(e)
       require("lsp.mappings").setup(e.buf)
 
-      vim.lsp.completion.enable(true, e.data.client_id, e.buf, {
-        autotrigger = true,
-      })
-
       local client = assert(vim.lsp.get_client_by_id(e.data.client_id))
       if client:supports_method "textDocument/foldingRange" then
         local win = vim.api.nvim_get_current_win()
