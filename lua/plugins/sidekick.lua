@@ -25,7 +25,7 @@ return {
           -- any other things (like snippets) you want to do on <tab> go here.
 
           -- fall back to normal tab
-          -- return "<tab>"
+          return "<tab>"
         end,
         mode = { "i", "n" },
         expr = true,
