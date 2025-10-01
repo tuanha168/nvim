@@ -97,7 +97,7 @@ return {
 
   { "<Tab>", function()
     Print("Tab pressed, normal")
-return  "<cmd>bn<CR>" end), desc = "Move to next buffer" },
+return  "<cmd>bn<CR>" end, desc = "Move to next buffer" },
   { "<S-Tab>", "<cmd>bp<CR>", desc = "Move to previous buffer" },
 
   { "<ESC>", "<cmd>noh<CR>", desc = "No Highlight" },
