@@ -29,7 +29,7 @@ return {
           end
           Print "heirline"
           local heirline, ok = require "heirline-components.buffer"
-          Print("ok " .. ok .. " ")
+          Print("ok " .. string(ok) .. " ")
           if not ok then return "<Tab>" end
 
           heirline.nav(1)
