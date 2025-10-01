@@ -24,6 +24,7 @@ return {
             Print("Jumped to next edit suggestion")
             return
           end
+          Print("heirline")
           local heirline, ok = require("heirline-components.buffer")
           Print(ok)
           if not ok then return "<Tab>" end
