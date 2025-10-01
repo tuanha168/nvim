@@ -45,14 +45,8 @@ return {
       },
       {
         "<leader>cc",
-        function() require("sidekick.cli").toggle { name = "claude", focus = true } end,
+        function() require("sidekick.cli").toggle { name = "opencode", focus = true } end,
         desc = "Sidekick Claude Toggle",
-        mode = { "n", "v" },
-      },
-      {
-        "<leader>cg",
-        function() require("sidekick.cli").toggle { name = "grok", focus = true } end,
-        desc = "Sidekick Grok Toggle",
         mode = { "n", "v" },
       },
       {
