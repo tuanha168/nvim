@@ -6,6 +6,6 @@ return {
   diffRemoved = { bg = "#7a1431", fg = "none" },
   DiffChange = { bg = "#576b8a", fg = "none" },
   DiffDelete = { bg = "#7a1431", fg = "none" },
-  ComplHint = { bg = "#576b8a", fg = "red" },
+  ComplHint = { fg = "#b6dee3" },
 }
 
