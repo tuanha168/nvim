@@ -84,6 +84,29 @@ return {
         mode = { "v" },
         buffer = bufnr,
       },
+
+      {
+        "<C-f>",
+        function() vim.lsp.inline_completion.get() end,
+        mode = { "i" },
+        buffer = bufnr,
+      },
+
+      {
+        "<C-j>",
+        function() vim.lsp.inline_completion.select({
+          bufnr = bufnr
+        }) end,
+        mode = { "i" },
+        buffer = bufnr,
+      },
+
+      {
+        "<C-k>",
+        function() vim.lsp.inline_completion.get() end,
+        mode = { "i" },
+        buffer = bufnr,
+      },
     }
   end,
 }
