@@ -48,6 +48,8 @@ return {
           condition = function()
             local status = require "sidekick.status"
             return status.get() ~= nil
+
+
           end,
           provider = " ",
           color = function()
