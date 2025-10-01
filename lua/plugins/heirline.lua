@@ -7,13 +7,11 @@ return {
     },
     event = "VeryLazy",
     keys = {
-      -- {
-      --   "<Tab>",
-      --   function()
-      --     Print("Tab pressed")
-      --     require("heirline-components.buffer").nav(1) end,
-      --   desc = "Move to next buffer",
-      -- },
+      {
+        "<Tab>",
+        function() require("heirline-components.buffer").nav(1) end,
+        desc = "Move to next buffer",
+      },
       {
         "<S-Tab>",
         function() require("heirline-components.buffer").nav(-1) end,
