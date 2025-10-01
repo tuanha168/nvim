@@ -4,7 +4,6 @@ return {
     dependencies = {
       "rebelot/heirline.nvim",
     },
-    event = "VeryLazy",
     opts = {
       -- add any options here
       nes = {
