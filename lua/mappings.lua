@@ -100,15 +100,15 @@ return {
 
   { "<ESC>", "<cmd>noh<CR>", desc = "No Highlight" },
 
-  { "<C-h>", require("smart-splits").move_cursor_left },
-  { "<C-j>", require("smart-splits").move_cursor_down },
-  { "<C-k>", require("smart-splits").move_cursor_up },
-  { "<C-l>", require("smart-splits").move_cursor_right },
+  { "<C-h>", function() require("smart-splits").move_cursor_left() end },
+  { "<C-j>", function() require("smart-splits").move_cursor_down() end },
+  { "<C-k>", function() require("smart-splits").move_cursor_up() end },
+  { "<C-l>", function() require("smart-splits").move_cursor_right() end },
 
-  { "<A-h>", require("smart-splits").resize_left },
-  { "<A-j>", require("smart-splits").resize_down },
-  { "<A-k>", require("smart-splits").resize_up },
-  { "<A-l>", require("smart-splits").resize_right },
+  { "<A-h>", function() require("smart-splits").resize_left() end },
+  { "<A-j>", function() require("smart-splits").resize_down() end },
+  { "<A-k>", function() require("smart-splits").resize_up() end },
+  { "<A-l>", function() require("smart-splits").resize_right() end },
 
   { "/", "<Esc>/\\%V", desc = "Search in visual mode", mode = { "x" } },
   { "?", "<Esc>?\\%V", desc = "Search in visual mode", mode = { "x" } },
