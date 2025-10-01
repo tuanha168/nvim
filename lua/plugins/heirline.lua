@@ -100,6 +100,7 @@ return {
           lib.component.cmd_info(),
           lib.component.fill(),
           CodeCompanion,
+          Sidekick,
           lib.component.lsp(),
           lib.component.compiler_state(),
           lib.component.virtual_env(),
