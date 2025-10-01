@@ -17,12 +17,12 @@ return {
         function()
           -- if there is a next edit, jump to it, otherwise apply it if any
           if require("sidekick").nes_jump_or_apply() then
+            Print "nes_jump_or_apply"
             return -- jumped or applied
           end
 
           -- if you are using Neovim's native inline completions
           if vim.lsp.inline_completion.get() then return end
-          Print()
 
           -- any other things (like snippets) you want to do on <tab> go here.
 
