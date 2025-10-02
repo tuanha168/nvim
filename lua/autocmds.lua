@@ -86,8 +86,10 @@ return {
   {
     { "BufEnter" },
     function(event)
+      -- sync syntax for large file
       vim.cmd "syntax sync fromstart"
 
+      -- quickfix delete entry
       if vim.bo[event.buf].buftype == "quickfix" then
         vim.keymap.set("n", "dd", function()
           local items = vim.fn.getqflist()
@@ -98,6 +100,7 @@ return {
         end, { silent = true, buffer = event.buf, desc = "Remove entry from QF" })
       end
 
+      -- disable inlay hint for vue files
       if vim.bo[event.buf].filetype == "vue" then vim.lsp.inlay_hint.enable(false, { bufnr = event.buf }) end
     end,
   },
