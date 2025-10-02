@@ -11,7 +11,7 @@ local servers = {
   -- html = false,
   -- ts_ls = vim.g.vue_hybrid,
 
-  vtsls = vim.g.vue_hybrid,
+  vtsls = true,
   pyright = true,
 
   -- ts_go_ls = true,
