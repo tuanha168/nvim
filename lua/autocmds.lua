@@ -99,9 +99,6 @@ return {
           vim.api.nvim_win_set_cursor(0, { line, 0 })
         end, { silent = true, buffer = event.buf, desc = "Remove entry from QF" })
       end
-
-      -- disable inlay hint for vue files
-      if vim.bo[event.buf].filetype == "vue" then vim.lsp.inlay_hint.enable(false, { bufnr = event.buf }) end
     end,
   },
 
@@ -123,6 +120,15 @@ return {
     function() vim.api.nvim_set_option_value("formatprg", "jq", { scope = "local" }) end,
     opts = {
       pattern = { "json" },
+    },
+  },
+
+  -- disable inlay hint for vue files
+  {
+    "FileType",
+    function(event) vim.lsp.inlay_hint.enable(false, { bufnr = event.buf }) end,
+    opts = {
+      pattern = { "vue" },
     },
   },
 
