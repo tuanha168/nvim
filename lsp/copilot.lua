@@ -1,3 +1,3 @@
 return {
-  cmd = { "mise", "exec", "node@20", "--", "copilot-language-server" },
+  cmd = { "mise", "exec", "node@22", "--", "copilot-language-server", "--stdio" },
 }
