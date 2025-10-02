@@ -132,20 +132,21 @@ return {
     },
   },
 
-  {
-    { "ModeChanged" },
-    function() vim.api.nvim_exec_autocmds("User", { pattern = "VisualEnter" }) end,
-    opts = {
-      pattern = { "*:[vV\x16]*" },
-    },
-  },
-  {
-    { "ModeChanged" },
-    function() vim.api.nvim_exec_autocmds("User", { pattern = "VisualLeave" }) end,
-    opts = {
-      pattern = { "[vV\x16]*:*" },
-    },
-  },
+  -- {
+  --   { "ModeChanged" },
+  --   function() vim.api.nvim_exec_autocmds("User", { pattern = "VisualEnter" }) end,
+  --   opts = {
+  --     pattern = { "*:[vV\x16]*" },
+  --   },
+  -- },
+  -- {
+  --   { "ModeChanged" },
+  --   function() vim.api.nvim_exec_autocmds("User", { pattern = "VisualLeave" }) end,
+  --   opts = {
+  --     pattern = { "[vV\x16]*:*" },
+  --   },
+  -- },
+  
   {
     "TabNew",
     function() vim.cmd "tabclose" end,
