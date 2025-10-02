@@ -35,10 +35,6 @@ return {
     end,
   },
   {
-    { "BufEnter" },
-    function() vim.cmd "syntax sync fromstart" end,
-  },
-  {
     { "FocusGained", "BufReadPost" },
     function()
       vim.cmd "checktime"
@@ -90,6 +86,8 @@ return {
   {
     { "BufEnter" },
     function(event)
+      vim.cmd "syntax sync fromstart"
+
       if vim.bo[event.buf].buftype == "quickfix" then
         vim.keymap.set("n", "dd", function()
           local items = vim.fn.getqflist()
@@ -99,6 +97,8 @@ return {
           vim.api.nvim_win_set_cursor(0, { line, 0 })
         end, { silent = true, buffer = event.buf, desc = "Remove entry from QF" })
       end
+
+      if vim.bo[event.buf].filetype == "vue" then vim.lsp.inlay_hint.enable(false, { bufnr = event.buf }) end
     end,
   },
 
