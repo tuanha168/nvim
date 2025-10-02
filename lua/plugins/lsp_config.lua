@@ -9,7 +9,7 @@ local servers = {
   -- omnisharp = false,
   -- cssls = false,
   -- html = false,
-  -- ts_ls = vim.g.vue_hybrid,
+  -- ts_ls = true,
 
   vtsls = true,
   pyright = true,

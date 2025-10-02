@@ -1,20 +1,7 @@
 local home = os.getenv "HOME"
 
-local filetypes = vim.g.vue_hybrid and {
-  "vue",
-} or {
-  "javascript",
-  "javascript.jsx",
-  "javascriptreact",
-  "typescript",
-  "typescript.tsx",
-  "typescriptreact",
-  "vue",
-}
-
 return {
   root_markers = { ".git", "tsconfig.json", "tsconfig.ts", "tsconfig.js", "package.json" },
-  filetypes = filetypes,
   settings = {
     -- vue = {
     --   inlayHints = {
