@@ -83,9 +83,18 @@ return {
     end,
   },
 
+  -- lazygit with snacks_terminal
   {
-    { "BufEnter" },
+    { "BufRead", "BufEnter" },
     function(event)
+      -- close lazygit terminal when leave
+      if Snacks then
+        if vim.api.nvim_get_option_value("filetype", { buf = event.buf }) ~= "snacks_terminal" then
+          local instance = Snacks.terminal.get({ "lazygit" }, { create = false })
+          if instance then instance.hide(instance) end
+        end
+      end
+
       -- sync syntax for large file
       vim.cmd "syntax sync fromstart"
 
@@ -101,19 +110,6 @@ return {
           vim.fn.setqflist(items, "r")
           vim.api.nvim_win_set_cursor(0, { line, 0 })
         end, { silent = true, buffer = event.buf, desc = "Remove entry from QF" })
-      end
-    end,
-  },
-
-  -- lazygit with snacks_terminal
-  {
-    { "BufRead", "BufEnter" },
-    function(event)
-      if Snacks then
-        if vim.api.nvim_get_option_value("filetype", { buf = event.buf }) ~= "snacks_terminal" then
-          local instance = Snacks.terminal.get({ "lazygit" }, { create = false })
-          if instance then instance.hide(instance) end
-        end
       end
     end,
   },
