@@ -89,8 +89,11 @@ return {
       -- sync syntax for large file
       vim.cmd "syntax sync fromstart"
 
+      Print(vim.bo[event.buf].buftype)
+
       -- quickfix delete entry
       if vim.bo[event.buf].buftype == "quickfix" then
+        Print "quickfix"
         vim.keymap.set("n", "dd", function()
           local items = vim.fn.getqflist()
           local line = vim.fn.line "."
@@ -146,7 +149,7 @@ return {
   --     pattern = { "[vV\x16]*:*" },
   --   },
   -- },
-  
+
   {
     "TabNew",
     function() vim.cmd "tabclose" end,
