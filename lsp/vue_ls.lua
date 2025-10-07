@@ -51,5 +51,10 @@ return {
         parameterTypes = { enabled = "true" },
       },
     },
+    css = {
+      customData = {
+        home .. "/.config/nvim/.vscode/tailwind.json",
+      },
+    },
   },
 }
