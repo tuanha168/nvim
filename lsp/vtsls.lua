@@ -30,9 +30,9 @@ return {
   },
   on_attach = function(client)
     if vim.bo.filetype == 'vue' then
-      existing_capabilities.semanticTokensProvider.full = false
+      client.server_capabilities.semanticTokensProvider.full = false
     else
-      existing_capabilities.semanticTokensProvider.full = true
+      client.server_capabilities.semanticTokensProvider.full = true
     end
   end,
   settings = {
