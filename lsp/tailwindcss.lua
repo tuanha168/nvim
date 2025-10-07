@@ -1,3 +1,5 @@
+---@module "vim.lsp.client"
+---@class vim.lsp.ClientConfig
 return {
   root_markers = { "tailwind.config.ts", "tailwind.config.js" },
   settings = {

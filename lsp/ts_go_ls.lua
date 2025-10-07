@@ -1,5 +1,7 @@
 local home = os.getenv "HOME"
 
+---@module "vim.lsp.client"
+---@class vim.lsp.ClientConfig
 return {
   cmd = { home .. "/typescript-go/built/local/tsgo", "--lsp", "--stdio" },
   filetypes = {

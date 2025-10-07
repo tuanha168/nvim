@@ -11,6 +11,8 @@ local inlayHints = {
   importModuleSpecifierPreference = "non-relative",
 }
 
+---@module "vim.lsp.client"
+---@class vim.lsp.ClientConfig
 return {
   filetypes = {
     "javascript",

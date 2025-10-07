@@ -15,6 +15,8 @@ local inlayHints = {
 local vue_language_server_path = vim.fn.expand '$MASON/packages' ..
     '/vue-language-server' .. '/node_modules/@vue/language-server'
 
+---@module "vim.lsp.client"
+---@class vim.lsp.ClientConfig
 return {
   filetypes = {
     "javascript",
