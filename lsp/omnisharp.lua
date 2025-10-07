@@ -1,3 +1,5 @@
+---@module "vim.lsp.client"
+---@class vim.lsp.ClientConfig
 return {
   enable_editorconfig_support = true,
   enable_ms_build_load_projects_on_demand = false,
