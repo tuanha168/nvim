@@ -3,15 +3,15 @@ local home = os.getenv "HOME"
 return {
   root_markers = { ".git", "tsconfig.json", "tsconfig.ts", "tsconfig.js", "package.json" },
   settings = {
-    vue = {
-      inlayHints = {
-        missingProps = true,
-        optionsWrapper = true,
-        vBindShorthand = true,
-        destructuredProps = true,
-        inlineHandlerLeading = true,
-      },
-    },
+    -- vue = {
+    --   inlayHints = {
+    --     missingProps = true,
+    --     optionsWrapper = true,
+    --     vBindShorthand = true,
+    --     destructuredProps = true,
+    --     inlineHandlerLeading = true,
+    --   },
+    -- },
     typescript = {
       tsserver = {
         web = {
