@@ -24,13 +24,13 @@ return {
           end
         end,
         expr = true,
-        desc = "Goto/Apply Next Edit Suggestion",
+        desc = "Goto/Apply",
       },
       {
         "<C-m>",
         function() require("sidekick.cli").focus() end,
         mode = { "n", "x", "i", "t" },
-        desc = "Sidekick Switch Focus",
+        desc = "Switch Focus",
       },
       {
         "<Leader>ca",
