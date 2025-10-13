@@ -27,6 +27,16 @@ return {
         desc = "Goto/Apply Next Edit Suggestion",
       },
       {
+        "<C-g>",
+        function()
+          if not require("sidekick").update() then
+            return "<C-g>"
+          end
+        end,
+        expr = true,
+        desc = "Sidekick Update Suggestions",
+      },
+      {
         "<C-m>",
         function() require("sidekick.cli").focus() end,
         mode = { "n", "x", "i", "t" },
