@@ -34,7 +34,7 @@ return {
           end
         end,
         expr = true,
-        desc = "Sidekick Update Suggestions",
+        desc = "Update Suggestions",
       },
       {
         "<C-m>",
