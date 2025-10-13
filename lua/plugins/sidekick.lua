@@ -40,7 +40,7 @@ return {
         "<C-m>",
         function() require("sidekick.cli").focus() end,
         mode = { "n", "x", "i", "t" },
-        desc = "Sidekick Switch Focus",
+        desc = "Switch Focus",
       },
       {
         "<Leader>ca",
