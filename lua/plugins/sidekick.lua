@@ -29,9 +29,7 @@ return {
       {
         "<C-g>",
         function()
-          if not require("sidekick.nes").update() then
-            return "<C-g>"
-          end
+          require("sidekick.nes").update()
         end,
         expr = true,
         desc = "Sidekick Update Suggestions",
