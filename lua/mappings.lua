@@ -25,7 +25,6 @@ return {
   { "<CR>", "<CR>zz", silent = true },
   -- ["q"] = { "<ESC>:ccl<CR>q", silent = true },
   -- Yank
-  { "<c-c>", '"+yiw', desc = "Yank", noremap = true },
   { "<Leader>y", '"+y', desc = "Yank system clipboard", noremap = true },
   { "<Leader>Y", '"+y$', desc = "Yank system clipboard", noremap = true },
   { "<Leader>p", '"+p', desc = "Paste system clipboard", noremap = true },
@@ -66,8 +65,6 @@ return {
 
   -- ["*"] = { function() Chiruno.func.operatorfunc_lua "search" end },
   { "<Leader>r", function() Chiruno.func.operatorfunc_lua "replace_motion" end, mode = { "v" } },
-  -- Yank
-  { "<c-c>", '"+y', desc = "Yank", noremap = true, mode = { "v" } },
   -- Gitsigns
   { "<c-u>", ":Gitsigns undo_stage_hunk<CR>", silent = true },
   { "<c-s>", ":Gitsigns stage_hunk<CR>", silent = true, mode = { "n", "v" } },
