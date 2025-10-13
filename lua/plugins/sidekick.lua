@@ -29,18 +29,18 @@ return {
       {
         "<C-g>",
         function()
-          if not require("sidekick").update() then
+          if not require("sidekick.nes").update() then
             return "<C-g>"
           end
         end,
         expr = true,
-        desc = "Update Suggestions",
+        desc = "Sidekick Update Suggestions",
       },
       {
         "<C-m>",
         function() require("sidekick.cli").focus() end,
         mode = { "n", "x", "i", "t" },
-        desc = "Switch Focus",
+        desc = "Sidekick Switch Focus",
       },
       {
         "<Leader>ca",
