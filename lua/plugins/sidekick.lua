@@ -35,7 +35,7 @@ return {
         desc = "Sidekick Update Suggestions",
       },
       {
-        "<C-c>",
+        "<C-x>",
         function() require("sidekick.cli").focus() end,
         mode = { "n", "x", "i", "t" },
         desc = "Sidekick Switch Focus",
