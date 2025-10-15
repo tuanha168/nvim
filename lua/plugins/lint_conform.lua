@@ -5,9 +5,9 @@ return {
     event = "BufRead",
     config = function()
       require("lint").linters_by_ft = {
-        -- js = { "eslint" },
-        -- typescript = { "eslint" },
-        -- vue = { "eslint" },
+        js = { "eslint_d" },
+        typescript = { "eslint_d" },
+        vue = { "eslint_d" },
       }
 
       vim.api.nvim_create_autocmd({ "LspAttach", "InsertLeave", "TextChanged" }, {
