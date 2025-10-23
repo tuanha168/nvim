@@ -5,9 +5,9 @@ return {
     event = "BufRead",
     config = function()
       require("lint").linters_by_ft = {
-        js = { "eslint_d" },
-        typescript = { "eslint_d" },
-        vue = { "eslint_d" },
+        -- js = { "eslint_d" },
+        -- typescript = { "eslint_d" },
+        -- vue = { "eslint_d" },
       }
 
       vim.api.nvim_create_autocmd({ "LspAttach", "InsertLeave", "TextChanged" }, {
@@ -32,11 +32,11 @@ return {
         lua = { "stylua", "lua_ls" },
         python = { "isort", "black" },
         rust = { "rustfmt" },
-        javascript = { "eslint_d", "prettier" },
-        typescript = { "eslint_d", "prettier" },
-        vue = { "eslint_d", "prettier" },
-        html = { "eslint_d", "prettier" },
-        json = { "eslint_d", "prettier" },
+        javascript = { "prettier" },
+        typescript = { "prettier" },
+        vue = { "prettier" },
+        html = { "prettier" },
+        json = { "prettier" },
         php = { "pint" },
       },
     },

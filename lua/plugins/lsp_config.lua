@@ -1,7 +1,7 @@
 local servers = {
   lua_ls = true,
   vue_ls = true,
-  -- eslint = true,
+  eslint = true,
   tailwindcss = true,
   jsonls = true,
   intelephense = true,
