@@ -37,7 +37,6 @@ return {
         typescript = { "prettier" },
         vue = { "prettier" },
         html = { "prettier" },
-        json = { "prettier" },
         php = { "pint" },
       },
     },
