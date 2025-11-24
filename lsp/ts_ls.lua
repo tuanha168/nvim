@@ -11,13 +11,13 @@ local inlayHints = {
   importModuleSpecifierPreference = "non-relative",
 }
 
-local home = os.getenv "HOME"
+-- local home = os.getenv "HOME"
 
 ---@module "vim.lsp.client"
 ---@class vim.lsp.ClientConfig
 return {
-  -- Enable tsgo LSP
-  cmd = { home .. "/typescript-go/built/local/tsgo", "--lsp", "--stdio" },
+  -- -- Enable tsgo LSP
+  -- cmd = { home .. "/typescript-go/built/local/tsgo", "--lsp", "--stdio" },
 
   root_markers = { "tsconfig.json", "jsconfig.json", "package.json", ".git" },
   filetypes = {
@@ -32,7 +32,7 @@ return {
   compilerOptions = {
     noErrorTruncate = true,
   },
-  settings = {
+  init_options = {
     plugins = {
       {
         name = "@vue/typescript-plugin",
@@ -40,6 +40,8 @@ return {
         languages = { "vue" },
       },
     },
+  },
+  settings = {
     typescript = {
       tsserver = {
         web = {
