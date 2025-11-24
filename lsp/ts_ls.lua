@@ -1,3 +1,5 @@
+local home = os.getenv "HOME"
+
 local inlayHints = {
   includeInlayParameterNameHints = "all",
   includeInlayParameterNameHintsWhenArgumentMatchesName = false,
@@ -14,6 +16,8 @@ local inlayHints = {
 ---@module "vim.lsp.client"
 ---@class vim.lsp.ClientConfig
 return {
+  cmd = { home .. "/typescript-go/built/local/tsgo", "--lsp", "--stdio" },
+  root_markers = { "tsconfig.json", "jsconfig.json", "package.json", ".git" },
   filetypes = {
     "javascript",
     "javascript.jsx",

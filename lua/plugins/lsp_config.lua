@@ -9,12 +9,10 @@ local servers = {
   -- omnisharp = false,
   -- cssls = false,
   -- html = false,
-  -- ts_ls = true,
+  ts_ls = true,
 
   -- vtsls = true,
   pyright = true,
-
-  -- ts_go_ls = true,
 
   -- stylelint_lsp = false,
 
