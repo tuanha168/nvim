@@ -9,9 +9,9 @@ local servers = {
   -- omnisharp = false,
   -- cssls = false,
   -- html = false,
-  ts_ls = true,
+  -- ts_ls = true,
 
-  -- vtsls = true,
+  vtsls = true,
   pyright = true,
 
   -- stylelint_lsp = false,
