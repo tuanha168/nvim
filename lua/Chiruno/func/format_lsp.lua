@@ -1,5 +1,5 @@
 function Chiruno.func.format_lsp()
-  local ignoreLsp = { "tsserver", "vue_ls", "vtsls" }
+  local ignoreLsp = { "ts_ls", "vue_ls", "vtsls" }
 
   vim.lsp.buf.format {
     filter = function(client) return not vim.tbl_contains(ignoreLsp, client.name) end,
