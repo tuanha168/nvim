@@ -105,6 +105,7 @@ return {
             ---@diagnostic disable-next-line: param-type-mismatch
             local haveTsw = pcall(vim.cmd, "Tsw")
             if haveCodi then
+              Print("Codi started")
               vim.keymap.set("n", "<leader>K", "<cmd>CodiExpand<CR>", { buffer = e.buf })
               vim.api.nvim_create_autocmd("BufWritePost", {
                 ---@diagnostic disable-next-line: param-type-mismatch
