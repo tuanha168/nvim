@@ -86,6 +86,7 @@ return {
         pattern = "*",
         callback = function(e)
           if vim.b[e.buf].scratch_entered then return end
+          Print(vim.b[e.buf].scratch_entered, e.buf)
           if string.find(vim.api.nvim_buf_get_name(e.buf), "scratch/src/scratch", 1, true) then
             vim.b[e.buf].scratch_entered = true
             local buffers = vim.fn.getwininfo()
