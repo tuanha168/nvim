@@ -85,10 +85,7 @@ return {
       vim.api.nvim_create_autocmd({ "BufReadPost" }, {
         pattern = "*",
         callback = function(e)
-          Print(vim.b[e.buf].scratch_entered, e.buf)
-          if vim.b[e.buf].scratch_entered then return end
           if string.find(vim.api.nvim_buf_get_name(e.buf), "scratch/src/scratch", 1, true) then
-            vim.b[e.buf].scratch_entered = true
             local buffers = vim.fn.getwininfo()
             if not buffers then return end
             local haveNeoTree = false
@@ -105,7 +102,6 @@ return {
             ---@diagnostic disable-next-line: param-type-mismatch
             local haveTsw = pcall(vim.cmd, "Tsw")
             if haveCodi then
-              Print("Codi started")
               vim.keymap.set("n", "<leader>K", "<cmd>CodiExpand<CR>", { buffer = e.buf })
               vim.api.nvim_create_autocmd("BufWritePost", {
                 ---@diagnostic disable-next-line: param-type-mismatch
