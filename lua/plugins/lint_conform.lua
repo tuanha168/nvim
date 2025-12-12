@@ -38,7 +38,19 @@ return {
         vue = { "prettier" },
         html = { "prettier" },
         php = { "pint" },
-        json = { "jq" },
+        json = { "prettier_json" },
+      },
+      formatters = {
+        prettier_json = {
+          command = "prettier",
+          args = {
+            "--stdin-filepath",
+            "$FILENAME",
+            "--parser",
+            "json",
+          },
+          stdin = true,
+        },
       },
     },
   },
