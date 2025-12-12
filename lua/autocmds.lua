@@ -14,6 +14,7 @@ local function swapToVtsls(client, buf)
   if filetype ~= "vue" then return end
   local tsgo_active = false
   for _, cap in pairs(client.server_capabilities) do
+    Print(_)
     if cap == true and string.find(_, "tsgo") then
       tsgo_active = true
       break
