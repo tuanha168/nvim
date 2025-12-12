@@ -8,6 +8,23 @@ local autoPushDir = {
 local excludeDir = { "scratch/src" }
 local uv = vim.uv or vim.loop
 
+local function swapToVtsls(client, buf)
+  -- if current file is vue file, and tsgo are enabled, disable it and swap to vtsls
+  local filetype = vim.api.nvim_get_option_value("filetype", { buf = buf or 0 })
+  if filetype ~= "vue" then return end
+  local tsgo_active = false
+  for _, cap in pairs(client.server_capabilities) do
+    if cap == true and string.find(_, "tsgo") then
+      tsgo_active = true
+      break
+    end
+  end
+  if not tsgo_active then return end
+  client.stop()
+
+  vim.defer_fn(function() vim.lsp.enable("vtsls", true) end, 100)
+end
+
 ---@class LegendaryAutoCmd
 ---@field [1] any (string|array)
 ---@field [2] string|(fun(args: vim.api.keyset.create_autocmd.callback_args): boolean?)
@@ -32,6 +49,8 @@ return {
         local win = vim.api.nvim_get_current_win()
         vim.wo[win][0].foldexpr = "v:lua.vim.lsp.foldexpr()"
       end
+
+      swapToVtsls(client)
     end,
   },
   {
