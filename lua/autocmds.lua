@@ -22,8 +22,6 @@ local function swapToVtsls(client, buf)
   if not tsgo_active then return end
   client.stop()
 
-  vim.lsp.config "vtsls"
-
   vim.defer_fn(function() vim.lsp.enable("vtsls", true) end, 500)
 end
 
