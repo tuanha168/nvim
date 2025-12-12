@@ -13,8 +13,8 @@ local function swapToVtsls(client, buf)
   local filetype = vim.api.nvim_get_option_value("filetype", { buf = buf or 0 })
   if filetype ~= "vue" then return end
   if client.name ~= "tsgo" then return end
-  client.stop()
 
+  vim.lsp.enable("tsgo", false)
   vim.lsp.enable("vtsls", true)
 end
 
