@@ -12,23 +12,23 @@ local swapped = false
 
 local function swapToVtsls(client, buf)
   if swapped then return end
-  
+
   -- check if root have package.json, and does it have "vue" dependency
   local root_dir = client.root_dir or vim.fs.dirname(vim.api.nvim_buf_get_name(buf or 0))
   if not root_dir then return end
-  
+
   local package_json = vim.fs.joinpath(root_dir, "package.json")
   local f = io.open(package_json, "r")
   if not f then return end
-  
-  local content = f:read("*a")
+
+  local content = f:read "*a"
   f:close()
-  
+
   local ok, package_data = pcall(vim.fn.json_decode, content)
   if not ok then return end
-  
-  local has_vue = (package_data.dependencies and package_data.dependencies.vue) 
-                  or (package_data.devDependencies and package_data.devDependencies.vue)
+
+  local has_vue = (package_data.dependencies and package_data.dependencies.vue)
+    or (package_data.devDependencies and package_data.devDependencies.vue)
   if not has_vue then return end
 
   if client.name ~= "tsgo" then return end
