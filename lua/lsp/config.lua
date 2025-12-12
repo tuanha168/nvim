@@ -15,6 +15,3 @@ vim.lsp.linked_editing_range.enable()
 vim.lsp.document_color.enable(true, 0, {
   style = "virtual",
 })
-
-
-vim.lsp.config "vtsls"

@@ -22,7 +22,10 @@ local function swapToVtsls(client, buf)
   if not tsgo_active then return end
   client.stop()
 
-  vim.defer_fn(function() vim.lsp.enable("vtsls", true) end, 500)
+  vim.defer_fn(function()
+    Print(123)
+    vim.lsp.start { name = "vtsls" }
+  end, 500)
 end
 
 ---@class LegendaryAutoCmd
