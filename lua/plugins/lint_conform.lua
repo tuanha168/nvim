@@ -38,6 +38,7 @@ return {
         vue = { "prettier" },
         html = { "prettier" },
         php = { "pint" },
+        json = { "prettier" },
       },
     },
   },
