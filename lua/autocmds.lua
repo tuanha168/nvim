@@ -9,7 +9,6 @@ local excludeDir = { "scratch/src" }
 local uv = vim.uv or vim.loop
 
 local function swapToVtsls(client, buf)
-  Print(123)
   -- if current file is vue file, and tsgo are enabled, disable it and swap to vtsls
   local filetype = vim.api.nvim_get_option_value("filetype", { buf = buf or 0 })
   if filetype ~= "vue" then return end
@@ -20,6 +19,7 @@ local function swapToVtsls(client, buf)
       break
     end
   end
+  Print(tsgo_active, client.name)
   if not tsgo_active then return end
   client.stop()
 
