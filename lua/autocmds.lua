@@ -12,16 +12,10 @@ local function swapToVtsls(client, buf)
   -- if current file is vue file, and tsgo are enabled, disable it and swap to vtsls
   local filetype = vim.api.nvim_get_option_value("filetype", { buf = buf or 0 })
   if filetype ~= "vue" then return end
-  local tsgo_active = false
-  for _, cap in pairs(client.server_capabilities) do
-    Print(_)
-    if cap == true and string.find(_, "tsgo") then
-      tsgo_active = true
-      break
-    end
-  end
-  Print(tsgo_active, client.name)
-  if not tsgo_active then return end
+  Print(client.name)
+  if client.name ~= "tsgo" then return end
+  Print(123)
+
   client.stop()
 
   vim.lsp.start { name = "vtsls" }
