@@ -38,44 +38,17 @@ return {
         vue = { "prettier" },
         html = { "prettier" },
         php = { "pint" },
-        json = { "prettier_json" },
+        json = { "prettier" },
       },
       formatters = {
-        prettier_json = {
-          command = "prettier",
-          args = function()
-            local cwd = vim.fn.getcwd()
-            local prettierrc_files = {
-              ".prettierrc",
-              ".prettierrc.json",
-              ".prettierrc.js",
-              ".prettierrc.yaml",
-              ".prettierrc.yml",
-              "prettier.config.js",
-            }
-
-            -- Check if any prettierrc file exists
-            local has_config = false
-            for _, file in ipairs(prettierrc_files) do
-              if vim.fn.filereadable(cwd .. "/" .. file) == 1 then
-                has_config = true
-                break
-              end
-            end
-
-            local args = { "--stdin-filepath", "$FILENAME" }
-
-            -- If no config file, add fallback options
-            if not has_config then
-              vim.list_extend(args, {
-                "--parser",
-                "json",
-              })
-            end
-
-            return args
-          end,
-          stdin = true,
+        prettier = {
+          cwd = require("conform.util").root_file {
+            ".prettierrc",
+            ".prettierrc.json",
+            ".prettierrc.js",
+            "prettier.config.js",
+            "package.json",
+          },
         },
       },
     },
