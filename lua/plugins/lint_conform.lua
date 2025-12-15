@@ -22,37 +22,24 @@ return {
   {
     "stevearc/conform.nvim",
     event = "BufRead",
-    config = function()
-      ---@module "conform"
-      ---@type conform.setupOpts
-      require("conform").setup {
-        log_level = vim.log.levels.DEBUG,
-        default_format_opts = {
-          lsp_format = "fallback",
-        },
-        formatters_by_ft = {
-          lua = { "stylua", "lua_ls" },
-          python = { "isort", "black" },
-          rust = { "rustfmt" },
-          javascript = { "prettier" },
-          typescript = { "prettier" },
-          vue = { "prettier" },
-          html = { "prettier" },
-          php = { "pint" },
-          json = { "prettier" },
-        },
-        formatters = {
-          prettier = {
-            cwd = require("conform.util").root_file {
-              ".prettierrc",
-              ".prettierrc.json",
-              ".prettierrc.js",
-              "prettier.config.js",
-              "package.json",
-            },
-          },
-        },
-      }
-    end,
+    ---@module "conform"
+    ---@type conform.setupOpts
+    opts = {
+      log_level = vim.log.levels.DEBUG,
+      default_format_opts = {
+        lsp_format = "fallback",
+      },
+      formatters_by_ft = {
+        lua = { "stylua", "lua_ls" },
+        python = { "isort", "black" },
+        rust = { "rustfmt" },
+        javascript = { "prettier" },
+        typescript = { "prettier" },
+        vue = { "prettier" },
+        html = { "prettier" },
+        php = { "pint" },
+        json = { "prettier" },
+      },
+    },
   },
 }
