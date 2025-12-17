@@ -58,6 +58,7 @@
   "sidekick.nvim": { "branch": "main", "commit": "6f0616359540fcbfa5cf2ae88cbdf2a028331a86" },
   "smart-splits.nvim": { "branch": "master", "commit": "652fbde8a997b9c9d32030dfaf2e7e1319dda7a3" },
   "snacks.nvim": { "branch": "main", "commit": "bfe8c26dbd83f7c4fbc222787552e29b4eccfcc0" },
+  "sshfs.nvim": { "branch": "main", "commit": "36b031f1e6416c37e2b501b6fe9468893dde980b" },
   "targets.vim": { "branch": "master", "commit": "6325416da8f89992b005db3e4517aaef0242602e" },
   "ts-error-translator.nvim": { "branch": "main", "commit": "47e5ba89f71b9e6c72eaaaaa519dd59bd6897df4" },
   "tw-values.nvim": { "branch": "main", "commit": "6c8fb620a51df67804b05b40386ec674775a8b41" },
