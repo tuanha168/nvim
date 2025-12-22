@@ -2,7 +2,7 @@
 return {
   {
     "yetone/avante.nvim",
-    enabled = false,
+    enabled = true,
     version = false, -- Never set this value to "*"! Never!
     event = { "User VisualEnter", "InsertEnter" },
     keys = {
@@ -32,16 +32,16 @@ return {
       mappings = {
         edit = "<leader>ar",
         refresh = "<leader>ae",
-        suggestion = {
-          accept = "<C-f>",
-          next = "<C-j>",
-          prev = "<C-k>",
-          -- dismiss = "<ESC>",
-        },
+        -- suggestion = {
+        --   accept = "<C-f>",
+        --   next = "<C-j>",
+        --   prev = "<C-k>",
+        --   -- dismiss = "<ESC>",
+        -- },
       },
       providers = {
         copilot = {
-          model = "claude-sonnet-4",
+          model = "claude-haiku-4.5",
         },
       },
     },
