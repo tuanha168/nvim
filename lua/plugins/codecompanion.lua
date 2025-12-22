@@ -21,6 +21,9 @@ return {
         chat = {
           adapter = "opencode",
         },
+        title_generation_opts = {
+          adapter = "copilot",
+        }
       },
       extensions = {
         history = {
