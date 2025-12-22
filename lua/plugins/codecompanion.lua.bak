@@ -23,7 +23,7 @@ return {
         },
       },
       title_generation_opts = {
-        adapter = { name = "copilot" },
+        adapter = "copilot", -- Use an HTTP adapter (not ACP like opencode)
       },
       extensions = {
         history = {
