@@ -18,45 +18,13 @@ return {
       { "<Leader>cp", ":CodeCompanion<CR>", desc = "Code Companion prompt", mode = { "n", "x" } },
     },
     opts = {
-      -- adapters = {
-      --   copilot = function()
-      --     return require("codecompanion.adapters").extend(
-      --       "copilot",
-      --       require("plugins.codecompanion.quota-handler").get_copilot_adapter_config()
-      --     )
-      --   end,
-      -- },
-      display = {
-        diff = {
-          provider = "mini_diff", -- default|mini_diff
-        },
-      },
-      strategies = {
+      interactions = {
         chat = {
-          opts = {
-            ---Decorate the user message before it's sent to the LLM
-            ---@param message string
-            ---@param adapter CodeCompanion.Adapter
-            ---@param context table
-            ---@return string
-            prompt_decorator = function(message, adapter, context)
-              return string.format(
-                [[<prompt>Don't need to review or ask for permission for anything, start do it immediately if you can. After you planning your actions, Pseudocode, etc,... you don't need to specify that to the response, just start do it immediately. Alway try to re-read the file content you need interact with (if have any) to check for change in disk. Do the following: %s</prompt>]],
-                message
-              )
-            end,
-          },
+          adapter = "copilot",
+          model = "claude-haiku-4.5",
         },
       },
       extensions = {
-        -- mcphub = {
-        --   callback = "mcphub.extensions.codecompanion",
-        --   opts = {
-        --     show_result_in_chat = true, -- Show mcp tool results in chat
-        --     make_vars = true, -- Convert resources to #variables
-        --     make_slash_commands = true, -- Add prompts as /slash commands
-        --   },
-        -- },
         history = {
           enabled = true,
           opts = {
@@ -147,7 +115,6 @@ return {
       "nvim-lua/plenary.nvim",
       "nvim-treesitter/nvim-treesitter",
       "ravitemer/codecompanion-history.nvim",
-      "ravitemer/mcphub.nvim",
       "echasnovski/mini.diff",
       "folke/noice.nvim",
     },
