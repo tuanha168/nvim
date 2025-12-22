@@ -22,9 +22,6 @@ return {
           adapter = "opencode",
         },
       },
-      title_generation_opts = {
-        adapter = { name = "copilot", model = "gpt-4o" },
-      },
       extensions = {
         history = {
           enabled = true,
