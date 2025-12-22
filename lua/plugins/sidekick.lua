@@ -44,7 +44,7 @@ return {
       },
       {
         "<Leader>cc",
-        function() require("sidekick.cli").toggle { name = "copilot", focus = true } end,
+        function() require("sidekick.cli").toggle { name = "opencode", focus = true } end,
         desc = "Sidekick Claude Toggle",
         mode = { "n", "v" },
       },
