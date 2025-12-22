@@ -20,8 +20,7 @@ return {
       interactions = {
         chat = {
           adapter = {
-            name = "copilot",
-            model = "haiku-4.5",
+            name = "opencode",
           },
         },
       },
