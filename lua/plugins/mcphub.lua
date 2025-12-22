@@ -1,7 +1,9 @@
+---@type LazySpec
 return {
   {
     "ravitemer/mcphub.nvim",
     cmd = { "MCPHub" },
+    enabled = false,
     dependencies = {
       "nvim-lua/plenary.nvim",
       -- "CopilotC-Nvim/CopilotChat.nvim",
