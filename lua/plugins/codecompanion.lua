@@ -23,7 +23,7 @@ return {
         },
       },
       title_generation_opts = {
-        adapter = { name = "copilot" },
+        adapter = { name = "copilot", model = "gpt-4o" },
       },
       extensions = {
         history = {
