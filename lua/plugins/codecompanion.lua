@@ -121,7 +121,7 @@ return {
     config = function(_, opts)
       require("codecompanion").setup(opts)
 
-      require("plugins.codecompanion.fidget-spinner").init()
+      -- require("plugins.codecompanion.fidget-spinner").init()
       -- require("plugins.codecompanion.quota-handler").init()
     end,
   },
