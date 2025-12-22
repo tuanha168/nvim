@@ -19,9 +19,7 @@ return {
     opts = {
       interactions = {
         chat = {
-          adapter = {
-            name = "opencode-acp",
-          },
+          adapter = "opencode",
         },
       },
       extensions = {
