@@ -45,7 +45,7 @@ return {
               duplicate = { n = "<C-y>", i = "<C-y>" },
             },
             ---Automatically generate titles for new chats
-            auto_generate_title = false,
+            auto_generate_title = true,
             title_generation_opts = {
               ---Adapter for generating titles (defaults to current chat adapter)
               adapter = nil, -- "copilot"
