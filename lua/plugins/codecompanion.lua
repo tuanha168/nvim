@@ -17,26 +17,10 @@ return {
       { "<Leader>cp", ":CodeCompanion<CR>", desc = "Code Companion prompt", mode = { "n", "x" } },
     },
     opts = {
-      adapters = {
-        acp = {
-          opencode = function()
-            return require("codecompanion.adapters").extend("opencode", {
-              commands = {
-                -- The default uses the opencode/config.json value
-                default = {
-                  "opencode",
-                  "acp",
-                },
-              },
-            })
-          end,
-        },
-      },
       interactions = {
         chat = {
           adapter = {
-            name = "opencode",
-            model = "acp",
+            name = "opencode-acp",
           },
         },
       },
