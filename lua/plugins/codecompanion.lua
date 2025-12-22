@@ -9,7 +9,6 @@ return {
       "CodeCompanionActions",
       "CodeCompanionCmd",
       "CodeCompanionHistory",
-      "CodeCompanionCheckQuota",
     },
     keys = {
       { "<Leader>cc", "<Cmd>CodeCompanionChat<CR>", desc = "Code Companion Chat", mode = { "n", "x" } },
@@ -118,11 +117,5 @@ return {
       "echasnovski/mini.diff",
       "folke/noice.nvim",
     },
-    config = function(_, opts)
-      require("codecompanion").setup(opts)
-
-      -- require("plugins.codecompanion.fidget-spinner").init()
-      -- require("plugins.codecompanion.quota-handler").init()
-    end,
   },
 }
