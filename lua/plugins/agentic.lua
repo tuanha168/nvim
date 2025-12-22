@@ -6,7 +6,7 @@ return {
 
     opts = {
       -- Available by default: "claude-acp" | "gemini-acp" | "codex-acp" | "opencode-acp" | "cursor-acp"
-      provider = "claude-acp", -- setting the name here is all you need to get started
+      provider = "opencode-acp", -- setting the name here is all you need to get started
     },
 
     -- these are just suggested keymaps; customize as desired
@@ -18,13 +18,13 @@ return {
         desc = "Toggle Agentic Chat",
       },
       {
-        "<C-'>",
+        "<Leader>ca",
         function() require("agentic").add_selection_or_file_to_context() end,
         mode = { "n", "v" },
         desc = "Add file or selection to Agentic to Context",
       },
       {
-        "<C-,>",
+        "<Leader>cn",
         function() require("agentic").new_session() end,
         mode = { "n", "v", "i" },
         desc = "New Agentic Session",
