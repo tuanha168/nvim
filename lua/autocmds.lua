@@ -12,10 +12,10 @@ local checked = false
 
 local function swapToVtsls(client, buf)
   if checked then return end
-  Print("Checking for Vue project to switch LSP...")
 
   local root_dir = client.root_dir or vim.fs.dirname(vim.api.nvim_buf_get_name(buf or 0))
   if not root_dir then return end
+  Print("Checking for Vue project to switch LSP...")
 
   local package_json = vim.fs.joinpath(root_dir, "package.json")
   local f = io.open(package_json, "r")
