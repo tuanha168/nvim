@@ -25,7 +25,6 @@ local function swapToVtsls(client, buf)
 
   local content = f:read "*a"
   f:close()
-  Print(package_json)
 
   local ok, package_data = pcall(vim.fn.json_decode, content)
   if not ok then
@@ -33,15 +32,14 @@ local function swapToVtsls(client, buf)
     return
   end
 
-  local has_vue = (package_data.dependencies and package_data.dependencies.vue)
-    or (package_data.devDependencies and package_data.devDependencies.vue)
+  local has_vue = (package_data.dependencies and (package_data.dependencies.vue or package_data.dependencies.nuxt))
+    or (package_data.devDependencies and (package_data.devDependencies.vue or package_data.devDependencies.nuxt))
   if not has_vue then
     checked = true
     return
   end
 
   if client.name ~= "tsgo" then return end
-  Print("Switching to vtsls for Vue project")
 
   vim.lsp.enable("tsgo", false)
   vim.lsp.enable("vtsls", true)
