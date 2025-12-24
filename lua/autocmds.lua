@@ -12,6 +12,7 @@ local checked = false
 
 local function swapToVtsls(client, buf)
   if checked then return end
+  Print("Checking for Vue project to switch LSP...")
 
   local root_dir = client.root_dir or vim.fs.dirname(vim.api.nvim_buf_get_name(buf or 0))
   if not root_dir then return end
@@ -40,6 +41,7 @@ local function swapToVtsls(client, buf)
   end
 
   if client.name ~= "tsgo" then return end
+  Print("Switching to vtsls for Vue project")
 
   vim.lsp.enable("tsgo", false)
   vim.lsp.enable("vtsls", true)
