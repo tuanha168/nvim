@@ -15,7 +15,6 @@ local function swapToVtsls(client, buf)
 
   local root_dir = client.root_dir or vim.fs.dirname(vim.api.nvim_buf_get_name(buf or 0))
   if not root_dir then return end
-  Print("Checking for Vue project to switch LSP...")
 
   local package_json = vim.fs.joinpath(root_dir, "package.json")
   local f = io.open(package_json, "r")
@@ -26,6 +25,7 @@ local function swapToVtsls(client, buf)
 
   local content = f:read "*a"
   f:close()
+  Print(package_json)
 
   local ok, package_data = pcall(vim.fn.json_decode, content)
   if not ok then
