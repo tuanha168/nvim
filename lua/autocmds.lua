@@ -15,7 +15,8 @@ local function swapToVtsls(client, buf)
 
   if client.name ~= "tsgo" then return end
 
-  local root_dir = client.root_dir or vim.fs.dirname(vim.api.nvim_buf_get_name(buf or 0))
+  -- Use vim.fs.root to find root directory by searching for markers from current file outward
+  local root_dir = vim.fs.root(buf or 0, { "package.json", ".git" })
   if not root_dir then return end
 
   local package_json = vim.fs.joinpath(root_dir, "package.json")
@@ -41,7 +42,8 @@ local function swapToVtsls(client, buf)
     return
   end
 
-  vim.lsp.enable("tsgo", false)
+  -- Stop tsgo client and let vtsls handle the buffer instead
+  vim.lsp.stop_client(client.id, true)
   vim.lsp.enable("vtsls", true)
   checked = true
 end

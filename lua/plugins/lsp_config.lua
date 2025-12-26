@@ -11,7 +11,7 @@ local servers = {
   -- html = false,
   tsgo = true,
 
-  vtsls = true,
+  -- vtsls = true,
   pyright = true,
 
   -- stylelint_lsp = false,
