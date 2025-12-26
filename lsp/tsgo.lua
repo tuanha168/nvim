@@ -58,7 +58,10 @@ return {
       -- disable this server (tsgo) if vtsls is active
       for _, active_client in pairs(vim.lsp.get_clients { bufnr = buf }) do
         if active_client.name == "vtsls" then
-          vim.schedule(function() vim.lsp.buf_detach_client(buf, client.id) end)
+          vim.schedule(function()
+            vim.lsp.buf_detach_client(buf, client.id)
+            vim.lsp.stop_client(client.id, true)
+          end)
           return
         end
       end
