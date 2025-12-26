@@ -64,9 +64,9 @@ return {
   on_init = function(_client)
     local old_on_attach = _client.on_attach
     _client.on_attach = function(client, buf)
-      local enabled = Chiruno.func.vueCheckient, buf)
+      local enabled = Chiruno.func.vueCheck(client, buf)
 
-      if enabled == "vtsls" then old_on_attach(client, buf) end
+      if enabled == client.name then old_on_attach(client, buf) end
     end
   end,
 }
