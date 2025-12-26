@@ -57,7 +57,11 @@ return {
     _client.on_attach = function(client, buf)
       local enabled = Chiruno.func.vueCheck(client, buf)
 
-      if enabled == client.name then old_on_attach(client, buf) end
+      if enabled == client.name then
+        old_on_attach(client, buf)
+      else
+        client:stop(true)
+      end
     end
   end,
 }

@@ -3,39 +3,23 @@ function Chiruno.func.vueCheck(client, buf)
 
   -- Use vim.fs.root to find root directory by searching for markers from current file outward
   local root_dir = vim.fs.root(buf or 0, { "package.json", ".git" })
-  if not root_dir then return end
+  if not root_dir then return "tsgo" end
 
   local package_json = vim.fs.joinpath(root_dir, "package.json")
   local f = io.open(package_json, "r")
-  if not f then
-    vim.lsp.enable("tsgo", true)
-    vim.lsp.get_clients({ name = "vtsls" })[1]:stop(true)
-    return "tsgo"
-  end
+  if not f then return "tsgo" end
 
   local content = f:read "*a"
   f:close()
 
   local ok, package_data = pcall(vim.fn.json_decode, content)
-  if not ok then
-    vim.lsp.enable("tsgo", true)
-    vim.lsp.get_clients({ name = "vtsls" })[1]:stop(true)
-    return "tsgo"
-  end
+  if not ok then return "tsgo" end
 
   local has_vue = (package_data.dependencies and (package_data.dependencies.vue or package_data.dependencies.nuxt))
     or (package_data.devDependencies and (package_data.devDependencies.vue or package_data.devDependencies.nuxt))
-  if not has_vue then
-    vim.lsp.enable("tsgo", true)
-    vim.lsp.get_clients({ name = "vtsls" })[1]:stop(true)
-    return "tsgo"
-  end
 
-  if client.name == "tsgo" then
-    vim.lsp.get_clients({ name = "tsgo" })[1]:stop(true)
-  end
+  if not has_vue then return "tsgo" end
 
-  vim.lsp.enable("vtsls", true)
   return "vtsls"
 end
 
