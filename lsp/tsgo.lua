@@ -56,11 +56,9 @@ return {
     local old_on_attach = _client.on_attach
     _client.on_attach = function(client, buf)
       -- disable this server (tsgo) if vtsls is active
-      for _, active_client in pairs(vim.lsp.get_active_clients { bufnr = buf }) do
+      for _, active_client in pairs(vim.lsp.get_clients { bufnr = buf }) do
         if active_client.name == "vtsls" then
-          vim.schedule(function()
-            vim.lsp.buf_detach_client(buf, client.id)
-          end)
+          vim.schedule(function() vim.lsp.buf_detach_client(buf, client.id) end)
           return
         end
       end
