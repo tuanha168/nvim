@@ -31,7 +31,11 @@ function Chiruno.func.swapToVtsls(client, buf)
     return "tsgo"
   end
 
-  vim.lsp.enable("tsgo", false)
+  if client.name == "tsgo" then
+    vim.lsp.stop_client(vim.lsp.get_clients({ name = "tsgo" })[1].id, true)
+    vim.lsp.enable("tsgo", false)
+  end
+
   vim.lsp.enable("vtsls", true)
   return "vtsls"
 end
