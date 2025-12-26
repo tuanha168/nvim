@@ -41,7 +41,7 @@ local function swapToVtsls(client, buf)
 
   if client.name ~= "tsgo" then return end
 
-  vim.lsp.enable("tsgo", false)
+  -- vim.lsp.enable("tsgo", false)
   vim.lsp.enable("vtsls", true)
   checked = true
 end
