@@ -13,6 +13,8 @@ local checked = false
 local function swapToVtsls(client, buf)
   if checked then return end
 
+  if client.name ~= "tsgo" then return end
+
   local root_dir = client.root_dir or vim.fs.dirname(vim.api.nvim_buf_get_name(buf or 0))
   if not root_dir then return end
 
@@ -38,8 +40,6 @@ local function swapToVtsls(client, buf)
     checked = true
     return
   end
-
-  if client.name ~= "tsgo" then return end
 
   vim.lsp.enable("tsgo", false)
   vim.lsp.enable("vtsls", true)
