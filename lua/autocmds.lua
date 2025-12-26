@@ -10,6 +10,42 @@ local uv = vim.uv or vim.loop
 
 local checked = false
 
+local function swapToVtsls(client, buf)
+  if checked then return end
+
+  local root_dir = client.root_dir or vim.fs.dirname(vim.api.nvim_buf_get_name(buf or 0))
+  if not root_dir then return end
+
+  local package_json = vim.fs.joinpath(root_dir, "package.json")
+  local f = io.open(package_json, "r")
+  if not f then
+    checked = true
+    return
+  end
+
+  local content = f:read "*a"
+  f:close()
+
+  local ok, package_data = pcall(vim.fn.json_decode, content)
+  if not ok then
+    checked = true
+    return
+  end
+
+  local has_vue = (package_data.dependencies and (package_data.dependencies.vue or package_data.dependencies.nuxt))
+    or (package_data.devDependencies and (package_data.devDependencies.vue or package_data.devDependencies.nuxt))
+  if not has_vue then
+    checked = true
+    return
+  end
+
+  if client.name ~= "tsgo" then return end
+
+  vim.lsp.enable("tsgo", false)
+  vim.lsp.enable("vtsls", true)
+  checked = true
+end
+
 ---@class LegendaryAutoCmd
 ---@field [1] any (string|array)
 ---@field [2] string|(fun(args: vim.api.keyset.create_autocmd.callback_args): boolean?)
@@ -38,6 +74,8 @@ return {
         local win = vim.api.nvim_get_current_win()
         vim.wo[win][0].foldexpr = "v:lua.vim.lsp.foldexpr()"
       end
+
+      swapToVtsls(client)
     end,
   },
   {
