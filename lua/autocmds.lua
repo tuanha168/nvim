@@ -44,8 +44,11 @@ local function swapToVtsls(client, buf)
 
   -- Stop tsgo client and let vtsls handle the buffer instead
   vim.lsp.stop_client(client.id, true)
+  Print(2)
   vim.schedule(function()
+    Print(1)
     vim.lsp.enable("vtsls", true)
+    Print(vim.lsp.get_clients { name = "vtsls" })
     vim.lsp.buf_attach_client(buf, vim.lsp.get_clients { name = "vtsls" }[1].id)
   end)
   checked = true
