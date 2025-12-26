@@ -60,7 +60,7 @@ return {
         if active_client.name == "vtsls" then
           vim.schedule(function()
             vim.lsp.buf_detach_client(buf, client.id)
-            vim.lsp.stop_client(client.id, true)
+            client:stop(true)
           end)
           return
         end

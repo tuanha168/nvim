@@ -9,7 +9,7 @@ function Chiruno.func.swapToVtsls(client, buf)
   local f = io.open(package_json, "r")
   if not f then
     vim.lsp.enable("tsgo", true)
-    vim.lsp.buf_detach_client(buf,vim.lsp.get_clients({ name = "vtsls" })[1].id)
+    vim.lsp.get_clients({ name = "vtsls" })[1]:stop(true)
     return "tsgo"
   end
 
@@ -19,7 +19,7 @@ function Chiruno.func.swapToVtsls(client, buf)
   local ok, package_data = pcall(vim.fn.json_decode, content)
   if not ok then
     vim.lsp.enable("tsgo", true)
-    vim.lsp.buf_detach_client(buf,vim.lsp.get_clients({ name = "vtsls" })[1].id)
+    vim.lsp.get_clients({ name = "vtsls" })[1]:stop(true)
     return "tsgo"
   end
 
@@ -27,12 +27,12 @@ function Chiruno.func.swapToVtsls(client, buf)
     or (package_data.devDependencies and (package_data.devDependencies.vue or package_data.devDependencies.nuxt))
   if not has_vue then
     vim.lsp.enable("tsgo", true)
-    vim.lsp.buf_detach_client(buf,vim.lsp.get_clients({ name = "vtsls" })[1].id)
+    vim.lsp.get_clients({ name = "vtsls" })[1]:stop(true)
     return "tsgo"
   end
 
   if client.name == "tsgo" then
-    vim.lsp.buf_detach_client(buf,vim.lsp.get_clients({ name = "tsgo" })[1].id)
+    vim.lsp.get_clients({ name = "tsgo" })[1]:stop(true)
   end
 
   vim.lsp.enable("vtsls", true)
