@@ -42,7 +42,9 @@ local function swapToVtsls(client, buf)
     return
   end
 
-  vim.lsp.buf_detach_client(buf, client.id)
+  vim.defer_fn(function()
+    vim.lsp.buf_detach_client(buf, client.id)
+  end, 5000)
   vim.lsp.enable("vtsls", true)
   checked = true
 end
