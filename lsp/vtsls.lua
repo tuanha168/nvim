@@ -12,8 +12,9 @@ local inlayHints = {
   -- },
   parameterTypes = { enabled = "true" },
 }
-local vue_language_server_path = vim.fn.expand '$MASON/packages' ..
-    '/vue-language-server' .. '/node_modules/@vue/language-server'
+local vue_language_server_path = vim.fn.expand "$MASON/packages"
+  .. "/vue-language-server"
+  .. "/node_modules/@vue/language-server"
 
 ---@module "vim.lsp.client"
 ---@class vim.lsp.ClientConfig
@@ -60,4 +61,12 @@ return {
       inlayHints = inlayHints,
     },
   },
+  on_init = function(_client)
+    local old_on_attach = _client.on_attach
+    _client.on_attach = function(client, buf)
+      local enabled = Chiruno.func.swapToVtsls(client, buf)
+
+      if enabled == "vtsls" then old_on_attach(client, buf) end
+    end
+  end,
 }
