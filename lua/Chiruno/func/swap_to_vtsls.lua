@@ -1,4 +1,4 @@
-function Chiruno.func.swapToVtsls(client, buf)
+function Chiruno.func.vueCheck(client, buf)
   if client.name ~= "tsgo" and client.name ~= "vtsls" then return end
 
   -- Use vim.fs.root to find root directory by searching for markers from current file outward
@@ -39,4 +39,4 @@ function Chiruno.func.swapToVtsls(client, buf)
   return "vtsls"
 end
 
-return Chiruno.func.swapToVtsls
+return Chiruno.func.vueCheck

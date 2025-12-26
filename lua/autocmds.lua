@@ -37,7 +37,7 @@ return {
         vim.wo[win][0].foldexpr = "v:lua.vim.lsp.foldexpr()"
       end
 
-       Chiruno.func.swapToVtsls(client, e.buf)
+       Chiruno.func.vueCheck(client, e.buf)
     end,
   },
   {
