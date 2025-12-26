@@ -77,7 +77,7 @@ return {
         vim.wo[win][0].foldexpr = "v:lua.vim.lsp.foldexpr()"
       end
 
-      swapToVtsls(client)
+       swapToVtsls(client, e.buf)
     end,
   },
   {
