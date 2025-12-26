@@ -24,7 +24,6 @@ return {
     "typescript",
     "typescript.tsx",
     "typescriptreact",
-    "vue",
   },
   compilerOptions = {
     noErrorTruncate = true,

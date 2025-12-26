@@ -19,6 +19,12 @@ local vue_language_server_path = vim.fn.expand '$MASON/packages' ..
 ---@class vim.lsp.ClientConfig
 return {
   filetypes = {
+    "javascript",
+    "javascript.jsx",
+    "javascriptreact",
+    "typescript",
+    "typescript.tsx",
+    "typescriptreact",
     "vue",
   },
   compilerOptions = {
