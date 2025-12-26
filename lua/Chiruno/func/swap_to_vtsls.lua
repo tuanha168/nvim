@@ -8,6 +8,8 @@ function Chiruno.func.swapToVtsls(client, buf)
   local package_json = vim.fs.joinpath(root_dir, "package.json")
   local f = io.open(package_json, "r")
   if not f then
+    vim.lsp.enable("tsgo", true)
+    vim.lsp.enable("vtsls", false)
     return "tsgo"
   end
 
@@ -16,15 +18,21 @@ function Chiruno.func.swapToVtsls(client, buf)
 
   local ok, package_data = pcall(vim.fn.json_decode, content)
   if not ok then
+    vim.lsp.enable("tsgo", true)
+    vim.lsp.enable("vtsls", false)
     return "tsgo"
   end
 
   local has_vue = (package_data.dependencies and (package_data.dependencies.vue or package_data.dependencies.nuxt))
     or (package_data.devDependencies and (package_data.devDependencies.vue or package_data.devDependencies.nuxt))
   if not has_vue then
+    vim.lsp.enable("tsgo", true)
+    vim.lsp.enable("vtsls", false)
     return "tsgo"
   end
 
+  vim.lsp.enable("tsgo", false)
+  vim.lsp.enable("vtsls", true)
   return "vtsls"
 end
 

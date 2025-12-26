@@ -8,45 +8,6 @@ local autoPushDir = {
 local excludeDir = { "scratch/src" }
 local uv = vim.uv or vim.loop
 
-local checked = false
-
-local function swapToVtsls(client, buf)
-  if checked then return end
-
-  if client.name ~= "tsgo" then return end
-
-  -- Use vim.fs.root to find root directory by searching for markers from current file outward
-  local root_dir = vim.fs.root(buf or 0, { "package.json", ".git" })
-  if not root_dir then return end
-
-  local package_json = vim.fs.joinpath(root_dir, "package.json")
-  local f = io.open(package_json, "r")
-  if not f then
-    checked = true
-    return
-  end
-
-  local content = f:read "*a"
-  f:close()
-
-  local ok, package_data = pcall(vim.fn.json_decode, content)
-  if not ok then
-    checked = true
-    return
-  end
-
-  local has_vue = (package_data.dependencies and (package_data.dependencies.vue or package_data.dependencies.nuxt))
-    or (package_data.devDependencies and (package_data.devDependencies.vue or package_data.devDependencies.nuxt))
-  if not has_vue then
-    checked = true
-    return
-  end
-
-  vim.lsp.stop_client(client.id, true)
-  vim.lsp.enable("vtsls", true)
-  checked = true
-end
-
 ---@class LegendaryAutoCmd
 ---@field [1] any (string|array)
 ---@field [2] string|(fun(args: vim.api.keyset.create_autocmd.callback_args): boolean?)
@@ -76,7 +37,7 @@ return {
         vim.wo[win][0].foldexpr = "v:lua.vim.lsp.foldexpr()"
       end
 
-       swapToVtsls(client, e.buf)
+       Chiruno.func.swapToVtsls(client, e.buf)
     end,
   },
   {
