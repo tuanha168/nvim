@@ -39,15 +39,6 @@ return {
     end,
   },
   {
-    { "FocusGained", "BufReadPost" },
-    function()
-      vim.cmd "checktime"
-      local ok, _ = pcall(require, "git-conflict")
-      if not ok then return end
-      vim.cmd "GitConflictRefresh"
-    end,
-  },
-  {
     { "BufRead", "BufNewFile" },
     function() vim.cmd "setf dosini" end,
   },

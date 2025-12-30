@@ -16,4 +16,16 @@ return {
       current = "DiffText",
     },
   },
+  config = function(_, opts)
+    require("git-conflict").setup(opts)
+
+    vim.api.nvim_create_autocmd({ "FocusGained", "BufReadPost" }, {
+      callback = function()
+        vim.cmd "checktime"
+        local ok, _ = pcall(require, "git-conflict")
+        if not ok then return end
+        vim.cmd "GitConflictRefresh"
+      end,
+    })
+  end,
 }
