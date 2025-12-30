@@ -1,5 +1,6 @@
 return {
   "akinsho/git-conflict.nvim",
+  enabled = false,
   event = "BufRead",
   opts = {
     default_mappings = {
