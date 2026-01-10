@@ -3,6 +3,7 @@ return {
   {
     "esmuellert/codediff.nvim",
     dependencies = { "MunifTanjim/nui.nvim" },
+    event = "BufReadPre",
     cmd = "CodeDiff",
     opts = {
       keymaps = {
@@ -41,7 +42,21 @@ return {
     config = function(_, opts)
       require("codediff").setup(opts)
 
-      -- implement here
+      -- Auto-detect git conflicts and run CodeDiff
+      local function check_and_run_codediff()
+        local lines = vim.api.nvim_buf_get_lines(0, 0, -1, false)
+        for _, line in ipairs(lines) do
+          if line:match("^<<<<<<<") or line:match("^=======") or line:match("^>>>>>>>") then
+            vim.cmd("CodeDiff")
+            return
+          end
+        end
+      end
+
+      vim.api.nvim_create_autocmd({ "FocusGained", "BufReadPost" }, {
+        callback = check_and_run_codediff,
+        desc = "Auto-detect git conflicts and run CodeDiff",
+      })
     end,
   },
 }
