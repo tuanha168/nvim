@@ -135,8 +135,8 @@ return {
   --   },
   -- },
 
-  {
-    "TabNew",
-    function() vim.cmd "tabclose" end,
-  },
+  -- {
+  --   "TabNew",
+  --   function() vim.cmd "tabclose" end,
+  -- },
 }
