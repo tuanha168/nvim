@@ -2,7 +2,6 @@
 return {
   {
     "esmuellert/codediff.nvim",
-    event = "BufRead",
     dependencies = { "MunifTanjim/nui.nvim" },
     cmd = "CodeDiff",
     opts = {
@@ -39,17 +38,5 @@ return {
         },
       },
     },
-    config = function(_, opts)
-      vim.api.nvim_create_autocmd({ "FocusGained", "BufReadPost" }, {
-        callback = function()
-          vim.cmd "checktime"
-          local ok, _ = pcall(require, "codediff")
-          if not ok then return end
-          vim.cmd "CodeDiff"
-        end,
-      })
-
-      require("codediff").setup(opts)
-    end,
   },
 }
