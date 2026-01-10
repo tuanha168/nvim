@@ -47,10 +47,7 @@ return {
           vim.cmd "checktime"
           local ok, _ = pcall(require, "codediff")
           if not ok then return end
-          vim.defer_fn(function()
-            Print("Refreshing CodeDiff...")
-            vim.cmd "CodeDiff"
-          end, 5000)
+          vim.cmd "CodeDiff"
         end,
       })
     end,
