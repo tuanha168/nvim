@@ -42,19 +42,16 @@ return {
     config = function(_, opts)
       require("codediff").setup(opts)
 
-      vim.api.nvim_create_autocmd({ "FocusGained", "BufReadPost" }, {
-        callback = function()
-          vim.cmd "checktime"
-          Print("checktime")
-          local ok, _ = pcall(require, "codediff")
-          Print("ok=", ok)
-          if not ok then return end
-          vim.defer_fn(function()
-            Print("Refreshing CodeDiff...")
+      vim.schedule(function()
+        vim.api.nvim_create_autocmd({ "FocusGained", "BufReadPost" }, {
+          callback = function()
+            vim.cmd "checktime"
+            local ok, _ = pcall(require, "codediff")
+            if not ok then return end
             vim.cmd "CodeDiff"
-          end, 5000)
-        end,
-      })
+          end,
+        })
+      end)
     end,
   },
 }
