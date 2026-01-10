@@ -33,8 +33,8 @@ return {
           discard = "dd",          -- Discard both, keep base
           next_conflict = "n",            -- Jump to next conflict
           prev_conflict = "N",            -- Jump to previous conflict
-          diffget_incoming = "2do",        -- Get hunk from incoming (left/theirs) buffer
-          diffget_current = "3do",         -- Get hunk from current (right/ours) buffer
+          diffget_incoming = "<leader>ci",        -- Get hunk from incoming (left/theirs) buffer
+          diffget_current = "<leader>co",         -- Get hunk from current (right/ours) buffer
         },
       },
     }
