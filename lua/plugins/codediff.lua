@@ -42,7 +42,7 @@ return {
     config = function(_, opts)
       require("codediff").setup(opts)
 
-      vim.schedule(function()
+      vim.defer_fn(function()
         vim.api.nvim_create_autocmd({ "FocusGained", "BufReadPost" }, {
           callback = function()
             vim.cmd "checktime"
@@ -51,7 +51,7 @@ return {
             vim.cmd "CodeDiff"
           end,
         })
-      end)
+      end, 500)
     end,
   },
 }
