@@ -139,4 +139,19 @@ return {
   --   "TabNew",
   --   function() vim.cmd "tabclose" end,
   -- },
+  {
+    { "FocusGained", "BufReadPost" },
+    function()
+      local lines = vim.api.nvim_buf_get_lines(0, 0, -1, false)
+      for _, line in ipairs(lines) do
+        if line:match "^<<<<<<<" or line:match "^=======" or line:match "^>>>>>>>" then
+          vim.cmd "CodeDiff"
+          return
+        end
+      end
+    end,
+    opts = {
+      desc = "Auto-detect git conflicts and run CodeDiff",
+    },
+  },
 }
