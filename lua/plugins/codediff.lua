@@ -38,5 +38,10 @@ return {
         },
       },
     },
+    config = function(_, opts)
+      require("codediff").setup(opts)
+
+      -- implement here
+    end,
   },
 }
