@@ -2,6 +2,7 @@
 return {
   {
     "esmuellert/codediff.nvim",
+    event = "BufRead",
     dependencies = { "MunifTanjim/nui.nvim" },
     cmd = "CodeDiff",
     opts = {
