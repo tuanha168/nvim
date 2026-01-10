@@ -27,14 +27,14 @@ return {
           restore = "X",      -- Discard changes (restore file)
         },
         conflict = {
-          accept_incoming = "ci",  -- Accept incoming (theirs/left) change
-          accept_current = "co",   -- Accept current (ours/right) change
+          accept_incoming = "ic",  -- Accept incoming (theirs/left) change
+          accept_current = "cc",   -- Accept current (ours/right) change
           accept_both = "<CR>",      -- Accept both changes (incoming first)
           discard = "dd",          -- Discard both, keep base
           next_conflict = "n",            -- Jump to next conflict
           prev_conflict = "N",            -- Jump to previous conflict
-          diffget_incoming = "<leader>ci",        -- Get hunk from incoming (left/theirs) buffer
-          diffget_current = "<leader>co",         -- Get hunk from current (right/ours) buffer
+          diffget_incoming = "<leader>di",        -- Get hunk from incoming (left/theirs) buffer
+          diffget_current = "<leader>do",         -- Get hunk from current (right/ours) buffer
         },
       },
     }
