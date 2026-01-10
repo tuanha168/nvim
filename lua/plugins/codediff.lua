@@ -37,6 +37,20 @@ return {
           diffget_current = "cc",         -- Get hunk from current (right/ours) buffer
         },
       },
-    }
+    },
+    config = function(_, opts)
+      require("codediff").setup(opts)
+
+      vim.api.nvim_create_autocmd({ "FocusGained", "BufReadPost" }, {
+        callback = function()
+          vim.cmd "checktime"
+          local ok, _ = pcall(require, "codediff")
+          if not ok then return end
+          vim.schedule(function()
+            vim.cmd "CodeDiff"
+          end)
+        end,
+      })
+    end,
   },
 }
