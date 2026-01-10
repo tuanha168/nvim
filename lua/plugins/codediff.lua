@@ -45,6 +45,7 @@ return {
       vim.api.nvim_create_autocmd({ "FocusGained", "BufReadPost" }, {
         callback = function()
           vim.cmd "checktime"
+          Print("checktime")
           local ok, _ = pcall(require, "codediff")
           Print("ok=", ok)
           if not ok then return end
