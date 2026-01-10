@@ -1,7 +1,9 @@
+---@type LazySpec
 return {
   {
     "akinsho/git-conflict.nvim",
     event = "BufRead",
+    enabled = false,
     opts = {
       default_mappings = {
         ours = "cc",
