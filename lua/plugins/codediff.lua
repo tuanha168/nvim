@@ -46,8 +46,12 @@ return {
         callback = function()
           vim.cmd "checktime"
           local ok, _ = pcall(require, "codediff")
+          Print("ok=", ok)
           if not ok then return end
-          vim.cmd "CodeDiff"
+          vim.defer_fn(function()
+            Print("Refreshing CodeDiff...")
+            vim.cmd "CodeDiff"
+          end, 5000)
         end,
       })
     end,
