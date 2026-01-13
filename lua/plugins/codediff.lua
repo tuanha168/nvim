@@ -9,8 +9,8 @@ return {
         view = {
           quit = "q", -- Close diff tab
           toggle_explorer = "<leader>b", -- Toggle explorer visibility (explorer mode only)
-          next_hunk = "]c", -- Jump to next change
-          prev_hunk = "[c", -- Jump to previous change
+          next_hunk = "]g", -- Jump to next change
+          prev_hunk = "[g", -- Jump to previous change
           next_file = "]f", -- Next file in explorer mode
           prev_file = "[f", -- Previous file in explorer mode
           diff_get = "do", -- Get change from other buffer (like vimdiff)
