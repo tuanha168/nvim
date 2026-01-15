@@ -26,6 +26,7 @@ local servers = {
 return {
   {
     "neovim/nvim-lspconfig",
+    enabled = false,
     event = { "BufReadPre", "BufNewFile" },
     dependencies = {
       {
@@ -65,6 +66,7 @@ return {
   -- C#
   {
     "seblyng/roslyn.nvim",
+    enabled = false,
     ft = "cs",
     ---@module 'roslyn.config'
     ---@type RoslynNvimConfig

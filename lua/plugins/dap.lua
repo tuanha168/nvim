@@ -2,6 +2,7 @@
 return {
   {
     "mfussenegger/nvim-dap",
+    enabled = false,
     keys = {
       {
         "<Leader>dc",
@@ -45,6 +46,7 @@ return {
   {
     "igorlfs/nvim-dap-view",
     cmd = { "DapViewOpen", "DapViewClose", "DapViewToggle" },
+    enabled = false,
     keys = {
       {
         "<Leader>dk",
