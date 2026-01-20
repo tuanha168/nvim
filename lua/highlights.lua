@@ -7,5 +7,5 @@ return {
   -- DiffChange = { bg = "#576b8a", fg = "none" },
   DiffDelete = { bg = "#7a1431", fg = "none" },
   ComplHint = { fg = "#b6dee3" },
+  TrailingWhitespace = { bg = "red" },
 }
-
