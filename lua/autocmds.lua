@@ -40,7 +40,10 @@ return {
   },
   {
     { "BufRead", "BufNewFile" },
-    function() vim.cmd "setf dosini" end,
+    function()
+      vim.fn.matchadd("TrailingWhitespace", "\\s\\+$\\|^\\n\\n\\+")
+      vim.cmd "setf dosini"
+    end,
   },
   {
     { "BufRead", "BufNewFile" },
