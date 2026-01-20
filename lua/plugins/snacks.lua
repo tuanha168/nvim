@@ -220,6 +220,7 @@ return {
           Snacks.toggle.inlay_hints():map "<leader>uh"
           Snacks.toggle.indent():map "<leader>ug"
           Snacks.toggle.dim():map "<leader>uD"
+          Snacks.zen()
         end,
       })
     end,
