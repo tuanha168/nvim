@@ -44,11 +44,11 @@ local options = {
     },
     listchars = {
       eol = "↵",
-      -- tab = ">>",
+      tab = ">·",
       trail = "·",
       extends = ">",
       precedes = "<",
-      space = ">>",
+      space = "·",
     },
   },
   g = {
