@@ -8,7 +8,8 @@ return {
       "folke/snacks.nvim", -- optional, animated notifications
     },
     opts = {
-      mode = "both"
-    }
+      mode = "both",
+      accept_keymap = "<C-f>", -- Use Ctrl+Y instead of Tab
+    },
   },
 }
