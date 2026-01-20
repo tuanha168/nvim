@@ -7,6 +7,8 @@ return {
       "nvim-treesitter/nvim-treesitter", -- optional, smart context
       "folke/snacks.nvim", -- optional, animated notifications
     },
-    config = function() require("stride").setup() end,
+    opts = {
+      mode = "both"
+    }
   },
 }
