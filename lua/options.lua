@@ -45,10 +45,10 @@ local options = {
     listchars = {
       eol = "↵",
       tab = ">·",
-      trail = "~",
+      trail = "·",
       extends = ">",
       precedes = "<",
-      -- space = "␣",
+      space = "·",
     },
   },
   g = {
