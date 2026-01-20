@@ -42,6 +42,14 @@ local options = {
       foldsep = " ",
       foldclose = "",
     },
+    listchars = {
+      eol = "↵",
+      tab = ">·",
+      trail = "~",
+      extends = ">",
+      precedes = "<",
+      space = "␣",
+    },
   },
   g = {
     mapleader = " ",
@@ -61,6 +69,7 @@ local options = {
     foldexpr = "v:lua.vim.treesitter.foldexpr()",
     foldtext = "",
     splitright = true,
+    list = true,
   },
 }
 
