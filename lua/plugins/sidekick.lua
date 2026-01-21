@@ -5,7 +5,7 @@ return {
     opts = {
       -- add any options here
       nes = {
-        enabled = true,
+        enabled = false,
       },
       cli = {
         mux = {
@@ -15,21 +15,21 @@ return {
       },
     },
     keys = {
-      {
-        "<C-f>",
-        function()
-          -- if there is a next edit, jump to it, otherwise apply it if any
-          if not require("sidekick").nes_jump_or_apply() then return "<C-f>" end
-        end,
-        expr = true,
-        desc = "Goto/Apply Next Edit Suggestion",
-      },
-      {
-        "<C-g>",
-        function() require("sidekick.nes").update() end,
-        expr = true,
-        desc = "Sidekick Update Suggestions",
-      },
+      -- {
+      --   "<C-f>",
+      --   function()
+      --     -- if there is a next edit, jump to it, otherwise apply it if any
+      --     if not require("sidekick").nes_jump_or_apply() then return "<C-f>" end
+      --   end,
+      --   expr = true,
+      --   desc = "Goto/Apply Next Edit Suggestion",
+      -- },
+      -- {
+      --   "<C-g>",
+      --   function() require("sidekick.nes").update() end,
+      --   expr = true,
+      --   desc = "Sidekick Update Suggestions",
+      -- },
       {
         "<C-h>",
         function() require("sidekick.cli").focus() end,
