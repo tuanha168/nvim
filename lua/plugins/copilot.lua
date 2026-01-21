@@ -1,35 +1,35 @@
 ---@type LazySpec
 return {
-  {
-    "zbirenbaum/copilot.lua",
-    dependencies = {
-      "copilotlsp-nvim/copilot-lsp",
-    },
-    event = { "InsertEnter" },
-    opts = {
-      panel = {
-        enabled = false,
-      },
-      copilot_model = "claude-sonnet-4",
-      suggestion = {
-        enabled = true,
-        auto_trigger = true,
-        keymap = {
-          accept = "<C-f>",
-          next = "<C-j>",
-          prev = "<C-k>",
-        },
-      },
-      nes = {
-        enabled = true,
-        keymap = {
-          accept_and_goto = "<C-g>",
-          accept = false,
-          dismiss = "<Esc>",
-        },
-      },
-    },
-  },
+  -- {
+  --   "zbirenbaum/copilot.lua",
+  --   dependencies = {
+  --     "copilotlsp-nvim/copilot-lsp",
+  --   },
+  --   event = { "InsertEnter" },
+  --   opts = {
+  --     panel = {
+  --       enabled = false,
+  --     },
+  --     copilot_model = "claude-sonnet-4",
+  --     suggestion = {
+  --       enabled = true,
+  --       auto_trigger = true,
+  --       keymap = {
+  --         accept = "<C-f>",
+  --         next = "<C-j>",
+  --         prev = "<C-k>",
+  --       },
+  --     },
+  --     nes = {
+  --       enabled = true,
+  --       keymap = {
+  --         accept_and_goto = "<C-g>",
+  --         accept = false,
+  --         dismiss = "<Esc>",
+  --       },
+  --     },
+  --   },
+  -- },
 
   -- {
   --   "Xuyuanp/nes.nvim",
