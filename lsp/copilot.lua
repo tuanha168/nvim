@@ -6,7 +6,7 @@ return {
   settings = {
     github = {
       copilot = {
-        selectedCompletionModel = "gpt-5",
+        selectedCompletionModel = "gpt-5"
       },
     },
   },
