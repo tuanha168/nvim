@@ -2,7 +2,6 @@
 return {
   {
     "jim-at-jibba/nvim-stride",
-    enabled = false,
     dependencies = {
       "nvim-lua/plenary.nvim",
       "nvim-treesitter/nvim-treesitter", -- optional, smart context
