@@ -3,9 +3,6 @@
 return {
   root_markers = { "tsconfig.json", "tsconfig.ts", "tsconfig.js", "package.json", ".git" },
   cmd = { "mise", "exec", "node@22", "--", "copilot-language-server", "--stdio" },
-  init_options = {
-    copilotIntegrationId = "vscode-chat",
-  },
   settings = {
     github = {
       copilot = {
