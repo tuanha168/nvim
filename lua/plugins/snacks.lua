@@ -229,9 +229,10 @@ return {
             local zen_enabled = false
             vim.api.nvim_create_autocmd("BufEnter", {
               callback = function(event)
+                if zen_enabled then return end
+
                 local ft = vim.bo[event.buf].filetype
-                -- Nếu không phải dashboard và chưa bật zen thì bật zen
-                if ft ~= "snacks_dashboard" and not zen_enabled then
+                if ft ~= "alpha" and ft ~= "minifiles" then
                   Snacks.zen()
                   zen_enabled = true
                 end
