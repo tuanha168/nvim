@@ -227,8 +227,9 @@ return {
             Snacks.zen()
           else
             local zen_enabled = false
-            vim.api.nvim_create_autocmd({ "BufEnter", "BufRead" }, {
+            vim.api.nvim_create_autocmd("BufEnter", {
               callback = function(event)
+                Print("check", zen_enabled)
                 if zen_enabled then return end
 
                 local ft = vim.bo[event.buf].filetype
