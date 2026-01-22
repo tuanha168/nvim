@@ -223,7 +223,7 @@ return {
           Snacks.toggle.dim():map "<leader>uD"
 
           local current_ft = vim.bo.filetype
-          if current_ft ~= "alpha" then
+          if current_ft ~= "alpha" and current_ft ~= "minifiles" then
             Snacks.zen()
           else
             local zen_enabled = false
