@@ -235,9 +235,10 @@ return {
                 Print("check", ft)
                 if ft ~= "alpha" and ft ~= "minifiles" then
                   vim.defer_fn(function()
+                    if zen_enabled then return end
+                    zen_enabled = true
                     Print("enabling zen")
                     Snacks.zen()
-                    zen_enabled = true
                   end, 1000)
                 end
               end,
