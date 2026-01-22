@@ -222,9 +222,12 @@ return {
           Snacks.toggle.indent():map "<leader>ug"
           Snacks.toggle.dim():map "<leader>uD"
 
+          local function should_enable_zen(filetype)
+            return filetype ~= "alpha" and filetype ~= "minifiles" and not string.match(filetype, "^snacks")
+          end
+
           local current_ft = vim.bo.filetype
-          -- add condition that current_ft not start with snasks to this if
-          if current_ft ~= "alpha" and current_ft ~= "minifiles" then
+          if should_enable_zen(current_ft) then
             Snacks.zen()
           else
             local zen_enabled = false
@@ -233,7 +236,7 @@ return {
                 if zen_enabled then return end
 
                 local ft = vim.bo[event.buf].filetype
-                if ft ~= "alpha" and ft ~= "minifiles" then
+                if should_enable_zen(ft) then
                   vim.schedule(function()
                     if zen_enabled then return end
                     zen_enabled = true
