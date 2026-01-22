@@ -234,10 +234,11 @@ return {
                 local ft = vim.bo[event.buf].filetype
                 Print("check", ft)
                 if ft ~= "alpha" and ft ~= "minifiles" then
-                  vim.schedule(function()
+                  vim.defer_fn(function()
+                    Print("enabling zen")
                     Snacks.zen()
                     zen_enabled = true
-                  end)
+                  end, 1000)
                 end
               end,
             })
