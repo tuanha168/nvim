@@ -221,7 +221,22 @@ return {
           Snacks.toggle.inlay_hints():map "<leader>uh"
           Snacks.toggle.indent():map "<leader>ug"
           Snacks.toggle.dim():map "<leader>uD"
-          Snacks.zen()
+
+          local has_file = #vim.fn.argv() > 0
+          if has_file then
+            Snacks.zen()
+          else
+            vim.api.nvim_create_autocmd("BufEnter", {
+              once = true,
+              callback = function(event)
+                if vim.bo[event.buf].filetype ~= "snacks_dashboard" then
+                  Snacks.zen()
+                  return true
+                end
+                return false
+              end,
+            })
+          end
         end,
       })
     end,
