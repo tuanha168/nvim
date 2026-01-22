@@ -222,18 +222,19 @@ return {
           Snacks.toggle.indent():map "<leader>ug"
           Snacks.toggle.dim():map "<leader>uD"
 
-          local has_file = #vim.fn.argv() > 0
-          if has_file then
+          local current_ft = vim.bo.filetype
+          if current_ft ~= "alpha" then
             Snacks.zen()
           else
+            local zen_enabled = false
             vim.api.nvim_create_autocmd("BufEnter", {
-              once = true,
               callback = function(event)
-                if vim.bo[event.buf].filetype ~= "snacks_dashboard" then
+                local ft = vim.bo[event.buf].filetype
+                -- Nếu không phải dashboard và chưa bật zen thì bật zen
+                if ft ~= "snacks_dashboard" and not zen_enabled then
                   Snacks.zen()
-                  return true
+                  zen_enabled = true
                 end
-                return false
               end,
             })
           end
