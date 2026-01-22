@@ -223,6 +223,7 @@ return {
           Snacks.toggle.dim():map "<leader>uD"
 
           local current_ft = vim.bo.filetype
+          -- add condition that current_ft not start with snasks to this if
           if current_ft ~= "alpha" and current_ft ~= "minifiles" then
             Snacks.zen()
           else
