@@ -7,12 +7,12 @@ return {
       nes = {
         enabled = true,
       },
-      cli = {
-        mux = {
-          backend = "tmux",
-          enabled = true,
-        },
-      },
+      -- cli = {
+      --   mux = {
+      --     backend = "tmux",
+      --     enabled = true,
+      --   },
+      -- },
     },
     keys = {
       {
