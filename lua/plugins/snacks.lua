@@ -222,30 +222,30 @@ return {
           Snacks.toggle.indent():map "<leader>ug"
           Snacks.toggle.dim():map "<leader>uD"
 
-          local function should_enable_zen(filetype)
-            return filetype ~= "alpha" and filetype ~= "minifiles" and not string.match(filetype, "^snacks")
-          end
+          -- local function should_enable_zen(filetype)
+          --   return filetype ~= "alpha" and filetype ~= "minifiles" and not string.match(filetype, "^snacks")
+          -- end
 
-          local current_ft = vim.bo.filetype
-          if should_enable_zen(current_ft) then
-            Snacks.zen()
-          else
-            local zen_enabled = false
-            vim.api.nvim_create_autocmd("BufEnter", {
-              callback = function(event)
-                if zen_enabled then return end
+          -- local current_ft = vim.bo.filetype
+          -- if should_enable_zen(current_ft) then
+          --   Snacks.zen()
+          -- else
+          --   local zen_enabled = false
+          --   vim.api.nvim_create_autocmd("BufEnter", {
+          --     callback = function(event)
+          --       if zen_enabled then return end
 
-                local ft = vim.bo[event.buf].filetype
-                if should_enable_zen(ft) then
-                  vim.schedule(function()
-                    if zen_enabled then return end
-                    zen_enabled = true
-                    Snacks.zen()
-                  end)
-                end
-              end,
-            })
-          end
+          --       local ft = vim.bo[event.buf].filetype
+          --       if should_enable_zen(ft) then
+          --         vim.schedule(function()
+          --           if zen_enabled then return end
+          --           zen_enabled = true
+          --           Snacks.zen()
+          --         end)
+          --       end
+          --     end,
+          --   })
+          -- end
         end,
       })
     end,
