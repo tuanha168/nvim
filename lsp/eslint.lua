@@ -1,7 +1,7 @@
 ---@module "vim.lsp.client"
 ---@class vim.lsp.ClientConfig
 return {
-  -- filetypes = { "javascript", "javascriptreact", "typescript", "typescriptreact", "vue", "json", "svg" },
+  filetypes = { "javascript", "javascriptreact", "typescript", "typescriptreact", "vue", "json", "svg" },
   root_markers = {
     ".eslintrc",
     ".eslintrc.cjs",
