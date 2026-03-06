@@ -65,7 +65,6 @@ return {
         config = {
           os = {
             editPreset = "nvim-remote",
-            edit = 'nvim --server $env.NVIM --remote-send "q"; nvim --server $env.NVIM --remote {{filename}}',
           },
         },
       },
