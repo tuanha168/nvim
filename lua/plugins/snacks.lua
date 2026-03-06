@@ -64,7 +64,7 @@ return {
       lazygit = {
         config = {
           os = {
-            edit = "nvr --remote {{filename}}",
+            edit = "nvr --remote-send '<C-\\><C-N><cmd>q<CR><cmd>lua vim.cmd(\"e \" .. {{filename}})<CR>'",
           },
         },
       },
