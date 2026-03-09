@@ -2,7 +2,6 @@ function Chiruno.func.format_lsp()
   local ignoreLsp = { "vue_ls", "vtsls", "tsgo", "jsonls" }
   local bufnr = vim.api.nvim_get_current_buf()
 
-  -- Tìm client có capability formatting
   local clients = vim.lsp.get_clients({ bufnr = bufnr })
   local has_formatter = false
 
@@ -15,10 +14,9 @@ function Chiruno.func.format_lsp()
   end
 
   if not has_formatter then
-    return false  -- Không có formatter khả dụng
+    return false
   end
 
-  -- Thực hiện format
   vim.lsp.buf.format {
     filter = function(client)
       return not vim.tbl_contains(ignoreLsp, client.name)
