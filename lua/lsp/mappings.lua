@@ -15,14 +15,10 @@ return {
         "<Leader>fm",
         function()
           local ok, conform = pcall(require, "conform")
-          if ok and not vim.b[bufnr].formatByLsp then
-            conform.format({}, function(err, did_edit)
-              if err and not did_edit then Chiruno.func.format_lsp() end
-            end)
+          if ok and not Chiruno.func.format_lsp() then
+            conform.format()
             return
           end
-
-          Chiruno.func.format_lsp()
         end,
         desc = "Format code",
         buffer = bufnr,
