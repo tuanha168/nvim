@@ -7,7 +7,7 @@
   "attempt.nvim": { "branch": "main", "commit": "ab5137f6a511ee7d4d932cf9e16619656233997e" },
   "avante.nvim": { "branch": "main", "commit": "4329ed79f404f4f4c24e2dac3d33d263e970a9c1" },
   "better-escape.nvim": { "branch": "master", "commit": "7e86edafb8c7e73699e0320f225464a298b96d12" },
-  "blink.cmp": { "branch": "main", "commit": "b650e976a927be6b46487a0a610b75af111376c5" },
+  "blink.cmp": { "branch": "main", "commit": "451168851e8e2466bc97ee3e026c3dcb9141ce07" },
   "codecompanion.nvim": { "branch": "main", "commit": "3559fffb1410f86314fa1ed401c99e14b95482a7" },
   "codediff.nvim": { "branch": "main", "commit": "b6232dfe9eb4d35a2db85da45ce2c07b50368240" },
   "codi.vim": { "branch": "master", "commit": "83b9859aaf8066d95892e01eb9c01571a4b325dd" },
