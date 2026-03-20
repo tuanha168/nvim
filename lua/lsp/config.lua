@@ -8,10 +8,10 @@ vim.diagnostic.config {
 
 vim.lsp.inlay_hint.enable()
 
--- vim.lsp.inline_completion.enable()
+vim.lsp.inline_completion.enable()
 
--- vim.lsp.linked_editing_range.enable()
+vim.lsp.linked_editing_range.enable()
 
--- vim.lsp.document_color.enable(true, 0, {
---   style = "virtual",
--- })
+vim.lsp.document_color.enable(true, 0, {
+  style = "virtual",
+})
