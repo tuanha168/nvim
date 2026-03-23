@@ -31,6 +31,15 @@ return {
         mode = { "n", "v", "i" },
         desc = "New Agentic Session",
       },
+      {
+        "<Leader>cr", -- ai Restore
+        function()
+          require("agentic").restore_session()
+        end,
+        desc = "Agentic Restore session",
+        silent = true,
+        mode = { "n", "v", "i" },
+      },
     },
   },
 }
