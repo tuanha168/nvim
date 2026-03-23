@@ -2,7 +2,7 @@
   "Comment.nvim": { "branch": "master", "commit": "e30b7f2008e52442154b66f7c519bfd2f1e32acb" },
   "actions-preview.nvim": { "branch": "master", "commit": "cb938c25edaac38d362555f19244a9cb85d561e8" },
   "aerial.nvim": { "branch": "master", "commit": "5c0df1679bf7c814c924dc6646cc5291daca8363" },
-  "agentic.nvim": { "branch": "main", "commit": "1462bc333914a8ef56af3505ad459e16712394a3" },
+  "agentic.nvim": { "branch": "main", "commit": "4813e54e8310b3a917d4b094d016b200b27e6d3a" },
   "alpha-nvim": { "branch": "main", "commit": "a9d8fb72213c8b461e791409e7feabb74eb6ce73" },
   "attempt.nvim": { "branch": "main", "commit": "ab5137f6a511ee7d4d932cf9e16619656233997e" },
   "avante.nvim": { "branch": "main", "commit": "4329ed79f404f4f4c24e2dac3d33d263e970a9c1" },
