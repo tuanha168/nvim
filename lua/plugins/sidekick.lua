@@ -1,3 +1,4 @@
+---@type LazySpec
 return {
   {
     "folke/sidekick.nvim",
@@ -33,24 +34,24 @@ return {
         mode = { "t" },
         desc = "Sidekick Switch Focus",
       },
-      {
-        "<Leader>ca",
-        function() require("sidekick.cli").toggle { focus = true } end,
-        desc = "Sidekick Toggle CLI",
-        mode = { "n", "v" },
-      },
-      {
-        "<Leader>cc",
-        function() require("sidekick.cli").toggle { name = "opencode", focus = true } end,
-        desc = "Sidekick Claude Toggle",
-        mode = { "n", "v" },
-      },
-      {
-        "<Leader>cp",
-        function() require("sidekick.cli").prompt() end,
-        desc = "Sidekick Ask Prompt",
-        mode = { "n", "v" },
-      },
+      -- {
+      --   "<Leader>ca",
+      --   function() require("sidekick.cli").toggle { focus = true } end,
+      --   desc = "Sidekick Toggle CLI",
+      --   mode = { "n", "v" },
+      -- },
+      -- {
+      --   "<Leader>cc",
+      --   function() require("sidekick.cli").toggle { name = "opencode", focus = true } end,
+      --   desc = "Sidekick Claude Toggle",
+      --   mode = { "n", "v" },
+      -- },
+      -- {
+      --   "<Leader>cp",
+      --   function() require("sidekick.cli").prompt() end,
+      --   desc = "Sidekick Ask Prompt",
+      --   mode = { "n", "v" },
+      -- },
     },
   },
 }

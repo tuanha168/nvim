@@ -2,7 +2,7 @@
 return {
   {
     "carlos-algms/agentic.nvim",
-    enabled = false,
+    enabled = true,
 
     event = "VeryLazy",
 
