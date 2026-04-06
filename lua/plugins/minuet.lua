@@ -10,6 +10,9 @@ return {
       -- power. Once you have a reliable estimate of your local computing power,
       -- you should adjust the context window to a larger value.
       context_window = 512,
+      blink = {
+        enable_auto_complete = true,
+      },
       provider_options = {
         openai_fim_compatible = {
           -- For Windows users, TERM may not be present in environment variables.
