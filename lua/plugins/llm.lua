@@ -3,7 +3,7 @@ return {
   {
     'huggingface/llm.nvim',
     opts = {
-      backend = "ollama",             -- backend ID, "huggingface" | "ollama" | "openai" | "tgi"
+      backend = "ollama", -- backend ID, "huggingface" | "ollama" | "openai" | "tgi"
       -- model = "qwen2.5-coder:7b",
       model = "qwen2.5-coder:0.5b",
       url = "http://localhost:11434", -- llm-ls uses "/api/generate"
@@ -13,13 +13,16 @@ return {
         options = {
           temperature = 0.2,
           top_p = 0.95,
+        },
+        header = {
+
         }
       },
       fim = {
         enabled = true,
-        prefix = "<PRE> ",
-        middle = " <MID>",
-        suffix = " <SUF>",
+        prefix = "<fim_prefix>",
+        middle = "<fim_middle>",
+        suffix = "<fim_suffix>",
       },
       debounce_ms = 150,
       accept_keymap = "<Tab>",
