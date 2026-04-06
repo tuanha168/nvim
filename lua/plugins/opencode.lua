@@ -119,6 +119,16 @@ return {
       }
 
       vim.o.autoread = true -- Required for `opts.events.reload`
+
+      vim.api.nvim_create_autocmd("VimLeavePre", {
+        once = true,
+        callback = function()
+          local term = require('snacks.terminal').get(opencode_cmd, snacks_terminal_opts)
+          if term then
+            term:close({ buf = true })
+          end
+        end,
+      })
     end,
   }
 }
