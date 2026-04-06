@@ -20,13 +20,12 @@ local servers = {
   -- rust_analyzer = false,
   qmlls = true,
 
-  -- copilot = true,
+  copilot = true,
 }
 
 return {
   {
     "neovim/nvim-lspconfig",
-    event = { "BufReadPre", "BufNewFile" },
     dependencies = {
       {
         "folke/neoconf.nvim",
