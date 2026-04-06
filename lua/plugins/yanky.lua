@@ -2,6 +2,7 @@ return {
   {
     "gbprod/yanky.nvim",
     event = "VeryLazy",
+    enabled = false,
     opts = function()
       require("yanky").setup {
         ring = {
