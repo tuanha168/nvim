@@ -3,7 +3,6 @@ return {
   {
     "folke/sidekick.nvim",
     event = { "InsertEnter" },
-    enabled = false,
     opts = {
       -- add any options here
       nes = {
