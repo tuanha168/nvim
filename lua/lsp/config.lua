@@ -16,4 +16,4 @@ vim.lsp.document_color.enable(true, nil, {
   style = "virtual",
 })
 
-vim.lsp.enable("llm-ls")
+-- vim.lsp.enable("llm-ls")
