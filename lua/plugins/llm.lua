@@ -12,9 +12,6 @@ return {
         options = {
           temperature = 0.2,
           top_p = 0.95,
-        },
-        headers = {
-
         }
       },
       fim = {
