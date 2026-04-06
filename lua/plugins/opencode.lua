@@ -66,7 +66,7 @@ return {
         optional = true,
         opts = {
           input = {}, -- Enhances `ask()`
-          picker = { -- Enhances `select()`
+          picker = {  -- Enhances `select()`
             actions = {
               opencode_send = function(...) return require("opencode").snacks_picker_send(...) end,
             },
@@ -94,8 +94,8 @@ return {
         { desc = "Ask opencode…" })
       vim.keymap.set({ "n", "x" }, "<C-x>", function() require("opencode").select() end,
         { desc = "Execute opencode action…" })
-      vim.keymap.set({ "n", "t" }, "<Leader>cc", function() require("opencode").toggle() end, { desc = "Toggle opencode" })
-
+      vim.keymap.set({ "n", "t" }, "<Leader>cc", function() require("opencode").toggle() end,
+        { desc = "Toggle opencode" })
       vim.keymap.set({ "n", "x" }, "go", function() return require("opencode").operator("@this ") end,
         { desc = "Add range to opencode", expr = true })
       vim.keymap.set("n", "goo", function() return require("opencode").operator("@this ") .. "_" end,
