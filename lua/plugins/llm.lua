@@ -4,7 +4,7 @@ return {
     'huggingface/llm.nvim',
     opts = {
       backend = "ollama",             -- backend ID, "huggingface" | "ollama" | "openai" | "tgi"
-      model = "codellama:7b",
+      model = "qwen2.5-coder:14b",
       url = "http://localhost:11434", -- llm-ls uses "/api/generate"
       -- cf https://github.com/ollama/ollama/blob/main/docs/api.md#parameters
       request_body = {
@@ -14,7 +14,6 @@ return {
           top_p = 0.95,
         }
       },
-
       fim = {
         enabled = true,
         prefix = "<PRE> ",
