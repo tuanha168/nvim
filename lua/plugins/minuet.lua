@@ -25,6 +25,7 @@ return {
         },
       },
       lsp = {
+        enabled_ft = { '*' },
         inline_completion = {
           enable = true,
           enabled_auto_trigger_ft = { 'cpp', 'lua' },
