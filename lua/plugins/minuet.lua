@@ -10,7 +10,7 @@ return {
       -- power. Once you have a reliable estimate of your local computing power,
       -- you should adjust the context window to a larger value.
       context_window = 4000,
-      request_timeout = 100,
+      request_timeout = 16,
       blink = {
         enable_auto_complete = false,
       },
