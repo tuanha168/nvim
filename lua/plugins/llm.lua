@@ -9,7 +9,7 @@ return {
       provider = "ollama",
       auto_suggest = true,
       excluded_filetypes = {},
-      model = "qwen2.5-coder:14b",
+      model = "qwen2.5-coder:0.5b",
       keymap = {
         accept_word = "<C-f>",
         accept_line = "<C-g>",
