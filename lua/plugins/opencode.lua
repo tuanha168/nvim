@@ -67,9 +67,12 @@ return {
       vim.api.nvim_create_autocmd("VimLeavePre", {
         once = true,
         callback = function()
-          local term = require('snacks.terminal').get(opencode_cmd, snacks_terminal_opts)
-          if term then
-            term:close({ buf = true })
+          local term = require('snacks.terminal').get(opencode_cmd, { create = false })
+          if term and term.buf and vim.api.nvim_buf_is_valid(term.buf) then
+            local job_id = vim.b[term.buf].terminal_job_id
+            if job_id then
+              vim.fn.jobstop(job_id)
+            end
           end
         end,
       })
