@@ -35,47 +35,47 @@ return {
       { "<C-S-d>", function() require("opencode").command("session.half.page.down") end, mode = "n", desc = "Scroll opencode down" },
     },
     config = function()
-      local opencode_cmd = 'opencode --port'
-      ---@type snacks.terminal.Opts
-      local snacks_terminal_opts = {
-        win = {
-          position = 'right',
-          enter = false,
-          on_win = function(win)
-            -- Set up keymaps and cleanup for an arbitrary terminal
-            require('opencode.terminal').setup(win.win)
-          end,
-        },
-      }
+      -- local opencode_cmd = 'opencode --port'
+      -- ---@type snacks.terminal.Opts
+      -- local snacks_terminal_opts = {
+      --   win = {
+      --     position = 'right',
+      --     enter = false,
+      --     on_win = function(win)
+      --       -- Set up keymaps and cleanup for an arbitrary terminal
+      --       require('opencode.terminal').setup(win.win)
+      --     end,
+      --   },
+      -- }
       ---@type opencode.Opts
       vim.g.opencode_opts = {
-        server = {
-          start = function()
-            require('snacks.terminal').open(opencode_cmd, snacks_terminal_opts)
-          end,
-          stop = function()
-            require('snacks.terminal').get(opencode_cmd, snacks_terminal_opts):close()
-          end,
-          toggle = function()
-            require('snacks.terminal').toggle(opencode_cmd, snacks_terminal_opts)
-          end,
-        },
+        -- server = {
+        --   start = function()
+        --     require('snacks.terminal').open(opencode_cmd, snacks_terminal_opts)
+        --   end,
+        --   stop = function()
+        --     require('snacks.terminal').get(opencode_cmd, snacks_terminal_opts):close()
+        --   end,
+        --   toggle = function()
+        --     require('snacks.terminal').toggle(opencode_cmd, snacks_terminal_opts)
+        --   end,
+        -- },
       }
 
       vim.o.autoread = true -- Required for `opts.events.reload`
 
-      vim.api.nvim_create_autocmd("VimLeavePre", {
-        once = true,
-        callback = function()
-          local term = require('snacks.terminal').get(opencode_cmd, { create = false })
-          if term and term.buf and vim.api.nvim_buf_is_valid(term.buf) then
-            local job_id = vim.b[term.buf].terminal_job_id
-            if job_id then
-              vim.fn.jobstop(job_id)
-            end
-          end
-        end,
-      })
+      -- vim.api.nvim_create_autocmd("VimLeavePre", {
+      --   once = true,
+      --   callback = function()
+      --     local term = require('snacks.terminal').get(opencode_cmd, { create = false })
+      --     if term and term.buf and vim.api.nvim_buf_is_valid(term.buf) then
+      --       local job_id = vim.b[term.buf].terminal_job_id
+      --       if job_id then
+      --         vim.fn.jobstop(job_id)
+      --       end
+      --     end
+      --   end,
+      -- })
     end,
   }
 }
