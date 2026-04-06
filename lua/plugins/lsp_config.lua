@@ -21,7 +21,6 @@ local servers = {
   qmlls = true,
 
   -- copilot = true,
-  llmls = true,
 }
 
 return {
