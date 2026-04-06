@@ -10,9 +10,7 @@ return {
       -- power. Once you have a reliable estimate of your local computing power,
       -- you should adjust the context window to a larger value.
       context_window = 512,
-      context_ratio = 0.7,
-      throttle = 1500,
-      debounce = 800,
+      request_timeout = 15,
       blink = {
         enable_auto_complete = false,
       },
