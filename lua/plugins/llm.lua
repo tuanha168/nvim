@@ -14,6 +14,7 @@ return {
           top_p = 0.95,
         }
       },
+
       fim = {
         enabled = true,
         prefix = "<PRE> ",
@@ -21,8 +22,8 @@ return {
         suffix = " <SUF>",
       },
       debounce_ms = 150,
-      accept_keymap = "<C-f>",
-      dismiss_keymap = "<ESC>",
+      accept_keymap = "<Tab>",
+      dismiss_keymap = "<S-Tab>",
       context_window = 1024,             -- max number of tokens for the context window
       enable_suggestions_on_startup = true,
       enable_suggestions_on_files = "*", -- pattern matching syntax to enable suggestions on specific files, either a string or a list of strings
