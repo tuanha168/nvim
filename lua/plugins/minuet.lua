@@ -17,7 +17,7 @@ return {
           api_key = 'TERM',
           name = 'Ollama',
           end_point = 'http://localhost:11434/v1/completions',
-          model = 'qwen2.5-coder:14b',
+          model = 'qwen2.5-coder:0.5b',
           optional = {
             max_tokens = 56,
             top_p = 0.9,
@@ -25,7 +25,6 @@ return {
         },
       },
       lsp = {
-        enabled_ft = { 'toml', 'lua', 'cpp' },
         inline_completion = {
           enable = true,
           enabled_auto_trigger_ft = { 'cpp', 'lua' },
