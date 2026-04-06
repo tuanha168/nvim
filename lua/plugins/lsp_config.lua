@@ -20,7 +20,7 @@ local servers = {
   -- rust_analyzer = false,
   qmlls = true,
 
-  copilot = true,
+  -- copilot = true,
 }
 
 return {
