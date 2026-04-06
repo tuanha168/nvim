@@ -67,7 +67,7 @@ return {
     },
     keys = {
       -- Recommended keymaps
-      { "<leader>oA", function() require("opencode").ask() end, desc = "Ask opencode" },
+      { "<leader>oA", function() require("opencode").ask() end,                   desc = "Ask opencode" },
       {
         "<leader>oa",
         function() require("opencode").ask "@cursor: " end,
@@ -80,8 +80,8 @@ return {
         desc = "Ask opencode about selection",
         mode = "v",
       },
-      { "<leader>ot", function() require("opencode").toggle() end, desc = "Toggle embedded opencode" },
-      { "<leader>on", function() require("opencode").command "session_new" end, desc = "New session" },
+      { "<leader>ot", function() require("opencode").toggle() end,                desc = "Toggle embedded opencode" },
+      { "<leader>on", function() require("opencode").command "session_new" end,   desc = "New session" },
       { "<leader>oy", function() require("opencode").command "messages_copy" end, desc = "Copy last message" },
       {
         "<C-M-u>",
@@ -97,7 +97,7 @@ return {
       },
       {
         "<leader>op",
-        function() require("opencode").select_prompt() end,
+        function() require("opencode").select() end,
         desc = "Select prompt",
         mode = { "n", "v" },
       },
