@@ -9,8 +9,8 @@ return {
       -- of 512, serves as an good starting point to estimate your computing
       -- power. Once you have a reliable estimate of your local computing power,
       -- you should adjust the context window to a larger value.
-      context_window = 512,
-      request_timeout = 15,
+      context_window = 4000,
+      request_timeout = 100,
       blink = {
         enable_auto_complete = false,
       },
