@@ -2,6 +2,7 @@
 return {
   {
     'meeehdi-dev/bropilot.nvim',
+    enabled = false,
     dependencies = {
       "nvim-lua/plenary.nvim",
     },
