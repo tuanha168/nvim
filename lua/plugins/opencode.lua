@@ -94,7 +94,7 @@ return {
         { desc = "Ask opencode…" })
       vim.keymap.set({ "n", "x" }, "<C-x>", function() require("opencode").select() end,
         { desc = "Execute opencode action…" })
-      vim.keymap.set({ "n", "t" }, "<C-.>", function() require("opencode").toggle() end, { desc = "Toggle opencode" })
+      vim.keymap.set({ "n", "t" }, "<Leader>cc", function() require("opencode").toggle() end, { desc = "Toggle opencode" })
 
       vim.keymap.set({ "n", "x" }, "go", function() return require("opencode").operator("@this ") end,
         { desc = "Add range to opencode", expr = true })
