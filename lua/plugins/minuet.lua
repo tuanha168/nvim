@@ -2,7 +2,6 @@ return {
   {
     "milanglacier/minuet-ai.nvim",
     opts = {
-
       provider = 'openai_fim_compatible',
       n_completions = 1, -- recommend for local model for resource saving
       -- I recommend beginning with a small context window size and incrementally
