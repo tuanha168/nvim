@@ -46,21 +46,6 @@ return {
     },
   },
 
-  -- {
-  --   "jay-babu/mason-null-ls.nvim",
-  --   dependencies = {
-  --     "williamboman/mason-lspconfig.nvim",
-  --   },
-  --   opts = {
-  --     ensure_installed = {
-  --       "prettierd",
-  --       "stylua",
-  --       -- "pint",
-  --       "tfsec",
-  --     }
-  --   }
-  -- },
-
   -- C#
   {
     "seblyng/roslyn.nvim",
@@ -79,9 +64,6 @@ return {
       },
     },
     opts = function()
-      local test = "ok"
-      Print(test)
-      local test2 = "not ok"
       return {
         config = {
           settings = {
