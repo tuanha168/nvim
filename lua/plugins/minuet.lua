@@ -11,8 +11,8 @@ return {
       -- you should adjust the context window to a larger value.
       context_window = 512,
       context_ratio = 0.6,
-      throttle = 1500,
-      debounce = 800,
+      throttle = 5000,
+      debounce = 4000,
       blink = {
         enable_auto_complete = false,
       },
