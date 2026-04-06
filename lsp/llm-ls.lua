@@ -4,10 +4,6 @@ return {
   root_markers = { "tsconfig.json", "tsconfig.ts", "tsconfig.js", "package.json", ".git" },
   cmd = { "llm-ls" },
   settings = {
-    github = {
-      copilot = {
-        selectedCompletionModel = "gpt-41-copilot",
-      },
-    },
+    model = "qwen2.5-coder:14b",
   },
 }
