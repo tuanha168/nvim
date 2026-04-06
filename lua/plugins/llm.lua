@@ -17,10 +17,16 @@ return {
 
         }
       },
+      fim = {
+        enabled = true,
+        prefix = "<PRE>",
+        middle = "<MID>",
+        suffix = "<SUF>",
+      },
       debounce_ms = 150,
       accept_keymap = "<Tab>",
       dismiss_keymap = "<S-Tab>",
-      context_window = 1024,         -- max number of tokens for the context window
+      context_window = 1024,             -- max number of tokens for the context window
       enable_suggestions_on_startup = true,
       enable_suggestions_on_files = "*", -- pattern matching syntax to enable suggestions on specific files, either a string or a list of strings
     },
