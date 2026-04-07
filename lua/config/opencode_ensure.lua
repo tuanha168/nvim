@@ -6,7 +6,7 @@ local function start_server()
 end
 
 local function find_server_in_tmux_window()
-  local panes = vim.fn.system("tmux list-panes -t '#{window_id}' -F '#{pane_pid} #{pane_current_command}'")
+  local panes = vim.fn.system("tmux list-panes -t $TMUX_PANE -F '#{pane_pid} #{pane_current_command}'")
   for line in panes:gmatch("[^\r\n]+") do
     local pid = line:match("^(%d+)%s+")
     if pid then
@@ -35,6 +35,7 @@ function M.ensure_server(callback)
 
   local function connect(opts)
     opts = opts or {}
+    Print("test")
     require("opencode.server").get(false):next(function(server)
       if opts.notify then
         vim.notify("Connected to opencode server (port " .. server.port .. ")", vim.log.levels.INFO, { title = "opencode" })
@@ -51,12 +52,8 @@ function M.ensure_server(callback)
   if tmux_pid then
     connect({ notify = true })
   else
-    require("opencode.server").get_all():next(function()
-      connect()
-    end):catch(function()
-      start_server()
-      vim.defer_fn(connect, 2000)
-    end)
+    start_server()
+    vim.defer_fn(connect, 2000)
   end
 end
 
