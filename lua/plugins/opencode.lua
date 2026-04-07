@@ -81,8 +81,10 @@ return {
         "<CR>",
         function(win)
           local text = win:text() .. "\\n"
-          vim.api.nvim_buf_set_lines(win.buf, 0, -1, false, { text })
-          win:execute("confirm")
+          vim.schedule(function()
+            vim.api.nvim_buf_set_lines(win.buf, 0, -1, false, { text })
+            win:execute("confirm")
+          end)
         end,
         mode = "i",
         desc = "submit with newline",

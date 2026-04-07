@@ -5,7 +5,7 @@ local function start_server()
   vim.fn.system(string.format("tmux split-window -d -h -l 35%% -c %q 'opencode --port'", cwd))
 end
 
-local function find_server_in_tmux_window()
+local function find_opencode_server_pid()
   local panes = vim.fn.system("tmux list-panes -F '#{pane_pid} #{pane_current_command}'")
   for line in panes:gmatch("[^\r\n]+") do
     local pid = line:match("^(%d+)%s+")
@@ -19,6 +19,20 @@ local function find_server_in_tmux_window()
   return nil
 end
 
+local function is_connected(events)
+  return events.connected_server ~= nil
+end
+
+local function wait_for_connected_server(events, timeout)
+  return vim.wait(timeout, function()
+    return is_connected(events)
+  end, 100)
+end
+
+local function sleep(ms)
+  vim.loop.sleep(ms)
+end
+
 local function connect()
   require("opencode.server").get(false):next(function(server)
     vim.notify("Connected to opencode server (port " .. server.port .. ")", vim.log.levels.INFO, { title = "opencode" })
@@ -29,7 +43,7 @@ end
 
 function M.ensure_server()
   local events = require("opencode.events")
-  if events.connected_server then
+  if is_connected(events) then
     return
   end
 
@@ -38,19 +52,19 @@ function M.ensure_server()
     return
   end
 
-  local tmux_pid = find_server_in_tmux_window()
-  if tmux_pid then
-    connect()
-  else
+  if not find_opencode_server_pid() then
     start_server()
     vim.defer_fn(connect, 2000)
+    return
   end
+
+  connect()
 end
 
 function M.ensure_server_sync(timeout)
   timeout = timeout or 5000
   local events = require("opencode.events")
-  if events.connected_server then
+  if is_connected(events) then
     return true
   end
 
@@ -59,16 +73,14 @@ function M.ensure_server_sync(timeout)
     return false
   end
 
-  local tmux_pid = find_server_in_tmux_window()
-  if tmux_pid then
-    connect()
-  else
+  if not find_opencode_server_pid() then
     start_server()
-    vim.wait(2000, function() return false end)
-    connect()
+    sleep(2000)
   end
 
-  local success = vim.wait(timeout, function() return events.connected_server end, 100)
+  connect()
+
+  local success = wait_for_connected_server(events, timeout)
   if not success then
     vim.notify("Timeout waiting for opencode server", vim.log.levels.WARN, { title = "opencode" })
   end
