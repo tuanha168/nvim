@@ -26,13 +26,32 @@ return {
       },
     },
     keys = {
-      { "<C-a>", function() require("opencode").ask("@this: ", { submit = true }) end, mode = { "n", "x" }, desc = "Ask opencode…" },
       { "<C-p>", function() require("opencode").select() end, mode = { "n", "x" }, desc = "Execute opencode action…" },
-      { "<Leader>cc", function() require("opencode").toggle() end, mode = { "n", "t" }, desc = "Toggle opencode" },
-      { "<Leader>go", function() return require("opencode").operator("@this ") end, mode = { "n", "x" }, desc = "Add range to opencode", expr = true },
-      { "<Leader>goo", function() return require("opencode").operator("@this ") .. "_" end, mode = "n", desc = "Add line to opencode", expr = true },
-      { "<C-S-u>", function() require("opencode").command("session.half.page.up") end, mode = "n", desc = "Scroll opencode up" },
-      { "<C-S-d>", function() require("opencode").command("session.half.page.down") end, mode = "n", desc = "Scroll opencode down" },
+      {
+        "<Leader>cc",
+        function()
+          local events = require("opencode.events")
+          if events.connected_server then
+            return
+          end
+
+          if vim.env.TMUX == nil then
+            vim.notify("Not running inside tmux", vim.log.levels.ERROR, { title = "opencode" })
+            return
+          end
+
+          local cwd = vim.fn.getcwd()
+          vim.fn.system(string.format("tmux split-window -h -l 35%% -c %q 'opencode --port'", cwd))
+
+          vim.defer_fn(function()
+            require("opencode.server").get(false)
+          end, 2000)
+        end,
+        mode = { "n", "t" },
+        desc = "Start opencode server",
+      },
+      { "<C-a>", function() return require("opencode").operator("@this ") end, mode = { "n", "x" }, desc = "Add range to opencode", expr = true },
+      { "<C-a>", function() return require("opencode").operator("@this ") .. "_" end, mode = "n", desc = "Add line to opencode", expr = true },
     },
     config = function()
       ---@type opencode.Opts
