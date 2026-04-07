@@ -26,8 +26,26 @@ return {
       },
     },
     keys = {
-      { "<C-a>", function() require("opencode").ask("@this: ", { submit = true }) end, mode = { "n", "x" }, desc = "Ask opencode…" },
-      { "<C-p>", function() require("opencode").select() end, mode = { "n", "x" }, desc = "Execute opencode action…" },
+      {
+        "<C-a>",
+        function()
+          require("config.opencode_ensure").ensure_server(function()
+            require("opencode").ask("@this: ", { submit = true })
+          end)
+        end,
+        mode = { "n", "x" },
+        desc = "Ask opencode…"
+      },
+      {
+        "<C-p>",
+        function()
+          require("config.opencode_ensure").ensure_server(function()
+            require("opencode").select()
+          end)
+        end,
+        mode = { "n", "x" },
+        desc = "Execute opencode action…"
+      },
       { "<Leader>cc", function() require("config.opencode_ensure").ensure_server() end, mode = { "n", "t" }, desc = "Start opencode server" },
       {
         "<Leader>go",
@@ -41,7 +59,17 @@ return {
         desc = "Add range to opencode",
         expr = true
       },
-      { "<Leader>goo", function() return require("opencode").operator("@this ") .. "_" end, mode = "n", desc = "Add line to opencode", expr = true },
+      {
+        "<Leader>goo",
+        function()
+          require("config.opencode_ensure").ensure_server(function()
+            return require("opencode").operator("@this ") .. "_"
+          end)
+        end,
+        mode = "n",
+        desc = "Add line to opencode",
+        expr = true
+      },
     },
     config = function()
       ---@type opencode.Opts
