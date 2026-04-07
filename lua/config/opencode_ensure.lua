@@ -6,7 +6,7 @@ local function start_server()
 end
 
 local function find_server_in_tmux_window()
-  local panes = vim.fn.system("tmux list-panes -t $TMUX_PANE -F '#{pane_pid} #{pane_current_command}'")
+  local panes = vim.fn.system("tmux list-panes -F '#{pane_pid} #{pane_current_command}'")
   for line in panes:gmatch("[^\r\n]+") do
     local pid = line:match("^(%d+)%s+")
     if pid then
