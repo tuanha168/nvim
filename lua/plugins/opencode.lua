@@ -29,9 +29,9 @@ return {
       {
         "<C-a>",
         function()
-          require("config.opencode_ensure").ensure_server(function()
-            require("opencode").ask("@this: ", { submit = true })
-          end)
+          if require("config.opencode_ensure").ensure_server_sync() then
+            require("opencode").ask("@this: ")
+          end
         end,
         mode = { "n", "x" },
         desc = "Ask opencode…"
@@ -39,9 +39,9 @@ return {
       {
         "<C-p>",
         function()
-          require("config.opencode_ensure").ensure_server(function()
+          if require("config.opencode_ensure").ensure_server_sync() then
             require("opencode").select()
-          end)
+          end
         end,
         mode = { "n", "x" },
         desc = "Execute opencode action…"
@@ -50,10 +50,10 @@ return {
       {
         "<Leader>go",
         function()
-          require("config.opencode_ensure").ensure_server(function()
-            require("opencode").operator(
-              "@this ")
-          end)
+          if require("config.opencode_ensure").ensure_server_sync() then
+            return require("opencode").operator("@this ")
+          end
+          return ""
         end,
         mode = { "n", "x" },
         desc = "Add range to opencode",
@@ -62,9 +62,10 @@ return {
       {
         "<Leader>goo",
         function()
-          require("config.opencode_ensure").ensure_server(function()
+          if require("config.opencode_ensure").ensure_server_sync() then
             return require("opencode").operator("@this ") .. "_"
-          end)
+          end
+          return ""
         end,
         mode = "n",
         desc = "Add line to opencode",

@@ -2,7 +2,7 @@ local M = {}
 
 local function start_server()
   local cwd = vim.fn.getcwd()
-  vim.fn.system(string.format("tmux split-window -h -l 35%% -c %q 'opencode --port'", cwd))
+  vim.fn.system(string.format("tmux split-window -d -h -l 35%% -c %q 'opencode --port'", cwd))
 end
 
 local function find_server_in_tmux_window()
@@ -19,12 +19,17 @@ local function find_server_in_tmux_window()
   return nil
 end
 
-function M.ensure_server(callback)
+local function connect()
+  require("opencode.server").get(false):next(function(server)
+    vim.notify("Connected to opencode server (port " .. server.port .. ")", vim.log.levels.INFO, { title = "opencode" })
+  end):catch(function(err)
+    vim.notify("Failed to connect to opencode server: " .. err, vim.log.levels.WARN, { title = "opencode" })
+  end)
+end
+
+function M.ensure_server()
   local events = require("opencode.events")
   if events.connected_server then
-    if callback then
-      callback()
-    end
     return
   end
 
@@ -33,27 +38,41 @@ function M.ensure_server(callback)
     return
   end
 
-  local function connect(opts)
-    opts = opts or {}
-    require("opencode.server").get(false):next(function(server)
-      if opts.notify then
-        vim.notify("Connected to opencode server (port " .. server.port .. ")", vim.log.levels.INFO, { title = "opencode" })
-      end
-      if callback then
-        callback()
-      end
-    end):catch(function(err)
-      vim.notify("Failed to connect to opencode server: " .. err, vim.log.levels.WARN, { title = "opencode" })
-    end)
-  end
-
   local tmux_pid = find_server_in_tmux_window()
   if tmux_pid then
-    connect({ notify = true })
+    connect()
   else
     start_server()
     vim.defer_fn(connect, 2000)
   end
+end
+
+function M.ensure_server_sync(timeout)
+  timeout = timeout or 5000
+  local events = require("opencode.events")
+  if events.connected_server then
+    return true
+  end
+
+  if vim.env.TMUX == nil then
+    vim.notify("Not running inside tmux", vim.log.levels.ERROR, { title = "opencode" })
+    return false
+  end
+
+  local tmux_pid = find_server_in_tmux_window()
+  if tmux_pid then
+    connect()
+  else
+    start_server()
+    vim.wait(2000, function() return false end)
+    connect()
+  end
+
+  local success = vim.wait(timeout, function() return events.connected_server end, 100)
+  if not success then
+    vim.notify("Timeout waiting for opencode server", vim.log.levels.WARN, { title = "opencode" })
+  end
+  return success
 end
 
 return M
