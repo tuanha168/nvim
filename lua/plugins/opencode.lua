@@ -74,7 +74,26 @@ return {
     },
     config = function()
       ---@type opencode.Opts
-      vim.g.opencode_opts = {}
+      vim.g.opencode_opts = {
+        ask = {
+          snacks = {
+            win = {
+              keys = {
+                i_cr = {
+                  "<CR>",
+                  function(win)
+                    local text = win:text() .. "\\n"
+                    vim.api.nvim_buf_set_lines(win.buf, 0, -1, false, { text })
+                    win:execute("confirm")
+                  end,
+                  mode = "i",
+                  desc = "submit with newline",
+                },
+              },
+            },
+          },
+        },
+      }
 
       vim.o.autoread = true -- Required for `opts.events.reload`
     end,
