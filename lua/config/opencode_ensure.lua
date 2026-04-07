@@ -35,7 +35,6 @@ function M.ensure_server(callback)
 
   local function connect(opts)
     opts = opts or {}
-    Print("test")
     require("opencode.server").get(false):next(function(server)
       if opts.notify then
         vim.notify("Connected to opencode server (port " .. server.port .. ")", vim.log.levels.INFO, { title = "opencode" })
