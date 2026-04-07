@@ -28,7 +28,7 @@ return {
     keys = {
       { "<C-a>", function() require("opencode").ask("@this: ", { submit = true }) end, mode = { "n", "x" }, desc = "Ask opencode…" },
       { "<C-p>", function() require("opencode").select() end, mode = { "n", "x" }, desc = "Execute opencode action…" },
-      { "<Leader>cc", function() require("opencode").select({ server = true }) end, mode = { "n", "t" }, desc = "Toggle opencode" },
+      { "<Leader>cc", function() require("opencode").toggle() end, mode = { "n", "t" }, desc = "Toggle opencode" },
       { "<Leader>go", function() return require("opencode").operator("@this ") end, mode = { "n", "x" }, desc = "Add range to opencode", expr = true },
       { "<Leader>goo", function() return require("opencode").operator("@this ") .. "_" end, mode = "n", desc = "Add line to opencode", expr = true },
       { "<C-S-u>", function() require("opencode").command("session.half.page.up") end, mode = "n", desc = "Scroll opencode up" },
