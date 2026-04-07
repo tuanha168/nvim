@@ -41,6 +41,10 @@ local function connect()
   end)
 end
 
+local function start_default_split()
+  require("opencode.server").get(true)
+end
+
 function M.ensure_server()
   local events = require("opencode.events")
   if is_connected(events) then
@@ -48,7 +52,7 @@ function M.ensure_server()
   end
 
   if vim.env.TMUX == nil then
-    vim.notify("Not running inside tmux", vim.log.levels.ERROR, { title = "opencode" })
+    start_default_split()
     return
   end
 
@@ -69,8 +73,8 @@ function M.ensure_server_sync(timeout)
   end
 
   if vim.env.TMUX == nil then
-    vim.notify("Not running inside tmux", vim.log.levels.ERROR, { title = "opencode" })
-    return false
+    start_default_split()
+    return true
   end
 
   if not find_opencode_server_pid() then
