@@ -61,6 +61,7 @@
   "roslyn.nvim": { "branch": "main", "commit": "7deb9bb5b6afcb3c03c70741c6d364ffd8b59bda" },
   "rustaceanvim": { "branch": "master", "commit": "88575b98bb9937fb9983ddec5e532b67e75ce677" },
   "scrollEOF.nvim": { "branch": "master", "commit": "e462b9a07b8166c3e8011f1dcbc6bf68b67cd8d7" },
+  "sentiment.nvim": { "branch": "main", "commit": "54a6db15b630eccfa98c32a76baf90f21c6f1e40" },
   "sidekick.nvim": { "branch": "main", "commit": "c2bdf8cfcd87a6be5f8b84322c1b5052e78e302e" },
   "smart-splits.nvim": { "branch": "master", "commit": "23f1e57d5af462c69e988642c020430449a7b1b0" },
   "snacks.nvim": { "branch": "main", "commit": "fe7cfe9800a182274d0f868a74b7263b8c0c020b" },
