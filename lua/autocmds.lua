@@ -88,7 +88,10 @@ return {
       if Snacks then
         if vim.api.nvim_get_option_value("filetype", { buf = event.buf }) ~= "snacks_terminal" then
           local instance = Snacks.terminal.get({ "lazygit" }, { create = false })
-          if instance then instance.hide(instance) end
+          if instance then
+            Print(instance)
+            instance.hide(instance)
+          end
         end
       end
 
