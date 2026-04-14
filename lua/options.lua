@@ -58,6 +58,7 @@ local options = {
     matchup_matchparen_offscreen = { method = "popup" },
     copilot_assume_mapped = true,
     kitty_navigator_no_mappings = 1,
+    loaded_matchparen = 1,
   },
   o = {
     background = "dark",
@@ -110,34 +111,3 @@ for key, value in pairs(options.o) do
 end
 
 return options
-
--- return function(local_vim)
---   if vim.g.neovide then
---     local opts = {
---       guifont = "CaskaydiaCove Nerd Font:h15",
---     }
---     for k, v in pairs(opts) do
---       options.opt[k] = v
---     end
---     local g = {
---       -- neovide-fullscreen = true,
---       -- neovide_input_use_logo = true,
---       neovide_transparency = 0.8,
---       neovide_remember_window_size = true,
---       neovide_input_macos_alt_is_meta = true,
---       -- neovide_profiler = true,
---     }
---     for k, v in pairs(g) do
---       options.g[k] = v
---     end
---   end
---
---   for k, v in pairs(options) do
---     for key, val in pairs(v) do
---       options[k][key] = val
---     end
---   end
---
---   return local_vim
--- end
---
