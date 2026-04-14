@@ -1,9 +1,5 @@
-local lazy = require("pack.lazy-load")
+vim.pack.add({
+  "https://github.com/williamboman/mason.nvim"
+})
 
-lazy.on_command(
-  "https://github.com/williamboman/mason.nvim",
-  "Mason",
-  function()
-    require("mason").setup()
-  end
-)
+require("mason").setup()
