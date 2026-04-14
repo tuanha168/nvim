@@ -4,8 +4,6 @@ lazy.on_event(
   "https://github.com/neovim/nvim-lspconfig",
   "BufRead",
   function()
-    local lspconfig = require("lspconfig")
-
     lspconfig.lua_ls.setup {
       settings = {
         Lua = {
