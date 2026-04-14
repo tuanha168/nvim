@@ -84,16 +84,6 @@ return {
   {
     { "BufRead", "BufEnter" },
     function(event)
-      -- close lazygit terminal when leave
-      if Snacks then
-        if vim.api.nvim_get_option_value("filetype", { buf = event.buf }) ~= "snacks_terminal" then
-          -- local instance = Snacks.terminal.get({ "lazygit" }, { create = false })
-          -- if instance then
-          --   instance.hide(instance)
-          -- end
-        end
-      end
-
       -- quickfix delete entry
       if vim.bo[event.buf].buftype == "quickfix" then
         vim.keymap.set("n", "dd", function()
