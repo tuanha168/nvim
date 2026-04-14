@@ -1,6 +1,5 @@
-return {
+require("which-key").add {
   -- vim.keymap.set('n', '[[', '<Nop>')
-  { "<C-f>", function() end },
   -- ["*"] = { '"ayiwh/<c-r>a<CR>' },
   { "<Leader>r", function() Chiruno.func.operatorfunc_lua "replace_motion" end },
   -- Gitsigns

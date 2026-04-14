@@ -42,7 +42,6 @@ return {
     { "BufRead", "BufNewFile" },
     function()
       vim.fn.matchadd("TrailingWhitespace", "\\s\\+$\\|^\\n\\n\\+")
-      vim.cmd "setf dosini"
     end,
   },
   {
@@ -122,24 +121,4 @@ return {
       pattern = { "vue" },
     },
   },
-
-  -- {
-  --   { "ModeChanged" },
-  --   function() vim.api.nvim_exec_autocmds("User", { pattern = "VisualEnter" }) end,
-  --   opts = {
-  --     pattern = { "*:[vV\x16]*" },
-  --   },
-  -- },
-  -- {
-  --   { "ModeChanged" },
-  --   function() vim.api.nvim_exec_autocmds("User", { pattern = "VisualLeave" }) end,
-  --   opts = {
-  --     pattern = { "[vV\x16]*:*" },
-  --   },
-  -- },
-
-  -- {
-  --   "TabNew",
-  --   function() vim.cmd "tabclose" end,
-  -- },
 }

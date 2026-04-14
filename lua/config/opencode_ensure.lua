@@ -2,7 +2,13 @@ local M = {}
 
 local function start_server()
   local cwd = vim.fn.getcwd()
-  vim.fn.system(string.format("tmux split-window -d -h -l 35%% -c %q 'opencode --port'", cwd))
+  local pane_id = vim.fn.system(
+    string.format("tmux split-window -d -P -F '#{pane_id}' -h -l 35%% -c %q 'opencode --port'", cwd)
+  )
+  pane_id = vim.trim(pane_id)
+  if pane_id ~= "" then
+    vim.fn.system(string.format("tmux set-option -t %s -p allow-passthrough off", pane_id))
+  end
 end
 
 local function find_opencode_server_pid()

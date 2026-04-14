@@ -1,3 +1,17 @@
+vim.lsp.enable({
+  'lua_ls',
+  'vue_ls',
+  'eslint',
+  'tailwindcss',
+  'jsonls',
+  'yamlls',
+  'tsgo',
+  'vtsls',
+  'pyright',
+  'qmlls',
+  'copilot',
+})
+
 vim.diagnostic.config {
   virtual_text = true,
   signs = true,
