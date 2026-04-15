@@ -12,9 +12,16 @@ local function start_server()
 end
 
 local function find_opencode_server_pid()
+  -- list-panes without -a = current window only
   local panes = vim.fn.system("tmux list-panes -F '#{pane_pid} #{pane_current_command}'")
   for line in panes:gmatch("[^\r\n]+") do
-    local pid = line:match("^(%d+)%s+")
+    local pid, cmd = line:match("^(%d+)%s+(.+)$")
+    if cmd == "opencode" then
+      -- pane_current_command = "opencode" when user ran it manually (shell child)
+      -- or when nvim spawned it directly. Either way, opencode is running here.
+      return tonumber(pid)
+    end
+    -- fallback: pane replaced its shell with opencode --port (nvim-spawned)
     if pid then
       local cmdline = vim.fn.system(string.format("ps -p %s -o args=", pid)):gsub("%s+$", "")
       if cmdline:match("opencode.*%-%-port") then
@@ -85,7 +92,7 @@ function M.ensure_server_sync(timeout)
 
   if not find_opencode_server_pid() then
     start_server()
-    sleep(2000)
+    sleep(5000)
   end
 
   connect()
