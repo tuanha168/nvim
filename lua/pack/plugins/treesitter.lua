@@ -16,8 +16,6 @@ local keys = {
 
 require("which-key").add(keys)
 
-vim.treesitter.language.register('json', { 'jsonc' })
-
 local parsers = {
   "javascript",
   "typescript",
@@ -76,6 +74,7 @@ local parsers = {
 
 vim.schedule(function()
   require('nvim-treesitter').install(parsers)
+  vim.treesitter.language.register('json', { 'jsonc' })
 end)
 
 vim.api.nvim_create_autocmd("BufRead", {
@@ -125,6 +124,6 @@ vim.api.nvim_create_autocmd('FileType', {
   pattern = parsers,
   callback = function(args)
     vim.treesitter.start()
-    vim.bo[args.buf].syntax = 'ON'             -- only if additional legacy syntax is needed
+    vim.bo[args.buf].syntax = 'ON' -- only if additional legacy syntax is needed
   end
 })
