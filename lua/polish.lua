@@ -31,6 +31,7 @@ local lsp_inlay_hint_key = {
   "vue_ls",
   "ts_ls",
   "vtsls",
+  "tsgo"
 }
 
 vim.lsp.handlers[methods.textDocument_inlayHint] = function(err, result, ctx, config)
@@ -40,28 +41,28 @@ vim.lsp.handlers[methods.textDocument_inlayHint] = function(err, result, ctx, co
   for _, lsp in pairs(lsp_inlay_hint_key) do
     if client and result and (client.name == lsp) then
       result = vim
-        .iter(result)
-        :map(function(hint)
-          local label = hint.label
-          if not label then return hint end
+          .iter(result)
+          :map(function(hint)
+            local label = hint.label
+            if not label then return hint end
 
-          -- string
-          if type(label) == "string" then
-            if label:len() >= maxLength then label = label:sub(1, maxLength - 1) .. ellipsis end
-            hint.label = label
-          -- table
-          elseif type(label) == "table" then
-            local temp = ""
-            for _, lb in ipairs(label) do
-              if type(lb.value) == "string" then temp = temp .. lb.value end
+            -- string
+            if type(label) == "string" then
+              if label:len() >= maxLength then label = label:sub(1, maxLength - 1) .. ellipsis end
+              hint.label = label
+              -- table
+            elseif type(label) == "table" then
+              local temp = ""
+              for _, lb in ipairs(label) do
+                if type(lb.value) == "string" then temp = temp .. lb.value end
+              end
+              if temp and temp:len() >= maxLength then temp = temp:sub(1, maxLength - 1) .. ellipsis end
+              hint.label = temp
             end
-            if temp and temp:len() >= maxLength then temp = temp:sub(1, maxLength - 1) .. ellipsis end
-            hint.label = temp
-          end
 
-          return hint
-        end)
-        :totable()
+            return hint
+          end)
+          :totable()
     end
   end
 
