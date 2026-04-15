@@ -74,7 +74,7 @@ local function connect_to_port(port)
     :next(function(server)
       require("opencode.events").connect(server)
       vim.notify(
-        "Connected to opencode server (port " .. server.port .. ")",
+        "Connected to opencode server (port " .. server.port .. ", current port " .. port .. ")",
         vim.log.levels.INFO,
         { title = "opencode" }
       )
