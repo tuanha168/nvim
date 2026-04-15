@@ -11,7 +11,7 @@ end
 
 --- Lazy-load a plugin via autocmd (fires once).
 --- @param plugin string|table  URL string, {src=,version=} table, or list of specs
---- @param events string|string[]
+--- @param events vim.api.keyset.events|vim.api.keyset.events[] Event(s) that will trigger the handler (`callback` or `command`).
 --- @param callback fun()
 --- @param opts? vim.api.keyset.create_autocmd
 function M.on_event(plugin, events, callback, opts)

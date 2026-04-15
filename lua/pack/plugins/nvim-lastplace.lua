@@ -2,7 +2,7 @@ local lazy = require("pack.lazy-load")
 
 lazy.on_event(
   "https://github.com/ethanholz/nvim-lastplace",
-  "BufRead",
+  "VimEnter",
   function()
     require("nvim-lastplace").setup {
       lastplace_ignore_buftype = { "quickfix", "nofile", "help" },
