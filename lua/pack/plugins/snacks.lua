@@ -35,6 +35,10 @@ local opts = {
       { "^git@yopaz:(.+)%.git$",              "https://github.com/%1" },
       { "^git@phinx:(.+)%.git$",              "https://github.com/%1" },
       { "^git@yopaz*-liberty:(.+)%.git$",     "https://github.com/%1" },
+      { "^git@yopaz:(.+)$",                   "https://github.com/%1" },
+      { "^git@phinx:(.+)$",                   "https://github.com/%1" },
+      { "^git@yopaz*-liberty:(.+)$",          "https://github.com/%1" },
+
       { "^(https?://.*)%.git$",               "%1" },
       { "^git@(.+):(.+)%.git$",               "https://%1/%2" },
       { "^git@(.+):(.+)$",                    "https://%1/%2" },
