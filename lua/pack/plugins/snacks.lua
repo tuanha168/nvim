@@ -6,7 +6,7 @@ local opts = {
   dashboard = { enabled = false },
   explorer = { enabled = true, replace_netrw = true },
   indent = { enabled = true },
-  input = { enabled = true },
+  input = {  },
   notifier = {
     enabled = true,
     timeout = 3000,
