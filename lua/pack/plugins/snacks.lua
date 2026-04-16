@@ -32,6 +32,9 @@ local opts = {
   },
   gitbrowse = {
     remote_patterns = {
+      { "^git@yopaz:(.+)%.git$",              "https://github.com/%1" },
+      { "^git@phinx:(.+)%.git$",              "https://github.com/%1" },
+      { "^git@yopaz*-liberty:(.+)%.git$",     "https://github.com/%1" },
       { "^(https?://.*)%.git$",               "%1" },
       { "^git@(.+):(.+)%.git$",               "https://%1/%2" },
       { "^git@(.+):(.+)$",                    "https://%1/%2" },
@@ -45,9 +48,6 @@ local opts = {
       { "^git@(.*)",                          "https://%1" },
       { ":%d+",                               "" },
       { "%.git$",                             "" },
-      { "^git@yopaz:(.+)%.git$",              "https://github.com/%1" },
-      { "^git@phinx:(.+)%.git$",              "https://github.com/%1" },
-      { "^git@yopaz*-liberty:(.+)%.git$",     "https://github.com/%1" },
     },
   },
   zen = {
