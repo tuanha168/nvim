@@ -1,3 +1,3 @@
--- vim.pack.add { "https://github.com/mbbill/undotree" }
+vim.cmd [[packadd nvim.undotree]]
 
--- vim.keymap.set("n", "<C-y>", function() vim.cmd "UndotreeToggle" end, { silent = true })
+vim.keymap.set("n", "<C-y>", function() vim.cmd "Undotree" end, { silent = true })
