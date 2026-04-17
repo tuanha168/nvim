@@ -116,8 +116,8 @@ require("which-key").add {
   { "gl",         function() Chiruno.func.operatorfunc_lua "console_log" end,     mode = { "n", "x" } },
 
   -- treesitter
-  { "<S-Up>",     "van", desc = "Select around node",    mode = { "n" }, replace_keycodes = true },
-  { "<S-Down>",   "vin", desc = "Select inner node",      mode = { "n" }, replace_keycodes = true },
+  { "<S-Up>",     "van", desc = "Select around node",    mode = { "n", "v" } },
+  { "<S-Down>",   "vin", desc = "Select inner node",      mode = { "n", "v" } },
   { "<S-Up>",     function() require "vim.treesitter._select".select_parent(1) end, desc = "Select around node",    mode = { "x" } },
   { "<S-Down>",   function() require "vim.treesitter._select".select_child(1) end, desc = "Select inner node",      mode = { "x" } },
 }
