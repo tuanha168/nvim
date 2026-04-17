@@ -21,7 +21,7 @@ require("which-key").add {
     mode = { "n", "x" },
     desc = "Execute opencode action…"
   },
-  { "<Leader>cc", function() require("config.opencode_ensure").ensure_server() end, mode = { "n", "t" }, desc = "Start opencode server" },
+  { "<Leader>cv", function() require("config.opencode_ensure").ensure_server() end, mode = { "n", "v", "t" }, desc = "Start opencode server" },
   {
     "<Leader>cc",
     function()
@@ -30,12 +30,12 @@ require("which-key").add {
       end
       return ""
     end,
-    mode = { "x" },
+    mode = { "n", "x" },
     desc = "Add range to opencode",
     expr = true
   },
   {
-    "<Leader>goo",
+    "<Leader>cc",
     function()
       if require("config.opencode_ensure").ensure_server_sync() then
         return require("opencode").operator("@this ") .. "_"
