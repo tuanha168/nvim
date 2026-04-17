@@ -126,5 +126,7 @@ require("which-key").add {
   end,  desc = "Select inner node", mode = { "n" } },
 
   { "<S-Up>",     function() require "vim.treesitter._select".select_parent(1) end, desc = "Select around node",    mode = { "x" } },
-  { "<S-Down>",   function() require "vim.treesitter._select".select_child(1) end, desc = "Select inner node",      mode = { "x" } },
+  { "<S-Down>",   function()
+    require "vim.treesitter._select".select_child(1)
+  end, desc = "Select inner node",      mode = { "x" } },
 }
