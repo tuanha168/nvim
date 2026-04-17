@@ -3,6 +3,7 @@ function Chiruno.func.vueCheck(client, buf)
 
   -- Use vim.fs.root to find root directory by searching for markers from current file outward
   local root_dir = vim.fs.root(buf or 0, { "package.json", ".git" })
+  Print(root_dir)
   if not root_dir then return "tsgo" end
 
   local package_json = vim.fs.joinpath(root_dir, "package.json")
