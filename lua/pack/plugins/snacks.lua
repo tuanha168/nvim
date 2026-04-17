@@ -146,10 +146,6 @@ local keys = {
               { "^git@yopaz:(.+)$",          "https://github.com/%1" },
               { "^git@phinx:(.+)$",          "https://github.com/%1" },
               { "^git@yopaz*-liberty:(.+)$", "https://github.com/%1" },
-
-              { "^git@yopaz:(.+)%.git$",          "https://github.com/%1" },
-              { "^git@phinx:(.+)%.git$",          "https://github.com/%1" },
-              { "^git@yopaz*-liberty:(.+)%.git$", "https://github.com/%1" },
             },
           }
         end)
