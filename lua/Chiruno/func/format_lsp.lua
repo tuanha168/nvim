@@ -1,5 +1,5 @@
 function Chiruno.func.format_lsp()
-  local ignoreLsp = { "vue_ls", "vtsls", "tsgo", "jsonls" }
+  local ignoreLsp = { "lua_ls", "vue_ls", "vtsls", "tsgo", "jsonls" }
   local bufnr = vim.api.nvim_get_current_buf()
 
   local clients = vim.lsp.get_clients({ bufnr = bufnr })
@@ -7,7 +7,7 @@ function Chiruno.func.format_lsp()
 
   for _, client in ipairs(clients) do
     if client:supports_method('textDocument/formatting', bufnr)
-       and not vim.tbl_contains(ignoreLsp, client.name) then
+        and not vim.tbl_contains(ignoreLsp, client.name) then
       has_formatter = true
       break
     end
