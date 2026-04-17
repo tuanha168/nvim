@@ -23,14 +23,14 @@ require("which-key").add {
   },
   { "<Leader>cc", function() require("config.opencode_ensure").ensure_server() end, mode = { "n", "t" }, desc = "Start opencode server" },
   {
-    "<Leader>go",
+    "<Leader>cc",
     function()
       if require("config.opencode_ensure").ensure_server_sync() then
         return require("opencode").operator("@this ")
       end
       return ""
     end,
-    mode = { "n", "x" },
+    mode = { "x" },
     desc = "Add range to opencode",
     expr = true
   },
