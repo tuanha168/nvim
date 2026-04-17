@@ -114,4 +114,8 @@ require("which-key").add {
 
   -- snippet
   { "gl", function() Chiruno.func.operatorfunc_lua "console_log" end, mode = { "n", "x" } },
+
+  -- treesitter
+  { "<S-Up>", "an", desc = "Select around node", mode = { "x" }, expr = true },
+  { "<S-Down>", "in", desc = "Select inner node", mode = { "x" }, expr = true },
 }
