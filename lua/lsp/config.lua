@@ -5,7 +5,7 @@ vim.lsp.enable({
   'tailwindcss',
   'jsonls',
   'yamlls',
-  'tsgo',
+  -- 'tsgo',
   'vtsls',
   'pyright',
   'qmlls',
