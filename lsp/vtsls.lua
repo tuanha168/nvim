@@ -69,7 +69,7 @@ return {
       if enabled == client.name then
         old_on_attach(client, buf)
       else
-        vim.lsp.buf_detach_client(0, client.id)
+        vim.lsp.buf_detach_client(buf, client.id)
       end
     end
   end,
