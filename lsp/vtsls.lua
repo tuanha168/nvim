@@ -68,8 +68,6 @@ return {
 
       if enabled == client.name then
         old_on_attach(client, buf)
-      else
-        client:stop(true)
       end
     end
   end,
