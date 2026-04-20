@@ -17,6 +17,8 @@ local keys = {
   },
 }
 
+require("which-key").add(keys)
+
 local lib = require "heirline-components.all"
 local CodeCompanion = {
   static = {
