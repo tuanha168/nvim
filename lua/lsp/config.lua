@@ -10,7 +10,7 @@ vim.lsp.enable {
   "pyright",
   "qmlls",
   "copilot",
-  "csharp-ls",
+  "csharp_ls",
 }
 
 vim.diagnostic.config {
