@@ -92,6 +92,14 @@ vim.api.nvim_create_autocmd({ "InsertEnter", "CmdlineEnter" }, {
       -- elsewhere in your config, without redefining it, due to `opts_extend`
       sources = {
         default = { "lsp", "path", "snippets", "buffer" },
+        per_filetype = {
+          sql = { "dadbod" },
+          mysql = { "dadbod" },
+          plsql = { "dadbod" },
+        },
+        providers = {
+          dadbod = { module = "vim_dadbod_completion.blink" },
+        },
       },
 
       -- (Default) Rust fuzzy matcher for typo resistance and significantly better performance
