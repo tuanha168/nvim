@@ -180,6 +180,10 @@
       "rev": "a6975e7c1ee157615bbc80fc25e4392f71c344d4",
       "src": "https://github.com/mg979/vim-visual-multi"
     },
+    "wayfinder.nvim": {
+      "rev": "455450be2abe3e55143adb26350728a2f5ad8e73",
+      "src": "https://github.com/error311/wayfinder.nvim"
+    },
     "which-key.nvim": {
       "rev": "3aab2147e74890957785941f0c1ad87d0a44c15a",
       "src": "https://github.com/folke/which-key.nvim"
