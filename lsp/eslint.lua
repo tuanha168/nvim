@@ -9,8 +9,8 @@ return {
     ".eslintrc.ts",
     ".eslintrc.json",
     ".eslintrc.yml",
-    -- "eslint.config.js",
-    -- "eslint.config.mjs",
-    -- "eslint.config.ts",
+    "eslint.config.js",
+    "eslint.config.mjs",
+    "eslint.config.ts",
   }
 }
