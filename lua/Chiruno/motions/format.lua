@@ -8,7 +8,9 @@ function Chiruno.motions.format_motion(motion_type)
     }
   end
 
-  vim.lsp.buf.format({ range = range })
+  local formatOpts = require "lsp.format"
+  formatOpts.range = range
+  vim.lsp.buf.format(formatOpts)
 end
 
 return Chiruno.motions.format_motion
