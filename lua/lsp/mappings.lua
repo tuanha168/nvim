@@ -16,7 +16,9 @@ return {
         function()
           local ok, conform = pcall(require, "conform")
           if ok and not Chiruno.func.format_lsp() then
-            conform.format()
+            conform.format({}, function(err, did_edit)
+              if err and not did_edit then vim.lsp.buf.format() end
+            end)
             return
           end
         end,

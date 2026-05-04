@@ -1,0 +1,3 @@
+return {
+  async = false,
+}
