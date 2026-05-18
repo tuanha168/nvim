@@ -6,6 +6,7 @@ vim.pack.add {
 vim.api.nvim_create_autocmd("BufRead", {
   callback = function()
     local ft = require "Comment.ft"
+    ft.set("conf", "# %s")
     ft.set("dosini", "# %s")
     ft.set("hyprlang", "# %s")
     require("Comment").setup({
