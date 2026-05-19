@@ -1,5 +1,18 @@
 vim.pack.add { "https://github.com/nickjvandyke/opencode.nvim" }
 
+---@type opencode.Opts
+vim.g.opencode_opts = {
+  events = {
+    reload = true,
+    permissions = {
+      enabled = true,
+      edits = {
+        enabled = false,
+      },
+    },
+  },
+}
+
 require("which-key").add {
   {
     "<C-a>",
@@ -50,13 +63,6 @@ require("which-key").add {
 
 vim.api.nvim_create_autocmd("BufRead", {
   callback = function()
-    ---@type opencode.Opts
-    vim.g.opencode_opts = {
-      events = {
-        enabled = false
-      }
-    }
-
     local S = require("snacks")
     S.config.picker = S.init.config.merge(S.config.picker, {
       actions = {
