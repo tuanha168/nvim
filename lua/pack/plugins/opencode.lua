@@ -5,7 +5,7 @@ vim.g.opencode_opts = {
   events = {
     reload = true,
     permissions = {
-      enabled = true,
+      enabled = false,
       edits = {
         enabled = false,
       },
