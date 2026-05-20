@@ -1,14 +1,14 @@
-local lazy = require("pack.lazy-load")
+local lazy = require "pack.lazy-load"
 
 lazy.on_event(
   "https://github.com/hat0uma/csvview.nvim",
   "FileType",
   function()
-    require("csvview").setup({
+    require("csvview").setup {
       view = {
-        display_mode = "highlight"
-      }
-    })
+        display_mode = "border",
+      },
+    }
   end,
-  { pattern = "csv" }
+  { pattern = { "csv", "tsv" } }
 )
