@@ -77,7 +77,7 @@ end
 local function connect_to_pid(pid)
   Print(pid)
   require("sidekick.cli.session").setup()
-  require("sidekick.cli.terminal").new({ tool = { name = "opencode" }, pids = { 393800 } }):attach()
+  require("sidekick.cli").select { tool = { name = "opencode" }, pids = { 393800 }, backend = "tmux" }
 end
 
 function M.ensure_server()
