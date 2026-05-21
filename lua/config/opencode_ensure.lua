@@ -62,7 +62,7 @@ local function poll_for_pid_in_window(timeout_ms, interval_ms, on_found, on_time
     interval_ms,
     vim.schedule_wrap(function()
       local pid = find_opencode_pid_in_window()
-      local port = get_port_for_pid(pid)
+      local port = pid and get_port_for_pid(pid) or nil
       if pid and port then
         timer:stop()
         timer:close()
@@ -104,7 +104,7 @@ function M.ensure_server()
   if vim.env.TMUX == nil then return end
 
   local pid = find_opencode_pid_in_window()
-  local port = get_port_for_pid(pid)
+  local port = pid and get_port_for_pid(pid) or nil
   if not port then
     start_server()
     poll_for_pid_in_window(
@@ -125,7 +125,7 @@ function M.ensure_server_sync()
   if vim.env.TMUX == nil then return true end
 
   local pid = find_opencode_pid_in_window()
-  local port = get_port_for_pid(pid)
+  local port = pid and get_port_for_pid(pid) or nil
   if not port then
     start_server()
     local elapsed = 0
@@ -133,11 +133,11 @@ function M.ensure_server_sync()
       vim.loop.sleep(POLL_INTERVAL_MS)
       elapsed = elapsed + POLL_INTERVAL_MS
       pid = find_opencode_pid_in_window()
-      port = get_port_for_pid(pid)
+      port = pid and get_port_for_pid(pid) or nil
     end
   end
 
-  if not pid then
+  if not port then
     vim.notify("Timeout waiting for opencode server to start", vim.log.levels.WARN, { title = "opencode" })
     return false
   end
