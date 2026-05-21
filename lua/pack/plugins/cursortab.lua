@@ -4,7 +4,8 @@ vim.api.nvim_create_autocmd("PackChanged", {
   callback = function(ev)
     local name, kind = ev.data.spec.name, ev.data.kind
     if name == "cursortab.nvim" and (kind == "install" or kind == "update") then
-      vim.system({ "go", "build" }, { cwd = ev.data.path + "/server" })
+      Print(ev.data.path .. "/server")
+      vim.system({ "go", "build" }, { cwd = ev.data.path .. "/server" })
     end
   end,
 })
