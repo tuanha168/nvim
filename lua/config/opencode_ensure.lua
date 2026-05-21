@@ -45,7 +45,7 @@ local function wait_for_connected_server(timeout)
   return vim.wait(timeout, function() return is_connected() end, 100)
 end
 
-local function poll_for_port_in_window(timeout_ms, interval_ms, on_found, on_timeout)
+local function poll_for_pid_in_window(timeout_ms, interval_ms, on_found, on_timeout)
   local timer = vim.uv.new_timer()
   if not timer then
     on_timeout()
@@ -56,11 +56,11 @@ local function poll_for_port_in_window(timeout_ms, interval_ms, on_found, on_tim
     0,
     interval_ms,
     vim.schedule_wrap(function()
-      local port = find_opencode_pid_in_window()
-      if port then
+      local pid = find_opencode_pid_in_window()
+      if pid then
         timer:stop()
         timer:close()
-        on_found(port)
+        on_found(pid)
         return
       end
       elapsed = elapsed + interval_ms
@@ -84,10 +84,10 @@ function M.ensure_server()
 
   if vim.env.TMUX == nil then return end
 
-  local port = find_opencode_pid_in_window()
-  if not port then
+  local pid = find_opencode_pid_in_window()
+  if not pid then
     start_server()
-    poll_for_port_in_window(
+    poll_for_pid_in_window(
       SPAWN_TIMEOUT_MS,
       POLL_INTERVAL_MS,
       connect_to_pid,
@@ -96,14 +96,13 @@ function M.ensure_server()
     return
   end
 
-  connect_to_pid(port)
+  connect_to_pid(pid)
 end
 
 function M.ensure_server_sync()
   if is_connected() then return true end
 
   if vim.env.TMUX == nil then
-    start_default_split()
     return true
   end
 
