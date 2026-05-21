@@ -19,7 +19,7 @@ lazy.on_event("https://github.com/cursortab/cursortab.nvim", "BufRead", function
       -- url = "http://localhost:8000",
     },
     keymaps = {
-      accept = "<leader>f",
+      accept = "<C-f>",
     },
     ui = {
       jump = {
