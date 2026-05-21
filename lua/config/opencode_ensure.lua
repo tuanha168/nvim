@@ -39,7 +39,7 @@ local function find_opencode_pid_in_window()
   return opencode_pid
 end
 
-local function is_connected() return require("sidekick.cli.state").get({ attached = true })[1] ~= nil end
+local function is_connected() return require("sidekick.cli.session").attached()[1] ~= nil end
 
 local function wait_for_connected_server(timeout)
   return vim.wait(timeout, function() return is_connected() end, 100)
@@ -74,9 +74,7 @@ local function poll_for_pid_in_window(timeout_ms, interval_ms, on_found, on_time
 end
 
 -- Connect to a specific port, bypassing cwd-based server selection.
-local function connect_to_pid(pid)
-  require("sidekick.cli.state").attach { started = true, terminal = { pids = { pid } } }
-end
+local function connect_to_pid(pid) require("sidekick.cli.session").attach { started = true, pids = { pid } } end
 
 function M.ensure_server()
   if is_connected() then return end
