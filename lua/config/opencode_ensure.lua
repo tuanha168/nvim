@@ -76,7 +76,7 @@ end
 -- Connect to a specific port, bypassing cwd-based server selection.
 local function connect_to_pid(pid)
   local state = require "sidekick.cli.state"
-  state.attach { started = true, tool = { name = "opencode" }, terminal = { pids = { pid } } }
+  state.attach { started = true, terminal = { pids = { pid } } }
 end
 
 function M.ensure_server()
