@@ -80,30 +80,14 @@ end
 
 -- Connect to a specific port, bypassing cwd-based server selection.
 local function connect_to_port(port)
-  require("opencode.server")
-    .new("http://localhost:" .. port)
-    :next(function(server) return server:connect() end)
-    :next(function(server)
-      vim.notify("Connected to opencode server (port " .. port .. ")", vim.log.levels.INFO, { title = "opencode" })
-      return server
-    end)
-    :catch(
-      function(err)
-        vim.notify(
-          "Failed to connect to opencode server: " .. (err or "unknown error"),
-          vim.log.levels.WARN,
-          { title = "opencode" }
-        )
-      end
-    )
+  local state = require "sidekick.cli.state"
+  state.attach { started = true }
 end
 
 function M.ensure_server()
   if is_connected() then return end
 
-  if vim.env.TMUX == nil then
-    return
-  end
+  if vim.env.TMUX == nil then return end
 
   local port = find_opencode_port_in_window()
   if not port then
