@@ -31,6 +31,11 @@ local function resolve_opencode_pid(pane_pid)
   return nil
 end
 
+local function get_port_for_pid(pid)
+  local out = vim.fn.system(string.format("lsof -Fpn -w -iTCP -sTCP:LISTEN -p %d -a -P -n", pid))
+  return tonumber(out:match ":(%d+)\n")
+end
+
 local function find_opencode_pid_in_window()
   local pane_pid = find_opencode_pane_pid()
   if not pane_pid then return nil end
@@ -57,7 +62,9 @@ local function poll_for_pid_in_window(timeout_ms, interval_ms, on_found, on_time
     interval_ms,
     vim.schedule_wrap(function()
       local pid = find_opencode_pid_in_window()
-      if pid then
+      local port = get_port_for_pid(pid)
+      Print { pid = pid, port = port }
+      if pid and port then
         timer:stop()
         timer:close()
         on_found(pid)
@@ -71,11 +78,6 @@ local function poll_for_pid_in_window(timeout_ms, interval_ms, on_found, on_time
       end
     end)
   )
-end
-
-local function get_port_for_pid(pid)
-  local out = vim.fn.system(string.format("lsof -Fpn -w -iTCP -sTCP:LISTEN -p %d -a -P -n", pid))
-  return tonumber(out:match ":(%d+)\n")
 end
 
 -- Connect to a specific pid, bypassing cwd-based server selection.
