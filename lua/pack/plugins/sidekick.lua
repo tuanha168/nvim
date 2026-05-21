@@ -4,7 +4,7 @@ vim.api.nvim_create_autocmd("InsertEnter", {
   callback = function()
     require("sidekick").setup {
       nes = {
-        enabled = true,
+        enabled = false,
       },
     }
 
