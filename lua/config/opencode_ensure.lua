@@ -67,6 +67,7 @@ local function poll_for_pid_in_window(timeout_ms, interval_ms, on_found, on_time
       if pid and port then
         timer:stop()
         timer:close()
+        Print { pid = pid, port = port }
         on_found(pid)
         return
       end
