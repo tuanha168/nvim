@@ -13,53 +13,53 @@ vim.g.opencode_opts = {
   },
 }
 
-require("which-key").add {
-  {
-    "<C-a>",
-    function()
-      if require("config.opencode_ensure").ensure_server_sync() then
-        require("opencode").ask("@this: ")
-      end
-    end,
-    mode = { "n", "x" },
-    desc = "Ask opencode…"
-  },
-  {
-    "<C-p>",
-    function()
-      if require("config.opencode_ensure").ensure_server_sync() then
-        require("opencode").select()
-      end
-    end,
-    mode = { "n", "x" },
-    desc = "Execute opencode action…"
-  },
-  { "<Leader>cv", function() require("config.opencode_ensure").ensure_server() end, mode = { "n", "v", "t" }, desc = "Start opencode server" },
-  {
-    "<Leader>cc",
-    function()
-      if require("config.opencode_ensure").ensure_server_sync() then
-        return require("opencode").operator("@this ")
-      end
-      return ""
-    end,
-    mode = { "n", "x" },
-    desc = "Add range to opencode",
-    expr = true
-  },
-  {
-    "<Leader>cc",
-    function()
-      if require("config.opencode_ensure").ensure_server_sync() then
-        return require("opencode").operator("@this ") .. "_"
-      end
-      return ""
-    end,
-    mode = "n",
-    desc = "Add line to opencode",
-    expr = true
-  },
-}
+-- require("which-key").add {
+--   {
+--     "<C-a>",
+--     function()
+--       if require("config.opencode_ensure").ensure_server_sync() then
+--         require("opencode").ask("@this: ")
+--       end
+--     end,
+--     mode = { "n", "x" },
+--     desc = "Ask opencode…"
+--   },
+--   {
+--     "<C-p>",
+--     function()
+--       if require("config.opencode_ensure").ensure_server_sync() then
+--         require("opencode").select()
+--       end
+--     end,
+--     mode = { "n", "x" },
+--     desc = "Execute opencode action…"
+--   },
+--   { "<Leader>cv", function() require("config.opencode_ensure").ensure_server() end, mode = { "n", "v", "t" }, desc = "Start opencode server" },
+--   {
+--     "<Leader>cc",
+--     function()
+--       if require("config.opencode_ensure").ensure_server_sync() then
+--         return require("opencode").operator("@this ")
+--       end
+--       return ""
+--     end,
+--     mode = { "n", "x" },
+--     desc = "Add range to opencode",
+--     expr = true
+--   },
+--   {
+--     "<Leader>cc",
+--     function()
+--       if require("config.opencode_ensure").ensure_server_sync() then
+--         return require("opencode").operator("@this ") .. "_"
+--       end
+--       return ""
+--     end,
+--     mode = "n",
+--     desc = "Add line to opencode",
+--     expr = true
+--   },
+-- }
 
 vim.api.nvim_create_autocmd("BufRead", {
   callback = function()

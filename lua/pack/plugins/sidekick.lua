@@ -21,6 +21,51 @@ vim.api.nvim_create_autocmd("InsertEnter", {
         expr = true,
         desc = "Sidekick Update Suggestions",
       },
+
+      {
+        "<C-a>",
+        function()
+          if require("config.opencode_ensure").ensure_server_sync() then
+            require("sidekick.cli").send { msg = "{this}" }
+          end
+        end,
+        mode = { "n", "x" },
+        desc = "Ask opencode…",
+      },
+      {
+        "<C-p>",
+        function()
+          if require("config.opencode_ensure").ensure_server_sync() then require("sidekick.cli").prompt() end
+        end,
+        mode = { "n", "x" },
+        desc = "Execute opencode action…",
+      },
+      {
+        "<Leader>cv",
+        function() require("config.opencode_ensure").ensure_server() end,
+        mode = { "n", "v", "t" },
+        desc = "Start opencode server",
+      },
+      {
+        "<Leader>cc",
+        function()
+          if require("config.opencode_ensure").ensure_server_sync() then
+            require("sidekick.cli").send({ msg = "{line}" })
+          end
+        end,
+        mode = { "x" },
+        desc = "Add range to opencode",
+      },
+      {
+        "<Leader>cc",
+        function()
+          if require("config.opencode_ensure").ensure_server_sync() then
+            require("sidekick.cli").send({ msg = "{line}" })
+          end
+        end,
+        mode = "n",
+        desc = "Add line to opencode",
+      },
     }
   end,
   once = true,
