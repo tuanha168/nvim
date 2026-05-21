@@ -44,7 +44,7 @@ local function find_opencode_port_in_window()
   return get_port_for_pid(opencode_pid)
 end
 
-local function is_connected() return require("sidekick.cli.state").get({ attached = true })[1] ~= nil end
+local function is_connected() return require("sidekick.cli.state").get({ attached = true }) ~= nil end
 
 local function wait_for_connected_server(timeout)
   return vim.wait(timeout, function() return is_connected() end, 100)
