@@ -14,9 +14,9 @@ lazy.on_event("https://github.com/cursortab/cursortab.nvim", "BufRead", function
   vim.api.nvim_set_hl(0, "CursorTabAddition", { bg = "#1a3a1a" })
   require("cursortab").setup {
     provider = {
-      type = "copilot",
-      -- type = "zeta-2",
-      -- url = "http://localhost:8000",
+      -- type = "copilot",
+      type = "zeta-2",
+      url = "http://localhost:8000",
     },
     keymaps = {
       accept = "<C-f>",
