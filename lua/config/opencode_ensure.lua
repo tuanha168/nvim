@@ -74,7 +74,10 @@ local function poll_for_pid_in_window(timeout_ms, interval_ms, on_found, on_time
 end
 
 -- Connect to a specific port, bypassing cwd-based server selection.
-local function connect_to_pid(pid) require("sidekick.cli.terminal").new({})  end
+local function connect_to_pid(pid)
+  require("sidekick.cli.session").setup()
+  require("sidekick.cli.terminal").new { tool = { name = "opencode" }, pids = { pid } }
+end
 
 function M.ensure_server()
   if is_connected() then return end
