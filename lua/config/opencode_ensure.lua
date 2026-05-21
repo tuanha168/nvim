@@ -75,6 +75,7 @@ end
 
 -- Connect to a specific port, bypassing cwd-based server selection.
 local function connect_to_pid(pid)
+  Print(pid)
   require("sidekick.cli.session").setup()
   require("sidekick.cli.terminal").new { tool = { name = "opencode" }, pids = { pid } }
 end
