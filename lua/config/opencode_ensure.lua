@@ -75,9 +75,7 @@ end
 
 -- Connect to a specific port, bypassing cwd-based server selection.
 local function connect_to_pid(pid)
-  Print(pid)
-  require("sidekick.cli.session").setup()
-  require("sidekick.cli").select { tool = { name = "opencode" }, pids = { 393800 }, backend = "tmux" }
+  require("sidekick.cli").select { filter = { name = "opencode" } }
 end
 
 function M.ensure_server()
