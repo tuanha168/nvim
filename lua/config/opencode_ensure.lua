@@ -45,7 +45,7 @@ local function find_opencode_port_in_window()
 end
 
 local function is_connected()
-  return require("sidekick.cli.state").is { tool = { name = "opencode" } }, { attached = true } ~= nil
+  return require("sidekick.cli.state").is({ tool = { name = "opencode" }, { attached = true } }, { attached = true }) ~= nil
 end
 
 local function wait_for_connected_server(timeout)
