@@ -19,7 +19,7 @@ lazy.on_event("https://github.com/cursortab/cursortab.nvim", "BufRead", function
       -- url = "http://localhost:8000",
     },
     keymaps = {
-      accept = "<C-f>",
+      accept = false,
     },
     ui = {
       jump = {
@@ -30,3 +30,11 @@ lazy.on_event("https://github.com/cursortab/cursortab.nvim", "BufRead", function
     },
   }
 end)
+
+require("which-key").add({
+  {
+    "<C-f>",
+    function() require("cursortab.events").accept() end,
+    desc = "Move to next buffer",
+  },
+})
