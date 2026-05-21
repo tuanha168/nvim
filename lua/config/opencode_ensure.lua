@@ -73,9 +73,28 @@ local function poll_for_pid_in_window(timeout_ms, interval_ms, on_found, on_time
   )
 end
 
--- Connect to a specific port, bypassing cwd-based server selection.
+local function get_port_for_pid(pid)
+  local out = vim.fn.system(string.format("lsof -Fpn -w -iTCP -sTCP:LISTEN -p %d -a -P -n", pid))
+  return tonumber(out:match ":(%d+)\n")
+end
+
+-- Connect to a specific pid, bypassing cwd-based server selection.
 local function connect_to_pid(pid)
-  require("sidekick.cli").select { filter = { name = "opencode" } }
+  local Session = require "sidekick.cli.session"
+  local base_url = ("http://localhost:%d"):format(get_port_for_pid(pid))
+  local session = Session.new {
+    id = "opencode-" .. pid,
+    pid = pid,
+    tool = "opencode",
+    pids = { pid },
+    mux_session = tostring(pid),
+    base_url = base_url,
+    backend = "opencode",
+    started = true,
+  }
+
+  local State = require "sidekick.cli.state"
+  State.attach { session = session, tool = session.tool }
 end
 
 function M.ensure_server()
