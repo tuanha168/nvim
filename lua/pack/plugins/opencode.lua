@@ -1,17 +1,17 @@
-vim.pack.add { "https://github.com/nickjvandyke/opencode.nvim" }
+-- vim.pack.add { "https://github.com/nickjvandyke/opencode.nvim" }
 
----@type opencode.Opts
-vim.g.opencode_opts = {
-  events = {
-    reload = true,
-    permissions = {
-      enabled = false,
-      edits = {
-        enabled = false,
-      },
-    },
-  },
-}
+-- ---@type opencode.Opts
+-- vim.g.opencode_opts = {
+--   events = {
+--     reload = true,
+--     permissions = {
+--       enabled = false,
+--       edits = {
+--         enabled = false,
+--       },
+--     },
+--   },
+-- }
 
 -- require("which-key").add {
 --   {
@@ -61,42 +61,42 @@ vim.g.opencode_opts = {
 --   },
 -- }
 
-vim.api.nvim_create_autocmd("BufRead", {
-  callback = function()
-    local S = require("snacks")
-    S.config.picker = S.init.config.merge(S.config.picker, {
-      actions = {
-        opencode_send = function(...)
-          local ok, opencode = pcall(require, "opencode")
-          if ok then
-            return opencode.snacks_picker_send(...)
-          end
-        end,
-      },
-      win = {
-        input = {
-          keys = {
-            ["<a-a>"] = { "opencode_send", mode = { "n", "i" } },
-          },
-        },
-      },
-    })
+-- vim.api.nvim_create_autocmd("BufRead", {
+--   callback = function()
+--     local S = require("snacks")
+--     S.config.picker = S.init.config.merge(S.config.picker, {
+--       actions = {
+--         opencode_send = function(...)
+--           local ok, opencode = pcall(require, "opencode")
+--           if ok then
+--             return opencode.snacks_picker_send(...)
+--           end
+--         end,
+--       },
+--       win = {
+--         input = {
+--           keys = {
+--             ["<a-a>"] = { "opencode_send", mode = { "n", "i" } },
+--           },
+--         },
+--       },
+--     })
 
-    -- local cfg = require("opencode.config")
-    -- cfg.opts.ask.snacks.win.keys.i_cr = {
-    --   "<CR>",
-    --   function(win)
-    --     local text = win:text() .. "\\n"
-    --     vim.schedule(function()
-    --       vim.api.nvim_buf_set_lines(win.buf, 0, -1, false, { text })
-    --       win:execute("confirm")
-    --     end)
-    --   end,
-    --   mode = "i",
-    --   desc = "submit with newline",
-    -- }
+--     -- local cfg = require("opencode.config")
+--     -- cfg.opts.ask.snacks.win.keys.i_cr = {
+--     --   "<CR>",
+--     --   function(win)
+--     --     local text = win:text() .. "\\n"
+--     --     vim.schedule(function()
+--     --       vim.api.nvim_buf_set_lines(win.buf, 0, -1, false, { text })
+--     --       win:execute("confirm")
+--     --     end)
+--     --   end,
+--     --   mode = "i",
+--     --   desc = "submit with newline",
+--     -- }
 
-    vim.o.autoread = true -- Required for `opts.events.reload`
-  end,
-  once = true,
-})
+--     vim.o.autoread = true -- Required for `opts.events.reload`
+--   end,
+--   once = true,
+-- })
