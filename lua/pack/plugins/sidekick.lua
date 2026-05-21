@@ -1,17 +1,11 @@
 vim.pack.add { "https://github.com/folke/sidekick.nvim" }
 
-vim.api.nvim_create_autocmd("InsertEnter", {
+vim.api.nvim_create_autocmd("BufRead", {
   callback = function()
     require("sidekick").setup {
       nes = {
         enabled = true,
       },
-      cli = {
-        mux = {
-          backend = "tmux",
-          enabled = true,
-        }
-      }
     }
 
     require("which-key").add {
