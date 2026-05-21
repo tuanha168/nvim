@@ -15,7 +15,7 @@ lazy.on_event("https://github.com/cursortab/cursortab.nvim", "BufRead", function
   require("cursortab").setup {
     provider = {
       -- type = "copilot",
-      type = "zeta-2",
+      type = "inline",
       url = "http://localhost:8000",
     },
     keymaps = {
