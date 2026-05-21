@@ -15,8 +15,14 @@ lazy.on_event("https://github.com/cursortab/cursortab.nvim", "BufRead", function
   require("cursortab").setup {
     provider = {
       -- type = "copilot",
-      type = "inline",
+      type = "zeta-2",
       url = "http://localhost:8000",
+      temperature = 0.0, -- Sampling temperature
+      context_size = 0, -- Max input context size in tokens (0 = use max_tokens)
+      max_tokens = 512, -- Max tokens to generate
+      top_k = 50, -- Top-k sampling
+      completion_timeout = 5000, -- Timeout in ms for completion requests
+      max_diff_history_tokens = 512, -- Max tokens for diff history (0 = no limit)
     },
     keymaps = {
       accept = "<C-f>",
