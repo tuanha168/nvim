@@ -39,7 +39,7 @@ local function find_opencode_pid_in_window()
   return opencode_pid
 end
 
-local function is_connected() return require("sidekick.cli.session").attached()[1] ~= nil end
+local function is_connected() return next(require("sidekick.cli.session").attached()) ~= nil end
 
 local function wait_for_connected_server(timeout)
   return vim.wait(timeout, function() return is_connected() end, 100)
