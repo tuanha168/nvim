@@ -63,12 +63,10 @@ local function poll_for_pid_in_window(timeout_ms, interval_ms, on_found, on_time
     vim.schedule_wrap(function()
       local pid = find_opencode_pid_in_window()
       local port = get_port_for_pid(pid)
-      Print { pid = pid, port = port }
       if pid and port then
         timer:stop()
         timer:close()
-        Print { pid = pid, port = port }
-        on_found(pid)
+        on_found(pid, port)
         return
       end
       elapsed = elapsed + interval_ms
@@ -82,9 +80,9 @@ local function poll_for_pid_in_window(timeout_ms, interval_ms, on_found, on_time
 end
 
 -- Connect to a specific pid, bypassing cwd-based server selection.
-local function connect_to_pid(pid)
+local function connect_to_pid(pid, port)
   local Session = require "sidekick.cli.session"
-  local base_url = ("http://localhost:%d"):format(get_port_for_pid(pid))
+  local base_url = ("http://localhost:%d"):format(port)
   local session = Session.new {
     id = "opencode-" .. pid,
     pid = pid,
@@ -106,7 +104,8 @@ function M.ensure_server()
   if vim.env.TMUX == nil then return end
 
   local pid = find_opencode_pid_in_window()
-  if not pid then
+  local port = get_port_for_pid(pid)
+  if not port then
     start_server()
     poll_for_pid_in_window(
       SPAWN_TIMEOUT_MS,
@@ -117,7 +116,7 @@ function M.ensure_server()
     return
   end
 
-  connect_to_pid(pid)
+  connect_to_pid(pid, port)
 end
 
 function M.ensure_server_sync()
@@ -126,13 +125,15 @@ function M.ensure_server_sync()
   if vim.env.TMUX == nil then return true end
 
   local pid = find_opencode_pid_in_window()
-  if not pid then
+  local port = get_port_for_pid(pid)
+  if not port then
     start_server()
     local elapsed = 0
-    while not pid and elapsed < SPAWN_TIMEOUT_MS do
+    while not port and elapsed < SPAWN_TIMEOUT_MS do
       vim.loop.sleep(POLL_INTERVAL_MS)
       elapsed = elapsed + POLL_INTERVAL_MS
       pid = find_opencode_pid_in_window()
+      port = get_port_for_pid(pid)
     end
   end
 
@@ -141,7 +142,7 @@ function M.ensure_server_sync()
     return false
   end
 
-  connect_to_pid(pid)
+  connect_to_pid(pid, port)
 
   local success = wait_for_connected_server(CONNECT_TIMEOUT_MS)
   if not success then vim.notify("Timeout waiting for opencode server", vim.log.levels.WARN, { title = "opencode" }) end
