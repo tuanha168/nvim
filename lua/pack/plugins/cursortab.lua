@@ -18,5 +18,8 @@ lazy.on_event("https://github.com/cursortab/cursortab.nvim", "BufRead", function
       -- type = "zeta-2",
       -- url = "http://localhost:8000",
     },
+    keymaps = {
+      accept = "<C-f>",
+    },
   }
 end)
