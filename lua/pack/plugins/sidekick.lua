@@ -6,6 +6,12 @@ vim.api.nvim_create_autocmd("InsertEnter", {
       nes = {
         enabled = true,
       },
+      cli = {
+        mux = {
+          backend = "tmux",
+          enabled = true,
+        }
+      }
     }
 
     require("which-key").add {
