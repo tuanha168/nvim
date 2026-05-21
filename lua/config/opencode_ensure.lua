@@ -98,13 +98,10 @@ local function connect_to_port(port)
     )
 end
 
-local function start_default_split() require("opencode.server.discovery").get() end
-
 function M.ensure_server()
   if is_connected() then return end
 
   if vim.env.TMUX == nil then
-    start_default_split()
     return
   end
 
