@@ -75,8 +75,7 @@ end
 
 -- Connect to a specific port, bypassing cwd-based server selection.
 local function connect_to_pid(pid)
-  local state = require "sidekick.cli.state"
-  state.attach { started = true, terminal = { pids = { pid } } }
+  require("sidekick.cli.state").attach { started = true, terminal = { pids = { pid } } }
 end
 
 function M.ensure_server()
@@ -102,9 +101,7 @@ end
 function M.ensure_server_sync()
   if is_connected() then return true end
 
-  if vim.env.TMUX == nil then
-    return true
-  end
+  if vim.env.TMUX == nil then return true end
 
   local pid = find_opencode_pid_in_window()
   if not pid then
