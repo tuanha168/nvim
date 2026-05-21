@@ -8,20 +8,20 @@ vim.api.nvim_create_autocmd("InsertEnter", {
       },
     }
 
-    require("which-key").add {
-      {
-        "<C-f>",
-        function() require("sidekick").nes_jump_or_apply() end,
-        expr = true,
-        desc = "Goto/Apply Next Edit Suggestion",
-      },
-      {
-        "<C-g>",
-        function() require("sidekick.nes").update() end,
-        expr = true,
-        desc = "Sidekick Update Suggestions",
-      },
-    }
+    -- require("which-key").add {
+    --   {
+    --     "<C-f>",
+    --     function() require("sidekick").nes_jump_or_apply() end,
+    --     expr = true,
+    --     desc = "Goto/Apply Next Edit Suggestion",
+    --   },
+    --   {
+    --     "<C-g>",
+    --     function() require("sidekick.nes").update() end,
+    --     expr = true,
+    --     desc = "Sidekick Update Suggestions",
+    --   },
+    -- }
   end,
   once = true,
 })
