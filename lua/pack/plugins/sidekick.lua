@@ -21,17 +21,6 @@ vim.api.nvim_create_autocmd("InsertEnter", {
         expr = true,
         desc = "Sidekick Update Suggestions",
       },
-
-      {
-        "<C-a>",
-        function()
-          if require("config.opencode_ensure").ensure_server_sync() then
-            require("sidekick.cli").send { msg = "{this}" }
-          end
-        end,
-        mode = { "n", "x" },
-        desc = "Ask opencode…",
-      },
       {
         "<C-p>",
         function()
