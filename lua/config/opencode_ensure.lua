@@ -63,6 +63,7 @@ local function poll_for_pid_in_window(timeout_ms, interval_ms, on_found, on_time
     vim.schedule_wrap(function()
       local pid = find_opencode_pid_in_window()
       local port = get_port_for_pid(pid)
+      Print { pid = pid, port = port }
       if pid and port then
         timer:stop()
         timer:close()
