@@ -18,8 +18,10 @@ lazy.on_event("https://github.com/cursortab/cursortab.nvim", "BufRead", function
       -- type = "zeta-2",
       -- url = "http://localhost:8000",
     },
-    keymaps = {
-      accept = "<C-f>",
-    },
+	  keymaps = {
+		  accept = "<C-f>", -- Keymap to accept completion, or false to disable
+		  partial_accept = "<C-S-f>", -- Keymap to partially accept completion, or false to disable
+		  trigger = false, -- Keymap to manually trigger completion, or false to disable (default: false)
+	  },
   }
 end)
