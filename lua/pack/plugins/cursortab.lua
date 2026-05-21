@@ -34,7 +34,7 @@ end)
 require("which-key").add({
   {
     "<C-f>",
-    function() require("cursortab.events").accept() end,
+    function() Print(require("cursortab.events").is_completing()) end,
     desc = "Move to next buffer",
   },
 })
