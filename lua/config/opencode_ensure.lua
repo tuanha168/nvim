@@ -4,12 +4,19 @@ local SPAWN_TIMEOUT_MS = 30000
 local CONNECT_TIMEOUT_MS = 5000
 local POLL_INTERVAL_MS = 500
 
+local function set_tmux_option(pane_id, option, value)
+  vim.fn.system(string.format("tmux set-option -t %s -p %s %s", pane_id, option, value))
+end
+
 local function start_server()
   local cwd = vim.fn.getcwd()
   local pane_id =
     vim.fn.system(string.format("tmux split-window -d -P -F '#{pane_id}' -h -l 35%% -c %q 'opencode --port'", cwd))
   pane_id = vim.trim(pane_id)
-  if pane_id ~= "" then vim.fn.system(string.format("tmux set-option -t %s -p allow-passthrough off", pane_id)) end
+  if pane_id ~= "" then
+    set_tmux_option(pane_id, "extended-keys", "on")
+    set_tmux_option(pane_id, "allow-passthrough", "off")
+  end
 end
 
 local function find_opencode_pane_pid()
