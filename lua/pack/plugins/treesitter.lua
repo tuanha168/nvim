@@ -50,7 +50,7 @@ local parsers = {
   "editorconfig",
   "git_rebase",
   "gitattributes",
-  "gitcommit",
+  -- "gitcommit",
   "gitignore",
   "hcl",
   "dtd",
