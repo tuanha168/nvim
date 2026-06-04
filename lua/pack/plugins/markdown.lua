@@ -128,31 +128,6 @@ local function upsert_marked_block(lines, start_marker, end_marker, block)
   return updated
 end
 
-local function remove_exact_block(lines, block)
-  local updated = {}
-  local i = 1
-
-  while i <= #lines do
-    local matched = true
-
-    for j, expected in ipairs(block) do
-      if lines[i + j - 1] ~= expected then
-        matched = false
-        break
-      end
-    end
-
-    if matched then
-      i = i + #block
-    else
-      updated[#updated + 1] = lines[i]
-      i = i + 1
-    end
-  end
-
-  return updated
-end
-
 local function ensure_firefox_peek_userstyle()
   local profile_dir = resolve_firefox_profile_dir()
 
@@ -176,21 +151,10 @@ local function ensure_firefox_peek_userstyle()
     "}",
     css_end_marker,
   }
-  local legacy_css_block = {
-    "/* peek.nvim userstyle */",
-    '@-moz-document url-prefix("http://localhost"), url-prefix("http://127.0.0.1") {',
-    "  body.peek-body .markdown-body {",
-    "    max-width: none !important;",
-    "    padding: 24px !important;",
-    "  }",
-    "}",
-  }
-
   local user_js_lines = vim.fn.filereadable(user_js) == 1 and vim.fn.readfile(user_js) or {}
   writefile_if_changed(ensure_firefox_pref(user_js_lines, firefox_pref), user_js)
 
   local css_lines = vim.fn.filereadable(user_css) == 1 and vim.fn.readfile(user_css) or {}
-  css_lines = remove_exact_block(css_lines, legacy_css_block)
   vim.fn.mkdir(chrome_dir, "p")
   writefile_if_changed(upsert_marked_block(css_lines, css_start_marker, css_end_marker, css_block), user_css)
 end
