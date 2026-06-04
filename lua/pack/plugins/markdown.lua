@@ -205,8 +205,6 @@ vim.api.nvim_create_autocmd("PackChanged", {
   end,
 })
 
-      ensure_firefox_peek_userstyle()
-
 lazy.on_event("https://github.com/toppair/peek.nvim", "FileType", function()
   require("peek").setup {
     app = "browser",
