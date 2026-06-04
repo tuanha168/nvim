@@ -1,4 +1,4 @@
-local lazy = require("pack.lazy-load")
+local lazy = require "pack.lazy-load"
 
 vim.api.nvim_create_autocmd("PackChanged", {
   callback = function(ev)
@@ -9,17 +9,14 @@ vim.api.nvim_create_autocmd("PackChanged", {
   end,
 })
 
-lazy.on_event(
-  "https://github.com/toppair/peek.nvim",
-  "FileType",
-  function()
-    require("peek").setup()
-    vim.api.nvim_create_user_command("PeekOpen", require("peek").open, {})
-    vim.api.nvim_create_user_command("PeekClose", require("peek").close, {})
-  end,
-  { pattern = "markdown" }
-)
+lazy.on_event("https://github.com/toppair/peek.nvim", "FileType", function()
+  require("peek").setup {
+    app = "browser",
+  }
+  vim.api.nvim_create_user_command("PeekOpen", require("peek").open, {})
+  vim.api.nvim_create_user_command("PeekClose", require("peek").close, {})
+end, { pattern = "markdown" })
 
-require("which-key").add({
+require("which-key").add {
   { "<leader>mp", "<cmd>PeekOpen<cr>", desc = "Markdown Preview Open" },
-})
+}
