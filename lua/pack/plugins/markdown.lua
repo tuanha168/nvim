@@ -207,7 +207,7 @@ vim.api.nvim_create_autocmd("PackChanged", {
 
 lazy.on_event("https://github.com/toppair/peek.nvim", "FileType", function()
   require("peek").setup {
-    app = "browser",
+    app = "webview",
   }
   vim.api.nvim_create_user_command("PeekOpen", require("peek").open, {})
   vim.api.nvim_create_user_command("PeekClose", require("peek").close, {})
