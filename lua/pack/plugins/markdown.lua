@@ -180,7 +180,7 @@ local function ensure_firefox_peek_userstyle()
     "/* peek.nvim userstyle */",
     '@-moz-document url-prefix("http://localhost"), url-prefix("http://127.0.0.1") {',
     "  body.peek-body .markdown-body {",
-    "    max-width: 80vw !important;",
+    "    max-width: none !important;",
     "    padding: 24px !important;",
     "  }",
     "}",
