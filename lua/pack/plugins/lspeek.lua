@@ -3,8 +3,8 @@ local plugin = "https://github.com/r4ppz/lspeek.nvim"
 
 local opts = {
   window = {
-    width = 70,
-    height = 15,
+    width = 80,
+    height = 25,
     border = "single",
   },
   stack_limit = 5,
