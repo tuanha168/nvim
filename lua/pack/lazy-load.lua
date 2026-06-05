@@ -1,4 +1,5 @@
 local M = {}
+local loaded_keys = {}
 
 --- @param plugin string|table
 --- @return table
@@ -7,6 +8,14 @@ local function to_spec_list(plugin)
     return plugin
   end
   return { plugin }
+end
+
+local function call_rhs(rhs, ...)
+  if type(rhs) == "function" then
+    return rhs(...)
+  end
+
+  vim.api.nvim_feedkeys(vim.keycode(rhs), "n", false)
 end
 
 --- Lazy-load a plugin via autocmd (fires once).
@@ -46,6 +55,33 @@ function M.on_command(plugin, cmd, setup_fn, cmd_opts)
     end
     vim.cmd(call)
   end, opts)
+end
+
+--- Lazy-load a plugin via stub keymaps.
+--- @param plugin string|table  URL string, {src=,version=} table, or list of specs
+--- @param keys table[]
+--- @param setup_fn? fun()
+function M.on_key(plugin, keys, setup_fn)
+  local plugin_key = vim.inspect(to_spec_list(plugin))
+
+  local function load()
+    if loaded_keys[plugin_key] then return end
+
+    vim.pack.add(to_spec_list(plugin), { load = true })
+    if setup_fn then setup_fn() end
+    loaded_keys[plugin_key] = true
+  end
+
+  for _, key in ipairs(keys) do
+    local lhs, rhs = key[1], key[2]
+    local opts = vim.tbl_extend("force", {}, key)
+    opts[1], opts[2], opts.mode = nil, nil, nil
+
+    vim.keymap.set(key.mode or "n", lhs, function(...)
+      load()
+      return call_rhs(rhs, ...)
+    end, opts)
+  end
 end
 
 return M

@@ -54,6 +54,10 @@
       "rev": "ff2cbcba459b637ec3fd165a2be59b7bbaeedf0d",
       "src": "https://github.com/folke/lazydev.nvim"
     },
+    "lspeek.nvim": {
+      "rev": "c35efe76f394157a25363028bc8e26f93ecaba78",
+      "src": "https://github.com/r4ppz/lspeek.nvim"
+    },
     "mason.nvim": {
       "rev": "8e921c2b68571e978db5d4d3fef9c9a7f8755473",
       "src": "https://github.com/williamboman/mason.nvim"

@@ -169,14 +169,16 @@ vim.api.nvim_create_autocmd("PackChanged", {
   end,
 })
 
-lazy.on_event("https://github.com/toppair/peek.nvim", "FileType", function()
+local peek_plugin = "https://github.com/toppair/peek.nvim"
+
+local function setup_peek()
   require("peek").setup {
     app = "browser",
   }
   vim.api.nvim_create_user_command("PeekOpen", require("peek").open, {})
   vim.api.nvim_create_user_command("PeekClose", require("peek").close, {})
-end, { pattern = "markdown" })
+end
 
-require("which-key").add {
-  { "<leader>mp", "<cmd>PeekOpen<cr>", desc = "Markdown Preview Open" },
-}
+lazy.on_key(peek_plugin, {
+  { "<leader>mp", function() require("peek").open() end, desc = "Markdown Preview Open" },
+}, setup_peek)
