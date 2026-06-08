@@ -88,35 +88,35 @@ return {
     },
     config = function(_, opts) require("nvim-treesitter.configs").setup(opts) end,
   },
-  {
-    "hiphish/rainbow-delimiters.nvim",
-    event = "BufRead",
-    dependencies = { "nvim-treesitter/nvim-treesitter" },
-    config = function()
-      local rainbow_delimiters = require "rainbow-delimiters"
+  -- {
+  --   "hiphish/rainbow-delimiters.nvim",
+  --   event = "BufRead",
+  --   dependencies = { "nvim-treesitter/nvim-treesitter" },
+  --   config = function()
+  --     local rainbow_delimiters = require "rainbow-delimiters"
 
-      vim.g.rainbow_delimiters = {
-        strategy = {
-          [""] = rainbow_delimiters.strategy["global"],
-        },
-        query = {
-          [""] = "rainbow-delimiters",
-          lua = "rainbow-blocks",
-          vue = "rainbow-blocks",
-        },
-        highlight = {
-          "RainbowDelimiterRed",
-          "RainbowDelimiterYellow",
-          "RainbowDelimiterGreen",
-          "RainbowDelimiterOrange",
-          "RainbowDelimiterBlue",
-          "RainbowDelimiterViolet",
-          "RainbowDelimiterCyan",
-        },
-        -- blacklist = { "c", "cpp" },
-      }
-    end,
-  },
+  --     vim.g.rainbow_delimiters = {
+  --       strategy = {
+  --         [""] = rainbow_delimiters.strategy["global"],
+  --       },
+  --       query = {
+  --         [""] = "rainbow-delimiters",
+  --         lua = "rainbow-blocks",
+  --         vue = "rainbow-blocks",
+  --       },
+  --       highlight = {
+  --         "RainbowDelimiterRed",
+  --         "RainbowDelimiterYellow",
+  --         "RainbowDelimiterGreen",
+  --         "RainbowDelimiterOrange",
+  --         "RainbowDelimiterBlue",
+  --         "RainbowDelimiterViolet",
+  --         "RainbowDelimiterCyan",
+  --       },
+  --       -- blacklist = { "c", "cpp" },
+  --     }
+  --   end,
+  -- },
 
   { "wellle/targets.vim", event = "BufRead" },
 
@@ -130,8 +130,8 @@ return {
     dependencies = { "nvim-treesitter/nvim-treesitter" },
   },
 
-  {
-    "RRethy/vim-illuminate",
-    event = "BufRead",
-  },
+  -- {
+  --   "RRethy/vim-illuminate",
+  --   event = "BufRead",
+  -- },
 }
