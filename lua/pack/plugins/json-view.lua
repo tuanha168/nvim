@@ -7,4 +7,6 @@ vim.pack.add {
 
 require("videre").setup {
   box_style = "sharp",
+  key_alignment = "left",
+  value_alignment = "left",
 }
