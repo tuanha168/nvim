@@ -42,6 +42,10 @@
       "rev": "dd3f588bacbeb041be6facf1742e42097f62165d",
       "src": "https://github.com/lewis6991/gitsigns.nvim"
     },
+    "graph_view_yaml_parser": {
+      "rev": "ecc5ba0a0b8c3a6eb3e7fa5a2caeeee2263729c3",
+      "src": "https://github.com/Owen-Dechow/graph_view_yaml_parser"
+    },
     "heirline-components.nvim": {
       "rev": "5ea9a16286c01b7c36d58c91903d1f8ff0b7ddeb",
       "src": "https://github.com/zeioth/heirline-components.nvim"
@@ -159,6 +163,10 @@
       "rev": "6b58234de921437836efe27714b2026ed2ee235a",
       "src": "https://github.com/altermo/ultimate-autopair.nvim",
       "version": "'v0.6'"
+    },
+    "videre.nvim": {
+      "rev": "261c234c668bcb327ac1e658ea4dc3db469ecd19",
+      "src": "https://github.com/Owen-Dechow/videre.nvim"
     },
     "vim-dadbod": {
       "rev": "6d1d41da4873a445c5605f2005ad2c68c99d8770",
