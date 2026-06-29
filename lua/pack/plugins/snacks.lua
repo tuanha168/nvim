@@ -146,6 +146,7 @@ local keys = {
               { "^git@yopaz:(.+)$",                   "https://github.com/%1" },
               { "^git@phinx:(.+)$",                   "https://github.com/%1" },
               { "^git@yopaz*-liberty:(.+)$",          "https://github.com/%1" },
+              { "^git@oaklay:(.+)$",          "https://github.com/%1" },
 
               { "^(https?://.*)%.git$",               "%1" },
               { "^git@(.+):(.+)%.git$",               "https://%1/%2" },
