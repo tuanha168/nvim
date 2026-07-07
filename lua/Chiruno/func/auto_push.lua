@@ -9,7 +9,7 @@ function Chiruno.func.auto_push(path)
     -- Prepare log file and command
     local folder_name = vim.fn.fnamemodify(path, ":t")
     local log_file = string.format("%s/%s.log", logsDir, folder_name)
-    local cmd = string.format("git-auto-push %s >> %s &", path, log_file)
+    local cmd = string.format("git-auto-push %s >> %s & disown", path, log_file)
 
     -- Start the job asynchronously
     Print("Auto Pushing", path, cmd)
