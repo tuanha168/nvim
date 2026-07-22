@@ -168,6 +168,10 @@
       "rev": "261c234c668bcb327ac1e658ea4dc3db469ecd19",
       "src": "https://github.com/Owen-Dechow/videre.nvim"
     },
+    "vim-blade": {
+      "rev": "9534101808cc320eef003129a40cab04b026a20c",
+      "src": "https://github.com/jwalton512/vim-blade"
+    },
     "vim-dadbod": {
       "rev": "6d1d41da4873a445c5605f2005ad2c68c99d8770",
       "src": "https://github.com/tpope/vim-dadbod"
