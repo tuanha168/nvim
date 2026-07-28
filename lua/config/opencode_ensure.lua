@@ -10,8 +10,10 @@ end
 
 local function start_server()
   local cwd = vim.fn.getcwd()
-  local pane_id =
-    vim.fn.system(string.format("tmux split-window -d -P -F '#{pane_id}' -h -l 35%% -c %q 'opencode --port'", cwd))
+  local split_cmd = vim.env.OPENCODE_SPLIT == "L"
+      and "tmux split-window -d -P -F '#{pane_id}' -h -b -l 35%% -c %q 'opencode --port'"
+    or "tmux split-window -d -P -F '#{pane_id}' -h -l 35%% -c %q 'opencode --port'"
+  local pane_id = vim.fn.system(string.format(split_cmd, cwd))
   pane_id = vim.trim(pane_id)
   if pane_id ~= "" then
     set_tmux_option(pane_id, "extended-keys", "on")

@@ -9,7 +9,15 @@ return {
       hint = {
         enable = true,
       },
-      diagnostics = { disable = { "missing-fields" } },
+      diagnostics = {
+        disable = { "missing-fields" },
+        globals = { "hl" },
+      },
+      workspace = {
+        library = {
+          "/usr/share/hypr/stubs",
+        },
+      },
     },
   },
 }
