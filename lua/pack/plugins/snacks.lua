@@ -26,7 +26,7 @@ local opts = {
       },
       preview = {
         keys = {
-          ["<C-h>"] = "cycle_win",
+          ["<C-l>"] = "cycle_win",
         },
       },
     },
