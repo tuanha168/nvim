@@ -6,7 +6,7 @@ vim.lsp.enable {
   "jsonls",
   "yamlls",
   'tsgo',
-  -- "vtsls",
+  "vtsls",
   "pyright",
   "qmlls",
   "copilot",
