@@ -16,17 +16,19 @@ local opts = {
     win = {
       input = {
         keys = {
-          ["<C-l>"] = { "cycle_win", mode = { "i", "n" } },
+          ["<C-l>"] = { "focus_preview", mode = { "i", "n" } },
+          ["<C-j>"] = { "focus_list", mode = { "i", "n" } },
         },
       },
       list = {
         keys = {
-          ["<C-l>"] = "cycle_win",
+          ["<C-l>"] = "focus_preview",
+          ["<C-k>"] = "focus_input",
         },
       },
       preview = {
         keys = {
-          ["<C-h>"] = "cycle_win",
+          ["<C-h>"] = "focus_list",
         },
       },
     },
