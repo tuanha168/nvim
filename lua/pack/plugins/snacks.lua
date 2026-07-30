@@ -13,6 +13,36 @@ local opts = {
   picker = {
     enabled = true,
     ui_select = true,
+    win = {
+      input = {
+        keys = {
+          ["<C-l>"] = { "cycle_win", mode = { "i", "n" } },
+        },
+      },
+      list = {
+        keys = {
+          ["<C-l>"] = "cycle_win",
+        },
+      },
+      preview = {
+        keys = {
+          ["<C-h>"] = "cycle_win",
+        },
+      },
+    },
+    sources = {
+      gh_diff = {
+        auto_close = false,
+        win = {
+          preview = {
+            keys = {
+              ["<tab>"] = { "list_down" },
+              ["<s-tab>"] = { "list_up" },
+            },
+          },
+        },
+      },
+    },
   },
   quickfile = { enabled = true },
   scope = { enabled = true },
