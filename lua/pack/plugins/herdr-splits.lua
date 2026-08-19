@@ -1,3 +1,8 @@
+-- Only load inside Herdr
+if vim.env.HERDR_ENV ~= "1" then
+  return
+end
+
 local hs = require("herdr-splits")
 
 hs.setup()

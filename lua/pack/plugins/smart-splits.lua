@@ -1,10 +1,17 @@
+-- Only load outside Herdr (inside Herdr, herdr-splits handles navigation)
+if vim.env.HERDR_ENV == "1" then
+  return
+end
+
 local ss = pcall(require, "smart-splits")
 
 if not ss then
   return
 end
 
-ss.setup()
+ss.setup({
+  multiplexer_integration = "tmux",
+})
 
 vim.keymap.set("n", "<A-h>", ss.resize_left,  { desc = "Resize left" })
 vim.keymap.set("n", "<A-j>", ss.resize_down,  { desc = "Resize down" })
