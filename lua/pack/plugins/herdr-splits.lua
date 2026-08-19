@@ -1,8 +1,4 @@
-local ss = pcall(require, "smart-splits")
-
-if not ss then
-  return
-end
+local ss = require("smart-splits")
 
 ss.setup()
 

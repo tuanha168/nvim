@@ -4,7 +4,7 @@ local gh = function(x) return "https://github.com/" .. x end
 -- Order matters: colorscheme → snacks → which-key
 vim.pack.add({
   gh "Mofiqul/dracula.nvim",
-  gh "mrjones2014/smart-splits.nvim",
+  gh "lmilojevicc/herdr-splits.nvim",
   gh "folke/snacks.nvim",
   gh "folke/which-key.nvim",
   gh "goolord/alpha-nvim",
