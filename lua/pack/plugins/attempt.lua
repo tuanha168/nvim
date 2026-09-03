@@ -40,7 +40,7 @@ lazy.on_key(plugin, {
   },
 }, setup_attempt)
 
-vim.api.nvim_create_autocmd({ "FileType", "BufReadPost" }, {
+vim.api.nvim_create_autocmd("FileType", {
   pattern = "*",
   callback = function(e)
     if vim.b[e.buf].scratch_entered then return end
