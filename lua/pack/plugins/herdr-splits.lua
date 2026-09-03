@@ -5,7 +5,20 @@ end
 
 local hs = require("herdr-splits")
 
-hs.setup()
+hs.setup({
+  auto_sync_herdr = true,
+  unzoom_on_nav = true,
+  nav_at_edge = "wrap",
+})
+
+-- Sync Herdr-side scripts after install/update
+vim.api.nvim_create_autocmd("PackChanged", {
+  callback = function(ev)
+    if ev.data.spec.name == "herdr-splits.nvim" and (ev.data.kind == "install" or ev.data.kind == "update") then
+      hs.sync_herdr()
+    end
+  end,
+})
 
 vim.keymap.set("n", "<A-h>", hs.resize_left,  { desc = "Resize left" })
 vim.keymap.set("n", "<A-j>", hs.resize_down,  { desc = "Resize down" })
