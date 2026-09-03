@@ -8,6 +8,10 @@
       "rev": "6c6a89d5b068b5251c8bdf0dd57bb921bcfeeb09",
       "src": "https://github.com/goolord/alpha-nvim"
     },
+    "attempt.nvim": {
+      "rev": "2f058f02f4e8ad6b7adcf05dabb27f25e2d625e9",
+      "src": "https://github.com/m-demare/attempt.nvim"
+    },
     "better-escape.nvim": {
       "rev": "7e86edafb8c7e73699e0320f225464a298b96d12",
       "src": "https://github.com/max397574/better-escape.nvim",
@@ -17,6 +21,10 @@
       "rev": "78336bc89ee5365633bcf754d93df01678b5c08f",
       "src": "https://github.com/saghen/blink.cmp",
       "version": "1.0.0 - 2.0.0"
+    },
+    "codi.vim": {
+      "rev": "83b9859aaf8066d95892e01eb9c01571a4b325dd",
+      "src": "https://github.com/metakirby5/codi.vim"
     },
     "conform.nvim": {
       "rev": "18aeab3d63d350dcf44d64c462cc489a3412af40",
@@ -86,6 +94,10 @@
       "rev": "9c7b1b90b15bdd69c52f6e31889dbc9987c30ec4",
       "src": "https://github.com/echasnovski/mini.icons"
     },
+    "nui.nvim": {
+      "rev": "10fc361835c856ba4233ef5ea135b919bf3dce97",
+      "src": "https://github.com/MunifTanjim/nui.nvim"
+    },
     "nvim-lastplace": {
       "rev": "0bb6103c506315044872e0f84b1f736c4172bb20",
       "src": "https://github.com/ethanholz/nvim-lastplace"
@@ -138,6 +150,10 @@
     "peek.nvim": {
       "rev": "5820d937d5414baea5f586dc2a3d912a74636e5b",
       "src": "https://github.com/toppair/peek.nvim"
+    },
+    "plenary.nvim": {
+      "rev": "74b06c6c75e4eeb3108ec01852001636d85a932b",
+      "src": "https://github.com/nvim-lua/plenary.nvim"
     },
     "rainbow-delimiters.nvim": {
       "rev": "9bcf34fa65def40aef16bbd60b6155bf76edf57b",
