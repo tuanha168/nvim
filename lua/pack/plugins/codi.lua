@@ -2,8 +2,9 @@ local lazy = require "pack.lazy-load"
 
 local plugin = "https://github.com/metakirby5/codi.vim"
 
+local scratch_node_modules = os.getenv "HOME" .. "/.config/nvim/scratch/node_modules"
+
 local function ts_interpreter_bin()
-  local npm_root = vim.trim(vim.system({ "npm", "root", "-g" }):wait().stdout or "")
   local script = table.concat {
     "const ts=require('typescript');",
     "const vm=require('vm');",
@@ -18,13 +19,13 @@ local function ts_interpreter_bin()
     "},",
     "});",
   }
-  return { "env", "NODE_PATH=" .. npm_root, "node", "-e", script }
+  return { "env", "NODE_PATH=" .. scratch_node_modules, "node", "-e", script }
 end
 
 vim.api.nvim_create_autocmd("PackChanged", {
   callback = function(ev)
     if ev.data.spec.name == "codi.vim" and (ev.data.kind == "install" or ev.data.kind == "update") then
-      vim.system { "sh", "-c", "npm install -g typescript; composer g require psy/psysh:@stable" }
+      vim.system { "sh", "-c", "composer g require psy/psysh:@stable" }
     end
   end,
 })
