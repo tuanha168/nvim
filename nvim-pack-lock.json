@@ -34,10 +34,6 @@
       "rev": "5c22774c3ecc7f8883af5d143b366e45b1f0875d",
       "src": "https://github.com/hat0uma/csvview.nvim"
     },
-    "cursortab.nvim": {
-      "rev": "6c51b98c8687edb536ade9eba47b3ae04974cf4e",
-      "src": "https://github.com/cursortab/cursortab.nvim"
-    },
     "demicolon.nvim": {
       "rev": "a9ca137474b3a02e1d6ac48bfdb1985172e2ec9a",
       "src": "https://github.com/mawkler/demicolon.nvim"
@@ -49,10 +45,6 @@
     "gitsigns.nvim": {
       "rev": "dd3f588bacbeb041be6facf1742e42097f62165d",
       "src": "https://github.com/lewis6991/gitsigns.nvim"
-    },
-    "graph_view_yaml_parser": {
-      "rev": "ecc5ba0a0b8c3a6eb3e7fa5a2caeeee2263729c3",
-      "src": "https://github.com/Owen-Dechow/graph_view_yaml_parser"
     },
     "heirline-components.nvim": {
       "rev": "5ea9a16286c01b7c36d58c91903d1f8ff0b7ddeb",
@@ -66,25 +58,13 @@
       "rev": "94f30cf4e9ac76ddf185a3acd0977be728fa4106",
       "src": "https://github.com/lmilojevicc/herdr-splits.nvim"
     },
-    "high-str.nvim": {
-      "rev": "1cb5e030bb16df52c8428b53dc235466a4eb1d01",
-      "src": "https://github.com/pocco81/high-str.nvim"
-    },
     "lazydev.nvim": {
       "rev": "ff2cbcba459b637ec3fd165a2be59b7bbaeedf0d",
       "src": "https://github.com/folke/lazydev.nvim"
     },
-    "live-server.nvim": {
-      "rev": "f98bae79fd30274524412f7514549d84391d6bb2",
-      "src": "https://github.com/selimacerbas/live-server.nvim"
-    },
     "lspeek.nvim": {
       "rev": "c35efe76f394157a25363028bc8e26f93ecaba78",
       "src": "https://github.com/r4ppz/lspeek.nvim"
-    },
-    "markdown-preview.nvim": {
-      "rev": "faf50b5e233df953a1fd6946d0a8d758bf2e38a1",
-      "src": "https://github.com/selimacerbas/markdown-preview.nvim"
     },
     "mason.nvim": {
       "rev": "8e921c2b68571e978db5d4d3fef9c9a7f8755473",
@@ -147,14 +127,6 @@
       "rev": "7d8dad2c837fcdf2e65997e68657c1a21c568074",
       "src": "https://github.com/nvim-tree/nvim-web-devicons"
     },
-    "opencode.nvim": {
-      "rev": "05547308bb931dc5da80a81d282f18e581788752",
-      "src": "https://github.com/nickjvandyke/opencode.nvim"
-    },
-    "peek.nvim": {
-      "rev": "5820d937d5414baea5f586dc2a3d912a74636e5b",
-      "src": "https://github.com/toppair/peek.nvim"
-    },
     "plenary.nvim": {
       "rev": "74b06c6c75e4eeb3108ec01852001636d85a932b",
       "src": "https://github.com/nvim-lua/plenary.nvim"
@@ -201,29 +173,13 @@
       "src": "https://github.com/altermo/ultimate-autopair.nvim",
       "version": "'v0.6'"
     },
-    "videre.nvim": {
-      "rev": "261c234c668bcb327ac1e658ea4dc3db469ecd19",
-      "src": "https://github.com/Owen-Dechow/videre.nvim"
+    "vellum.nvim": {
+      "rev": "c9a8665c5d306bf56c6df89896fed8bfaf3110b3",
+      "src": "https://github.com/blackhat-7/vellum.nvim"
     },
     "vim-blade": {
       "rev": "9534101808cc320eef003129a40cab04b026a20c",
       "src": "https://github.com/jwalton512/vim-blade"
-    },
-    "vim-dadbod": {
-      "rev": "6d1d41da4873a445c5605f2005ad2c68c99d8770",
-      "src": "https://github.com/tpope/vim-dadbod"
-    },
-    "vim-dadbod-completion": {
-      "rev": "a8dac0b3cf6132c80dc9b18bef36d4cf7a9e1fe6",
-      "src": "https://github.com/kristijanhusak/vim-dadbod-completion"
-    },
-    "vim-dadbod-ssh": {
-      "rev": "9bce775ee76c3dd6d7508dcd9eb276b36133d710",
-      "src": "https://github.com/pbogut/vim-dadbod-ssh"
-    },
-    "vim-dadbod-ui": {
-      "rev": "07e92e22114cc5b1ba4938d99897d85b58e20475",
-      "src": "https://github.com/kristijanhusak/vim-dadbod-ui"
     },
     "vim-fugitive": {
       "rev": "3b753cf8c6a4dcde6edee8827d464ba9b8c4a6f0",
