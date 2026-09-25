@@ -183,6 +183,11 @@
       "rev": "ad9ede6a9cddf16cedbd31b8932d6dcdee9b716e",
       "src": "https://github.com/folke/snacks.nvim"
     },
+    "sqmeow.nvim": {
+      "rev": "b23021f88013d80992b870104ec8b7ad4e60f40b",
+      "src": "https://github.com/2giosangmitom/sqmeow.nvim",
+      "version": ">=0.0.0"
+    },
     "sshfs.nvim": {
       "rev": "57f586251d788dae38fd12998b9a208f7d54c1ef",
       "src": "https://github.com/uhs-robert/sshfs.nvim"
