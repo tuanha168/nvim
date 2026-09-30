@@ -1,8 +1,8 @@
 local lazy = require "pack.lazy-load"
 
 local function apply_diff_colors()
-  vim.api.nvim_set_hl(0, "HiColor1", vim.api.nvim_get_hl(0, { name = "DiffAdd", link = false }))
-  vim.api.nvim_set_hl(0, "HiColor2", vim.api.nvim_get_hl(0, { name = "DiffDelete", link = false }))
+  vim.api.nvim_set_hl(0, "HiColor1", { link = "DiffAdd" })
+  vim.api.nvim_set_hl(0, "HiColor2", { link = "DiffDelete" })
 end
 
 -- Press <leader>N to always use HiColorN in normal or visual mode.
@@ -11,6 +11,7 @@ vim.g.HiErase = "<leader>hc"
 vim.g.HiClear = "<leader>hc"
 
 lazy.on_event("https://github.com/azabiong/vim-highlighter", "BufRead", function()
+  vim.fn["highlighter#Command"]("default")
   apply_diff_colors()
   vim.api.nvim_create_autocmd("ColorScheme", { callback = apply_diff_colors })
 
