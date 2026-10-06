@@ -1,106 +1,82 @@
 local M = {}
 
-local SPAWN_TIMEOUT_MS = 30000
-local CONNECT_TIMEOUT_MS = 5000
+local START_TIMEOUT_MS = 30000
 local POLL_INTERVAL_MS = 500
 
-local function start_server()
-  vim.fn.system("opencode-spawn " .. vim.fn.shellescape(vim.fn.getcwd()))
+local function notify(msg, level)
+  vim.notify(msg, level or vim.log.levels.WARN, { title = "opencode" })
 end
 
-local function find_opencode_pane_pid()
-  if vim.env.TMUX then
-    local panes = vim.fn.system "tmux list-panes -F '#{pane_pid} #{pane_current_command}'"
-    for line in panes:gmatch "[^\r\n]+" do
-      local pid, cmd = line:match "^(%d+)%s+(.+)$"
-      if cmd == "opencode" then return tonumber(pid) end
+local function sh(cmd)
+  return vim.fn.system(cmd):gsub("%s+$", "")
+end
+
+local function in_multiplexer()
+  return vim.env.TMUX ~= nil or vim.env.HERDR_ENV ~= nil
+end
+
+local function json_decode(out)
+  local ok, res = pcall(vim.json.decode, out)
+  return ok and res or nil
+end
+
+local function tmux_target()
+  local panes = vim.fn.system "tmux list-panes -F '#{pane_id} #{pane_current_command}'"
+  local claude
+  for line in panes:gmatch "[^\r\n]+" do
+    local pane_id, cmd = line:match "^(%S+)%s+(.+)$"
+    if cmd == "opencode" then return pane_id end
+    if cmd == "claude" then claude = claude or pane_id end
+  end
+  return claude
+end
+
+local function herdr_panes()
+  local res = json_decode(sh "herdr pane list 2>/dev/null")
+  return res and res.result and res.result.panes or {}
+end
+
+local function herdr_target()
+  local panes = herdr_panes()
+  local current = json_decode(sh "herdr pane current 2>/dev/null")
+  if not current or not current.result or not current.result.pane then return nil end
+  local me = current.result.pane
+
+  for _, pane in ipairs(panes) do
+    if pane.agent == "opencode" or pane.agent == "claude" then
+      if pane.tab_id == me.tab_id then return pane.pane_id end
     end
-    for line in panes:gmatch "[^\r\n]+" do
-      local pid, cmd = line:match "^(%d+)%s+(.+)$"
-      if cmd == "claude" then return tonumber(pid), "claude" end
-    end
-  elseif vim.env.HERDR_ENV then
-    local out = vim.fn.system("herdr-opencode-pid 2>/dev/null"):gsub("%s+$", "")
-    if out ~= "" then return tonumber(out:match "^(%d+)") end
-    local pid = vim.fn.system("herdr-claude-pid 2>/dev/null"):gsub("%s+$", "")
-    if pid ~= "" then return tonumber(pid), "claude" end
   end
   return nil
 end
 
-local herdr_cached_port = nil
-
-local function resolve_opencode_pid(pane_pid)
-  local child = vim.fn.system(string.format("pgrep -P %d opencode", pane_pid)):gsub("%s+$", "")
-  if child ~= "" then return tonumber(child:match "^(%d+)") end
-  local cmdline = vim.fn.system(string.format("ps -p %d -o args=", pane_pid)):gsub("%s+$", "")
-  if cmdline:match "opencode" then return pane_pid end
-  return nil
+local function find_target()
+  if not in_multiplexer() then return nil end
+  if vim.env.TMUX then return tmux_target() end
+  return herdr_target()
 end
 
-local function get_port_for_pid(pid)
-  local out = vim.fn.system(string.format("lsof -Fpn -w -iTCP -sTCP:LISTEN -p %d -a -P -n", pid))
-  return tonumber(out:match ":(%d+)\n")
+local function start_agent()
+  sh("opencode-spawn " .. vim.fn.shellescape(vim.fn.getcwd()))
 end
 
-local function find_opencode_pid_in_window()
-  local pane_pid, tool = find_opencode_pane_pid()
-  if not pane_pid then return nil, nil end
-  if tool == "claude" then return pane_pid, "claude" end
-  if vim.env.HERDR_ENV then
-    local out = vim.fn.system("herdr-opencode-pid 2>/dev/null"):gsub("%s+$", "")
-    local pid_str, port_str = out:match "^(%d+)%s+(%d+)$"
-    if pid_str and port_str then
-      herdr_cached_port = tonumber(port_str)
-      return tonumber(pid_str), "opencode"
-    end
-    herdr_cached_port = nil
-    return nil, nil
-  end
-  local opencode_pid = resolve_opencode_pid(pane_pid)
-  if not opencode_pid then return nil, nil end
-  return opencode_pid, "opencode"
-end
-
-local function get_port(pid)
-  if vim.env.HERDR_ENV and herdr_cached_port then
-    return herdr_cached_port
-  end
-  return get_port_for_pid(pid)
-end
-
-local function is_connected() return next(require("sidekick.cli.session").attached()) ~= nil end
-
-local function wait_for_connected_server(timeout)
-  return vim.wait(timeout, function() return is_connected() end, 100)
-end
-
-local function poll_for_pid_in_window(timeout_ms, interval_ms, on_found, on_timeout)
+local function wait_for_target(timeout_ms, on_found, on_timeout)
+  local elapsed = 0
   local timer = vim.uv.new_timer()
   if not timer then
-    on_timeout()
-    return
+    return on_timeout()
   end
-  local elapsed = 0
   timer:start(
     0,
-    interval_ms,
+    POLL_INTERVAL_MS,
     vim.schedule_wrap(function()
-      local pid, tool = find_opencode_pid_in_window()
-      local port = pid and get_port(pid) or nil
-      if tool == "claude" then
+      local target = find_target()
+      if target then
         timer:stop()
         timer:close()
-        on_found(pid, 0)
-        return
+        return on_found(target)
       end
-      if pid and port then
-        timer:stop()
-        timer:close()
-        on_found(pid, port)
-        return
-      end
-      elapsed = elapsed + interval_ms
+      elapsed = elapsed + POLL_INTERVAL_MS
       if elapsed >= timeout_ms then
         timer:stop()
         timer:close()
@@ -110,79 +86,79 @@ local function poll_for_pid_in_window(timeout_ms, interval_ms, on_found, on_time
   )
 end
 
--- Connect to a specific pid, bypassing cwd-based server selection.
-local function connect_to_pid(pid, port)
-  local Session = require "sidekick.cli.session"
-  local base_url = ("http://localhost:%d"):format(port)
-  local session = Session.new {
-    id = "opencode-" .. pid,
-    pid = pid,
-    tool = "opencode",
-    pids = { pid },
-    mux_session = tostring(pid),
-    base_url = base_url,
-    backend = "opencode",
-    started = true,
-  }
-
-  local State = require "sidekick.cli.state"
-  State.attach { session = session, tool = session.tool }
-end
-
-function M.ensure_server()
-  if is_connected() then return end
-
-  if vim.env.TMUX == nil and vim.env.HERDR_ENV == nil then return end
-
-  local pid, tool = find_opencode_pid_in_window()
-  if tool == "claude" then return end
-
-  local port = pid and get_port(pid) or nil
-  if not port then
-    start_server()
-    poll_for_pid_in_window(
-      SPAWN_TIMEOUT_MS,
-      POLL_INTERVAL_MS,
-      connect_to_pid,
-      function() vim.notify("Timeout waiting for opencode server to start", vim.log.levels.WARN, { title = "opencode" }) end
-    )
-    return
-  end
-
-  connect_to_pid(pid, port)
-end
-
-function M.ensure_server_sync()
-  if is_connected() then return true end
-
-  if vim.env.TMUX == nil and vim.env.HERDR_ENV == nil then return true end
-
-  local pid, tool = find_opencode_pid_in_window()
-  if tool == "claude" then return true end
-
-  local port = pid and get_port(pid) or nil
-  if not port then
-    start_server()
-    local elapsed = 0
-    while not port and elapsed < SPAWN_TIMEOUT_MS do
-      vim.loop.sleep(POLL_INTERVAL_MS)
-      elapsed = elapsed + POLL_INTERVAL_MS
-      pid, tool = find_opencode_pid_in_window()
-      if tool == "claude" then return true end
-      port = pid and get_port(pid) or nil
+local function send_text(target, text)
+  if vim.env.TMUX then
+    local buffer = "opencode-send-" .. target
+    local out = vim.fn.system({ "tmux", "load-buffer", "-b", buffer, "-" }, text)
+    if vim.v.shell_error ~= 0 then
+      notify("Failed to load tmux buffer: " .. out, vim.log.levels.ERROR)
+      return false
     end
+    out = vim.fn.system({ "tmux", "paste-buffer", "-b", buffer, "-d", "-r", "-p", "-t", target })
+    if vim.v.shell_error ~= 0 then
+      notify("Failed to paste into tmux pane: " .. out, vim.log.levels.ERROR)
+      return false
+    end
+    return true
+  end
+  local out = vim.fn.system({ "herdr", "pane", "send-text", target, text })
+  if vim.v.shell_error ~= 0 then
+    notify("Failed to send to herdr pane: " .. out, vim.log.levels.ERROR)
+    return false
+  end
+  return true
+end
+
+local function buf_name()
+  local name = vim.api.nvim_buf_get_name(0)
+  if name == "" then return "[No Name]" end
+  local cwd = vim.fn.getcwd(0)
+  local ok, rel = pcall(vim.fs.relpath, cwd, name)
+  if ok and rel and rel ~= "" and rel ~= "." then return rel end
+  return name
+end
+
+local function render_location()
+  local ret = "@" .. buf_name()
+
+  local mode = vim.fn.mode()
+  if mode:match "^[vV\22]" then
+    local from_line = vim.fn.line "v"
+    local to_line = vim.fn.line "."
+    if from_line > to_line then
+      from_line, to_line = to_line, from_line
+    end
+    ret = ret .. " :L" .. from_line
+    if from_line ~= to_line then ret = ret .. "-L" .. to_line end
+    return ret
   end
 
-  if not port then
-    vim.notify("Timeout waiting for opencode server to start", vim.log.levels.WARN, { title = "opencode" })
+  return ret .. " :L" .. vim.fn.line "."
+end
+
+function M.send(opts)
+  opts = opts or {}
+  if not in_multiplexer() then
+    notify "No tmux or herdr session detected"
     return false
   end
 
-  connect_to_pid(pid, port)
+  local text = opts.msg or render_location()
+  if text == "" then
+    notify "Nothing to send"
+    return false
+  end
 
-  local success = wait_for_connected_server(CONNECT_TIMEOUT_MS)
-  if not success then vim.notify("Timeout waiting for opencode server", vim.log.levels.WARN, { title = "opencode" }) end
-  return success
+  local target = find_target()
+  if not target then
+    start_agent()
+    wait_for_target(START_TIMEOUT_MS, function(found)
+      send_text(found, text)
+    end, function() notify "Timeout waiting for opencode pane to start" end)
+    return true
+  end
+
+  return send_text(target, text)
 end
 
 return M
