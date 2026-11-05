@@ -22,10 +22,6 @@
       "src": "https://github.com/saghen/blink.cmp",
       "version": "1.0.0 - 2.0.0"
     },
-    "codediff.nvim": {
-      "rev": "09d9ebef2cc5a5c04db7a349cd6c61bdf84ecc8e",
-      "src": "https://github.com/esmuellert/codediff.nvim"
-    },
     "codi.vim": {
       "rev": "83b9859aaf8066d95892e01eb9c01571a4b325dd",
       "src": "https://github.com/metakirby5/codi.vim"
@@ -41,6 +37,10 @@
     "demicolon.nvim": {
       "rev": "a9ca137474b3a02e1d6ac48bfdb1985172e2ec9a",
       "src": "https://github.com/mawkler/demicolon.nvim"
+    },
+    "diffbandit.nvim": {
+      "rev": "1acb4a55457535be9ab79ab1e90197366e38f2a2",
+      "src": "https://github.com/CoreyKaylor/diffbandit.nvim"
     },
     "dracula.nvim": {
       "rev": "ae752c13e95fb7c5f58da4b5123cb804ea7568ee",
