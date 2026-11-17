@@ -9,7 +9,7 @@ vim.lsp.enable {
   "vtsls",
   "pyright",
   "qmlls",
-  "copilot",
+  -- "copilot",
   "csharp_ls",
 }
 
