@@ -61,16 +61,15 @@ return {
       inlayHints = inlayHints,
     },
   },
-  on_init = function(_client)
-    local old_on_attach = _client.on_attach
-    _client.on_attach = function(client, buf)
-      local enabled = Chiruno.func.vueCheck(client, buf)
-
-      if enabled == client.name then
-        old_on_attach(client, buf)
-      else
-        vim.lsp.buf_detach_client(buf, client.id)
-      end
-    end
+  root_dir = function(bufnr, on_dir)
+    if Chiruno.func.vueCheck("vtsls", bufnr) ~= "vtsls" then return end
+    local root_markers = { "package-lock.json", "yarn.lock", "pnpm-lock.yaml", "bun.lockb", "bun.lock" }
+    root_markers = { root_markers, { ".git" } }
+    local deno_root = vim.fs.root(bufnr, { "deno.json", "deno.jsonc" })
+    local deno_lock_root = vim.fs.root(bufnr, { "deno.lock" })
+    local project_root = vim.fs.root(bufnr, root_markers)
+    if deno_lock_root and (not project_root or #deno_lock_root > #project_root) then return end
+    if deno_root and (not project_root or #deno_root >= #project_root) then return end
+    on_dir(project_root or vim.fn.getcwd())
   end,
 }

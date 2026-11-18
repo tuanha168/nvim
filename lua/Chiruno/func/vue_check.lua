@@ -1,8 +1,8 @@
-function Chiruno.func.vueCheck(client, buf)
-  if client.name ~= "tsgo" and client.name ~= "vtsls" then return end
+function Chiruno.func.vueCheck(name, bufnr)
+  if name ~= "tsgo" and name ~= "vtsls" then return end
 
   -- Use vim.fs.root to find root directory by searching for markers from current file outward
-  local root_dir = vim.fs.root(buf or 0, { "package.json", ".git" })
+  local root_dir = vim.fs.root(bufnr or 0, { "package.json", ".git" })
   if not root_dir then return "tsgo" end
 
   local package_json = vim.fs.joinpath(root_dir, "package.json")

@@ -52,16 +52,9 @@ return {
       inlayHints = inlayHints,
     },
   },
-  on_init = function(_client)
-    local old_on_attach = _client.on_attach
-    _client.on_attach = function(client, buf)
-      local enabled = Chiruno.func.vueCheck(client, buf)
-
-      if enabled == client.name then
-        old_on_attach(client, buf)
-      else
-        vim.lsp.buf_detach_client(buf, client.id)
-      end
-    end
+  root_dir = function(bufnr, on_dir)
+    if Chiruno.func.vueCheck("tsgo", bufnr) ~= "tsgo" then return end
+    local root_markers = { "tsconfig.json", "jsconfig.json", "package.json", ".git" }
+    on_dir(vim.fs.root(bufnr, root_markers) or vim.fn.getcwd())
   end,
 }
